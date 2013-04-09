@@ -2,9 +2,10 @@
 
 angular.module('peepoltvApp')
   .controller('MainCtrl', ['$scope', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    var map = new GMaps({
+      el: '#map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
+
   }]);
