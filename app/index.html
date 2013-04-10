@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css"/>
   </head>
   <body ng-app="peepoltvApp">
     <!--[if lt IE 7]>
@@ -25,8 +26,7 @@
     <!-- Add your site or application content here -->
     <div ng-view></div>
 
-    <script src="//maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="components/gmaps/gmaps.js"></script>
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
     <script src="components/underscore/underscore.js"></script>
 
     <script src="components/angular/angular.js"></script>
