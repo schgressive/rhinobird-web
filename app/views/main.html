@@ -2,5 +2,9 @@
   <h1>Peepol tv</h1>
 </div>
 <div id='map'></div>
-<div class="container">
-</div>
+<ul class="unstyled streams">
+  <li class="stream pull-left" ng-repeat="stream in streams">
+    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+    <div class="title">{{stream.title}}</div>
+  </li>
+</ul>
