@@ -22,6 +22,7 @@
   "globals": {
     "angular": false,
     "_": false,
-    "mapbox": false
+    "mapbox": false,
+    "L": false
   }
 }

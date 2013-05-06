@@ -7,8 +7,7 @@ angular.module('peepoltvApp')
     var tmpThumbs = ['fopr63yr3ps', 'VgPBse5BkA8', 'NR7JUM23WN8'];
 
     // Create map
-    var map = mapbox.map('map');
-    map.addLayer(mapbox.layer().id('peepoltv.map-ujvx87td'));
+    var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
 
     // Get the streams basen on geolocation
     Streams.search({}, function(r){
@@ -19,27 +18,28 @@ angular.module('peepoltvApp')
           return s;
         });
 
-
         // Create and add marker layer
-        var markerLayer = mapbox.markers.layer();
-        var interaction = mapbox.markers.interaction(markerLayer);
-        map.addLayer(markerLayer);
+        var markerLayer = L.mapbox.markerLayer($scope.streams);
+        markerLayer.addTo(map);
 
-        markerLayer.features(r);
+        markerLayer.eachLayer(function(marker) {
+          var feature = marker.feature;
 
-        // Set a custom formatter for tooltips
-        // Provide a function that returns html to be used in tooltip
-        interaction.formatter(function(feature) {
-          var o = '<a target="_blank" href="' + feature.url + '">' +
-            '<img src="http://img.youtube.com/vi/' + feature.thumb + '/1.jpg" />' +
-            '<h3>' + feature.title + '</h3>' +
-            '</a>';
+          // Create custom popup content
+          var popupContent = '<a target="_blank" href="' + feature.url + '">' +
+                              '<img src="http://img.youtube.com/vi/' + feature.thumb + '/1.jpg" />' +
+                              '<h3>' + feature.title + '</h3>' +
+                             '</a>';
 
-          return o;
+          // http://leafletjs.com/reference.html#popup
+          marker.bindPopup(popupContent,{
+            closeButton: false,
+            minWidth: 320
+          });
+
         });
 
         // Set inital center and zoom
-        map.setExtent(markerLayer.extent());
-
+        map.fitBounds(markerLayer.getBounds());
       });
   }]);
