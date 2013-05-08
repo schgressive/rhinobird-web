@@ -43,3 +43,4 @@ angular.module('peepoltvApp')
         map.fitBounds(markerLayer.getBounds());
       });
   }]);
+          s.properties['marker-symbol'] = 'cinema';
