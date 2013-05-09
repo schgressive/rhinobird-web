@@ -1,24 +1,19 @@
 <!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map and create overrides for the mapbox.css b/c I want to reposition the zoom buttons -->
-<div id='map'></div>
 <section>
-	<div class="row-fluid row-overlay">
+	<div id='map'></div>
+</section>
+<section>
+	<div class="row-fluid">
 		<h2 class="span12">
 			<span class="title-bg">Happening Now</span>
 		</h2>
-	</div>
-	<div class="container">
-		<div class="row">
-		<!-- NOTE FROM CHRIS: using this combo to center streams while creating side padding -->
-			<div class="span12">
-				<div class="row-fluid">
-					<ul class="unstyled streams">
-					  <li class="stream span4" ng-repeat="stream in streams">
-					    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
-					    <div class="title">{{stream.title}}</div>
-					  </li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div><!-- /.stream-section -->
+	</div><!-- /.row-fluid -->
+	<div class="row-fluid">
+		<ul class="unstyled streams">
+		  <li class="stream span4" ng-repeat="stream in streams">
+		    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+		    <div class="title">{{stream.title}}</div>
+		  </li>
+		</ul>
+	</div><!-- /.row-fluid -->
 </section>

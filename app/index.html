@@ -28,65 +28,66 @@
       <script src="components/es5-shim/es5-shim.js"></script>
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
-    <header class="banner" role="banner">
- <!-- NOTE FROM CHRIS: I want to style the navbar so that it overlays the map/content w/o a background...or if there is a background, then the background is translucent and subtle -->
-	    <nav class="navbar navbar-fixed-top" role="navigation">
-	      <div class="navbar-inner">
-	        <div class="container">
-	          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </a><!-- /.btn-navbar -->
-	          <a class="brand" href="#" title="Peepol.tv">
-	          	<img src="assets/logo.svg" alt="the Peepol.tv logo" />
-	          </a>
-	          <!-- Everything you want hidden at 940px or less, place within here -->
-	          <div class="nav-collapse collapse">
-	            <ul class="nav">
-  <!-- NOTE FROM CHRIS: I shall add an icon for each link below -->	
-	              <li class="dropdown">
-	                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Peepol!<b class="carat"></b></a>
-  <!-- NOTE FROM CHRIS: sample dropdown content placeholder -->
-	                <ul class="dropdown-menu">
-	                  <li><a href="#">Action</a></li>
-	                  <li><a href="#">Another action</a></li>
-	                  <li><a href="#">Something else here</a></li>
-	                  <li class="divider"></li>
-	                  <li class="nav-header">Nav header</li>
-	                  <li><a href="#">Separated link</a></li>
-	                  <li><a href="#">One more separated link</a></li>
-	                </ul>
-	              </li>
-	              <li class="dropdown">
-	              	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore<b class="carat"></b></a>
-	              	<ul class="dropdown-menu">
-	              		<li><a href="#">Location Browse</a></li>
-	              		<li><a href="#">Channels</a></li>
-	              		<li><a href="#">Peepol & Live-VJs</a></li>
-	              		<li><a href="#">Surprise Me!</a></li>
-	              	</ul>
-	              </li>
-	              <li><a href="#">Go Live!</a></li>
-	            </ul>
-	            <form class="navbar-form pull-right">
-	            	<input type="search" placeholder="Search live video...">
-	            	<button type="submit" class="btn">Go!</button>
-  <!-- NOTE FROM CHRIS: I want to add a "filter toggle" here but maybe we should skip that? -->
-	            </form>
-	          </div><!-- /.nav-collapse -->
-	        </div><!-- /.container -->
-	      </div><!-- /.navbar-inner -->
-	    </nav><!-- /.navbar -->
-    </header>
-    <!-- content here-->
-    <div class="mainWrapper" ng-view role="main"></div>
     
-    <footer class="colophon" role="contentinfo">
-	    <span>footer content TBD</span>
-    </footer>
+    <div class="container-fluid">
+	    <div class="row-fluid">
+		    <div class="span3">
+		    	<div class="sidebar">
+				    <header class="banner" role="banner">
+				    	<a class="brand" href="#" title="Peepol.tv">
+				    		<img src="assets/logo.svg" alt="the Peepol.tv logo" />
+				    	</a> 
+				    </header>
+				    <nav class="nav-stacked" role="navigation">
+				    	<ul class="nav">
+		  <!-- NOTE FROM CHRIS: I shall add an icon for each link below -->	
+			              <li class="dropdown">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Peepol!<b class="carat"></b></a>
+		  <!-- NOTE FROM CHRIS: sample dropdown content placeholder -->
+			                <ul class="dropdown-menu">
+			                  <li><a href="#">Action</a></li>
+			                  <li><a href="#">Another action</a></li>
+			                  <li><a href="#">Something else here</a></li>
+			                  <li class="divider"></li>
+			                  <li class="nav-header">Nav header</li>
+			                  <li><a href="#">Separated link</a></li>
+			                  <li><a href="#">One more separated link</a></li>
+			                </ul>
+			              </li>
+			              <li class="dropdown">
+			              	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore<b class="carat"></b></a>
+			              	<ul class="dropdown-menu">
+			              		<li><a href="#">Location Browse</a></li>
+			              		<li><a href="#">Channels</a></li>
+			              		<li><a href="#">Peepol & Live-VJs</a></li>
+			              		<li><a href="#">Surprise Me!</a></li>
+			              	</ul>
+			              </li>
+			              <li><a href="#">Go Live!</a></li>
+			            </ul>
+			            <form class="navbar-form">
+			            	<input type="search" placeholder="Search live video...">
+			            	<button type="submit" class="btn">Go!</button>
+		  <!-- NOTE FROM CHRIS: I want to add a "filter toggle" here but maybe we should skip that? -->
+			            </form>
+				    </nav>
+		    	</div><!-- /.sidebar -->
+		    </div><!-- /.span3 -->
+		    <div class="span9">
+		    	<!-- content here-->
+	    		<div class="mainWrapper" ng-view role="main"></div>
+		    </div><!-- /.span9 -->
+	    </div><!-- /.row-fluid -->
+	    
+	    <div class="row-fluid">
+	    	<div class="span12">
+			    <footer class="colophon" role="contentinfo">
+				    <span>footer content TBD</span>
+			    </footer>
+	    	</div>
+	    </div><!-- /.row-fluid -->
+	    
+    </div><!-- /.container-fluid -->
     
     <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
     <script src="components/underscore/underscore.js"></script>

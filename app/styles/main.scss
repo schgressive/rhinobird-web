@@ -1,24 +1,29 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
+body {
+	padding-top: 20px;
+}
+
 .home {
-	color: $text-on-dark-bold;
-	background-color: $branding-warm;
+	
 }
 
 .colophon {
-	color: $branding-cool-shade;
-	background-color: $branding-warm-tint;
 	padding: 10px 0;
-	border-top: 4px solid $white;
 }
 
+.sidebar {outline:red 1px solid;}
+
+/*
 .banner .navbar-inner {
 	background: $branding-warm;
 	padding-bottom: 5px;
 	border-bottom: 4px solid $white !important;
-	box-shadow: none !important; /* fix this properly later */
-	a:link {color: $white; text-shadow: none;}
+	box-shadow: none !important;
+*/ /* fix this properly later */
+	/*
+a:link {color: $white; text-shadow: none;}
 	.brand img {
 		width: 100%;
 		max-width: 100px;
@@ -31,15 +36,19 @@
 	}
 	
 }
+*/
 
+/*
 .side-gutters {
 	padding: 0 3%;
 }
+*/
 
 .center {
 	text-align: center;
 }
 
+/*
 .row-overlay {
 	position: relative;
 	z-index: 9999999999;
@@ -59,11 +68,11 @@
 		background: $white;
 	}
 }
+*/
 
 #map {
   height: 500px;
   width: 100%;
-  border-bottom: 4px solid $white;
 }
 
 .streams{
@@ -87,8 +96,6 @@
 }
 
 .mainWrapper{
-  margin: {
-	  bottom: 40px;
-	  top: 45px;
-  }
+  border-top: 4px solid $branding-cool;
+  outline: green 1px solid;
 }
