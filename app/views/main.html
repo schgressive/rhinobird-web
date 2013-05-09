@@ -1,7 +1,24 @@
+<!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map -->
 <div id='map'></div>
-<ul class="unstyled streams">
-  <li class="stream pull-left" ng-repeat="stream in streams">
-    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
-    <div class="title">{{stream.title}}</div>
-  </li>
-</ul>
+<section>
+	<div class="row-fluid row-overlay">
+		<h1 class="span12 center">
+			<span class="cheap-highlight">Happening Now</span>
+		</h1>
+	</div>
+	<div class="container">
+		<div class="row">
+		<!-- NOTE FROM CHRIS: using this combo to center streams while creating side padding -->
+			<div class="span12">
+				<div class="row-fluid">
+					<ul class="unstyled streams side-gutters">
+					  <li class="stream span4" ng-repeat="stream in streams">
+					    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+					    <div class="title">{{stream.title}}</div>
+					  </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div><!-- /.stream-section -->
+</section>
