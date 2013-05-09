@@ -1,19 +1,32 @@
-<!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map and create overrides for the mapbox.css b/c I want to reposition the zoom buttons -->
-<section>
-	<div id='map'></div>
-</section>
-<section>
+<!-- NOTE FROM CHRIS: this section should be one row, with horizontal sliding feed -->
+<section class="top-content">
 	<div class="row-fluid">
-		<h2 class="span12">
+		<h2 class="span3">
 			<span class="title-bg">Happening Now</span>
 		</h2>
-	</div><!-- /.row-fluid -->
-	<div class="row-fluid">
 		<ul class="unstyled streams">
-		  <li class="stream span4" ng-repeat="stream in streams">
+		  <li class="stream span3" ng-repeat="stream in streams">
 		    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
 		    <div class="title">{{stream.title}}</div>
 		  </li>
 		</ul>
 	</div><!-- /.row-fluid -->
+</section>
+<!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map and create overrides for the mapbox.css b/c I want to reposition the zoom buttons -->
+<section class="mid-content">
+	<div class="row-fluid">
+		<h2 class="span3">
+			<span class="title-bg">Explore...</span>
+		</h2>
+		<div class="span9">
+			<ul>
+				<li class="pull-left"><a href="#">Your World</a></li>
+				<li class="pull-left"><a href="#">Channels</a></li>
+				<li class="pull-left"><a href="#">Peepol & Live-VJs</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div id="map" class="span12"></div>
+	</div>
 </section>

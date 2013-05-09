@@ -1,12 +1,27 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
-body {
-	padding-top: 15px;
+.sidebar {
+	header {
+		margin-top: 20px;
+	}
+	nav {
+		margin-top: 30px;
+	}
 }
 
-.sidebar {
-	
+.sidebar-fixed {
+	position:fixed;
+    width:21.97%;
+    @media (max-width: 767px) {
+		.sidebar-nav-fixed {width:auto;}	
+    }
+    @media (max-width: 979px) {
+		.sidebar-nav-fixed {
+			position:static;
+			width: auto;
+		}
+	}
 }
 
 .colophon {
@@ -15,58 +30,25 @@ body {
 
 .brand img {
 		width: 100%;
-		max-width: 150px;
+		max-width: 180px;
 		height: auto;
 	}
-
-/*
-.banner .navbar-inner {
-	background: $branding-warm;
-	padding-bottom: 5px;
-	border-bottom: 4px solid $white !important;
-	box-shadow: none !important;
-*/ /* fix this properly later */
-	/*
-a:link {color: $white; text-shadow: none;}
-	
-	
-}
-*/
-
-/*
-.side-gutters {
-	padding: 0 3%;
-}
-*/
 
 .center {
 	text-align: center;
 }
 
-/*
-.row-overlay {
-	position: relative;
-	z-index: 9999999999;
-	padding: 5px 0;
-	margin: {
-		top: -40px;
-		bottom: 15px;
-		}
-	
-	h2 {
-		color: $branding-warm-shade;
-	}
-	
-	.title-bg {
-		margin-left: 20px;
-		padding: 5px 10px 10px;
-		background: $white;
-	}
+.top-content {
+	padding-bottom: 10px;
+	border-bottom: 4px solid $branding-cool;
 }
-*/
+
+.mid-content {
+	border-bottom: 4px solid $branding-cool;
+}
 
 #map {
-  height: 500px;
+  height: 370px;
   width: 100%;
 }
 
@@ -91,5 +73,7 @@ a:link {color: $white; text-shadow: none;}
 }
 
 .mainWrapper{
-  border-top: 4px solid $branding-cool;
+	background-color: rgba(0,0,0,.02);
+	padding: 20px 30px;
+	border-left: 1px solid rgba(0,0,0,.05);
 }
