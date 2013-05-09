@@ -13,7 +13,7 @@
 				<div class="row-fluid">
 					<ul class="unstyled streams">
 					  <li class="stream span4" ng-repeat="stream in streams">
-					    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+					    <img src="{{stream.thumbs.medium}}">
 					    <div class="title">{{stream.title}}</div>
 					  </li>
 					</ul>
