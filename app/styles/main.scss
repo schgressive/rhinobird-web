@@ -2,10 +2,10 @@
 @import "ptv-branding";
 
 body {
-	padding-top: 20px;
+	padding-top: 15px;
 }
 
-.home {
+.sidebar {
 	
 }
 
@@ -13,7 +13,11 @@ body {
 	padding: 10px 0;
 }
 
-.sidebar {outline:red 1px solid;}
+.brand img {
+		width: 100%;
+		max-width: 150px;
+		height: auto;
+	}
 
 /*
 .banner .navbar-inner {
@@ -24,16 +28,7 @@ body {
 */ /* fix this properly later */
 	/*
 a:link {color: $white; text-shadow: none;}
-	.brand img {
-		width: 100%;
-		max-width: 100px;
-		height: auto;
-		padding: 7px;
-		background-color: $white;
-		position: absolute;
-		top: 0;
-		left: 20px;
-	}
+	
 	
 }
 */
@@ -97,5 +92,4 @@ a:link {color: $white; text-shadow: none;}
 
 .mainWrapper{
   border-top: 4px solid $branding-cool;
-  outline: green 1px solid;
 }
