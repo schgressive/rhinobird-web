@@ -1,15 +1,6 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
-.sidebar {
-	header {
-		margin-top: 20px;
-	}
-	nav {
-		margin-top: 30px;
-	}
-}
-
 .sidebar-fixed {
 	position:fixed;
     width:21.97%;
@@ -22,10 +13,40 @@
 			width: auto;
 		}
 	}
+	header {
+		margin-top: 20px;
+	}
+	nav {
+		margin-top: 60px;
+	}
+	nav {
+		width: 70%;
+		.nav .btn {
+			text-align: left;
+			width: 150px;
+			margin-bottom: 10px;
+		}
+		.caret {
+			float: right;
+		}
+	}
+	.navbar-form {
+		input[type="search"] {
+			width: 59%;
+			margin-top: 0;
+		}
+		input[type="button"] {
+			width: 15%;
+			padding: 4px 7px;
+		}
+	}
 }
 
 .colophon {
+	width: 70%;
+	margin-top: 50px;
 	padding: 10px 0;
+	border-top: 1px solid rgba(0,0,0,.2);
 }
 
 .brand img {
@@ -40,13 +61,21 @@
 
 .top-content {
 	padding-bottom: 10px;
-	border-bottom: 4px solid $branding-cool;
+	border-bottom: 4px solid #acacac;
 }
 
 .mid-content {
-	border-bottom: 4px solid $branding-cool;
+	padding-top: 15px;
+	border-bottom: 4px solid #acacac;
+	.nav {
+		margin-top: 8px;
+	}
 }
 
+.tab-content {
+	height: 370px;
+	width: 100%;
+}
 #map {
   height: 370px;
   width: 100%;
