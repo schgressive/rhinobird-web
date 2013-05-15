@@ -4,12 +4,14 @@
 		<h2 class="span3">
 			<span class="title-bg">Happening Now</span>
 		</h2>
-		<ul class="unstyled streams">
-		  <li class="stream span3" ng-repeat="stream in streams">
-		    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
-		    <div class="title">{{stream.title}}</div>
-		  </li>
-		</ul>
+		<div class="stream-wrapper span9">
+			<ul class="unstyled streams">
+			  <li class="stream pull-left" ng-repeat="stream in streams">
+			    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+			    <div class="title">{{stream.title}}</div>
+			  </li>
+			</ul>
+		</div>
 	</div><!-- /.row-fluid -->
 </section>
 <!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map and create overrides for the mapbox.css b/c I want to reposition the zoom buttons -->
