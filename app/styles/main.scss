@@ -59,9 +59,23 @@
 	text-align: center;
 }
 
+.mainWrapper{
+	background-color: rgba(0,0,0,.02);
+	padding: 20px 30px;
+	border-left: 1px solid rgba(0,0,0,.05);
+}
+
 .top-content {
 	padding-bottom: 10px;
 	border-bottom: 4px solid #acacac;
+	.stream-controls {
+		.btn {
+			height: 96px;
+			i {
+				margin-top: 36px;
+			}
+		}
+	}
 	.stream-wrapper {
 		overflow: hidden;
 	}
@@ -72,6 +86,29 @@
 	border-bottom: 4px solid #acacac;
 	.nav {
 		margin-top: 8px;
+	}
+}
+
+.lower-content {
+	padding: {
+		top:15px;
+		bottom: 30px;
+	}
+	.row-fluid:first-of-type {
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid rgba(0,0,0,.2)
+	}
+	article {
+		height: 200px; /* sample height remove later */
+		padding: {
+			top: 10px;
+			bottom: 15px;
+		}
+		border-right: 1px solid rgba(0,0,0,.2);
+		&:last-of-type {
+			border: none;
+		}
 	}
 }
 
@@ -100,7 +137,6 @@
 
 .stream{
   position: relative;
-  outline: 1px red solid; /* NOTE FROM CHRIS: I'll remove this later */
 
   .title{
     position: absolute;
@@ -112,10 +148,4 @@
     background: rgba(0, 0, 0, 0.5);
     font-size: 16px;
   }
-}
-
-.mainWrapper{
-	background-color: rgba(0,0,0,.02);
-	padding: 20px 30px;
-	border-left: 1px solid rgba(0,0,0,.05);
 }
