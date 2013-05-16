@@ -1,78 +1,142 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
-.home {
-	color: $text-on-dark-bold;
-	background-color: $branding-warm;
+.sidebar-fixed {
+	position:fixed;
+    width:21.97%;
+    @media (max-width: 767px) {
+		.sidebar-nav-fixed {width:auto;}	
+    }
+    @media (max-width: 979px) {
+		.sidebar-nav-fixed {
+			position:static;
+			width: auto;
+		}
+	}
+	header {
+		margin-top: 20px;
+	}
+	nav {
+		margin-top: 60px;
+	}
+	nav {
+		width: 70%;
+		.nav .btn {
+			text-align: left;
+			width: 150px;
+			margin-bottom: 10px;
+		}
+		.caret {
+			float: right;
+		}
+	}
+	.navbar-form {
+		input[type="search"] {
+			width: 59%;
+			margin-top: 0;
+		}
+		input[type="button"] {
+			width: 15%;
+			padding: 4px 7px;
+		}
+	}
 }
 
 .colophon {
-	color: $branding-cool-shade;
-	background-color: $branding-warm-tint;
+	width: 70%;
+	margin-top: 50px;
 	padding: 10px 0;
-	border-top: 4px solid $white;
+	border-top: 1px solid rgba(0,0,0,.2);
 }
 
-.banner .navbar-inner {
-	background: $branding-warm;
-	padding-bottom: 5px;
-	border-bottom: 4px solid $white !important;
-	box-shadow: none !important; /* fix this properly later */
-	a:link {color: $white; text-shadow: none;}
-	.brand img {
+.brand img {
 		width: 100%;
-		max-width: 100px;
+		max-width: 180px;
 		height: auto;
-		padding: 7px;
-		background-color: $white;
-		position: absolute;
-		top: 0;
-		left: 20px;
 	}
-	
-}
-
-.side-gutters {
-	padding: 0 3%;
-}
 
 .center {
 	text-align: center;
 }
 
-.row-overlay {
-	position: relative;
-	z-index: 9999999999;
-	padding: 5px 0;
-	margin: {
-		top: -40px;
-		bottom: 15px;
+.mainWrapper{
+	background-color: rgba(0,0,0,.02);
+	padding: 20px 30px;
+	border-left: 1px solid rgba(0,0,0,.05);
+}
+
+.top-content {
+	padding-bottom: 10px;
+	border-bottom: 4px solid #acacac;
+	.stream-controls {
+		.btn {
+			height: 96px;
+			i {
+				margin-top: 36px;
+			}
 		}
-	
-	h2 {
-		color: $branding-warm-shade;
 	}
-	
-	.title-bg {
-		margin-left: 20px;
-		padding: 5px 10px 10px;
-		background: $white;
+	.stream-wrapper {
+		overflow: hidden;
 	}
+}
+
+.mid-content {
+	padding-top: 15px;
+	border-bottom: 4px solid #acacac;
+	.nav {
+		margin-top: 8px;
+	}
+}
+
+.lower-content {
+	padding: {
+		top:15px;
+		bottom: 30px;
+	}
+	.row-fluid:first-of-type {
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid rgba(0,0,0,.2)
+	}
+	article {
+		height: 200px; /* sample height remove later */
+		padding: {
+			top: 10px;
+			bottom: 15px;
+		}
+		border-right: 1px solid rgba(0,0,0,.2);
+		&:last-of-type {
+			border: none;
+		}
+	}
+}
+
+.tab-content {
+	height: 370px;
+	width: 100%;
 }
 
 #map {
-  height: 500px;
+  height: 370px;
   width: 100%;
-  border-bottom: 4px solid $white;
 }
 
 .streams{
-
+	width: 1000px;
+	height: 105px;
+	overflow: hidden;
+	li {
+		width: 180px;
+		margin: {
+			bottom: 10px;
+			right: 2%;
+		}
+	}
 }
 
 .stream{
   position: relative;
-  outline: 1px red solid; /* NOTE FROM CHRIS: I'll remove this later */
 
   .title{
     position: absolute;
@@ -83,12 +147,5 @@
     box-sizing: border-box;
     background: rgba(0, 0, 0, 0.5);
     font-size: 16px;
-  }
-}
-
-.mainWrapper{
-  margin: {
-	  bottom: 40px;
-	  top: 45px;
   }
 }
