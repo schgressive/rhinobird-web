@@ -4,13 +4,23 @@
 		<h2 class="span3">
 			<span class="title-bg">Happening Now</span>
 		</h2>
-		<div class="stream-wrapper span9">
-			<ul class="unstyled streams">
-			  <li class="stream pull-left" ng-repeat="stream in streams">
-			    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
-			    <div class="title">{{stream.title}}</div>
-			  </li>
-			</ul>
+		<div class="span9">
+			<div class="row-fluid">
+				<div class="stream-controls span1">
+					<a class="btn btn-small" href="#"><i class="icon-chevron-left"></i></a>
+				</div>
+				<div class="stream-wrapper span10">
+					<ul class="unstyled streams">
+					  <li class="stream pull-left" ng-repeat="stream in streams">
+					    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+					    <div class="title">{{stream.title}}</div>
+					  </li>
+					</ul>
+				</div><!-- /.stream-wrapper -->
+				<div class="stream-controls span1">
+					<a class="btn btn-small" href="#"><i class="icon-chevron-right"></i></a>
+				</div>
+			</div>
 		</div>
 	</div><!-- /.row-fluid -->
 </section>
