@@ -1,0 +1,41 @@
+// ------------ BRANDING ELEMENTS FOR PEEPOL.TV --------------
+// --------- overwrites some of Bootstrap ---------------
+
+// Brand Colors ------------------------------
+
+$branding-cool 			   : #8031A7;
+$branding-cool-shade	   : #5c0778;
+$branding-cool-tint		   : #995AB9;
+$branding-warm			   : #B94700;
+$branding-warm-tint		   : #c76c33;
+$branding-warm-shade	   : #ba3608;
+$branding-accent		   : #daaa00;
+$branding-accent-subtle	   : #e1e1e1;
+
+// Typography
+
+$base-font-family          : "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+$base-font-size            : 16px;
+$base-line-height          : 1.50; 
+$font-size-small		   : 0.875em;
+$font-color                : #333;
+$text-on-dark-bold		   : #fff;
+$text-on-dark-subtle	   : $branding-accent-subtle;
+$link-color                : $branding-warm; 
+$link-hover-color		   : #fff;
+$link-hover-bg-color       : $branding-warm-shade;
+$link-visited-color        : $branding-warm-tint;
+
+// ETC
+
+$hr-color                  : #333;
+
+// Selection
+
+$selected-font-color       : #fff;
+$selected-background-color : #5c0778; /* branding-cool shade */
+
+// Borders
+
+$border-light-color	  	   : $branding-accent;
+$border-dark-color         : $branding-cool-shade;

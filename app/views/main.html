@@ -1,1 +1,115 @@
-<div id='map'></div>
+<!-- NOTE FROM CHRIS: this section should be one row, with horizontal sliding feed -->
+<section class="top-content">
+	<div class="row-fluid">
+		<div class="span2">
+			<a class="brand" href="#" title="Peepol.tv">
+	    		<img src="images/logo.svg" alt="the Peepol.tv logo" />
+	    	</a>
+		</div>
+		<h2 class="span2">
+			<span class="title-bg">Happening Now</span>
+		</h2>
+		<div class="span8">
+			<div class="row-fluid">
+				<div class="stream-controls span1">
+					<a class="btn btn-small" href="#"><i class="icon-chevron-left"></i></a>
+				</div><!-- /.stream-controls -->
+				<div class="stream-wrapper span10">
+					<ul class="unstyled streams">
+					  <li class="stream span4" ng-repeat="stream in streams">
+					    <img src="{{stream.thumbs.medium}}">
+					  <li class="stream pull-left" ng-repeat="stream in streams">
+					    <img src="http://img.youtube.com/vi/{{stream.thumb}}/mqdefault.jpg">
+					    <div class="title">{{stream.title}}</div>
+					  </li>
+					</ul>
+				</div><!-- /.stream-wrapper -->
+				<div class="stream-controls span1">
+					<a class="btn btn-small" href="#"><i class="icon-chevron-right"></i></a>
+				</div><!-- /.stream-controls -->
+			</div><!-- /.row-fluid -->
+		</div><!-- /.span9 -->
+	</div><!-- /.row-fluid -->
+</section><!-- /.top-content -->
+<!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map and create overrides for the mapbox.css b/c I want to reposition the zoom buttons -->
+<section class="mid-content">
+	<div class="row-fluid">
+		<div class="left-col span8">
+			<div class="row-fluid">
+				<div class="span12">
+					<ul class="nav nav-tabs" id="main-tabs">
+						<li><a href="#map" data-toggle="tab" data-target="#map">Your World</a></li>
+						<li><a href="#channels" data-toggle="tab" data-target="#channels">Channels</a></li>
+						<li><a href="#peepol" data-toggle="tab" data-target="#peepol">Peepol & Live-VJs</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="main-tabs-container" class="tab-content">
+						<div class="tab-pane" id="map"></div>
+						<div class="tab-pane" id="channels">content</div>
+						<div class="tab-pane" id="peepol">content</div>
+					</div><!-- /.tab-content -->
+				</div>
+			</div>
+		</div><!-- /.left-col -->
+		<div class="right-col span4">
+			<div class="fluid-row">
+				<div class="span12">
+					<button class="btn btn-large btn-primary" type="button">
+						<i class="icon-facetime-video icon-white"></i> Go Live!
+					</button>
+				</div>
+			</div><!-- /.fluid-row -->
+			<div class="fluid-row">
+				<div class="module well span12">
+					<div class="module-content">
+						<h4>Module Title Here</h4>
+						<p>This is a generic module with a generic toolbar at bottom. Videos or whatever could go here. It could be tall or short. Scrolling or  Figure that out as we go along.</p>
+					</div>
+					<div class="btn-toolbar">
+						<ul class="btn-group pull-right">
+							<li class="pull-left">
+								<a class="btn" href="#">
+									<i class="icon-heart"></i>
+								</a>
+							</li>
+							<li class="pull-left">
+								<a class="btn" href="#">
+									<i class="icon-tags"></i>
+								</a>
+							</li>
+							<li class="pull-left">
+								<a class="btn" href="#">
+									<i class="icon-share"></i>
+								</a>
+							</li>
+						</ul>
+					</div><!-- /.btn-toobar -->
+				</div><!-- /.module -->
+			</div><!-- /.fluid-row -->
+		</div><!-- /.right-col -->
+	</div>
+</section><!-- /.mid-content -->
+<!-- NOTE FROM CHRIS: .lower-content sections could repeat -->
+<section class="lower-content">
+	<div class="row-fluid">
+		<h2 class="span3">
+			<span class="title-bg">Section Title (no tabs)...</span>
+		</h2>
+		<div class="span9">
+			<p class="section-info">Section info, keep it a short paragraph because we don't need no education or thought control. Phasellus congue aliquam tortor, at adipiscing erat vestibulum quis. Vivamus a fermentum justo. Pellentesque augue purus, facilisis eget vestibulum rutrum, vestibulum ut lectus. Vivamus in libero sit amet ante convallis tincidunt. Suspendisse lobortis, eros nec blandit pellentesque, tortor erat congue risus, id venenatis velit nisl vel arcu. Praesent et ligula nec felis ultrices ullamcorper. Nam iaculis dignissim massa, commodo blandit lorem ultricies ut.</p>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<article class="span4">content</article>
+		<article class="span4">content2</article>
+		<article class="span4">content3</article>
+	</div>
+</section><!-- /.lower-content -->
+<script>
+	$(function () {
+		$('#main-tabs a:first').tab('show');
+	})
+</script>

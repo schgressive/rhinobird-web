@@ -1,23 +1,199 @@
 @import "compass_twitter_bootstrap";
+@import "ptv-branding";
 
-#map {
-  height: 400px;
-  width: 100%;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+.single-col { /*this code will be condensed once we decided on single-col or two-col for layout*/
+	background-color: rgba(0, 0, 0, 0.02);
+	.banner {
+		padding-bottom: 40px;
+		.brand img {
+			width: 100%;
+			max-width: 26px;
+			height: auto;
+		}
+	}
+	.navbar, .navbar-form input, .navbar-form .btn {
+		font-size: 12px;
+	}
+	.navbar {
+		.nav {
+			margin-top: 3px;
+			i {
+				margin: {
+					top:0px;
+					right:2px;
+				}
+			}
+			.dropdown {
+				.caret {
+					margin: {
+						top:5px;
+						left:5px;
+					}
+				}
+			}
+		}
+		.navbar-form {
+			padding-top: 3px;
+			input {background-color: #ececec;}
+			input, button {padding: 3px 5px;}
+		}
+	}
+	.stream {max-width:150px}
+	.lower-content {
+		margin-top: 20px;
+		border-top: 1px solid rgba(0, 0, 0, 0.2);
+	}
 }
 
-.streams{
 
+.sidebar-fixed {
+	position:fixed;
+    width:21.97%;
+    @media (max-width: 767px) {
+		.sidebar-nav-fixed {width:auto;}	
+    }
+    @media (max-width: 979px) {
+		.sidebar-nav-fixed {
+			position:static;
+			width: auto;
+		}
+	}
+	header {
+		margin-top: 20px;
+		.brand img {
+			width: 100%;
+			max-width: 180px;
+			height: auto;
+		}
+	}
+	nav {
+		margin-top: 60px;
+	}
+	nav {
+		width: 70%;
+		.nav .btn {
+			text-align: left;
+			width: 150px;
+			margin-bottom: 10px;
+		}
+		.caret {
+			float: right;
+		}
+	}
+	.navbar-form {
+		input[type="search"] {
+			width: 59%;
+			margin-top: 0;
+		}
+		input[type="button"] {
+			width: 15%;
+			padding: 4px 7px;
+		}
+	}
+}
+
+.colophon {
+	width: 70%;
+	margin-top: 50px;
+	padding: 10px 0;
+	border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.center {text-align: center;}
+
+.two-column {
+	.mainWrapper {
+		background-color: rgba(0,0,0,.02);
+		border-left: 1px solid rgba(0,0,0,.05);
+	}
+	.top-content, .mid-content {border-bottom: 4px solid #acacac;}
+}
+
+.mainWrapper {padding: 20px 30px;}
+
+.right-col {
+	margin-top: 44px; /*not the optimum way of doing this */
+	.btn-primary {
+		margin-left: 19%;
+		width: 66%;
+	}
+}
+
+.top-content {
+	padding-bottom: 10px;
+	.stream-controls {
+		.btn {
+			height: 96px;
+			i {
+				margin-top: 36px;
+			}
+		}
+	}
+	.stream-wrapper {
+		overflow: hidden;
+	}
+	.brand img {
+		width: 100%;
+		max-width: 150px;
+		height: auto;
+	}
+}
+
+.mid-content {
+	padding-top: 15px;
+	.nav {
+		margin-top: 8px;
+	}
+}
+
+.lower-content {
+	padding: {
+		top:15px;
+		bottom: 30px;
+	}
+	.row-fluid:first-of-type {
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid rgba(0,0,0,.2)
+	}
+	article {
+		height: 200px; /* sample height remove later */
+		padding: {
+			top: 10px;
+			bottom: 15px;
+		}
+		border-right: 1px solid rgba(0,0,0,.2);
+		&:last-of-type {
+			border: none;
+		}
+	}
+}
+
+.tab-content {
+	height: 370px;
+	width: 100%;
+}
+
+#map {
+  height: 370px;
+  width: 100%;
+}
+
+.streams {
+	width: 1000px;
+	height: 105px;
+	overflow: hidden;
+	li {
+		width: 180px;
+		margin: {
+			bottom: 10px;
+			right: 2%;
+		}
+	}
 }
 
 .stream{
   position: relative;
-  margin-right: 5px;
-
-  &:last-child{
-    margin-right: 0;
-  }
 
   .title{
     position: absolute;
@@ -31,6 +207,14 @@
   }
 }
 
-.mainWrapper{
-  margin-top: 40px;
+.module {
+	margin: {
+		top: 20px;
+		bottom: 25px;
+	}
+	.btn-toolbar { /*this is sloppy, clean up later*/
+		position: relative;
+		bottom: -24px;
+		right: -15px;
+	}
 }

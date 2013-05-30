@@ -28,7 +28,6 @@ angular.module('peepoltvApp')
 
           // Create custom popup content
           var popupContent = '<a target="_blank" href="' + feature.url + '">' +
-                              '<img src="http://img.youtube.com/vi/' + feature.thumbs.medium + '/1.jpg" />' +
                               '<h3>' + feature.title + '</h3>' +
                              '</a>';
 
