@@ -1,8 +1,19 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('MainCtrl', ['$scope', 'Streams', function ($scope, Streams) {
-	 
+
+  .controller('MainCtrl', ['$scope', 'Streams', 'geolocation', function ($scope, Streams, geolocation) {
+
+    // Change the location when is changed
+    $scope.$on('locationChanged', function (event, parameters) {
+
+      $scope.coords= parameters.coordinates;
+      map.setView(new L.LatLng($scope.coords.latitude, $scope.coords.longitude), 30 );
+    });
+
+    // Get current location
+    geolocation();
+
     // Create map
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
 
