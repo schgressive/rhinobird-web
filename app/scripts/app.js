@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp', ['apiServices'])
-  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+  .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
