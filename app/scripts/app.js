@@ -16,6 +16,10 @@ angular.module('peepoltvApp', ['apiServices'])
         templateUrl: 'views/search-results.html',
         controller: 'SearchResultsCtrl'
       })
+      .when('/golive', {
+        templateUrl: 'views/golive.html',
+        controller: 'GoliveCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

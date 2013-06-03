@@ -15,6 +15,10 @@ angular.module('apiServices', ['ngResource'])
         method:'GET',
         params: {},
         isArray: true
+      },
+      'new': {
+        method: 'POST',
+        params: {}
       }
     });
   }]);
