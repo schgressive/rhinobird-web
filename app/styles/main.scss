@@ -1,6 +1,19 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
+.mvp {outline:blue solid 1px;}
+.deactivated {outline:red dashed 1px;}
+.maybe {outline:green dashed 1px;}
+.module-outline {outline:fuchsia solid 1px;}
+
+.no-bullets {
+	ul {
+		list-style-type: none;
+		margin: 0;
+	}
+	li { margin: 0;}
+}
+
 .single-col { /*this code will be condensed once we decided on single-col or two-col for layout*/
 	background-color: rgba(0, 0, 0, 0.02);
 	.banner {

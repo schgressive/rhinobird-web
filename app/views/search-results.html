@@ -1,0 +1,77 @@
+<section class="top-content">
+	<div class="row-fluid">
+		<div class="span2">
+			<h5 class="mvp results">
+				results for <em>search term here</em>
+			</h5>
+		</div>
+		<div class="span10">
+			<form method="get" class="mvp form-search pull-right">
+				<div class="form-actions">
+					<div class="input-append">
+						<input class="input-medium" type="search" placeholder="search live streams">
+						<i class="icon-search icon-black"></i>
+					</div>
+					<!-- <button type="submit" class="btn btn-primary">Let's Go!</button> -->
+					<button type="button" class="btn" data-toggle="collapse" data-target="#filters">
+						<i class="icon-filter icon-black"></i>
+					</button>
+				</div><!-- /.form-actions -->
+				<div id="filters" class="maybe collapse">
+					<div class="input-append">
+						<input id="filter-location" class="input-large" type="text" placeholder="current location">
+						<i class="icon-map-marker icon-black"></i>
+					</div>
+					<label class="checkbox inline">
+						<input type="checkbox" id="checkbox-channels" value="channels"> Channels
+					</label>
+					<label class="deactivated checkbox inline">
+						<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
+					</label>
+					<label class="deactivated checkbox inline">
+						<input type="checkbox" id="checkbox-archives" value="archives"> Archives
+					</label>
+				</div><!-- /.filters -->
+			</form>
+		</div><!-- /.span10 -->
+	</div><!-- /.row-fluid -->
+</section><!-- /.top-content -->
+
+<!-- NOTE FROM CHRIS: .lower-content needs to infinite scroll -->
+<section class="mvp lower-content">
+	<div class="row-fluid">
+		<div class="col-left span3">
+			<h3>
+				<i class="icon-film icon-black"></i>
+				Curated Channels
+			</h3>
+			<div class="module-outline span12">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+		</div>
+		<div class="col-right span9">
+			<h3>
+				<i class="icon-facetime-video icon-black"></i>
+				Live Streams
+			</h3>
+			<div class="module-outline span3">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+			<div class="module-outline span3">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+			<div class="module-outline span3">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+		</div>
+	</div>
+</section><!-- /.lower-content -->
+
+<script>
+	$(function () {
+		$('#main-tabs a:first').tab('show');
+		$('#filters').collapse({
+			toggle: false
+		});
+	})
+</script>
