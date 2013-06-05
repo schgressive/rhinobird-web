@@ -47,7 +47,88 @@
 		<section class="mid-content">
 			<div class="row-fluid">
 				<div class="span12">
-					
+					<div id="carousel-main" class="carousel slide">
+					  <ol class="carousel-indicators">
+					    <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-main" data-slide-to="1"></li>
+					    <li data-target="#carousel-main" data-slide-to="2"></li>
+					  </ol>
+					  <!-- Carousel items -->
+					  <div class="carousel-inner">
+					    <div class="active item">
+						    <div class="row-fluid">
+						    	<div class="span8">
+						    		<div class="module-xlarge">
+						    			<div class="module-video">
+											<a href="#" class="live-stream-link">
+												<img src="http://fakeimg.pl/600x345/?text=VideoGoesHere"/>
+											</a>
+											<div class="mvp module-overlay">
+												<em class="title">title here</em>
+											</div>
+										</div>
+										<ul class="mvp specs-stream no-bullets">
+											<li class="specs-location pull-left">
+												<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
+											</li>
+											<li class="specs-comments pull-left">
+												<i class="icon-comment icon-black"></i>
+												<a href="#" title="see comments on this live-stream"> 12</a>
+											</li>
+											<li class="specs-rebroadcasts pull-left">
+												<i class="icon-retweet icon-black"></i>
+												<a href="#" title="see rebroadcasts"> 24</a>
+											</li>
+											<li class="specs-hearts pull-left">
+												<i class="icon-heart icon-black"></i>
+												<a href="#" title="see who hearts this stream"> 48</a>
+											</li>
+										</ul>
+						    		</div>
+						    	</div>
+						    	<div class="span4">
+						    		<ol class="mvp carousel-streams no-bullets">
+						    			<li class="module-mini">
+						    				<div class="module-video">
+												<a href="#" class="live-stream-link">
+													<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
+												</a>
+												<div class="mvp module-overlay">
+													<em class="title">title here</em>
+												</div>
+											</div>
+						    			</li>
+						    			<li class="module-mini">
+						    				<div class="module-video">
+												<a href="#" class="live-stream-link">
+													<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
+												</a>
+												<div class="mvp module-overlay">
+													<em class="title">title here</em>
+												</div>
+											</div>
+						    			</li>
+						    			<li class="module-mini">
+						    				<div class="module-video">
+												<a href="#" class="live-stream-link">
+													<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
+												</a>
+												<div class="mvp module-overlay">
+													<em class="title">title here</em>
+												</div>
+											</div>
+						    			</li>
+						    		</ol><!-- /.carousel-streams -->
+						    	</div>
+						    </div>
+					    </div>
+					    <div class="item">content</div>
+					    <div class="item">content</div>
+					  </div>
+					  <!-- Carousel nav -->
+					  <a class="carousel-control left" href="#carousel-main" data-slide="prev">&lsaquo;</a>
+					  <a class="carousel-control right" href="#carousel-main" data-slide="next">&rsaquo;</a>
+					</div><!-- /#carousel-main -->
 				</div>
 			</div>
 		</section><!-- /.mid-content -->
@@ -55,7 +136,7 @@
 			<div class="row-fluid">
 		<div class="span12">
 			<h3>
-				<i class="icon-facetime-film icon-black"></i>
+				<i class="icon-film icon-black"></i>
 				Local Channels
 			</h3>
 <!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
@@ -115,37 +196,6 @@
 	<div class="maybe tab-pane" id="suggested">content</div>
 	<div class="maybe tab-pane" id="allofthepeepol">content</div>
 </div><!-- /.tab-content -->
-			
-
-<!-- NOTE FROM CHRIS: .lower-content needs to infinite scroll -->
-<section class="mvp lower-content">
-	<div class="row-fluid">
-		<div class="col-left span3">
-			<h3>
-				<i class="icon-film icon-black"></i>
-				Curated Channels
-			</h3>
-			<div class="module-outline span12">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
-		</div>
-		<div class="col-right span9">
-			<h3>
-				<i class="icon-facetime-video icon-black"></i>
-				Live Streams
-			</h3>
-			<div class="module-outline span3">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
-			<div class="module-outline span3">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
-			<div class="module-outline span3">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
-		</div>
-	</div>
-</section><!-- /.lower-content -->
 
 <script>
 	$(function () {
