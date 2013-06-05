@@ -47,7 +47,12 @@
 		<section class="mid-content">
 			<div class="row-fluid">
 				<div class="span12">
-					<div id="carousel-main" class="carousel slide">
+					<div class="pull-right">
+						<button type="button" class="btn" data-toggle="collapse" data-target="#carousel-main">
+							<i class="icon-chevron-right icon-black"></i>
+  						</button>
+					</div>
+					<div id="carousel-main" class="carousel slide collapse in">
 					  <ol class="carousel-indicators">
 					    <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
 					    <li data-target="#carousel-main" data-slide-to="1"></li>
@@ -201,6 +206,9 @@
 	$(function () {
 		$('#main-tabs a:first').tab('show');
 		$('#filters').collapse({
+			toggle: false
+		});
+		$('#carousel-main').collapse({
 			toggle: false
 		});
 	})
