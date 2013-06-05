@@ -1,0 +1,157 @@
+<section class="top-content">
+	<div class="row-fluid">
+		<div class="span9">
+			<ul class="nav nav-tabs" id="main-tabs">
+				<li><a href="#local" data-toggle="tab" data-target="#local">Local</a></li>
+				<li><a href="#subscribed" data-toggle="tab" data-target="#subscribed">Subscribed</a></li>
+				<li><a href="#onfire" data-toggle="tab" data-target="#onfire">On Fire!</a></li>
+				<li><a href="#suggested" data-toggle="tab" data-target="#suggested">Suggested</a></li>
+				<li><a href="#allofthepeepol" data-toggle="tab" data-target="#allofthepeepol">All of the Peepol</a></li>
+			</ul>
+		</div>
+		<div class="span3">
+			<form method="get" class="mvp form-search pull-right">
+				<div class="form-actions">
+					<div class="input-append">
+						<input class="input-medium" type="search" placeholder="search live streams">
+						<i class="icon-search icon-black"></i>
+					</div>
+					<!-- <button type="submit" class="btn btn-primary">Let's Go!</button> -->
+					<button type="button" class="btn" data-toggle="collapse" data-target="#filters">
+						<i class="icon-filter icon-black"></i>
+					</button>
+				</div><!-- /.form-actions -->
+				<div id="filters" class="maybe collapse">
+					<div class="input-append">
+						<input id="filter-location" class="input-large" type="text" placeholder="current location">
+						<i class="icon-map-marker icon-black"></i>
+					</div>
+					<label class="checkbox inline">
+						<input type="checkbox" id="checkbox-channels" value="channels"> Channels
+					</label>
+					<label class="deactivated checkbox inline">
+						<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
+					</label>
+					<label class="deactivated checkbox inline">
+						<input type="checkbox" id="checkbox-archives" value="archives"> Archives
+					</label>
+				</div><!-- /.filters -->
+			</form>
+		</div><!-- /.span10 -->
+	</div><!-- /.row-fluid -->
+</section><!-- /.top-content -->
+
+<!-- NOTE FROM CHRIS: These tab panes use the same template for each. -->
+<div id="main-tabs-container" class="tab-content">
+	<div class="mvp tab-pane" id="local">
+		<section class="mid-content">
+			<div class="row-fluid">
+				<div class="span12">
+					
+				</div>
+			</div>
+		</section><!-- /.mid-content -->
+		<section class="lower-content">
+			<div class="row-fluid">
+		<div class="span12">
+			<h3>
+				<i class="icon-facetime-film icon-black"></i>
+				Local Channels
+			</h3>
+<!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
+			<ol class="grid-streams"><!-- 4 Column Grid -->
+				<li id="" class="module-large no-bullets span3">
+					<div class="mvp module-inner clearfix">
+						<div class="module-video">
+							<a href="#" class="live-stream-link">
+								<img src="http://fakeimg.pl/350x200/?text=FakeImage"/>
+							</a>
+							<div class="mvp module-overlay">
+								<em class="title">title here</em>
+							</div>
+						</div>
+						<ul class="mvp specs-stream">
+							<li class="specs-comments pull-left">
+								<i class="icon-comment icon-black"></i>
+								<a href="#" title="see comments on this live-stream"> 12</a>
+							</li>
+							<li class="specs-rebroadcasts pull-left">
+								<i class="icon-retweet icon-black"></i>
+								<a href="#" title="see rebroadcasts"> 24</a>
+							</li>
+							<li class="specs-hearts pull-left">
+								<i class="icon-heart icon-black"></i>
+								<a href="#" title="see who hearts this stream"> 48</a>
+							</li>
+						</ul>
+					</div><!-- /.module-inner -->
+					<div class="maybe module-outer clearfix">
+						<ul class="specs-user">
+							<li class="thumb-user pull-left">
+								<a href="#" title="username">
+									<img src="http://fakeimg.pl/65x65/?text=FPO"/>
+								</a>
+							</li>
+							<li class="specs-location">
+								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
+							</li>
+							<li class="specs-tags">
+								<ul class="group">
+									<li class="tag pull-left"><a href="#">tag1</a></li>
+									<li class="tag pull-left"><a href="#">tag2</a></li>
+									<li class="tag pull-left"><a href="#">tag3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.module-outer -->
+				</li><!-- /.module-large -->
+			</ol><!-- /.grid-streams -->
+		</div>
+	</div>
+		</section><!-- /.lower-content -->
+	</div><!-- /#local -->
+	<div class="maybe tab-pane" id="subscribed">content</div>
+	<div class="maybe tab-pane" id="onfire">content</div>
+	<div class="maybe tab-pane" id="suggested">content</div>
+	<div class="maybe tab-pane" id="allofthepeepol">content</div>
+</div><!-- /.tab-content -->
+			
+
+<!-- NOTE FROM CHRIS: .lower-content needs to infinite scroll -->
+<section class="mvp lower-content">
+	<div class="row-fluid">
+		<div class="col-left span3">
+			<h3>
+				<i class="icon-film icon-black"></i>
+				Curated Channels
+			</h3>
+			<div class="module-outline span12">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+		</div>
+		<div class="col-right span9">
+			<h3>
+				<i class="icon-facetime-video icon-black"></i>
+				Live Streams
+			</h3>
+			<div class="module-outline span3">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+			<div class="module-outline span3">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+			<div class="module-outline span3">
+				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+			</div>
+		</div>
+	</div>
+</section><!-- /.lower-content -->
+
+<script>
+	$(function () {
+		$('#main-tabs a:first').tab('show');
+		$('#filters').collapse({
+			toggle: false
+		});
+	})
+</script>
