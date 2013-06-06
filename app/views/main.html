@@ -63,14 +63,14 @@
 			</h3>
 <!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
 			<ol class="grid-streams"><!-- 4 Column Grid -->
-				<li id="" class="module-large no-bullets span3">
+				<li id="" class="module-large no-bullets span3" ng-repeat="stream in streams">
 					<div class="mvp module-inner clearfix">
 						<div class="module-video">
 							<a href="#" class="live-stream-link">
-								<img src="http://fakeimg.pl/350x200/?text=FakeImage"/>
+								<img ng-src="{{stream.thumbs.medium}}"/>
 							</a>
 							<div class="mvp module-overlay">
-								<em class="title">title here</em>
+								<em class="title">{{stream.title}}</em>
 							</div>
 						</div>
 						<ul class="mvp specs-stream">
@@ -96,13 +96,11 @@
 								</a>
 							</li>
 							<li class="specs-location">
-								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
+								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
 							</li>
 							<li class="specs-tags">
 								<ul class="group">
-									<li class="tag pull-left"><a href="#">tag1</a></li>
-									<li class="tag pull-left"><a href="#">tag2</a></li>
-									<li class="tag pull-left"><a href="#">tag3</a></li>
+									<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
 								</ul>
 							</li>
 						</ul>

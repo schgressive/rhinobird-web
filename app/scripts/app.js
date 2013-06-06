@@ -8,6 +8,14 @@ angular.module('peepoltvApp', ['apiServices'])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/channels', {
+        templateUrl: 'views/channels.html',
+        controller: 'ChannelsCtrl'
+      })
+      .when('/search-results', {
+        templateUrl: 'views/search-results.html',
+        controller: 'SearchResultsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -2,11 +2,11 @@
 
 angular.module('peepoltvApp')
   .controller('MainCtrl', ['$scope', 'Streams', function ($scope, Streams) {
-
+	 
     // Create map
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
 
-    // Get the streams basen on geolocation
+    // Get the streams based on geolocation
     Streams.search({}, function(r){
         $scope.streams = _.map(r, function(s){
           s.properties['marker-size'] = 'medium';
