@@ -2,7 +2,7 @@
 
 angular.module('peepoltvApp')
   .controller('ChannelsCtrl', ['$scope', 'Streams', function ($scope, Streams) {
-    
+
     // Get the streams based on geolocation
     Streams.search({}, function(r){
         $scope.streams = _.map(r, function(s){
@@ -10,6 +10,7 @@ angular.module('peepoltvApp')
           s.properties['marker-color'] = '#aa56ff';
           s.properties['marker-symbol'] = 'cinema';
           return s;
+        });
     });
-    
+
   }]);
