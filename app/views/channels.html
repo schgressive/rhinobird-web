@@ -1,15 +1,15 @@
 <section class="top-content">
 	<div class="row-fluid">
-		<div class="span9">
-			<ul class="nav nav-tabs" id="main-tabs">
-				<li><a href="#local" data-toggle="tab" data-target="#local">Local</a></li>
-				<li><a href="#subscribed" data-toggle="tab" data-target="#subscribed">Subscribed</a></li>
-				<li><a href="#onfire" data-toggle="tab" data-target="#onfire">On Fire!</a></li>
-				<li><a href="#suggested" data-toggle="tab" data-target="#suggested">Suggested</a></li>
-				<li><a href="#allofthepeepol" data-toggle="tab" data-target="#allofthepeepol">All of the Peepol</a></li>
+		<div class="span7">
+			<ul class="mvp nav subnav" id="">
+				<li class="active"><a href="#">Local</a></li>
+				<li><a href="#">Subscribed</a></li>
+				<li><a href="#">On Fire!</a></li>
+				<li><a href="#">Suggested</a></li>
+				<li><a href="#">All of the Peepol</a></li>
 			</ul>
 		</div>
-		<div class="span3">
+		<div class="span5">
 			<form method="get" class="mvp form-search pull-right">
 				<div class="form-actions">
 					<div class="input-append">
@@ -41,126 +41,126 @@
 	</div><!-- /.row-fluid -->
 </section><!-- /.top-content -->
 
-<!-- NOTE FROM CHRIS: These tab panes use the same template for each. -->
-<div id="main-tabs-container" class="tab-content">
-	<div class="mvp tab-pane" id="local">
-		<section class="mid-content">
-			<div class="row-fluid">
-				<div class="span10">
-					<h2>
-						<i class="icon-star-empty icon-black"></i> Featured Channels
-					</h2>
-				</div>
-				<div class="span2">
-					<button type="button" class="btn pull-right" data-toggle="collapse" data-target="#carousel-main">
-						<i class="icon-chevron-right icon-black"></i>
-					</button>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">
-					<div id="carousel-main" class="carousel slide collapse in">
-					  <ol class="carousel-indicators">
-					    <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-main" data-slide-to="1"></li>
-					    <li data-target="#carousel-main" data-slide-to="2"></li>
-					  </ol>
-					  <!-- Carousel items -->
-					  <div class="carousel-inner">
-					    <div class="active item">
-						    <div class="row-fluid">
-						    	<div class="span8">
-						    		<div class="module-xlarge">
-						    			<div class="module-video">
-											<a href="#" class="live-stream-link">
-												<img src="http://fakeimg.pl/600x345/?text=VideoGoesHere"/>
-											</a>
-											<div class="mvp module-overlay">
-												<em class="title">title here</em>
-											</div>
+<!-- NOTE FROM CHRIS: Need to decide on whether to use tabbing navigation, or other method to switch between sorted content -->
+
+<section class="mid-content">
+	<div class="row-fluid">
+		<div class="span10">
+			<h2>
+				<i class="icon-star-empty icon-black"></i> Featured Channels
+			</h2>
+		</div>
+		<div class="span2">
+			<button type="button" class="btn pull-right" data-toggle="collapse" data-target="#carousel-main">
+				<i class="icon-chevron-right icon-black"></i>
+			</button>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<div id="carousel-main" class="carousel slide collapse in">
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-main" data-slide-to="1"></li>
+			    <li data-target="#carousel-main" data-slide-to="2"></li>
+			  </ol>
+			  <!-- Carousel items -->
+			  <div class="carousel-inner">
+			    <div class="active item">
+				    <div class="row-fluid">
+				    	<div class="span8">
+				    		<div class="module-xlarge">
+				    			<div class="module-video">
+									<a href="#" class="live-stream-link">
+										<img src="http://fakeimg.pl/600x345/?text=VideoGoesHere"/>
+									</a>
+									<div class="mvp module-overlay">
+										<em class="title">title here</em>
+									</div>
+								</div>
+								<ul class="mvp specs-stream no-bullets">
+									<li class="specs-location pull-left">
+										<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
+									</li>
+									<li class="specs-comments pull-left">
+										<i class="icon-comment icon-black"></i>
+										<a href="#" title="see comments on this live-stream"> 12</a>
+									</li>
+									<li class="specs-rebroadcasts pull-left">
+										<i class="icon-retweet icon-black"></i>
+										<a href="#" title="see rebroadcasts"> 24</a>
+									</li>
+									<li class="specs-hearts pull-left">
+										<i class="icon-heart icon-black"></i>
+										<a href="#" title="see who hearts this stream"> 48</a>
+									</li>
+								</ul>
+				    		</div>
+				    	</div>
+				    	<div class="span4">
+				    		<ol class="mvp carousel-streams no-bullets">
+				    			<li class="module-mini">
+				    				<div class="module-video">
+										<a href="#" class="live-stream-link">
+											<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
+										</a>
+										<div class="mvp module-overlay">
+											<em class="title">title here</em>
 										</div>
-										<ul class="mvp specs-stream no-bullets">
-											<li class="specs-location pull-left">
-												<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
-											</li>
-											<li class="specs-comments pull-left">
-												<i class="icon-comment icon-black"></i>
-												<a href="#" title="see comments on this live-stream"> 12</a>
-											</li>
-											<li class="specs-rebroadcasts pull-left">
-												<i class="icon-retweet icon-black"></i>
-												<a href="#" title="see rebroadcasts"> 24</a>
-											</li>
-											<li class="specs-hearts pull-left">
-												<i class="icon-heart icon-black"></i>
-												<a href="#" title="see who hearts this stream"> 48</a>
-											</li>
-										</ul>
-						    		</div>
-						    	</div>
-						    	<div class="span4">
-						    		<ol class="mvp carousel-streams no-bullets">
-						    			<li class="module-mini">
-						    				<div class="module-video">
-												<a href="#" class="live-stream-link">
-													<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
-												</a>
-												<div class="mvp module-overlay">
-													<em class="title">title here</em>
-												</div>
-											</div>
-						    			</li>
-						    			<li class="module-mini">
-						    				<div class="module-video">
-												<a href="#" class="live-stream-link">
-													<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
-												</a>
-												<div class="mvp module-overlay">
-													<em class="title">title here</em>
-												</div>
-											</div>
-						    			</li>
-						    			<li class="module-mini">
-						    				<div class="module-video">
-												<a href="#" class="live-stream-link">
-													<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
-												</a>
-												<div class="mvp module-overlay">
-													<em class="title">title here</em>
-												</div>
-											</div>
-						    			</li>
-						    		</ol><!-- /.carousel-streams -->
-						    	</div>
-						    </div>
-					    </div>
-					    <div class="item">content</div>
-					    <div class="item">content</div>
-					  </div>
-					  <!-- Carousel nav -->
-					  <a class="carousel-control left" href="#carousel-main" data-slide="prev">&lsaquo;</a>
-					  <a class="carousel-control right" href="#carousel-main" data-slide="next">&rsaquo;</a>
-					</div><!-- /#carousel-main -->
-				</div>
-			</div>
-		</section><!-- /.mid-content -->
-		<section class="lower-content">
-			<div class="row-fluid">
+									</div>
+				    			</li>
+				    			<li class="module-mini">
+				    				<div class="module-video">
+										<a href="#" class="live-stream-link">
+											<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
+										</a>
+										<div class="mvp module-overlay">
+											<em class="title">title here</em>
+										</div>
+									</div>
+				    			</li>
+				    			<li class="module-mini">
+				    				<div class="module-video">
+										<a href="#" class="live-stream-link">
+											<img src="http://fakeimg.pl/199x100/?text=FakeImage"/>
+										</a>
+										<div class="mvp module-overlay">
+											<em class="title">title here</em>
+										</div>
+									</div>
+				    			</li>
+				    		</ol><!-- /.carousel-streams -->
+				    	</div>
+				    </div>
+			    </div>
+			    <div class="item">content</div>
+			    <div class="item">content</div>
+			  </div>
+			  <!-- Carousel nav -->
+			  <a class="carousel-control left" href="#carousel-main" data-slide="prev">&lsaquo;</a>
+			  <a class="carousel-control right" href="#carousel-main" data-slide="next">&rsaquo;</a>
+			</div><!-- /#carousel-main -->
+		</div>
+	</div>
+</section><!-- /.mid-content -->
+		
+<section class="lower-content">
+	<div class="row-fluid">
 		<div class="span12">
 			<h3>
 				<i class="icon-film icon-black"></i>
 				Local Channels
 			</h3>
-<!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
+<!-- NOTE FROM CHRIS: these streams need to show Channels. Assume that the video is the featured stream for a Channel. -->
 			<ol class="grid-streams"><!-- 4 Column Grid -->
-				<li id="" class="module-large no-bullets span3">
+				<li id="" class="module-large no-bullets span3" ng-repeat="stream in streams">
 					<div class="mvp module-inner clearfix">
 						<div class="module-video">
 							<a href="#" class="live-stream-link">
-								<img src="http://fakeimg.pl/350x200/?text=FakeImage"/>
+								<img ng-src="{{stream.thumbs.medium}}"/>
 							</a>
 							<div class="mvp module-overlay">
-								<em class="title">title here</em>
+								<em class="title">{{stream.title}}</em>
 							</div>
 						</div>
 						<ul class="mvp specs-stream">
@@ -186,13 +186,11 @@
 								</a>
 							</li>
 							<li class="specs-location">
-								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
+								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
 							</li>
 							<li class="specs-tags">
 								<ul class="group">
-									<li class="tag pull-left"><a href="#">tag1</a></li>
-									<li class="tag pull-left"><a href="#">tag2</a></li>
-									<li class="tag pull-left"><a href="#">tag3</a></li>
+									<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -201,17 +199,10 @@
 			</ol><!-- /.grid-streams -->
 		</div>
 	</div>
-		</section><!-- /.lower-content -->
-	</div><!-- /#local -->
-	<div class="maybe tab-pane" id="subscribed">content</div>
-	<div class="maybe tab-pane" id="onfire">content</div>
-	<div class="maybe tab-pane" id="suggested">content</div>
-	<div class="maybe tab-pane" id="allofthepeepol">content</div>
-</div><!-- /.tab-content -->
+</section><!-- /.lower-content -->
 
 <script>
 	$(function () {
-		$('#main-tabs a:first').tab('show');
 		$('#filters').collapse({
 			toggle: false
 		});
