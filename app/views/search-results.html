@@ -46,7 +46,7 @@
 				Curated Channels
 			</h3>
 			<div class="module-outline span12">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
+				<img src="http://fakeimg.pl/199x100/?text=Channels" />
 			</div>
 		</div>
 		<div class="col-right span9">
@@ -54,15 +54,51 @@
 				<i class="icon-facetime-video icon-black"></i>
 				Live Streams
 			</h3>
-			<div class="module-outline span3">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
-			<div class="module-outline span3">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
-			<div class="module-outline span3">
-				<img src="http://fakeimg.pl/199x100/?text=FPO" />
-			</div>
+			<ol class="grid-streams"><!-- 4 Column Grid -->
+				<li id="" class="module-large no-bullets span4" ng-repeat="stream in streams">
+					<div class="mvp module-inner clearfix">
+						<div class="module-video">
+							<a href="#" class="live-stream-link">
+								<img ng-src="{{stream.thumbs.medium}}"/>
+							</a>
+							<div class="mvp module-overlay">
+								<em class="title">{{stream.title}}</em>
+							</div>
+						</div>
+						<ul class="mvp specs-stream">
+							<li class="specs-comments pull-left">
+								<i class="icon-comment icon-black"></i>
+								<a href="#" title="see comments on this live-stream"> 12</a>
+							</li>
+							<li class="specs-rebroadcasts pull-left">
+								<i class="icon-retweet icon-black"></i>
+								<a href="#" title="see rebroadcasts"> 24</a>
+							</li>
+							<li class="specs-hearts pull-left">
+								<i class="icon-heart icon-black"></i>
+								<a href="#" title="see who hearts this stream"> 48</a>
+							</li>
+						</ul>
+					</div><!-- /.module-inner -->
+					<div class="maybe module-outer clearfix">
+						<ul class="specs-user">
+							<li class="thumb-user pull-left">
+								<a href="#" title="username">
+									<img src="http://fakeimg.pl/65x65/?text=FPO"/>
+								</a>
+							</li>
+							<li class="specs-location">
+								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+							</li>
+							<li class="specs-tags">
+								<ul class="group">
+									<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.module-outer -->
+				</li><!-- /.module-large -->
+			</ol><!-- /.grid-streams -->
 		</div>
 	</div>
 </section><!-- /.lower-content -->

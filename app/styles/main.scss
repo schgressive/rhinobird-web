@@ -7,11 +7,17 @@
 .module-outline {outline:fuchsia solid 1px;}
 
 .no-bullets {
-	ul {
-		list-style-type: none;
-		margin: 0;
-	}
+	list-style-type: none;
+	margin: 0;
 	li { margin: 0;}
+}
+
+.subnav {
+	height:25px;
+	li {
+		margin-right: 20px;
+		float:left;
+	}
 }
 
 .single-col { /*this code will be condensed once we decided on single-col or two-col for layout*/
