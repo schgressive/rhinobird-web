@@ -6,6 +6,23 @@
 .maybe {outline:green dashed 1px;}
 .module-outline {outline:fuchsia solid 1px;}
 
+@include font-face("LatoRegular", '../fonts/lato-reg-webfont');
+@include font-face("LatoItalic", '../fonts/lato-regita-webfont');
+@include font-face("LatoBlack", '../fonts/lato-bla-webfont');
+@include font-face("MissionScript", '../fonts/mission-script-webfont');
+
+$bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
+
+$italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Neue Italic", "TeXGyreHerosItalic", "TeXGyreHeros-Italic", "TeXGyreHeros Italic", "Helvetica Oblique", "Arial Italic", sans-serif;
+
+$brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush Script MT", Script MT Bold, "Script MT Bold", Gabriola, "Gabriola", Comic Sans MS, "Comic Sans MS", fantasy;
+
+
+body {
+	font-family: "LatoRegular", $base-font-family;
+	color: $font-color;
+}
+
 .no-bullets {
 	list-style-type: none;
 	margin: 0;

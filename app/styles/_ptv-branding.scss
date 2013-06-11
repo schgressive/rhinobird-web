@@ -18,7 +18,7 @@ $base-font-family          : "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRo
 $base-font-size            : 16px;
 $base-line-height          : 1.50; 
 $font-size-small		   : 0.875em;
-$font-color                : #333;
+$font-color                : #fff;
 $text-on-dark-bold		   : #fff;
 $text-on-dark-subtle	   : $branding-accent-subtle;
 $link-color                : $branding-warm; 
@@ -39,3 +39,56 @@ $selected-background-color : #5c0778; /* branding-cool shade */
 
 $border-light-color	  	   : $branding-accent;
 $border-dark-color         : $branding-cool-shade;
+
+// Mixins
+
+@mixin hover-transition() {
+	& {
+		-webkit-transition: .3s all linear;
+		-moz-transition: .3s all linear;
+		-o-transition: .3s all linear;
+		transition: .3s all linear;
+	}
+}
+
+@mixin font-smoothing { /* USE SPARINGLY */
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+	@-moz-document url-prefix() {
+		text-shadow: 0 0 1px rgba(0,0,0,0.3);
+	}	
+}
+
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+}
+
+// Global Styling
+// ----------------------------------------
+// Calculate all H# Tags.
+
+// using 4:5, major third
+
+h1 {font-size: 1.75em; /*28px*/}
+h2 {font-size: 1.4em;} /*22.4px*/
+h3 {font-size: 1.25em;} /*20px*/
+h4 {font-size: 1.12em;} /*17.920px*/
+h5 {font-size: $base-font-size;}
+h6 {font-size: $font-size-small;}
+
+h2, h3, h4, h5, h6 {margin-bottom: 10px;}
+
+// Global Classes
+
+.no-bullets {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	-webkit-padding-start: 0;
+}
