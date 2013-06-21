@@ -20,6 +20,15 @@ angular.module('peepoltvApp', ['ngResource'])
         templateUrl: 'views/golive.html',
         controller: 'GoliveCtrl'
       })
+      .when('/streams/:streamId', {
+        templateUrl: 'views/stream.html',
+        controller: 'StreamCtrl',
+        resolve: {
+          stream: function(streamService, $route) {
+            return streamService.resolve($route.current.params.streamId);
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
