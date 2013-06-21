@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('GoliveCtrl', ['$scope', 'Streams', 'geolocation', function ($scope, Streams, geolocation) {
+  .controller('GoliveCtrl', ['$scope', 'streamService', 'geolocation', function ($scope, streamService, geolocation) {
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
@@ -40,7 +40,7 @@ angular.module('peepoltvApp')
         lat: $scope.coords.latitude,
         thumb: localStream.getVideoFrameURL()
       };
-      Streams.new(streamData, function(data){
+      streamService.resource.new(streamData, function(data){
 
 
         window.room = Erizo.Room({token: data.token});

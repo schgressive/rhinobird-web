@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ChannelsCtrl', ['$scope', 'Streams', function ($scope, Streams) {
+  .controller('ChannelsCtrl', ['$scope', 'streamService', function ($scope, streamService) {
 
     // Get the streams based on geolocation
-    Streams.search({}, function(r){
+    streamService.resource.search({}, function(r){
         $scope.streams = _.map(r, function(s){
           s.properties['marker-size'] = 'medium';
           s.properties['marker-color'] = '#aa56ff';
@@ -22,14 +22,14 @@ angular.module('tabControls', []).
 	      scope: {},
 	      controller: function($scope, $element) {
 	        var panes = $scope.panes = [];
-	 
+
 	        $scope.select = function(pane) {
 	          angular.forEach(panes, function(pane) {
 	            pane.selected = false;
 	          });
 	          pane.selected = true;
 	        }
-	 
+
 	        this.addPane = function(pane) {
 	          if (panes.length == 0) $scope.select(pane);
 	          panes.push(pane);

@@ -2,7 +2,7 @@
 
 angular.module('peepoltvApp')
 
-  .controller('MainCtrl', ['$scope', 'Streams', 'geolocation', function ($scope, Streams, geolocation) {
+  .controller('MainCtrl', ['$scope', 'streamService', 'geolocation', function ($scope, streamService, geolocation) {
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
@@ -18,7 +18,7 @@ angular.module('peepoltvApp')
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
 
     // Get the streams based on geolocation
-    Streams.search({}, function(r){
+    streamService.resource.search({}, function(r){
         $scope.streams = _.map(r, function(s){
           s.properties['marker-size'] = 'medium';
           s.properties['marker-color'] = '#aa56ff';

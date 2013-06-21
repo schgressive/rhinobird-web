@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp', ['apiServices'])
+angular.module('peepoltvApp', ['ngResource'])
   .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
