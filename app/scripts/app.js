@@ -1,27 +1,27 @@
 'use strict';
 
 angular.module('peepoltvApp', ['ngResource'])
-  .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/channels', {
-        templateUrl: 'views/channels.html',
+      .when('/stream', {
+        templateUrl: '/views/channels.html',
         controller: 'ChannelsCtrl'
       })
       .when('/search-results', {
-        templateUrl: 'views/search-results.html',
+        templateUrl: '/views/search-results.html',
         controller: 'SearchResultsCtrl'
       })
       .when('/golive', {
-        templateUrl: 'views/golive.html',
+        templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl'
       })
       .when('/streams/:streamId', {
-        templateUrl: 'views/stream.html',
+        templateUrl: '/views/stream.html',
         controller: 'StreamCtrl',
         resolve: {
           stream: function(streamService, $route) {
