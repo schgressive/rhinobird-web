@@ -17,6 +17,9 @@ angular.module('peepoltvApp')
     // Create map
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
 
+    // Disable scroll to zoom
+    map.scrollWheelZoom.disable();
+
     // Get the streams based on geolocation
     streamService.resource.search({}, function(r){
         $scope.streams = _.map(r, function(s){
