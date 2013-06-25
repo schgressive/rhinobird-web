@@ -24,6 +24,14 @@ angular.module('peepoltvApp', ['ngResource'])
         templateUrl: '/views/stream.html',
         controller: 'StreamCtrl'
       })
+      .when('/channels', {
+        templateUrl: '/views/channels.html',
+        controller: 'ChannelsCtrl'
+      })
+      .when('/channels/:section', {
+        templateUrl: '/views/channels.html',
+        controller: 'ChannelsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
