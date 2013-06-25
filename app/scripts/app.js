@@ -22,12 +22,7 @@ angular.module('peepoltvApp', ['ngResource'])
       })
       .when('/streams/:streamId', {
         templateUrl: '/views/stream.html',
-        controller: 'StreamCtrl',
-        resolve: {
-          stream: function(streamService, $route) {
-            return streamService.resolve($route.current.params.streamId);
-          }
-        }
+        controller: 'StreamCtrl'
       })
       .otherwise({
         redirectTo: '/'
