@@ -1,16 +1,17 @@
 // ------------ BRANDING ELEMENTS FOR PEEPOL.TV --------------
-// --------- overwrites some of Bootstrap ---------------
 
 // Brand Colors ------------------------------
 
-$branding-cool 			   : #8031A7;
-$branding-cool-shade	   : #5c0778;
-$branding-cool-tint		   : #995AB9;
-$branding-warm			   : #B94700;
-$branding-warm-tint		   : #c76c33;
-$branding-warm-shade	   : #ba3608;
-$branding-accent		   : #daaa00;
-$branding-accent-subtle	   : #e1e1e1;
+$branding-bold			   : hsla(353,96%,54%,1); /*#FA1730*/
+$branding-bold-shade	   : hsla(354,82%,49%,1); /*#E4162A*/
+$branding-cool 			   : hsla(283,46%,30%,1); /*#5D2A71*/
+$branding-warm			   : hsla(4,62%,46%,1); /*#BE362C*/
+$base-gray				   : hsla(0,0%,18%,1); /*#2D2D2D*/
+$base-gray-shade		   : hsla(206,24%,7%,1); /*#0F1316*/
+$base-gray-tint			   : hsla(0,0%,20%,1); /*#343434*/
+$base-gray-medium		   : hsla(210,3%,61%,1); /*#97999b*/
+$base-gray-light		   : hsla(200,2%,72%,1); /*#B6B8B9*/
+$bg-color				   : hsla(0,0%,97%,1); /*#F7F7F7*/
 
 // Typography
 
@@ -18,13 +19,15 @@ $base-font-family          : "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRo
 $base-font-size            : 16px;
 $base-line-height          : 1.50; 
 $font-size-small		   : 0.875em;
-$font-color                : #fff;
+$font-color                : lighten($base-gray, 40%);
 $text-on-dark-bold		   : #fff;
+/*
 $text-on-dark-subtle	   : $branding-accent-subtle;
 $link-color                : $branding-warm; 
 $link-hover-color		   : #fff;
 $link-hover-bg-color       : $branding-warm-shade;
 $link-visited-color        : $branding-warm-tint;
+*/
 
 // ETC
 
@@ -37,8 +40,10 @@ $selected-background-color : #5c0778; /* branding-cool shade */
 
 // Borders
 
+/*
 $border-light-color	  	   : $branding-accent;
 $border-dark-color         : $branding-cool-shade;
+*/
 
 // Mixins
 

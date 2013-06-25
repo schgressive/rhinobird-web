@@ -23,6 +23,10 @@ body {
 	color: $font-color;
 }
 
+.single-col .main h2 {
+	color: $font-color !important;
+}
+
 .no-bullets {
 	list-style-type: none;
 	margin: 0;
