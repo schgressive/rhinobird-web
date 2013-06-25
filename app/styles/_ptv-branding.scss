@@ -20,14 +20,11 @@ $base-font-size            : 16px;
 $base-line-height          : 1.50; 
 $font-size-small		   : 0.875em;
 $font-color                : lighten($base-gray, 40%);
-$text-on-dark-bold		   : #fff;
-/*
-$text-on-dark-subtle	   : $branding-accent-subtle;
-$link-color                : $branding-warm; 
-$link-hover-color		   : #fff;
-$link-hover-bg-color       : $branding-warm-shade;
-$link-visited-color        : $branding-warm-tint;
-*/
+$text-on-dark		  	   : hsla(0,0%,100%,1); /*#FFFFFF*/
+$link-color                : inherit; 
+$link-hover-color		   : $base-gray;
+$link-hover-bg-color       : $bg-color;
+/* $link-visited-color        : $branding-warm-tint; */
 
 // ETC
 
