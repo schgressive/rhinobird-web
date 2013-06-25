@@ -62,8 +62,8 @@
 				Local Live-Streams
 			</h3>
 <!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
-			<ol class="grid-streams"><!-- 4 Column Grid -->
-				<li id="" class="module-large no-bullets span3" ng-repeat="stream in streams">
+			<ol class="grid-streams no-bullets"><!-- 4 Column Grid -->
+				<li id="" class="module-large span3" ng-repeat="stream in streams">
 					<div class="mvp module-inner clearfix">
 						<div class="module-video">
 							<a href="/streams/{{stream.id}}" class="live-stream-link">
@@ -73,7 +73,7 @@
 								<em class="title">{{stream.title}}</em>
 							</div>
 						</div>
-						<ul class="mvp specs-stream">
+						<ul class="mvp specs-stream no-bullets">
 							<li class="specs-comments pull-left">
 								<i class="icon-comment icon-black"></i>
 								<a href="#" title="see comments on this live-stream"> 12</a>
@@ -89,7 +89,7 @@
 						</ul>
 					</div><!-- /.module-inner -->
 					<div class="maybe module-outer clearfix">
-						<ul class="specs-user">
+						<ul class="specs-user no-bullets">
 							<li class="thumb-user pull-left">
 								<a href="#" title="username">
 									<img src="http://fakeimg.pl/65x65/?text=FPO"/>

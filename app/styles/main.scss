@@ -1,15 +1,23 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
+/*
 .mvp {outline:blue solid 1px;}
 .deactivated {outline:red dashed 1px;}
 .maybe {outline:green dashed 1px;}
 .module-outline {outline:fuchsia solid 1px;}
+*/
+
+body.base {outline:1px dashed pink;}
+.container-fluid {outline: 1px dashed green;}
+.row-fluid {outline: 1px dashed blue;}
 
 @include font-face("LatoRegular", '../fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '../fonts/lato-regita-webfont');
 @include font-face("LatoBlack", '../fonts/lato-bla-webfont');
 @include font-face("MissionScript", '../fonts/mission-script-webfont');
+@include font-face("HeroLight",'.../fonts/hero-light-webfont');
+@include font-face("Hero",'../fonts/hero-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -17,119 +25,60 @@ $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Ne
 
 $brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush Script MT", Script MT Bold, "Script MT Bold", Gabriola, "Gabriola", Comic Sans MS, "Comic Sans MS", fantasy;
 
+// BOOTSTRAP OVERRIDES //
 
-body {
-	font-family: "LatoRegular", $base-font-family;
+body.base {
 	color: $font-color;
-}
-
-.single-col .main h2 {
-	color: $font-color !important;
-}
-
-.no-bullets {
-	list-style-type: none;
-	margin: 0;
-	li { margin: 0;}
-}
-
-.subnav {
-	height:25px;
-	li {
-		margin-right: 20px;
-		float:left;
-	}
-}
-
-.single-col { /*this code will be condensed once we decided on single-col or two-col for layout*/
-	background-color: rgba(0, 0, 0, 0.02);
-	.banner {
-		padding-bottom: 40px;
-		.brand img {
-			width: 100%;
-			max-width: 26px;
-			height: auto;
-		}
-	}
-	.navbar, .navbar-form input, .navbar-form .btn {
-		font-size: 12px;
-	}
+	font-family: "LatoRegular", $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	background-color: $bg-color;
+	.navbar .nav > li > a {color:lighten($base-gray, 50%);}
 	.navbar {
-		.nav {
-			margin-top: 3px;
-			i {
-				margin: {
-					top:0px;
-					right:2px;
-				}
+		.navbar-inner {
+			background-color: hsla(0,0%,100%,1);
+			background-image: none;
+			.brand {
+				padding: 0;
+				margin: 0 0 0 29px;
 			}
-			.dropdown {
-				.caret {
-					margin: {
-						top:5px;
-						left:5px;
-					}
-				}
-			}
-		}
-		.navbar-form {
-			padding-top: 3px;
-			input {background-color: #ececec;}
-			input, button {padding: 3px 5px;}
 		}
 	}
-	.stream {max-width:150px}
-	.lower-content {
-		margin-top: 20px;
-		border-top: 1px solid rgba(0, 0, 0, 0.2);
+	.container-fluid {
+		padding: {
+			left: 40px;
+			right: 40px;
+		}
 	}
 }
 
+// CUSTOM STYLES //
 
-.sidebar-fixed {
-	position:fixed;
-    width:21.97%;
-    @media (max-width: 767px) {
-		.sidebar-nav-fixed {width:auto;}	
-    }
-    @media (max-width: 979px) {
-		.sidebar-nav-fixed {
-			position:static;
-			width: auto;
+.banner {
+	padding-bottom: 40px;
+	.brand img {
+		width: 100%;
+		max-width: 26px;
+		height: auto;
+	}
+}
+.navbar {
+	font-size: 1.143em;
+	.nav {
+		.dropdown {
+			.caret {
+				margin: {
+					top:5px;
+					left:5px;
+				}
+			}
 		}
 	}
-	header {
-		margin-top: 20px;
-		.brand img {
-			width: 100%;
-			max-width: 180px;
-			height: auto;
-		}
-	}
-	nav {
-		margin-top: 60px;
-	}
-	nav {
-		width: 70%;
-		.nav .btn {
-			text-align: left;
-			width: 150px;
-			margin-bottom: 10px;
-		}
-		.caret {
-			float: right;
-		}
-	}
-	.navbar-form {
-		input[type="search"] {
-			width: 59%;
-			margin-top: 0;
-		}
-		input[type="button"] {
-			width: 15%;
-			padding: 4px 7px;
-		}
-	}
+}
+.stream {max-width:150px}
+.lower-content {
+	margin-top: 20px;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .colophon {

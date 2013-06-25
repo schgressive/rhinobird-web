@@ -9,40 +9,43 @@ $branding-warm			   : hsla(4,62%,46%,1); /*#BE362C*/
 $base-gray				   : hsla(0,0%,18%,1); /*#2D2D2D*/
 $base-gray-shade		   : hsla(206,24%,7%,1); /*#0F1316*/
 $base-gray-tint			   : hsla(0,0%,20%,1); /*#343434*/
-$base-gray-medium		   : hsla(210,3%,61%,1); /*#97999b*/
-$base-gray-light		   : hsla(200,2%,72%,1); /*#B6B8B9*/
 $bg-color				   : hsla(0,0%,97%,1); /*#F7F7F7*/
 
-// Typography
+// Typography ------------------------------
 
 $base-font-family          : "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-$base-font-size            : 16px;
-$base-line-height          : 1.50; 
-$font-size-small		   : 0.875em;
+$base-font-size            : 14px;
+$base-line-height          : 1.40; 
+$font-size-small		   : 0.764em; /*13.752px*/
 $font-color                : lighten($base-gray, 40%);
 $text-on-dark		  	   : hsla(0,0%,100%,1); /*#FFFFFF*/
 $link-color                : inherit; 
 $link-hover-color		   : $base-gray;
 $link-hover-bg-color       : $bg-color;
-/* $link-visited-color        : $branding-warm-tint; */
+$link-visited-color        : inherit;
+$selected-font-color       : $text-on-dark;
+$selected-background-color : $branding-cool;
 
-// ETC
+// Global Styling
+// ----------------------------------------
+// Calculate all H# Tags.
 
-$hr-color                  : #333;
+// using 1:1.618, Golden Section
 
-// Selection
+h1 {font-size: 2.618em; /*47.123px*/}
+h2 {font-size: 2em;} /*36px*/
+h3 {font-size: 1.618em;} /*29.124px*/
+h4 {font-size: 1.236em;} /*22.250px*/
+h5 {font-size: $base-font-size;}
+h6 {font-size: $font-size-small;}
 
-$selected-font-color       : #fff;
-$selected-background-color : #5c0778; /* branding-cool shade */
+h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 
-// Borders
+$hr-color                  : $font-color;
+$border-light-color	  	   : lighten($base-gray, 20%);
+$border-dark-color         : lighten($base-gray, 60%);
 
-/*
-$border-light-color	  	   : $branding-accent;
-$border-dark-color         : $branding-cool-shade;
-*/
-
-// Mixins
+// Mixins ------------------------------
 
 @mixin hover-transition() {
 	& {
@@ -67,22 +70,7 @@ $border-dark-color         : $branding-cool-shade;
   &::-webkit-input-placeholder { @content }
 }
 
-// Global Styling
-// ----------------------------------------
-// Calculate all H# Tags.
-
-// using 4:5, major third
-
-h1 {font-size: 1.75em; /*28px*/}
-h2 {font-size: 1.4em;} /*22.4px*/
-h3 {font-size: 1.25em;} /*20px*/
-h4 {font-size: 1.12em;} /*17.920px*/
-h5 {font-size: $base-font-size;}
-h6 {font-size: $font-size-small;}
-
-h2, h3, h4, h5, h6 {margin-bottom: 10px;}
-
-// Global Classes
+// Global Classes ------------------------------
 
 .no-bullets {
 	margin: 0;
