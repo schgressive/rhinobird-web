@@ -12,7 +12,7 @@ angular.module('peepoltvApp', ['ngResource'])
         templateUrl: '/views/channels.html',
         controller: 'ChannelsCtrl'
       })
-      .when('/search-results', {
+      .when('/search', {
         templateUrl: '/views/search-results.html',
         controller: 'SearchResultsCtrl'
       })

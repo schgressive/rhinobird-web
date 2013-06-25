@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('SearchResultsCtrl', ['$scope', 'streamService', function ($scope, streamService) {
+  .controller('SearchResultsCtrl', ['$scope', 'streamService', '$location', function ($scope, streamService, $location) {
+
+    $scope.searchTerm = $location.search().q;
+    $scope.filter = $location.search().filter;
 
     // Get the streams based on geolocation
-    streamService.resource.search({}, function(r){
-        $scope.streams = _.map(r, function(s){
-          s.properties['marker-size'] = 'medium';
-          s.properties['marker-color'] = '#aa56ff';
-          s.properties['marker-symbol'] = 'cinema';
-          return s;
-        });
-    });
+    $scope.streams = streamService.resource.search({});
+
+    $scope.filterBy = function(filter){
+      $location.search('filter', filter);
+    };
   }]);
