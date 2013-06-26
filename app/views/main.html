@@ -1,105 +1,111 @@
-<section class="top-content">
+<div class="main container-fluid">
 	<div class="row-fluid">
-		<div class="span2">
-			<a class="brand" href="#" title="Peepol.tv">
-	    		<img src="images/logo.svg" alt="the Peepol.tv logo" />
-	    	</a>
-		</div>
-		<div class="span10">
-			<form method="get" class="mvp form-search">
-				<div class="form-actions">
-					<div class="input-append">
-						<input class="input-xlarge" type="search" placeholder="search live streams, locations, tags, etc">
-						<i class="icon-search icon-black"></i>
+		<div class="span12">
+			<section class="top-content">
+				<div class="row-fluid">
+					<div class="span2">
+						<a class="brand" href="#" title="Peepol.tv">
+				    		<img src="images/logo.svg" alt="the Peepol.tv logo" />
+				    	</a>
 					</div>
-					<button type="submit" class="btn btn-primary">Let's Go!</button>
-				</div><!-- /.form-actions -->
-				<div class="form-actions">
-					<label class="checkbox inline">
-						<input type="checkbox" id="checkbox-channels" value="channels"> Channels
-					</label>
-					<label class="deactivated checkbox inline">
-						<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
-					</label>
-					<label class="deactivated checkbox inline">
-						<input type="checkbox" id="checkbox-archives" value="archives"> Archives
-					</label>
-				</div><!-- /.form-actions -->
-			</form>
-		</div><!-- /.span10 -->
-	</div><!-- /.row-fluid -->
-</section><!-- /.top-content -->
+					<div class="span10">
+						<form method="get" class="mvp form-search">
+							<div class="form-actions">
+								<div class="input-append">
+									<input class="input-xlarge" type="search" placeholder="search live streams, locations, tags, etc">
+									<i class="icon-search icon-black"></i>
+								</div>
+								<button type="submit" class="btn btn-primary">Let's Go!</button>
+							</div><!-- /.form-actions -->
+							<div class="form-actions">
+								<label class="checkbox inline">
+									<input type="checkbox" id="checkbox-channels" value="channels"> Channels
+								</label>
+								<label class="deactivated checkbox inline">
+									<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
+								</label>
+								<label class="deactivated checkbox inline">
+									<input type="checkbox" id="checkbox-archives" value="archives"> Archives
+								</label>
+							</div><!-- /.form-actions -->
+						</form>
+					</div><!-- /.span10 -->
+				</div><!-- /.row-fluid -->
+			</section><!-- /.top-content -->
+			
+			<section class="mvp mid-content">
+				<div class="row-fluid">
+					<div class="span12">
+						<h3>
+							<i class="icon-globe icon-black"></i>
+							Explore Your World
+						</h3>
+						<div id="map"></div>
+					</div>
+				</div>
+			</section><!-- /.mid-content -->
+			
+			<!-- NOTE FROM CHRIS: .lower-content needs to infinite scroll -->
+			<section class="mvp lower-content">
+				<div class="row-fluid">
+					<div class="span12">
+						<h3>
+							<i class="icon-facetime-video icon-black"></i>
+							Local Live-Streams
+						</h3>
+			<!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
+						<ol class="grid-streams no-bullets"><!-- 4 Column Grid -->
+							<li id="" class="module-large span3" ng-repeat="stream in streams">
+								<div class="mvp module-inner clearfix">
+									<div class="module-video">
+										<a href="/streams/{{stream.id}}" class="live-stream-link">
+											<img ng-src="{{stream.thumbs.medium}}"/>
+										</a>
+										<div class="mvp module-overlay">
+											<em class="title">{{stream.title}}</em>
+										</div>
+									</div>
+									<ul class="mvp specs-stream no-bullets">
+										<li class="specs-comments pull-left">
+											<i class="icon-comment icon-black"></i>
+											<a href="#" title="see comments on this live-stream"> 12</a>
+										</li>
+										<li class="specs-rebroadcasts pull-left">
+											<i class="icon-retweet icon-black"></i>
+											<a href="#" title="see rebroadcasts"> 24</a>
+										</li>
+										<li class="specs-hearts pull-left">
+											<i class="icon-heart icon-black"></i>
+											<a href="#" title="see who hearts this stream"> 48</a>
+										</li>
+									</ul>
+								</div><!-- /.module-inner -->
+								<div class="maybe module-outer clearfix">
+									<ul class="specs-user no-bullets">
+										<li class="thumb-user pull-left">
+											<a href="#" title="username">
+												<img src="http://fakeimg.pl/65x65/?text=FPO"/>
+											</a>
+										</li>
+										<li class="specs-location">
+											<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+										</li>
+										<li class="specs-tags">
+											<ul class="group">
+												<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div><!-- /.module-outer -->
+							</li><!-- /.module-large -->
+						</ol><!-- /.grid-streams -->
+					</div>
+				</div>
+			</section><!-- /.lower-content -->
+	    </div><!-- /.span12 -->
+    </div><!-- /.row-fluid -->    
+</div><!-- /.main -->
 
-<!-- NOTE FROM CHRIS: we need to turn off the 'mouse-scroll-zoom' for the map and create overrides for the mapbox.css b/c I want to reposition the zoom buttons -->
-<section class="mvp mid-content">
-	<div class="row-fluid">
-		<div class="span12">
-			<h3>
-				<i class="icon-globe icon-black"></i>
-				Explore Your World
-			</h3>
-			<div id="map"></div>
-		</div>
-	</div>
-</section><!-- /.mid-content -->
-
-<!-- NOTE FROM CHRIS: .lower-content needs to infinite scroll -->
-<section class="mvp lower-content">
-	<div class="row-fluid">
-		<div class="span12">
-			<h3>
-				<i class="icon-facetime-video icon-black"></i>
-				Local Live-Streams
-			</h3>
-<!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
-			<ol class="grid-streams no-bullets"><!-- 4 Column Grid -->
-				<li id="" class="module-large span3" ng-repeat="stream in streams">
-					<div class="mvp module-inner clearfix">
-						<div class="module-video">
-							<a href="/streams/{{stream.id}}" class="live-stream-link">
-								<img ng-src="{{stream.thumbs.medium}}"/>
-							</a>
-							<div class="mvp module-overlay">
-								<em class="title">{{stream.title}}</em>
-							</div>
-						</div>
-						<ul class="mvp specs-stream no-bullets">
-							<li class="specs-comments pull-left">
-								<i class="icon-comment icon-black"></i>
-								<a href="#" title="see comments on this live-stream"> 12</a>
-							</li>
-							<li class="specs-rebroadcasts pull-left">
-								<i class="icon-retweet icon-black"></i>
-								<a href="#" title="see rebroadcasts"> 24</a>
-							</li>
-							<li class="specs-hearts pull-left">
-								<i class="icon-heart icon-black"></i>
-								<a href="#" title="see who hearts this stream"> 48</a>
-							</li>
-						</ul>
-					</div><!-- /.module-inner -->
-					<div class="maybe module-outer clearfix">
-						<ul class="specs-user no-bullets">
-							<li class="thumb-user pull-left">
-								<a href="#" title="username">
-									<img src="http://fakeimg.pl/65x65/?text=FPO"/>
-								</a>
-							</li>
-							<li class="specs-location">
-								<i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
-							</li>
-							<li class="specs-tags">
-								<ul class="group">
-									<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div><!-- /.module-outer -->
-				</li><!-- /.module-large -->
-			</ol><!-- /.grid-streams -->
-		</div>
-	</div>
-</section><!-- /.lower-content -->
 <script>
 	$(function () {
 		$('#filters').collapse({

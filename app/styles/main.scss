@@ -51,6 +51,7 @@ body.base {
 				margin: 5px 0 0 29px;
 			}
 			.nav {width:92%;}
+			li.active > a {background-color: #fff; box-shadow: none; border-bottom: 3px solid red; padding-bottom: 12px;} /*NEED TO CHANGE THIS LATER*/
 			li.golive {float:right;}
 			li.dropdown .caret {
 				margin: {
@@ -68,6 +69,7 @@ body.base {
 			right: 40px;
 		}
 	}
+	.form-actions {border-top: 0;}
 }
 
 // CUSTOM STYLES //
@@ -146,6 +148,7 @@ body.base {
 }
 
 .top-content {
+	background-color: hsla(0,0%,100%,1);
 	padding-bottom: 10px;
 	.stream-controls {
 		.btn {
@@ -193,11 +196,6 @@ body.base {
 			border: none;
 		}
 	}
-}
-
-.tab-content {
-	height: 370px;
-	width: 100%;
 }
 
 #map {

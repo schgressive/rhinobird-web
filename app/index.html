@@ -59,7 +59,7 @@
 			                  <li><a href="#">One more separated link</a></li>
 			                </ul>
 			              </li>
-			              <li class="lighten mvp"><a href="/explore">Explore</a></li>
+			              <li class="lighten active mvp"><a href="/explore">Explore</a></li>
 			              <li class="lighten mvp"><a href="/channels">Channels</a></li>
 			              <li class="lighten deactivated"><a href="/peepol">Peepol & VJs</a></li>
 			              <li class="mvp golive"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
@@ -70,22 +70,17 @@
 		</div><!-- /.navbar -->
     </header>
 
-	<div class="main container-fluid">
+	<!-- content here-->
+	<div class="mainWrapper" ng-view role="main"></div>
+    
+	<footer class="colophon" role="contentinfo">
 		<div class="row-fluid">
-		    <div class="span12">
-		    	<!-- content here-->
-	    		<div class="mainWrapper" ng-view role="main"></div>
-		    </div><!-- /.span12 -->
-	    </div><!-- /.row-fluid -->
-	    <footer class="colophon" role="contentinfo">
-			<div class="row-fluid">
-				<div class="span12">
-					<span>footer content TBD</span>
-				</div>
+			<div class="span12">
+				<span>footer content TBD</span>
 			</div>
-		</footer>
-    </div><!-- /.main -->
-
+		</div>
+	</footer>
+	
     <script src="http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.js"></script>
     <script src="/scripts/vendor/erizo.js"></script>
 
