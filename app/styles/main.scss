@@ -37,6 +37,8 @@ body.base {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	background-color: $bg-color;
+	.btn {text-shadow: none;}
+	.btn, input, .input-append input {border-radius: 0;}
 	.navbar .nav > li > a {padding: 7px 13px;}
 	.navbar .nav > li.lighten > a {
 		color:lighten($base-gray, 50%);
@@ -44,14 +46,14 @@ body.base {
 	}
 	.navbar {
 		.navbar-inner {
-			background-color: hsla(0,0%,100%,1);
+			background-color: $white;
 			background-image: none;
 			.brand {
 				padding: 0;
 				margin: 5px 0 0 29px;
 			}
 			.nav {width:92%;}
-			li.active > a {background-color: #fff; box-shadow: none; border-bottom: 3px solid red; padding-bottom: 12px;} /*NEED TO CHANGE THIS LATER*/
+			li.active > a {background-color: $white; box-shadow: none; border-bottom: 3px solid red; padding-bottom: 12px;} /*NEED TO CHANGE THIS LATER*/
 			li.golive {float:right;}
 			li.dropdown .caret {
 				margin: {
@@ -69,7 +71,6 @@ body.base {
 			right: 40px;
 		}
 	}
-	.form-actions {border-top: 0;}
 }
 
 // CUSTOM STYLES //
@@ -95,7 +96,7 @@ body.base {
 	li.lighten {margin-top: 4px;}
 	.golive { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
 		font-family: "Hero", $condensed-font-stack;
-		font-size: 1.286em;
+		font-size: 1.286em; /*18px*/
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		background-color: $bg-color;
@@ -110,7 +111,7 @@ body.base {
 			height: 32px;
 			display: inline-block;
 			vertical-align: middle;
-			background: url("../images/golive-icon.svg") top left no-repeat;
+			background: url('../images/golive-icon.svg') top left no-repeat;
 		}
 	}
 }
@@ -127,17 +128,9 @@ body.base {
 	border-top: 1px solid rgba(0,0,0,.2);
 }
 
-.center {text-align: center;}
-
-.two-column {
-	.mainWrapper {
-		background-color: rgba(0,0,0,.02);
-		border-left: 1px solid rgba(0,0,0,.05);
-	}
-	.top-content, .mid-content {border-bottom: 4px solid #acacac;}
+.mainWrapper {
+	.main {padding: 20px 30px;}
 }
-
-.mainWrapper {padding: 20px 30px;}
 
 .right-col {
 	margin-top: 44px; /*not the optimum way of doing this */
@@ -148,8 +141,41 @@ body.base {
 }
 
 .top-content {
-	background-color: hsla(0,0%,100%,1);
-	padding-bottom: 10px;
+	background-color: $white;
+	padding: 20px 30px 10px;
+	.form-search {
+		padding: {
+			top:36px;
+			left:10px;
+		}
+	}
+	.form-search input[type="search"] {
+		width: 438px;
+		height: 40px;
+		padding: 0 10px;
+	}
+	.form-search .btn {
+		color: $white;
+		font-family: "Hero", $condensed-font-stack;
+		font-size: 1.286em; /*18px*/
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		text-align: left;
+		width: 194px;
+		height: 42px;
+		padding-left: 14px;
+		background: $base-gray url('../images/letsgo-icon.svg') top right no-repeat;
+		background-size: auto;
+		border: none;
+		box-shadow: none;
+		@include font-smoothing;
+	}
+	.form-actions {
+		padding: 0;
+		margin: 0;
+		border-top: 0;
+		background-color: $white;
+	}
 	.stream-controls {
 		.btn {
 			height: 96px;
