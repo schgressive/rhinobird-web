@@ -1,61 +1,67 @@
-<!-- NOTE FROM CHRIS: I need .top-content to either have tabs OR some other way to reload and sort Channels by type. Type is shown in the .subnav menu -->
-<section class="top-content">
+<div class="main container-fluid">
 	<div class="row-fluid">
-		<div class="span7">
-			<ul class="mvp nav subnav">
-				<li ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
-				<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed">Subscribed</a></li>
-				<li ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire">On Fire!</a></li>
-				<li ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested">Suggested</a></li>
-				<li ng-class="{'active': section == 'allofthepeepol'}"><a href="/channels/allofthepeepol">All of the Peepol</a></li>
-			</ul>
-		</div>
-		<div class="span5">
-			<form method="get" class="mvp form-search pull-right">
-				<div class="form-actions">
-					<div class="input-append">
-						<input class="input-medium" type="search" placeholder="search live streams">
-						<i class="icon-search icon-black"></i>
+		<div class="span12">
+			<section class="top-content">
+				<div class="row-fluid">
+					<div class="span7">
+						<ul class="mvp nav subnav">
+							<li ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
+							<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed">Subscribed</a></li>
+							<li ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire">On Fire!</a></li>
+							<li ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested">Suggested</a></li>
+							<li ng-class="{'active': section == 'allofthepeepol'}"><a href="/channels/allofthepeepol">All of the Peepol</a></li>
+						</ul>
 					</div>
-					<!-- <button type="submit" class="btn btn-primary">Let's Go!</button> -->
-					<button type="button" class="btn" data-toggle="collapse" data-target="#filters">
-						<i class="icon-filter icon-black"></i>
-					</button>
-				</div><!-- /.form-actions -->
-				<div id="filters" class="maybe collapse">
-					<div class="input-append">
-						<input id="filter-location" class="input-large" type="text" placeholder="current location">
-						<i class="icon-map-marker icon-black"></i>
-					</div>
-					<label class="checkbox inline">
-						<input type="checkbox" id="checkbox-channels" value="channels"> Channels
-					</label>
-					<label class="deactivated checkbox inline">
-						<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
-					</label>
-					<label class="deactivated checkbox inline">
-						<input type="checkbox" id="checkbox-archives" value="archives"> Archives
-					</label>
-				</div><!-- /.filters -->
-			</form>
-		</div><!-- /.span10 -->
-	</div><!-- /.row-fluid -->
-</section>
-
-<div ng-switch on="section">
-  <div ng-include="'/views/channels/local.html'"
-       ng-controller="ChannelsLocalCtrl"
-       ng-switch-when="local"></div>
-  <div ng-include="'/views/channels/subscribed.html'"
-       ng-controller="ChannelsSubscribedCtrl"
-       ng-switch-when="subscribed"></div>
-  <div ng-include="'/views/channels/onfire.html'"
-       ng-controller="ChannelsOnfireCtrl"
-       ng-switch-when="onfire"></div>
-  <div ng-include="'/views/channels/suggested.html'"
-       ng-controller="ChannelsSuggestedCtrl"
-       ng-switch-when="suggested"></div>
-  <div ng-include="'/views/channels/allofthepeepol.html'"
-       ng-controller="ChannelsAllofthepeepolCtrl"
-       ng-switch-when="allofthepeepol"></div>
-</div>
+					<div class="span5">
+						<form method="get" class="mvp form-search pull-right">
+							<div class="form-actions">
+								<div class="input-append">
+									<input class="input-medium" type="search" placeholder="search live streams">
+									<i class="icon-search icon-black"></i>
+								</div>
+								<!-- <button type="submit" class="btn btn-primary">Let's Go!</button> -->
+								<button type="button" class="btn" data-toggle="collapse" data-target="#filters">
+									<i class="icon-filter icon-black"></i>
+								</button>
+							</div><!-- /.form-actions -->
+							<div id="filters" class="maybe collapse">
+								<div class="input-append">
+									<input id="filter-location" class="input-large" type="text" placeholder="current location">
+									<i class="icon-map-marker icon-black"></i>
+								</div>
+								<label class="checkbox inline">
+									<input type="checkbox" id="checkbox-channels" value="channels"> Channels
+								</label>
+								<label class="deactivated checkbox inline">
+									<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
+								</label>
+								<label class="deactivated checkbox inline">
+									<input type="checkbox" id="checkbox-archives" value="archives"> Archives
+								</label>
+							</div><!-- /.filters -->
+						</form>
+					</div><!-- /.span10 -->
+				</div><!-- /.row-fluid -->
+			</section>
+			
+			<div ng-switch on="section">
+			  <div ng-include="'/views/channels/local.html'"
+			       ng-controller="ChannelsLocalCtrl"
+			       ng-switch-when="local"></div>
+			  <div ng-include="'/views/channels/subscribed.html'"
+			       ng-controller="ChannelsSubscribedCtrl"
+			       ng-switch-when="subscribed"></div>
+			  <div ng-include="'/views/channels/onfire.html'"
+			       ng-controller="ChannelsOnfireCtrl"
+			       ng-switch-when="onfire"></div>
+			  <div ng-include="'/views/channels/suggested.html'"
+			       ng-controller="ChannelsSuggestedCtrl"
+			       ng-switch-when="suggested"></div>
+			  <div ng-include="'/views/channels/allofthepeepol.html'"
+			       ng-controller="ChannelsAllofthepeepolCtrl"
+			       ng-switch-when="allofthepeepol"></div>
+			</div>
+			
+		</div><!-- /.span12 -->
+    </div><!-- /.row-fluid -->    
+</div><!-- /.main -->
