@@ -3,11 +3,11 @@
 	<div class="row-fluid">
 		<div class="span7">
 			<ul class="mvp nav subnav">
-				<li class="active"><a href="/channels/local">Local</a></li>
-				<li><a href="/channels/subscribed">Subscribed</a></li>
-				<li><a href="/channels/onfire">On Fire!</a></li>
-				<li><a href="/channels/suggested">Suggested</a></li>
-				<li><a href="/channels/allofthepeepol">All of the Peepol</a></li>
+				<li ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
+				<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed">Subscribed</a></li>
+				<li ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire">On Fire!</a></li>
+				<li ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested">Suggested</a></li>
+				<li ng-class="{'active': section == 'allofthepeepol'}"><a href="/channels/allofthepeepol">All of the Peepol</a></li>
 			</ul>
 		</div>
 		<div class="span5">
