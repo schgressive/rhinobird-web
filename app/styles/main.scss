@@ -37,8 +37,11 @@ body.base {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	background-color: $bg-color;
-	.navbar .nav > li > a {padding: 7px 13px; @include link-hover;}
-	.navbar .nav > li.lighten > a {color:lighten($base-gray, 50%);}
+	.navbar .nav > li > a {padding: 7px 13px;}
+	.navbar .nav > li.lighten > a {
+		color:lighten($base-gray, 50%);
+		@include link-hover;
+	}
 	.navbar {
 		.navbar-inner {
 			background-color: hsla(0,0%,100%,1);
@@ -79,6 +82,13 @@ body.base {
 }
 .navbar {
 	font-size: 1.143em;
+	.dropdown-menu {
+		padding-bottom: 11px;
+		li {
+			margin-left: 0px;
+			a:hover {@include link-hover;}
+		}
+	}
 	li {margin-left:30px;}
 	li.lighten {margin-top: 4px;}
 	.golive { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
@@ -90,6 +100,9 @@ body.base {
 		border-left: 1px solid $border-light-color;
 		border-right: 1px solid $border-light-color;
 		@include font-smoothing;
+		&:hover {
+			@include box-shadow(inset 1px 0px 6px 0px hsla(0%, 0%, 0%, 0.25));
+		}
 		.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
 			width: 32px;
 			height: 32px;

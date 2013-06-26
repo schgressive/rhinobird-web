@@ -74,6 +74,7 @@ $border-dark-color         : lighten($base-gray, 40%);
 	&:hover {
 		color: $link-hover-color;
 		background-color: $link-hover-bg-color;
+		background-image: none;
 	}
 }
 
