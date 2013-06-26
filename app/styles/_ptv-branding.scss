@@ -42,8 +42,8 @@ h6 {font-size: $font-size-small;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 
 $hr-color                  : $font-color;
-$border-light-color	  	   : lighten($base-gray, 20%);
-$border-dark-color         : lighten($base-gray, 60%);
+$border-light-color	  	   : lighten($base-gray, 70%);
+$border-dark-color         : lighten($base-gray, 40%);
 
 // Mixins ------------------------------
 
@@ -68,6 +68,13 @@ $border-dark-color         : lighten($base-gray, 60%);
   &.placeholder { @content }
   &:-moz-placeholder { @content }
   &::-webkit-input-placeholder { @content }
+}
+
+@mixin link-hover {
+	&:hover {
+		color: $link-hover-color;
+		background-color: $link-hover-bg-color;
+	}
 }
 
 // Global Classes ------------------------------

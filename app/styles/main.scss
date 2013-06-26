@@ -8,20 +8,24 @@
 .module-outline {outline:fuchsia solid 1px;}
 */
 
+/*
 body.base {outline:1px dashed pink;}
 .container-fluid {outline: 1px dashed green;}
 .row-fluid {outline: 1px dashed blue;}
+*/
 
 @include font-face("LatoRegular", '../fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '../fonts/lato-regita-webfont');
 @include font-face("LatoBlack", '../fonts/lato-bla-webfont');
 @include font-face("MissionScript", '../fonts/mission-script-webfont');
-@include font-face("HeroLight",'.../fonts/hero-light-webfont');
+@include font-face("HeroLight",'../fonts/hero-light-webfont');
 @include font-face("Hero",'../fonts/hero-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
 $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Neue Italic", "TeXGyreHerosItalic", "TeXGyreHeros-Italic", "TeXGyreHeros Italic", "Helvetica Oblique", "Arial Italic", sans-serif;
+
+$condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
 $brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush Script MT", Script MT Bold, "Script MT Bold", Gabriola, "Gabriola", Comic Sans MS, "Comic Sans MS", fantasy;
 
@@ -33,14 +37,25 @@ body.base {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	background-color: $bg-color;
-	.navbar .nav > li > a {color:lighten($base-gray, 50%);}
+	.navbar .nav > li > a {padding: 7px 13px; @include link-hover;}
+	.navbar .nav > li.lighten > a {color:lighten($base-gray, 50%);}
 	.navbar {
 		.navbar-inner {
 			background-color: hsla(0,0%,100%,1);
 			background-image: none;
 			.brand {
 				padding: 0;
-				margin: 0 0 0 29px;
+				margin: 5px 0 0 29px;
+			}
+			.nav {width:92%;}
+			li.golive {float:right;}
+			li.dropdown .caret {
+				margin: {
+						top:8px;
+						left:7px;
+				}
+				border-top-color: lighten($base-gray, 50%);
+				border-bottom-color: lighten($base-gray, 50%);
 			}
 		}
 	}
@@ -64,14 +79,23 @@ body.base {
 }
 .navbar {
 	font-size: 1.143em;
-	.nav {
-		.dropdown {
-			.caret {
-				margin: {
-					top:5px;
-					left:5px;
-				}
-			}
+	li {margin-left:30px;}
+	li.lighten {margin-top: 4px;}
+	.golive { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
+		font-family: "Hero", $condensed-font-stack;
+		font-size: 1.286em;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		background-color: $bg-color;
+		border-left: 1px solid $border-light-color;
+		border-right: 1px solid $border-light-color;
+		@include font-smoothing;
+		.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+			vertical-align: middle;
+			background: url("../images/golive-icon.svg") top left no-repeat;
 		}
 	}
 }
