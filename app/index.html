@@ -31,48 +31,12 @@
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <header class="banner" role="banner">
-    	<div class="navbar navbar-fixed-top">
-    		<div class="navbar-inner">
-    			<div class="container-fluid">
-    				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-		            	<span class="icon-bar"></span>
-		            	<span class="icon-bar"></span>
-		            	<span class="icon-bar"></span>
-					</button>
-			    	<a class="brand" href="/index" title="Peepol.tv">
-			    		<img src="images/ptv-avatar.svg" alt="the Peepol.tv avatar" />
-			    	</a>
-			    	<nav class="nav-collapse collapse" role="navigation">
-				    	<ul class="nav">
-<!-- NOTE FROM CHRIS: Need to add the .active states for links  -->
-			              <li class="dropdown lighten deactivated">
-			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi Username!<b class="caret"></b></a>
-<!-- NOTE FROM CHRIS: sample dropdown content placeholder -->
-			                <ul class="dropdown-menu">
-			                  <li><a href="#">Action</a></li>
-			                  <li><a href="#">Another action</a></li>
-			                  <li><a href="#">Something else here</a></li>
-			                  <li class="divider"></li>
-			                  <li class="nav-header">Nav header</li>
-			                  <li><a href="#">Separated link</a></li>
-			                  <li><a href="#">One more separated link</a></li>
-			                </ul>
-			              </li>
-			              <li class="lighten active mvp"><a href="/explore">Explore</a></li>
-			              <li class="lighten mvp"><a href="/channels">Channels</a></li>
-			              <li class="lighten deactivated"><a href="/peepol">Peepol & VJs</a></li>
-			              <li class="mvp golive"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
-			            </ul>
-				    </nav>
-    			</div><!-- /.container-fluid -->
-    		</div><!-- /.inner-navbar -->
-		</div><!-- /.navbar -->
-    </header>
+  <!-- header here-->
+  <div ng-include="'/views/header.html'" ng-controller="HeaderCtrl"></div>
 
 	<!-- content here-->
 	<div class="mainWrapper" ng-view role="main"></div>
-    
+
 	<footer class="colophon" role="contentinfo">
 		<div class="row-fluid">
 			<div class="span12">
@@ -80,7 +44,7 @@
 			</div>
 		</div>
 	</footer>
-	
+
     <script src="http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.js"></script>
     <script src="/scripts/vendor/erizo.js"></script>
 
@@ -110,6 +74,7 @@
     <script src="/scripts/controllers/golive.js"></script>
     <script src="/scripts/services/stream-service.js"></script>
     <script src="/scripts/controllers/stream.js"></script>
+    <script src="scripts/controllers/header.js"></script>
     <!-- endbuild -->
 
     <script>

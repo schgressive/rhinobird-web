@@ -8,6 +8,14 @@ angular.module('peepoltvApp', ['ngResource'])
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/explore', {
+        templateUrl: '/views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/peepol', {
+        templateUrl: '/views/main.html',
+        controller: 'MainCtrl'
+      })
       .when('/stream', {
         templateUrl: '/views/channels.html',
         controller: 'ChannelsCtrl'
