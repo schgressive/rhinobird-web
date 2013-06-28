@@ -29,6 +29,15 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 $brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush Script MT", Script MT Bold, "Script MT Bold", Gabriola, "Gabriola", Comic Sans MS, "Comic Sans MS", fantasy;
 
+// HEADER SWAP //
+
+.golive-nav { display:none; speak:none;}
+
+.golive .ng-scope > .banner {
+	.main-nav {	display:none; speak:none;}
+	.golive-nav { display:block; speak:normal;}
+}
+
 // BOOTSTRAP OVERRIDES //
 
 body.base {
