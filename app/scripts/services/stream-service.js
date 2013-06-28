@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .factory('streamService', ['$resource', '$q', 'settings', function($resource, $q, settings) {
+  .factory('streamService', function($resource, $q, settings) {
 
     var cache = {};
     var resource = $resource(settings.apiHost + '/streams/:streamId', {}, {
@@ -53,4 +53,4 @@ angular.module('peepoltvApp')
       }
 
     };
-  }]);
+  });

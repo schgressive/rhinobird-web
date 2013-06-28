@@ -2,7 +2,7 @@
 
 angular.module('peepoltvApp')
 
-  .controller('MainCtrl', ['$scope', 'streamService', 'geolocation', function ($scope, streamService, geolocation) {
+  .controller('MainCtrl', function ($scope, streamService, geolocation) {
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
@@ -57,4 +57,4 @@ angular.module('peepoltvApp')
         // Set inital center and zoom
         map.fitBounds(markerLayer.getBounds());
       });
-  }]);
+  });

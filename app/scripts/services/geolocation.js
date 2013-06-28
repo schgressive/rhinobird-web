@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-.factory('geolocation', ['$q', '$rootScope', function($q, $rootScope) {
+.factory('geolocation', function($q, $rootScope) {
   return function() {
     var changeLocation= function (coords) {
       $rootScope.$broadcast('locationChanged', {
@@ -38,4 +38,4 @@ angular.module('peepoltvApp')
     return d.promise;
 
   };
-}]);
+});

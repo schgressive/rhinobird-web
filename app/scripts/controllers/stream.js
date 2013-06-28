@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('StreamCtrl', ['$scope', 'streamService', '$routeParams', function ($scope, streamService, $routeParams) {
+  .controller('StreamCtrl', function ($scope, streamService, $routeParams) {
 
     // Get the stream
     $scope.stream = streamService.resource.get({streamId: $routeParams.streamId}, function(){
@@ -31,4 +31,4 @@ angular.module('peepoltvApp')
 
 
 
-  }]);
+  });

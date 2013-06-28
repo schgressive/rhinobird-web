@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp', ['ngResource'])
-  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
@@ -49,9 +49,9 @@ angular.module('peepoltvApp', ['ngResource'])
       .otherwise({
         redirectTo: '/'
       });
-  }])
-  .run(['$location', '$rootScope', function($location, $rootScope){
+  })
+  .run(function($location, $rootScope){
     $rootScope.$on('$routeChangeSuccess', function(event, current){
       $rootScope.section = current.$$route.section || null;
     });
-  }]);
+  });

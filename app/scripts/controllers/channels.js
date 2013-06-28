@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ChannelsCtrl', ['$scope', 'streamService', '$routeParams', function ($scope, streamService, $routeParams) {
+  .controller('ChannelsCtrl', function ($scope, streamService, $routeParams) {
 
     // Get the streams based on geolocation
     streamService.resource.search({}, function(r){
@@ -14,4 +14,4 @@ angular.module('peepoltvApp')
     });
 
     $scope.section = $routeParams.section || 'local';
-  }]);
+  });

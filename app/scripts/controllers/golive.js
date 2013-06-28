@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('GoliveCtrl', ['$scope', 'streamService', 'geolocation', function ($scope, streamService, geolocation) {
+  .controller('GoliveCtrl', function ($scope, streamService, geolocation) {
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
@@ -57,4 +57,4 @@ angular.module('peepoltvApp')
         });
       });
     };
-  }]);
+  });
