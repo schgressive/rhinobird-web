@@ -31,11 +31,11 @@ $brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush 
 
 // HEADER SWAP //
 
-.golive-nav { display:none; speak:none;}
+nav.golive-nav { display:none; speak:none;}
 
 .golive .ng-scope > .banner {
-	.main-nav {	display:none; speak:none;}
-	.golive-nav { display:block; speak:normal;}
+	nav.main-nav {	display:none; speak:none;}
+	nav.golive-nav { display:block; speak:normal;}
 }
 
 // BOOTSTRAP OVERRIDES //
