@@ -13,9 +13,13 @@
 	<meta name="description" content="Peepol.tv is a global live-streaming network, that seeks to connect millions of people that hold in their hands enough mobile technology power to be the eyes and witness of a global-scale live tv experience; the People’s TV." />
 	<meta name="keywords" content="live-streaming video livestream media open source application app mobile webRTC desktop platform social startup democratization VJ channels android global network TV" />
 	<meta name="robots" content="index, follow" />
+    <!-- build:css /styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="components/bootstrap/docs/assets/css/bootstrap.css"/>
-    <link rel="stylesheet" href="components/bootstrap/docs/assets/css/bootstrap-responsive.css"/>
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/docs/assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/bower_components/bootstrap/docs/assets/css/bootstrap-responsive.css"/>
+
     <link rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.css"/>
   </head>
   <body class="base" ng-app="peepoltvApp" ng-class="section">
@@ -27,8 +31,8 @@
     <![endif]-->
 
     <!--[if lt IE 9]>
-      <script src="components/es5-shim/es5-shim.js"></script>
-      <script src="components/json3/lib/json3.min.js"></script>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
   <!-- header here-->
@@ -46,20 +50,20 @@
 	</footer>
 
     <script src="http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.js"></script>
-    <script src="/scripts/vendor/erizo.js"></script>
+    <script src="/vendor/erizo.js"></script>
 
-    <script src="/components/underscore/underscore.js"></script>
-    <script src="/components/jquery/jquery.js"></script>
-    <script src="/components/bootstrap/docs/assets/js/bootstrap.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="///ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/docs/assets/js/bootstrap.js"></script>
 
-    <script src="/components/unstable-angular-complete/angular.js"></script>
-    <script src="/components/unstable-angular-complete/angular-resource.js"></script>
-    <script src="/components/unstable-angular-complete/angular-cookies.js"></script>
-    <script src="/components/unstable-angular-complete/angular-sanitize.js"></script>
-    <script src="/components/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="/components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/unstable-angular-complete/angular.js"></script>
+    <script src="/bower_components/unstable-angular-complete/angular-resource.js"></script>
+    <script src="/bower_components/unstable-angular-complete/angular-cookies.js"></script>
+    <script src="/bower_components/unstable-angular-complete/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-    <!-- build:js scripts/scripts.js -->
+    <!-- build:js /scripts/scripts.js -->
     <script src="/scripts/app.js"></script>
     <script src="/scripts/settings.js"></script>
     <script src="/scripts/controllers/main.js"></script>
@@ -74,7 +78,7 @@
     <script src="/scripts/controllers/golive.js"></script>
     <script src="/scripts/services/stream-service.js"></script>
     <script src="/scripts/controllers/stream.js"></script>
-    <script src="scripts/controllers/header.js"></script>
+    <script src="/scripts/controllers/header.js"></script>
     <!-- endbuild -->
 
     <script>

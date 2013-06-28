@@ -1,7 +1,6 @@
 {
   "node": true,
   "browser": true,
-  "es5": true,
   "esnext": true,
   "bitwise": true,
   "camelcase": true,
@@ -23,6 +22,7 @@
     "angular": false,
     "_": false,
     "mapbox": false,
-    "L": false
+    "L": false,
+    "Erizo": false
   }
 }
