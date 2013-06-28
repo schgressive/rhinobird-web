@@ -6,23 +6,28 @@ angular.module('peepoltvApp', ['ngResource'])
     $routeProvider
       .when('/', {
         templateUrl: '/views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        section: 'explore'
       })
       .when('/explore', {
         templateUrl: '/views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        section: 'explore'
       })
       .when('/peepol', {
         templateUrl: '/views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        section: 'peepol'
       })
       .when('/stream', {
         templateUrl: '/views/channels.html',
-        controller: 'ChannelsCtrl'
+        controller: 'ChannelsCtrl',
+        section: 'stream'
       })
       .when('/search', {
         templateUrl: '/views/search-results.html',
-        controller: 'SearchResultsCtrl'
+        controller: 'SearchResultsCtrl',
+        section: 'search'
       })
       .when('/golive', {
         templateUrl: '/views/golive.html',
