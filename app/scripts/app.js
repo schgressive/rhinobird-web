@@ -26,7 +26,8 @@ angular.module('peepoltvApp', ['ngResource'])
       })
       .when('/golive', {
         templateUrl: '/views/golive.html',
-        controller: 'GoliveCtrl'
+        controller: 'GoliveCtrl',
+        section: 'golive'
       })
       .when('/streams/:streamId', {
         templateUrl: '/views/stream.html',
@@ -43,4 +44,9 @@ angular.module('peepoltvApp', ['ngResource'])
       .otherwise({
         redirectTo: '/'
       });
+  }])
+  .run(['$location', '$rootScope', function($location, $rootScope){
+    $rootScope.$on('$routeChangeSuccess', function(event, current){
+      $rootScope.section = current.$$route.section || null;
+    });
   }]);
