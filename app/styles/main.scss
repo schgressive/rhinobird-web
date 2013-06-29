@@ -20,6 +20,8 @@ body.base {outline:1px dashed pink;}
 @include font-face("MissionScript", '../fonts/mission-script-webfont');
 @include font-face("HeroLight",'../fonts/hero-light-webfont');
 @include font-face("Hero",'../fonts/hero-webfont');
+@include font-face("Batch",'../fonts/batch-icons-webfont');
+@include font-face("Listicons",'../fonts/listicons-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -83,6 +85,13 @@ body.base {
 }
 
 // CUSTOM STYLES //
+
+[data-icon]::before {
+  font-family: "Listicons";
+  font-style: normal;
+  content: attr(data-icon);
+  speak: none; /* Not to be trusted, but hey. */
+}
 
 .banner {
 	padding-bottom: 40px;
