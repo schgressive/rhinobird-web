@@ -7,7 +7,7 @@
 		    	</a>
 			</div>
 			<div class="span10">
-				<form method="get" class="mvp form-search">
+				<form method="get" class="form-search">
 					<div class="form-actions">
 						<div class="input-append">
 							<input type="search" placeholder="search live streams, locations, tags, etc">
@@ -19,10 +19,10 @@
 						<label class="checkbox inline">
 							<input type="checkbox" id="checkbox-channels" value="channels"> Channels
 						</label>
-						<label class="deactivated checkbox inline">
+						<label class="checkbox inline">
 							<input type="checkbox" id="checkbox-peepol" value="peepol"> Peepol
 						</label>
-						<label class="deactivated checkbox inline">
+						<label class="checkbox inline">
 							<input type="checkbox" id="checkbox-archives" value="archives"> Archives
 						</label>
 					</div><!-- /.form-actions -->
@@ -36,7 +36,7 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
-				<section class="mvp mid-content">
+				<section class="mid-content">
 					<div class="row-fluid">
 						<div class="span12">
 							<h3 class="section-title">
@@ -49,7 +49,7 @@
 				</section><!-- /.mid-content -->
 				
 				<!-- NOTE FROM CHRIS: .lower-content needs to infinite scroll -->
-				<section class="mvp lower-content">
+				<section class="lower-content">
 					<div class="row-fluid">
 						<div class="span12">
 							<h3 class="section-title">
@@ -59,16 +59,16 @@
 				<!-- NOTE FROM CHRIS: these stream modules need to auto-generate, but the markup should not come from JS each list-item should receive an ID, screenshot, title-overlay, specs, and so forth -->
 							<ol class="grid-streams no-bullets"><!-- 4 Column Grid -->
 								<li id="" class="module-large span3" ng-repeat="stream in streams">
-									<div class="mvp module-inner clearfix">
+									<div class="module-inner clearfix">
 										<div class="module-video">
 											<a href="/streams/{{stream.id}}" class="live-stream-link">
 												<img ng-src="{{stream.thumbs.medium}}"/>
 											</a>
-											<div class="mvp module-overlay">
+											<div class="module-overlay">
 												<em class="title">{{stream.title}}</em>
 											</div>
 										</div>
-										<ul class="mvp specs-stream no-bullets">
+										<ul class="specs-stream no-bullets">
 											<li class="specs-comments pull-left">
 												<i class="icon-comment icon-black"></i>
 												<a href="#" title="see comments on this live-stream"> 12</a>
@@ -83,7 +83,7 @@
 											</li>
 										</ul>
 									</div><!-- /.module-inner -->
-									<div class="maybe module-outer clearfix">
+									<div class="module-outer clearfix">
 										<ul class="specs-user no-bullets">
 											<li class="thumb-user pull-left">
 												<a href="#" title="username">

@@ -1,27 +1,13 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
-/*
-.mvp {outline:blue solid 1px;}
-.deactivated {outline:red dashed 1px;}
-.maybe {outline:green dashed 1px;}
-.module-outline {outline:fuchsia solid 1px;}
-*/
-
-/*
-body.base {outline:1px dashed pink;}
-.container-fluid {outline: 1px dashed green;}
-.row-fluid {outline: 1px dashed blue;}
-*/
-
 @include font-face("LatoRegular", '../fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '../fonts/lato-regita-webfont');
 @include font-face("LatoBlack", '../fonts/lato-bla-webfont');
 @include font-face("MissionScript", '../fonts/mission-script-webfont');
 @include font-face("HeroLight",'../fonts/hero-light-webfont');
 @include font-face("Hero",'../fonts/hero-webfont');
-@include font-face("Batch",'../fonts/batch-icons-webfont');
-@include font-face("Listicons",'../fonts/listicons-webfont');
+@include font-face("Entypo",'../fonts/entypo');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -86,8 +72,8 @@ body.base {
 
 // CUSTOM STYLES //
 
-[data-icon]::before {
-  font-family: "Listicons";
+[data-icon]:before {
+  font-family: "Entypo";
   font-style: normal;
   content: attr(data-icon);
   speak: none; /* Not to be trusted, but hey. */
