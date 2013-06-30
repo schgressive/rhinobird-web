@@ -3,11 +3,10 @@
 
 @include font-face("LatoRegular", '../fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '../fonts/lato-regita-webfont');
-@include font-face("LatoBlack", '../fonts/lato-bla-webfont');
+@include font-face("LatoBold", '../fonts/lato-bol-webfont');
 @include font-face("MissionScript", '../fonts/mission-script-webfont');
 @include font-face("HeroLight",'../fonts/hero-light-webfont');
 @include font-face("Hero",'../fonts/hero-webfont');
-@include font-face("Entypo",'../fonts/entypo');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -22,9 +21,12 @@ $brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush 
 nav.golive-nav { display:none; speak:none;}
 
 .golive .ng-scope > .banner {
+	padding-bottom: 60px;
 	nav.main-nav {	display:none; speak:none;}
 	nav.golive-nav { display:block; speak:normal;}
 }
+
+.golive footer {display: none;}
 
 // BOOTSTRAP OVERRIDES //
 
@@ -35,8 +37,9 @@ body.base {
 	line-height: $base-line-height;
 	background-color: $bg-color;
 	.btn {text-shadow: none;}
-	.btn, input, .input-append input {border-radius: 0;}
-	.navbar .nav > li > a {padding: 7px 13px;}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child {border-radius: 0;}
+	input[type="search"] + .add-on {padding: 10px 5px}
+	.navbar .nav > li > a {padding: 7px 13px; text-shadow: none;}
 	.navbar .nav > li.lighten > a {
 		color:lighten($base-gray, 50%);
 		@include link-hover;
@@ -51,7 +54,7 @@ body.base {
 			}
 			.nav {width:92%;}
 			li.active > a {background-color: $white; box-shadow: none; border-bottom: 3px solid red; padding-bottom: 12px;} /*NEED TO CHANGE THIS LATER*/
-			li.golive {float:right;}
+			li.golive-btn {float:right;}
 			li.dropdown .caret {
 				margin: {
 						top:8px;
@@ -70,14 +73,41 @@ body.base {
 	}
 }
 
+
+body.golive li.active > a {border: none;padding: none;}
+body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-shadow: none; border-bottom: none; padding-bottom: 7px;} /*NEED TO CHANGE THIS LATER*/
+
+
 // CUSTOM STYLES //
 
+/*
 [data-icon]:before {
   font-family: "Entypo";
   font-style: normal;
   content: attr(data-icon);
-  speak: none; /* Not to be trusted, but hey. */
+  speak: none;
 }
+*/
+
+.visually-hidden {display: none;}
+
+i[class*="icon"] {font-style: normal;}
+
+.section-title {
+	color: $base-gray;
+	font-family: "LatoBold", $bold-font-stack;
+	margin-bottom: 20px;
+	@include font-smoothing;
+	i {
+		width: 34px;
+		height: 34px;
+		margin-right: 5px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+.explore-icon {background: url('../images/globe-icon.svg') top left no-repeat;}
+.stream-icon {background: url('../images/stream-icon.svg') top left no-repeat;}
 
 .banner {
 	padding-bottom: 40px;
@@ -98,7 +128,7 @@ body.base {
 	}
 	li {margin-left:30px;}
 	li.lighten {margin-top: 4px;}
-	.golive { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
+	.golive-btn { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
 		font-family: "Hero", $condensed-font-stack;
 		font-size: 1.286em; /*18px*/
 		text-transform: uppercase;
@@ -119,34 +149,15 @@ body.base {
 		}
 	}
 }
-.stream {max-width:150px}
-.lower-content {
-	margin-top: 20px;
-	border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.colophon {
-	width: 70%;
-	margin-top: 50px;
-	padding: 10px 0;
-	border-top: 1px solid rgba(0,0,0,.2);
-}
 
 .mainWrapper {
 	.main {padding: 20px 30px;}
 }
 
-.right-col {
-	margin-top: 44px; /*not the optimum way of doing this */
-	.btn-primary {
-		margin-left: 19%;
-		width: 66%;
-	}
-}
-
 .top-content {
 	background-color: $white;
 	padding: 20px 30px 10px;
+	&.feature {border-bottom: 1px solid #ebebeb;}
 	.form-search {
 		padding: {
 			top:36px;
@@ -167,6 +178,7 @@ body.base {
 		text-align: left;
 		width: 194px;
 		height: 42px;
+		margin-left: 22px;
 		padding-left: 14px;
 		background: $base-gray url('../images/letsgo-icon.svg') top right no-repeat;
 		background-size: auto;
@@ -179,17 +191,7 @@ body.base {
 		margin: 0;
 		border-top: 0;
 		background-color: $white;
-	}
-	.stream-controls {
-		.btn {
-			height: 96px;
-			i {
-				margin-top: 36px;
-			}
-		}
-	}
-	.stream-wrapper {
-		overflow: hidden;
+		&.filters {margin-top: 14px;}
 	}
 	.brand img {
 		width: 100%;
@@ -206,14 +208,26 @@ body.base {
 }
 
 .lower-content {
+	margin-top: 20px;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	.hook {
+			text-align: center;
+		a {
+			color: #a3a3a3;
+			padding: 5px 30px;
+			background-color: #EBEBEB;
+			display: inline-block;
+		}
+	}
+}
+
+.lower-content {
 	padding: {
-		top:15px;
 		bottom: 30px;
 	}
 	.row-fluid:first-of-type {
 		padding-bottom: 10px;
 		margin-bottom: 20px;
-		border-bottom: 1px solid rgba(0,0,0,.2)
 	}
 	article {
 		height: 200px; /* sample height remove later */
@@ -233,42 +247,60 @@ body.base {
   width: 100%;
 }
 
-.streams {
-	width: 1000px;
-	height: 105px;
+.local-row, .featured-row, .suggested-row, .onfire-row {
+	max-height:224px;
 	overflow: hidden;
-	li {
-		width: 180px;
-		margin: {
-			bottom: 10px;
-			right: 2%;
+}
+
+.module-overlay {
+	color: $white;
+	padding: 5px 10px 7px;
+	background-color: hsla(0%,0%,0%,.75);
+	float: left;
+	position: relative;
+	a {color: $white; margin-right: 10px;}
+	.specs-title {margin-bottom: 5px}
+}
+
+.module-outer {
+	color: $white;
+	padding: 5px 10px 7px;
+	background-color: #2D2D2D;
+	a {color:$white;}
+	.thumb-user {
+		margin-right: 10px;
+		img {
+			width: 34px;
+			height: 34px;
 		}
 	}
 }
 
-.stream{
-  position: relative;
-
-  .title{
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    color: #fff;
-    padding: 5px 10px;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    font-size: 16px;
-  }
+.btn-overlay {
+	float: right;
+	top: 30px;
+	position: relative;
+	z-index: 5;
 }
 
-.module {
-	margin: {
-		top: 20px;
-		bottom: 25px;
+.rebroadcast-btn {
+	width: 36px;
+	height: 30px;
+	background: url('../images/rebroadcast-icon.svg') top left no-repeat;
+	border: none;
+	border-radius: 0px;
+}
+
+.module-large {
+	.module-overlay {
+		width:92%;
+		top:56px;
 	}
-	.btn-toolbar { /*this is sloppy, clean up later*/
-		position: relative;
-		bottom: -24px;
-		right: -15px;
-	}
+}
+
+.colophon {
+	width: 70%;
+	margin-top: 50px;
+	padding: 10px 0;
+	border-top: 1px solid rgba(0,0,0,.2);
 }
