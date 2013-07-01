@@ -15,8 +15,8 @@
 			</ol><!-- /.carousel-indicators -->
 			<!-- Carousel items -->
 			<div class="item active">
-				<div class="carousel-top">
-					<div class="module-xlarge">
+				<div class="row-fluid carousel-top">
+					<div class="module-xlarge span12">
 						<div class="module-video">
 							<a href="/streams/{{stream.id}}" class="live-stream-link">
 								<img ng-src="{{stream.thumbs.large}}"/>
@@ -46,8 +46,8 @@
 						</div><!-- /.module-video -->
 					</div><!-- /.module-xlarge -->
 				</div><!-- /.carousel-top -->
-				<div class="carousel-bottom">
-					<ol class="carousel-streams">
+				<div class="row-fluid carousel-bottom">
+					<ol class="carousel-streams span12">
 						<li class="module-mini span2" ng-repeat="stream in streams">
 							<div class="module-video">
 								<a href="/streams/{{stream.id}}" class="live-stream-link">
@@ -65,7 +65,7 @@
 								</ul>
 							</div><!-- /.module-overlay -->
 						</li><!-- /.module-mini -->
-					</ol>
+					</ol><!-- /.carousel-streams -->
 				</div><!-- /.carousel-bottom -->
 			</div><!-- /.item -->
 			<div class="item">content</div>
