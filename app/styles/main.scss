@@ -161,6 +161,7 @@ i[class*="icon"] {font-style: normal;}
 .top-content {
 	padding-top: 10px;
 	&.feature {border-bottom: 1px solid #ebebeb;}
+	.form-search input[type="search"] { padding: 10px;}
 	.form-actions {
 		padding: 0;
 		margin: 0;
@@ -178,9 +179,10 @@ i[class*="icon"] {font-style: normal;}
 .explore .top-content {
 	background-color: $white;
 	padding: 20px 30px 10px;
-	.form-search input[type="search"] {
-		width: 438px;
-		height: 40px;
+	.form-search {
+		margin: 27px 0 0 19px;
+		.add-on {padding: 10px 7px 10px;}
+		input[type="search"] { width: 438px;}
 	}
 	.form-search .btn {
 		color: $white;
@@ -190,9 +192,9 @@ i[class*="icon"] {font-style: normal;}
 		letter-spacing: 1px;
 		text-align: left;
 		width: 194px;
-		height: 42px;
-		margin-left: 22px;
-		padding-left: 14px;
+		margin-left: 20px;
+		padding: 12px 0 9px 14px;
+		vertical-align: top;
 		background: $base-gray url('../images/letsgo-icon.svg') top right no-repeat;
 		background-size: auto;
 		border: none;
@@ -203,9 +205,6 @@ i[class*="icon"] {font-style: normal;}
 
 .mid-content {
 	padding-top: 15px;
-	.nav {
-		margin-top: 8px;
-	}
 }
 
 .lower-content {
