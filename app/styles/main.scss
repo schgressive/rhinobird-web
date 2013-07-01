@@ -159,19 +159,28 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .top-content {
+	padding-top: 10px;
+	&.feature {border-bottom: 1px solid #ebebeb;}
+	.form-actions {
+		padding: 0;
+		margin: 0;
+		border-top: 0;
+		background-color: $white;
+		&.filters {margin-top: 14px;}
+	}
+	.brand img {
+		width: 100%;
+		max-width: 150px;
+		height: auto;
+	}
+}
+
+.home .top-content {
 	background-color: $white;
 	padding: 20px 30px 10px;
-	&.feature {border-bottom: 1px solid #ebebeb;}
-	.form-search {
-		padding: {
-			top:36px;
-			left:10px;
-		}
-	}
 	.form-search input[type="search"] {
 		width: 438px;
 		height: 40px;
-		padding: 0 10px;
 	}
 	.form-search .btn {
 		color: $white;
@@ -189,18 +198,6 @@ i[class*="icon"] {font-style: normal;}
 		border: none;
 		box-shadow: none;
 		@include font-smoothing;
-	}
-	.form-actions {
-		padding: 0;
-		margin: 0;
-		border-top: 0;
-		background-color: $white;
-		&.filters {margin-top: 14px;}
-	}
-	.brand img {
-		width: 100%;
-		max-width: 150px;
-		height: auto;
 	}
 }
 
@@ -258,6 +255,15 @@ i[class*="icon"] {font-style: normal;}
 	}	
 }
 
+.subnav {
+	li {
+		margin-right: 34px;
+		display: inline-block;
+		&:last-of-type {margin-right: 0px;}
+		a {color:#b6b8b9;}
+	}
+}
+
 .module-overlay {
 	color: $white;
 	padding: 5px 10px 7px;
@@ -282,6 +288,8 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.module-xlarge {outline:red solid 1px;}
+
 .btn-overlay {
 	float: right;
 	top: 30px;
@@ -303,6 +311,8 @@ i[class*="icon"] {font-style: normal;}
 		top:56px;
 	}
 }
+
+.carousel-streams {max-height: 180px; overflow: hidden;}
 
 .colophon {
 	width: 70%;
