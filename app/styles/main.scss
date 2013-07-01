@@ -38,7 +38,7 @@ body.base {
 	background-color: $bg-color;
 	.btn {text-shadow: none;}
 	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child {border-radius: 0;}
-	input[type="search"] + .add-on {padding: 10px 5px}
+	input[type="search"] + .add-on {padding: 4px 5px}
 	.navbar .nav > li > a {padding: 7px 13px; text-shadow: none;}
 	.navbar .nav > li.lighten > a {
 		color:lighten($base-gray, 50%);
@@ -161,7 +161,6 @@ i[class*="icon"] {font-style: normal;}
 .top-content {
 	padding-top: 10px;
 	&.feature {border-bottom: 1px solid #ebebeb;}
-	.form-search input[type="search"] { padding: 10px;}
 	.form-actions {
 		padding: 0;
 		margin: 0;
@@ -182,7 +181,7 @@ i[class*="icon"] {font-style: normal;}
 	.form-search {
 		margin: 27px 0 0 19px;
 		.add-on {padding: 10px 7px 10px;}
-		input[type="search"] { width: 438px;}
+		input[type="search"] { width: 438px; padding: 10px;}
 	}
 	.form-search .btn {
 		color: $white;
@@ -203,8 +202,15 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.stream .top-content, .search .top-content, .peepol .top-content {
+	border-bottom: 1px solid hsla(200,2%,67%,1);
+}
+
 .mid-content {
 	padding-top: 15px;
+	.form-geo {
+		margin-top: 10px;
+	}
 }
 
 .lower-content {
@@ -314,8 +320,15 @@ i[class*="icon"] {font-style: normal;}
 .carousel-streams {max-height: 180px; overflow: hidden;}
 
 .colophon {
-	width: 70%;
+	font-size: .85em;
 	margin-top: 50px;
-	padding: 10px 0;
-	border-top: 1px solid rgba(0,0,0,.2);
+	padding: 10px 0 5px;
+	border-top: 2px solid rgba(0,0,0,.2);
+	background-color: rgba(0,0,0,.75);
+	a {
+		color: hsla(0,0%,45%,1);
+		&:hover {color:$white;}
+	}
+	.footer-copy {margin-left: 30px;}
+	.one-liner {display: block;}
 }
