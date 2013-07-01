@@ -1,0 +1,17 @@
+<li class="module-mini span2 ng-repeat="stream in streams"">
+	<div class="module-video">
+		<a href="/streams/{{stream.id}}" class="live-stream-link">
+			<img ng-src="{{stream.thumbs.small}}"/>
+		</a>
+	</div><!-- /.module-video -->
+	<div class="module-overlay">
+		<div class="btn-overlay">
+			<button class="rebroadcast-btn" type="button">
+				<span class="visually-hidden">Rebroadcast This Stream</span>
+			</button>
+		</div>
+		<ul class="specs-stream no-bullets">
+			<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+		</ul>
+	</div><!-- /.module-overlay -->
+</li><!-- /.module-mini -->

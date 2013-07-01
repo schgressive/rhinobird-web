@@ -1,102 +1,80 @@
 <section class="mid-content">
-  <div class="row-fluid">
-    <div class="span10">
-      <h3 class="section-title">
-        <i class="featured-icon"></i> Featured Local Channels
-      </h3>
-    </div>
-    <div class="span2">
-      <button type="button" class="btn pull-right" data-toggle="collapse" data-target="#carousel-main">
-        <i class="icon-chevron-right icon-black"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span12">
-      <div id="carousel-main" class="mvp carousel slide collapse in">
-        <ol class="carousel-indicators no-bullets">
-          <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-main" data-slide-to="1"></li>
-          <li data-target="#carousel-main" data-slide-to="2"></li>
-        </ol>
-        <!-- Carousel items -->
-        <div class="carousel-inner">
-          <div class="active item">
-            <div class="row-fluid">
-              <div class="span8">
-                <div class="module-xlarge">
-                  <div class="module-video">
-                  <a href="#" class="live-stream-link">
-                    <img src="http://fakeimg.pl/600x345/?text=FeaturedChannel"/>
-                  </a>
-                  <div class="mvp module-overlay">
-                    <em class="title">title here</em>
-                  </div>
-                </div>
-                <ul class="mvp specs-stream no-bullets">
-                  <li class="specs-location pull-left">
-                    <i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">Location Name</a></span>
-                  </li>
-                  <li class="specs-comments pull-left">
-                    <i class="icon-comment icon-black"></i>
-                    <a href="#" title="see comments on this live-stream"> 12</a>
-                  </li>
-                  <li class="specs-rebroadcasts pull-left">
-                    <i class="icon-retweet icon-black"></i>
-                    <a href="#" title="see rebroadcasts"> 24</a>
-                  </li>
-                  <li class="specs-hearts pull-left">
-                    <i class="icon-heart icon-black"></i>
-                    <a href="#" title="see who hearts this stream"> 48</a>
-                  </li>
-                </ul>
-                </div>
-              </div>
-              <div class="span4">
-                <ol class="mvp carousel-streams no-bullets">
-                  <li class="module-mini">
-                    <div class="module-video">
-                    <a href="#" class="live-stream-link">
-                      <img src="http://fakeimg.pl/199x100/?text=Channel"/>
-                    </a>
-                    <div class="mvp module-overlay">
-                      <em class="title">title here</em>
-                    </div>
-                  </div>
-                  </li>
-                  <li class="module-mini">
-                    <div class="module-video">
-                    <a href="#" class="live-stream-link">
-                      <img src="http://fakeimg.pl/199x100/?text=Channel"/>
-                    </a>
-                    <div class="mvp module-overlay">
-                      <em class="title">title here</em>
-                    </div>
-                  </div>
-                  </li>
-                  <li class="module-mini">
-                    <div class="module-video">
-                    <a href="#" class="live-stream-link">
-                      <img src="http://fakeimg.pl/199x100/?text=Channel"/>
-                    </a>
-                    <div class="mvp module-overlay">
-                      <em class="title">title here</em>
-                    </div>
-                  </div>
-                  </li>
-                </ol><!-- /.carousel-streams -->
-              </div>
-            </div>
-          </div>
-          <div class="item">content</div>
-          <div class="item">content</div>
-        </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#carousel-main" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#carousel-main" data-slide="next">&rsaquo;</a>
-      </div><!-- /#carousel-main -->
-    </div>
-  </div>
+	<div class="row-fluid">
+		<div class="span12">
+		  <h3 class="section-title">
+			<i class="featured-icon"></i> Featured Local Channels
+		  </h3>
+		</div>
+	</div><!-- /.row-fluid -->
+	<div class="row-fluid">
+		<div id="carousel-main" class="carousel slide span12">
+			<ol class="carousel-indicators no-bullets">
+				<li data-target="#carousel-main" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-main" data-slide-to="1"></li>
+				<li data-target="#carousel-main" data-slide-to="2"></li>
+			</ol><!-- /.carousel-indicators -->
+			<!-- Carousel items -->
+			<div class="item active">
+				<div class="carousel-top">
+					<div class="module-xlarge">
+						<div class="module-video">
+							<a href="/streams/{{stream.id}}" class="live-stream-link">
+								<img ng-src="{{stream.thumbs.large}}"/>
+							</a>
+							<div class="btn-overlay">
+								<button class="rebroadcast-btn" type="button">
+									<span class="visually-hidden">Rebroadcast This Stream</span>
+								</button>
+							</div>
+							<div class="module-overlay">
+								<ul class="specs-stream no-bullets">
+									<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+									<li class="specs-comments pull-left">
+										<i class="icon-comment icon-white"></i>
+										<a href="#" title="see comments on this live-stream"> 12</a>
+									</li>
+									<li class="specs-rebroadcasts pull-left">
+										<i class="icon-retweet icon-white"></i>
+										<a href="#" title="see rebroadcasts"> 24</a>
+									</li>
+									<li class="specs-hearts pull-left">
+										<i class="icon-heart icon-white"></i>
+										<a href="#" title="see who hearts this stream"> 48</a>
+									</li>
+								</ul><!-- /.specs-stream -->
+							</div><!-- /.module-overlay -->
+						</div><!-- /.module-video -->
+					</div><!-- /.module-xlarge -->
+				</div><!-- /.carousel-top -->
+				<div class="carousel-bottom">
+					<ol class="carousel-streams">
+						<li class="module-mini span2" ng-repeat="stream in streams">
+							<div class="module-video">
+								<a href="/streams/{{stream.id}}" class="live-stream-link">
+									<img ng-src="{{stream.thumbs.small}}"/>
+								</a>
+							</div><!-- /.module-video -->
+							<div class="module-overlay">
+								<div class="btn-overlay">
+									<button class="rebroadcast-btn" type="button">
+										<span class="visually-hidden">Rebroadcast This Stream</span>
+									</button>
+								</div>
+								<ul class="specs-stream no-bullets">
+									<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+								</ul>
+							</div><!-- /.module-overlay -->
+						</li><!-- /.module-mini -->
+					</ol>
+				</div><!-- /.carousel-bottom -->
+			</div><!-- /.item -->
+			<div class="item">content</div>
+			<div class="item">content</div>
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#carousel-main" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right" href="#carousel-main" data-slide="next">&rsaquo;</a>
+		</div><!-- /#carousel-main -->
+    </div><!-- /.row-fluid -->
 </section><!-- /.mid-content -->
 
 <section class="lower-content stream-area">
