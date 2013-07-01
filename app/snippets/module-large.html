@@ -1,16 +1,17 @@
 <div class="module-large span3" ng-repeat="stream in streams">
 	<div class="module-inner">
-		<div class="module-video">
-			<a href="/streams/{{stream.id}}" class="live-stream-link">
-				<img ng-src="{{stream.thumbs.medium}}"/>
-			</a>
-		</div><!-- /.module-video -->
-		<div class="module-overlay">
+		<div class="module-video clearfix">
 			<div class="btn-overlay">
 				<button class="rebroadcast-btn" type="button">
 					<span class="visually-hidden">Rebroadcast This Stream</span>
 				</button>
 			</div>
+			<a href="/streams/{{stream.id}}" class="live-stream-link">
+				<img ng-src="{{stream.thumbs.medium}}"/>
+			</a>
+			
+		</div><!-- /.module-video -->
+		<div class="module-overlay clearfix">
 			<ul class="specs-stream no-bullets">
 				<li class="specs-title"><em class="title">{{stream.title}}</em></li>
 				<li class="specs-comments pull-left">
@@ -32,7 +33,8 @@
 		<ul class="specs-user no-bullets">
 			<li class="thumb-user pull-left">
 				<a href="#" title="username">
-					<img src="http://fakeimg.pl/65x65/?text=FPO"/>
+<!-- NOTE FROM CHRIS: Can we autogenerate some user profile images? -->
+					<img src="http://fakeimg.pl/34x34/?text=FPO"/>
 				</a>
 			</li>
 			<li class="specs-location">

@@ -158,6 +158,11 @@ i[class*="icon"] {font-style: normal;}
 	.main {padding: 20px 30px;}
 }
 
+body.golive {
+	background-color: hsla(0%,0%,0%,.75);
+	.main {	margin-top: -14px;}
+}
+
 .top-content {
 	padding-top: 10px;
 	border-bottom: 1px solid hsla(200,2%,67%,1);
@@ -226,8 +231,6 @@ i[class*="icon"] {font-style: normal;}
 		}
 	}
 }
-
-
 
 #map {
   height: 370px;
@@ -299,6 +302,14 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .carousel-streams {max-height: 180px; overflow: hidden;}
+
+
+.options-row {
+	margin-top: -24px;
+	background-color: hsla(0%,0%,0%,.5);
+	padding-top: 20px;
+	form {margin-left: 30px;}
+}
 
 .colophon {
 	font-size: .85em;
