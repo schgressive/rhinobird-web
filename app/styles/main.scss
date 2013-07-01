@@ -108,6 +108,10 @@ i[class*="icon"] {font-style: normal;}
 }
 .explore-icon {background: url('../images/globe-icon.svg') top left no-repeat;}
 .stream-icon {background: url('../images/stream-icon.svg') top left no-repeat;}
+.onfire-icon {background: url('../images/onfire-icon.svg') top left no-repeat;}
+.featured-icon {background: url('../images/featured-icon.svg') top left no-repeat;}
+.suggested-icon {background: url('../images/suggested-icon.svg') top left no-repeat;}
+.channel-icon {background: url('../images/hash-icon.svg') top left no-repeat;}
 
 .banner {
 	padding-bottom: 40px;
@@ -247,9 +251,11 @@ i[class*="icon"] {font-style: normal;}
   width: 100%;
 }
 
-.local-row, .featured-row, .suggested-row, .onfire-row {
-	max-height:224px;
-	overflow: hidden;
+.explore {
+	.local-row, .featured-row, .suggested-row, .onfire-row {
+		max-height:224px;
+		overflow: hidden;
+	}	
 }
 
 .module-overlay {

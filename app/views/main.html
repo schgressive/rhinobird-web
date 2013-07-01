@@ -1,4 +1,4 @@
-<section class="top-content feature">
+<section class="top-content feature" role="search">
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span2">
@@ -7,7 +7,7 @@
 		    	</a>
 			</div>
 			<div class="span10">
-				<form method="get" class="form-search">
+				<form method="get" class="form-search" role="search">
 					<div class="form-actions">
 						<div class="input-append">
 							<input type="search" placeholder="search live streams, locations, tags, etc">
@@ -32,19 +32,32 @@
 	</div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
 			
-<div class="main">
+<div class="main" role="main">
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
 				<section class="mid-content">
 					<div class="row-fluid">
-						<div class="span12">
+						<div class="span6">
 							<h2 class="section-title">
 								<i class="explore-icon"></i>
 								Explore Your World
 							</h2>
-							<div id="map"></div>
 						</div>
+						<div class="span6">
+							<form method="get" class="form-geo pull-right" role="search">
+								<label for="geolocate" class="visually-hidden">search by location</label>
+								<div class="input-append">
+									<input type="search" placeholder="current location">
+									<span class="add-on">
+										<i class="icon-map-marker"></i>
+									</span>
+								</div><!-- /.input-append -->
+							</form>
+						</div>
+					</div><!-- /.row-fluid -->
+					<div class="row-fluid">	
+						<div id="map" class="span12"></div>
 					</div>
 				</section><!-- /.mid-content -->
 				
@@ -100,6 +113,180 @@
 												<a href="#" title="username">
 <!-- NOTE FROM CHRIS: Can we autogenerate some user profile images? -->
 													<img src="http://fakeimg.pl/34x34/?text=FPO"/>
+												</a>
+											</li>
+											<li class="specs-location">
+												<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+											</li>
+											<li class="specs-tags">
+												<ul class="group">
+													<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+												</ul>
+											</li>
+										</ul><!-- /.specs-user -->
+									</div><!-- /.module-outer -->
+								</div><!-- /.module-large -->
+							</ol><!-- /.local-row -->
+						</div><!-- /.span12 -->
+					</div><!-- /.row-fluid -->
+					<div class="row-fluid">
+						<div class="span12">
+							<h3 class="section-title">
+								<i class="onfire-icon"></i>
+								On Fire!
+							</h3>
+							<ol class="onfire-row grid-streams no-bullets">
+								<div class="module-large span3" ng-repeat="stream in streams">
+									<div class="module-inner">
+										<div class="module-video">
+											<a href="/streams/{{stream.id}}" class="live-stream-link">
+												<img ng-src="{{stream.thumbs.medium}}"/>
+											</a>
+										</div><!-- /.module-video -->
+										<div class="module-overlay">
+											<div class="btn-overlay">
+												<button class="rebroadcast-btn" type="button">
+													<span class="visually-hidden">Rebroadcast This Stream</span>
+												</button>
+											</div>
+											<ul class="specs-stream no-bullets">
+												<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+												<li class="specs-comments pull-left">
+													<i class="icon-comment icon-white"></i>
+													<a href="#" title="see comments on this live-stream"> 12</a>
+												</li>
+												<li class="specs-rebroadcasts pull-left">
+													<i class="icon-retweet icon-white"></i>
+													<a href="#" title="see rebroadcasts"> 24</a>
+												</li>
+												<li class="specs-hearts pull-left">
+													<i class="icon-heart icon-white"></i>
+													<a href="#" title="see who hearts this stream"> 48</a>
+												</li>
+											</ul><!-- /.specs-stream -->
+										</div><!-- /.module-overlay -->
+									</div><!-- /.module-inner -->
+									<div class="module-outer clearfix">
+										<ul class="specs-user no-bullets">
+											<li class="thumb-user pull-left">
+												<a href="#" title="username">
+													<img src="http://fakeimg.pl/65x65/?text=FPO"/>
+												</a>
+											</li>
+											<li class="specs-location">
+												<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+											</li>
+											<li class="specs-tags">
+												<ul class="group">
+													<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+												</ul>
+											</li>
+										</ul><!-- /.specs-user -->
+									</div><!-- /.module-outer -->
+								</div><!-- /.module-large -->
+							</ol><!-- /.local-row -->
+						</div><!-- /.span12 -->
+					</div><!-- /.row-fluid -->
+					<div class="row-fluid">
+						<div class="span12">
+							<h3 class="section-title">
+								<i class="featured-icon"></i>
+								Featured Channels
+							</h3>
+							<ol class="featured-row grid-streams no-bullets">
+								<div class="module-large span3" ng-repeat="stream in streams">
+									<div class="module-inner">
+										<div class="module-video">
+											<a href="/streams/{{stream.id}}" class="live-stream-link">
+												<img ng-src="{{stream.thumbs.medium}}"/>
+											</a>
+										</div><!-- /.module-video -->
+										<div class="module-overlay">
+											<div class="btn-overlay">
+												<button class="rebroadcast-btn" type="button">
+													<span class="visually-hidden">Rebroadcast This Stream</span>
+												</button>
+											</div>
+											<ul class="specs-stream no-bullets">
+												<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+												<li class="specs-comments pull-left">
+													<i class="icon-comment icon-white"></i>
+													<a href="#" title="see comments on this live-stream"> 12</a>
+												</li>
+												<li class="specs-rebroadcasts pull-left">
+													<i class="icon-retweet icon-white"></i>
+													<a href="#" title="see rebroadcasts"> 24</a>
+												</li>
+												<li class="specs-hearts pull-left">
+													<i class="icon-heart icon-white"></i>
+													<a href="#" title="see who hearts this stream"> 48</a>
+												</li>
+											</ul><!-- /.specs-stream -->
+										</div><!-- /.module-overlay -->
+									</div><!-- /.module-inner -->
+									<div class="module-outer clearfix">
+										<ul class="specs-user no-bullets">
+											<li class="thumb-user pull-left">
+												<a href="#" title="username">
+													<img src="http://fakeimg.pl/65x65/?text=FPO"/>
+												</a>
+											</li>
+											<li class="specs-location">
+												<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+											</li>
+											<li class="specs-tags">
+												<ul class="group">
+													<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+												</ul>
+											</li>
+										</ul><!-- /.specs-user -->
+									</div><!-- /.module-outer -->
+								</div><!-- /.module-large -->
+							</ol><!-- /.local-row -->
+						</div><!-- /.span12 -->
+					</div><!-- /.row-fluid -->
+					<div class="row-fluid">
+						<div class="span12">
+							<h3 class="section-title">
+								<i class="suggested-icon"></i>
+								Suggested
+							</h3>
+							<ol class="suggested-row grid-streams no-bullets">
+								<div class="module-large span3" ng-repeat="stream in streams">
+									<div class="module-inner">
+										<div class="module-video">
+											<a href="/streams/{{stream.id}}" class="live-stream-link">
+												<img ng-src="{{stream.thumbs.medium}}"/>
+											</a>
+										</div><!-- /.module-video -->
+										<div class="module-overlay">
+											<div class="btn-overlay">
+												<button class="rebroadcast-btn" type="button">
+													<span class="visually-hidden">Rebroadcast This Stream</span>
+												</button>
+											</div>
+											<ul class="specs-stream no-bullets">
+												<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+												<li class="specs-comments pull-left">
+													<i class="icon-comment icon-white"></i>
+													<a href="#" title="see comments on this live-stream"> 12</a>
+												</li>
+												<li class="specs-rebroadcasts pull-left">
+													<i class="icon-retweet icon-white"></i>
+													<a href="#" title="see rebroadcasts"> 24</a>
+												</li>
+												<li class="specs-hearts pull-left">
+													<i class="icon-heart icon-white"></i>
+													<a href="#" title="see who hearts this stream"> 48</a>
+												</li>
+											</ul><!-- /.specs-stream -->
+										</div><!-- /.module-overlay -->
+									</div><!-- /.module-inner -->
+									<div class="module-outer clearfix">
+										<ul class="specs-user no-bullets">
+											<li class="thumb-user pull-left">
+												<a href="#" title="username">
+													<img src="http://fakeimg.pl/65x65/?text=FPO"/>
 												</a>
 											</li>
 											<li class="specs-location">

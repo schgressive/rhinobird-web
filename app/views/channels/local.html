@@ -1,9 +1,9 @@
 <section class="mid-content">
   <div class="row-fluid">
     <div class="span10">
-      <h2 class="section-title">
-        <i class="icon-star-empty icon-black"></i> Featured Channels
-      </h2>
+      <h3 class="section-title">
+        <i class="featured-icon"></i> Featured Local Channels
+      </h3>
     </div>
     <div class="span2">
       <button type="button" class="btn pull-right" data-toggle="collapse" data-target="#carousel-main">
@@ -99,61 +99,74 @@
   </div>
 </section><!-- /.mid-content -->
 
-<section class="lower-content">
-  <div class="row-fluid">
-    <div class="span12">
-      <h3>
-        <i class="icon-film icon-black"></i>
-        Local Channels
-      </h3>
-<!-- NOTE FROM CHRIS: these streams need to show Channels. Assume that the video is the featured stream for a Channel. -->
-      <ol class="grid-streams"><!-- 4 Column Grid -->
-        <li id="" class="module-large no-bullets span3" ng-repeat="stream in streams">
-          <div class="mvp module-inner clearfix">
-            <div class="module-video">
-              <a href="#" class="live-stream-link">
-                <img ng-src="{{stream.thumbs.medium}}"/>
-              </a>
-              <div class="mvp module-overlay">
-                <em class="title">{{stream.title}}</em>
-              </div>
-            </div>
-            <ul class="mvp specs-stream">
-              <li class="specs-comments pull-left">
-                <i class="icon-comment icon-black"></i>
-                <a href="#" title="see comments on this live-stream"> 12</a>
-              </li>
-              <li class="specs-rebroadcasts pull-left">
-                <i class="icon-retweet icon-black"></i>
-                <a href="#" title="see rebroadcasts"> 24</a>
-              </li>
-              <li class="specs-hearts pull-left">
-                <i class="icon-heart icon-black"></i>
-                <a href="#" title="see who hearts this stream"> 48</a>
-              </li>
-            </ul>
-          </div><!-- /.module-inner -->
-          <div class="maybe module-outer clearfix">
-            <ul class="specs-user">
-              <li class="thumb-user pull-left">
-                <a href="#" title="username">
-                  <img src="http://fakeimg.pl/65x65/?text=FPO"/>
-                </a>
-              </li>
-              <li class="specs-location">
-                <i class="icon-map-marker icon-black"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
-              </li>
-              <li class="specs-tags">
-                <ul class="group">
-                  <li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!-- /.module-outer -->
-        </li><!-- /.module-large -->
-      </ol><!-- /.grid-streams -->
-    </div>
-  </div>
+<section class="lower-content stream-area">
+<!-- NOTE FROM CHRIS: whenever section has streaming content, add stream-area class. And the hook.js refresh button as in below. -->
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="hook" id="hook">
+				<a href="#"><span>refresh</span></a>
+			</div>
+		</div>
+	</div><!-- /.row-fluid -->
+	<div class="row-fluid">
+		<div class="span12">
+			<h3 class="section-title">
+				<i class="channel-icon"></i>
+				Local Channels
+			</h3>
+			<ol class="local-row grid-streams no-bullets">	
+				<div class="module-large span3" ng-repeat="stream in streams">
+					<div class="module-inner clearfix">
+						<div class="module-video">
+							<a href="/streams/{{stream.id}}" class="live-stream-link">
+								<img ng-src="{{stream.thumbs.medium}}"/>
+							</a>
+							<div class="btn-overlay">
+								<button class="rebroadcast-btn" type="button">
+									<span class="visually-hidden">Rebroadcast This Stream</span>
+								</button>
+							</div>
+						</div><!-- /.module-video -->
+						<div class="module-overlay clearfix">
+							<ul class="specs-stream no-bullets">
+								<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+								<li class="specs-comments pull-left">
+									<i class="icon-comment icon-white"></i>
+									<a href="#" title="see comments on this live-stream"> 12</a>
+								</li>
+								<li class="specs-rebroadcasts pull-left">
+									<i class="icon-retweet icon-white"></i>
+									<a href="#" title="see rebroadcasts"> 24</a>
+								</li>
+								<li class="specs-hearts pull-left">
+									<i class="icon-heart icon-white"></i>
+									<a href="#" title="see who hearts this stream"> 48</a>
+								</li>
+							</ul><!-- /.specs-stream -->
+						</div><!-- /.module-overlay -->
+					</div><!-- /.module-inner -->
+					<div class="module-outer clearfix">
+						<ul class="specs-user no-bullets">
+							<li class="thumb-user pull-left">
+								<a href="#" title="username">
+<!-- NOTE FROM CHRIS: Can we autogenerate some user profile images? -->
+									<img src="http://fakeimg.pl/34x34/?text=FPO"/>
+								</a>
+							</li>
+							<li class="specs-location">
+								<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+							</li>
+							<li class="specs-tags">
+								<ul class="group">
+									<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+								</ul>
+							</li>
+						</ul><!-- /.specs-user -->
+					</div><!-- /.module-outer -->
+				</div><!-- /.module-large -->
+			</ol><!-- /.channels-row -->
+		</div><!-- /.span12 -->
+	</div><!-- /.row-fluid -->
 </section><!-- /.lower-content -->
 
 <script>
