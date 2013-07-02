@@ -18,6 +18,7 @@ angular.module('peepoltvApp')
 
         // Show the video
         $scope.localStream.show('myBroadcast');
+        $scope.localStream.player.video.muted = true;
 
         // Set a readyToGo state
         $scope.readyToGo = true;
