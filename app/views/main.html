@@ -77,7 +77,7 @@
 								Local Live-Streams
 							</h3>
 							<ol class="local-row grid-streams no-bullets">	
-								<div class="module-large span3" ng-repeat="stream in streams">
+								<div class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div class="module-inner">
 										<div class="module-video clearfix">
 											<div class="btn-overlay">
@@ -136,7 +136,7 @@
 								On Fire!
 							</h3>
 							<ol class="onfire-row grid-streams no-bullets">
-								<div class="module-large span3" ng-repeat="stream in streams">
+								<div class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div class="module-inner">
 										<div class="module-video clearfix">
 											<div class="btn-overlay">
@@ -194,7 +194,7 @@
 								Featured Channels
 							</h3>
 							<ol class="featured-row grid-streams no-bullets">
-								<div class="module-large span3" ng-repeat="stream in streams">
+								<div class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div class="module-inner">
 										<div class="module-video clearfix">
 											<div class="btn-overlay">
@@ -253,7 +253,7 @@
 								Suggested
 							</h3>
 							<ol class="suggested-row grid-streams no-bullets">
-								<div class="module-large span3" ng-repeat="stream in streams">
+								<div class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div class="module-inner">
 										<div class="module-video clearfix">
 											<div class="btn-overlay">

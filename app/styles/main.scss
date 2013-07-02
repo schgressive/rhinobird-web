@@ -170,7 +170,7 @@ body.golive {
 
 .top-content {
 	padding-top: 10px;
-	border-bottom: 1px solid hsla(200,2%,67%,1);
+	border-bottom: 1px solid hsla(0%,0%,80%,1);
 	&.feature {border-bottom: 1px solid #ebebeb;}
 	.form-actions {
 		padding: 0;
@@ -226,6 +226,8 @@ body.golive {
 	margin-top: 20px;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	padding-bottom:	30px;
+	/*below fixes grid flow problem with streams*/
+	.row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
 	.hook {
 			text-align: center;
 		a {
@@ -255,6 +257,10 @@ body.golive {
 		display: inline-block;
 		&:last-of-type {margin-right: 0px;}
 		a {color:#b6b8b9;}
+		&.active a {
+			color: hsla(0%,0%,15%,1);
+			border-bottom: 2px solid hsla(0%,0%,15%,1);
+		}
 	}
 }
 
@@ -305,8 +311,6 @@ body.golive {
 		top:56px;
 	}
 }
-
-.carousel-streams {max-height: 180px; overflow: hidden;}
 
 .options-row {
 	margin-top: -24px;
