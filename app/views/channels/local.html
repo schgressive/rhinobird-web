@@ -100,15 +100,15 @@
 				<li class="module-large span3" ng-repeat="stream in streams">
 					<div class="module-inner">
 						<div class="module-video">
-							<div class="btn-overlay">
-								<button class="rebroadcast-btn" type="button" data-toggle="modal" data-target="#rebroadcast-modal">
-									<span class="visually-hidden">Rebroadcast This Stream</span>
-								</button>
-							</div>
 							<a href="/streams/{{stream.id}}" class="live-stream-link">
 								<img ng-src="{{stream.thumbs.medium}}"/>
 							</a>
 							<div class="module-overlay">
+								<div class="btn-overlay">
+									<button class="rebroadcast-btn" type="button" data-toggle="modal" data-target="#rebroadcast-modal">
+										<span class="visually-hidden">Rebroadcast This Stream</span>
+									</button>
+								</div>
 								<ul class="specs-stream no-bullets">
 									<li class="specs-title"><em class="title">{{stream.title}}</em></li>
 									<li class="specs-comments pull-left">
