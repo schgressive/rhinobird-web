@@ -227,6 +227,12 @@ body.golive {
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	padding-bottom:	30px;
 	/*below fixes grid flow problem with streams*/
+	.grid-streams li[class*="module"] {
+		margin: {
+			top:10px;
+			bottom: 15px;
+		}
+	}
 	.row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
 	.hook {
 			text-align: center;
@@ -244,13 +250,6 @@ body.golive {
   width: 100%;
 }
 
-.explore {
-	.local-row, .featured-row, .suggested-row, .onfire-row {
-		max-height:224px;
-		overflow: hidden;
-	}
-}
-
 .subnav {
 	li {
 		margin-right: 34px;
@@ -264,12 +263,19 @@ body.golive {
 	}
 }
 
+.module-video {
+	position: relative;
+	overflow: hidden; /*needs fallback for IE? */
+}
+
 .module-overlay {
 	color: $white;
+	width: 100%;
 	padding: 5px 10px 7px;
 	background-color: hsla(0%,0%,0%,.75);
-	float: left;
-	position: relative;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 	a {color: $white; margin-right: 10px;}
 	.specs-title {margin-bottom: 5px}
 }
@@ -290,25 +296,19 @@ body.golive {
 
 .module-xlarge {outline:red solid 1px;}
 
+.module-video, .live-stream-link {background-color: #000;}
+
 .btn-overlay {
-	float: right;
-	top: 30px;
-	position: relative;
+	right: 0;
+	top: 0;
+	position: absolute;
 	z-index: 5;
-}
-
-.rebroadcast-btn {
-	width: 36px;
-	height: 30px;
-	background: url('../images/rebroadcast-icon.svg') top left no-repeat;
-	border: none;
-	border-radius: 0px;
-}
-
-.module-large {
-	.module-overlay {
-		width:92%;
-		top:56px;
+	.rebroadcast-btn {
+		width: 36px;
+		height: 30px;
+		background: url('../images/rebroadcast-icon.svg') top left no-repeat;
+		border: none;
+		border-radius: 0px;
 	}
 }
 

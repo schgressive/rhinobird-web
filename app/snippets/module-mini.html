@@ -1,4 +1,4 @@
-<li class="module-mini span2 ng-repeat="stream in streams"">
+<li class="module-mini span2" ng-repeat="stream in streams | limitTo:5">
 	<div class="module-video">
 		<a href="/streams/{{stream.id}}" class="live-stream-link">
 			<img ng-src="{{stream.thumbs.small}}"/>

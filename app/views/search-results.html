@@ -52,41 +52,41 @@
 					<div class="row-fluid">
 						<div class="span12">
 							<ol class="local-row grid-streams no-bullets">	
-								<div class="module-large span3" ng-repeat="stream in streams">
-									<div class="module-inner clearfix">
+								<li class="module-large span3" ng-repeat="stream in streams">
+									<div class="module-inner">
 										<div class="module-video">
-											<a href="/streams/{{stream.id}}" class="live-stream-link">
-												<img ng-src="{{stream.thumbs.medium}}"/>
-											</a>
 											<div class="btn-overlay">
-												<button class="rebroadcast-btn" type="button">
+												<button class="rebroadcast-btn" type="button" data-toggle="modal" data-target="#rebroadcast-modal">
 													<span class="visually-hidden">Rebroadcast This Stream</span>
 												</button>
 											</div>
+											<a href="/streams/{{stream.id}}" class="live-stream-link">
+												<img ng-src="{{stream.thumbs.medium}}"/>
+											</a>
+											<div class="module-overlay">
+												<ul class="specs-stream no-bullets">
+													<li class="specs-title"><em class="title">{{stream.title}}</em></li>
+													<li class="specs-comments pull-left">
+														<i class="icon-comment icon-white"></i>
+														<a href="#" title="see comments on this live-stream"> 12</a>
+													</li>
+													<li class="specs-rebroadcasts pull-left">
+														<i class="icon-retweet icon-white"></i>
+														<a href="#" title="see rebroadcasts"> 24</a>
+													</li>
+													<li class="specs-hearts pull-left">
+														<i class="icon-heart icon-white"></i>
+														<a href="#" title="see who hearts this stream"> 48</a>
+													</li>
+												</ul><!-- /.specs-stream -->
+											</div><!-- /.module-overlay -->
 										</div><!-- /.module-video -->
-										<div class="module-overlay clearfix">
-											<ul class="specs-stream no-bullets">
-												<li class="specs-title"><em class="title">{{stream.title}}</em></li>
-												<li class="specs-comments pull-left">
-													<i class="icon-comment icon-white"></i>
-													<a href="#" title="see comments on this live-stream"> 12</a>
-												</li>
-												<li class="specs-rebroadcasts pull-left">
-													<i class="icon-retweet icon-white"></i>
-													<a href="#" title="see rebroadcasts"> 24</a>
-												</li>
-												<li class="specs-hearts pull-left">
-													<i class="icon-heart icon-white"></i>
-													<a href="#" title="see who hearts this stream"> 48</a>
-												</li>
-											</ul><!-- /.specs-stream -->
-										</div><!-- /.module-overlay -->
 									</div><!-- /.module-inner -->
 									<div class="module-outer clearfix">
 										<ul class="specs-user no-bullets">
 											<li class="thumb-user pull-left">
 												<a href="#" title="username">
-				<!-- NOTE FROM CHRIS: Can we autogenerate some user profile images? -->
+<!-- NOTE FROM CHRIS: Can we autogenerate some user profile images? -->
 													<img src="http://fakeimg.pl/34x34/?text=FPO"/>
 												</a>
 											</li>
@@ -100,7 +100,7 @@
 											</li>
 										</ul><!-- /.specs-user -->
 									</div><!-- /.module-outer -->
-								</div><!-- /.module-large -->
+								</li><!-- /.module-large -->
 							</ol><!-- /.channels-row -->
 						</div><!-- /.span12 -->
 					</div><!-- /.row-fluid -->
