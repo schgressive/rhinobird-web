@@ -1,8 +1,6 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
-/*test*/
-
 @include font-face("LatoRegular", '../fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '../fonts/lato-regita-webfont');
 @include font-face("LatoBold", '../fonts/lato-bol-webfont');
@@ -324,4 +322,14 @@ body.golive {
 	}
 	.footer-copy {margin-left: 30px;}
 	.one-liner {display: block;}
+}
+
+.modal-wrapper {
+	padding: 26px 24px 48px;
+	background-color: hsla(0,0%,91%,1);
+	btn.close {
+		float: right;
+		position: relative;
+		top: 0;
+	}
 }
