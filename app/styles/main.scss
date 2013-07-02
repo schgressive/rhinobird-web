@@ -162,7 +162,10 @@ i[class*="icon"] {font-style: normal;}
 
 body.golive {
 	background-color: hsla(0%,0%,0%,.75);
-	.main {	margin-top: -14px;}
+	.main {
+    margin-top: -14px;
+    padding-bottom: 0;
+  }
 }
 
 .top-content {
@@ -243,7 +246,7 @@ body.golive {
 	.local-row, .featured-row, .suggested-row, .onfire-row {
 		max-height:224px;
 		overflow: hidden;
-	}	
+	}
 }
 
 .subnav {
