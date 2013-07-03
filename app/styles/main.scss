@@ -39,7 +39,7 @@ body.base {
 	line-height: $base-line-height;
 	background-color: $bg-color;
 	.btn {text-shadow: none;}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .modal {border-radius: 0;}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal {border-radius: 0;}
 	input[type="search"] + .add-on {padding: 4px 5px}
 	.navbar .nav > li > a {padding: 7px 13px; text-shadow: none;}
 	.navbar .nav > li.lighten > a {
@@ -73,6 +73,21 @@ body.base {
 			right: 40px;
 		}
 	}
+	.modal {
+		background-color: hsla(0,0%,91%,1);
+		h3 {margin: 14px 0 0 0;}
+	}
+	.btn-primary {
+		font-size: 18px;
+		text-transform: uppercase;
+		text-shadow: none;
+		letter-spacing: 1px;
+		padding: 8px 20px;
+		background-color: hsla(21,99%,35%,1);
+		background-image: none;
+		border: none;
+		box-shadow: none;
+	}
 }
 
 
@@ -90,6 +105,8 @@ body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-s
   speak: none;
 }
 */
+
+.one-liner {display: block;}
 
 .visually-hidden {display: none;}
 
@@ -350,7 +367,23 @@ body.golive {
 }
 
 .modal {
-	background-color: hsla(0,0%,91%,1);
 	text-align: center;
 	h3, a {color:#333;}
+	a {font-size: 16px;}
+	h3 {font-size: 28px;}
+	.one-liner {margin-bottom: 7px;}
+	.modal-header {border-bottom: none;}
+	.modal-body {padding-bottom: 0;}
+	.modal-footer {
+		text-align: center;
+		background-color: transparent;
+		border-top: none;
+		box-shadow: none;
+		input[type="text"], input[type="password"], .add-on {
+			padding: 6px 7px 8px;
+			margin-bottom: 22px;
+			background-color: $white;
+		}
+		.btn-primary {min-width: 250px;}
+	}
 }
