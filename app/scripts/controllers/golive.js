@@ -79,7 +79,7 @@ angular.module('peepoltvApp')
       var streamData = {
         lng: $scope.coords.longitude,
         lat: $scope.coords.latitude,
-        thumb: $scope.localStream.getVideoFrameURL()
+        thumb: getThumbnail($scope.localStream.player.video, 854, 480)
       };
 
       // Add the metadata
@@ -104,5 +104,21 @@ angular.module('peepoltvApp')
           }
         });
       });
+    };
+
+    var getThumbnail = function(video, width, height){
+
+      var tWidth, tHeight;
+      var canvas = document.createElement('canvas');
+      canvas.ctx = canvas.getContext('2d');
+      canvas.width = width;
+      canvas.height = height;
+
+      tWidth = width;
+      tHeight = $(video).height()*width/$(video).width();
+
+      canvas.ctx.drawImage( video, 0, 0, tWidth, tHeight);
+
+      return canvas.toDataURL("image/jpeg");
     };
   });
