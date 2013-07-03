@@ -1,6 +1,6 @@
 <section class="main">
 	<div class="container-fluid">
-		<div id="options" class="options-row row-fluid collapse">
+		<div id="options" class="options-row row-fluid" ng-show="streamingOptions.show">
 			<div class="span10">
 				<form class="form-inline pull-left" method="get">
 					<label for="input-title">
@@ -34,11 +34,3 @@
 </section>
 
 <div ng-include="'/snippets/golive-modal.html'"></div>
-
-<script>
-	$(function () {
-		$('#options').collapse({
-			toggle: false
-		});
-	})
-</script>

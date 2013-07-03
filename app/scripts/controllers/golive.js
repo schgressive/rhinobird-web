@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('GoliveCtrl', function ($scope, streamService, geolocation) {
+  .controller('GoliveCtrl', function ($scope, streamService, geolocation, $rootScope) {
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
@@ -41,6 +41,8 @@ angular.module('peepoltvApp')
 
     // Stream data from the init modal
     $scope.streamData = {};
+
+    $scope.streamingOptions = $rootScope.streamingOptions;
 
     // Start the local stream
     var startLocalStream = function(parameters){
