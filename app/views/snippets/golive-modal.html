@@ -5,7 +5,7 @@
 	</div><!-- /.modal-header -->
 	<div class="modal-body">
 		<div class="alert" ng-show="permissionAlert">
-			<strong>Warning!</strong> Best check yo self, you're not looking too good.
+			<strong>Warning!</strong> Enable recording permission for browser before continuing.
 		</div>
 	</div><!-- /.modal-body -->
 	<div class="modal-footer">
@@ -13,26 +13,23 @@
 		  Skip It! Let's Go!
 		</button>
 		<form ng-submit="startBroadcast(true)">
-			<div class="modal-footer">
-				<label class="checkbox" for="input-title">
-					<input type="checkbox" class="checked" ng-model="streamData.titleCheck"> Title your Stream?
+			<div class="form-block">
+				<label class="checkbox" for="input-geolocation">
+					<input type="checkbox" id="input-geolocation" class="checked" ng-model="streamData.geoCheck"> Enable Geolocation?
 				</label>
-				<div class="input-append">
-					<input type="text" id="input-title" placeholder="enter title here" ng-model="streamData.titleData">
-					<span class="add-on"><i class="icon-map-marker"></i></span>
-				</div>
+				<label class="checkbox" for="input-title">
+					<input type="checkbox" class="active" ng-model="streamData.titleCheck"> Title your Stream?
+				</label>
+				<input type="text" id="input-title" placeholder="enter title here" ng-model="streamData.titleData">
 				<label class="checkbox" for="input-channel">
 					<input type="checkbox" ng-model="streamData.channelCheck"> Add a Channel?
 				</label>
 				<input type="text" id="input-channel" placeholder="#channel" ng-model="streamData.channelData">
-				<label class="checkbox" for="input-geolocation">
-					<input type="checkbox" id="input-geolocation" class="checked" ng-model="streamData.geoCheck"> Enable Geolocation?
-				</label>
 				<label class="checkbox" id="input-tags">
 					<input type="checkbox" ng-model="streamData.tagsCheck"> What's Happening?
 				</label>
 				<input type="text" id="input-tags" placeholder="tag your stream!" ng-model="streamData.tagsData">
-			</div>
+			</div><!-- /.form-block -->
 			<input class="btn btn-primary" type="submit" placeholder="Ready!">
 		</form>
 	</div><!-- /.modal-footer -->
