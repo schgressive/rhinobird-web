@@ -184,6 +184,14 @@ body.golive {
 	.main {
     margin-top: -14px;
     padding-bottom: 0;
+
+    video{
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+    }
   }
 }
 
@@ -389,7 +397,7 @@ body.golive {
 		.btn, input, .form-block, .form-block label {width: 234px;}
 		.btn-accent {margin-bottom: 22px;}
 		.form-block {
-			text-align: left; 
+			text-align: left;
 			margin: {
 				left: auto;
 				right: auto;
