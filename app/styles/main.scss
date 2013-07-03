@@ -85,7 +85,7 @@ body.base {
 		text-transform: uppercase;
 		text-shadow: none;
 		letter-spacing: 1px;
-		padding: 8px 20px;
+		/* padding: 8px 20px; */
 		background-image: none;
 		border: none;
 		box-shadow: none;
@@ -369,9 +369,9 @@ body.golive {
 }
 
 .modal {
+	font-size: 16px;
 	text-align: center;
 	h3, a {color:#333;}
-	a {font-size: 16px;}
 	h3 {font-size: 28px;}
 	.one-liner {margin-bottom: 7px;}
 	.modal-header {border-bottom: none;}
@@ -381,11 +381,20 @@ body.golive {
 		background-color: transparent;
 		border-top: none;
 		box-shadow: none;
+		input, .btn, .add-on {padding: 10px 9px;}
 		input[type="text"], input[type="password"], .add-on {
-			padding: 6px 7px 8px;
 			margin-bottom: 22px;
 			background-color: $white;
 		}
-		.btn-primary, .btn-accent {min-width: 250px;}
+		.btn, input, .form-block, .form-block label {width: 234px;}
+		.btn-accent {margin-bottom: 22px;}
+		.form-block {
+			text-align: left; 
+			margin: {
+				left: auto;
+				right: auto;
+			}
+			input {width: auto;}
+		}
 	}
 }
