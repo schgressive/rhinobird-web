@@ -39,7 +39,7 @@ body.base {
 	line-height: $base-line-height;
 	background-color: $bg-color;
 	.btn {text-shadow: none;}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child {border-radius: 0;}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .modal {border-radius: 0;}
 	input[type="search"] + .add-on {padding: 4px 5px}
 	.navbar .nav > li > a {padding: 7px 13px; text-shadow: none;}
 	.navbar .nav > li.lighten > a {
@@ -349,14 +349,8 @@ body.golive {
 	.one-liner {display: block;}
 }
 
-/*
-.modal-wrapper {
-	padding: 26px 24px 48px;
+.modal {
 	background-color: hsla(0,0%,91%,1);
-	btn.close {
-		float: right;
-		position: relative;
-		top: 0;
-	}
+	text-align: center;
+	h3, a {color:#333;}
 }
-*/
