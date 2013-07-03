@@ -395,6 +395,8 @@ body.golive {
 			background-color: $white;
 		}
 		.btn, input, .form-block, .form-block label {width: 234px;}
+		.input-prepend > input {width:180px;}
+		.form-block label + input {width:214px;}
 		.btn-accent {margin-bottom: 22px;}
 		.form-block {
 			text-align: left;
