@@ -56,12 +56,14 @@ angular.module('peepoltvApp')
       $scope.localStream.addEventListener('access-accepted', function () {
         console.log('Access to webcam and microphone granted');
 
+        $scope.$apply(function() {
+          // The mic/cam permissions
+          $scope.permissionAlert = false;
+        });
         // Show the video
         $scope.localStream.show('myBroadcast');
         $scope.localStream.player.video.muted = true;
 
-        // The mic/cam permissions
-        $scope.permissionAlert = false;
       });
 
       $scope.localStream.addEventListener('access-denied', function() {
