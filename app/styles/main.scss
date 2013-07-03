@@ -77,13 +77,15 @@ body.base {
 		background-color: hsla(0,0%,91%,1);
 		h3 {margin: 14px 0 0 0;}
 	}
-	.btn-primary {
+	.btn-primary {background-color: hsla(21,99%,35%,1);}
+	.btn-accent {background-color: hsla(287,48%,41%,1);}
+	.btn-primary, .btn-accent {
+		color: $white;
 		font-size: 18px;
 		text-transform: uppercase;
 		text-shadow: none;
 		letter-spacing: 1px;
 		padding: 8px 20px;
-		background-color: hsla(21,99%,35%,1);
 		background-image: none;
 		border: none;
 		box-shadow: none;
@@ -384,6 +386,6 @@ body.golive {
 			margin-bottom: 22px;
 			background-color: $white;
 		}
-		.btn-primary {min-width: 250px;}
+		.btn-primary, .btn-accent {min-width: 250px;}
 	}
 }

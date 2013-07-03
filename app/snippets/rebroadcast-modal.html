@@ -7,22 +7,19 @@
 		<p>Modal text here...</p>
 	</div><!-- /.modal-body -->
 	<div class="modal-footer">
-		<button type="button" class="btn skip" data-dismiss="modal" aria-hidden="true"> <!-- Close modal and rebroadcast w/o adding metadata -->
+		<button type="button" class="btn btn-accent" data-dismiss="modal" aria-hidden="true"> <!-- Close modal and rebroadcast w/o adding metadata -->
 			Skip It! Let's Go!
 		</button>
-		<form method="">
-			<label class="checkbox">
+		<form method="post">
+			<label class="checkbox" for="input-channel">
 				<input type="checkbox" class="checked"> Add to a Channel?
-				<div class="input-append">
-					<input type="text" placeholder="#channel">
-					<span class="add-on"><i class="icon-map-marker"></i></span>
-				</div>
 			</label>
-			<label class="checkbox">
+			<input type="text" id="input-channel" placeholder="#channel">
+			<label class="checkbox" for="input-tags">
 				<input type="checkbox"> Add some tags?
-				<input type="text" placeholder="tag1, tag2, tag3...">
 			</label>
-			<input class="btn" type="submit" placeholder="Rebroadcast!">
+			<input type="text" id="input-tags" placeholder="tag1, tag2, tag3...">
+			<input class="btn btn-primary" type="submit" value="Ready!">
 		</form>
 	</div><!-- /.modal-footer -->
 </div><!-- /.modal-->	
