@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
+    <!-- build:css /styles/vendor.css -->
     <link rel="stylesheet" href="/bower_components/bootstrap/docs/assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="/bower_components/bootstrap/docs/assets/css/bootstrap-responsive.css"/>
+    <!-- endbuild -->
 
     <link rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.css"/>
   </head>
@@ -60,10 +62,11 @@
 	</footer>
 
     <script src="http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.js"></script>
-    <script src="/vendor/erizo.js"></script>
 
+    <!-- build:js /scripts/vendor.js -->
+    <script src="/vendor/erizo.js"></script>
     <script src="/bower_components/underscore/underscore.js"></script>
-    <script src="///ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="/bower_components/jquery/jquery.js"></script>
     <script src="/bower_components/bootstrap/docs/assets/js/bootstrap.js"></script>
 
     <script src="/bower_components/unstable-angular-complete/angular.js"></script>
@@ -72,6 +75,7 @@
     <script src="/bower_components/unstable-angular-complete/angular-sanitize.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbuild -->
 
     <!-- build:js /scripts/scripts.js -->
     <script src="/scripts/app.js"></script>
