@@ -1,41 +1,71 @@
 'use strict';
 
+/* global google: false */
+
 angular.module('peepoltvApp')
 .factory('geolocation', function($q, $rootScope) {
-  return function() {
-    var changeLocation= function (coords) {
-      $rootScope.$broadcast('locationChanged', {
-        coordinates: coords
+
+  var changeLocation = function (data, type) {
+    $rootScope.$broadcast('locationChanged', {
+      coords: data,
+      type: type
+    });
+  };
+
+  var current = {};
+
+  return {
+    reverseGeocode: function(address){
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode( {'address': address}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK){
+          $rootScope.$apply(function () {
+            changeLocation({
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+            }, results[0].types[0]);
+          });
+        }
+        else {
+          console.log('address not found')
+        }
       });
-    };
-    var d = $q.defer();
 
-    try {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
-            $rootScope.$apply(function () {
-              //var longitude = position.coords.longitude;
-              changeLocation(position.coords);
-              d.resolve({
-                aField: 'Hello ' + position.coords.longitude + '!'
-              });
-            });
-          },
-          function (error) {
-            d.reject(error);
+    },
+    getCurrent: function() {
+
+      try {
+        if (navigator.geolocation) {
+
+          // If current already exists
+          if(current.lat && current.lng){
+            changeLocation(current);
+            return;
           }
-          );
-      }
-      else {
-        d.reject('location services not allowed');
-      }
-    }
-    catch (err) {
-      d.reject(err);
-    }
 
-    return d.promise;
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              $rootScope.$apply(function () {
+                current.lat = position.coords.latitude;
+                current.lng = position.coords.longitude;
+
+                changeLocation(current);
+              });
+            },
+            function (error) {
+              console.log('geolocation error', error);
+            }
+            );
+        }
+        else {
+          console.log('location services not allowed');
+        }
+      }
+      catch (err) {
+        console.log('geolocation error');
+      }
+    }
 
   };
 });

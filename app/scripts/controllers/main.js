@@ -6,13 +6,16 @@ angular.module('peepoltvApp')
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
-
-      $scope.coords= parameters.coordinates;
-      map.setView(new L.LatLng($scope.coords.latitude, $scope.coords.longitude), 30 );
+      var zoom = 30;
+      if(parameters.type && parameters.type !== 'street_address' && parameters.type !== 'route'){
+        zoom = 13;
+      }
+      map.setView(new L.LatLng(parameters.coords.lat, parameters.coords.lng), zoom );
     });
 
     // Get current location
-    geolocation();
+    $scope.geolocation = geolocation;
+    geolocation.getCurrent();
 
     // Create map
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
@@ -55,6 +58,17 @@ angular.module('peepoltvApp')
         });
 
         // Set inital center and zoom
-        map.fitBounds(markerLayer.getBounds());
+        //map.fitBounds(markerLayer.getBounds());
       });
+
+    // Address search
+    // $scope.address defined in the view
+    $scope.searchAddress = function(){
+      geolocation.reverseGeocode($scope.address);
+    };
+
+    $scope.getCurrent = function(){
+      $scope.address = '';
+      geolocation.getCurrent();
+    };
   });

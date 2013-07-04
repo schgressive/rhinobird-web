@@ -5,11 +5,11 @@ angular.module('peepoltvApp')
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
-      $scope.coords = parameters.coordinates;
+      $scope.coords = parameters.coords;
     });
 
     // Get current location
-    geolocation();
+    geolocation.getCurrent();
 
     // Modal Options
     $scope.opts = {
@@ -40,7 +40,7 @@ angular.module('peepoltvApp')
 
     $scope.stopBroadcast = function(){
       $scope.stream.token = null;
-    }
+    };
 
     // Stream data from the init modal
     $scope.streamData = {};
@@ -62,20 +62,23 @@ angular.module('peepoltvApp')
 
       // Create and return the image
       canvas.ctx.drawImage( video, 0, 0, dWidth, dHeight);
-      return canvas.toDataURL("image/jpeg");
-    }
+      return canvas.toDataURL('image/jpeg');
+    };
 
     // Start the transitions
     var goOnAir = function(metadata){
       var streamData = {
-        lng: $scope.coords.longitude,
-        lat: $scope.coords.latitude,
         thumb: getThumbnailURL($scope.localStream.stream.player.video, 854, 480)
       };
 
       // Add the metadata
       if(metadata){
-        streamData.title = ($scope.streamData.titleCheck)? $scope.streamData.titleData : "";
+        streamData.title = ($scope.streamData.titleCheck)? $scope.streamData.titleData : '';
+
+        if($scope.streamData.geoCheck){
+          streamData.lng = $scope.coords.lng;
+          streamData.lat = $scope.coords.lat;
+        }
         // here i need to add tags, geolocation, and channel hashtag logics
       }
 
