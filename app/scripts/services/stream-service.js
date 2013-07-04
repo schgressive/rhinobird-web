@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .factory('streamService', function($resource, $q, settings) {
+  .service('streamService', function streamService($resource, $q, settings) {
 
     var cache = {};
     var resource = $resource(settings.apiHost + '/streams/:streamId', {}, {
@@ -25,6 +25,9 @@ angular.module('peepoltvApp')
     // Public API here
     return {
       resource: resource,
+      stream: undefined,
+      localStream: undefined,
+      room: undefined,
       resolve: function(streamId){
 
         var deferred = $q.defer();

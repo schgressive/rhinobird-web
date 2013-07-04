@@ -5,12 +5,7 @@ angular.module('peepoltvApp')
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
-
-      // Open the init stream dialog
-      $scope.goLiveInitModal = true;
-
-      startLocalStream(parameters);
-
+      $scope.coords = parameters.coordinates;
     });
 
     // Get current location
@@ -24,8 +19,12 @@ angular.module('peepoltvApp')
       backdropClick: false
     };
 
+    // Open de dialog
+    $scope.goLiveInitModal = true;
+
+    // Start the broadcast
     $scope.startBroadcast = function(metadata){
-      if(!$scope.localStream.showing){
+      if(!$scope.localStream.permissionsGranted){
         // The mic/cam permissions
         $scope.permissionAlert = true;
         return;
@@ -39,39 +38,31 @@ angular.module('peepoltvApp')
 
     };
 
+    $scope.stopBroadcast = function(){
+      $scope.stream.token = null;
+    }
+
     // Stream data from the init modal
     $scope.streamData = {};
 
+    // Header streaming options
     $scope.streamingOptions = $rootScope.streamingOptions;
 
-    // Start the local stream
-    var startLocalStream = function(parameters){
-      // Save the coords in the scope
-      $scope.coords = parameters.coordinates;
+    // Get a proportional thumbnail
+    var getThumbnailURL = function(video, width, height){
+      // Canvas
+      var canvas = document.createElement('canvas');
+      canvas.ctx = canvas.getContext('2d');
+      canvas.width = width;
+      canvas.height = height;
 
-      // Get the user media and show the feedback
-      $scope.localStream = Erizo.Stream({audio: true, video: true, data: false});
-      $scope.localStream.init();
+      // Destination size
+      var dWidth = width;
+      var dHeight = $(video).height()*width/$(video).width();
 
-      $scope.localStream.addEventListener('access-accepted', function () {
-        console.log('Access to webcam and microphone granted');
-
-        $scope.$apply(function() {
-          // The mic/cam permissions
-          $scope.permissionAlert = false;
-        });
-        // Show the video
-        $scope.localStream.show('myBroadcast');
-        $scope.localStream.player.video.muted = true;
-
-      });
-
-      $scope.localStream.addEventListener('access-denied', function() {
-        console.log('Access to webcam and microphone rejected');
-
-        // The mic/cam permissions
-        $scope.permissionAlert = true;
-      });
+      // Create and return the image
+      canvas.ctx.drawImage( video, 0, 0, dWidth, dHeight);
+      return canvas.toDataURL("image/jpeg");
     }
 
     // Start the transitions
@@ -79,7 +70,7 @@ angular.module('peepoltvApp')
       var streamData = {
         lng: $scope.coords.longitude,
         lat: $scope.coords.latitude,
-        thumb: getThumbnail($scope.localStream.player.video, 854, 480)
+        thumb: getThumbnailURL($scope.localStream.stream.player.video, 854, 480)
       };
 
       // Add the metadata
@@ -91,34 +82,8 @@ angular.module('peepoltvApp')
       // Post the new stream to the server
       streamService.resource.new(streamData, function(data){
 
-        $scope.room = Erizo.Room({token: data.token});
-        $scope.room.connect();
-        $scope.room.addEventListener('room-connected', function() {
-          // Publish stream to the room
-          $scope.room.publish($scope.localStream);
-        });
-
-        $scope.room.addEventListener('stream-added', function(event) {
-          if ($scope.localStream.getID() === event.stream.getID()) {
-            console.log('Published!!!');
-          }
-        });
+        $scope.stream = data;
       });
     };
 
-    var getThumbnail = function(video, width, height){
-
-      var tWidth, tHeight;
-      var canvas = document.createElement('canvas');
-      canvas.ctx = canvas.getContext('2d');
-      canvas.width = width;
-      canvas.height = height;
-
-      tWidth = width;
-      tHeight = $(video).height()*width/$(video).width();
-
-      canvas.ctx.drawImage( video, 0, 0, tWidth, tHeight);
-
-      return canvas.toDataURL("image/jpeg");
-    };
   });

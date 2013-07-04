@@ -4,7 +4,7 @@
 			<div class="span12">
 				<section class="top-content">
 				</section><!-- /.top-content -->
-				
+
 				<section class="mid-content">
 					<div class="row-fluid">
 						<div class="span8">
@@ -19,7 +19,7 @@
 										<input type="search" placeholder="search live streams">
 										<span class="add-on"><i class="icon-search"></i></span>
 									</div>
-								</div><!-- /.form-actions -->					
+								</div><!-- /.form-actions -->
 							</form>
 						</div><!-- /.span4 -->
 					</div><!-- /.row-fluid -->
@@ -58,12 +58,12 @@
 												</ul><!-- /.specs-stream -->
 											</div><!-- /.module-overlay -->
 				<!-- NOTE FROM CHRIS: replace fake img with commented out anchor. Needs to connect to streaming thing -->
-											<img src="http://fakeimg.pl/900x400/?text=ChannelStreamHere"/>
+											<licode flow="inbound" token="{{stream.token}}" width="854" height="480"></licode>
 											<!--
 				<a href="/streams/{{stream.id}}" class="live-stream-link">
 												<img ng-src="{{stream.thumbs.large}}"/>
 											</a>
-				-->	
+				-->
 										</div><!-- /.module-video -->
 									</div><!-- /.module-xlarge -->
 								</div><!-- /.carousel-top -->
@@ -97,7 +97,7 @@
 						</div><!-- /#carousel-main -->
 				    </div><!-- /.row-fluid -->
 				</section><!-- /.mid-content -->
-				
+
 				<section class="lower-content stream-area">
 <!-- NOTE FROM CHRIS: whenever section has streaming content, add stream-area class. And the hook.js refresh button as in below. -->
 					<div class="row-fluid">
@@ -113,7 +113,7 @@
 								<i class="stream-icon"></i>
 								Local Live-Streams
 							</h3>
-							<ol class="local-row no-bullets">	
+							<ol class="local-row no-bullets">
 								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div class="module-inner">
 										<div class="module-video">
@@ -344,9 +344,8 @@
 						</div><!-- /.span12 -->
 					</div><!-- /.row-fluid -->
 				</section><!-- /.lower-content -->
-								
+
 			</div><!-- /.span12 -->
 	    </div><!-- /.row-fluid -->
-	</div><!-- /.container-fluid -->    
+	</div><!-- /.container-fluid -->
 </div><!-- /.main -->
-				
