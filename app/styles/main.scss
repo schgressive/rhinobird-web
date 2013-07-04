@@ -37,7 +37,7 @@ body.base {
 	font-family: "LatoRegular", $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	background-color: $bg-color;
+	background-color: hsla(0,0%,94%,1);
 	.btn {text-shadow: none;}
 	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal {border-radius: 0;}
 	input[type="search"] + .add-on {padding: 4px 5px}
@@ -143,7 +143,7 @@ i[class*="icon"] {font-style: normal;}
 	padding-bottom: 40px;
 	.brand img {
 		width: 100%;
-		max-width: 26px;
+		max-width: 32px;
 		height: auto;
 	}
 }
@@ -203,13 +203,12 @@ body.golive {
 .top-content {
 	padding-top: 10px;
 	border-bottom: 1px solid hsla(0%,0%,80%,1);
-	&.feature {border-bottom: 1px solid #ebebeb;}
+	&.feature {border-bottom: 1px solid hsla(0,0%,85%,1) !important;}
 	.form-actions {
 		padding: 0;
 		margin: 0;
 		border-top: 0;
 		background-color: $white;
-		&.filters {margin-top: 14px;}
 	}
 	.brand img {
 		width: 100%;
@@ -224,7 +223,7 @@ body.golive {
 	background-color: $white;
 	padding: 20px 30px 10px;
 	.form-search {
-		margin: 27px 0 0 19px;
+		margin: 42px 0 0 0;
 		.add-on {padding: 10px 7px 10px;}
 		input[type="search"] { width: 438px; padding: 10px;}
 	}
@@ -270,12 +269,17 @@ body.golive {
 	.hook {
 			text-align: center;
 		a {
-			color: #a3a3a3;
+			color: hsla(0,0%,60%,1);
 			padding: 5px 30px;
-			background-color: #EBEBEB;
+			background-color: hsla(0,0%,87%,1);
 			display: inline-block;
 		}
 	}
+}
+
+.map-wrapper {
+	background-color: $white;
+	padding: 10px 10px 20px;
 }
 
 #map {
@@ -294,6 +298,11 @@ body.golive {
 			border-bottom: 2px solid hsla(0%,0%,15%,1);
 		}
 	}
+}
+
+.module-inner {
+	padding: 5px 5px 0;
+	background-color: $white;
 }
 
 .module-video {
@@ -323,10 +332,10 @@ body.golive {
 }
 
 .module-outer {
-	color: $white;
+	color: #333;
 	padding: 5px 10px 7px;
-	background-color: #2D2D2D;
-	a {color:$white;}
+	background-color: $white;
+	a {color:#333;}
 	.thumb-user {
 		margin-right: 10px;
 		img {
