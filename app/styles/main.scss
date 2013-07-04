@@ -115,7 +115,7 @@ body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-s
 
 .one-liner {display: block;}
 
-.visually-hidden {display: none;}
+.visually-hidden, .form-search .visually-hidden {display: none;}
 
 i[class*="icon"] {font-style: normal;}
 
