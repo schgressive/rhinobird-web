@@ -1,29 +1,40 @@
-<div class="module-xlarge">
-	<div class="module-video">
-		<a href="/streams/{{stream.id}}" class="live-stream-link">
-			<img ng-src="{{stream.thumbs.large}}"/>
-		</a>
+<div class="module-video">
+	<div class="module-overlay">
 		<div class="btn-overlay">
-			<button class="rebroadcast-btn" type="button">
+			<button class="rebroadcast-btn" type="button" data-toggle="modal" data-target="#rebroadcast-modal">
 				<span class="visually-hidden">Rebroadcast This Stream</span>
 			</button>
 		</div>
-		<div class="module-overlay">
-			<ul class="specs-stream no-bullets">
-				<li class="specs-title"><em class="title">{{stream.title}}</em></li>
-				<li class="specs-comments pull-left">
-					<i class="icon-comment icon-white"></i>
-					<a href="#" title="see comments on this live-stream"> 12</a>
-				</li>
-				<li class="specs-rebroadcasts pull-left">
-					<i class="icon-retweet icon-white"></i>
-					<a href="#" title="see rebroadcasts"> 24</a>
-				</li>
-				<li class="specs-hearts pull-left">
-					<i class="icon-heart icon-white"></i>
-					<a href="#" title="see who hearts this stream"> 48</a>
-				</li>
-			</ul><!-- /.specs-stream -->
-		</div><!-- /.module-overlay -->
-	</div><!-- /.module-video -->
-</div><!-- /.module-xlarge -->
+	</div><!-- /.module-overlay -->
+<!-- NOTE FROM CHRIS: replace fake img with commented out anchor. Needs to connect to streaming thing -->
+	<img src="http://fakeimg.pl/900x400/?text=ChannelStreamHere"/>
+	<!--
+<a href="/streams/{{stream.id}}" class="live-stream-link">
+		<img ng-src="{{stream.thumbs.large}}"/>
+	</a>
+-->
+	<ul class="specs-stream no-bullets">
+		<li class="specs-title pull-left"><em class="title">{{stream.title}}FPO Title</em></li>
+		<li class="specs-location pull-left">
+			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}FPO Location</a></span>
+		</li>
+		<li class="specs-tags pull-left">
+			<span>Tagged:</span>
+			<ul class="group">
+				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+			</ul>
+		</li>
+		<li class="specs-comments pull-right">
+			<i class="icon-comment icon-white"></i>
+			<a href="#" title="see comments on this live-stream"> 12</a>
+		</li>
+		<li class="specs-rebroadcasts pull-right">
+			<i class="icon-retweet icon-white"></i>
+			<a href="#" title="see rebroadcasts"> 24</a>
+		</li>
+		<li class="specs-hearts pull-right">
+			<i class="icon-heart icon-white"></i>
+			<a href="#" title="see who hearts this stream"> 48</a>
+		</li>
+	</ul><!-- /.specs-stream -->
+</div><!-- /.module-video -->

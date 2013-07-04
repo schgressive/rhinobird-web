@@ -113,6 +113,17 @@ body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-s
 	margin: 0 auto;
 }
 
+.no-bullets {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	-webkit-padding-start: 0;
+}
+
 .one-liner {display: block;}
 
 .visually-hidden, .form-search .visually-hidden {display: none;}
@@ -350,11 +361,26 @@ body.golive {
 }
 
 .module-xlarge {
+	padding: 10px 10px 0;
+	background-color: $white;
 	.specs-stream {
 		color:$white;
 		background-color: #333;
 	a {color:$white;}
 	}
+}
+
+.video-slider {
+	padding: 10px 10px 20px;
+	background-color: $white;
+	.slider-wrapper {
+		max-height: 63px;
+		overflow: hidden;
+		 ul {
+		 	width:100%;
+		 	height: auto;
+		 }
+	}	
 }
 
 .module-video, .live-stream-link {background-color: #000;}
@@ -433,3 +459,9 @@ body.golive {
 		}
 	}
 }
+
+
+
+
+
+
