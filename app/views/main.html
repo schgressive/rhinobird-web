@@ -10,7 +10,7 @@
 				<form method="get" class="form-search" role="search">
 					<div class="form-actions">
 						<div class="input-append">
-							<input type="search" placeholder="search live streams, locations, tags, etc">
+							<input type="search" placeholder="search livestreams, locations, tags, #channels, etc">
 							<span class="add-on"><i class="icon-search"></i></span>
 						</div>
 						<button type="submit" class="btn">Let's Go!</button>
@@ -34,13 +34,14 @@
 							</h2>
 						</div>
 						<div class="span6">
-							<form method="get" class="form-geo pull-right" role="search">
+							<form method="get" name="form-geo" class="form-geo pull-right" role="search">
 								<label for="geolocate" class="visually-hidden">search by location</label>
-								<div class="input-append">
-									<input type="search" placeholder="current location">
+								<div class="input-append input-prepend">
 									<span class="add-on">
-										<i class="icon-map-marker"></i>
+										<a href="#" title="Find Me!"><i class="icon-map-marker"></i></a>
 									</span>
+									<input type="search" placeholder="current location">
+									<input class="btn" type="submit" value="Go!">
 								</div><!-- /.input-append -->
 							</form>
 						</div>
