@@ -108,6 +108,11 @@ body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-s
 }
 */
 
+.width-controller {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
 .one-liner {display: block;}
 
 .visually-hidden {display: none;}
