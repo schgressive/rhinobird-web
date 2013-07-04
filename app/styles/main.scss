@@ -308,6 +308,19 @@ body.golive {
 .module-video {
 	position: relative;
 	overflow: hidden; /*needs fallback for IE? */
+	.specs-stream {
+		width: 98%;
+		padding: 5px 10px 7px 10px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	a {color: #333; margin-right: 10px;}
+	.specs-title em {
+		font-family: "LatoBold" $bold-font-stack;
+		font-style: normal;
+		margin-bottom: 5px;
+	}
 }
 
 .module-overlay {
@@ -320,19 +333,6 @@ body.golive {
 	opacity: 0;
 	background-color: hsla(0%,0%,100%,.75);
 	&:hover {opacity: 1;}
-	.specs-stream {
-		width: 100%;
-		padding: 5px 10px 7px;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-	}
-	a {color: #333; margin-right: 10px;}
-	.specs-title em {
-		font-family: "LatoBold" $bold-font-stack;
-		font-style: normal;
-		margin-bottom: 5px;
-	}
 }
 
 .module-outer {
@@ -349,7 +349,13 @@ body.golive {
 	}
 }
 
-.module-xlarge {outline:red solid 1px;}
+.module-xlarge {
+	.specs-stream {
+		color:$white;
+		background-color: #333;
+	a {color:$white;}
+	}
+}
 
 .module-video, .live-stream-link {background-color: #000;}
 
