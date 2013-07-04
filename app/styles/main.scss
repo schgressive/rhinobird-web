@@ -1,12 +1,12 @@
 @import "compass_twitter_bootstrap";
 @import "ptv-branding";
 
-@include font-face("LatoRegular", '../fonts/lato-reg-webfont');
-@include font-face("LatoItalic", '../fonts/lato-regita-webfont');
-@include font-face("LatoBold", '../fonts/lato-bol-webfont');
-@include font-face("MissionScript", '../fonts/mission-script-webfont');
-@include font-face("HeroLight",'../fonts/hero-light-webfont');
-@include font-face("Hero",'../fonts/hero-webfont');
+@include font-face("LatoRegular", '/fonts/lato-reg-webfont');
+@include font-face("LatoItalic", '/fonts/lato-regita-webfont');
+@include font-face("LatoBold", '/fonts/lato-bol-webfont');
+@include font-face("MissionScript", '/fonts/mission-script-webfont');
+@include font-face("HeroLight",'/fonts/hero-light-webfont');
+@include font-face("Hero",'/fonts/hero-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -132,12 +132,12 @@ i[class*="icon"] {font-style: normal;}
 		vertical-align: middle;
 	}
 }
-.explore-icon {background: url('../images/globe-icon.svg') top left no-repeat;}
-.stream-icon {background: url('../images/stream-icon.svg') top left no-repeat;}
-.onfire-icon {background: url('../images/onfire-icon.svg') top left no-repeat;}
-.featured-icon {background: url('../images/featured-icon.svg') top left no-repeat;}
-.suggested-icon {background: url('../images/suggested-icon.svg') top left no-repeat;}
-.channel-icon {background: url('../images/hash-icon.svg') top left no-repeat;}
+.explore-icon {background: url('/images/globe-icon.svg') top left no-repeat;}
+.stream-icon {background: url('/images/stream-icon.svg') top left no-repeat;}
+.onfire-icon {background: url('/images/onfire-icon.svg') top left no-repeat;}
+.featured-icon {background: url('/images/featured-icon.svg') top left no-repeat;}
+.suggested-icon {background: url('/images/suggested-icon.svg') top left no-repeat;}
+.channel-icon {background: url('/images/hash-icon.svg') top left no-repeat;}
 
 .banner {
 	padding-bottom: 40px;
@@ -175,7 +175,7 @@ i[class*="icon"] {font-style: normal;}
 			height: 32px;
 			display: inline-block;
 			vertical-align: middle;
-			background: url('../images/golive-icon.svg') top left no-repeat;
+			background: url('/images/golive-icon.svg') top left no-repeat;
 		}
 	}
 }
@@ -239,7 +239,7 @@ body.golive {
 		margin-left: 20px;
 		padding: 12px 0 9px 14px;
 		vertical-align: top;
-		background: $base-gray url('../images/letsgo-icon.svg') top right no-repeat;
+		background: $base-gray url('/images/letsgo-icon.svg') top right no-repeat;
 		background-size: auto;
 		border: none;
 		box-shadow: none;
@@ -352,7 +352,7 @@ body.golive {
 	.rebroadcast-btn {
 		width: 36px;
 		height: 30px;
-		background: url('../images/rebroadcast-icon.svg') top left no-repeat;
+		background: url('/images/rebroadcast-icon.svg') top left no-repeat;
 		border: none;
 		border-radius: 0px;
 		position: absolute;
