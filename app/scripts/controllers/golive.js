@@ -43,7 +43,9 @@ angular.module('peepoltvApp')
     };
 
     // Stream data from the init modal
-    $scope.streamData = {};
+    $scope.streamData = {
+      geoCheck: true
+    };
 
     // Header streaming options
     $scope.streamingOptions = $rootScope.streamingOptions;
