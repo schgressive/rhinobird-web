@@ -13,20 +13,14 @@
 
 				<nav class="main-nav nav-collapse collapse" role="navigation">
 					<ul class="nav">
-						<li class="lighten login-link"><a href="#" data-toggle="modal" data-target="#login-modal">Sign In</a>
+						<li class="lighten login-link" ng-hide="user.email"><a href="#" ng-click="openLoginModal()">Sign In</a>
+
 						</li>
-						<li class="dropdown lighten user-dropdown">
-<!-- NOTE FROM CHRIS: need to add a class that toggles b/n logged in and logged out -->
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi Username!<b class="caret"></b>
+						<li class="dropdown lighten" ng-show="user.email">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi {{user.name}}!<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li class="nav-header">Nav header</li>
-								<li><a href="#">Separated link</a></li>
-								<li><a href="#">One more separated link</a></li>
+								<li><a href="#" ng-click="logout()">Logout</a></li>
 							</ul><!-- /.dropdown-menu -->
 						</li>
 						<li class="lighten" ng-class="{'active': section == 'explore'}"><a href="/explore">Explore</a></li>
@@ -49,3 +43,6 @@
 		</div><!-- /.inner-navbar -->
 	</div><!-- /.navbar -->
 </header>
+
+
+<div ng-include="'/views/login-signup-modal.html'"></div>

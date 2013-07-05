@@ -9,16 +9,19 @@ angular.module('peepoltvApp')
         method: 'GET',
         params:{
           clientId: '@clientId'
-        }
+        },
+        withCredentials: true
       },
       'search': {
         method:'GET',
         params: {},
-        isArray: true
+        isArray: true,
+        withCredentials: true
       },
       'new': {
         method: 'POST',
-        params: {}
+        params: {},
+        withCredentials: true
       }
     });
 

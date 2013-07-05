@@ -50,8 +50,13 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
         redirectTo: '/'
       });
   })
-  .run(function($location, $rootScope){
+  .run(function($location, $rootScope, authService){
     $rootScope.$on('$routeChangeSuccess', function(event, current){
       $rootScope.section = current.$$route.section || null;
+    });
+
+    authService.resource.status({}, function(e){
+      authService.user.email = e.email;
+      authService.user.name = e.name;
     });
   });

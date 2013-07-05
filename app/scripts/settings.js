@@ -2,5 +2,5 @@
 
 angular.module('peepoltvApp')
   .value('settings', {
-    apiHost: 'http://peepoltv.apiary.io'
+    apiHost: 'http://api.peepol.tv'
   });
