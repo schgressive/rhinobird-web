@@ -38,7 +38,11 @@ body.base {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	background-color: hsla(0,0%,94%,1);
-	.btn {text-shadow: none;}
+	.btn { 
+		text-transform: uppercase;
+		text-shadow: none;
+		background-image: none;
+	}
 	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal {border-radius: 0;}
 	input[type="search"] + .add-on {padding: 4px 5px}
 	.navbar .nav > li > a {padding: 7px 13px; text-shadow: none;}
@@ -52,9 +56,9 @@ body.base {
 			background-image: none;
 			.brand {
 				padding: 0;
-				margin: 5px 0 0 29px;
+				margin: 5px 0 0 0;
 			}
-			.nav {width:92%;}
+			.nav {width:96.5%; margin: 0;}
 			li.active > a {background-color: $white; box-shadow: none; border-bottom: 3px solid red; padding-bottom: 12px;} /*NEED TO CHANGE THIS LATER*/
 			li.golive-btn {float:right;}
 			li.dropdown .caret {
