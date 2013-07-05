@@ -377,6 +377,14 @@ body.golive {
 .video-slider {
 	padding: 10px 10px 20px;
 	background-color: $white;
+	.slider-control {
+		background-color: hsla(0%,0%,90%,1);
+		text-align: center;
+		display: block;
+		padding-top: 22px;
+		padding-bottom: 22px;
+		i {opacity: .5;}
+	}
 	.slider-wrapper {
 		max-height: 63px;
 		overflow: hidden;
