@@ -305,7 +305,9 @@ body.golive {
 		margin-right: 34px;
 		display: inline-block;
 		&:last-of-type {margin-right: 0px;}
-		a {color:#b6b8b9;}
+		a {color:#b6b8b9;
+			&:hover { background-color: hsla(0%,0%,100%,1);}
+		}
 		&.active a {
 			color: hsla(0%,0%,15%,1);
 			border-bottom: 2px solid hsla(0%,0%,15%,1);
