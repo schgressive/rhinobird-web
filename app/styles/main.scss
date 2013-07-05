@@ -448,10 +448,17 @@ body.golive {
 			background-color: $white;
 		}
 		.btn, input, .form-block, .form-block label {width: 234px;}
-		.input-prepend > input {width:180px;}
-		.form-block label + input {width:214px;}
+		.input-prepend > input, .form-block label + .input-prepend > input {width:180px;}
+		.form-block label + input, .form-block-inline label + input {width:214px;}
 		.btn-accent {margin-bottom: 22px;}
-		.form-block {
+		.form-block-inline {
+			width: 492px;
+			.inline {
+				display: inline-block;
+				&:first-of-type {margin-right: 20px;}
+			}
+		}
+		.form-block, .form-block-inline {
 			text-align: left;
 			margin: {
 				left: auto;
