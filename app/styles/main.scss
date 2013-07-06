@@ -483,7 +483,24 @@ body.golive {
 	}
 }
 
+// MAPBOX
 
+.popup {
+    text-align: left;
+    .popup-left {
+    	width:274px;
+    	height:190px;
+    	background-color: hsla(0,0%,18%,1);
+    	}
+    .popup-right {
+    	width:46px;
+    	height:190px;
+    	background-color: hsla(0,0%,12%,1);
+    	}
+}
+.popup img {
+    width: 100%;
+}
 
 
 

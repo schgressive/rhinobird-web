@@ -19,7 +19,7 @@ angular.module('peepoltvApp')
 
     // Create map
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
-
+	
     // Disable scroll to zoom
     map.scrollWheelZoom.disable();
 
@@ -28,7 +28,7 @@ angular.module('peepoltvApp')
         r = r.reverse();
         $scope.streams = _.map(r, function(s){
           s.properties['marker-size'] = 'medium';
-          s.properties['marker-color'] = '#aa56ff';
+          s.properties['marker-color'] = '#A954F5';
           s.properties['marker-symbol'] = 'cinema';
           return s;
         });
@@ -45,9 +45,31 @@ angular.module('peepoltvApp')
           var feature = marker.feature;
 
           // Create custom popup content
-          var popupContent = '<a target="_blank" href="' + feature.url + '">' +
-                              '<h3>' + feature.title + '</h3>' +
-                             '</a>';
+          var popupContent = '<div class="popup clearfix">' +
+          						'<div class="popup-left pull-left">' +
+          							'<div class="video-popup">' +
+          								'<a href="' + feature.url + '">' +
+											'<img src="http://fakeimg.pl/274x118/?text=StreamIMG">' +
+										'</a>' +
+          							'</div>' +
+          							'<div class="specs-popup clearfix">' +
+          								'<ul class="no-bullets">' +
+          									'<li class="thumb-user pull-left">' + 
+          										'<a href="#">' +
+													'<img src="http://fakeimg.pl/58x58/?text=User">' +
+												'</a>' +
+          									'</li>' +
+          									'<li class="specs-title">' + feature.title + '</li>' +
+          									'<li class="specs-tags">tags go here</li>' +
+          								'</ul>' +
+          							'</div>' +
+		  						'</div>' +
+		  						'<div class="popup-right pull-left">' +
+		  							'<a target="_blank" href="' + feature.url + '">' +
+		  								'<i class="icon-play icon-white"></i>' +
+		  							'</a>' +
+		  						'</div>' +
+                             '</div>';
 
           // http://leafletjs.com/reference.html#popup
           marker.bindPopup(popupContent,{
