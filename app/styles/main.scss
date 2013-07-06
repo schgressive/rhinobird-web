@@ -497,6 +497,16 @@ body.golive {
     	height:190px;
     	background-color: hsla(0,0%,12%,1);
     	}
+    .thumb-user {margin: 7px 10px 7px 7px;}
+	.specs-title {font-size: 16px; color: $white;}
+	.specs-tags {font-size: 14px; color: hsla(0%,0%,90%,1);}
+	.play-btn {
+		width: 31px;
+		height: 42px;
+		background: url('/images/play-icon.svg') top left no-repeat;
+		border: none;
+		margin: 68px 0 0 8px;
+	}
 }
 .popup img {
     width: 100%;

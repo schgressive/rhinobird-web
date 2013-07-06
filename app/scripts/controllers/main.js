@@ -66,7 +66,7 @@ angular.module('peepoltvApp')
 		  						'</div>' +
 		  						'<div class="popup-right pull-left">' +
 		  							'<a target="_blank" href="' + feature.url + '">' +
-		  								'<i class="icon-play icon-white"></i>' +
+		  								'<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
 		  							'</a>' +
 		  						'</div>' +
                              '</div>';
