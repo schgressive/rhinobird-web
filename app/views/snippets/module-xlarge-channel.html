@@ -11,22 +11,19 @@
 			</button>
 		</div>
 	</div><!-- /.module-overlay -->
-<!-- NOTE FROM CHRIS: replace fake img with commented out anchor. Needs to connect to streaming thing -->
-	<img src="http://fakeimg.pl/900x400/?text=ChannelLivestream"/>
-	<!--
-<a href="/streams/{{stream.id}}" class="live-stream-link">
-		<img ng-src="{{stream.thumbs.large}}"/>
-	</a>
--->
+  <div>
+    <img ng-src="{{mainStream.thumbs.large}}" width="845" height="480" class="specs-thumb"/>
+    <licode flow="inbound" token="{{mainStream.token}}" width="845"  height="480"></licode>
+  </div>
 	<ul class="specs-stream no-bullets">
-		<li class="specs-title pull-left"><em class="title">{{stream.title}}FPO Title</em></li>
+		<li class="specs-title pull-left"><em class="title">{{mainStream.title}}</em></li>
 		<li class="specs-location pull-left">
-			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}FPO Location</a></span>
+			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{mainStream.properties.geo_reference}}</a></span>
 		</li>
 		<li class="specs-tags pull-left">
 			<span>Tagged:</span>
 			<ul class="group">
-				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{tag}}</a></li>
+				<li class="tag pull-left" ng-repeat="tag in mainStream.tags"><a href="#">{{tag}}</a></li>
 			</ul>
 		</li>
 		<li class="specs-comments pull-right">

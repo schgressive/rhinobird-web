@@ -35,7 +35,7 @@ body.base {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	background-color: hsla(0,0%,94%,1);
-	.btn { 
+	.btn {
 		text-transform: uppercase;
 		text-shadow: none;
 		background-image: none;
@@ -338,6 +338,11 @@ body.golive {
 		font-style: normal;
 		margin-bottom: 5px;
 	}
+  .specs-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .module-overlay {
@@ -399,7 +404,7 @@ body.golive {
 		 	width:100%;
 		 	height: auto;
 		 }
-	}	
+	}
 }
 
 .module-video, .live-stream-link {background-color: #000;}
@@ -511,7 +516,6 @@ body.golive {
 .popup img {
     width: 100%;
 }
-
 .tags-wrapper {
 	background-color: $white;
 	.alpha-col {
@@ -529,12 +533,10 @@ body.golive {
 	}
 	.tags-col {padding: 10px 10px 20px 15px; vertical-align: middle;}
 	.tag {
-		margin-left: 10px; 
+		margin-left: 10px;
 		display: inline-block;
 		&:first-of-type {margin-left: 0;}
 		a {color: hsla(0%,0%,55%,1);}
 		&:hover {text-decoration: underline !important;}
-	}	
+	}
 }
-
-
