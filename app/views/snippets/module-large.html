@@ -45,7 +45,8 @@
 		<li class="specs-tags">
 			<span>Tagged:</span>
 			<ul class="group">
-				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{$value}}</a></li>
+        <li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
+				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{tag}}</a></li>
 			</ul>
 		</li>
 	</ul><!-- /.specs-user -->

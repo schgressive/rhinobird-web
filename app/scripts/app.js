@@ -19,11 +19,6 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
         controller: 'MainCtrl',
         section: 'peepol'
       })
-      .when('/stream', {
-        templateUrl: '/views/channels.html',
-        controller: 'ChannelsCtrl',
-        section: 'stream'
-      })
       .when('/search', {
         templateUrl: '/views/search-results.html',
         controller: 'SearchResultsCtrl',
@@ -45,6 +40,10 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
       .when('/channels/:section', {
         templateUrl: '/views/channels.html',
         controller: 'ChannelsCtrl'
+      })
+      .when('/channel/:channelName', {
+        templateUrl: '/views/channel.html',
+        controller: 'ChannelCtrl'
       })
       .otherwise({
         redirectTo: '/'
