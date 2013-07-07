@@ -16,6 +16,9 @@ angular.module('peepoltvApp')
         method:'GET',
         params: {},
         isArray: true,
+        transformResponse: function(data){
+          return JSON.parse(data).reverse();
+        },
         withCredentials: true
       },
       'new': {

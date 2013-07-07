@@ -19,13 +19,12 @@ angular.module('peepoltvApp')
 
     // Create map
     var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
-	
+
     // Disable scroll to zoom
     map.scrollWheelZoom.disable();
 
     // Get the streams based on geolocation
     streamService.resource.search({}, function(r){
-        r = r.reverse();
         $scope.streams = _.map(r, function(s){
           s.properties['marker-size'] = 'medium';
           s.properties['marker-color'] = '#A954F5';
@@ -54,7 +53,7 @@ angular.module('peepoltvApp')
           							'</div>' +
           							'<div class="specs-popup clearfix">' +
           								'<ul class="no-bullets">' +
-          									'<li class="thumb-user pull-left">' + 
+          									'<li class="thumb-user pull-left">' +
           										'<a href="#">' +
 													'<img src="http://fakeimg.pl/58x58/?text=User">' +
 												'</a>' +
