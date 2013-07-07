@@ -517,7 +517,9 @@ body.golive {
 	.alpha-col {
 		color: hsla(0%,0%,25%,1);
 		text-transform: uppercase;
+		text-align: center;
 		vertical-align: middle;
+		width: 20px;
 		padding: 10px 20px;
 		background-color: hsla(0%,0%,85%,1);
 		h4 {
@@ -525,11 +527,13 @@ body.golive {
 			font-size: 30px;
 		}
 	}
-	.tags-col {padding: 10px 10px 20px 15px;}
+	.tags-col {padding: 10px 10px 20px 15px; vertical-align: middle;}
 	.tag {
 		margin-left: 10px; 
 		display: inline-block;
 		&:first-of-type {margin-left: 0;}
+		a {color: hsla(0%,0%,55%,1);}
+		&:hover {text-decoration: underline !important;}
 	}	
 }
 
