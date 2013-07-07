@@ -4,7 +4,6 @@
 @include font-face("LatoRegular", '/fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '/fonts/lato-regita-webfont');
 @include font-face("LatoBold", '/fonts/lato-bol-webfont');
-@include font-face("MissionScript", '/fonts/mission-script-webfont');
 @include font-face("HeroLight",'/fonts/hero-light-webfont');
 @include font-face("Hero",'/fonts/hero-webfont');
 
@@ -13,8 +12,6 @@ $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bol
 $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Neue Italic", "TeXGyreHerosItalic", "TeXGyreHeros-Italic", "TeXGyreHeros Italic", "Helvetica Oblique", "Arial Italic", sans-serif;
 
 $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
-
-$brush-script-font-stack: Brush Script, "Brush Script", Brush Script MT, "Brush Script MT", Script MT Bold, "Script MT Bold", Gabriola, "Gabriola", Comic Sans MS, "Comic Sans MS", fantasy;
 
 // HEADER SWAP //
 
@@ -516,8 +513,19 @@ body.golive {
 }
 
 .tags-wrapper {
-	padding: 10px 10px 20px;
 	background-color: $white;
+	.alpha-col {
+		color: hsla(0%,0%,25%,1);
+		text-transform: uppercase;
+		vertical-align: middle;
+		padding: 10px 20px;
+		background-color: hsla(0%,0%,85%,1);
+		h4 {
+			font-family: "Hero", $condensed-font-stack;
+			font-size: 30px;
+		}
+	}
+	.tags-col {padding: 10px 10px 20px 15px;}
 	.tag {
 		margin-left: 10px; 
 		display: inline-block;
