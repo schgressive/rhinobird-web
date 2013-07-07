@@ -43,7 +43,7 @@ angular.module('peepoltvApp')
     };
 
     // Stream data from the init modal
-    $scope.streamData = {
+    $scope.streamOptions = {
       geoCheck: true
     };
 
@@ -75,11 +75,17 @@ angular.module('peepoltvApp')
 
       // Add the metadata
       if(metadata){
-        streamData.title = ($scope.streamData.titleCheck)? $scope.streamData.titleData : '';
+        streamData.title = ($scope.streamOptions.titleCheck)? $scope.streamOptions.titleData : '';
 
-        if($scope.streamData.geoCheck){
+        if($scope.streamOptions.geoCheck){
           streamData.lng = $scope.coords.lng;
           streamData.lat = $scope.coords.lat;
+        }
+        if($scope.streamOptions.channelCheck){
+          streamData.channel = $scope.streamOptions.channelName
+        }
+        if($scope.streamOptions.tagsCheck){
+          streamData.tags = $scope.streamOptions.tags
         }
         // here i need to add tags, geolocation, and channel hashtag logics
       }

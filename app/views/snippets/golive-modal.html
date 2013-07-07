@@ -15,28 +15,28 @@
 		<form ng-submit="startBroadcast(true)">
 			<div class="form-block">
 				<label class="checkbox" for="input-geolocation">
-					<input type="checkbox" id="input-geolocation" class="checked" ng-model="streamData.geoCheck"> Enable Geolocation?
+					<input type="checkbox" id="input-geolocation" class="checked" ng-model="streamOptions.geoCheck"> Enable Geolocation?
 				</label>
 				<label class="checkbox" for="input-title">
-					<input type="checkbox" class="checked" ng-model="streamData.titleCheck"> Title your Stream?
+					<input type="checkbox" class="checked" ng-model="streamOptions.titleCheck"> Title your Stream?
 				</label>
 				<div class="input-prepend">
 					<span class="add-on"><i class="icon-map-marker"></i></span>
-					<input type="text" id="input-title" placeholder="enter title here" ng-model="streamData.titleData">
+					<input type="text" id="input-title" placeholder="enter title here" ng-model="streamOptions.titleData">
 				</div>
 			</div>
 			<div class="form-block-inline">
 				<div class="inline">
 					<label class="checkbox" for="input-channel">
-						<input type="checkbox" ng-model="streamData.channelCheck"> Add a Channel?
+						<input type="checkbox" ng-model="streamOptions.channelCheck"> Add a Channel?
 					</label>
-					<input type="text" id="input-channel" placeholder="#channel" ng-model="streamData.channelData">
+					<input type="text" id="input-channel" placeholder="#channel" ng-model="streamOptions.channelName">
 				</div>
 				<div class="inline">
 					<label class="checkbox" id="input-tags">
-						<input type="checkbox" ng-model="streamData.tagsCheck"> What's Happening?
+						<input type="checkbox" ng-model="streamOptions.tagsCheck"> What's Happening?
 					</label>
-					<input type="text" id="input-tags" placeholder="tag your stream!" ng-model="streamData.tagsData">
+					<input type="text" id="input-tags" placeholder="tag your stream!" ng-model="streamOptions.tags">
 				</div>
 			</div>
 			<input class="btn btn-primary" type="submit" placeholder="Ready!">
