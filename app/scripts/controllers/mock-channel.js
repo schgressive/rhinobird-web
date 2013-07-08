@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('MockChannelCtrl', function ($scope) {
+  .controller('MockChannelCtrl', function ($scope, $browser) {
 
     $scope.streams = [
       {
@@ -56,52 +56,55 @@ angular.module('peepoltvApp')
 
     $scope.stream = $scope.streams[0];
 
-    var canvas = angular.element('#canvas');
-    var ctx = canvas[0].getContext('2d');
-    var interval, video;
-
     var drawScreen = function(){
-      var width = canvas.width();
-      var height = canvas.height();
+      var width = $scope.canvas.width();
+      var height = $scope.canvas.height();
 
       // Destination size
-      var dWidth = height*video.videoWidth/video.videoHeight;
+      var dWidth = height*$scope.video.videoWidth/$scope.video.videoHeight;
       var dHeight = height;
       var widthDiff = (width-dWidth)/2;
 
       // Paint the frame
-      ctx.drawImage(video , widthDiff, 0, dWidth, dHeight);
+      $scope.ctx.drawImage($scope.video , widthDiff, 0, dWidth, dHeight);
 
       // paint it black
-      ctx.fillStyle = "rgb(0,0,0)";
-      ctx.fillRect (0, 0, widthDiff, height);
+      $scope.ctx.fillStyle = "rgb(0,0,0)";
+      $scope.ctx.fillRect (0, 0, widthDiff, height);
 
       // paint it black
-      ctx.fillStyle = "rgb(0,0,0)";
-      ctx.fillRect (widthDiff + dWidth, 0, widthDiff, height);
+      $scope.ctx.fillStyle = "rgb(0,0,0)";
+      $scope.ctx.fillRect (widthDiff + dWidth, 0, widthDiff, height);
     };
 
     $scope.changeStream = function(streamId){
       // shut off the video
-      if(video){
-        video.muted = true;
+      if($scope.video){
+        $scope.video.muted = true;
       }
 
-      video = angular.element('#stream' + streamId)[0];
+      $scope.video = angular.element('#stream' + streamId)[0];
       // Set video volume
-      video.muted = false;
+      $scope.video.muted = false;
 
-      if(interval){
-        clearInterval(interval);
+      if($scope.interval){
+        clearInterval($scope.interval);
       }
 
-      interval = setInterval(drawScreen, 33);
+      $scope.interval = setInterval(drawScreen, 33);
 
       $scope.stream = $scope.streams[streamId];
     };
 
-    setTimeout(function(){
-      $scope.changeStream(0);
-    }, 1000);
+    $browser.defer(function(){
+
+      $scope.canvas = angular.element('#canvas');
+      $scope.ctx = $scope.canvas[0].getContext('2d');
+
+      setTimeout(function(){
+        $scope.changeStream(0);
+      }, 1000);
+
+    }, 0);
 
   });

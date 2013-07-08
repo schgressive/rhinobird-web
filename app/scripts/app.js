@@ -42,7 +42,7 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
         controller: 'ChannelsCtrl'
       })
       .when('/channel/protest', {
-        templateUrl: 'views/mock-channel.html',
+        templateUrl: '/views/mock-channel.html',
         controller: 'MockChannelCtrl'
       })
       .when('/channel/:channelName', {
