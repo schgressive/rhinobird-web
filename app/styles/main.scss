@@ -355,6 +355,7 @@ body.golive {
 	opacity: 0;
 	background:  hsla(0%,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
 	background-size: auto;
+  z-index:2;
 	&:hover {opacity: 1; cursor: pointer;}
 }
 
