@@ -38,7 +38,7 @@ angular.module('peepoltvApp')
       },
       {
         title: 'Police presence at July 11 casseroles protest',
-        geo: '',
+        geo: 'Vancouver, Canada',
         tags: ['police', 'casseroles', 'protest'],
         comments: 32,
         rebrodcasts: 65,
