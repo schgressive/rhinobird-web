@@ -9,9 +9,9 @@
 				<i class="icon-share"></i>
 				<span class="visually-hidden">Share This Stream</span>
 			</button>
-			<button class="pull-right" type="button">
-            	<i class="icon-volume-off"></i>
-				<span class="visually-hidden">Mute</span>
+			<button class="pull-right" type="button" ng-click="toggleMute()">
+            	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
+            	<span class="visually-hidden">Mute</span>
 			</button>
 		</div>
 	</div><!-- /.module-overlay -->
@@ -21,10 +21,10 @@
 		<li class="specs-location pull-left">
 			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}FPO Location</a></span>
 		</li>
-		<li class="specs-tags pull-left">
-			<span>Tagged:</span>
-			<ul class="group">
-				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#">{{tag}}</a></li>
+		<li class="specs-tags">
+			<ul class="group no-bullets">
+				<li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
+				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
 			</ul>
 		</li>
 		<li class="specs-comments pull-right">

@@ -9,8 +9,8 @@
 				<i class="icon-share"></i>
 				<span class="visually-hidden">Share This Stream</span>
 			</button>
-			<button class="pull-right" type="button">
-            	<i class="icon-volume-off"></i>
+			<button class="pull-right" type="button" ng-click="toggleMute()">
+            	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
             	<span class="visually-hidden">Mute</span>
 			</button>
 		</div>

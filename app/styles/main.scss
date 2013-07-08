@@ -428,10 +428,11 @@ body.golive {
 	opacity: 0;
 	&:hover {opacity: 1;}
 	button {
+		width:32px;
+		height: 32px;
 		border: none;
 		background-image: none;
 		opacity: .5;
-		&:last-of-type {margin-right: 5px;}
 		&:hover {opacity: 1;}
 	}
 }
