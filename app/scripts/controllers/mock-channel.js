@@ -76,6 +76,11 @@ angular.module('peepoltvApp')
       $scope.ctx.fillStyle = "rgb(0,0,0)";
       $scope.ctx.fillRect (widthDiff + dWidth, 0, widthDiff, height);
     };
+    $scope.globalMute = false;
+    $scope.toggleMute= function(){
+      $scope.globalMute = !$scope.globalMute;
+      $scope.video.muted = $scope.globalMute;
+    };
 
     $scope.changeStream = function(streamId){
       // shut off the video
@@ -85,7 +90,9 @@ angular.module('peepoltvApp')
 
       $scope.video = angular.element('#stream' + streamId)[0];
       // Set video volume
-      $scope.video.muted = false;
+      if(!$scope.globalMute){
+        $scope.video.muted = false;
+      }
 
       if($scope.interval){
         clearInterval($scope.interval);
