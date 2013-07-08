@@ -366,9 +366,17 @@ body.golive {
 	.thumb-user {
 		margin-right: 10px;
 		img {
-			width: 34px;
-			height: 34px;
+			width: 42px;
+			height: 42px;
 		}
+	}
+	.tag a {color:hsla(0%,0%,50%,1);}
+}
+
+.specs-tags {
+	.tag a {
+		font-family: "LatoItalic", $italic-font-stack;
+		font-size: 12px;
 	}
 }
 

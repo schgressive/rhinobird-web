@@ -21,9 +21,9 @@
 			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{mainStream.properties.geo_reference}}</a></span>
 		</li>
 		<li class="specs-tags pull-left">
-			<span>Tagged:</span>
-			<ul class="group">
-				<li class="tag pull-left" ng-repeat="tag in mainStream.tags"><a href="#">{{tag}}</a></li>
+			<ul class="group no-bullets">
+				<li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
+				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
 			</ul>
 		</li>
 		<li class="specs-comments pull-right">
