@@ -26,7 +26,6 @@ angular.module('peepoltvApp')
     $scope.startBroadcast = function(metadata){
       if(!$scope.localStream.permissionsGranted){
         // The mic/cam permissions
-        $scope.permissionAlert = true;
         return;
       }
 
@@ -49,6 +48,14 @@ angular.module('peepoltvApp')
 
     // Header streaming options
     $scope.streamingOptions = $rootScope.streamingOptions;
+
+    $rootScope.$on('liveStreamStopped', function(e, r){
+      $scope.stream.token = "";
+      if(!r.stay && $scope.localStream.stream){
+        $scope.localStream.stream.stream.stop();
+        history.back();
+      }
+    });
 
     // Get a proportional thumbnail
     var getThumbnailURL = function(video, width, height){
@@ -87,14 +94,10 @@ angular.module('peepoltvApp')
         if($scope.streamOptions.tagsCheck){
           streamData.tags = $scope.streamOptions.tags
         }
-        // here i need to add tags, geolocation, and channel hashtag logics
       }
 
       // Post the new stream to the server
-      streamService.resource.new(streamData, function(data){
-
-        $scope.stream = data;
-      });
+      $scope.stream = streamService.resource.new(streamData);
     };
 
   });

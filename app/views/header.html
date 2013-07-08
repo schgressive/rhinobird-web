@@ -32,8 +32,8 @@
 
 				<nav class="golive-nav nav-collapse collapse" role="navigation">
 					<ul class="nav">
-						<li class="lighten action"><a href="/index"><i class="icon-circle-arrow-left"></i> Return and Close Session</a></li>
-						<li class="lighten action"><a href="#"><i class="icon-remove-sign"></i> Stop Recording</a></li>
+						<li class="lighten action"><a href="#" ng-click="stopBroadcast(false)"><i class="icon-circle-arrow-left"></i> Return and Close Session</a></li>
+						<li class="lighten action"><a href="#" ng-click="stopBroadcast(true)"><i class="icon-remove-sign"></i> Stop Recording</a></li>
 						<li class="lighten action"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Session Options</a></li>
 						<li class="golive-btn" ng-class="{'active': section == 'golive'}"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
 					</ul><!-- /.nav -->

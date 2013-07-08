@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, authService) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, authService, streamService) {
 
     $scope.$on('$locationChangeSuccess', function (){
       var path = $location.path();
@@ -15,6 +15,11 @@ angular.module('peepoltvApp')
     };
     $scope.toggleOptions = function(){
       $rootScope.streamingOptions.show = !$rootScope.streamingOptions.show;
+    };
+
+    // Emit stop broadcast event
+    $scope.stopBroadcast = function(stay){
+      $rootScope.$broadcast('liveStreamStopped', { stay: stay});
     };
 
     // Options for the modal

@@ -6,22 +6,22 @@ angular.module('peepoltvApp')
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
+      // Create map
+      $scope.map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
+
+      // Disable scroll to zoom
+      $scope.map.scrollWheelZoom.disable();
+
       var zoom = 30;
       if(parameters.type && parameters.type !== 'street_address' && parameters.type !== 'route'){
         zoom = 13;
       }
-      map.setView(new L.LatLng(parameters.coords.lat, parameters.coords.lng), zoom );
+      $scope.map.setView(new L.LatLng(parameters.coords.lat, parameters.coords.lng), zoom );
     });
 
     // Get current location
     $scope.geolocation = geolocation;
     geolocation.getCurrent();
-
-    // Create map
-    var map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
-
-    // Disable scroll to zoom
-    map.scrollWheelZoom.disable();
 
     // Get the streams based on geolocation
     streamService.resource.search({}, function(r){
@@ -38,7 +38,7 @@ angular.module('peepoltvApp')
           type: 'FeatureCollection',
           features: $scope.streams
         });
-        markerLayer.addTo(map);
+        markerLayer.addTo($scope.map);
 
         markerLayer.eachLayer(function(marker) {
           var feature = marker.feature;
@@ -79,7 +79,7 @@ angular.module('peepoltvApp')
         });
 
         // Set inital center and zoom
-        //map.fitBounds(markerLayer.getBounds());
+        //$scope.map.fitBounds(markerLayer.getBounds());
       });
 
     // Address search
