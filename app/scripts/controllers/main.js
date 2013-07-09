@@ -2,7 +2,7 @@
 
 angular.module('peepoltvApp')
 
-  .controller('MainCtrl', function ($scope, streamService, geolocation) {
+  .controller('MainCtrl', function ($scope, streamService, geolocation, $location) {
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
@@ -87,6 +87,11 @@ angular.module('peepoltvApp')
     // $scope.address defined in the view
     $scope.searchAddress = function(){
       geolocation.reverseGeocode($scope.address);
+    };
+
+    // Search streams
+    $scope.searchStreams = function(){
+      $location.url("/search?q=" + $scope.searchString);
     };
 
     $scope.getCurrent = function(){
