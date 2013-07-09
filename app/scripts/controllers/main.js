@@ -7,7 +7,8 @@ angular.module('peepoltvApp')
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
       // Create map
-      $scope.map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
+      if(!$scope.map)
+        $scope.map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
 
       // Disable scroll to zoom
       $scope.map.scrollWheelZoom.disable();
