@@ -48,8 +48,8 @@ angular.module('peepoltvApp')
           var popupContent = '<div class="popup clearfix">' +
           						'<div class="popup-left pull-left">' +
           							'<div class="video-popup">' +
-          								'<a href="' + feature.url + '">' +
-											'<img src="http://fakeimg.pl/274x118/?text=StreamIMG">' +
+          								'<a href="/stream/' + feature.id + '">' +
+											'<img src="' + feature.thumbs.medium + '">' +
 										'</a>' +
           							'</div>' +
           							'<div class="specs-popup clearfix">' +
@@ -60,12 +60,12 @@ angular.module('peepoltvApp')
 												'</a>' +
           									'</li>' +
           									'<li class="specs-title">' + feature.title + '</li>' +
-          									'<li class="specs-tags">tags go here</li>' +
+          									'<li class="specs-tags">' + feature.tags.join(", ") + '</li>' +
           								'</ul>' +
           							'</div>' +
 		  						'</div>' +
 		  						'<div class="popup-right pull-left">' +
-		  							'<a target="_blank" href="' + feature.url + '">' +
+		  							'<a target="_blank" href="/streams/' + feature.id + '">' +
 		  								'<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
 		  							'</a>' +
 		  						'</div>' +
