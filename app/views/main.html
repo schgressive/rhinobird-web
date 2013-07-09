@@ -83,7 +83,7 @@
 								On Fire!
 							</h3>
 							<ol class="onfire-row no-bullets">
-								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
+								<li class="module-large span3" ng-repeat="stream in streams | skip:4 | limitTo:4">
 									<div ng-include="'/views/snippets/module-large.html'"></div>
 
 								</li><!-- /.module-large -->
@@ -97,7 +97,7 @@
 								Featured Channels
 							</h3>
 							<ol class="featured-row no-bullets">
-								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
+								<li class="module-large span3" ng-repeat="stream in streams | skip:8 | limitTo:4">
 									<div ng-include="'/views/snippets/module-large.html'"></div>
 
 								</li><!-- /.module-large -->
@@ -111,7 +111,7 @@
 								Suggested
 							</h3>
 							<ol class="suggested-row no-bullets">
-								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
+								<li class="module-large span3" ng-repeat="stream in streams | skip:12 | limitTo:4">
 									<div ng-include="'/views/snippets/module-large.html'"></div>
 
 								</li><!-- /.module-large -->
