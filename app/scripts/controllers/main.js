@@ -33,6 +33,7 @@ angular.module('peepoltvApp')
           return s;
         });
 
+        if(!$scope.map) return;
         // Create and add marker layer
         var markerLayer = L.mapbox.markerLayer();
         markerLayer.setGeoJSON({
