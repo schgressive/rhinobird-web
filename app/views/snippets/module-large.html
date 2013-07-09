@@ -1,10 +1,10 @@
 <div class="module-inner">
 	<div class="module-video">
-		<a href="/streams/{{stream.id}}" class="live-stream-link">
+		<a class="live-stream-link">
 			<img ng-src="{{stream.thumbs.medium}}"/>
 		</a>
 		<div class="module-overlay">
-			<div class="btn-overlay">
+			<a href="/streams/{{stream.id}}" class="btn-overlay">
 				<button class="pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal">
 					<i class="icon-retweet"></i>
 					<span class="visually-hidden">Rebroadcast This Stream</span>
@@ -13,7 +13,7 @@
 					<i class="icon-share"></i>
 					<span class="visually-hidden">Share This Stream</span>
 				</button>
-			</div>
+			</a>
 			<ul class="specs-stream no-bullets">
 				<li class="specs-title"><em class="title">{{stream.title}}</em></li>
 				<li class="specs-comments pull-left">
