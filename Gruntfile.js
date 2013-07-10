@@ -45,6 +45,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
+          nospawn: false,
           livereload: LIVERELOAD_PORT
         },
         files: [
