@@ -2,43 +2,48 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="width-controller container-fluid">
-				<button type="button" class="btn btn-navbar" datas-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="brand" href="/index" title="Peepol.tv">
-					<img src="images/ptv-avatar-grays.svg" alt="the Peepol.tv avatar" />
-				</a>
-
-				<nav class="main-nav nav-collapse collapse" role="navigation">
-					<ul class="nav">
-						<li class="lighten login-link" ng-hide="user.email"><a href="#" ng-click="openLoginModal()">Sign In</a>
-
-						</li>
-						<li class="dropdown lighten" ng-show="user.email">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi {{user.name}}!<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#" ng-click="logout()">Logout</a></li>
-							</ul><!-- /.dropdown-menu -->
-						</li>
-						<li class="lighten" ng-class="{'active': section == 'explore'}"><a href="/explore">Explore</a></li>
-						<li class="lighten" ng-class="{'active': section == 'channels'}"><a href="/channels">Channels</a></li>
-						<li class="lighten" ng-class="{'active': section == 'peepol'}"><a href="/channel/protest">Peepol & VJs</a></li>
-						<li class="golive-btn" ng-class="{'active': section == 'golive'}"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
-					</ul><!-- /.nav -->
-				</nav><!-- /.main-nav -->
-
-				<nav class="golive-nav nav-collapse collapse" role="navigation">
-					<ul class="nav">
-						<li class="lighten action"><a href="#" ng-click="stopBroadcast(false)"><i class="icon-circle-arrow-left"></i> Return and Close Session</a></li>
-						<li class="lighten action"><a href="#" ng-click="stopBroadcast(true)"><i class="icon-remove-sign"></i> Stop Recording</a></li>
-						<li class="lighten action"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Session Options</a></li>
-						<li class="golive-btn" ng-class="{'active': section == 'golive'}"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
-					</ul><!-- /.nav -->
-				</nav><!-- /.golive-nav -->
-
+				<div class="row-fluid">
+					<button type="button" class="btn btn-navbar" datas-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="span1">
+						<a class="brand" href="/index" title="Peepol.tv">
+							<img src="images/ptv-avatar-grays.svg" alt="the Peepol.tv avatar" />
+						</a>
+					</div><!-- /.span1 -->
+					<div class="span11">
+						<nav class="main-nav nav-collapse collapse" role="navigation">
+							<ul class="nav">
+								<li class="navLink login-link" ng-hide="user.email"><a href="#" ng-click="openLoginModal()">Sign In</a>
+		
+								</li>
+								<li class="dropdown navLink" ng-show="user.email">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi {{user.name}}!<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="#" ng-click="logout()">Logout</a></li>
+									</ul><!-- /.dropdown-menu -->
+								</li>
+								<li class="navLink" ng-class="{'active': section == 'explore'}"><a href="/explore">Explore</a></li>
+								<li class="navLink" ng-class="{'active': section == 'channels'}"><a href="/channels">Channels</a></li>
+								<li class="navLink" ng-class="{'active': section == 'peepol'}"><a href="/peepol">Peepol & VJs</a></li>
+								<li class="golive-btn" ng-class="{'active': section == 'golive'}"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
+							</ul><!-- /.nav -->
+						</nav><!-- /.main-nav -->
+		
+						<nav class="golive-nav nav-collapse collapse" role="navigation">
+							<ul class="nav">
+								<li class="navLink action"><a href="/index"><i class="icon-circle-arrow-left"></i> Return & Close</a></li>
+								<li class="navLink action"><a href="#"><i class="icon-remove-sign"></i> Stop Recording</a></li>
+								<li class="navLink action"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Options</a></li>
+								<li class="golive-btn" ng-class="{'active': section == 'golive'}"><a href="/golive"><i class="golive-icon"></i> Go Live!</a></li>
+							</ul><!-- /.nav -->
+						</nav><!-- /.golive-nav -->
+						
+					</div><!-- /.span11 -->
+				</div><!-- /.row-fluid -->
 			</div><!-- /.container-fluid -->
 		</div><!-- /.inner-navbar -->
 	</div><!-- /.navbar -->

@@ -7,15 +7,17 @@
 		    	</a>
 			</div>
 			<div class="span10">
-				<form class="form-search pull-right" role="search" ng-submit="searchStreams()">
-					<div class="form-actions">
-						<div class="input-append">
-							<span class="add-on"><i class="icon-search"></i></span>
-              <input type="search" placeholder="search livestreams, locations, tags, #channels, etc" ng-model="searchString">
-						</div>
-						<button type="submit" class="btn">Let's Go!</button>
-					</div><!-- /.form-actions -->
-				</form>
+				<div class="row-fluid">
+					<form method="get" class="form-search" role="search">
+						<div class="form-actions">
+							<div class="input-append span8">
+								<input type="search" placeholder="search livestreams, locations, tags, #channels, etc">
+								<span class="add-on"><i class="icon-search"></i></span>
+							</div>
+							<button type="submit" class="btn span4">Let's Go!</button>
+						</div><!-- /.form-actions -->
+					</form>
+				</div><!-- /.row-fluid -->
 			</div><!-- /.span10 -->
 		</div><!-- /.row-fluid -->
 	</div><!-- /.container-fluid -->
@@ -83,7 +85,7 @@
 								On Fire!
 							</h3>
 							<ol class="onfire-row no-bullets">
-								<li class="module-large span3" ng-repeat="stream in streams | skip:4 | limitTo:4">
+								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div ng-include="'/views/snippets/module-large.html'"></div>
 
 								</li><!-- /.module-large -->
@@ -97,7 +99,7 @@
 								Featured Channels
 							</h3>
 							<ol class="featured-row no-bullets">
-								<li class="module-large span3" ng-repeat="stream in streams | skip:8 | limitTo:4">
+								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div ng-include="'/views/snippets/module-large.html'"></div>
 
 								</li><!-- /.module-large -->
@@ -111,7 +113,7 @@
 								Suggested
 							</h3>
 							<ol class="suggested-row no-bullets">
-								<li class="module-large span3" ng-repeat="stream in streams | skip:12 | limitTo:4">
+								<li class="module-large span3" ng-repeat="stream in streams | limitTo:4">
 									<div ng-include="'/views/snippets/module-large.html'"></div>
 
 								</li><!-- /.module-large -->
