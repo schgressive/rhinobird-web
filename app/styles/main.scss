@@ -102,32 +102,41 @@ body.base { /*overrides are here */
 			background-image: none;
 			border-bottom: 1px solid $grayLight;
 			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
+			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 			a.brand {
 				padding: 0;
-				margin: 5px 0 0 0;
+				margin: 5px 0 0;
+				float: right;
+			}
+			.login-link {
+				font-weight: normal;
+				float: right;
+				@include fontSize(14px);
+				a {
+					color:$navbarLinkColor;
+					margin: 0 14px 0 10px;
+					padding: 2px 8px;
+					&:hover {
+						color: $navbarLinkColorHover;
+						text-decoration: none;
+						background-color: $navbarLinkBackgroundHover;
+					}
+				}
 			}
 			.nav {
 				width: 100%;
 				margin: 0;
 			}
-			.nav > li {
-				text-align: center;
-				display: inline;
-			}
-			.nav > li.navLink {
-				margin-top: 10px;
-			}
-			.nav > li > a {
-				text-shadow: none;
-				white-space: nowrap;
-			}
-			li.navLink > a  {
-				color:$navbarLinkColor;
-				margin: 0 14px 0 10px;
-				padding: 2px 8px;
-				&:hover {
-					color: $navbarLinkColorHover;
-					background-color: $navbarLinkBackgroundHover;
+			li.navLink {
+				margin-top: 7px;
+				a {
+					color:$navbarLinkColor;
+					margin: 0 14px 0 10px;
+					padding: 2px 8px;
+					&:hover {
+						color: $navbarLinkColorHover;
+						background-color: $navbarLinkBackgroundHover;
+					}	
 				}
 			}
 			li.active > a {
@@ -136,20 +145,6 @@ body.base { /*overrides are here */
 				box-shadow: none;
 				padding-bottom: 8px;
 				border-bottom: 4px solid $red;
-			}
-			li.golive-btn {
-				height: 44px;
-				padding: 0 16px;
-				float:right;
-				a {padding: 0;margin-top: 5px;}
-			}
-			li.dropdown .caret {
-				margin: {
-						top:8px;
-						left:7px;
-				}
-				border-top-color: $borderLight;
-				border-bottom-color: $borderLight;
 			}
 		}
 	}
@@ -204,6 +199,7 @@ i[class*="icon"] {font-style: normal;}
 
 .banner {
 	padding-bottom: 40px;
+	@media (max-width: $navbarCollapseWidth) {padding-bottom: 0;}
 	.brand img {
 		width: 100%;
 		max-width: 32px;
@@ -216,11 +212,23 @@ i[class*="icon"] {font-style: normal;}
 	@include fontSize(18px);
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	background-color: $grayFaint;
+	background-color: $white;
 	border-left: 1px solid $borderLight;
 	border-right: 1px solid $borderLight;
 	@include font-smoothing;
-	&:hover { background-color: darken($grayFaint, 4%); cursor: pointer;}
+	height: 44px;
+	padding: 4px 16px;
+	border: none;
+	border-left: 1px solid $grayLight;
+	border-right: 1px solid $grayLight;
+	&:hover { background-color: darken($white, 4%); cursor: pointer;}
+	a {
+		color: $grayDark;
+		text-decoration: none;
+		padding: 0;
+		width: 100%;
+		height: auto;
+	}
 	.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
 		width: 32px;
 		height: 32px;
@@ -232,6 +240,9 @@ i[class*="icon"] {font-style: normal;}
 
 .mainWrapper {
 	.main {padding: 20px 70px;}
+	@media (max-width: $navbarCollapseWidth) {
+		margin-top: -20px;
+	}
 }
 
 body.golive {
