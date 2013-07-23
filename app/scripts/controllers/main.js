@@ -54,8 +54,8 @@ angular.module('peepoltvApp')
           							'<div class="specs-popup clearfix">' +
           								'<ul class="no-bullets">' +
           									'<li class="thumb-user pull-left">' +
-          										'<a href="#">' +
-													'<img src="http://fakeimg.pl/58x58/?text=User">' +
+          										'<a href="#" title="username">' +
+													'<img src="http://fakeimg.pl/54x54/?text=User">' +
 												'</a>' +
           									'</li>' +
           									'<li class="specs-title">' + feature.title + '</li>' +

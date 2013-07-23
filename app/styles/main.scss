@@ -1,10 +1,13 @@
 @import "compass_twitter_bootstrap";
-@import "ptv-branding";
+@import "control-file"; /*overrides bootstrap variables*/
+@import "compass_twitter_bootstrap/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
+
+// Fonts ------------------------------
+// NOTE FROM CHRIS: please use the fontsize mixin when defining font-size values. It creates REM values (better for responsive) w/a PX fallback.
 
 @include font-face("LatoRegular", '/fonts/lato-reg-webfont');
 @include font-face("LatoItalic", '/fonts/lato-regita-webfont');
 @include font-face("LatoBold", '/fonts/lato-bol-webfont');
-@include font-face("HeroLight",'/fonts/hero-light-webfont');
 @include font-face("Hero",'/fonts/hero-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
@@ -13,7 +16,7 @@ $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Ne
 
 $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
-// HEADER SWAP //
+// HEADER SWAP ------------------------------
 
 nav.golive-nav { display:none; speak:none;}
 
@@ -27,92 +30,23 @@ nav.golive-nav { display:none; speak:none;}
 
 .user-dropdown {display: none;}
 
-// BOOTSTRAP OVERRIDES //
+// Global Styles ------------------------------
 
 body.base {
-	color: $font-color;
-	font-family: "LatoRegular", $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	background-color: hsla(0,0%,94%,1);
-	.btn {
-		text-transform: uppercase;
-		text-shadow: none;
-		background-image: none;
-	}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal {border-radius: 0;}
-	input[type="search"] + .add-on {padding: 4px 5px}
-	.navbar .nav > li > a {padding: 7px 13px; text-shadow: none;}
-	.navbar .nav > li.lighten > a {
-		color:lighten($base-gray, 50%);
-		@include link-hover;
-	}
-	.navbar {
-		.navbar-inner {
-			background-color: $white;
-			background-image: none;
-			.brand {
-				padding: 0;
-				margin: 5px 0 0 0;
-			}
-			.nav {width:96.5%; margin: 0;}
-			li.active > a {background-color: $white; box-shadow: none; border-bottom: 3px solid red; padding-bottom: 12px;} /*NEED TO CHANGE THIS LATER*/
-			li.golive-btn {float:right;}
-			li.dropdown .caret {
-				margin: {
-						top:8px;
-						left:7px;
-				}
-				border-top-color: lighten($base-gray, 50%);
-				border-bottom-color: lighten($base-gray, 50%);
-			}
-		}
-	}
-	.subnav > li > a:hover {color: hsla(0%,0%,30%,1);}
-	.container-fluid {
-		padding: {
-			left: 40px;
-			right: 40px;
-		}
-	}
-	.modal {
-		background-color: hsla(0,0%,91%,1);
-		h3 {margin: 14px 0 0 0;}
-	}
-	.btn-primary {background-color: hsla(21,99%,35%,1);}
-	.btn-accent {background-color: hsla(287,48%,41%,1);}
-	.btn-primary, .btn-accent {
-		color: $white;
-		font-size: 18px;
-		text-transform: uppercase;
-		text-shadow: none;
-		letter-spacing: 1px;
-		/* padding: 8px 20px; */
-		background-image: none;
-		border: none;
-		box-shadow: none;
-	}
+	color: $textColor;
+	font-family: "LatoRegular", $baseFontFamily;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	background-color: $bodyBackground;
 }
 
+table caption, .visually-hidden {display:none !important;}
 
-body.golive li.active > a {border: none;padding: none;}
-body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-shadow: none; border-bottom: none; padding-bottom: 7px;} /*NEED TO CHANGE THIS LATER*/
-
-
-// CUSTOM STYLES //
-
-/*
 [data-icon]:before {
-  font-family: "Entypo";
-  font-style: normal;
-  content: attr(data-icon);
-  speak: none;
-}
-*/
-
-.width-controller {
-	max-width: 960px;
-	margin: 0 auto;
+	font-family: "BatchIcons";
+	font-style: normal;
+	content: attr(data-icon);
+	speak: none; 
 }
 
 .no-bullets {
@@ -126,14 +60,130 @@ body.golive .navbar .navbar-inner li.active > a {background-color: $white; box-s
 	-webkit-padding-start: 0;
 }
 
+.width-controller {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
 .one-liner {display: block;}
 
-.visually-hidden, .form-search .visually-hidden {display: none;}
+// Calculate all H# Tags.
+// using 1:1.618, Golden Section
+
+h1 {@include fontSize(47.123px);}
+h2 {@include fontSize(36px);}
+h3 {@include fontSize(29.124px);}
+h4 {@include fontSize(22.250px);}
+h5 {font-size: $baseFontSize;}
+h6 {font-size: $fontSizeSmall;}
+
+h2, h3, h4, h5, h6 {margin-bottom: 10px;}
+
+// Custom Styles ------------------------------
+// includes Bootstrap Overrides
+
+body.base { /*overrides are here */
+	.btn {
+		text-transform: uppercase;
+		text-shadow: none;
+		background-image: none;
+		box-shadow: none;
+	}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered {border-radius: $baseBorderRadius;}
+	input[type="search"] + .add-on {padding: 4px 5px}
+	.navbar {
+		color: $navbarText;
+		@include fontSize(14px);
+		.span1 {margin-left: 0;}
+		.navbar-inner {
+			padding-left: 70px;
+			padding-right: 70px;
+			background-color: $navbarBackground;
+			background-image: none;
+			border-bottom: 1px solid $grayLight;
+			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
+			a.brand {
+				padding: 0;
+				margin: 5px 0 0 0;
+			}
+			.nav {
+				width: 100%;
+				margin: 0;
+			}
+			.nav > li {
+				text-align: center;
+				display: inline;
+			}
+			.nav > li.navLink {
+				margin-top: 10px;
+			}
+			.nav > li > a {
+				text-shadow: none;
+				white-space: nowrap;
+			}
+			li.navLink > a  {
+				color:$navbarLinkColor;
+				margin: 0 14px 0 10px;
+				padding: 2px 8px;
+				&:hover {
+					color: $navbarLinkColorHover;
+					background-color: $navbarLinkBackgroundHover;
+				}
+			}
+			li.active > a {
+				color:$navbarLinkColorActive !important;
+				background-color: $white;
+				box-shadow: none;
+				padding-bottom: 8px;
+				border-bottom: 4px solid $red;
+			}
+			li.golive-btn {
+				height: 44px;
+				padding: 0 16px;
+				float:right;
+				a {padding: 0;margin-top: 5px;}
+			}
+			li.dropdown .caret {
+				margin: {
+						top:8px;
+						left:7px;
+				}
+				border-top-color: $borderLight;
+				border-bottom-color: $borderLight;
+			}
+		}
+	}
+	.subnav > li > a:hover {color: hsla(0%,0%,30%,1);}
+	.container-fluid {
+		padding: {
+			left: 40px;
+			right: 40px;
+		}
+	}
+	.modal {
+		background-color: $grayLight;
+		h3 {margin: 14px 0 0 0;}
+	}
+	.btn-primary {
+		background-color: $btnPrimaryBackground;
+		&:hover {background-color: $btnPrimaryBackgroundHighlight;}
+	}
+	.btn-accent {
+		background-color: $btnAccentBackground;
+		&:hover {background-color: $btnAccentBackgroundHighlight;}
+	}
+	.btn-primary, .btn-accent {
+		color: $white;
+		@include fontSize(16px);
+		letter-spacing: 1px;
+		border: none;
+	}
+}
 
 i[class*="icon"] {font-style: normal;}
 
 .section-title {
-	color: $base-gray;
+	color: $grayDarker;
 	font-family: "LatoBold", $bold-font-stack;
 	margin-bottom: 20px;
 	@include font-smoothing;
@@ -160,57 +210,53 @@ i[class*="icon"] {font-style: normal;}
 		height: auto;
 	}
 }
-.navbar {
-	font-size: 1.143em;
-	.dropdown-menu {
-		padding-bottom: 11px;
-		li {
-			margin-left: 0px;
-			a:hover {@include link-hover;}
-		}
-	}
-	li {margin-left:30px;}
-	li.lighten {margin-top: 4px;}
-	.golive-btn { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
-		font-family: "Hero", $condensed-font-stack;
-		font-size: 1.286em; /*18px*/
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		background-color: $bg-color;
-		border-left: 1px solid $border-light-color;
-		border-right: 1px solid $border-light-color;
-		@include font-smoothing;
-		&:hover {
-			@include box-shadow(inset 1px 0px 6px 0px hsla(0%, 0%, 0%, 0.25));
-		}
-		.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
-			width: 32px;
-			height: 32px;
-			display: inline-block;
-			vertical-align: middle;
-			background: url('/images/golive-icon.svg') top left no-repeat;
-		}
+
+.golive-btn { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
+	font-family: "Hero", $condensed-font-stack;
+	@include fontSize(18px);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background-color: $grayFaint;
+	border-left: 1px solid $borderLight;
+	border-right: 1px solid $borderLight;
+	@include font-smoothing;
+	&:hover { background-color: darken($grayFaint, 4%); cursor: pointer;}
+	.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
+		width: 32px;
+		height: 32px;
+		display: inline-block;
+		vertical-align: middle;
+		background: url('/images/golive-icon.svg') top left no-repeat;
 	}
 }
 
 .mainWrapper {
-	.main {padding: 20px 30px;}
+	.main {padding: 20px 70px;}
 }
 
 body.golive {
-	background-color: hsla(0%,0%,0%,.75);
+	background-color: $grayDarker;
+	li.active > a {border: none;padding: none;}
+	.navbar .navbar-inner li.active > a {
+		background-color: $white;
+		box-shadow: none;
+		border-bottom: none;
+		.golive-btn, .golive-btn.active {
+			background-color: $white !important;
+		}
+	} /*NEED TO CHANGE THIS LATER*/
 	.main {
-    margin-top: -14px;
-    padding-bottom: 0;
+    	margin-top: -14px;
+		padding-bottom: 0;
 
-    video{
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
-      transform: rotateY(180deg);
-    }
-  }
+		video {
+	      -webkit-transform: rotateY(180deg);
+	      -moz-transform: rotateY(180deg);
+	      -o-transform: rotateY(180deg);
+	      -ms-transform: rotateY(180deg);
+	      transform: rotateY(180deg);
+	    }
+	}
 }
 
 .top-content {
@@ -234,35 +280,35 @@ body.golive {
 
 .explore .top-content {
 	background-color: $white;
-	padding: 20px 30px 10px;
+	padding: 20px 70px 10px;
 	.form-search {
 		margin: 42px 0 0 0;
+		.input-append {margin-left: 6%;}
 		.add-on {padding: 10px 7px 10px;}
-		input[type="search"] { width: 438px; padding: 10px;}
+		input[type="search"] {width: 88%; padding: 10px;}
 	}
 	.form-search .btn {
 		color: $white;
 		font-family: "Hero", $condensed-font-stack;
-		font-size: 1.286em; /*18px*/
-		text-transform: uppercase;
+		@include fontSize(16px);
 		letter-spacing: 1px;
 		text-align: left;
-		width: 194px;
-		margin-left: 20px;
 		padding: 12px 0 9px 14px;
 		vertical-align: top;
-		background: $base-gray url('/images/letsgo-icon.svg') top right no-repeat;
+		width: 25%;
+		background: $grayDark url('/images/letsgo-icon.svg') top right no-repeat;
 		background-size: auto;
 		border: none;
-		box-shadow: none;
-		@include font-smoothing;
+		float: right;
+		@include font-smoothing();
+		&:hover { background-color: $grayDarker;}
 	}
 }
 
 .mid-content {
 	padding-top: 15px;
 	.form-geo {
-		margin-top: 10px;
+		margin-top: 16px;
 	}
 }
 
@@ -282,15 +328,20 @@ body.golive {
 	.hook {
 			text-align: center;
 		a {
-			color: hsla(0,0%,60%,1);
+			color: $gray;
 			padding: 5px 30px;
-			background-color: hsla(0,0%,87%,1);
+			background-color: $grayLight;
 			display: inline-block;
+			&:hover {
+				color: $grayDarker;
+				text-decoration: none;
+				background-color: darken($grayLight, 5%);
+			}
 		}
 	}
 }
 
-.map-wrapper, .carousel-wrapper, .module-large, .single-stream-wrapper, .tags-wrapper {@include box-shadow(0 1px 2px hsla(0%, 0%, 0%, 0.07));}
+.map-wrapper, .carousel-wrapper, .module-large, .single-stream-wrapper, .tags-wrapper {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
 
 .map-wrapper {
 	background-color: $white;
@@ -303,22 +354,21 @@ body.golive {
 }
 
 .subnav {
+	margin-top: 5px;
 	li {
 		margin-right: 34px;
 		display: inline-block;
 		&:last-of-type {margin-right: 0px;}
-		a {color:#b6b8b9;
-			&:hover { background-color: hsla(0%,0%,100%,1);}
-		}
+		a {color:$gray;}
 		&.active a {
-			color: hsla(0%,0%,15%,1);
-			border-bottom: 2px solid hsla(0%,0%,15%,1);
+			color: $grayDarker;
+			border-bottom: 2px solid $grayDarker;
 		}
 	}
 }
 
 .module-inner {
-	padding: 5px 5px 0;
+	padding: 8px 10px 0;
 	background-color: $white;
 }
 
@@ -346,24 +396,24 @@ body.golive {
 }
 
 .module-overlay {
-	color: #333;
+	color: $grayDarker;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	opacity: 0;
-	background:  hsla(0%,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
+	background:  hsla(0,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
 	background-size: auto;
-  z-index:2;
+	z-index:2;
 	&:hover {opacity: 1; cursor: pointer;}
 }
 
 .module-outer {
-	color: #333;
+	color: $grayDarker;
 	padding: 5px 10px 7px;
 	background-color: $white;
-	a {color:#333;}
+	a {color:$grayDarker;}
 	.thumb-user {
 		margin-right: 10px;
 		img {
@@ -371,13 +421,13 @@ body.golive {
 			height: 42px;
 		}
 	}
-	.tag a {color:hsla(0%,0%,50%,1);}
+	.tag a {color:$gray;}
 }
 
 .specs-tags {
 	.tag a {
 		font-family: "LatoItalic", $italic-font-stack;
-		font-size: 12px;
+		@include fontSize(10px);
 	}
 }
 
@@ -386,8 +436,8 @@ body.golive {
 	background-color: $white;
 	.specs-stream {
 		color:$white;
-		background-color: #333;
-	a {color:$white;}
+		background-color: $grayDarker;
+		a {color:$white;}
 	}
 }
 
@@ -399,12 +449,16 @@ body.golive {
 	padding: 10px 10px 20px;
 	background-color: $white;
 	.slider-control {
-		background-color: hsla(0%,0%,90%,1);
+		background-color: $grayLighter;
 		text-align: center;
 		display: block;
 		padding-top: 22px;
 		padding-bottom: 22px;
 		i {opacity: .5;}
+		&:hover {
+			background-color: darken($grayLighter, 5%);
+			i {opacity: 1;}
+		}
 	}
 	.slider-wrapper {
 		max-height: 63px;
@@ -416,7 +470,7 @@ body.golive {
 	}
 }
 
-.module-video, .live-stream-link {background-color: #000;}
+.module-video, .live-stream-link {background-color: $black;}
 
 .btn-overlay {
 	right: 0;
@@ -439,17 +493,17 @@ body.golive {
 
 .options-row {
 	margin-top: -24px;
-	background-color: hsla(0%,0%,0%,.5);
+	background-color: hsla(0,0%,0%,.5);
 	padding-top: 20px;
 	form {margin-left: 30px;}
 }
 
 .colophon {
-	font-size: .85em;
+	font-size: $fontSizeSmall;
 	margin-top: 50px;
 	padding: 10px 0 5px;
-	border-top: 2px solid rgba(0,0,0,.2);
-	background-color: rgba(0,0,0,.75);
+	border-top: 2px solid $grayDarker;
+	background-color: $grayDark;
 	a {
 		color: hsla(0,0%,45%,1);
 		&:hover {color:$white;}
@@ -459,10 +513,10 @@ body.golive {
 }
 
 .modal {
-	font-size: 16px;
+	@include fontSize(14px);
 	text-align: center;
-	h3, a {color:#333;}
-	h3 {font-size: 28px;}
+	h3, a {color:$grayDarker;}
+	h3 {@include fontSize(26px);}
 	.one-liner {margin-bottom: 7px;}
 	.modal-header {border-bottom: none;}
 	.modal-body {padding-bottom: 0;}
@@ -498,23 +552,61 @@ body.golive {
 	}
 }
 
-// MAPBOX
+.btn-primary {
+	background-color: $btnPrimaryBackground;
+	&:hover {background-color: darken($btnPrimaryBackground, 5%);}
+}
+
+.alert {
+	color: $warningText;
+	background-color: $warningBackground;
+	border: 1px solid $warningText;
+}
+
+.tags-wrapper {
+	background-color: $white;
+	.alpha-col {
+		color: $grayDark;
+		text-transform: uppercase;
+		text-align: center;
+		vertical-align: middle;
+		width: 20px;
+		padding: 10px 20px;
+		background-color: $grayLight;
+		h4 {
+			font-family: "Hero", $condensed-font-stack;
+			@include fontSize(28px);
+		}
+	}
+	.tags-col {padding: 10px 10px 20px 15px; vertical-align: middle;}
+	.tag {
+		margin-left: 10px;
+		display: inline-block;
+		&:first-of-type {margin-left: 0;}
+		a {color: $gray;}
+		&:hover {text-decoration: underline !important;}
+	}
+}
+
+// MAPBOX ------------------------------
 
 .popup {
     text-align: left;
     .popup-left {
     	width:274px;
     	height:190px;
-    	background-color: hsla(0,0%,18%,1);
+    	background-color: $grayDarker;
     	}
     .popup-right {
     	width:46px;
     	height:190px;
-    	background-color: hsla(0,0%,12%,1);
+    	background-color: $black;
     	}
-    .thumb-user {margin: 7px 10px 7px 7px;}
-	.specs-title {font-size: 16px; color: $white;}
-	.specs-tags {font-size: 14px; color: hsla(0%,0%,90%,1);}
+    .thumb-user {
+    	margin: 7px 10px 7px 7px;
+    }
+	.specs-title {@include fontSize(14px); color: $white;}
+	.specs-tags {@include fontSize(12px); color: $grayLighter;}
 	.play-btn {
 		width: 31px;
 		height: 42px;
@@ -525,28 +617,4 @@ body.golive {
 }
 .popup img {
     width: 100%;
-}
-.tags-wrapper {
-	background-color: $white;
-	.alpha-col {
-		color: hsla(0%,0%,25%,1);
-		text-transform: uppercase;
-		text-align: center;
-		vertical-align: middle;
-		width: 20px;
-		padding: 10px 20px;
-		background-color: hsla(0%,0%,85%,1);
-		h4 {
-			font-family: "Hero", $condensed-font-stack;
-			font-size: 30px;
-		}
-	}
-	.tags-col {padding: 10px 10px 20px 15px; vertical-align: middle;}
-	.tag {
-		margin-left: 10px;
-		display: inline-block;
-		&:first-of-type {margin-left: 0;}
-		a {color: hsla(0%,0%,55%,1);}
-		&:hover {text-decoration: underline !important;}
-	}
 }
