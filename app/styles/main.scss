@@ -102,6 +102,13 @@ body.base { /*overrides are here */
 			background-image: none;
 			border-bottom: 1px solid $grayLight;
 			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
+			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
+			.btn-navbar {
+				@media (max-width: $navbarCollapseWidth) {
+					position: absolute;
+					left: 150px;
+				}
+			}
 			a.brand {
 				padding: 0;
 				margin: 5px 0 0 0;
@@ -137,12 +144,6 @@ body.base { /*overrides are here */
 				padding-bottom: 8px;
 				border-bottom: 4px solid $red;
 			}
-			li.golive-btn {
-				height: 44px;
-				padding: 0 16px;
-				float:right;
-				a {padding: 0;margin-top: 5px;}
-			}
 			li.dropdown .caret {
 				margin: {
 						top:8px;
@@ -150,6 +151,18 @@ body.base { /*overrides are here */
 				}
 				border-top-color: $borderLight;
 				border-bottom-color: $borderLight;
+			}
+			.golive-btn {
+				height: 44px;
+				padding: 0 16px;
+				border: none;
+				float:right;
+				a {
+					color: $grayDarker;
+					text-decoration: none;
+					padding: 0;
+					margin-top: 5px;
+				}
 			}
 		}
 	}
@@ -204,6 +217,7 @@ i[class*="icon"] {font-style: normal;}
 
 .banner {
 	padding-bottom: 40px;
+	@media (max-width: $navbarCollapseWidth) {padding-bottom: 0;}
 	.brand img {
 		width: 100%;
 		max-width: 32px;
@@ -232,6 +246,9 @@ i[class*="icon"] {font-style: normal;}
 
 .mainWrapper {
 	.main {padding: 20px 70px;}
+	@media (max-width: $navbarCollapseWidth) {
+		margin-top: -20px;
+	}
 }
 
 body.golive {

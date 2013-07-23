@@ -108,7 +108,7 @@ $navbarSearchBackground			: lighten($navbarBackground, 25%);
 $navbarSearchBackgroundFocus	: $white;
 $navbarSearchBorder				: darken($navbarSearchBackground, 75%);
 $navbarSearchPlaceholderColor	: $grayLighter;
-$navbarCollapseWidth			: 799px; /*originally 979px*/
+$navbarCollapseWidth			: 979px;
 $navbarCollapseDesktopWidth		: $navbarCollapseWidth + 1;
 
 // Dropdowns ------------------------------
