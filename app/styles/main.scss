@@ -18,12 +18,12 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 // HEADER SWAP ------------------------------
 
-nav.golive-nav { display:none; speak:none;}
+.golive-nav-wrapper { display:none !important; speak:none;}
 
 .golive .ng-scope > .banner {
 	padding-bottom: 60px;
-	nav.main-nav {	display:none; speak:none;}
-	nav.golive-nav { display:block; speak:normal;}
+	.main-nav-wrapper, .nav-utility { display:none; speak:none;}
+	.golive-nav-wrapper { display:block !important; speak:normal;}
 }
 
 .golive footer {display: none;}
@@ -126,6 +126,10 @@ body.base { /*overrides are here */
 			.nav {
 				width: 100%;
 				margin: 0;
+				@media (max-width: $navbarCollapseWidth) {
+					width: 50%;
+					margin: 0 0 15px 30px;
+				}
 			}
 			li.navLink {
 				margin-top: 7px;
@@ -133,6 +137,9 @@ body.base { /*overrides are here */
 					color:$navbarLinkColor;
 					margin: 0 14px 0 10px;
 					padding: 2px 8px;
+					@media (max-width: $navbarCollapseWidth) {
+						padding: 2px 8px;
+					}
 					&:hover {
 						color: $navbarLinkColorHover;
 						background-color: $navbarLinkBackgroundHover;
@@ -145,6 +152,15 @@ body.base { /*overrides are here */
 				box-shadow: none;
 				padding-bottom: 8px;
 				border-bottom: 4px solid $red;
+				@media (max-width: $navbarCollapseWidth) {
+					border-bottom: none;
+					border-left: 4px solid $red;
+				}
+			}
+			.btn-navbar {
+				float: left;
+				position: absolute;
+				left: 280px;
 			}
 		}
 	}
@@ -228,6 +244,7 @@ i[class*="icon"] {font-style: normal;}
 		padding: 0;
 		width: 100%;
 		height: auto;
+		&:hover {color: $grayDarker; text-decoration: none;}
 	}
 	.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
 		width: 32px;
