@@ -128,21 +128,23 @@ body.base { /*overrides are here */
 				margin: 0;
 				@media (max-width: $navbarCollapseWidth) {
 					width: 50%;
-					margin: 0 0 15px 30px;
+					margin: 0 0 15px 12px;
 				}
 			}
 			li.navLink {
 				margin-top: 7px;
+				@media (max-width: $navbarCollapseWidth) {margin-top: 3px; margin-bottom: 5px;}
 				a {
 					color:$navbarLinkColor;
 					margin: 0 14px 0 10px;
 					padding: 2px 8px;
 					@media (max-width: $navbarCollapseWidth) {
-						padding: 2px 8px;
+						padding: 5px 8px 8px 10px;
 					}
 					&:hover {
 						color: $navbarLinkColorHover;
 						background-color: $navbarLinkBackgroundHover;
+						border-radius: 0px;
 					}	
 				}
 			}
@@ -152,15 +154,24 @@ body.base { /*overrides are here */
 				box-shadow: none;
 				padding-bottom: 8px;
 				border-bottom: 4px solid $red;
+				border-radius: 0px;
 				@media (max-width: $navbarCollapseWidth) {
 					border-bottom: none;
-					border-left: 4px solid $red;
+					background-color: $grayLighter;
 				}
 			}
 			.btn-navbar {
+				width: 38px;
+				height: 32px;
+				padding: 7px 10px;
+				border: none;
+				background: #fff url('/images/menu-24.png') 50% 50% no-repeat;
+				opacity: .4;
 				float: left;
 				position: absolute;
-				left: 280px;
+				left: 272px;
+				top: -1px;
+				&:hover { opacity: 1;}
 			}
 		}
 	}
@@ -233,7 +244,7 @@ i[class*="icon"] {font-style: normal;}
 	border-right: 1px solid $borderLight;
 	@include font-smoothing;
 	height: 44px;
-	padding: 4px 16px;
+	padding: 4px 7%;
 	border: none;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;
@@ -311,9 +322,8 @@ body.golive {
 	padding: 20px 70px 10px;
 	.form-search {
 		margin: 42px 0 0 0;
-		.input-append {margin-left: 6%;}
 		.add-on {padding: 10px 7px 10px;}
-		input[type="search"] {width: 88%; padding: 10px;}
+		input[type="search"] {width: 86%; padding: 10px;}
 	}
 	.form-search .btn {
 		color: $white;
@@ -323,7 +333,7 @@ body.golive {
 		text-align: left;
 		padding: 12px 0 9px 14px;
 		vertical-align: top;
-		width: 25%;
+		width: 100%;
 		background: $grayDark url('/images/letsgo-icon.svg') top right no-repeat;
 		background-size: auto;
 		border: none;
