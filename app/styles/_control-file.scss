@@ -70,7 +70,7 @@ $tableBorder					: $grayDarker;
 
 // Forms ------------------------------
 
-$placeholderText				: $gray;
+$placeholderText				: darken($grayLight, 10%);
 $inputBackground				: $white;
 $inputBorder					: $grayLight;
 $inputBorderRadius				: 0px;
@@ -127,14 +127,18 @@ $heroUnitBackground				: $grayLighter;
 $heroUnitHeadingColor			: inherit;
 $heroUnitLeadColor				: inherit;
 
+// Tooltips ------------------------------
+
+$tooltipColor					: $white;
+$tooltipBackground				: $purple;
+$tooltipArrowColor				: $tooltipBackground;
+
 // Global Styling
 // ----------------------------------------
-
 
 $hrColor						: $textColor;
 $borderLight					: lighten($gray, 70%);
 $borderDark						: lighten($gray, 40%);
-
 
 // Fuctions ------------------------------
 
