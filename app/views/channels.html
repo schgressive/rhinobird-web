@@ -7,10 +7,10 @@
 						<div class="span8">
 							<ul class="nav subnav" role="navigation">
 								<li ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
-								<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed">Subscribed</a></li>
-								<li ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire">On Fire!</a></li>
-								<li ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested">Suggested</a></li>
-								<li ng-class="{'active': section == 'following'}"><a href="/channels/following">Following</a></li>
+								<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed" rel="tooltip" data-title="under development">Subscribed</a></li>
+								<li ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire" rel="tooltip" data-title="under development">On Fire!</a></li>
+								<li ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested" rel="tooltip" data-title="under development">Suggested</a></li>
+								<li ng-class="{'active': section == 'following'}"><a href="/channels/following" rel="tooltip" data-title="under development">Following</a></li>
 							</ul>
 						</div>
 						<div class="span4">
@@ -20,7 +20,7 @@
 									<div class="input-append input-prepend">
 										<span class="add-on"><i class="icon-search"></i></span>
 										<input name="livestream-search" type="search" placeholder="search live streams">
-										<input type="submit" class="btn" value="Go!">
+										<input type="submit" class="btn" value="Go!" rel="tooltip" data-title="under development">
 									</div>
 								</div><!-- /.form-actions -->					
 							</form>

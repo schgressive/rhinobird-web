@@ -4,16 +4,19 @@
 			<img ng-src="{{stream.thumbs.medium}}"/>
 		</a>
 		<div class="module-overlay">
-			<a href="/streams/{{stream.id}}" class="btn-overlay">
-				<button class="pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
+			<div class="btn-overlay">
+				<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
 					<i class="icon-retweet"></i>
 					<span class="visually-hidden">Rebroadcast This Stream</span>
 				</button>
-				<button class="pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
+				<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
 					<i class="icon-share"></i>
 					<span class="visually-hidden">Share This Stream</span>
 				</button>
-			</a>
+				<button class="btn-play" type="button" rel="tooltip" data-title="Play Stream" ng-click="go('/streams/{{stream.id}}')">
+					<span class="visually-hidden">Play This Stream</span>
+				</button>
+			</div>
 			<ul class="specs-stream no-bullets">
 				<li class="specs-title"><em class="title">{{stream.title}}</em></li>
 				<li class="specs-comments pull-left">
