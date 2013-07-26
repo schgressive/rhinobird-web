@@ -18,12 +18,12 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 // HEADER SWAP ------------------------------
 
-nav.golive-nav { display:none; speak:none;}
+.golive-nav-wrapper { display:none !important; speak:none;}
 
 .golive .ng-scope > .banner {
 	padding-bottom: 60px;
-	nav.main-nav {	display:none; speak:none;}
-	nav.golive-nav { display:block; speak:normal;}
+	.main-nav-wrapper, .nav-utility { display:none; speak:none;}
+	.golive-nav-wrapper { display:block !important; speak:normal;}
 }
 
 .golive footer {display: none;}
@@ -83,14 +83,37 @@ h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 // includes Bootstrap Overrides
 
 body.base { /*overrides are here */
+	input {
+		@include placeholder {
+			color: $placeholderText;
+			@include fontSize(11px);
+			font-family: "LatoItalic", $italic-font-stack;
+			background-color: $inputBackground;
+			border-color: $inputBorder;
+		}
+		&:focus {
+			box-shadow: none;
+			@include ctb-tab-focus();
+		}
+	}
+	input[type="search"] + .add-on {padding: 4px 5px}
+	.tooltip {
+		&.top .tooltip-arrow {border-top-color: $tooltipArrowColor;}
+		&.right .tooltip-arrow {border-right-color: $tooltipArrowColor;}
+		&.left .tooltip-arrow {border-left-color: $tooltipArrowColor;}
+		&.bottom .tooltip-arrow {border-bottom-color: $tooltipArrowColor;}
+	}
+	.tooltip-inner {
+		color: $tooltipColor;
+		background-color: $tooltipBackground;
+	}
 	.btn {
 		text-transform: uppercase;
 		text-shadow: none;
 		background-image: none;
 		box-shadow: none;
 	}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered {border-radius: $baseBorderRadius;}
-	input[type="search"] + .add-on {padding: 4px 5px}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner {border-radius: $baseBorderRadius;}
 	.navbar {
 		color: $navbarText;
 		@include fontSize(14px);
@@ -126,16 +149,29 @@ body.base { /*overrides are here */
 			.nav {
 				width: 100%;
 				margin: 0;
+				@media (max-width: $navbarCollapseWidth) {
+					width: 50%;
+					margin: 0 0 15px 12px;
+				}
 			}
 			li.navLink {
 				margin-top: 7px;
+				@media (max-width: $navbarCollapseWidth) {
+					margin-top: 3px;
+					margin-bottom: 5px;
+				}
 				a {
 					color:$navbarLinkColor;
 					margin: 0 14px 0 10px;
 					padding: 2px 8px;
+					@media (max-width: $navbarCollapseWidth) {
+						font-weight: normal;
+						padding: 5px 8px 8px 10px;
+					}
 					&:hover {
 						color: $navbarLinkColorHover;
 						background-color: $navbarLinkBackgroundHover;
+						border-radius: 0px;
 					}	
 				}
 			}
@@ -145,6 +181,24 @@ body.base { /*overrides are here */
 				box-shadow: none;
 				padding-bottom: 8px;
 				border-bottom: 4px solid $red;
+				border-radius: 0px;
+				@media (max-width: $navbarCollapseWidth) {
+					border-bottom: none;
+					background-color: $grayLighter;
+				}
+			}
+			.btn-navbar {
+				width: 38px;
+				height: 32px;
+				padding: 7px 10px;
+				border: none;
+				background: #fff url('/images/menu-24.png') 50% 50% no-repeat;
+				float: left;
+				position: absolute;
+				left: 28%;
+				top: -1px;
+				@include opacity(.4);
+				&:hover { @include opacity(1);}
 			}
 		}
 	}
@@ -217,7 +271,7 @@ i[class*="icon"] {font-style: normal;}
 	border-right: 1px solid $borderLight;
 	@include font-smoothing;
 	height: 44px;
-	padding: 4px 16px;
+	padding: 4px 7%;
 	border: none;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;
@@ -228,6 +282,7 @@ i[class*="icon"] {font-style: normal;}
 		padding: 0;
 		width: 100%;
 		height: auto;
+		&:hover {color: $grayDarker; text-decoration: none;}
 	}
 	.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
 		width: 32px;
@@ -294,9 +349,8 @@ body.golive {
 	padding: 20px 70px 10px;
 	.form-search {
 		margin: 42px 0 0 0;
-		.input-append {margin-left: 6%;}
 		.add-on {padding: 10px 7px 10px;}
-		input[type="search"] {width: 88%; padding: 10px;}
+		input[type="search"] {width: 86%; padding: 10px;}
 	}
 	.form-search .btn {
 		color: $white;
@@ -306,7 +360,7 @@ body.golive {
 		text-align: left;
 		padding: 12px 0 9px 14px;
 		vertical-align: top;
-		width: 25%;
+		width: 100%;
 		background: $grayDark url('/images/letsgo-icon.svg') top right no-repeat;
 		background-size: auto;
 		border: none;
@@ -336,6 +390,13 @@ body.golive {
 	}
 	.row-fluid {margin-bottom: 40px;}
 	.row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
+	.row-fluid [class*="span3"] {
+		@media (max-width: 760px) {
+			width: 48.61878453038674%; /* values = .row-fluid .span6 */
+			*width: 48.56559304102504%;
+			outline:green solid 1px;
+		}
+	}
 	.hook {
 			text-align: center;
 		a {
@@ -392,8 +453,9 @@ body.golive {
 		position: absolute;
 		bottom: 0;
 		left: 0;
+		a {margin-right: 10px;}
 	}
-	a {color: #333; margin-right: 10px;}
+	a {	color: #333;}
 	.specs-title em {
 		font-family: "LatoBold" $bold-font-stack;
 		font-style: normal;
@@ -413,11 +475,11 @@ body.golive {
 	position: absolute;
 	top: 0;
 	left: 0;
-	opacity: 0;
+	@include opacity(0);
 	background:  hsla(0,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
 	background-size: auto;
 	z-index:2;
-	&:hover {opacity: 1; cursor: pointer;}
+	&:hover {@include opacity(1); cursor: pointer;}
 }
 
 .module-outer {
@@ -465,10 +527,10 @@ body.golive {
 		display: block;
 		padding-top: 22px;
 		padding-bottom: 22px;
-		i {opacity: .5;}
+		i {@include opacity(.5);}
 		&:hover {
 			background-color: darken($grayLighter, 5%);
-			i {opacity: 1;}
+			i {@include opacity(1);}
 		}
 	}
 	.slider-wrapper {
@@ -490,15 +552,16 @@ body.golive {
 	width:100%;
 	height: 100%;
 	z-index: 5;
-	opacity: 0;
-	&:hover {opacity: 1;}
+	@include opacity(0);
+	&:hover {@include opacity(1);}
 	button {
 		width:32px;
 		height: 32px;
 		border: none;
 		background-image: none;
-		opacity: .5;
-		&:hover {opacity: 1;}
+		@include opacity(.5);
+		margin-left: 5px;
+		&:hover {@include opacity(1);}
 	}
 }
 
@@ -537,10 +600,7 @@ body.golive {
 		border-top: none;
 		box-shadow: none;
 		input, .btn, .add-on {padding: 10px 9px;}
-		input[type="text"], input[type="password"], .add-on {
-			margin-bottom: 22px;
-			background-color: $white;
-		}
+		input[type="text"], input[type="password"], .add-on {margin-bottom: 22px;}
 		.btn, input, .form-block, .form-block label {width: 234px;}
 		.input-prepend > input, .form-block label + .input-prepend > input {width:180px;}
 		.form-block label + input, .form-block-inline label + input {width:214px;}

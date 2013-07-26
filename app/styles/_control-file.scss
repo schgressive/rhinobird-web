@@ -15,7 +15,6 @@ $grayDark						: hsla(240,1%,31%,1); /*4D4D4F*/
 $gray							: hsla(0,0%,60%,1); /*999999*/
 $grayLight						: hsla(0,0%,87%,1); /*DEDEDE*/
 $grayLighter					: hsla(0,0%,93%,1); /*eee*/
-$grayFaint						: hsla(0,0%,96%,1);
 $white							: hsla(0,0%,100%,1); /*FFF*/
 
 // Brand Colors ------------------------------
@@ -71,7 +70,7 @@ $tableBorder					: $grayDarker;
 
 // Forms ------------------------------
 
-$placeholderText				: $gray;
+$placeholderText				: darken($grayLight, 10%);
 $inputBackground				: $white;
 $inputBorder					: $grayLight;
 $inputBorderRadius				: 0px;
@@ -128,14 +127,18 @@ $heroUnitBackground				: $grayLighter;
 $heroUnitHeadingColor			: inherit;
 $heroUnitLeadColor				: inherit;
 
+// Tooltips ------------------------------
+
+$tooltipColor					: $white;
+$tooltipBackground				: $purple;
+$tooltipArrowColor				: $tooltipBackground;
+
 // Global Styling
 // ----------------------------------------
-
 
 $hrColor						: $textColor;
 $borderLight					: lighten($gray, 70%);
 $borderDark						: lighten($gray, 40%);
-
 
 // Fuctions ------------------------------
 
