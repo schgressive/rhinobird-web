@@ -5,11 +5,11 @@
 		</a>
 		<div class="module-overlay">
 			<a href="/streams/{{stream.id}}" class="btn-overlay">
-				<button class="pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal">
+				<button class="pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
 					<i class="icon-retweet"></i>
 					<span class="visually-hidden">Rebroadcast This Stream</span>
 				</button>
-				<button class="pull-right" type="button" data-toggle="modal" data-target="#share-modal">
+				<button class="pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
 					<i class="icon-share"></i>
 					<span class="visually-hidden">Share This Stream</span>
 				</button>
@@ -18,15 +18,15 @@
 				<li class="specs-title"><em class="title">{{stream.title}}</em></li>
 				<li class="specs-comments pull-left">
 					<i class="icon-comment"></i>
-					<a href="#" title="see comments on this live-stream"> 12</a>
+					<a href="#" title="Comments Under Development" rel="tooltip" data-toggle="tooltip"> 12</a>
 				</li>
 				<li class="specs-rebroadcasts pull-left">
 					<i class="icon-retweet"></i>
-					<a href="#" title="see rebroadcasts"> 24</a>
+					<a href="#" title="Rebroadcasts Under Development" rel="tooltip" data-toggle="tooltip"> 24</a>
 				</li>
 				<li class="specs-hearts pull-left">
 					<i class="icon-heart"></i>
-					<a href="#" title="see who hearts this stream"> 48</a>
+					<a href="#" title="Hearts Under Development" rel="tooltip" data-toggle="tooltip"> 48</a>
 				</li>
 			</ul><!-- /.specs-stream -->
 		</div><!-- /.module-overlay -->

@@ -221,7 +221,7 @@ body.base { /*overrides are here */
 		background-color: $btnAccentBackground;
 		&:hover {background-color: $btnAccentBackgroundHighlight;}
 	}
-	.btn-primary, .btn-accent {
+	.btn-primary, .btn-accent, .btn-basic {
 		color: $white;
 		@include fontSize(16px);
 		letter-spacing: 1px;
@@ -558,9 +558,10 @@ body.golive {
 		width:32px;
 		height: 32px;
 		border: none;
+		background-color: $white;
 		background-image: none;
-		@include opacity(.5);
-		margin-left: 5px;
+		@include opacity(.75);
+		margin-left: 3px;
 		&:hover {@include opacity(1);}
 	}
 }
@@ -626,6 +627,16 @@ body.golive {
 .btn-primary {
 	background-color: $btnPrimaryBackground;
 	&:hover {background-color: darken($btnPrimaryBackground, 5%);}
+}
+
+.btn.green {
+	background-color: $green;
+	&:hover {background-color: darken($green, 5%);}
+}
+
+.btn.purple {
+	background-color: $purple;
+	&:hover {background-color: darken($purple, 5%);}
 }
 
 .alert {
