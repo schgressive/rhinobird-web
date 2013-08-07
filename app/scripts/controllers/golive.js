@@ -42,9 +42,7 @@ angular.module('peepoltvApp')
     };
 
     // Stream data from the init modal
-    $scope.streamOptions = {
-      geoCheck: true
-    };
+    $scope.streamOptions = {};
 
     // Header streaming options
     $scope.streamingOptions = $rootScope.streamingOptions;
@@ -82,22 +80,24 @@ angular.module('peepoltvApp')
 
       // Add the metadata
       if(metadata){
-        streamData.title = ($scope.streamOptions.titleCheck)? $scope.streamOptions.titleData : '';
+        streamData.caption = ($scope.streamOptions.caption)? $scope.streamOptions.caption : '';
 
-        if($scope.streamOptions.geoCheck){
+        if($scope.coords.lng && $scope.coords.lat){
           streamData.lng = $scope.coords.lng;
           streamData.lat = $scope.coords.lat;
-        }
-        if($scope.streamOptions.channelCheck){
-          streamData.channel = $scope.streamOptions.channelName
-        }
-        if($scope.streamOptions.tagsCheck){
-          streamData.tags = $scope.streamOptions.tags
         }
       }
 
       // Post the new stream to the server
       $scope.stream = streamService.resource.new(streamData);
     };
+
+    // Hashtags
+    var regexp = new RegExp('#([^\\s|^#]+)','g');
+    $scope.$watch('streamOptions.caption', function(a){
+      if(a){
+        $scope.channels = a.match(regexp);
+      }
+    });
 
   });

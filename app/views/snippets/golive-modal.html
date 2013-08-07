@@ -9,37 +9,24 @@
 		</div>
 	</div><!-- /.modal-body -->
 	<div class="modal-footer">
-		<button type="button" class="btn btn-accent" ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
-		  Skip It! Let's Go!
-		</button>
 		<form ng-submit="startBroadcast(true)">
-			<div class="form-block">
-				<label class="checkbox" for="input-geolocation">
-					<input type="checkbox" id="input-geolocation" class="checked" ng-model="streamOptions.geoCheck"> Enable Geolocation?
-				</label>
-				<label class="checkbox" for="input-title">
-					<input type="checkbox" class="checked" ng-model="streamOptions.titleCheck"> Title your Stream?
-				</label>
-				<div class="input-prepend">
-					<span class="add-on"><i class="icon-map-marker"></i></span>
-					<input type="text" id="input-title" placeholder="enter title here" ng-model="streamOptions.titleData">
-				</div>
-			</div>
-			<div class="form-block-inline">
-				<div class="inline">
-					<label class="checkbox" for="input-channel">
-						<input type="checkbox" ng-model="streamOptions.channelCheck"> Add a Channel?
-					</label>
-					<input type="text" id="input-channel" placeholder="#channel" ng-model="streamOptions.channelName">
-				</div>
-				<div class="inline">
-					<label class="checkbox" id="input-tags">
-						<input type="checkbox" ng-model="streamOptions.tagsCheck"> What's Happening?
-					</label>
-					<input type="text" id="input-tags" placeholder="tag your stream!" ng-model="streamOptions.tags">
-				</div>
-			</div>
-			<input class="btn btn-primary" type="submit" placeholder="Ready!">
+			<div>
+				<label class="text" for="input-caption">
+					<div class="help-block">You can add a captions with hashtags to add your stream to a channel</div>
+				  <input type="text" id="input-caption" placeholder="add a caption!" ng-model="streamOptions.caption" class="input-xlarge">
+        </label>
+      </div>
+      <div class="add-on" ng-show="channels.length">
+        <div>Your stream will be published in the following channels</div>
+        <div>
+          <span ng-repeat="channel in channels" class="inline"><b>{{channel}}</b> </span>
+        </div>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Ready!">
+      <button type="button" class="btn btn-accent" ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
+        Skip It! Let's Go!
+      </button>
 		</form>
+
 	</div><!-- /.modal-footer -->
 </div><!-- /.modal -->

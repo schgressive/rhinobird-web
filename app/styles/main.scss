@@ -46,7 +46,7 @@ table caption, .visually-hidden {display:none !important;}
 	font-family: "BatchIcons";
 	font-style: normal;
 	content: attr(data-icon);
-	speak: none; 
+	speak: none;
 }
 
 .no-bullets {
@@ -174,7 +174,7 @@ body.base { /*overrides are here */
 						color: $navbarLinkColorHover;
 						background-color: $navbarLinkBackgroundHover;
 						border-radius: 0px;
-					}	
+					}
 				}
 			}
 			li.active > a {
@@ -607,6 +607,7 @@ body.golive {
 	.modal-header {border-bottom: none;}
 	.modal-body {padding-bottom: 0;}
 	.modal-footer {
+    color: $black;
 		text-align: center;
 		background-color: transparent;
 		border-top: none;
@@ -614,6 +615,8 @@ body.golive {
 		input, .btn, .add-on {padding: 10px 9px;}
 		input[type="text"], input[type="password"], .add-on {margin-bottom: 22px;}
 		.btn, input, .form-block, .form-block label {width: 234px;}
+    input.input-xlarge {width: 430px;}
+    label.text {text-align: left; display: inline-block;}
 		.input-prepend > input, .form-block label + .input-prepend > input {width:180px;}
 		.form-block label + input, .form-block-inline label + input {width:214px;}
 		.btn-accent {margin-bottom: 22px;}
