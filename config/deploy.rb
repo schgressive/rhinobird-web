@@ -1,6 +1,6 @@
 # Set server stages
-set :stages, %w(production staging)
-set :default_stage, "staging"
+set :stages, %w(production beta)
+set :default_stage, "beta"
 require 'capistrano/ext/multistage'
 
 # Server-side information.

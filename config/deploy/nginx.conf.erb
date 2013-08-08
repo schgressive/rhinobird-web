@@ -1,4 +1,8 @@
 # HTTP Server
+upstream peepoltv-api{
+  server unix:/home/deploy/tmp/negroku.peepoltv-api.sock fail_timeout=0;
+}
+
 server {
   listen      80;
   server_name <%= fetch(:domains) %>;
@@ -27,5 +31,15 @@ server {
   # If no asset matches, send it to your javascript app. Hopefully it's a route in the app!
   location @rewrites {
     rewrite ^(.+)$ /index.html last;
+  }
+
+  # Api
+  location /api {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-FORWARDED_PROTO http;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://peepoltv-api;
   }
 }
