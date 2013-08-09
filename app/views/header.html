@@ -17,8 +17,8 @@
 								<li class="navLink" ng-class="{'active': section == 'peepol'}"><a href="#" title="under development" rel="tooltip" data-toggle="tooltip" data-placement="bottom">Peepol & VJs</a></li>
 							</ul><!-- /.nav -->
 						</nav><!-- /.main-nav -->
-					</div><!-- /.span6 -->		
-		
+					</div><!-- /.span6 -->
+
 					<div class="golive-nav-wrapper span9">
 						<nav class="golive-nav" role="navigation">
 							<ul class="nav">
@@ -27,14 +27,16 @@
 								<li class="navLink action"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Options</a></li>
 							</ul><!-- /.nav -->
 						</nav><!-- /.golive-nav -->
-					</div><!-- /.golive-nav-wrapper -->	
+					</div><!-- /.golive-nav-wrapper -->
 
 					<div class="nav-utility span3">
 						<a class="brand" href="/index" title="Peepol.tv">
 							<img src="images/ptv-avatar-grays.svg" alt="the Peepol.tv avatar" />
 						</a>
-						<h5 class="login-link" ng-hide="user.email"><a href="#" ng-click="openLoginModal()">Sign In</a>
-		
+						<h5 class="login-link">
+              <a href="#" ng-click="openLoginModal()" ng-hide="user.email">Sign In</a>
+              <a href="#" ng-click="logout()" ng-show="user.email">Logout</a>
+
 						</h5>
 					</div><!-- /.span3 -->
 				</div><!-- /.row-fluid -->
