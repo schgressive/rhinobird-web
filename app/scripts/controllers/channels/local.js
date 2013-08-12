@@ -14,4 +14,12 @@ angular.module('peepoltvApp')
     $scope.changeMainStream = function(stream){
       $scope.mainStream = stream;
     }
+
+    channelService.resource.search({}, function(data) {
+      var groups = _.groupBy(data, function(channel) {
+        return channel.name.charAt(0);
+      })
+      $scope.letters = groups;
+
+    });
   });
