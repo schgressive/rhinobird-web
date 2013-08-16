@@ -2,26 +2,26 @@
 
 angular.module('licode', [])
   .directive('licode', function () {
-    var room;
-    var licode = {
-      stream: null,
-      permissionsGranted: false
-    };
-
     return {
-      restrict: 'E',
+      restrict: 'EA',
       replace: true,
-      template: "<div></div>",
+      template: '<div></div>',
       scope: {
-        flow: '@',
         ngModel: '=',
-        token: '@',
-        width: '@',
-        height: '@'
+        token: '@'
       },
       link: function postLink(scope, element, attrs) {
+        var room, elementId;
+        var licode = {
+          stream: null,
+          permissionsGranted: false
+        };
+
         // Set an ID
-        element.attr('id', 'licodeStream');
+        elementId = (scope.token !== '')? 'licode_' + JSON.parse(window.atob(scope.token)).tokenId : 'licode_' + (new Date()).getTime();
+        element.attr('id', elementId);
+
+        // Set video size
         element.css({
           'width': attrs.width,
           'height': attrs.height
@@ -48,7 +48,7 @@ angular.module('licode', [])
               licode.permissionsGranted = true;
             });
 
-            licode.stream.show('licodeStream');
+            licode.stream.show(elementId);
             licode.stream.player.video.muted = true;
           });
 
@@ -63,8 +63,8 @@ angular.module('licode', [])
 
         }
 
-        scope.$watch('token', function(value){
-          console.log("cambie", value);
+        scope.$watch('token', function(value, oldValue){
+          console.log("Token changed: ", value, oldValue);
           // Disconnect if exist a room and it's connected
           if(room && room.state === 2){
             room.disconnect();
@@ -113,7 +113,7 @@ angular.module('licode', [])
               // Stream subscribed
               room.addEventListener('stream-subscribed', function(streamEvent) {
                 licode.stream = streamEvent.stream;
-                licode.stream.show('licodeStream');
+                licode.stream.show(elementId);
               });
 
               // Subscribe to the first stream in the room stream
