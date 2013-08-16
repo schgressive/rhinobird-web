@@ -2,7 +2,6 @@
 
 angular.module('peepoltvApp')
   .controller('GoliveCtrl', function ($scope, streamService, geolocation, $rootScope) {
-
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {
       $scope.coords = parameters.coords;

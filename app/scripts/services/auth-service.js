@@ -29,6 +29,22 @@ angular.module('peepoltvApp')
     // Public API here
     return {
       resource: resource,
-      user: {}
+      user: {},
+      statusResolve: function(){
+        var deferred = $q.defer();
+
+        resource.status({}, function(r){
+          if(r){
+            deferred.resolve(r);
+          }
+          else
+          {
+            deferred.reject();
+          }
+        }, function(){
+          deferred.reject();
+        });
+        return deferred.promise;
+      }
     };
   });

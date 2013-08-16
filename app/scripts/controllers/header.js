@@ -9,6 +9,15 @@ angular.module('peepoltvApp')
       $scope.section = (match)? match[0] : 'explore';
     });
 
+    // Catch the unauthorized pages
+    $rootScope.$on('$routeChangeError', function (event, parameters) {
+      // Navigate to main page
+      $location.path('/');
+
+      // Go to golive after loging in
+      $scope.goLive();
+    });
+
     // Show options
     $rootScope.streamingOptions = {
       show: false
@@ -22,11 +31,25 @@ angular.module('peepoltvApp')
       $rootScope.$broadcast('liveStreamStopped', { stay: stay});
     };
 
+    // flag for going live
+    $scope.goLiveAfterLogin = false;
+
     // Options for the modal
     $scope.loginModalOpts = {
       backdropFade: true,
       dialogFade:true
     };
+
+    // launches the Go Live if the user is logged in
+    $scope.goLive = function() {
+      $scope.goLiveAfterLogin = false;
+      if ($scope.user.email) {
+        $location.path("/golive");
+      } else {
+        $scope.openLoginModal();
+        $scope.goLiveAfterLogin = true;
+      }
+    }
 
     // Login in and signing up
     $scope.openLoginModal = function(){
@@ -37,6 +60,9 @@ angular.module('peepoltvApp')
     // Close callback
     $scope.closeLoginModalCallback = function(){
       $scope.loginModalInit = false;
+      if ($scope.goLiveAfterLogin && authService.user.email) {
+        $scope.goLive();
+      }
     };
 
     $scope.logout = function(){
