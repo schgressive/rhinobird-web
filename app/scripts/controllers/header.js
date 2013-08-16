@@ -9,6 +9,15 @@ angular.module('peepoltvApp')
       $scope.section = (match)? match[0] : 'explore';
     });
 
+    // Catch the unauthorized pages
+    $rootScope.$on('$routeChangeError', function (event, parameters) {
+      // Navigate to main page
+      $location.path('/');
+
+      // Go to golive after loging in
+      $scope.goLive();
+    });
+
     // Show options
     $rootScope.streamingOptions = {
       show: false

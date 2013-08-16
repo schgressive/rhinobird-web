@@ -27,7 +27,12 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
       .when('/golive', {
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
-        section: 'golive'
+        section: 'golive',
+        resolve: {
+          user: function(authService){
+            return authService.statusResolve();
+          }
+        }
       })
       .when('/streams/:streamId', {
         templateUrl: '/views/stream.html',
