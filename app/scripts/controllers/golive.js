@@ -13,7 +13,6 @@ angular.module('peepoltvApp')
     // Modal Options
     $scope.opts = {
       backdropFade: true,
-      dialogFade:true,
       keyboard: false,
       backdropClick: false
     };
