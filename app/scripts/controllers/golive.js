@@ -45,8 +45,19 @@ angular.module('peepoltvApp')
     // Header streaming options
     $scope.streamingOptions = $rootScope.streamingOptions;
 
+    // Stop the broadcast
     $rootScope.$on('liveStreamStopped', function(e, r){
-      $scope.stream.token = "";
+      // Unpublish stream from room
+      $scope.localStream.stream.room.unpublish($scope.localStream.stream.getID());
+
+      // Disconnect from room
+      $scope.localStream.stream.room.disconnect();
+
+      // Set the stream as no live
+      $scope.stream.live = false;
+      $scope.stream.$save({streamId: $scope.stream.id});
+
+      // Go back
       if(!r.stay && $scope.localStream.stream){
         $scope.localStream.stream.stream.stop();
         history.back();

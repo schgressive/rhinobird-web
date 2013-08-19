@@ -12,6 +12,13 @@ angular.module('peepoltvApp')
         },
         withCredentials: true
       },
+      'save': {
+        method: 'PUT',
+        params:{
+          clientId: '@clientId'
+        },
+        withCredentials: true
+      },
       'search': {
         method:'GET',
         params: {},
