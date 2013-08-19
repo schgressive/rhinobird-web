@@ -80,7 +80,7 @@ angular.module('peepoltvApp')
       if(metadata){
         streamData.caption = ($scope.streamOptions.caption)? $scope.streamOptions.caption : '';
 
-        if($scope.coords.lng && $scope.coords.lat){
+        if($scope.coords && $scope.coords.lng && $scope.coords.lat){
           streamData.lng = $scope.coords.lng;
           streamData.lat = $scope.coords.lat;
         }
