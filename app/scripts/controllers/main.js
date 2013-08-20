@@ -13,7 +13,7 @@ angular.module('peepoltvApp')
       // Disable scroll to zoom
       $scope.map.scrollWheelZoom.disable();
 
-      var zoom = 30;
+      var zoom = 16;
       if(parameters.type && parameters.type !== 'street_address' && parameters.type !== 'route'){
         zoom = 13;
       }
