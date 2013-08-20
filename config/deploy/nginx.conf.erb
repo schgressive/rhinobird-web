@@ -42,4 +42,9 @@ server {
     proxy_redirect off;
     proxy_pass http://peepoltv-api;
   }
+
+  # Videos mockup
+  location /videos {
+    root <%= fetch(:deploy_to) %>/shared;
+  }
 }
