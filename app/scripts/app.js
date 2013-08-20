@@ -29,9 +29,9 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
         controller: 'GoliveCtrl',
         section: 'golive',
         resolve: {
-          user: function(authService){
+          user: ['authService', function(authService){
             return authService.statusResolve();
-          }
+          }]
         }
       })
       .when('/streams/:streamId', {
