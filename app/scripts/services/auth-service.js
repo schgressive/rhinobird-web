@@ -28,6 +28,7 @@ angular.module('peepoltvApp')
 
     // Public API here
     return {
-      resource: resource
+      resource: resource,
+      user: {}
     };
   });
