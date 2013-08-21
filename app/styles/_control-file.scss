@@ -154,6 +154,16 @@ $borderDark						: lighten($gray, 40%);
   font-size: calculateRem($size);
 }
 
+$public_path: "/";
+ 
+@mixin vector-bg-with-fallback($name) {
+  background-image: url('#{$public_path}images/#{$name}.jpg');
+  background-image: none, url('#{$public_path}images/#{$name}.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+}
+
 @mixin image-2x($image, $width, $height) {
   @media (min--moz-device-pixel-ratio: 1.3),
          (-o-min-device-pixel-ratio: 2.6/2),

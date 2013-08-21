@@ -3,7 +3,7 @@
 		<div class="navbar-inner">
 			<div class="width-controller container-fluid">
 				<div class="row-fluid">
-					<div class="span3">
+					<div class="hidden-phone span3">
 						<button class="golive-btn" ng-class="{'active': section == 'golive'}">
               <a href="/golive"><i class="golive-icon"></i> Go Live!</a>
 						</button>
@@ -18,7 +18,7 @@
 								<li class="navLink" ng-class="{'active': section == 'peepol'}"><a href="#" title="under development" rel="tooltip" data-toggle="tooltip" data-placement="bottom">Peepol & VJs</a></li>
 							</ul><!-- /.nav -->
 						</nav><!-- /.main-nav -->
-					</div><!-- /.span6 -->
+					</div><!-- /.main-nav-wrapper -->
 
 					<div class="golive-nav-wrapper span9">
 						<nav class="golive-nav" role="navigation">
@@ -31,8 +31,8 @@
 					</div><!-- /.golive-nav-wrapper -->
 
 					<div class="nav-utility span3">
-						<a class="brand" href="/index" title="Peepol.tv">
-							<img src="images/ptv-avatar-grays.svg" alt="the Peepol.tv avatar" />
+						<a class="brand hidden-phone" href="/index" title="Peepol.tv">
+							<span class="visually-hidden">Peepol.tv Home</span>
 						</a>
 						<h5 class="login-link">
               <a href="#" ng-click="openLoginModal()" ng-hide="user.email">Sign In</a>
