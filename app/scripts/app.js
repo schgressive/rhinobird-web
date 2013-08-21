@@ -30,7 +30,7 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
         section: 'golive',
         resolve: {
           user: ['authService', function(authService){
-            return authService.statusResolve();
+            return authService.resource.status({}).$promise;
           }]
         }
       })
@@ -61,6 +61,11 @@ angular.module('peepoltvApp', ['ngResource', 'ui.bootstrap', 'licode'])
   .run(function($location, $rootScope, authService){
     $rootScope.$on('$routeChangeSuccess', function(event, current){
       $rootScope.section = current.$$route.section || null;
+    });
+
+    $rootScope.$on('$routeChangeError', function (event, parameters) {
+      // Navigate to main page
+      $location.path('/');
     });
 
     authService.resource.status({}, function(e){
