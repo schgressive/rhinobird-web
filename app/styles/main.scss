@@ -63,6 +63,8 @@ table caption, .visually-hidden {display:none !important;}
 .width-controller {
 	max-width: 960px;
 	margin: 0 auto;
+	@media (max-width: 767px) { max-width: 766px;}
+	@media (max-width: 481px) { max-width: 480px;}
 }
 
 .one-liner {display: block;}
@@ -124,7 +126,11 @@ body.base { /*overrides are here */
 			background-image: none;
 			border-bottom: 1px solid $grayLight;
 			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
-			@media (max-width: 767px) { border-bottom: none; @include box-shadow(none);}
+			@media (max-width: 767px) {
+				padding: 0px !important;
+				border-bottom: none;
+				@include box-shadow(none);
+			}
 			a.brand {
 				width: 32px;
 				height: 32px;
@@ -326,10 +332,15 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .mainWrapper {
-	.main {padding: 20px 70px;}
-	@media (max-width: $navbarCollapseWidth) {
-		margin-top: -20px;
+	.main {padding: 20px 70px;
+		@media (max-width: 767px) {
+			padding: {
+				left: 10px;
+				right: 10px;
+			}
+		}
 	}
+	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}
 }
 
 body.golive {
@@ -380,6 +391,12 @@ body.golive {
 .explore .top-content {
 	background-color: $white;
 	padding: 2px 70px 10px;
+	@media (max-width: 767px) {
+		padding: {
+			left: 10px;
+			right: 10px;
+		}
+	}
 	.form-search {
 		margin: 42px 0 0 0;
 		@media (max-width: 767px) { margin-top: 22px;}
@@ -749,4 +766,8 @@ body.golive {
 }
 .popup img {
     width: 100%;
+}
+
+@media (max-width: 767px) {
+	.golive-btn,.top-content .brand, .top-content .form-actions {outline: purple dotted 1px;}
 }
