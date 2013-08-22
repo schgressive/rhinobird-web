@@ -1,15 +1,10 @@
 <section class="top-content feature" role="search">
-	<div class="width-controller container-fluid">
+	<div class="width-controller container-fluid bounds">
 		<div class="row-fluid">
 			<div class="span3">
 				<a class="brand" href="#" title="Peepol.tv">
 		    		<img src="images/logo-grays.svg" alt="the Peepol.tv logo" />
 		    	</a>
-			</div>
-			<div class="hidden-desktop visible-phone span12">
-				<button class="golive-btn">
-					<a href="/golive"><i class="golive-icon"></i> Go Live!</a>
-				</button>
 			</div>
 			<div class="span9">
 				<div class="row-fluid">
@@ -31,7 +26,7 @@
 </section><!-- /.top-content -->
 
 <div class="main" role="main">
-	<div class="width-controller container-fluid">
+	<div class="width-controller container-fluid bounds">
 		<div class="row-fluid">
 			<div class="span12">
 				<section class="mid-content">
@@ -50,7 +45,7 @@
 										<a href="#" title="Find Me!" ng-click="getCurrent()"><i class="icon-map-marker"></i></a>
 									</span>
 									<input type="search" ng-model="address" placeholder="current location">
-									<input class="btn" type="submit" value="Go!">
+									<input class="btn hidden-phone" type="submit" value="Go!">
 								</div><!-- /.input-append -->
 							</form>
 						</div>
@@ -65,7 +60,7 @@
 
 				<section class="lower-content stream-area">
 <!-- NOTE FROM CHRIS: whenever section has streaming content, add stream-area class. And the hook.js refresh button as in below. -->
-					<div class="row-fluid">
+					<div class="row-fluid hidden-phone">
 						<div class="span12">
 							<div class="hook" id="hook">
 								<a href="#" title="under development" rel="tooltip" data-toggle="tooltip"><span>refresh</span></a>

@@ -63,8 +63,6 @@ table caption, .visually-hidden {display:none !important;}
 .width-controller {
 	max-width: 960px;
 	margin: 0 auto;
-	@media (max-width: 767px) { max-width: 766px;}
-	@media (max-width: 481px) { max-width: 480px;}
 }
 
 .one-liner {display: block;}
@@ -85,9 +83,6 @@ h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 // includes Bootstrap Overrides
 
 body.base { /*overrides are here */
-	@media (max-width: 767px) {
-		padding: 0;
-	}
 	input {
 		@include placeholder {
 			color: $placeholderText;
@@ -114,7 +109,11 @@ body.base { /*overrides are here */
 		background-image: none;
 		box-shadow: none;
 	}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner {border-radius: $baseBorderRadius;}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner {
+			-webkit-appearance: none !important;
+			border-radius: $baseBorderRadius;
+			-webkit-border-radius: $baseBorderRadius;
+		}
 	.navbar {
 		color: $navbarText;
 		@include fontSize(14px);
@@ -126,11 +125,6 @@ body.base { /*overrides are here */
 			background-image: none;
 			border-bottom: 1px solid $grayLight;
 			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
-			@media (max-width: 767px) {
-				padding: 0px !important;
-				border-bottom: none;
-				@include box-shadow(none);
-			}
 			a.brand {
 				width: 32px;
 				height: 32px;
@@ -160,9 +154,6 @@ body.base { /*overrides are here */
 				@media (max-width: $navbarCollapseWidth) {
 					width: 50%;
 					margin: 0 0 15px 12px;
-				}
-				@media (max-width: 767px) {
-					width: 94%;
 				}
 			}
 			li.navLink {
@@ -211,35 +202,17 @@ body.base { /*overrides are here */
 				z-index: 999999;
 				@include opacity(.4);
 				&:hover { @include opacity(1);}
-				@media (max-width: 767px){ left: 13%;}
 			}
 			@media (max-width: $navbarCollapseWidth) {
 				padding: 0 70px;
-				.main-nav-wrapper {
-					min-height: 0;
-					margin-top: 45px;
-					float: left;
-					outline: blue dashed 1px;
-				}
-				.nav-utility {
-					position: absolute;
-					top: 0;
-					right: 11%;
-					float: right;
-					outline: red solid 1px;
-				}
 			}
 		}
 	}
 	.subnav > li > a:hover {color: hsla(0%,0%,30%,1);}
 	.container-fluid {
-		outline: green dashed 1px;
 		padding: {
 			left: 40px;
 			right: 40px;
-		}
-		@media (max-width: 767px) {
-			padding: 0;
 		}
 	}
 	.modal {
@@ -284,6 +257,8 @@ i[class*="icon"] {font-style: normal;}
 .suggested-icon {background: url('/images/suggested-icon.svg') top left no-repeat;}
 .channel-icon {background: url('/images/hash-icon.svg') top left no-repeat;}
 
+.explore-icon, .stream-icon, .onfire-icon, .featured-icon, .suggested-icon, .channel-icon {background-size: 100%;}
+
 .banner {
 	padding-bottom: 40px;
 	@media (max-width: $navbarCollapseWidth) {padding-bottom: 0;}
@@ -318,28 +293,11 @@ i[class*="icon"] {font-style: normal;}
 		display: inline-block;
 		vertical-align: middle;
 		background: url('/images/golive-icon.svg') top left no-repeat;
-		@media (max-width: 767px) {
-			width:64px;
-			height: 64px;
-			background-size: 100%;
-		}
-	}
-	@media (max-width: 767px) {
-		@include fontSize(36px);
-		margin-top: 10px;
-		border:none;
 	}
 }
 
 .mainWrapper {
-	.main {padding: 20px 70px;
-		@media (max-width: 767px) {
-			padding: {
-				left: 10px;
-				right: 10px;
-			}
-		}
-	}
+	.main {padding: 20px 70px;}
 	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}
 }
 
@@ -383,7 +341,6 @@ body.golive {
 		max-width: 150px;
 		height: auto;
 	}
-	@media (max-width: 767px) { text-align: center;}
 }
 
 .explore .top-content, .search .top-content {border: none;}
@@ -391,20 +348,12 @@ body.golive {
 .explore .top-content {
 	background-color: $white;
 	padding: 2px 70px 10px;
-	@media (max-width: 767px) {
-		padding: {
-			left: 10px;
-			right: 10px;
-		}
-	}
 	.form-search {
 		margin: 42px 0 0 0;
-		@media (max-width: 767px) { margin-top: 22px;}
 		.add-on {padding: 10px 7px 10px;}
 		input[type="search"] {
 			width: 86%;
 			padding: 10px;
-			@media (max-width: 767px) { width:84%;}
 		}
 	}
 	.form-search .btn {
@@ -449,7 +398,6 @@ body.golive {
 		@media (max-width: 760px) {
 			width: 48.61878453038674%; /* values = .row-fluid .span6 */
 			*width: 48.56559304102504%;
-			outline:green solid 1px;
 		}
 	}
 	.hook {
@@ -768,6 +716,4 @@ body.golive {
     width: 100%;
 }
 
-@media (max-width: 767px) {
-	.golive-btn,.top-content .brand, .top-content .form-actions {outline: purple dotted 1px;}
-}
+@import "mobile-overrides";
