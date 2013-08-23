@@ -13,9 +13,9 @@
             	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
             	<span class="visually-hidden">Mute</span>
 			</button>
-			<button class="btn-play" type="button" rel="tooltip" data-title="Play Stream" ng-click="go('/streams/{{stream.id}}')">
+			<a class="btn-play" rel="tooltip" data-title="Play Stream" href="/streams/{{stream.id}}">
 				<span class="visually-hidden">Play This Stream</span>
-			</button>
+			</a>
 		</div>
 	</div><!-- /.module-overlay -->
   <licode flow="inbound" token="{{stream.token}}" width="940" height="512"></licode>

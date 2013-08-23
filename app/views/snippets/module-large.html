@@ -15,9 +15,9 @@
 					<i class="icon-share"></i>
 					<span class="visually-hidden">Share This Stream</span>
 				</button>
-				<button class="btn-play" type="button" rel="tooltip" data-title="Play Stream" ng-click="go('/streams/{{stream.id}}')">
+				<a class="btn-play" rel="tooltip" data-title="Play Stream" href="/streams/{{stream.id}}">
 					<span class="visually-hidden">Play This Stream</span>
-				</button>
+				</a>
 			</div>
 			<ul class="specs-stream no-bullets">
 				<li class="specs-title"><em class="title">{{stream.title}}</em></li>
