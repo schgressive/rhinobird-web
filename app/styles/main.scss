@@ -23,7 +23,11 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 .golive .ng-scope > .banner {
 	padding-bottom: 60px;
 	.main-nav-wrapper, .nav-utility { display:none; speak:none;}
-	.golive-nav-wrapper { display:block !important; speak:normal;}
+	.golive-nav-wrapper {
+		display:block !important;
+		speak:normal;
+		.navLink i[class*="icon"] { margin-top: 2px;}
+	}
 }
 
 .golive footer {display: none;}
@@ -91,12 +95,6 @@ body.base { /*overrides are here */
 			background-color: $inputBackground;
 			border-color: $inputBorder;
 		}
-/*
-		&:focus {
-			box-shadow: none;
-			@include ctb-tab-focus();
-		}
-*/
 	}
 	input[type="search"] + .add-on {padding: 4px 5px}
 	.tooltip {
@@ -115,7 +113,11 @@ body.base { /*overrides are here */
 		background-image: none;
 		box-shadow: none;
 	}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner {border-radius: $baseBorderRadius;}
+	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner {
+			-webkit-appearance: none !important;
+			border-radius: $baseBorderRadius;
+			-webkit-border-radius: $baseBorderRadius;
+		}
 	.navbar {
 		color: $navbarText;
 		@include fontSize(14px);
@@ -127,11 +129,13 @@ body.base { /*overrides are here */
 			background-image: none;
 			border-bottom: 1px solid $grayLight;
 			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
-			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 			a.brand {
+				width: 32px;
+				height: 32px;
 				padding: 0;
 				margin: 5px 0 0;
 				float: right;
+				@include vector-bg-with-fallback(ptv-avatar);
 			}
 			.login-link {
 				font-weight: normal;
@@ -199,8 +203,12 @@ body.base { /*overrides are here */
 				position: absolute;
 				left: 28%;
 				top: -1px;
+				z-index: 10;
 				@include opacity(.4);
 				&:hover { @include opacity(1);}
+			}
+			@media (max-width: $navbarCollapseWidth) {
+				padding: 0 70px;
 			}
 		}
 	}
@@ -253,14 +261,11 @@ i[class*="icon"] {font-style: normal;}
 .suggested-icon {background: url('/images/suggested-icon.svg') top left no-repeat;}
 .channel-icon {background: url('/images/hash-icon.svg') top left no-repeat;}
 
+.explore-icon, .stream-icon, .onfire-icon, .featured-icon, .suggested-icon, .channel-icon {background-size: 100%;}
+
 .banner {
 	padding-bottom: 40px;
 	@media (max-width: $navbarCollapseWidth) {padding-bottom: 0;}
-	.brand img {
-		width: 100%;
-		max-width: 32px;
-		height: auto;
-	}
 }
 
 .golive-btn { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
@@ -297,9 +302,7 @@ i[class*="icon"] {font-style: normal;}
 
 .mainWrapper {
 	.main {padding: 20px 70px;}
-	@media (max-width: $navbarCollapseWidth) {
-		margin-top: -20px;
-	}
+	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}
 }
 
 body.golive {
@@ -348,11 +351,14 @@ body.golive {
 
 .explore .top-content {
 	background-color: $white;
-	padding: 20px 70px 10px;
+	padding: 2px 70px 10px;
 	.form-search {
 		margin: 42px 0 0 0;
 		.add-on {padding: 10px 7px 10px;}
-		input[type="search"] {width: 86%; padding: 10px;}
+		input[type="search"] {
+			width: 86%;
+			padding: 10px;
+		}
 	}
 	.form-search .btn {
 		color: $white;
@@ -396,7 +402,6 @@ body.golive {
 		@media (max-width: 760px) {
 			width: 48.61878453038674%; /* values = .row-fluid .span6 */
 			*width: 48.56559304102504%;
-			outline:green solid 1px;
 		}
 	}
 	.hook {
@@ -553,7 +558,6 @@ body.golive {
 	position: absolute;
 	width:100%;
 	height: 100%;
-	z-index: 5;
 	@include opacity(0);
 	&:hover {@include opacity(1);}
 	button {
@@ -564,18 +568,79 @@ body.golive {
 		@include opacity(.75);
 		&:hover {@include opacity(1);}
 	}
-	button.btn-top { background-color: $white; margin-left: 3px;}
-	button.btn-play {
+	a.btn-play {
 		width: 100%;
+		height: 100%;
 		background-color: transparent;
 		position: absolute;
-		left: 0%;
-		z-index:6;
+		left: 0;
+		z-index:5;
+	}
+	button.btn-top {
+		background-color: $white;
+		margin-left: 3px;
+		position: relative;
+		z-index: 10;
 	}
 }
 
 .module-large button.btn-play { top:33%;}
 .module-xlarge button.btn-play { top:10%; height: 70%;}
+
+.spinner-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: $grayDark;
+	opacity: .5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.spinner {
+   height:30px;
+   width:30px;
+   margin:16% auto 0;
+   position:relative;
+   -webkit-animation: rotation .6s infinite linear;
+   -moz-animation: rotation .6s infinite linear;
+   -o-animation: rotation .6s infinite linear;
+   animation: rotation .6s infinite linear;
+   border:6px solid rgba(0,174,239,.15);
+   border-radius:100%;
+}
+
+.spinner:before {
+   content:"";
+   display:block;
+   position:absolute;
+   left:-6px;
+   top:-6px;
+   height:100%;
+   width:100%;
+   border-top:6px solid rgba(0,174,239,.8);
+   border-left:6px solid transparent;
+   border-bottom:6px solid transparent;
+   border-right:6px solid transparent;
+   border-radius:100%;
+}
+
+@-webkit-keyframes rotation {
+   from {-webkit-transform: rotate(0deg);}
+   to {-webkit-transform: rotate(359deg);}
+}
+@-moz-keyframes rotation {
+   from {-moz-transform: rotate(0deg);}
+   to {-moz-transform: rotate(359deg);}
+}
+@-o-keyframes rotation {
+   from {-o-transform: rotate(0deg);}
+   to {-o-transform: rotate(359deg);}
+}
+@keyframes rotation {
+   from {transform: rotate(0deg);}
+   to {transform: rotate(359deg);}
+}
 
 .options-row {
 	margin-top: -24px;
@@ -607,7 +672,7 @@ body.golive {
 	.modal-header {border-bottom: none;}
 	.modal-body {padding-bottom: 0;}
 	.modal-footer {
-    color: $black;
+    	color: $black;
 		text-align: center;
 		background-color: transparent;
 		border-top: none;
@@ -692,15 +757,13 @@ body.golive {
     	width:274px;
     	height:190px;
     	background-color: $grayDarker;
-    	}
+    }
     .popup-right {
     	width:46px;
     	height:190px;
     	background-color: $black;
-    	}
-    .thumb-user {
-    	margin: 7px 10px 7px 7px;
     }
+    .thumb-user { margin: 7px 10px 7px 7px;}
 	.specs-title {@include fontSize(14px); color: $white;}
 	.specs-tags {@include fontSize(12px); color: $grayLighter;}
 	.play-btn {
@@ -711,6 +774,6 @@ body.golive {
 		margin: 68px 0 0 8px;
 	}
 }
-.popup img {
-    width: 100%;
-}
+.popup img { width: 100%;}
+
+@import "mobile-overrides";

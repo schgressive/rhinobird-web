@@ -1,0 +1,106 @@
+@import "control-file";
+
+body.base {
+	@media (max-width: 767px) {
+		width: 100%;
+		max-width: 766px;
+		overflow: hidden;
+		padding: 0;
+	    -webkit-box-sizing: border-box;
+	       -moz-box-sizing: border-box;
+	            box-sizing: border-box;
+		/* .bounds {outline: green dashed 1px;} */
+		.width-controller {
+			width: 100%;
+			max-width: 580px;
+			padding: 0;
+		}
+		.banner {overflow: hidden;}
+		.navbar .navbar-fixed-top {margin: 0;}
+		.navbar {
+			.navbar-inner {
+				padding: 10px 0 6px;
+				.nav {width: 94%; margin-left: 0;}
+				.login-link {
+					margin: 0;
+					a {margin:0;}
+				}
+			}
+			.golive-btn-wrapper {
+				.golive-btn {
+					padding: 4px 6px;
+					border: none;
+				}
+			}
+			.main-nav-wrapper, .golive-nav-wrapper {
+				min-height: 0;
+				margin-top: -38px;
+				.btn-navbar {
+					padding: 0;
+					margin: 2px 0 5px;
+					float: right;
+					position: relative;
+					left: 0;
+				}
+			}
+			.golive-nav-wrapper .navLink i[class*="icon"] {margin-top: 4px;}
+		} /* end .navbar */
+		.mainWrapper .main {padding: 0;}
+		.section-title {
+			font-size: 23px;
+			margin: 5px 0;
+			i { width: 30px; height: 30px;}
+		}
+		.mid-content {
+			padding-top: 0;
+			.form-geo {
+				margin: 10px 0;
+				float: none;
+				input[type="search"] {height: 32px; width: 84%;}
+			}
+		}
+		.input-append .add-on, .input-prepend .add-on {padding: 10px 5px;}
+		.map-wrapper { margin: 0 auto; padding: 14px 14px 20px;}
+		#map {height: 238px;}
+		.modal-body .alert {margin-bottom: 10px;}
+		.modal-footer {
+			padding-top: 0;
+			.btn-primary:first-of-type {float: left;}
+			.btn-primary, .btn-accent, .btn-basic {
+				font-size: 13px;
+				font-weight: bold;
+				letter-spacing: normal;
+				width: 49%;
+				padding: 10px 0;
+			}
+			#input-caption, .form-block, .form-block label {
+				width: 100%;
+				padding: 20px 10px;
+				margin-bottom: 10px;
+			}
+		}
+		.lower-content {padding: 14px 0 20px;}
+	}
+	@media (max-width: 481px) {
+		max-width: 480px;
+		.width-controller {
+			max-width: 270px;
+			padding: 0;
+		}
+		.lower-content .row-fluid {margin-bottom: 14px;}
+		.lower-content .row-fluid [class*="span3"] {width: 100%; margin:8px 0;}
+		.lower-content ol[class*="row"] {margin-top: 10px;}
+	}
+}
+
+body.explore .top-content {
+	@media (max-width: 767px) {
+		text-align: center;
+		padding: 4px 20px 14px;
+		border-bottom: none;
+		.form-search {
+			margin-top: 8px;
+			input[type="search"] {width:78%;}
+		}
+	}
+}

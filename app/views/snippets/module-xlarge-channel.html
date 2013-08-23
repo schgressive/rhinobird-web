@@ -1,21 +1,21 @@
 <div class="module-video">
 	<div class="module-overlay">
 		<div class="btn-overlay">
-			<button class="pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
+			<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
 				<i class="icon-retweet"></i>
 				<span class="visually-hidden">Rebroadcast This Stream</span>
 			</button>
-			<button class="pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
+			<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
 				<i class="icon-share"></i>
 				<span class="visually-hidden">Share This Stream</span>
 			</button>
-			<button class="pull-right" type="button" ng-click="toggleMute()" rel="tooltip" data-title="Mute Me!">
+			<button class="btn-top pull-right" type="button" ng-click="toggleMute()" rel="tooltip" data-title="Mute Me!">
             	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
             	<span class="visually-hidden">Mute</span>
 			</button>
-			<button class="btn-play" type="button" rel="tooltip" data-title="Play Stream" ng-click="go('/streams/{{stream.id}}')">
+			<a class="btn-play" rel="tooltip" data-title="Play Stream" href="/streams/{{stream.id}}">
 				<span class="visually-hidden">Play This Stream</span>
-			</button>
+			</a>
 		</div>
 	</div><!-- /.module-overlay -->
   <div>
