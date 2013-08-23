@@ -43,11 +43,7 @@ body.base {
 					left: 0;
 				}
 			}
-			.golive-nav-wrapper {
-				.navLink i[class*="icon"] {
-					margin-top: 4px;
-				}
-			}
+			.golive-nav-wrapper .navLink i[class*="icon"] {margin-top: 4px;}
 		} /* end .navbar */
 		.mainWrapper .main {padding: 0;}
 		.section-title {
@@ -83,6 +79,7 @@ body.base {
 				margin-bottom: 10px;
 			}
 		}
+		.lower-content {padding: 14px 0 20px;}
 	}
 	@media (max-width: 481px) {
 		max-width: 480px;
@@ -94,7 +91,6 @@ body.base {
 		.lower-content .row-fluid [class*="span3"] {width: 100%; margin:8px 0;}
 		.lower-content ol[class*="row"] {margin-top: 10px;}
 	}
-		.lower-content {padding: 14px 0 20px;}
 }
 
 body.explore .top-content {
