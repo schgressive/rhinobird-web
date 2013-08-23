@@ -25,11 +25,13 @@
 					</div><!-- /.main-nav-wrapper -->
 
 					<div class="golive-nav-wrapper span9">
-						<nav class="golive-nav" role="navigation">
+						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						</button>
+						<nav class="golive-nav nav-collapse collapse" role="navigation">
 							<ul class="nav">
-								<li class="navLink action"><a href="#" ng-click="stopBroadcast()"><i class="icon-circle-arrow-left"></i> Return & Close</a></li>
+								<li class="navLink action"><a href="/explore" ng-click="stopBroadcast()"><i class="icon-circle-arrow-left"></i> Return & Close</a></li>
 								<li class="navLink action"><a href="#" ng-click="stopBroadcast(true)"><i class="icon-remove-sign"></i> Stop Recording</a></li>
-								<li class="navLink action"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Options</a></li>
+								<li class="navLink action hidden-phone"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Options</a></li>
 							</ul><!-- /.nav -->
 						</nav><!-- /.golive-nav -->
 					</div><!-- /.golive-nav-wrapper -->
