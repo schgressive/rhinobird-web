@@ -300,6 +300,8 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+#golive-btn span.golive-toggle-off {display: none !important; speak: none;}
+
 .mainWrapper {
 	.main {padding: 20px 70px;}
 	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}

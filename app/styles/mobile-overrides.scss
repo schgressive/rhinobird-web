@@ -4,7 +4,7 @@ body.base {
 	@media (max-width: 767px) {
 		width: 100%;
 		max-width: 766px;
-		overflow: hidden;
+		overflow-x: hidden;
 		padding: 0;
 	    -webkit-box-sizing: border-box;
 	       -moz-box-sizing: border-box;
@@ -20,7 +20,8 @@ body.base {
 		.navbar {
 			.navbar-inner {
 				padding: 10px 0 6px;
-				.nav {width: 94%; margin-left: 0;}
+				.main-nav .nav {width: 94%; margin-left: 0;}
+				.golive-nav .nav {width: 70%; margin-left: 28%;}
 				.login-link {
 					margin: 0;
 					a {margin:0;}
@@ -65,7 +66,7 @@ body.base {
 		.modal-body .alert {margin-bottom: 10px;}
 		.modal-footer {
 			padding-top: 0;
-			.btn-primary:first-of-type {float: left;}
+			.btn-primary[value*="Ready"] {float: left;}
 			.btn-primary, .btn-accent, .btn-basic {
 				font-size: 13px;
 				font-weight: bold;
@@ -96,6 +97,7 @@ body.base {
 		.lower-content .row-fluid [class*="span3"] {width: 100%; margin:8px 0;}
 		.lower-content ol[class*="row"] {margin-top: 10px;}
 		.module-video {
+/* NOTE FROM CHRIS: the inbound divs need to dynamically resize w/o being forced as below */
 			div[flow="inbound"] {height: 158px !important;}
 		}
 	}

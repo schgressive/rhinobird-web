@@ -4,8 +4,8 @@
 			<div class="width-controller container-fluid bounds">
 				<div class="row-fluid">
 					<div class="golive-btn-wrapper span3">
-						<button class="golive-btn" ng-class="{'active': section == 'golive'}">
-              <a href="/golive"><i class="golive-icon"></i> Go Live!</a>
+						<button id="golive-btn" class="golive-btn" ng-class="{'active': section == 'golive'}">
+              <a href="/golive"><i class="golive-icon"></i> <span class="goLive-toggle">Go Live!</span><span class="onAir-toggle golive-toggle-off">On Air.</span></a>
 						</button>
 					</div><!-- /.span3 -->
 					<div class="main-nav-wrapper span6">
@@ -25,9 +25,7 @@
 					</div><!-- /.main-nav-wrapper -->
 
 					<div class="golive-nav-wrapper span9">
-						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						</button>
-						<nav class="golive-nav nav-collapse collapse" role="navigation">
+						<nav class="golive-nav" role="navigation">
 							<ul class="nav">
 								<li class="navLink action"><a href="/explore" ng-click="stopBroadcast()"><i class="icon-circle-arrow-left"></i> Return & Close</a></li>
 								<li class="navLink action"><a href="#" ng-click="stopBroadcast(true)"><i class="icon-remove-sign"></i> Stop Recording</a></li>
