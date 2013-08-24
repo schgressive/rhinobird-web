@@ -80,6 +80,11 @@ body.base {
 			}
 		}
 		.lower-content {padding: 14px 0 20px;}
+/* NOTE FROM CHRIS: the inbound divs need to dynamically resize w/o being forced as below */
+		.module-video {
+			div[flow="inbound"] {height: 258px !important;}
+		}
+		.video-slider {display: none;}
 	}
 	@media (max-width: 481px) {
 		max-width: 480px;
@@ -90,6 +95,9 @@ body.base {
 		.lower-content .row-fluid {margin-bottom: 14px;}
 		.lower-content .row-fluid [class*="span3"] {width: 100%; margin:8px 0;}
 		.lower-content ol[class*="row"] {margin-top: 10px;}
+		.module-video {
+			div[flow="inbound"] {height: 158px !important;}
+		}
 	}
 }
 
