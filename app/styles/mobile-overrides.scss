@@ -72,18 +72,26 @@ body.base {
 		.modal-body .alert {margin-bottom: 10px;}
 		.modal-footer {
 			padding-top: 0;
-			.btn-primary[value*="Ready"] {float: left;}
-			.btn-primary, .btn-accent, .btn-basic {
+			.mobile-small {
 				font-size: 13px;
 				font-weight: bold;
 				letter-spacing: normal;
 				width: 49%;
 				padding: 10px 0;
 			}
-			#input-caption, .form-block, .form-block label {
+			#input-caption {
 				width: 100%;
 				padding: 20px 10px;
 				margin-bottom: 10px;
+			}
+		}
+		.golive-modal .btn-primary[value*="Ready"] {float: left;}
+		.rebroadcast-modal {
+			.modal-footer {
+				.form-block {
+					max-width: 200px;
+					padding: 0 8% 0 0;
+				}
 			}
 		}
 		.lower-content {padding: 14px 0 20px;}
