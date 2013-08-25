@@ -46,21 +46,27 @@ body.base {
 			}
 			.golive-nav-wrapper .navLink i[class*="icon"] {margin-top: 4px;}
 		} /* end .navbar */
+		.top-content {
+			.form-search {
+				float: none;
+				input[type="search"] {width:116%;}
+			}
+		}
 		.mainWrapper .main {padding: 0;}
 		.section-title {
-			font-size: 23px;
+			font-size: 20px;
 			margin: 5px 0;
-			i { width: 30px; height: 30px;}
+			i { width: 24px; height: 24px;}
 		}
 		.mid-content {
 			padding-top: 0;
 			.form-geo {
 				margin: 10px 0;
 				float: none;
-				input[type="search"] {height: 32px; width: 84%;}
+				input[type="search"] {width: 84%;}
 			}
 		}
-		.input-append .add-on, .input-prepend .add-on {padding: 10px 5px;}
+		.input-append .add-on, .input-prepend .add-on, .input-append input[type="search"], .input-prepend input[type="search"] {padding: 10px 5px;}
 		.map-wrapper { margin: 0 auto; padding: 14px 14px 20px;}
 		#map {height: 238px;}
 		.modal-body .alert {margin-bottom: 10px;}
@@ -85,7 +91,14 @@ body.base {
 		.module-video {
 			div[flow="inbound"] {height: 258px !important;}
 		}
+		.module-overlay {
+			@include opacity(1);
+			background:none;
+			z-index:2;
+		}
+		.btn-overlay {@include opacity(1);}
 		.video-slider {display: none;}
+		.form-actions {background-color: transparent;}
 	}
 	@media (max-width: 481px) {
 		max-width: 480px;
@@ -110,7 +123,12 @@ body.explore .top-content {
 		border-bottom: none;
 		.form-search {
 			margin-top: 8px;
-			input[type="search"] {width:78%;}
+			input[type="search"] {
+				width:79%;
+				border-left: none;
+				float:left;
+			}
+			.add-on {float: left;}
 		}
 	}
 }

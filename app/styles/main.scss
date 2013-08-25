@@ -207,9 +207,15 @@ body.base { /*overrides are here */
 				@include opacity(.4);
 				&:hover { @include opacity(1);}
 			}
-			@media (max-width: $navbarCollapseWidth) {
-				padding: 0 70px;
+			.submenu {
+				list-style-type: none;
+				.navLink {
+					@include fontSize(12px);
+					margin: 5px 0 7px;
+					a:hover {text-decoration: none;}
+				}
 			}
+			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 		}
 	}
 	.subnav > li > a:hover {color: hsla(0%,0%,30%,1);}

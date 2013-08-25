@@ -112,11 +112,21 @@
 
 	<!-- initialize -->
 	<script>
+		if (!window.matchMedia || (window.matchMedia("(min-width: 767px)").matches))
 		$(function () {
 			$('.base').tooltip({
 		      selector: '[rel="tooltip"]'
 		    })
 		  })
+	</script>
+	<!-- collapses menu in mobile after clicking link -->
+	<script>
+		$('#hideonclick a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+                if ($('.btn').is(":visible"))
+                    $('.btn').click();
+            });
 	</script>
 
     <script>

@@ -11,14 +11,23 @@
 					<div class="main-nav-wrapper span6">
 						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 						</button>
-						<nav class="main-nav nav-collapse collapse" role="navigation">
+						<nav class="main-nav nav-collapse collapse" id="hideonclick" role="navigation">
 							<ul class="nav">
 								<li class="navLink hidden-desktop">
 									<a href="#" ng-click="openLoginModal()" ng-hide="user.email">Sign In</a>
 									<a href="#" ng-click="logout()" ng-show="user.email">Logout</a>
 								</li>
 								<li class="navLink" ng-class="{'active': section == 'explore'}"><a href="/explore">Explore</a></li>
-								<li class="navLink" ng-class="{'active': section == 'channels'}"><a href="/channels">Channels</a></li>
+								<li class="navLink submenu-top" ng-class="{'active': section == 'channels'}">
+									<a href="/channels">Channels</a>
+									<ul class="submenu hidden-desktop">
+										<li class="navLink" ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
+										<li class="navLink" ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed">Subscribed</a></li>
+										<li class="navLink" ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire">On Fire!</a></li>
+										<li class="navLink" ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested">Suggested</a></li>
+										<li class="navLink" ng-class="{'active': section == 'following'}"><a href="/channels/following">Following</a></li>
+									</ul><!-- /.submenu -->
+								</li>
 								<li class="navLink" ng-class="{'active': section == 'peepol'}"><a href="#" title="under development" rel="tooltip" data-toggle="tooltip" data-placement="bottom">Peepol & VJs</a></li>
 							</ul><!-- /.nav -->
 						</nav><!-- /.main-nav -->
