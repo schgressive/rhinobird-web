@@ -207,9 +207,15 @@ body.base { /*overrides are here */
 				@include opacity(.4);
 				&:hover { @include opacity(1);}
 			}
-			@media (max-width: $navbarCollapseWidth) {
-				padding: 0 70px;
+			.submenu {
+				list-style-type: none;
+				.navLink {
+					@include fontSize(12px);
+					margin: 5px 0 7px;
+					a:hover {text-decoration: none;}
+				}
 			}
+			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 		}
 	}
 	.subnav > li > a:hover {color: hsla(0%,0%,30%,1);}
@@ -254,14 +260,13 @@ i[class*="icon"] {font-style: normal;}
 		vertical-align: middle;
 	}
 }
-.explore-icon {background: url('/images/globe-icon.svg') top left no-repeat;}
-.stream-icon {background: url('/images/stream-icon.svg') top left no-repeat;}
-.onfire-icon {background: url('/images/onfire-icon.svg') top left no-repeat;}
-.featured-icon {background: url('/images/featured-icon.svg') top left no-repeat;}
-.suggested-icon {background: url('/images/suggested-icon.svg') top left no-repeat;}
-.channel-icon {background: url('/images/hash-icon.svg') top left no-repeat;}
 
-.explore-icon, .stream-icon, .onfire-icon, .featured-icon, .suggested-icon, .channel-icon {background-size: 100%;}
+.explore-icon {@include vector-bg-with-fallback(globe-icon);}
+.stream-icon {@include vector-bg-with-fallback(stream-icon);}
+.onfire-icon {@include vector-bg-with-fallback(onfire-icon);}
+.featured-icon {@include vector-bg-with-fallback(featured-icon);}
+.suggested-icon {@include vector-bg-with-fallback(suggested-icon);}
+.channel-icon {@include vector-bg-with-fallback(hash-icon);}
 
 .banner {
 	padding-bottom: 40px;
@@ -299,6 +304,8 @@ i[class*="icon"] {font-style: normal;}
 		background: url('/images/golive-icon.svg') top left no-repeat;
 	}
 }
+
+#golive-btn span.golive-toggle-off {display: none !important; speak: none;}
 
 .mainWrapper {
 	.main {padding: 20px 70px;}
@@ -756,23 +763,26 @@ body.golive {
     text-align: left;
     .popup-left {
     	width:274px;
-    	height:190px;
+    	height:154px;
     	background-color: $grayDarker;
     }
     .popup-right {
     	width:46px;
-    	height:190px;
+    	height:154px;
     	background-color: $black;
     }
+    /* fix below later */
+    .specs-popup {display: none;}
     .thumb-user { margin: 7px 10px 7px 7px;}
-	.specs-title {@include fontSize(14px); color: $white;}
-	.specs-tags {@include fontSize(12px); color: $grayLighter;}
+	.specs-title {@include fontSize(13px); color: $white;}
+	.specs-tags {@include fontSize(11px); color: $grayLighter;}
 	.play-btn {
 		width: 31px;
 		height: 42px;
 		background: url('/images/play-icon.svg') top left no-repeat;
+		background-size: 100%;
 		border: none;
-		margin: 68px 0 0 8px;
+		margin: 58px 0 0 8px;
 	}
 }
 .popup img { width: 100%;}

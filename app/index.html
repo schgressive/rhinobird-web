@@ -54,7 +54,7 @@
 			<div class="row-fluid">
 				<div class="span12">
 					<div class="footer-copy">
-						<p><span class="one-liner">© 2012 – 2013 Peepol.tv</span><span class="one-liner">Peepol.tv is brought to you by: <a href="http://cl.linkedin.com/in/felipeheusser" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'felipe']);">Felipe Heusser</a>, <a href="http://unterbahn.com/" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'jeff']);">Jeff Warren</a>, <a href="http://www.linkedin.com/in/ladychris" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'chris']);">Chris Rogers</a>, and the very fine folks of <a href="http://platan.us" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'platanus']);">Platan.us</a>
+						<p><span class="one-liner">© 2012 – 2013 Peepol.tv</span><span class="one-liner">Peepol.tv is brought to you by: <a href="http://cl.linkedin.com/in/felipeheusser" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'felipe']);">Felipe Heusser</a>, <a href="http://unterbahn.com/" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'jeff']);">Jeff Warren</a>, <a href="http://www.linkedin.com/in/ladychris" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'chris']);">Chris Rogers</a>, and the very fine folks of <a href="http://platan.us" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'platanus']);">Platan.us</a><span class="one-liner">Built using <a href="http://getbootstrap.com/">Bootstrap</a> and featuring icons by <a href="http://glyphicons.com">Glyphicons</a>.</span>
 						</p>
 					</div><!-- /.footer-copy -->
 				</div>
@@ -112,11 +112,21 @@
 
 	<!-- initialize -->
 	<script>
+		if (!window.matchMedia || (window.matchMedia("(min-width: 767px)").matches))
 		$(function () {
 			$('.base').tooltip({
 		      selector: '[rel="tooltip"]'
 		    })
 		  })
+	</script>
+	<!-- collapses menu in mobile after clicking link -->
+	<script>
+		$('#hideonclick a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+                if ($('.btn').is(":visible"))
+                    $('.btn').click();
+            });
 	</script>
 
     <script>

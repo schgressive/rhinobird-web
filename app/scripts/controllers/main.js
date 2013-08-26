@@ -49,7 +49,7 @@ angular.module('peepoltvApp')
           var popupContent = '<div class="popup clearfix">' +
           						'<div class="popup-left pull-left">' +
           							'<div class="video-popup">' +
-          								'<a href="/stream/' + feature.id + '">' +
+          								'<a href="/streams/{{stream.id}}">' +
 											'<img src="' + feature.thumbs.medium + '">' +
 										'</a>' +
           							'</div>' +

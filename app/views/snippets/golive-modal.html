@@ -1,4 +1,4 @@
-<div class="modal" modal="goLiveInitModal" options="opts" aria-labelledby="#GoLive" aria-hidden="true">
+<div class="modal golive-modal" modal="goLiveInitModal" options="opts" aria-labelledby="#GoLive" aria-hidden="true">
 	<div class="modal-header">
 		<button class="close" ng-click="startBroadcast(false)" aria-hidden="true">&times;</button>
 		<h3 id="GoLive">Going Live?</h3>
@@ -22,8 +22,8 @@
           <span ng-repeat="channel in channels" class="inline"><b>{{channel}}</b> </span>
         </div>
       </div>
-      <input class="btn btn-primary" type="submit" value="Ready!">
-      <button type="button" class="btn btn-accent" ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
+      <input class="btn btn-primary mobile-small " type="submit" value="Ready!">
+      <button type="button" class="btn btn-accent mobile-small " ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
         Skip It! Let's Go!
       </button>
 		</form>

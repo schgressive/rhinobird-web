@@ -4,7 +4,7 @@
 			<div class="span12">
 				<section class="top-content">
 					<div class="row-fluid">
-						<div class="span8">
+						<div class="span8 hidden-phone">
 							<ul class="nav subnav" role="navigation">
 								<li ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
 								<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed" rel="tooltip" data-title="under development">Subscribed</a></li>
@@ -20,14 +20,14 @@
 									<div class="input-append input-prepend">
 										<span class="add-on"><i class="icon-search"></i></span>
 										<input name="livestream-search" type="search" placeholder="search live streams">
-										<input type="submit" class="btn" value="Go!" rel="tooltip" data-title="under development">
+										<input type="submit" class="btn hidden-phone" value="Go!" rel="tooltip" data-title="under development">
 									</div>
-								</div><!-- /.form-actions -->					
+								</div><!-- /.form-actions -->
 							</form>
 						</div><!-- /.span4 -->
 					</div><!-- /.row-fluid -->
 				</section><!-- /.top-content -->
-				
+
 				<div ng-switch on="section">
 				  <div ng-include="'/views/channels/local.html'"
 				       ng-controller="ChannelsLocalCtrl"
@@ -45,8 +45,8 @@
 				       ng-controller="ChannelsAllofthepeepolCtrl"
 				       ng-switch-when="allofthepeepol"></div>
 				</div>
-				
+
 			</div><!-- /.span12 -->
 	    </div><!-- /.row-fluid -->
-	</div><!-- /.container-fluid -->    
+	</div><!-- /.container-fluid -->
 </div><!-- /.main -->

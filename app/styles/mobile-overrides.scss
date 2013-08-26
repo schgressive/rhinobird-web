@@ -1,10 +1,10 @@
 @import "control-file";
 
 body.base {
-	@media (max-width: 767px) {
+	@media (max-width: 601px) {
 		width: 100%;
-		max-width: 766px;
-		overflow: hidden;
+		max-width: 500px;
+		overflow-x: hidden;
 		padding: 0;
 	    -webkit-box-sizing: border-box;
 	       -moz-box-sizing: border-box;
@@ -20,7 +20,8 @@ body.base {
 		.navbar {
 			.navbar-inner {
 				padding: 10px 0 6px;
-				.nav {width: 94%; margin-left: 0;}
+				.main-nav .nav {width: 94%; margin-left: 0;}
+				.golive-nav .nav {width: 70%; margin-left: 28%;}
 				.login-link {
 					margin: 0;
 					a {margin:0;}
@@ -45,38 +46,52 @@ body.base {
 			}
 			.golive-nav-wrapper .navLink i[class*="icon"] {margin-top: 4px;}
 		} /* end .navbar */
+		.top-content {
+			.form-search {
+				float: none;
+				input[type="search"] {width:116%;}
+			}
+		}
 		.mainWrapper .main {padding: 0;}
 		.section-title {
-			font-size: 23px;
+			font-size: 20px;
 			margin: 5px 0;
-			i { width: 30px; height: 30px;}
+			i { width: 24px; height: 24px;}
 		}
 		.mid-content {
 			padding-top: 0;
 			.form-geo {
 				margin: 10px 0;
 				float: none;
-				input[type="search"] {height: 32px; width: 84%;}
+				input[type="search"] {width: 84%;}
 			}
 		}
-		.input-append .add-on, .input-prepend .add-on {padding: 10px 5px;}
+		.input-append .add-on, .input-prepend .add-on, .input-append input[type="search"], .input-prepend input[type="search"] {padding: 10px 5px;}
 		.map-wrapper { margin: 0 auto; padding: 14px 14px 20px;}
 		#map {height: 238px;}
 		.modal-body .alert {margin-bottom: 10px;}
 		.modal-footer {
 			padding-top: 0;
-			.btn-primary:first-of-type {float: left;}
-			.btn-primary, .btn-accent, .btn-basic {
+			.mobile-small {
 				font-size: 13px;
 				font-weight: bold;
 				letter-spacing: normal;
 				width: 49%;
 				padding: 10px 0;
 			}
-			#input-caption, .form-block, .form-block label {
+			#input-caption {
 				width: 100%;
 				padding: 20px 10px;
 				margin-bottom: 10px;
+			}
+		}
+		.golive-modal .btn-primary[value*="Ready"] {float: left;}
+		.rebroadcast-modal {
+			.modal-footer {
+				.form-block {
+					max-width: 200px;
+					padding: 0 8% 0 0;
+				}
 			}
 		}
 		.lower-content {padding: 14px 0 20px;}
@@ -84,7 +99,18 @@ body.base {
 		.module-video {
 			div[flow="inbound"] {height: 258px !important;}
 		}
+		.module-overlay {
+			@include opacity(1);
+			background:none;
+			z-index:2;
+		}
+		.btn-overlay {@include opacity(1);}
 		.video-slider {display: none;}
+		.form-actions {background-color: transparent;}
+		.leaflet-popup-content {width:212px !important;}
+		.popup-left {width:174px; height:auto;}
+		.popup-right {width:38px; height:99px;}
+		.play-btn {margin-top:36px; width:21px; height: 40px;}
 	}
 	@media (max-width: 481px) {
 		max-width: 480px;
@@ -96,6 +122,7 @@ body.base {
 		.lower-content .row-fluid [class*="span3"] {width: 100%; margin:8px 0;}
 		.lower-content ol[class*="row"] {margin-top: 10px;}
 		.module-video {
+/* NOTE FROM CHRIS: the inbound divs need to dynamically resize w/o being forced as below */
 			div[flow="inbound"] {height: 158px !important;}
 		}
 	}
@@ -108,7 +135,11 @@ body.explore .top-content {
 		border-bottom: none;
 		.form-search {
 			margin-top: 8px;
-			input[type="search"] {width:78%;}
+			input[type="search"] {
+				width:79%;
+				float:left;
+			}
+			.add-on {float: left;}
 		}
 	}
 }
