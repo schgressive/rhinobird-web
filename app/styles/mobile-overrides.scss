@@ -1,9 +1,9 @@
 @import "control-file";
 
 body.base {
-	@media (max-width: 767px) {
+	@media (max-width: 601px) {
 		width: 100%;
-		max-width: 766px;
+		max-width: 500px;
 		overflow-x: hidden;
 		padding: 0;
 	    -webkit-box-sizing: border-box;
