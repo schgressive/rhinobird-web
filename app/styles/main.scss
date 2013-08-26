@@ -764,23 +764,26 @@ body.golive {
     text-align: left;
     .popup-left {
     	width:274px;
-    	height:190px;
+    	height:154px;
     	background-color: $grayDarker;
     }
     .popup-right {
     	width:46px;
-    	height:190px;
+    	height:154px;
     	background-color: $black;
     }
+    /* fix below later */
+    .specs-popup {display: none;}
     .thumb-user { margin: 7px 10px 7px 7px;}
-	.specs-title {@include fontSize(14px); color: $white;}
-	.specs-tags {@include fontSize(12px); color: $grayLighter;}
+	.specs-title {@include fontSize(13px); color: $white;}
+	.specs-tags {@include fontSize(11px); color: $grayLighter;}
 	.play-btn {
 		width: 31px;
 		height: 42px;
 		background: url('/images/play-icon.svg') top left no-repeat;
+		background-size: 100%;
 		border: none;
-		margin: 68px 0 0 8px;
+		margin: 58px 0 0 8px;
 	}
 }
 .popup img { width: 100%;}

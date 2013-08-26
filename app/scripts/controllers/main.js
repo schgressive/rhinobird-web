@@ -13,7 +13,7 @@ angular.module('peepoltvApp')
       // Disable scroll to zoom
       $scope.map.scrollWheelZoom.disable();
 
-      var zoom = 30;
+      var zoom = 15;
       if(parameters.type && parameters.type !== 'street_address' && parameters.type !== 'route'){
         zoom = 13;
       }
@@ -49,7 +49,7 @@ angular.module('peepoltvApp')
           var popupContent = '<div class="popup clearfix">' +
           						'<div class="popup-left pull-left">' +
           							'<div class="video-popup">' +
-          								'<a href="/stream/' + feature.id + '">' +
+          								'<a href="/streams/{{stream.id}}">' +
 											'<img src="' + feature.thumbs.medium + '">' +
 										'</a>' +
           							'</div>' +
