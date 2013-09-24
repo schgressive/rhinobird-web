@@ -43,7 +43,7 @@
 	<ul class="specs-user no-bullets">
 		<li class="thumb-user pull-left">
 			<a href="#" title="username">
-				<img src="images/profile-default.svg"/>
+        <img ng-src="{{stream.user.email | gravatar:42:'/images/profile-default.svg'}}"/>
 			</a>
 		</li>
 		<li class="specs-location">
