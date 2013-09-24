@@ -592,7 +592,10 @@ body.golive {
 	}
 }
 
-.module-large button.btn-play { top:33%;}
+.module-large {
+		margin-bottom: 20px;
+		button.btn-play { top:33%;}
+	}
 .module-xlarge button.btn-play { top:10%; height: 70%;}
 
 .spinner-overlay {
