@@ -23,10 +23,11 @@
         </div>
       </div>
       <input class="btn btn-primary mobile-small " type="submit" value="Ready!">
-      <button type="button" class="btn btn-accent mobile-small " ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
+      <button type="button" class="btn btn-accent mobile-small" ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
         Skip It! Let's Go!
       </button>
-		</form>
+    </form>
+    <a ng-show="{{localStream.multiSources}}" class="btn btn-accent mobile-small" ng-click="localStream.cycleSource()">Flip</a>
 
 	</div><!-- /.modal-footer -->
 </div><!-- /.modal -->

@@ -308,6 +308,10 @@ i[class*="icon"] {font-style: normal;}
 /* this is a problem that needs to be fixed or remove the go live on air toggle, it should work w/o 'body.base' */
 body.base #golive-btn span.golive-toggle-off {display: none !important; speak: none;}
 
+.modal-backdrop{
+  opacity: 0.5 !important;
+}
+
 .mainWrapper {
 	.main {padding: 20px 70px;}
 	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}

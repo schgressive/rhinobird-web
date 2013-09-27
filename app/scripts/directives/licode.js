@@ -11,11 +11,36 @@ angular.module('licode', [])
         token: '@'
       },
       link: function postLink(scope, element, attrs) {
-        var room, elementId;
+
+        // This is the public API
         var licode = {
+
+          // The current licode stream
           stream: null,
-          permissionsGranted: false
+
+          // Whether the user has given camera permission
+          permissionsGranted: false,
+
+          multiSources: null,
+          cycleSource: function(){
+            stopStream();
+
+            var nextIndex = (_.indexOf(videoSources, currentSource) + 1) % videoSources.length;
+            startStream(videoSources[nextIndex]);
+          }
         };
+
+        // Expose the publich api
+        if(attrs.ngModel){
+          scope.ngModel = licode;
+        }
+
+        /////////////
+        // Private //
+        /////////////
+
+        var videoSources, currentSource;
+        var room, elementId;
 
         // Set an ID
         elementId = (scope.token !== '')? 'licode_' + JSON.parse(window.atob(scope.token)).tokenId : 'licode_' + (new Date()).getTime();
@@ -27,17 +52,22 @@ angular.module('licode', [])
           'height': attrs.height
         });
 
-        // Set the model
-        if(attrs.ngModel){
-          scope.ngModel = licode;
-        }
+        /**
+         * Start the stream and add the event handlers
+         * Alse set some states
+         * @param  {SourceInfo} videoSource The video source used the get the video track
+         */
+        var startStream = function(videoSource){
+          currentSource = videoSource;
+          var videoConstrain = {
+            optional: [
+              {
+                sourceId : videoSource.id
+              }
+            ]
+          };
 
-        // Initiate the stream (camera/mic permissions)
-        if(attrs.flow === "outbound"){
-
-          // Create the stream
-          licode.stream = Erizo.Stream({audio: true, video: true, data: false});
-          licode.stream.init();
+          licode.stream = Erizo.Stream({audio: true, video: videoConstrain, data: false});
 
           // Show the stream if persmission are accepted
           licode.stream.addEventListener('access-accepted', function () {
@@ -59,6 +89,35 @@ angular.module('licode', [])
             scope.$apply(function(){
               licode.permissionsGranted = false;
             });
+          });
+
+          licode.stream.init();
+        };
+
+        // Stop the current stream
+        var stopStream = function(){
+          licode.stream.removeEventListener('access-accepted');
+          licode.stream.removeEventListener('access-denied');
+          licode.stream.close();
+
+          licode.permissionsGranted = false;
+        };
+
+        // Initiate the stream (camera/mic permissions)
+        if(attrs.flow === "outbound"){
+
+          // Get video sources
+          MediaStreamTrack.getSources(function(sources){
+
+            // Store just the video ones
+            videoSources = _.filter(sources, function(s){
+              return s.kind === 'video';
+            });
+
+            licode.multiSources = (videoSources.length > 1);
+
+            // Create the stream
+            startStream(videoSources[0]);
           });
 
         }
