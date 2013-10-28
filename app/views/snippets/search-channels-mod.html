@@ -1,0 +1,35 @@
+<li class="results-item">
+  <ul class="results-list no-bullets inline">
+<!-- NOTE FROM CHRIS
+the "channel-avatar" will default to a generic "channel-icon" unless there is a VJ active in the channel. If a VJ is active, then the VJ's avatar should appear and the tooltip will change, see second example in this list -->
+    <li class="user-avatar">
+      <img src="" alt="icon for channel" rel="tooltip" data-title="There is no VJ for this Channel. It could be you!"/>
+    </li>
+    <li class="data-list">
+      <ul>
+        <li class="one-liner"><h5>#channelname</h5></li>
+        <li class="one-liner"><h6>Streams: <span>12</span></h6></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" class="btn btn-mini" role="button" title="click to watch channel">Watch!</a>
+    </li>
+  </ul>
+</li>
+<!-- VJ EXAMPLE -->
+<li class="results-item">
+  <ul class="results-list no-bullets inline">
+    <li class="user-avatar">
+      <img src="/images/profile-default.svg" alt="icon for the VJ" rel="tooltip" data-title="Username is the VJ for this Channel"/>
+    </li>
+    <li class="data-list">
+      <ul>
+        <li class="one-liner"><h5>#channelname</h5></li>
+        <li class="one-liner"><h6>Streams: <span>12</span></h6></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" class="btn btn-mini" role="button" title="click to watch channel">Watch!</a>
+    </li>
+  </ul>
+</li>

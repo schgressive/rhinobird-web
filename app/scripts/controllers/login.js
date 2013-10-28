@@ -10,7 +10,9 @@ angular.module('peepoltvApp')
       var userData = $scope.logUser;
 
       authService.resource.login(userData, function(e){
-        $scope.$parent.loginModalInit = false;
+        // Close modal form
+        $scope.$close();
+
         authService.user.email = e.email;
         authService.user.name = e.name;
 

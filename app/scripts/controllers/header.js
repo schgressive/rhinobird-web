@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, authService, streamService) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, $modal, authService, streamService) {
 
     $scope.$on('$locationChangeSuccess', function (){
       var path = $location.path();
@@ -36,12 +36,6 @@ angular.module('peepoltvApp')
     // flag for going live
     $scope.goLiveAfterLogin = false;
 
-    // Options for the modal
-    $scope.loginModalOpts = {
-      backdropFade: true,
-      dialogFade:true
-    };
-
     // launches the Go Live if the user is logged in
     $scope.goLive = function() {
       $scope.goLiveAfterLogin = false;
@@ -53,18 +47,24 @@ angular.module('peepoltvApp')
       }
     }
 
-    // Login in and signing up
-    $scope.openLoginModal = function(){
-      $scope.loginModalInit = true;
-      $scope.$$childHead.loginModalAction = 'login';
-    };
-
     // Close callback
-    $scope.closeLoginModalCallback = function(){
-      $scope.loginModalInit = false;
+    var closeLoginModalCallback = function(){
       if ($scope.goLiveAfterLogin && $scope.user && $scope.user.email) {
         $scope.goLive();
       }
+    };
+
+    // Login in and signing up
+    $scope.openLoginModal = function(){
+      $scope.loginModalAction = 'login';
+      // Options for the modal
+      $scope.loginModal = $modal.open({
+        backdrop: 'static',
+        templateUrl: '/views/snippets/login-signup-modal.html',
+        scope: $scope
+      });
+
+      $scope.loginModal.result.then(closeLoginModalCallback)
     };
 
     $scope.logout = function(){

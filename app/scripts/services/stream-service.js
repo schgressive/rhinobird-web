@@ -24,7 +24,11 @@ angular.module('peepoltvApp')
         params: {},
         isArray: true,
         transformResponse: function(data){
-          return JSON.parse(data).reverse();
+          try{
+            return JSON.parse(data).reverse();
+          } catch (e){
+            return data;
+          }
         },
         withCredentials: true
       },

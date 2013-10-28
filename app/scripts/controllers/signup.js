@@ -12,7 +12,10 @@ angular.module('peepoltvApp')
       };
 
       authService.resource.register(userData, function(e){
-        //authService.cookies.setToken(e.data['auth_token']);
+        $scope.$close();
+        var user = e.data.user;
+        authService.user.email = user.email;
+        authService.user.name = user.name;
       },
       function(e){
         if(angular.isObject(e.data) && e.data.info.email.length){

@@ -1,63 +1,32 @@
 <header class="banner" role="banner">
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="width-controller container-fluid bounds">
-				<div class="row-fluid">
-					<div class="golive-btn-wrapper span3">
-						<button id="golive-btn" class="golive-btn" ng-class="{'active': section == 'golive'}">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="width-controller container-fluid">
+        <div class="row-fluid">
+          <div class="main-nav-wrapper pull-left">
+            <nav class="main-nav" role="navigation">
+              <a href="#" id="drop1" class="navToggle dropdown-toggle" data-toggle="dropdown" role="button"><span class="visually-hidden">Navigation</span></a>
+              <ul class="mega-menu dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li class="navLink">
+                  <a href="#" ng-click="openLoginModal()" ng-hide="user.email"><i class="icon-lock icon-white"></i>Sign In</a>
+                  <!-- <a href="#" ng-click="logout()" ng-show="user.email"><i class="icon-lock icon-white"></i>Sign Out</a> -->
+                </li>
+                <li class="navLink"><a href="/explore"><i class="icon-globe icon-white"></i>Explore</a></li>
+                <li class="navLink submenu-top"><a href="/channels"><i class="icon-play-circle icon-white"></i>Channels</a></li>
+                <li class="navLink deactivated"><a href="/peepol"><i class="icon-user icon-white"></i>Peepol & VJs</a></li>
+                <li class="navLink deactivated"><a href="/tour"><i class="icon-info-sign icon-white"></i>Take the Tour!</a></li>
+                <li class="navLink deactivated"><a href="/account"><i class="icon-cog icon-white"></i>Account Settings</a></li>
+              </ul><!-- /.dropdown-menu -->
+            </nav><!-- /.main-nav -->
+            <a href="/" class="brand" title="back to home"><span>peepol.tv</span></a>
+          </div><!-- /.main-nav-wrapper -->
+          <div class="golive-btn-wrapper pull-right">
+            <button id="golive-btn" class="golive-btn">
               <a href="/golive"><i class="golive-icon"></i> <span class="goLive-toggle">Go Live!</span><span class="onAir-toggle golive-toggle-off">On Air.</span></a>
-						</button>
-					</div><!-- /.span3 -->
-					<div class="main-nav-wrapper span6">
-						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						</button>
-						<nav class="main-nav nav-collapse collapse" id="hideonclick" role="navigation">
-							<ul class="nav">
-								<li class="navLink hidden-desktop">
-									<a href="#" ng-click="openLoginModal()" ng-hide="user.email">Sign In</a>
-									<a href="#" ng-click="logout()" ng-show="user.email">Logout</a>
-								</li>
-								<li class="navLink" ng-class="{'active': section == 'explore'}"><a href="/explore">Explore</a></li>
-								<li class="navLink submenu-top" ng-class="{'active': section == 'channels'}">
-									<a href="/channels">Channels</a>
-									<ul class="submenu hidden-desktop">
-										<li class="navLink" ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
-										<li class="navLink" ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed">Subscribed</a></li>
-										<li class="navLink" ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire">On Fire!</a></li>
-										<li class="navLink" ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested">Suggested</a></li>
-										<li class="navLink" ng-class="{'active': section == 'following'}"><a href="/channels/following">Following</a></li>
-									</ul><!-- /.submenu -->
-								</li>
-								<li class="navLink" ng-class="{'active': section == 'peepol'}"><a href="#" title="under development" rel="tooltip" data-toggle="tooltip" data-placement="bottom">Peepol & VJs</a></li>
-							</ul><!-- /.nav -->
-						</nav><!-- /.main-nav -->
-					</div><!-- /.main-nav-wrapper -->
-
-					<div class="golive-nav-wrapper span9">
-						<nav class="golive-nav" role="navigation">
-							<ul class="nav">
-								<li class="navLink action"><a href="/explore" ng-click="stopBroadcast()"><i class="icon-circle-arrow-left"></i> Return & Close</a></li>
-								<li class="navLink action"><a href="#" ng-click="stopBroadcast(true)"><i class="icon-remove-sign"></i> Stop Recording</a></li>
-								<li class="navLink action hidden-phone"><a href="#" ng-click="toggleOptions()"><i class="icon-headphones"></i> Options</a></li>
-							</ul><!-- /.nav -->
-						</nav><!-- /.golive-nav -->
-					</div><!-- /.golive-nav-wrapper -->
-
-					<div class="nav-utility hidden-phone span3">
-						<a class="brand hidden-phone" href="/index" title="Peepol.tv">
-							<span class="visually-hidden">Peepol.tv Home</span>
-						</a>
-						<h5 class="login-link">
-              <a href="#" ng-click="openLoginModal()" ng-hide="user.email">Sign In</a>
-              <a href="#" ng-click="logout()" ng-show="user.email">Logout</a>
-
-						</h5>
-					</div><!-- /.span3 -->
-				</div><!-- /.row-fluid -->
-			</div><!-- /.container-fluid -->
-		</div><!-- /.inner-navbar -->
-	</div><!-- /.navbar -->
+            </button>
+          </div><!-- /golive-btn-wrapper -->
+        </div><!-- /.row-fluid -->
+      </div><!-- /.container-fluid -->
+    </div><!-- /.inner-navbar -->
+  </div><!-- /.navbar -->
 </header>
-
-
-<div ng-include="'/views/snippets/login-signup-modal.html'"></div>

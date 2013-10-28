@@ -1,0 +1,55 @@
+<section class="top-content feature">
+  <div class="width-controller container-fluid">
+    <div class="row-fluid">
+      <ul class="profile-list span12">
+        <li class="user-avatar pull-left">
+          <img src="/images/profile-default.svg" alt="user avatar" />
+        </li>
+        <div class="list-right pull-left">
+          <li class="name-item">
+            <h2 class="user-name pull-left">Ginger O'Hara</h2>
+            <button href="#" class="follow-toggle btn btn-mini pull-left">{following}</button>
+          </li>
+          <li class="location-list">
+            <ul class="inline">
+              <li class="city-item">
+                <i class="icon-map-marker"></i><span>Belfast</span>
+              </li>
+              <li class="country-code">NIR</li>
+            </ul>
+          </li>
+          <li class="twitter-item">
+            <i class="icon-twitter"></i><a href="#" title="twitter feed" rel="me">@ambiguousredhead</a>
+          </li>
+          <li class="status-item">
+            <h3 class="pull-left">Status:</h3>
+            <a href="#" class="status-on">streaming now!</a>
+            <span class="status-off">not streaming</span>
+          </li>
+        </div>
+      </ul><!-- /.profile-list -->
+    </div><!-- /.row-fluid -->
+  </div><!-- /.container-fluid -->
+</section><!-- /.top-content -->
+
+<div class="main" role="main">
+  <div class="width-controller container-fluid">
+    <section class="lower-content">
+      <div class="row-fluid">
+        <h3 class="span6">
+          Archived Streams:
+        </h3>
+      </div><!-- /.row-fluid -->
+      <div class="row-fluid">
+        <div class="span12">
+          <ol class="no-bullets">
+            <li class="module-large span3" ng-repeat="stream in streams | limitTo:12">
+              <div ng-include="'/views/snippets/module-large.html'"></div>
+            </li><!-- /.module-large -->
+          </ol>
+        </div><!-- /.span12 -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.lower-content -->
+  </div><!-- /.container-fluid -->
+</div><!-- /.main -->
+

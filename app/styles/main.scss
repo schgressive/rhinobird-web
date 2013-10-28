@@ -1,6 +1,12 @@
-@import "compass_twitter_bootstrap";
+@import "compass";
+
+$iconSpritePath:          "../bower_components/bootstrap-sass/img/glyphicons-halflings.png" !default;
+$iconWhiteSpritePath:     "../bower_components/bootstrap-sass/img/glyphicons-halflings-white.png" !default;
+
+@import "../bower_components/bootstrap-sass/lib/bootstrap";
+@import "../bower_components/bootstrap-sass/lib/mixins";
 @import "control-file"; /*overrides bootstrap variables*/
-@import "compass_twitter_bootstrap/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
+@import "../bower_components/bootstrap-sass/lib/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
 
 // Fonts ------------------------------
 // NOTE FROM CHRIS: please use the fontsize mixin when defining font-size values. It creates REM values (better for responsive) w/a PX fallback.
@@ -9,6 +15,7 @@
 @include font-face("LatoItalic", '/fonts/lato-regita-webfont');
 @include font-face("LatoBold", '/fonts/lato-bol-webfont');
 @include font-face("Hero",'/fonts/hero-webfont');
+@include font-face("Mission",'/fonts/mission-script-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -83,6 +90,11 @@ h6 {font-size: $fontSizeSmall;}
 
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 
+a {
+	@include baseTransitionOut;
+	&:hover {@include baseTransitionIn;}
+}
+
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 
@@ -113,7 +125,7 @@ body.base { /*overrides are here */
 		background-image: none;
 		box-shadow: none;
 	}
-	.btn, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner {
+	.btn, btn-small, .btn-mini, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
 			-webkit-appearance: none !important;
 			border-radius: $baseBorderRadius;
 			-webkit-border-radius: $baseBorderRadius;
@@ -129,81 +141,69 @@ body.base { /*overrides are here */
 			background-image: none;
 			border-bottom: 1px solid $grayLight;
 			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
+			.main-nav { float: left;}
 			a.brand {
-				width: 32px;
-				height: 32px;
+				font-family: "Hero", $condensed-font-stack;
 				padding: 0;
-				margin: 5px 0 0;
-				float: right;
-				@include vector-bg-with-fallback(ptv-avatar);
+				margin: 11px 0 0;
+				float: left;
 			}
-			.login-link {
-				font-weight: normal;
-				float: right;
-				@include fontSize(14px);
-				a {
-					color:$navbarLinkColor;
-					margin: 0 14px 0 10px;
-					padding: 2px 8px;
-					&:hover {
-						color: $navbarLinkColorHover;
-						text-decoration: none;
-						background-color: $navbarLinkBackgroundHover;
-					}
+			.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+				background-color: darken($redDark, 10%);
+				background-image: none;
+			}
+			.dropdown-menu > .active > a {
+				background: transparent url('../assets/active-page-bg.gif') center bottom repeat-x;
+				@media (max-width: $navbarCollapseWidth) {
+					background: transparent url('../assets/active-page-bg2.gif') top left repeat-y;
 				}
 			}
-			.nav {
+			.dropdown-menu > li.deactivated > a:hover, .dropdown-menu > li.deactivated > a:focus, {
+				background-color: transparent;
+			}
+			.mega-menu {
 				width: 100%;
-				margin: 0;
+				padding: 0 10px 0 11%;
+				border: none;
+				background-color: $redDark;
+				box-shadow: none;
+				top: 39px;
+				@include baseTransitionOut;
 				@media (max-width: $navbarCollapseWidth) {
-					width: 50%;
-					margin: 0 0 15px 12px;
+					max-width: 200px;
+					@include baseTransitionIn;
 				}
 			}
-			li.navLink {
-				margin-top: 7px;
+			.navLink {
+				float: left;
 				@media (max-width: $navbarCollapseWidth) {
-					margin-top: 3px;
-					margin-bottom: 5px;
+					float: none;
+					border-bottom: 1px solid lighten($red, 10%);
 				}
 				a {
 					color:$navbarLinkColor;
-					margin: 0 14px 0 10px;
-					padding: 2px 8px;
+					padding: 9px 16px;
 					@media (max-width: $navbarCollapseWidth) {
-						font-weight: normal;
-						padding: 5px 8px 8px 10px;
-					}
-					&:hover {
-						color: $navbarLinkColorHover;
-						background-color: $navbarLinkBackgroundHover;
-						border-radius: 0px;
+						padding: 12px 16px 12px 10px;
 					}
 				}
-			}
-			li.active > a {
-				color:$navbarLinkColorActive !important;
-				background-color: $white;
-				box-shadow: none;
-				padding-bottom: 8px;
-				border-bottom: 4px solid $red;
-				border-radius: 0px;
-				@media (max-width: $navbarCollapseWidth) {
-					border-bottom: none;
-					background-color: $grayLighter;
+				i[class*="icon"] {
+					margin: 2px 7px 0 0;
 				}
+				&.deactivated {@include opacity(.5);}
 			}
-			.btn-navbar {
+			navLink.active {
+				background-color: transparent;
+				background-image: none;
+			}
+			.navToggle {
 				width: 38px;
 				height: 32px;
-				padding: 7px 10px;
+				margin: 5px 10px 0 0;
 				border: none;
-				background: #fff url('/images/menu-24.png') 50% 50% no-repeat;
-				float: left;
-				position: absolute;
-				left: 28%;
-				top: -1px;
-				z-index: 10;
+				display: block;
+				@include vector-bg-with-fallback(menu-24);
+				background-size: 74%;
 				@include opacity(.4);
 				&:hover { @include opacity(1);}
 			}
@@ -247,6 +247,12 @@ body.base { /*overrides are here */
 
 i[class*="icon"] {font-style: normal;}
 
+.user-avatar img {
+	width: 44px;
+	height: 44px;
+	background-size: cover;
+}
+
 .section-title {
 	color: $grayDarker;
 	font-family: "LatoBold", $bold-font-stack;
@@ -283,7 +289,7 @@ i[class*="icon"] {font-style: normal;}
 	border-right: 1px solid $borderLight;
 	@include font-smoothing;
 	height: 44px;
-	padding: 4px 7%;
+	padding: 4px 18px;
 	border: none;
 	border-left: 1px solid $grayLight;
 	border-right: 1px solid $grayLight;
@@ -314,6 +320,7 @@ body.base #golive-btn span.golive-toggle-off {display: none !important; speak: n
 
 .mainWrapper {
 	.main {padding: 20px 70px;}
+	.main > .width-controller {border-top: 1px solid $grayLight;}
 	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}
 }
 
@@ -343,33 +350,45 @@ body.golive {
 }
 
 .top-content {
-	padding-top: 10px;
-	border-bottom: 1px solid hsla(0%,0%,80%,1);
-	&.feature {border-bottom: 1px solid hsla(0,0%,85%,1) !important;}
-	.form-actions {
-		padding: 0;
-		margin: 0;
-		border-top: 0;
-		background-color: $white;
+	padding: 20px 70px 10px;
+	h2 {
+		color: $grayDark;
+		margin-bottom: 24px;
 	}
-	.brand img {
-		width: 100%;
-		max-width: 150px;
-		height: auto;
+	.default-wrapper {
+		.form-search {	margin: 42px 0 0 0;}
 	}
-}
-
-.explore .top-content, .search .top-content {border: none;}
-
-.explore .top-content {
-	background-color: $white;
-	padding: 2px 70px 10px;
+	.loggedin-actions {
+		.form-search { margin-top: 0; margin-bottom: 0;}
+		.user-avatar { margin-right: 14px; display: block;}
+	}
 	.form-search {
-		margin: 42px 0 0 0;
 		.add-on {padding: 10px 7px 10px;}
 		input[type="search"] {
 			width: 86%;
 			padding: 10px;
+		}
+	}
+	.action-left .btn-small {
+		font-weight: bold;
+		background-color: $bodyBackground;
+		border: 2px solid $grayDark;
+		&:first-of-type {
+			margin-right: 14px;
+			&:hover {
+				color: $white;
+				background-color: lighten($orange, 10%);
+				border-color: $orange;
+				@include font-smoothing;
+			}
+		}
+		&:last-of-type {
+			&:hover {
+				color: $white;
+				background-color: lighten($purple, 10%);
+				border-color: $purple;
+				@include font-smoothing;
+			}
 		}
 	}
 	.form-search .btn {
@@ -390,16 +409,43 @@ body.golive {
 	}
 }
 
+.action-sub {
+	.social-list {
+		a {
+			width: 27px;
+			height: 27px;
+			background-repeat: none;
+			background-position: center center;
+			background-size: cover;
+			display: block;
+			&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
+			&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
+			&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
+			&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
+
+		}
+	}
+}
+
+.results-item { margin-bottom: 12px;}
+.results-item:last-of-type { margin-bottom: 0;}
+
 .mid-content {
-	padding-top: 15px;
-	.form-geo {
-		margin-top: 16px;
+	padding-top: 10px;
+	.faux-tabs {
+		li:first-of-type {margin-right: 10px;}
+		li.active { background-color: $white;}
+		a {
+			color: $gray;
+			padding: 5px;
+			display: block;
+			&:hover { color: $purple; text-decoration: none;}
+		}
 	}
 }
 
 .lower-content {
 	margin-top: 20px;
-	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	padding-bottom:	30px;
 	/*below fixes grid flow problem with streams*/
 	.grid-streams li[class*="module"] {
@@ -416,20 +462,11 @@ body.golive {
 			*width: 48.56559304102504%;
 		}
 	}
-	.hook {
-			text-align: center;
-		a {
-			color: $gray;
-			padding: 5px 30px;
-			background-color: $grayLight;
-			display: inline-block;
-			&:hover {
-				color: $grayDarker;
-				text-decoration: none;
-				background-color: darken($grayLight, 5%);
-			}
-		}
-	}
+}
+
+.explore {
+	.form-geo { margin-bottom: 0;}
+	.lower-content { margin-top: 0;}
 }
 
 .map-wrapper, .carousel-wrapper, .module-large, .single-stream-wrapper, .tags-wrapper {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
@@ -440,7 +477,7 @@ body.golive {
 }
 
 #map {
-  height: 370px;
+  height: 600px;
   width: 100%;
 }
 
@@ -676,7 +713,7 @@ body.golive {
 		&:hover {color:$white;}
 	}
 	.footer-copy {margin-left: 30px;}
-	.one-liner {display: block;}
+	.one-liner, .block {display: block;}
 }
 
 .modal {
@@ -794,5 +831,10 @@ body.golive {
 	}
 }
 .popup img { width: 100%;}
+
+/* rule for hidding elements until angular boots*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 @import "mobile-overrides";

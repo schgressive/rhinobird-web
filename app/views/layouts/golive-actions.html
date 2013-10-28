@@ -1,0 +1,55 @@
+<div class="span12">
+  <div class="row-fluid">
+    <div class="action-left span12">
+      <a href="#" class="user-avatar pull-left" title="click to view your profile">
+        <img src="/images/profile-default.svg" alt="an image of your avatar" />
+      </a>
+      <ul class="pull-left inline">
+        <li>
+          <button class="btn btn-mini">Close & Return</button>
+        </li>
+        <li>
+          <button class="btn btn-mini">Flip Camera</button>
+        </li>
+        <li>
+          <button class="btn btn-mini" data-toggle="collapse" data-target="#add" role="button">Add Tags/Channels</button>
+        </li>
+        <li>
+          <button class="btn btn-mini" data-toggle="collapse" data-target="#share" role="button">Share</button>
+        </li>
+        <li>
+          <button class="btn btn-mini">Stop Recording</button>
+        </li>
+      </ul>
+    </div><!-- /.action-left -->
+  </div><!-- /.row-fluid -->
+  <div id="add" class="action-sub collapse row-fluid">
+    <div class="span12">
+      <form method="post" action="" class="form-inline">
+        <fieldset>
+          <legend class="visually-hidden">Use this form to add tags or a channel before rebroadcasting the stream.</legend>
+          <label class="checkbox inline" for="input-channel">
+            <input type="checkbox" value="add to channel"> Add to a Channel?
+          </label>
+          <input type="text" id="input-channel" placeholder="#channel">
+          <label class="checkbox inline" for="input-tags">
+            <input type="checkbox" class="checked" value="add tags"> Add Tags?
+          </label>
+          <input type="text" id="input-tags" placeholder="tag1, tag2, tag3...">
+        <input class="btn btn-small" type="submit" value="Ready!">
+        </fieldset>
+      </form>
+    </div>
+  </div><!-- /#add -->
+  <div id="share" class="action-sub collapse row-fluid">
+    <div class="span12">
+      <h5 class="pull-left">Share this stream:</h5>
+      <ul class="social-list inline pull-left">
+        <li><a href="#" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
+        <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
+        <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
+        <li><a href="#" title="click to share via tumblr"><span class="visually-hidden">Tumblr</span></a></li>
+      </ul>
+    </div>
+  </div><!-- /#share -->
+</div><!-- /.span12 -->

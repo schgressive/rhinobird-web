@@ -1,52 +1,21 @@
+<section class="top-content feature">
+  <div class="width-controller container-fluid">
+    <div class="row-fluid">
+<!-- NOTE FROM CHRIS
+the "default-wrapper" and "loggedin-actions" need to change when the user is logged-in or not. Dynamically add a class of 'visually-hidden' to the appropriate div -->
+      <div class="default-wrapper visually-hidden">
+        <div ng-include="'/views/layouts/default-actions.html" %>
+      </div><!-- /.default-wrapper -->
+      <div class="loggedin-actions">
+        <div ng-include="'/views/layouts/channel-actions.html" %>
+      </div><!-- /.loggedin-action -->
+    </div><!-- /.row-fluid -->
+  </div><!-- /.container-fluid -->
+</section><!-- /.top-content -->
+
 <div class="main" role="main">
-	<div class="width-controller container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
-				<section class="top-content">
-					<div class="row-fluid">
-						<div class="span8 hidden-phone">
-							<ul class="nav subnav" role="navigation">
-								<li ng-class="{'active': section == 'local'}"><a href="/channels/local">Local</a></li>
-								<li ng-class="{'active': section == 'subscribed'}"><a href="/channels/subscribed" rel="tooltip" data-title="under development">Subscribed</a></li>
-								<li ng-class="{'active': section == 'onfire'}"><a href="/channels/onfire" rel="tooltip" data-title="under development">On Fire!</a></li>
-								<li ng-class="{'active': section == 'suggested'}"><a href="/channels/suggested" rel="tooltip" data-title="under development">Suggested</a></li>
-								<li ng-class="{'active': section == 'following'}"><a href="/channels/following" rel="tooltip" data-title="under development">Following</a></li>
-							</ul>
-						</div>
-						<div class="span4">
-							<form method="get" name="form-search" class="form-search pull-right" role="search">
-								<label for="livestream-search" class="visually-hidden">search live streams</label>
-								<div class="form-actions">
-									<div class="input-append input-prepend">
-										<span class="add-on"><i class="icon-search"></i></span>
-										<input name="livestream-search" type="search" placeholder="search live streams">
-										<input type="submit" class="btn hidden-phone" value="Go!" rel="tooltip" data-title="under development">
-									</div>
-								</div><!-- /.form-actions -->
-							</form>
-						</div><!-- /.span4 -->
-					</div><!-- /.row-fluid -->
-				</section><!-- /.top-content -->
-
-				<div ng-switch on="section">
-				  <div ng-include="'/views/channels/local.html'"
-				       ng-controller="ChannelsLocalCtrl"
-				       ng-switch-when="local"></div>
-				  <div ng-include="'/views/channels/subscribed.html'"
-				       ng-controller="ChannelsSubscribedCtrl"
-				       ng-switch-when="subscribed"></div>
-				  <div ng-include="'/views/channels/onfire.html'"
-				       ng-controller="ChannelsOnfireCtrl"
-				       ng-switch-when="onfire"></div>
-				  <div ng-include="'/views/channels/suggested.html'"
-				       ng-controller="ChannelsSuggestedCtrl"
-				       ng-switch-when="suggested"></div>
-				  <div ng-include="'/views/channels/allofthepeepol.html'"
-				       ng-controller="ChannelsAllofthepeepolCtrl"
-				       ng-switch-when="allofthepeepol"></div>
-				</div>
-
-			</div><!-- /.span12 -->
-	    </div><!-- /.row-fluid -->
-	</div><!-- /.container-fluid -->
+  <div class="width-controller container-fluid">
+      <div ng-include="'/views/local.html" %>
+  </div><!-- /.container-fluid -->
 </div><!-- /.main -->
+

@@ -3,6 +3,7 @@
 angular.module('peepoltvApp')
 
   .controller('MainCtrl', function ($scope, streamService, geolocation, $location) {
+    $scope.more_streams = [];
 
     // Change the location when is changed
     $scope.$on('locationChanged', function (event, parameters) {

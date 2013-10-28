@@ -1,36 +1,14 @@
 <section class="main">
-	<div class="container-fluid">
-		<div id="options" class="options-row row-fluid hidden-phone" ng-show="streamingOptions.show">
-			<div class="span10">
-				<form class="form-inline pull-left" method="get">
-					<label for="input-title">
-						<span class="visually-hidden">Add or Change Tags?</span>
-						<input id="input-title" ng-model="title" placeholder="add or change tags?"/>
-					</label>
-					<input type="submit" class="btn" ng-click="onAir()" ng-disabled="!readyToGo">
-				</form>
-				<ul class="specs-stream no-bullets pull-right">
-					<li class="specs-comments pull-left">
-						<i class="icon-comment icon-white"></i>
-						<a href="#" title="see comments on this live-stream"> 12</a>
-					</li>
-					<li class="specs-rebroadcasts pull-left">
-						<i class="icon-retweet icon-white"></i>
-						<a href="#" title="see rebroadcasts"> 24</a>
-					</li>
-					<li class="specs-hearts pull-left">
-						<i class="icon-heart icon-white"></i>
-						<a href="#" title="see who hearts this stream"> 48</a>
-					</li>
-				</ul><!-- /.specs-stream -->
-			</div>
-		</div><!-- /#options -->
-		<div class="row-fluid">
-			<div class="span12">
-				<licode ng-model="localStream" token="{{stream.token}}" flow="outbound" full-bleed></licode>
-			</div>
-		</div><!-- /.row-fluid -->
-	</div><!-- /.container-fluid -->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="loggedin-actions">
+        <div ng-include="'/views/layouts/golive-actions.html'"></div>
+      </div><!-- /.loggedin-action -->
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <licode token="{{stream.token}}" flow="outbound" full-bleed></licode>
+      </div>
+    </div><!-- /.row-fluid -->
+  </div><!-- /.container-fluid -->
 </section>
-
-<div ng-include="'/views/snippets/golive-modal.html'"></div>

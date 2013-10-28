@@ -1,33 +1,33 @@
-<div class="modal golive-modal" modal="goLiveInitModal" options="opts" aria-labelledby="#GoLive" aria-hidden="true">
-	<div class="modal-header">
-		<button class="close" ng-click="startBroadcast(false)" aria-hidden="true">&times;</button>
-		<h3 id="GoLive">Going Live?</h3>
-	</div><!-- /.modal-header -->
-	<div class="modal-body">
-		<div class="alert" ng-hide="localStream.permissionsGranted">
-			<strong>Warning!</strong> Please enable camera permissions for your browser.
-		</div>
-	</div><!-- /.modal-body -->
-	<div class="modal-footer">
-		<form ng-submit="startBroadcast(true)">
-			<div>
-				<label class="text" for="input-caption">
-					<div class="help-block">You can add a captions with hashtags to add your stream to a channel:</div>
-				  <input type="text" id="input-caption" placeholder="add a caption, or add a #channel!" ng-model="streamOptions.caption" class="input-xlarge">
-        </label>
+<div class="modal-header">
+  <button class="close" ng-click="startBroadcast(false)" aria-hidden="true">&times;</button>
+  <h3 id="GoLive">Going Live?</h3>
+</div><!-- /.modal-header -->
+<div class="modal-body">
+  <div class="alert" ng-hide="camera.access">
+    <strong>Warning!</strong> Please enable camera permissions for your browser.
+  </div>
+</div><!-- /.modal-body -->
+<div class="modal-footer">
+  <form ng-submit="startBroadcast(true)">
+    <div>
+      <label class="text" for="input-caption">
+        <div class="help-block">You can add a captions with hashtags to add your stream to a channel:</div>
+        <input type="text" id="input-caption" placeholder="add a caption, or add a #channel!" ng-model="streamOptions.caption" class="input-xlarge">
+      </label>
+    </div>
+    <div class="add-on" ng-show="channels.length">
+      <div>Your stream will be published in the following channels</div>
+      <div>
+        <span ng-repeat="channel in channels" class="inline"><b>{{channel}}</b> </span>
       </div>
-      <div class="add-on" ng-show="channels.length">
-        <div>Your stream will be published in the following channels</div>
-        <div>
-          <span ng-repeat="channel in channels" class="inline"><b>{{channel}}</b> </span>
-        </div>
-      </div>
-      <input class="btn btn-primary mobile-small " type="submit" value="Ready!">
-      <button type="button" class="btn btn-accent mobile-small" ng-click="startBroadcast(false)" aria-hidden="true"> <!-- Close modal and go live w/o adding metadata -->
-        Skip It! Let's Go!
-      </button>
-    </form>
-    <a ng-show="{{localStream.multiSources}}" class="btn btn-accent mobile-small" ng-click="localStream.cycleSource()">Flip</a>
+    </div>
+    <button type="submit" class="btn btn-primary mobile-small">Ready!</button>
+    <!-- Close modal and go live w/o adding metadata -->
+    <button type="button" class="btn btn-accent mobile-small" ng-click="startBroadcast(false)" aria-hidden="true">
+      Skip It! Let&#39;s Go!
+    </button>
+  </form>
+  <a ng-show="{{camera.videoSources.length > 1}}" class="btn btn-accent mobile-small" ng-click="camera.toggleSource()">Flip</a>
 
-	</div><!-- /.modal-footer -->
-</div><!-- /.modal -->
+</div><!-- /.modal-footer -->
+

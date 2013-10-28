@@ -21,6 +21,7 @@ $white							: hsla(0,0%,100%,1); /*FFF*/
 
 $red							: hsla(360,100%,50%,1); /*FF0000*/
 $redDark						: hsla(358,77%,50%,1); /*E01D25*/
+$redDarker					: hsla(355,81%,33%,1); /*9A101C*/
 
 // Accent Colors ------------------------------
 
@@ -28,7 +29,7 @@ $green							: hsla(156,100%,35%,1); /*00CC7C*/
 $orange							: hsla(16,77%,42%,1); /*BD4519*/
 $purple							: hsla(275,63%,37%,1); /*672399*/
 $yellow							: hsla(41,70%,54%,1); /*DCA938*/
-$blue							: hsla(249,13%,44%,1); /*66627E*/
+$blue								: hsla(249,13%,44%,1); /*66627E*/
 
 // Scaffolding ------------------------------
 
@@ -42,7 +43,7 @@ $serifFontFamily				: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif",
 $monoFontFamily					: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 $baseFontSize	            	: 14px;
 $baseFontFamily					: "LatoRegular", $sansFontFamily;
-$baseLineHeight					: 20px; 
+$baseLineHeight					: 20px;
 $altFontFamily					: $serifFontFamily;
 $headingsFontFamily				: inherit;
 $headingsFontWeight				: bold;
@@ -54,7 +55,7 @@ $paddingLarge					: 11px 19px;
 $paddingSmall					: 2px 10px;
 $paddingMini					: 1px 6px;
 $textOnDark						: $white;
-$linkColor						: hsla(234,94%,49%,1); /*0720F4*/ 
+$linkColor						: hsla(234,94%,49%,1); /*0720F4*/
 $linkColorHover					: darken($linkColor, 15%);
 $linkColorBackgroundHover		: $grayLight;
 $linkVisited		        	: $orange;
@@ -99,10 +100,10 @@ $navbarBackground				: $white;
 $navbarBackgroundHighlight		: transparent;
 $navbarText						: $gray;
 $navbarBrandColor				: $navbarText;
-$navbarLinkColor				: $navbarText;
-$navbarLinkColorHover			: $grayDark;
+$navbarLinkColor				: $white;
+$navbarLinkColorHover			: $white;
 $navbarLinkColorActive			: $grayDark;
-$navbarLinkBackgroundHover		: $grayLighter;
+$navbarLinkBackgroundHover		: darken($redDark, 20%);
 $navbarSearchBackground			: lighten($navbarBackground, 25%);
 $navbarSearchBackgroundFocus	: $white;
 $navbarSearchBorder				: darken($navbarSearchBackground, 75%);
@@ -155,7 +156,7 @@ $borderDark						: lighten($gray, 40%);
 }
 
 $public_path: "/";
- 
+
 @mixin vector-bg-with-fallback($name) {
   background-image: url('#{$public_path}images/#{$name}.jpg');
   background-image: none, url('#{$public_path}images/#{$name}.svg');
@@ -188,13 +189,18 @@ $public_path: "/";
   white-space: nowrap;
 }
 
-@mixin hover-transition() {
-	&:hover {
-		-webkit-transition: .3s all linear;
-		-moz-transition: .3s all linear;
-		-o-transition: .3s all linear;
-		transition: .3s all linear;
-	}
+@mixin baseTransitionIn {
+		-webkit-transition: .4s all linear;
+		-moz-transition: .4s all linear;
+		-o-transition: .4s all linear;
+		transition: .4s all linear;
+}
+
+@mixin baseTransitionOut {
+		-webkit-transition: .4s all linear;
+		-moz-transition: .4s all linear;
+		-o-transition: .4s all linear;
+		transition: .4s all linear;
 }
 
 @mixin font-smoothing { /* USE SPARINGLY */
@@ -202,7 +208,7 @@ $public_path: "/";
 	-webkit-font-smoothing: antialiased;
 	@-moz-document url-prefix() {
 		text-shadow: 0 0 1px rgba(0,0,0,0.3);
-	}	
+	}
 }
 
 @mixin placeholder {
