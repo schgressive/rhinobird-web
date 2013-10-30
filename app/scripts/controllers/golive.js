@@ -1,52 +1,62 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, Stream, geolocation, CameraService) {
+  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, Stream, geolocation, CameraService, GoliveService) {
 
     /**
      * VARIABLES
      */
-    var coords, stream; // Coordinates and stream model
+    var coords; // Coordinates and stream model
+    var vm = {}; // Define viewmodel
     var regexp = new RegExp('#([^\\s|^#]+)','g'); // Hashtag regex
-    var streamPayload = {}; // Information to create the new stream
-    var streamingOptions = $rootScope.streamingOptions;
+    var modalInstance; // The modal dialog
 
     /**
      * SCOPE
      */
+    $scope.vm = vm; // Expose the viewmodel in the scope
+    $scope.ctrl = this; // Expose the controller
 
-    // The stream model
-    $scope.stream = stream;
+    // The the caption for the stream
+    vm.caption = '';
 
     // Camera service
-    $scope.camera = CameraService;
+    vm.camera = CameraService;
 
-    // Licode stream
-    $scope.licodeStream = CameraService.licodeStream;
+    // The stream
+    vm.stream = GoliveService.stream;
 
-    // Stream data from the init modal
-    $scope.streamPayload = streamPayload;
+    // Start the new broadcast
+    this.ready = function(skipMetadata){
+      var coordsPayload, captionPayload;
 
-    // Header streaming options
-    $scope.streamingOptions = streamingOptions;
-
-    // Start the broadcast method
-    $scope.startBroadcast = function(metadata){
-      if(!CameraService.access){
-        // The mic/cam permissions
-        return;
+      // Add metadata metadata
+      if(!skipMetadata){
+        coordsPayload = {
+          lng: coords.lng,
+          lat: coords.lat
+        };
+        captionPayload = vm.caption;
       }
-      // Hide the modal
-      modalInstance.close();
 
-      // Star the broadcast
-      goOnAir(metadata, CameraService.licodeStream, streamPayload);
-
+      // Start the broadcast in the golive service
+      GoliveService.startBroadcast(captionPayload, coordsPayload).then(function(){
+        modalInstance.close();
+      });
     };
 
-    // Stop the broadcast method
-    $scope.stopBroadcast = function(){
-      stream.token = null;
+    // Stop the current broadcast
+    this.stop = function(goback){
+      // Stop the broadcast in the golive service
+      GoliveService.stopBroadcast().then(function(){
+        // Go back
+        if(goback && CameraService.licodeStream.stream){
+          CameraService.licodeStream.stream.stream.stop();
+          history.back();
+        }
+
+      });
+
     };
 
     /**
@@ -58,86 +68,21 @@ angular.module('peepoltvApp')
       coords = parameters.coords;
     });
 
-    // Handle the broadcast stopped event
-    $rootScope.$on('liveStreamStopped', function(e, r){
-      // Unpublish stream from room
-      CameraService.licodeStream.stream.room.unpublish(CameraService.licodeStream.stream.getID());
-
-      // Disconnect from room
-      CameraService.licodeStream.stream.room.disconnect();
-
-      // Set the stream model as no live
-      stream.live = false;
-      stream.$save({streamId: $scope.stream.id});
-
-      // Go back
-      if(!r.stay && CameraService.licodeStream.stream){
-        CameraService.licodeStream.stream.stream.stop();
-        history.back();
-      }
-    });
-
     // Hashtags
-    $scope.$watch('streamPayload.caption', function(a){
+    $scope.$watch('vm.caption', function(a){
       if(a){
-        $scope.channels = a.match(regexp);
+        vm.channels = a.match(regexp);
       }
     });
-
-    /**
-     * INIT
-     */
 
     // Get current location
     geolocation.getCurrent();
 
     // Open de dialog
-    var modalInstance = $modal.open({
+    modalInstance = $modal.open({
       backdrop: 'static',
       templateUrl: '/views/snippets/golive-modal.html',
       scope: $scope
     });
-
-
-    /**
-     * PRIVATE
-     */
-
-    // Start the transitions
-    var goOnAir = function(metadata, licodeStream, streamPayload){
-      var streamData = {
-        thumb: getThumbnailURL(licodeStream.player.video, 854, 480)
-      };
-
-      // Add the metadata
-      if(metadata){
-        streamData.caption = streamPayload.caption || '';
-
-        if(coords && coords.lng && coords.lat){
-          streamData.lng = coords.lng;
-          streamData.lat = coords.lat;
-        }
-      }
-
-      // Post the new stream to the server
-      $scope.stream = Stream.$create(streamData);
-    };
-
-    // Get a proportional thumbnail
-    var getThumbnailURL = function(video, width, height){
-      // Canvas
-      var canvas = document.createElement('canvas');
-      canvas.ctx = canvas.getContext('2d');
-      canvas.width = width;
-      canvas.height = height;
-
-      // Destination size
-      var dWidth = width;
-      var dHeight = angular.element(video).height() * width / angular.element(video).width();
-
-      // Create and return the image
-      canvas.ctx.drawImage( video, 0, 0, dWidth, dHeight);
-      return canvas.toDataURL('image/jpeg');
-    };
 
   });
