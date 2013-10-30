@@ -10,8 +10,8 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
         section: 'explore'
       })
       .when('/explore', {
-        templateUrl: '/views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: '/views/explore.html',
+        controller: 'ExploreCtrl',
         section: 'explore'
       })
       .when('/peepol', {
