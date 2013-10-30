@@ -3,51 +3,40 @@
 	<div class="spinner-overlay">
 		<div class="spinner"></div>
 	</div>
-	<div class="module-overlay">
-		<div class="btn-overlay">
-			<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
-				<i class="icon-retweet"></i>
-				<span class="visually-hidden">Rebroadcast This Stream</span>
-			</button>
-			<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
-				<i class="icon-share"></i>
-				<span class="visually-hidden">Share This Stream</span>
-			</button>
-			<button class="btn-top pull-right" type="button" ng-click="toggleMute()" rel="tooltip" data-title="Mute Me!">
-            	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
-            	<span class="visually-hidden">Mute</span>
-			</button>
-			<a class="btn-play" rel="tooltip" data-title="Play Stream" href="/streams/{{stream.id}}">
-				<span class="visually-hidden">Play This Stream</span>
-			</a>
-		</div>
-	</div><!-- /.module-overlay -->
-  <div>
-    <img ng-src="{{mainStream.thumbs.large}}" width="940" height="512" class="specs-thumb"/>
-    <licode flow="inbound" token="{{mainStream.token}}" width="940" height="512"></licode>
-  </div>
-	<ul class="specs-stream no-bullets">
-		<li class="specs-title pull-left" ng-show="mainStream.title"><em class="title">{{mainStream.title}}</em></li>
-		<li class="specs-location pull-left" ng-show="mainStream.properties.geo_reference">
-			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{mainStream.properties.geo_reference}}</a></span>
+	<div class="vertical-slideout visually-hidden">
+    <ul class="specs-stream no-bullets hidden-phone">
+      <li class="specs-rebroadcasts">
+        <i class="icon-retweet"></i>
+        <span> 24</span>
+      </li>
+      <li class="specs-hearts">
+        <i class="icon-heart"></i>
+        <span> 48</span>
+      </li>
+    </ul><!-- /.specs-stream -->
+	</div>
+  <img ng-src="{{mainStream.thumbs.large}}" width="940" height="512" class="specs-thumb"/>
+  <licode flow="inbound" token="{{mainStream.token}}" width="940" height="512"></licode>
+  <div class="video-controls"><!-- these need to be hooked up, or replaced with their angular/licode equivilent -->
+    <button class="btn btn-mini" onclick="playMute()">Play/Mute</button>
+    <!-- not sure about how to write the onclick for mute -->
+    <button class="btn btn-mini" onclick="makeBig()">Big</button>
+    <button class="btn btn-mini" onclick="makeNormal()">Normal</button>
+  </div><!-- /.video-controls -->
+  <ul class="specs-user no-bullets">
+    <li class="thumb-user pull-left">
+      <a href="#" title="username">
+        <img ng-src="{{<%= stream ? "'#{stream.user.email}'" : "stream.user.email" %> | gravatar:42:'/assets/profile-default.svg'}}"/>
+      </a>
+    </li>
+    <li class="specs-location">
+      <i class="icon-map-marker"></i> Live from <span class="auto-location"><a href="#"><%= stream ? stream.geo_reference : "{{stream.properties.geo_reference}}"%></a></span>
 		</li>
-		<li class="specs-tags pull-left">
+		<li class="specs-tags">
 			<ul class="group no-bullets">
-				<li class="tag pull-left" ng-show="mainStream.tags.length == 0"><a href="#">untagged</a></li>
-				<li class="tag pull-left" ng-repeat="tag in mainStream.tags"><a href="#" rel="tag">{{tag}}</a></li>
+				<li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
+				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
 			</ul>
 		</li>
-		<li class="specs-comments pull-right">
-			<i class="icon-comment icon-white"></i>
-			<a href="#" title="see comments on this live-stream"> 12</a>
-		</li>
-		<li class="specs-rebroadcasts pull-right">
-			<i class="icon-retweet icon-white"></i>
-			<a href="#" title="see rebroadcasts"> 24</a>
-		</li>
-		<li class="specs-hearts pull-right">
-			<i class="icon-heart icon-white"></i>
-			<a href="#" title="see who hearts this stream"> 48</a>
-		</li>
-	</ul><!-- /.specs-stream -->
+	</ul><!-- /.specs-user -->
 </div><!-- /.module-video -->
