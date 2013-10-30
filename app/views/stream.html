@@ -35,7 +35,10 @@ the "default-wrapper" and "loggedin-actions" need to change when the user is log
               <div class="row-fluid">
                 <div class="span12">
                   <ul class="no-bullets">
-                    <li class="module-mini pull-left span2" ng-repeat="stream in channel.streams | limitTo:20">
+                    <li class="module-large pull-left span2 hidden-phone" ng-repeat="stream in channel.streams | limitTo:20">
+                      <div ng-include="'/views/snippets/module-large.html'" ng-click="changeMainStream(stream)"></div>
+                    </li>
+                    <li class="module-mini pull-left span2 hidden-desktop" ng-repeat="stream in channel.streams | limitTo:20">
                       <div ng-include="'/views/snippets/module-mini.html'" ng-click="changeMainStream(stream)"></div>
                     </li>
                   </ul>
