@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <button class="close" ng-click="ctrl.ready(false)" aria-hidden="true">&times;</button>
+  <button class="close" ng-click="ctrl.ready(true)" aria-hidden="true">&times;</button>
   <h3 id="GoLive">Going Live?</h3>
 </div><!-- /.modal-header -->
 <div class="modal-body">
@@ -8,7 +8,7 @@
   </div>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
-  <form ng-submit="ctrl.ready(true)">
+  <form ng-submit="ctrl.ready()">
     <div>
       <label class="text" for="input-caption">
         <div class="help-block">You can add a captions with hashtags to add your stream to a channel:</div>
@@ -23,7 +23,7 @@
     </div>
     <button type="submit" class="btn btn-primary mobile-small">Ready!</button>
     <!-- Close modal and go live w/o adding metadata -->
-    <button type="button" class="btn btn-accent mobile-small" ng-click="ctrl.ready(false)" aria-hidden="true">
+    <button type="button" class="btn btn-accent mobile-small" ng-click="ctrl.ready(true)" aria-hidden="true">
       Skip It! Let&#39;s Go!
     </button>
   </form>

@@ -3,69 +3,90 @@
 /* global google: false */
 
 angular.module('peepoltvApp')
-.factory('geolocation', function($q, $rootScope) {
-
-  var changeLocation = function (data, type) {
-    $rootScope.$broadcast('locationChanged', {
-      coords: data,
-      type: type
-    });
-  };
+.service('GeolocationService', function($q, $rootScope) {
 
   var current = {};
+  var resolved = false;
 
-  return {
-    reverseGeocode: function(address){
-      var geocoder = new google.maps.Geocoder();
+  this.resolved = resolved;
+  this.current = current;
 
-      geocoder.geocode( {'address': address}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK){
-          $rootScope.$apply(function () {
-            changeLocation({
-              lat: results[0].geometry.location.lat(),
-              lng: results[0].geometry.location.lng(),
-            }, results[0].types[0]);
-          });
+  this.getCurrent = function() {
+
+    try {
+      if (navigator.geolocation) {
+
+        // If current already exists
+        if(resolved){
+          return current;
         }
-        else {
-          console.log('address not found')
-        }
-      });
 
-    },
-    getCurrent: function() {
+        var deferred = $q.defer();
 
-      try {
-        if (navigator.geolocation) {
-
-          // If current already exists
-          if(current.lat && current.lng){
-            changeLocation(current);
-            return;
-          }
-
-          navigator.geolocation.getCurrentPosition(
-            function (position) {
-              $rootScope.$apply(function () {
-                current.lat = position.coords.latitude;
-                current.lng = position.coords.longitude;
-
-                changeLocation(current);
+        // Ask the browse for the position
+        navigator.geolocation.getCurrentPosition(
+          // On success
+          function (position) {
+            $rootScope.$apply(function(){
+              angular.extend(current, {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
               });
-            },
-            function (error) {
-              console.log('geolocation error', error);
-            }
-            );
-        }
-        else {
-          console.log('location services not allowed');
-        }
+
+              // Set resolve flag after getting the location
+              resolved = true;
+
+              deferred.resolve(current);
+            });
+
+          },
+          // On error
+          function (error) {
+            $rootScope.$apply(function(){
+              deferred.reject({
+                error: error,
+                message: 'geolocation error'
+              });
+            });
+          }
+        );
+
+        return deferred.promise;
       }
-      catch (err) {
-        console.log('geolocation error');
+      else {
+        console.log('location services not allowed');
       }
     }
+    catch (err) {
+      console.log('geolocation error');
+    }
+  };
+
+  this.reverseGeocode = function(address){
+    var geocoder = new google.maps.Geocoder();
+    var deferred = $q.defer();
+
+    geocoder.geocode( {'address': address}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK){
+        $rootScope.$apply(function(){
+          deferred.resolve({
+            lat: results[0].geometry.location.lat(),
+            lng: results[0].geometry.location.lng(),
+            type: results[0].types[0]
+          });
+        });
+      }
+      else {
+        console.log('address not found');
+        $rootScope.$apply(function(){
+          deferred.reject({
+            message: 'address not found'
+          });
+        });
+      }
+    });
+
+    return deferred.promise;
 
   };
 });

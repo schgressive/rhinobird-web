@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, Stream, geolocation, CameraService, GoliveService) {
+  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, Stream, GeolocationService, CameraService, GoliveService) {
 
     /**
      * VARIABLES
      */
-    var coords; // Coordinates and stream model
     var vm = {}; // Define viewmodel
     var regexp = new RegExp('#([^\\s|^#]+)','g'); // Hashtag regex
     var modalInstance; // The modal dialog
@@ -32,10 +31,13 @@ angular.module('peepoltvApp')
 
       // Add metadata metadata
       if(!skipMetadata){
-        coordsPayload = {
-          lng: coords.lng,
-          lat: coords.lat
-        };
+        // Only add geoloaction if the that is resolved from the service
+        if(GeolocationService.resolved){
+          coordsPayload = {
+            lng: GeolocationService.current.lng,
+            lat: GeolocationService.current.lat
+          };
+        }
         captionPayload = vm.caption;
       }
 
@@ -63,11 +65,6 @@ angular.module('peepoltvApp')
      * EVENTS
      */
 
-    // Change the location when is changed
-    $scope.$on('locationChanged', function (event, parameters) {
-      coords = parameters.coords;
-    });
-
     // Hashtags
     $scope.$watch('vm.caption', function(a){
       if(a){
@@ -76,7 +73,7 @@ angular.module('peepoltvApp')
     });
 
     // Get current location
-    geolocation.getCurrent();
+    GeolocationService.getCurrent();
 
     // Open de dialog
     modalInstance = $modal.open({

@@ -1,36 +1,59 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ExploreCtrl', function ($scope, geolocation, streamService) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, streamService) {
+
+    $scope.mapSearch = {};
+
     // Change the location when is changed
-    $scope.$on('locationChanged', function (event, parameters) {
+    $scope.$watchCollection('mapSearch', function (value) {
+      if(!value.lat && !value.lng){
+        return;
+      }
+
       // Create map
-      if(!$scope.map)
+      if(!$scope.map){
         $scope.map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
+      }
 
       // Disable scroll to zoom
       $scope.map.scrollWheelZoom.disable();
 
       var zoom = 16;
-      if(parameters.type && parameters.type !== 'street_address' && parameters.type !== 'route'){
+      if(value.type && value.type !== 'street_address' && value.type !== 'route'){
         zoom = 13;
       }
-      $scope.map.setView(new L.LatLng(parameters.coords.lat, parameters.coords.lng), zoom );
+      $scope.map.setView(new L.LatLng(value.lat, value.lng), zoom );
     });
 
     // Get current location
-    $scope.geolocation = geolocation;
-    geolocation.getCurrent();
+    GeolocationService.getCurrent().then(function(data){
+      angular.extend($scope.mapSearch, {
+        lat: data.lat,
+        lng: data.lng
+      });
+    });
 
     $scope.getCurrent = function(){
       $scope.address = '';
-      geolocation.getCurrent();
+      GeolocationService.getCurrent().then(function(data){
+        angular.extend($scope.mapSearch, {
+          lat: data.lat,
+          lng: data.lng
+        });
+      });
     };
 
-    // Address search
+    // Address searchAddress
     // $scope.address defined in the view
     $scope.searchAddress = function(){
-      geolocation.reverseGeocode($scope.address);
+      GeolocationService.reverseGeocode($scope.address).then(function(data){
+        angular.extend($scope.mapSearch, {
+          lat: data.lat,
+          lng: data.lng,
+          type: data.type
+        });
+      });
     };
 
     // Get the streams based on geolocation
