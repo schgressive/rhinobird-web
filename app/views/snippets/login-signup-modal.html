@@ -1,58 +1,62 @@
-<div class="modal" data-modal="loginModalInit" data-opts="loginModalOpts" data-close="closeLoginModalCallback()" role="dialog" aria-labelledby="#SignIn" aria-hidden="true">
-  <div class="modal-header">
-    <button class="close" ng-click="closeLoginModalCallback()" aria-hidden="true" >&times;</button>
-    <h3 id="signIn" ng-show="loginModalAction == 'login'">Sign In</h3>
-    <h3 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h3>
-  </div><!-- /.modal-header -->
-  <div class="modal-body">
-    <p ng-show="loginModalAction == 'login'">
-      <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a>
-      <a href="#" class="one-liner">Forgot username or password?</a>
-    </p>
-  </div><!-- /.modal-body -->
-  <div class="modal-footer">
-    <div ng-show="loginModalAction == 'login'">
-      <form name="loginForm" role="form" ng-submit="loginUser()" ng-controller="LoginCtrl">
-        <label class="visually-hidden" for="input-email">User username</label>
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-envelope"></i></span>
-          <input type="text" name="input-email" type="email" placeholder="email" ng-model="logUser.email" required/>
-        </div>
-        <label class="visually-hidden" for="input-password">User Password</label>
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-lock"></i></span>
-          <input type="password" name="input-password" placeholder="your password" ng-model="logUser.password" required/>
-        </div>
-         <div class="alert" ng-show="alert">
-          <span>Something is wrong, check the username and password</span>
-        </div>
-        <input class="btn btn-primary mobile-full" type="submit" value="Sign In"/>
-      </form>
-    </div>
+<div class="modal-header">
+  <button class="close" ng-click="loginModal.close()" aria-hidden="true" >&times;</button>
+  <h3 id="signIn" ng-show="loginModalAction == 'login'">Sign In</h3>
+  <h3 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h3>
+</div><!-- /.modal-header -->
+<div class="modal-body">
+  <p ng-show="loginModalAction == 'login'">
+    <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a>
+    <a href="#" class="one-liner">Forgot username or password?</a>
+  </p>
+</div><!-- /.modal-body -->
+<div class="modal-footer">
+  <div ng-show="loginModalAction == 'login'">
+    <form name="loginForm" role="form" ng-submit="loginUser()" ng-controller="LoginCtrl">
+      <label class="visually-hidden" for="input-email">User username</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <input type="text" name="input-email" type="email" placeholder="email" ng-model="logUser.email" required/>
+      </div>
+      <label class="visually-hidden" for="input-password">User Password</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <input type="password" name="input-password" placeholder="your password" ng-model="logUser.password" required/>
+      </div>
+      <div class="alert" ng-show="alert">
+        <span>Something is wrong, check the username and password</span>
+      </div>
+      <input class="btn btn-primary mobile-full" type="submit" value="Sign In"/>
+    </form>
+  </div>
 
-    <div ng-show="loginModalAction == 'signup'">
-      <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
-        <label class="visually-hidden" for="input-email">Email</label>
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-envelope"></i></span>
-          <input type="text" name="input-email" type="email" placeholder="email" ng-model="regUser.email" required/>
-        </div>
-        <label class="visually-hidden" for="input-name">Name</label>
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-user"></i></span>
-          <input type="text" name="input-name" placeholder="your name" ng-model="regUser.name" required/>
-        </div>
-        <label class="visually-hidden" for="input-password">Password</label>
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-lock"></i></span>
-          <input type="password" name="input-password" placeholder="choose a password" ng-model="regUser.password" required/>
-        </div>
-        <div class="alert" ng-show="alert">
-          <span ng-show="alert == 'email'">You are already registered with this email<a ng-click="$parent.loginModalAction = 'login'">Go to login</a></span>
-          <span ng-show="alert == 'other'">Something is wrong check email and password</span>
-        </div>
-        <input class="btn btn-primary" type="submit" value="Create"/>
-      </form>
-    </div>
-  </div><!-- /.modal-footer -->
-</div><!-- /.modal-->
+  <div ng-show="loginModalAction == 'signup'">
+    <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
+      <label class="visually-hidden" for="input-email">Email</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <input type="text" name="input-email" type="email" placeholder="email" ng-model="regUser.email" required/>
+      </div>
+      <label class="visually-hidden" for="input-name">Name</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <input type="text" name="input-name" placeholder="your name" ng-model="regUser.name" required/>
+      </div>
+      <label class="visually-hidden" for="input-username">Username</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <input type="text" name="input-user" placeholder="your username" ng-model="regUser.username" required/>
+      </div>
+      <label class="visually-hidden" for="input-password">Password</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <input type="password" name="input-password" placeholder="choose a password" ng-model="regUser.password" required/>
+      </div>
+      <div class="alert" ng-show="alert">
+        <span ng-show="alert == 'email'">You are already registered with this email<a ng-click="$parent.loginModalAction = 'login'">Go to login</a></span>
+        <span ng-show="alert == 'other'">Something is wrong check email and password</span>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Create"/>
+    </form>
+  </div>
+</div><!-- /.modal-footer -->
+

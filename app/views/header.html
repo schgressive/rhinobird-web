@@ -1,4 +1,4 @@
-<header class="banner" role="banner">
+<header class="banner" role="banner" ng-controller="HeaderCtrl">
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="width-controller container-fluid">
@@ -9,7 +9,7 @@
               <ul class="mega-menu dropdown-menu" role="menu" aria-labelledby="drop1">
                 <li class="navLink">
                   <a href="#" ng-click="openLoginModal()" ng-hide="user.email"><i class="icon-lock icon-white"></i>Sign In</a>
-                  <!-- <a href="#" ng-click="logout()" ng-show="user.email"><i class="icon-lock icon-white"></i>Sign Out</a> -->
+                  <a href="#" ng-click="logout()" ng-show="user.email"><i class="icon-lock icon-white"></i>Sign Out</a>
                 </li>
                 <li class="navLink"><a href="/explore"><i class="icon-globe icon-white"></i>Explore</a></li>
                 <li class="navLink submenu-top"><a href="/channels"><i class="icon-play-circle icon-white"></i>Channels</a></li>
