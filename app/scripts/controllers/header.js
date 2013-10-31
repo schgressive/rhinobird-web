@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, $modal, authService, streamService) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, authService, streamService) {
 
     $scope.$on('$locationChangeSuccess', function (){
       var path = $location.path();
@@ -13,7 +13,9 @@ angular.module('peepoltvApp')
     $rootScope.$on('$routeChangeError', function (event, parameters) {
       if(parameters.$$route.controller === "GoliveCtrl"){
         // Go to golive after loging in
-        $scope.goLive();
+        authService.askLogin().then(function() {
+          $location.path("/golive");
+        })
       }
     });
 
@@ -33,48 +35,11 @@ angular.module('peepoltvApp')
       $rootScope.$broadcast('liveStreamStopped', { stay: stay});
     };
 
-    // flag for going live
-    $scope.goLiveAfterLogin = false;
-
-    // launches the Go Live if the user is logged in
-    $scope.goLive = function() {
-      $scope.goLiveAfterLogin = false;
-      if ($scope.user && $scope.user.email) {
-        $location.path("/golive");
-      } else {
-        $scope.openLoginModal();
-        $scope.goLiveAfterLogin = true;
-      }
+    $scope.login = function(){
+      authService.askLogin();
     }
 
-    // Close callback
-    var closeLoginModalCallback = function(){
-      if ($scope.goLiveAfterLogin && $scope.user && $scope.user.email) {
-        $scope.goLive();
-      }
-    };
-
-    // Login in and signing up
-    $scope.openLoginModal = function(){
-      $scope.loginModalAction = 'login';
-      // Options for the modal
-      $scope.loginModal = $modal.open({
-        backdrop: 'static',
-        templateUrl: '/views/snippets/login-signup-modal.html',
-        scope: $scope
-      });
-
-      $scope.loginModal.result.then(closeLoginModalCallback)
-    };
-
     $scope.logout = function(){
-      if(authService.user.email){
-
-        authService.resource.logout(function(){
-          authService.user.email = null;
-          authService.user.name = null;
-        });
-
-      }
+      authService.logout();
     };
   });

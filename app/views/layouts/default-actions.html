@@ -1,6 +1,6 @@
-<div class="action-left span4" ng-controller="HeaderCtrl">
+<div class="action-left span4" ng-controller="DefaultActionsCtrl">
   <h2 class="one-liner">Welcome <span class="one-liner">to Peepol.tv!</span></h2>
-  <a href="#" class="btn btn-small pull-left" role="button" ng-click="openLoginModal()" ng-hide="user.email">Sign In</a>
+  <a href="#" class="btn btn-small pull-left" role="button" ng-click="login()" ng-hide="user.email">Sign In</a>
   <a href="#" class="btn btn-small pull-left" role="button" ng-click="logout()" ng-show="user.email">Sign Out</a>
   <a href="#" class="btn btn-small pull-left" role="button">Take the Tour!</a>
 </div><!-- /.action-left -->
