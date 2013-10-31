@@ -2,6 +2,8 @@
 
 angular.module('peepoltvApp')
   .service('authService', function authService($resource, $q, settings, $modal) {
+
+    // Defines API methods
     var resource = $resource(settings.apiHost + '/sessions', {}, {
       'register': {
         method: 'POST',
@@ -26,19 +28,16 @@ angular.module('peepoltvApp')
       }
     });
 
+    //Holds current logged user
     var user = {};
-    var loginModal = null;
-    var modalDefaults = {
-        backdrop: 'static',
-        templateUrl: '/views/snippets/login-signup-modal.html'
-    };
 
     // Login in and signing up
     var openLoginModal = function(){
 
-      var newModalDefaults  = {};
-
-      angular.extend(newModalDefaults, modalDefaults);
+      var newModalDefaults  = {
+        backdrop: 'static',
+        templateUrl: '/views/snippets/login-signup-modal.html'
+      };
 
       newModalDefaults.controller = function($scope, $modalInstance) {
         //set default action to login
@@ -55,6 +54,7 @@ angular.module('peepoltvApp')
 
     };
 
+    // private method to logout an authenticated user
     var logout = function() {
       if(user.email){
 
