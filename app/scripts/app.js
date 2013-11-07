@@ -4,26 +4,29 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
+
+      // Main
       .when('/', {
         templateUrl: '/views/main.html',
         controller: 'MainCtrl',
         section: 'explore'
       })
+
+      // Explore
       .when('/explore', {
         templateUrl: '/views/explore.html',
         controller: 'ExploreCtrl',
         section: 'explore'
       })
-      .when('/peepol', {
-        templateUrl: '/views/main.html',
-        controller: 'MainCtrl',
-        section: 'peepol'
-      })
+
+      // Search
       .when('/search', {
         templateUrl: '/views/search-results.html',
         controller: 'SearchResultsCtrl',
         section: 'search'
       })
+
+      // Golive
       .when('/golive', {
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
@@ -34,10 +37,20 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
           }]
         }
       })
+
+      // Streams
       .when('/streams/:streamId', {
         templateUrl: '/views/stream.html',
         controller: 'StreamCtrl'
       })
+
+      // Profile
+      .when('/profile', {
+        templateUrl: '/views/profile.html',
+        controller: 'ProfileCtrl'
+      })
+
+      // Channels
       .when('/channels', {
         templateUrl: '/views/channels.html',
         controller: 'ChannelsCtrl'
@@ -54,6 +67,7 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
         templateUrl: '/views/channel.html',
         controller: 'ChannelCtrl'
       })
+
       .otherwise({
         redirectTo: '/'
       });
