@@ -78,7 +78,7 @@ angular.module('peepoltvApp')
     // Open de dialog
     modalInstance = $modal.open({
       backdrop: 'static',
-      templateUrl: '/views/snippets/golive-modal.html',
+      templateUrl: '/views/modals/golive-modal.html',
       scope: $scope
     });
 

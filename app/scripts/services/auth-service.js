@@ -36,7 +36,7 @@ angular.module('peepoltvApp')
 
       var newModalDefaults  = {
         backdrop: 'static',
-        templateUrl: '/views/snippets/login-signup-modal.html'
+        templateUrl: '/views/modals/login-signup-modal.html'
       };
 
       newModalDefaults.controller = function($scope, $modalInstance) {
