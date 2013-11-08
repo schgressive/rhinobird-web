@@ -34,25 +34,27 @@
       <label class="visually-hidden" for="input-email">Email</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-envelope"></i></span>
-        <input type="text" name="input-email" type="email" placeholder="email" ng-model="regUser.email" required/>
+        <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
       </div>
       <label class="visually-hidden" for="input-name">Name</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="input-name" placeholder="your name" ng-model="regUser.name" required/>
+        <input type="text" name="name" placeholder="your name" ng-model="regUser.name" required/>
       </div>
       <label class="visually-hidden" for="input-username">Username</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="input-user" placeholder="your username" ng-model="regUser.username" required/>
+        <input type="text" name="username" placeholder="your username" ng-model="regUser.username" required/>
       </div>
       <label class="visually-hidden" for="input-password">Password</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-lock"></i></span>
-        <input type="password" name="input-password" placeholder="choose a password" ng-model="regUser.password" required/>
+        <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
       </div>
       <div class="alert" ng-show="alert">
-        <span ng-show="alert == 'email'">You are already registered with this email<a ng-click="$parent.loginModalAction = 'login'">Go to login</a></span>
+        <span ng-show="signupForm.password.$error.minlength">The selected password is too short, the minimum is 8 characters long</span>
+        <span ng-show="signupForm.email.$error.taken">You are already registered with this email<a ng-click="$parent.loginModalAction = 'login'">Go to login</a></span>
+        <span ng-show="signupForm.username.$error.taken">The selected username has already been taken</span>
         <span ng-show="alert == 'other'">Something is wrong check email and password</span>
       </div>
       <input class="btn btn-primary" type="submit" value="Create"/>
