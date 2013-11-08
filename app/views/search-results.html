@@ -17,7 +17,26 @@ the "default-wrapper" and "loggedin-actions" need to change when the user is log
   <div class="width-controller container-fluid">
 <!-- NOTE FROM CHRIS:
 this needs to swap in/out with other result filters and controlled by the links w/n the search action bar (layouts/search-actions). e.g. "Channels" yields "channel-results" while "Streams" yields "stream-results" -->
-      <div ng-include="'/views/channel-results.html'"></div>
+	  <section class="mid-content">
+		  <div class="row-fluid">
+		    <div class="colLeft span7">
+		    	<div class="tab-content">
+					  <div class="tab-pane active" id="channel-results">
+						  <ul class="search-results no-bullets" ng-include="'/snippets/search-channels-item.html'"></ul>
+					  </div>
+					  <div class="tab-pane" id="stream-results">
+						  <ul class="search-results no-bullets" ng-include="'/snippets/search-streams-item.html'"></ul>
+					  </div>
+					  <div class="tab-pane" id="peepol-results">
+						  <ul class="search-results no-bullets" ng-include="'/snippets/search-peepol-item.html'"></ul>
+					  </div>
+					</div>
+		    </div><!-- /.colLeft -->
+		    <div class="colRight span5">
+		      <div class="well">promoted content? leaving this here for now</div>
+		    </div><!-- /.colRight -->
+		  </div><!-- /.row-fluid -->
+		</section><!-- /.mid-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 
