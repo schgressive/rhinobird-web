@@ -8,26 +8,26 @@
   </div>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
-  <form ng-submit="ctrl.ready()">
+  <form name="goliveForm" role="form" ng-submit="ctrl.ready()">
     <div>
-      <label class="text" for="input-caption">
-        <div class="help-block">You can add a captions with hashtags to add your stream to a channel:</div>
-        <input type="text" id="input-caption" placeholder="add a caption, or add a #channel!" ng-model="vm.caption" class="input-xlarge">
-      </label>
+      <label class="text" for="caption">You can use hashtags to add your stream to a channel:</label>
+      <input type="text" name="caption" placeholder="add a tag, or add a #channel!" ng-model="vm.caption" class="input-xlarge"/>
     </div>
-    <div class="add-on" ng-show="vm.channels.length">
-      <div>Your stream will be published in the following channels</div>
-      <div>
-        <span ng-repeat="channel in vm.channels" class="inline"><b>{{channel}}</b> </span>
-      </div>
+    <div ng-show="vm.channels.length">
+      <p>Your stream will be published in the following channels</p>
+      <ul class="inline no-bullets">
+        <li ng-repeat="channel in vm.channels" class="inline"><b>{{channel}}</b> </li>
+      </ul>
     </div>
+    <label class="checkbox" ng-show="{{vm.camera.videoSources.length > 1}}">
+      <input type="checkbox" ng-click="vm.camera.toggleSource()"> Start with camera flipped.
+    </label>
     <button type="submit" class="btn btn-primary mobile-small">Ready!</button>
     <!-- Close modal and go live w/o adding metadata -->
     <button type="button" class="btn btn-accent mobile-small" ng-click="ctrl.ready(true)" aria-hidden="true">
       Skip It! Let&#39;s Go!
     </button>
   </form>
-  <a ng-show="{{vm.camera.videoSources.length > 1}}" class="btn btn-accent mobile-small" ng-click="vm.camera.toggleSource()">Flip</a>
-
+ <!--  <a ng-show="{{vm.camera.videoSources.length > 1}}" class="btn btn-accent mobile-small" ng-click="vm.camera.toggleSource()">Flip</a> -->
 </div><!-- /.modal-footer -->
 
