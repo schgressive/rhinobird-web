@@ -3,10 +3,10 @@
     <div class="row-fluid">
 <!-- NOTE FROM CHRIS
 the "default-wrapper" and "loggedin-actions" need to change when the user is logged-in or not. Dynamically add a class of 'visually-hidden' to the appropriate div -->
-      <div class="default-wrapper">
+      <div class="default-wrapper" ng-show="!user.email" ng-hide="user.email">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions visually-hidden">
+      <div class="loggedin-actions" ng-show="user.email" ng-hide="!user.email">
         <div ng-include="'/views/layouts/base-actions.html'"></div>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->

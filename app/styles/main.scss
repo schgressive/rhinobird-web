@@ -25,21 +25,18 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 // HEADER SWAP ------------------------------
 
-.golive-nav-wrapper { display:none !important; speak:none;}
-
+/*
 .golive .ng-scope > .banner {
 	padding-bottom: 60px;
-	.main-nav-wrapper, .nav-utility { display:none; speak:none;}
 	.golive-nav-wrapper {
 		display:block !important;
 		speak:normal;
 		.navLink i[class*="icon"] { margin-top: 2px;}
 	}
 }
+*/
 
 .golive footer {display: none;}
-
-.user-dropdown {display: none;}
 
 // Global Styles ------------------------------
 
