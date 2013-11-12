@@ -16,12 +16,13 @@ angular.module('peepoltvApp')
     try {
       if (navigator.geolocation) {
 
+        var deferred = $q.defer();
+
         // If current already exists
         if(resolved){
-          return current;
+          deferred.resolve(current);
+          return deferred.promise;
         }
-
-        var deferred = $q.defer();
 
         // Ask the browse for the position
         navigator.geolocation.getCurrentPosition(
