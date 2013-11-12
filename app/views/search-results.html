@@ -1,12 +1,10 @@
 <section class="top-content feature">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-<!-- NOTE FROM CHRIS
-the "default-wrapper" and "loggedin-actions" need to change when the user is logged-in or not. Dynamically add a class of 'visually-hidden' to the appropriate div -->
-      <div class="default-wrapper visually-hidden">
+      <div class="default-wrapper" ng-show="!user.email">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions">
+      <div class="loggedin-actions" ng-show="user.email">
         <div ng-include="'/views/layouts/search-actions.html'"></div>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->

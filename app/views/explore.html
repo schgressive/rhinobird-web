@@ -1,12 +1,10 @@
 <section class="top-content feature">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-<!-- NOTE FROM CHRIS
-the "default-wrapper" and "loggedin-actions" need to change when the user is logged-in or not. Dynamically add a class of 'visually-hidden' to the appropriate div -->
-      <div class="default-wrapper visually-hidden">
+      <div class="default-wrapper" ng-show="!user.email">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions">
+      <div class="loggedin-actions" ng-show="user.email">
         <div ng-include="'/views/layouts/base-actions.html'"></div>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->
@@ -28,7 +26,7 @@ the "default-wrapper" and "loggedin-actions" need to change when the user is log
             <label for="geolocate" class="visually-hidden">Search by location</label>
             <div class="input-append input-prepend">
               <span class="add-on">
-                <a href="#" title="Find Me!" ng-click="getCurrent()"><i class="icon-map-marker"></i></a>
+                <a href="#" title="Find Me!" ng-click="getCurrent()" data-title="Find Me!" rel="tooltip"><i class="icon-map-marker"></i></a>
               </span>
               <input type="search" ng-model="address" placeholder="current location">
               <input class="btn hidden-phone" type="submit" value="Go!">

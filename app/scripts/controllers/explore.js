@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ExploreCtrl', function ($scope, GeolocationService, streamService) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, streamService, authService) {
+
+		$scope.user = authService.user;
 
     $scope.mapSearch = {};
 
