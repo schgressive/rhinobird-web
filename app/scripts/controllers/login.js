@@ -4,12 +4,10 @@ angular.module('peepoltvApp')
   .controller('LoginCtrl', function ($scope, authService) {
     $scope.loginUser = function(){
 
-      // Reset the alerts
-      $scope.alert = null;
-
       var userData = $scope.logUser;
 
       authService.resource.login(userData, function(e){
+        $scope.loginForm.password.$setValidity('invalid-pw', true);
         // Close modal form
         $scope.$close();
 
@@ -17,9 +15,9 @@ angular.module('peepoltvApp')
         authService.user.name = e.name;
 
       },
-      function(){
+      function(error){
         // Some error
-        $scope.alert = 'other';
+        $scope.loginForm.password.$setValidity('invalid-pw', false);
       });
     };
   });

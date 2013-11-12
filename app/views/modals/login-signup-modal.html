@@ -34,7 +34,7 @@
         <input type="password" name="password" placeholder="your password" ng-model="logUser.password" required/>
       </div>
       <div class="error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-		    <small class="error" ng-show="loginForm.password.$error.invalid-pw">
+		    <small class="error">
 		    	This password is invalid. Please check for spelling.
 		    </small>
 		  </div><!-- /.error -->
@@ -83,12 +83,12 @@
 		    	A username can not have more than 20 characters.
 		    </small>
 		  </div><!-- /.error -->
-      <label class="visually-hidden" for="input-password">Password</label>
+      <label class="visually-hidden" for="password">Password</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-lock"></i></span>
-        <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" ng-minlength=8 required/>
+        <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
       </div>
-      <div class="error" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+      <div class="error" ng-show="signupForm.password.$invalid">
 		    <small class="error" ng-show="signupForm.password.$error.minlength">
 		    	This password is too short. Passwords must be at least 8 characters long.
 		    </small>
