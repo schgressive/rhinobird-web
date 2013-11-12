@@ -1,21 +1,5 @@
 <div class="module-inner">
 	<div class="module-video">
-<!-- NOTE FROM CHRIS: add loading class to .spinner-overlay to activate loading animation -->
-		<div class="spinner-overlay">
-			<div class="spinner"></div>
-		</div>
-    <div class="vertical-slideout visually-hidden">
-			<ul class="specs-stream no-bullets hidden-phone">
-				<li class="specs-rebroadcasts">
-					<i class="icon-retweet"></i>
-          <span> 24</span>
-				</li>
-				<li class="specs-hearts">
-					<i class="icon-heart"></i>
-          <span> 48</span>
-				</li>
-			</ul><!-- /.specs-stream -->
-		</div>
     <a href="/streams/{{stream.id}}" class="live-stream-link">
 			<img ng-src="{{stream.thumbs.medium}}"/>
 		</a>
@@ -24,17 +8,19 @@
 <div class="module-outer clearfix">
 	<ul class="specs-user no-bullets">
 		<li class="thumb-user pull-left">
-			<a href="#" title="username">
+			<a href="#" title="{{stream.user.name}}">
         <img ng-src="{{stream.user.email | gravatar:42:'/images/profile-default.svg'}}"/>
 			</a>
 		</li>
 		<li class="specs-location">
-			<i class="icon-map-marker"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}</a></span>
+			<i class="icon-map-marker"></i>
+			<span ng-show="stream.properties.geo_reference == null">anonymous</span>
+			<span>{{stream.properties.geo_reference}}</span>
 		</li>
 		<li class="specs-tags">
-			<ul class="group no-bullets">
-				<li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
-				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
+			<ul class="inline no-bullets">
+				<li class="tag" ng-show="stream.tags.length == 0">untagged</li>
+				<li class="tag" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
 			</ul>
 		</li>
 	</ul><!-- /.specs-user -->
