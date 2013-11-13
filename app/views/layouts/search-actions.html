@@ -1,7 +1,7 @@
 <div class="action-left span6">
   <a href="#" class="user-avatar pull-left" title="click to view your profile">
-    <img src="/images/profile-default.svg" alt="an image of your avatar" />
-  </a>
+		<img ng-src="{{user.email | gravatar:42}}" alt="your avatar"/>
+	</a>
 <!-- NOTE FROM CHRIS
 the links below need to change/filter the results of the search. the search result should default to 'channel-results' unless the search is coming from a specific view e.g. a search run from a streams view page will yield results filtered by streams and so on -->
   <div class="tabs pull-left">
