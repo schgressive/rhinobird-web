@@ -122,7 +122,7 @@ body.base { /*overrides are here */
 		background-image: none;
 		box-shadow: none;
 	}
-	.btn, btn-small, .btn-mini, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
+	.btn, btn-small, .btn-mini, input[type="text"], input[type="password"], input[type="search"], .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
 			-webkit-appearance: none !important;
 			border-radius: $baseBorderRadius;
 			-webkit-border-radius: $baseBorderRadius;
