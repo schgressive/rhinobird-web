@@ -22,10 +22,6 @@
   </head>
   <body class="base" ng-app="peepoltvApp" ng-class="section">
 
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
-
     <!--[if lt IE 9]>
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -105,8 +101,7 @@
     <!-- endbuild -->
 
 	<!-- additonal vendor scripts -->
-	<script src=""></script><!-- placeholder polyfill -->
-	<script src=""></script><!-- drag to refresh -->
+	<script src="/vendor/owl.carousel.min.js"></script><!--/ for video slider -->
 
 	<!-- hides footer at start??? -->
 	<script>
@@ -126,17 +121,18 @@
 	<!-- collapses menu in mobile after clicking link -->
 	<script>
 		$('#hideonclick a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-                if ($('.btn').is(":visible"))
-                    $('.btn').click();
-            });
+	        e.preventDefault();
+	        $(this).tab('show');
+	        if ($('.btn').is(":visible"))
+	            $('.btn').click();
+	    });
 	</script>
-    <script>
-      var _gaq=[['_setAccount','UA-34077113-1'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
+
+  <script>
+    var _gaq=[['_setAccount','UA-34077113-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
   </body>
 </html>
