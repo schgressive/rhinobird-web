@@ -8,6 +8,9 @@ $iconWhiteSpritePath:     "../bower_components/bootstrap-sass/img/glyphicons-hal
 @import "control-file"; /*overrides bootstrap variables*/
 @import "../bower_components/bootstrap-sass/lib/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
 
+@import "owl.carousel.css";
+@import "owl.theme.css";
+
 // Fonts ------------------------------
 // NOTE FROM CHRIS: please use the fontsize mixin when defining font-size values. It creates REM values (better for responsive) w/a PX fallback.
 

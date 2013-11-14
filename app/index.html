@@ -101,32 +101,11 @@
     <!-- endbuild -->
 
 	<!-- additonal vendor scripts -->
-	<script src="/vendor/owl.carousel.min.js"></script><!--/ for video slider -->
+	<script src="/vendor/owl.carousel.min.js"></script>
 
-	<!-- hides footer at start??? -->
-	<script>
-		$(window).load(function(){
-		 	$(".colophon").fadeIn("2000");
-		});
-	</script>
-	<!-- initialize tooltips -->
-	<script>
-		if (!window.matchMedia || (window.matchMedia("(min-width: 767px)").matches))
-		$(function () {
-			$('.base').tooltip({
-		      selector: '[rel="tooltip"]'
-		    })
-		  })
-	</script>
-	<!-- collapses menu in mobile after clicking link -->
-	<script>
-		$('#hideonclick a').click(function (e) {
-	        e.preventDefault();
-	        $(this).tab('show');
-	        if ($('.btn').is(":visible"))
-	            $('.btn').click();
-	    });
-	</script>
+	<! -- hookup scripts -->
+	<script src="/scripts/main.js"></script>
+
 
   <script>
     var _gaq=[['_setAccount','UA-34077113-1'],['_trackPageview']];
