@@ -12,15 +12,14 @@
 	line-height: 0;
 	height: 0;
 }
-/* display none until init */
+
 .owl-carousel{
-	display: none;
 	position: relative;
 	width: 100%;
 	-ms-touch-action: pan-y;
 }
 .owl-carousel .owl-wrapper{
-	display: none;
+	width: 7000px;
 	position: relative;
 	-webkit-transform: translate3d(0px, 0px, 0px);
 }
@@ -38,6 +37,7 @@
 }
 
 .owl-carousel .owl-item{
+	max-width: 120px;
 	float: left;
 }
 .owl-controls .owl-page,
@@ -51,6 +51,16 @@
 	-ms-user-select: none;
 	user-select: none;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev{
+  left: -45px;
+  top: 55px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next{
+  right: -45px;
+  top: 55px;
 }
 
 /* mouse grab icon */
