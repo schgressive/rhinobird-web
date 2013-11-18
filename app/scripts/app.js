@@ -51,18 +51,6 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
       })
 
       // Channels
-      .when('/channels', {
-        templateUrl: '/views/channels.html',
-        controller: 'ChannelsCtrl'
-      })
-      .when('/channels/:section', {
-        templateUrl: '/views/channels.html',
-        controller: 'ChannelsCtrl'
-      })
-      .when('/channel/protest', {
-        templateUrl: '/views/mock-channel.html',
-        controller: 'MockChannelCtrl'
-      })
       .when('/:channelName', {
         templateUrl: '/views/channel.html',
         controller: 'ChannelCtrl'
