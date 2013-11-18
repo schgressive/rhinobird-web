@@ -14,7 +14,7 @@ $(document).ready(function() {
 	 });
 
  	/* video slider */
-   $("#streamSet").owlCarousel();
+ 	$('.owl-carousel').owlCarousel();
 
   /* collapses menu in mobile after clicking link */
   $('#hideonclick a').click(function (e) {

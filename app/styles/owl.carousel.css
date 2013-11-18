@@ -19,6 +19,7 @@
 	-ms-touch-action: pan-y;
 }
 .owl-carousel .owl-wrapper{
+	display: none;
 	width: 7000px;
 	position: relative;
 	-webkit-transform: translate3d(0px, 0px, 0px);
@@ -53,14 +54,22 @@
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.owl-theme .owl-controls .owl-buttons .owl-prev{
+.owl-controls .owl-buttons .owl-prev{
   left: -45px;
   top: 55px;
 }
 
-.owl-theme .owl-controls .owl-buttons .owl-next{
+.owl-controls .owl-buttons .owl-next{
   right: -45px;
   top: 55px;
+}
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
 }
 
 /* mouse grab icon */
