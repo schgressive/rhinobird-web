@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider, $restmodProvider, settings) {
     $locationProvider.html5Mode(true);
     $routeProvider
 
@@ -58,6 +58,11 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
 
       .otherwise({
         redirectTo: '/'
+      });
+
+      // Config restmod
+      $restmodProvider.pushModelBase(function() {
+        this.setRestUrlOptions({ baseUrl: settings.apiHost });
       });
   })
   .run(function($location, $rootScope, authService){
