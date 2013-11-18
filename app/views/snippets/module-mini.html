@@ -3,3 +3,7 @@
     <img ng-src="{{stream.thumbs.small}}"/>
   </a>
 </div><!-- /.module-video -->
+<div class="module-outer">
+	<span ng-show="stream.caption == 0">untitled</span>
+	<span>{{stream.caption}}</span>
+</div>

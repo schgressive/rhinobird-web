@@ -34,23 +34,13 @@
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
       <div class="row-fluid">
-	    		<div class="owl-carousel">
-    				<div class="owl-controls clickable span1">
-						  <div class="owl-buttons">
-							  <a class="btn prev">prev</a>
-						  </div>
-					  </div>
-					  <div class="owl-wrapper-outer span10">
-					  	<ul class="owl-wrapper inline">
-					  		<li class="module-mini owl-item" ng-repeat="stream in streams | limitTo:12"><div ng-include="'/views/snippets/module-mini.html'"></div></li>
-					  	</ul>
-					  </div>
-					  <div class="owl-controls clickable span1">
-						  <div class="owl-buttons">
-							  <a class="btn next">next</a>
-						  </div>
-					  </div>
-					</div>
+		  	<div class="owl-carousel">
+				  <div class="module-mini item" ng-repeat="stream in streams | limitTo:12"><div ng-include="'/views/snippets/module-mini.html'"></div></div>
+		  	</div>
+				<div class="customNavigation">
+          <a class="btn prev">Previous</a>
+          <a class="btn next">Next</a>
+        </div>
       </div><!--/.row-fluid -->
     </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
