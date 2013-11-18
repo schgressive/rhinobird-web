@@ -13,9 +13,6 @@ $(document).ready(function() {
 	   selector: '[rel="tooltip"]'
 	 });
 
- 	/* video slider */
- 	$('.owl-carousel').owlCarousel();
-
   /* collapses menu in mobile after clicking link */
   $('#hideonclick a').click(function (e) {
 	        e.preventDefault();

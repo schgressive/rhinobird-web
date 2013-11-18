@@ -14,4 +14,9 @@ angular.module('peepoltvApp')
 
     $scope.user = authService.user;
 
+    $scope.$watch('streams', function(){
+      /* video slider */
+      $('.owl-carousel').owlCarousel();
+    });
+
   });
