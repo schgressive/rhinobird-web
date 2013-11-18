@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('SignupCtrl', function ($scope, authService) {
+  .controller('SignupCtrl', function ($scope, AuthService) {
     $scope.registerUser = function(){
 
       var userData = {
         user: $scope.regUser
       };
 
-      authService.resource.register(userData, function(e){
+      AuthService.resource.register(userData, function(e){
         $scope.$close();
         var user = e.data.user;
-        authService.user.email = user.email;
-        authService.user.name = user.name;
+        AuthService.user.email = user.email;
+        AuthService.user.name = user.name;
       },
       function(e){
         $scope.unknownError = false;

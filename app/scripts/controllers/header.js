@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, authService, streamService) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, streamService) {
 
     $scope.$on('$locationChangeSuccess', function (){
       var path = $location.path();
@@ -13,14 +13,14 @@ angular.module('peepoltvApp')
     $rootScope.$on('$routeChangeError', function (event, parameters) {
       if(parameters.$$route.controller === "GoliveCtrl"){
         // Go to golive after loging in
-        authService.askLogin().then(function() {
+        AuthService.askLogin().then(function() {
           $location.path("/golive");
         })
       }
     });
 
     // The user
-    $scope.user = authService.user;
+    $scope.user = AuthService.user;
 
     // Show options
     $rootScope.streamingOptions = {
@@ -36,10 +36,10 @@ angular.module('peepoltvApp')
     };
 
     $scope.login = function(){
-      authService.askLogin();
+      AuthService.askLogin();
     }
 
     $scope.logout = function(){
-      authService.logout();
+      AuthService.logout();
     };
   });

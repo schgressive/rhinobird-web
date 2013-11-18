@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ChannelCtrl', function ($scope, channelService, $routeParams, authService) {
+  .controller('ChannelCtrl', function ($scope, channelService, $routeParams, AuthService) {
 
-		$scope.user = authService.user;
+		$scope.user = AuthService.user;
 
     // Get the channel
     $scope.channel = channelService.resource.get({channelId: $routeParams.channelName}, function(){

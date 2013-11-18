@@ -30,12 +30,7 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
       .when('/golive', {
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
-        section: 'golive',
-        resolve: {
-          user: ['authService', function(authService){
-            return authService.resource.status({}).$promise;
-          }]
-        }
+        section: 'golive'
       })
 
       // Streams
@@ -65,7 +60,7 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
         this.setRestUrlOptions({ baseUrl: settings.apiHost });
       });
   })
-  .run(function($location, $rootScope, authService){
+  .run(function($location, $rootScope, AuthService){
     $rootScope.$on('$routeChangeSuccess', function(event, current){
       $rootScope.section = current.$$route.section || null;
     });
@@ -75,8 +70,18 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
       $location.path('/');
     });
 
-    authService.resource.status({}, function(e){
-      authService.user.email = e.email;
-      authService.user.name = e.name;
+    // Create an app object in the root scope for general application variables
+    var app = {
+      isLoggedIn: false // Set the logged in app status
+    };
+    $rootScope.app = app;
+
+    // Change the logged in status on session change
+    $rootScope.$on('sessionChanged', function(event, session, logginStatus){
+      app.isLoggedIn = logginStatus;
     });
+
+    // Try to get a initialized session
+    AuthService.getSession();
+
   });

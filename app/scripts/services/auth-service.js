@@ -1,38 +1,18 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .service('authService', function authService($resource, $q, settings, $modal) {
+  .service('AuthService', function AuthService($modal, $rootScope, User, Session) {
 
-    // Defines API methods
-    var resource = $resource(settings.apiHost + '/sessions', {}, {
-      'register': {
-        method: 'POST',
-        params: {},
-        url: settings.apiHost + '/registration',
-        withCredentials: true
-      },
-      'login': {
-        method: 'POST',
-        params: {},
-        withCredentials: true
-      },
-      'status': {
-        method: 'GET',
-        params: {},
-        withCredentials: true
-      },
-      'logout':{
-        method: 'DELETE',
-        params: {},
-        withCredentials: true
-      }
-    });
+    var _this = this;
 
-    //Holds current logged user
-    var user = {};
+    // The current session
+    var session = Session.$build('current');
+
+    // The logged user
+    this.user = session.user;
 
     // Login in and signing up
-    var openLoginModal = function(){
+    this.askLogin = function(){
 
       var newModalDefaults  = {
         backdrop: 'static',
@@ -54,23 +34,37 @@ angular.module('peepoltvApp')
 
     };
 
-    // private method to logout an authenticated user
-    var logout = function() {
-      if(user.email){
+    // Login a user, create a new session
+    this.login = function(payload){
+      // Set id to undefined to force POST on save
+      session.id = undefined;
 
-        resource.logout(function(){
-          user.email = null;
-          user.name = null;
-        });
+      // Set the login information
+      session.email = payload.email;
+      session.password = payload.password;
 
-      }
+      // Do login
+      session.$save().$finally(broadcastSessionChanged);
+
+      return session.$promise;
     };
 
-    // Public API here
-    return {
-      resource: resource,
-      askLogin: openLoginModal,
-      logout: logout,
-      user: user
+    // private method to logout an authenticated user
+    this.logout = function() {
+      // Destroy de session
+      session.$destroy().$finally(broadcastSessionChanged);
+      return session.$promise;
+    };
+
+    // Get the current session
+    this.getSession = function(){
+      session.$fetch().$finally(broadcastSessionChanged);
+      return session.$promise;
+    };
+
+    // Broadcase a message that the session has changed
+    var broadcastSessionChanged = function(){
+      var status = session.hasOwnProperty('authToken');
+      $rootScope.$broadcast('sessionChanged', session, status);
     };
   });

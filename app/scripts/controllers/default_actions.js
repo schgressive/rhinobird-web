@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('DefaultActionsCtrl', function ($scope, authService) {
-    $scope.user = authService.user;
+  .controller('DefaultActionsCtrl', function ($scope, AuthService) {
+    $scope.user = AuthService.user;
 
     $scope.login = function(){
-      authService.askLogin();
+      AuthService.askLogin();
     }
 
     $scope.logout = function(){
-      authService.logout();
+      AuthService.logout();
     };
   });

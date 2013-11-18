@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('SearchResultsCtrl', function ($scope, streamService, $location, authService) {
+  .controller('SearchResultsCtrl', function ($scope, streamService, $location, AuthService) {
 
     $scope.searchTerm = $location.search().q;
     $scope.filter = $location.search().filter;
@@ -13,5 +13,5 @@ angular.module('peepoltvApp')
       $location.search('filter', filter);
     };
 
-    $scope.user = authService.user;
+    $scope.user = AuthService.user;
   });
