@@ -2,11 +2,15 @@
   <button class="close" ng-click="close()" aria-hidden="true" >&times;</button>
   <h3 id="signIn" ng-show="loginModalAction == 'login'">Sign In</h3>
   <h3 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h3>
+  <h3 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h3>
 </div><!-- /.modal-header -->
 <div class="modal-body">
   <p ng-show="loginModalAction == 'login'">
     <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a>
-    <a href="#" class="one-liner">Forgot username or password?</a>
+    <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a>
+  </p>
+  <p ng-show="loginModalAction == 'password'">
+  	Forgot your password? We can email it to you.
   </p>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
@@ -42,16 +46,36 @@
     </form>
   </div>
 
+	<div ng-show="loginModalAction == 'password'">
+		<form name="passwordReset" role="form" ng-submit="" ng-controller="">
+			<label class="visually-hidden" for="reset-password">Your Email</label>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-envelope"></i></span>
+        <input type="text" name="reset-password" type="email" placeholder="your email" ng-model="" required/>
+			</div>
+			<small class="error" ng-show="">
+		    	This email is not registered with Peepol.tv. Please check for errors.
+		  </small>
+		  <input class="btn btn-primary mobile-full" type="submit" value="Send"/>
+		  <small>
+		  	<a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'login'">Return to login.</a>
+		  </small>
+		</form>
+	</div>
+
   <div ng-show="loginModalAction == 'signup'">
     <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
       <label class="visually-hidden" for="input-email">Email</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-envelope"></i></span>
         <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
+        <small class="error" ng-show="">
+		    	This email is not registered. Please check for errors.
+		    </small>
       </div>
       <div class="error" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
 		    <small class="error" ng-show="signupForm.email.$error.taken">
-		    	This email is already registered. <a href="#">Is this you?</a>
+		    	This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
 		    </small>
 		    <small class="error" ng-show="">
 		    	This email is invalid. Please input a valid email.
