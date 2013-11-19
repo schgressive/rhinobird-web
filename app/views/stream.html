@@ -23,18 +23,14 @@
       <section class="lower-content">
         <div class="row-fluid">
           <h3 class="span6">
-            Related Streams
+            More Streams
           </h3>
         </div><!-- /.row-fluid -->
         <div class="row-fluid">
-      		<div id="owl-example span12" class="owl-carousel owl-theme">
-					  <div class="owl-wrapper-outer">
-					  	<ul class="owl-wrapper">
-					  		<li class="module-mini span3 owl-item" ng-repeat="stream in streams | limitTo:6"><div ng-include="'/views/snippets/module-mini.html'"></div></li>
-					  	</ul>
-					  </div>
-					</div>
-	      </div><!--/.row-fluid -->
+			  	<div class="owl-carousel">
+				  	<div class="module-mini item" ng-repeat="stream in streams | limitTo:12"><div ng-include="'/views/snippets/module-mini.html'"></div></div>
+					</div><!-- /.owl-carousel -->
+				</div><!--/.row-fluid -->
       </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
