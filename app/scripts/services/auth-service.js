@@ -34,6 +34,14 @@ angular.module('peepoltvApp')
 
     };
 
+
+    // Register user
+    this.register = function(payload) {
+      var user = User.$create(payload);
+
+      return user.$promise;
+    }
+
     // Login a user, create a new session
     this.login = function(payload){
       // Set id to undefined to force POST on save

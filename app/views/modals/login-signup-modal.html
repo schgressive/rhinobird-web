@@ -10,7 +10,7 @@
     <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a>
   </p>
   <p ng-show="loginModalAction == 'password'">
-  	Forgot your password? We can email it to you.
+    Forgot your password? We can email it to you.
   </p>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
@@ -22,46 +22,46 @@
         <input type="email" name="email" placeholder="your email" ng-model="logUser.email" required/>
       </div>
       <div class="error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
-		    <small class="error" ng-show="loginForm.email.$error.required">
-		    	The email for your account is required.
-		    </small>
-		    <small class="error" ng-show="loginForm.email.$error.invalidtype">
-		    	This email is invalid. Please input a valid email.
-		    </small>
-		    <small class="error" ng-show="loginForm.email.$error.none">
-		    	There is no account associated with this email. Please check for spelling errors.
-		    </small>
-		  </div><!-- /.error -->
+        <small class="error" ng-show="loginForm.email.$error.required">
+          The email for your account is required.
+        </small>
+        <small class="error" ng-show="loginForm.email.$error.invalidtype">
+          This email is invalid. Please input a valid email.
+        </small>
+        <small class="error" ng-show="loginForm.email.$error.none">
+          There is no account associated with this email. Please check for spelling errors.
+        </small>
+      </div><!-- /.error -->
       <label class="visually-hidden" for="input-password">Your Password</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-lock"></i></span>
         <input type="password" name="password" placeholder="your password" ng-model="logUser.password" required/>
       </div>
       <div class="error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-		    <small class="error">
-		    	This password is invalid. Please check for spelling.
-		    </small>
-		  </div><!-- /.error -->
+        <small class="error">
+          This password is invalid. Please check for spelling.
+        </small>
+      </div><!-- /.error -->
       <input class="btn btn-primary mobile-full" type="submit" value="Sign In"/>
     </form>
   </div>
 
-	<div ng-show="loginModalAction == 'password'">
-		<form name="passwordReset" role="form" ng-submit="" ng-controller="">
-			<label class="visually-hidden" for="reset-password">Your Email</label>
-			<div class="input-prepend">
-				<span class="add-on"><i class="icon-envelope"></i></span>
-        <input type="text" name="reset-password" type="email" placeholder="your email" ng-model="" required/>
-			</div>
-			<small class="error" ng-show="">
-		    	This email is not registered with Peepol.tv. Please check for errors.
-		  </small>
-		  <input class="btn btn-primary mobile-full" type="submit" value="Send"/>
-		  <small>
-		  	<a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'login'">Return to login.</a>
-		  </small>
-		</form>
-	</div>
+  <div ng-show="loginModalAction == 'password'">
+    <form name="passwordReset" role="form" ng-controller="PasswordCtrl">
+      <label class="visually-hidden" for="reset-password">Your Email</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <input type="text" name="reset-password" type="email" placeholder="your email" ng-model="user.email" required/>
+      </div>
+      <small class="error" ng-show="">
+        This email is not registered with Peepol.tv. Please check for errors.
+      </small>
+      <input class="btn btn-primary mobile-full" type="submit" value="Send"/>
+      <small>
+        <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'login'">Return to login.</a>
+      </small>
+    </form>
+  </div>
 
   <div ng-show="loginModalAction == 'signup'">
     <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
@@ -70,53 +70,53 @@
         <span class="add-on"><i class="icon-envelope"></i></span>
         <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
         <small class="error" ng-show="">
-		    	This email is not registered. Please check for errors.
-		    </small>
+          This email is not registered. Please check for errors.
+        </small>
       </div>
       <div class="error" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
-		    <small class="error" ng-show="signupForm.email.$error.taken">
-		    	This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
-		    </small>
-		    <small class="error" ng-show="">
-		    	This email is invalid. Please input a valid email.
-		    </small>
-		  </div><!-- /.error -->
+        <small class="error" ng-show="signupForm.email.$error.taken">
+          This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
+        </small>
+        <small class="error" ng-show="">
+          This email is invalid. Please input a valid email.
+        </small>
+      </div><!-- /.error -->
       <label class="visually-hidden" for="input-name">Name</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
         <input type="text" name="name" placeholder="your name" ng-model="regUser.name" required/>
       </div>
       <div class="" ng-show="">
-		    <small class="" ng-show="">
-		    	This name will be used for correspondence. It will not be public.
-		    </small>
-		  </div><!-- /. -->
+        <small class="" ng-show="">
+          This name will be used for correspondence. It will not be public.
+        </small>
+      </div><!-- /. -->
       <label class="visually-hidden" for="input-username">Username</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
         <input type="text" name="username" placeholder="your username" ng-model="regUser.username" ng-minlength=3 ng-maxlength=20 required/>
       </div>
       <div class="error" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
-		    <small class="error" ng-show="signupForm.username.$error.taken">
-		    	This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
-		    </small>
-		    <small class="error" ng-show="signupForm.username.$error.minlength">
-		    	A username must have at least 3 characters.
-		    </small>
-		    <small class="error" ng-show="signupForm.username.$error.maxlength">
-		    	A username can not have more than 20 characters.
-		    </small>
-		  </div><!-- /.error -->
+        <small class="error" ng-show="signupForm.username.$error.taken">
+          This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
+        </small>
+        <small class="error" ng-show="signupForm.username.$error.minlength">
+          A username must have at least 3 characters.
+        </small>
+        <small class="error" ng-show="signupForm.username.$error.maxlength">
+          A username can not have more than 20 characters.
+        </small>
+      </div><!-- /.error -->
       <label class="visually-hidden" for="password">Password</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-lock"></i></span>
         <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
       </div>
       <div class="error" ng-show="signupForm.password.$invalid">
-		    <small class="error" ng-show="signupForm.password.$error.minlength">
-		    	This password is too short. Passwords must be at least 8 characters long.
-		    </small>
-		  </div><!-- /.error -->
+        <small class="error" ng-show="signupForm.password.$error.minlength">
+          This password is too short. Passwords must be at least 8 characters long.
+        </small>
+      </div><!-- /.error -->
       <input class="btn btn-primary mobile-full" type="submit" value="Create"/>
     </form>
   </div>
