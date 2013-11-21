@@ -24,8 +24,12 @@ angular.module('peepoltvApp')
         });
 
         this.afterSave(function(){
+          var session = this;
+
           // Reset the id to current to be able to perform further actions
           this.id = 'current';
+
+          delete session.password;
         });
       });
 
