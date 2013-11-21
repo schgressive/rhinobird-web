@@ -3,18 +3,6 @@
 	<div class="spinner-overlay">
 		<div class="spinner"></div>
 	</div>
-	<div class="vertical-slideout visually-hidden">
-    <ul class="specs-stream no-bullets hidden-phone">
-      <li class="specs-rebroadcasts">
-        <i class="icon-retweet"></i>
-        <span> 24</span>
-      </li>
-      <li class="specs-hearts">
-        <i class="icon-heart"></i>
-        <span> 48</span>
-      </li>
-    </ul><!-- /.specs-stream -->
-	</div>
   <img ng-src="{{mainStream.thumbs.large}}" width="940" height="512" class="specs-thumb"/>
   <licode flow="inbound" token="{{mainStream.token}}" width="940" height="512"></licode>
   <div class="video-controls"><!-- these need to be hooked up, or replaced with their angular/licode equivilent -->
@@ -23,20 +11,22 @@
     <button class="btn btn-mini" onclick="makeBig()">Big</button>
     <button class="btn btn-mini" onclick="makeNormal()">Normal</button>
   </div><!-- /.video-controls -->
-  <ul class="specs-user no-bullets">
-    <li class="thumb-user pull-left">
-      <a href="#" title="username">
-        <img ng-src="{{<%= stream ? "'#{stream.user.email}'" : "stream.user.email" %> | gravatar:42:'/assets/profile-default.svg'}}"/>
-      </a>
-    </li>
-    <li class="specs-location">
-      <i class="icon-map-marker"></i> Live from <span class="auto-location"><a href="#"><%= stream ? stream.geo_reference : "{{stream.properties.geo_reference}}"%></a></span>
-		</li>
-		<li class="specs-tags">
-			<ul class="group no-bullets">
-				<li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
-				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
-			</ul>
-		</li>
-	</ul><!-- /.specs-user -->
 </div><!-- /.module-video -->
+<div class="module-outer">
+	<ul class="no-bullets">
+		<li class="thumb-user pull-left">
+			<a href="#" title="{{stream.user.name}}">
+        <img ng-src="{{stream.user.email | gravatar:42:'/images/profile-default.svg'}}"/>
+			</a>
+		</li>
+		<li class="ellipsis">
+			<span ng-show="stream.caption == 0">untitled</span>
+			<span>{{stream.caption}}</span>
+		</li>
+		<li class="ellipsis">
+			<i class="icon-map-marker"></i>
+			<span ng-show="stream.properties.geo_reference == null">anonymous</span>
+			<span>{{stream.properties.geo_reference}}</span>
+		</li>
+	</ul>
+</div>

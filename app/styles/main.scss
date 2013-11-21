@@ -1,4 +1,5 @@
 @import "compass";
+@import "compass/typography/text/ellipsis";
 
 $iconSpritePath:          "../bower_components/bootstrap-sass/img/glyphicons-halflings.png" !default;
 $iconWhiteSpritePath:     "../bower_components/bootstrap-sass/img/glyphicons-halflings-white.png" !default;
@@ -77,6 +78,8 @@ table caption, .visually-hidden {display:none !important;}
 }
 
 .one-liner {display: block;}
+
+.ellipsis { @include ellipsis();}
 
 // Calculate all H# Tags.
 // using 1:1.618, Golden Section

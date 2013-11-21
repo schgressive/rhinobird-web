@@ -5,14 +5,6 @@
 	</div>
 	<div class="module-overlay">
 		<div class="btn-overlay">
-			<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#rebroadcast-modal" rel="tooltip" data-title="Rebroadcast Me!">
-				<i class="icon-retweet"></i>
-				<span class="visually-hidden">Rebroadcast This Stream</span>
-			</button>
-			<button class="btn-top pull-right" type="button" data-toggle="modal" data-target="#share-modal" rel="tooltip" data-title="Share Me!">
-				<i class="icon-share"></i>
-				<span class="visually-hidden">Share This Stream</span>
-			</button>
 			<button class="btn-top pull-right" type="button" ng-click="toggleMute()" rel="tooltip" data-title="Mute Me!">
             	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
             	<span class="visually-hidden">Mute</span>
@@ -23,28 +15,22 @@
 		</div>
 	</div><!-- /.module-overlay -->
   <licode flow="inbound" token="{{stream.token}}" width="940" height="512"></licode>
-	<ul class="specs-stream no-bullets hidden-phone">
-		<li class="specs-title pull-left"><em class="title">{{stream.title}}FPO Title</em></li>
-		<li class="specs-location pull-left">
-			<i class="icon-map-marker icon-white"></i> Live from <span class="auto-location"><a href="#">{{stream.properties.geo_reference}}FPO Location</a></span>
-		</li>
-		<li class="specs-tags">
-			<ul class="group no-bullets">
-				<li class="tag pull-left" ng-show="stream.tags.length == 0"><a href="#">untagged</a></li>
-				<li class="tag pull-left" ng-repeat="tag in stream.tags"><a href="#" rel="tag">{{tag}}</a></li>
-			</ul>
-		</li>
-		<li class="specs-comments pull-right">
-			<i class="icon-comment icon-white"></i>
-			<a href="#" title="see comments on this live-stream"> 12</a>
-		</li>
-		<li class="specs-rebroadcasts pull-right">
-			<i class="icon-retweet icon-white"></i>
-			<a href="#" title="see rebroadcasts"> 24</a>
-		</li>
-		<li class="specs-hearts pull-right">
-			<i class="icon-heart icon-white"></i>
-			<a href="#" title="see who hearts this stream"> 48</a>
-		</li>
-	</ul><!-- /.specs-stream -->
 </div><!-- /.module-video -->
+<div class="module-outer">
+	<ul class="no-bullets">
+		<li class="thumb-user pull-left">
+			<a href="#" title="{{stream.user.name}}">
+        <img ng-src="{{stream.user.email | gravatar:42:'/images/profile-default.svg'}}"/>
+			</a>
+		</li>
+		<li class="ellipsis">
+			<span ng-show="stream.caption == 0">untitled</span>
+			<span>{{stream.caption}}</span>
+		</li>
+		<li class="ellipsis">
+			<i class="icon-map-marker"></i>
+			<span ng-show="stream.properties.geo_reference == null">anonymous</span>
+			<span>{{stream.properties.geo_reference}}</span>
+		</li>
+	</ul>
+</div>
