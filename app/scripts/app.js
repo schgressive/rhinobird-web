@@ -30,7 +30,12 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
       .when('/golive', {
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
-        section: 'golive'
+        section: 'golive',
+        resolve: {
+          user: ['AuthService', function(AuthService) {
+            return AuthService.getSession();
+          }]
+        }
       })
 
       // Streams
