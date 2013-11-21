@@ -99,6 +99,12 @@ angular.module('peepoltvApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'pl-li
         templateUrl: '/views/user.html',
         controller: 'UserCtrl'
       })
+      
+      .when('/profile/edit', {
+        templateUrl: '/views/main.html',
+        controller: 'MainCtrl',
+        section: "explore"
+      })
 
       // Channels
       .state('channel', {

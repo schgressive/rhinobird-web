@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .service('AuthService', function AuthService($modal, $rootScope, User, Session) {
+  .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password) {
 
     var _this = this;
 
@@ -12,7 +12,8 @@ angular.module('peepoltvApp')
     this.user = session.user;
 
     // Login in and signing up
-    this.askLogin = function(){
+    this.askLogin = function(action){
+      var defaultAction = action || 'login';
 
       var newModalDefaults  = {
         backdrop: 'static',
@@ -21,7 +22,7 @@ angular.module('peepoltvApp')
 
       newModalDefaults.controller = ['$scope', '$modalInstance', function($scope, $modalInstance) {
         //set default action to login
-        $scope.loginModalAction = 'login';
+        $scope.loginModalAction = defaultAction;
 
         //click event for login modal form
         $scope.close = function() {
@@ -34,6 +35,20 @@ angular.module('peepoltvApp')
 
     };
 
+    this.askPasswordReset = function(payload) {
+      var password = Password.$create(payload);
+
+      return password.$promise;
+    }
+
+    this.resetPassword = function(payload) {
+      var password = Password.$build(payload);
+      password.id = "";
+      password.$save();
+
+
+      return password.$promise;
+    }
 
     // Register user
     this.register = function(payload) {
