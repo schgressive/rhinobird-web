@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('PasswordResetCtrl', function ($scope, AuthService, $routeParams) {
+  .controller('PasswordResetCtrl', function ($scope, AuthService, $stateParams) {
 
     // Call API to reset password
     $scope.resetPassword = function() {
@@ -9,7 +9,7 @@ angular.module('peepoltvApp')
       $scope.invalidToken = false;
 
       var resetData = {
-        token: $routeParams.reset_password_token,
+        token: $stateParams.reset_password_token,
         password: $scope.resetData.password,
         password_confirmation: $scope.resetData.confirm
       }

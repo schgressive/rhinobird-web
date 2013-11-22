@@ -2,7 +2,7 @@
 
 angular.module('peepoltvApp')
 
-  .controller('MainCtrl', function ($scope, streamService, $location, AuthService, $timeout, $routeParams) {
+  .controller('MainCtrl', function ($scope, streamService, $location, AuthService, $timeout, $stateParams) {
 
     // Get the streams based on geolocation
     $scope.streams = streamService.resource.search({});
@@ -14,7 +14,7 @@ angular.module('peepoltvApp')
 
     $scope.user = AuthService.user;
 
-    if ($routeParams.reset_password_token) {
+    if ($stateParams.reset_password_token) {
       AuthService.askLogin("password-reset");
     }
 
