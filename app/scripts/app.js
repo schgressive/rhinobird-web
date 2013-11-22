@@ -12,7 +12,9 @@ angular.module('peepoltvApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'pl-li
       ROUTE                                     URL
       - main                                    /
       - explore                                 /explore
-      - search                                  /search
+      - search.streams                          /search/streams
+      - search.channels                         /search/channels
+      - search.peepol                           /search/peepol
       - golive                                  /golive
       - profile                                 /profile
       - profile.settings                        /profile/settings
