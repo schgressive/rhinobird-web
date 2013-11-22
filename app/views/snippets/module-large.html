@@ -1,6 +1,6 @@
 <div class="module-inner">
 	<div class="module-video">
-    <a href="/streams/{{stream.id}}" class="live-stream-link">
+    <a ui-sref="stream({streamId: stream.id})" class="live-stream-link">
 			<img ng-src="{{stream.thumbs.medium}}"/>
 		</a>
 	</div><!-- /.module-video -->

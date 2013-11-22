@@ -1,30 +1,67 @@
 'use strict';
 
-angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
-  .config(function ($routeProvider, $locationProvider, $restmodProvider, settings) {
+angular.module('peepoltvApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
+  .config(function ($stateProvider, $locationProvider, $restmodProvider, settings) {
+    // Remove hashes and enables html push state history
     $locationProvider.html5Mode(true);
-    $routeProvider
+
+    // Define the application routes
+    $stateProvider
+
+      /* Routes user ui-sref="" instead of href
+      ROUTE                                     URL
+      - main                                    /
+      - explore                                 /explore
+      - search                                  /search
+      - golive                                  /golive
+      - profile                                 /profile
+      - profile.settings                        /profile/settings
+      - stream({streamId: <streamId>})          /stream/:streamId
+      - user({userName: <username>})            /user/:userName
+      - channel({channelName: <channelname>})   /:channelName
+      - vjsession({                             /:channelName/:userName
+            channelName: <channelname>,
+            userName: <username>
+          })
+      */
 
       // Main
-      .when('/', {
+      .state('main', {
+        url: '/',
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
 
       // Explore
-      .when('/explore', {
+      .state('explore', {
+        url: '/explore',
         templateUrl: '/views/explore.html',
         controller: 'ExploreCtrl'
       })
 
       // Search
-      .when('/search', {
+      .state('search', {
+        url: '/search',
+        abstract: true,
         templateUrl: '/views/search-results.html',
         controller: 'SearchResultsCtrl'
       })
+      .state('search.streams', {
+        url: '/streams',
+        templateUrl: '/views/search-results-streams.html'
+      })
+      .state('search.channels', {
+        url: '/channels',
+        templateUrl: '/views/search-results-channels.html'
+      })
+      .state('search.peepol', {
+        url: '/peepol',
+        templateUrl: '/views/search-results-peepol.html'
+      })
 
       // Golive
-      .when('/golive', {
+      .state('golive', {
+        url: '/golive',
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
         resolve: {
@@ -34,27 +71,46 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
         }
       })
 
-      // Streams
-      .when('/streams/:streamId', {
-        templateUrl: '/views/stream.html',
-        controller: 'StreamCtrl'
-      })
-
       // Profile
-      .when('/profile', {
+      .state('profile', {
+        url: '/profile',
         templateUrl: '/views/profile.html',
         controller: 'ProfileCtrl'
       })
 
+      .state('profile.settings', {
+        url: '/settings',
+        templateUrl: '/views/profile-settings.html',
+        controller: 'ProfileSettingsCtrl'
+      })
+
+      // Streams
+      .state('stream', {
+        url: '/stream/:streamId',
+        templateUrl: '/views/stream.html',
+        controller: 'StreamCtrl'
+      })
+
+      // User
+      .state('user', {
+        url: '/user/:userName',
+        templateUrl: '/views/user.html',
+        controller: 'UserCtrl'
+      })
+
       // Channels
-      .when('/:channelName', {
+      .state('channel', {
+        url: '/:channelName',
         templateUrl: '/views/channel.html',
         controller: 'ChannelCtrl'
       })
 
-      .otherwise({
-        redirectTo: '/'
-      });
+      // Vj session
+      .state('vjsession', {
+        url: '/:channelName/:userName',
+        templateUrl: '/views/vj-session.html',
+        controller: 'VjSessionCtrl'
+      })
 
       // Config restmod
       $restmodProvider.pushModelBase(function() {

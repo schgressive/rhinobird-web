@@ -9,7 +9,7 @@
             	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
             	<span class="visually-hidden">Mute</span>
 			</button>
-			<a class="btn-play" rel="tooltip" data-title="Play Stream" href="/streams/{{stream.id}}">
+			<a class="btn-play" rel="tooltip" data-title="Play Stream" ui-sref="streams({streamId: stream.id})">
 				<span class="visually-hidden">Play This Stream</span>
 			</a>
 		</div>

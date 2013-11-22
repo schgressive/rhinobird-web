@@ -2,10 +2,9 @@
   "name": "peepoltv",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.2.0-rc.3",
-    "angular-resource": "~1.2.1",
+    "angular": "~1.2",
+    "angular-resource": "~1.2",
     "angular-bootstrap": "~0.6.0",
-    "angular-route": "~1.2.1",
     "json3": "~3.2.4",
     "es5-shim": "~2.0.8",
     "underscore": "~1.4.4",
@@ -15,6 +14,7 @@
     "angular-restmod": "~0.8",
     "angular-licode": "~0.0.2",
     "bootstrap-sass": "2.3.2",
-    "owlcarousel": "*"
+    "owlcarousel": "*",
+    "angular-ui-router": "~0.2.0"
   }
 }

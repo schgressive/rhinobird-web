@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('StreamCtrl', function ($scope, streamService, $routeParams, AuthService, $timeout) {
+  .controller('StreamCtrl', function ($scope, streamService, $stateParams, AuthService, $timeout) {
 
 		$scope.user = AuthService.user;
 
     // Get the stream
-    $scope.stream = streamService.resource.get({streamId: $routeParams.streamId});
+    $scope.stream = streamService.resource.get({streamId: $stateParams.streamId});
 
 		// Get the streams based on geolocation
     $scope.streams = streamService.resource.search({});

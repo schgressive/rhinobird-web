@@ -11,7 +11,7 @@
                   <a href="#" ng-click="login()" ng-hide="user.email"><i class="icon-lock icon-white"></i>Sign In</a>
                   <a href="#" ng-click="logout()" ng-show="user.email"><i class="icon-lock icon-white"></i>Sign Out</a>
                 </li>
-                <li class="navLink"><a href="/explore"><i class="icon-globe icon-white"></i>Explore</a></li>
+                <li class="navLink"><a ui-sref="explore"><i class="icon-globe icon-white"></i>Explore</a></li>
                 <li class="navLink deactivated"><a href="/tour"><i class="icon-info-sign icon-white"></i>Take the Tour!</a></li>
                 <li class="navLink deactivated"><a href="/account"><i class="icon-cog icon-white"></i>Account Settings</a></li>
               </ul><!-- /.dropdown-menu -->
@@ -20,7 +20,7 @@
           </div><!-- /.main-nav-wrapper -->
           <div class="golive-btn-wrapper pull-right">
             <button id="golive-btn" class="golive-btn">
-              <a href="/golive"><i class="golive-icon"></i> <span class="goLive-toggle">Go Live!</span><span class="onAir-toggle golive-toggle-off">On Air</span></a>
+              <a ui-sref="golive"><i class="golive-icon"></i> <span class="goLive-toggle">Go Live!</span><span class="onAir-toggle golive-toggle-off">On Air</span></a>
             </button>
           </div><!-- /golive-btn-wrapper -->
         </div><!-- /.row-fluid -->

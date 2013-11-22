@@ -31,7 +31,7 @@
 	<header ng-include="'/views/header.html'"></header>
 
 	<!-- content here-->
-	<div class="mainWrapper" ng-view role="main"></div>
+	<div class="mainWrapper" ui-view role="main"></div>
 
 	<footer class="colophon" role="contentinfo" style="display: none;">
 		<div class="width-controller container-fluid">
@@ -58,7 +58,7 @@
     <script src="/bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
 
     <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -86,10 +86,13 @@
     <script src="/scripts/controllers/header.js"></script>
     <script src="/scripts/controllers/channel.js"></script>
     <script src="/scripts/controllers/profile.js"></script>
+    <script src="/scripts/controllers/profile-settings.js"></script>
     <script src="/scripts/controllers/search-results.js"></script>
     <script src="/scripts/controllers/explore.js"></script>
     <script src="/scripts/controllers/password.js"></script>
     <script src="/scripts/controllers/default_actions.js"></script>
+    <script src="/scripts/controllers/vj-session.js"></script>
+    <script src="/scripts/controllers/user.js"></script>
     <script src="/scripts/services/geolocation-service.js"></script>
     <script src="/scripts/services/auth-service.js"></script>
     <script src="/scripts/services/stream-service.js"></script>

@@ -19,14 +19,8 @@ this needs to swap in/out with other result filters and controlled by the links 
 		  <div class="row-fluid">
 		    <div class="colLeft span7">
 		    	<div class="tab-content">
-					  <div class="tab-pane active" id="channel-results">
-						  <ul class="search-results no-bullets" ng-include="'/snippets/search-channels-item.html'"></ul>
-					  </div>
-					  <div class="tab-pane" id="stream-results">
-						  <ul class="search-results no-bullets" ng-include="'/snippets/search-streams-item.html'"></ul>
-					  </div>
-					  <div class="tab-pane" id="peepol-results">
-						  <ul class="search-results no-bullets" ng-include="'/snippets/search-peepol-item.html'"></ul>
+					  <div class="tab-pane active">
+              <div ui-view></div>
 					  </div>
 					</div>
 		    </div><!-- /.colLeft -->

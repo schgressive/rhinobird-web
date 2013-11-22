@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ChannelCtrl', function ($scope, channelService, $routeParams, AuthService, $timeout) {
+  .controller('ChannelCtrl', function ($scope, channelService, $stateParams, AuthService, $timeout) {
 
 		$scope.user = AuthService.user;
 
     // Get the channel
-    $scope.channel = channelService.resource.get({channelId: $routeParams.channelName}, function(){
+    $scope.channel = channelService.resource.get({channelId: $stateParams.channelName}, function(){
       // The playing stream
       $scope.mainStream = $scope.channel.streams[0];
     });
