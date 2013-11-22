@@ -3,12 +3,6 @@
 angular.module('peepoltvApp')
   .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, streamService) {
 
-    $scope.$on('$locationChangeSuccess', function (){
-      var path = $location.path();
-      var match = path.match(/(?:explore|channels|peepol|golive)/);
-      $scope.section = (match)? match[0] : 'explore';
-    });
-
     // Catch the unauthorized pages
     $rootScope.$on('$routeChangeError', function (event, parameters) {
       if(parameters.$$route.controller === "GoliveCtrl"){

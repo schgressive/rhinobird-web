@@ -8,29 +8,25 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
       // Main
       .when('/', {
         templateUrl: '/views/main.html',
-        controller: 'MainCtrl',
-        section: 'explore'
+        controller: 'MainCtrl'
       })
 
       // Explore
       .when('/explore', {
         templateUrl: '/views/explore.html',
-        controller: 'ExploreCtrl',
-        section: 'explore'
+        controller: 'ExploreCtrl'
       })
 
       // Search
       .when('/search', {
         templateUrl: '/views/search-results.html',
-        controller: 'SearchResultsCtrl',
-        section: 'search'
+        controller: 'SearchResultsCtrl'
       })
 
       // Golive
       .when('/golive', {
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
-        section: 'golive',
         resolve: {
           user: ['AuthService', function(AuthService) {
             return AuthService.getSession();
@@ -66,10 +62,6 @@ angular.module('peepoltvApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'pl-lico
       });
   })
   .run(function($location, $rootScope, AuthService){
-    $rootScope.$on('$routeChangeSuccess', function(event, current){
-      $rootScope.section = current.$$route.section || null;
-    });
-
     $rootScope.$on('$routeChangeError', function (event, parameters) {
       // Navigate to main page
       $location.path('/');
