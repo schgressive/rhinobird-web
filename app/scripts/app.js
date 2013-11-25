@@ -29,7 +29,7 @@ angular.module('peepoltvApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'pl-li
 
       // Main
       .state('main', {
-        url: '/',
+        url: '/?reset_password_token',
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
@@ -98,6 +98,12 @@ angular.module('peepoltvApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'pl-li
         url: '/user/:userName',
         templateUrl: '/views/user.html',
         controller: 'UserCtrl'
+      })
+
+      .state('password', {
+        url: '/profile/edit',
+        templateUrl: '/views/main.html',
+        controller: 'MainCtrl'
       })
 
       // Channels
