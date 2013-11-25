@@ -16,7 +16,7 @@ angular.module('peepoltvApp')
     }
 
 		$scope.$watchCollection('channel.streams', function(a, b){
-			if (a.length == 0)
+			if (a && a.length == 0)
 	    	return;
       /* video slider */
       console.log("will wait")
