@@ -19,7 +19,7 @@ angular.module('peepoltvApp')
         templateUrl: '/views/modals/login-signup-modal.html'
       };
 
-      newModalDefaults.controller = function($scope, $modalInstance) {
+      newModalDefaults.controller = ['$scope', '$modalInstance', function($scope, $modalInstance) {
         //set default action to login
         $scope.loginModalAction = 'login';
 
@@ -27,7 +27,7 @@ angular.module('peepoltvApp')
         $scope.close = function() {
           $modalInstance.dismiss('cancel');
         }
-      }
+      }];
 
       //create modal and return it
       return $modal.open(newModalDefaults).result;
