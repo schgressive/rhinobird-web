@@ -2,10 +2,10 @@
 
 angular.module('peepoltvApp')
 
-  .controller('MainCtrl', function ($scope, streamService, $location, AuthService, $timeout, $stateParams) {
+  .controller('MainCtrl', function ($scope, $location, $timeout, $stateParams, Stream, AuthService) {
 
     // Get the streams based on geolocation
-    $scope.streams = streamService.resource.search({});
+    $scope.streams = Stream.$search();
 
     // Search streams
     $scope.searchStreams = function(){

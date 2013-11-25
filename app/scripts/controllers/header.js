@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, streamService) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService) {
 
     // Catch the unauthorized pages
     $rootScope.$on('$routeChangeError', function (event, parameters) {

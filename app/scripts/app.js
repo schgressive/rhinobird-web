@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
+angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
   .config(function ($stateProvider, $locationProvider, $restmodProvider, settings) {
     // Remove hashes and enables html push state history
     $locationProvider.html5Mode(true);

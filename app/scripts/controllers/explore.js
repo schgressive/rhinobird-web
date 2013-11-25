@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ExploreCtrl', function ($scope, GeolocationService, streamService, AuthService) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService) {
 
 		$scope.user = AuthService.user;
 
@@ -59,7 +59,7 @@ angular.module('peepoltvApp')
     };
 
     // Get the streams based on geolocation
-    streamService.resource.search({}, function(r){
+    Stream.$search().$then(function(r){
         $scope.streams = _.map(r, function(s){
           s.properties['marker-size'] = 'medium';
           s.properties['marker-color'] = '#A954F5';
