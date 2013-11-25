@@ -110,7 +110,12 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       .state('channel', {
         url: '/:channelName',
         templateUrl: '/views/channel.html',
-        controller: 'ChannelCtrl'
+        controller: 'ChannelCtrl',
+        resolve: {
+          channel: ['$stateParams', 'Channel', function($stateParams, Channel){
+            return Channel.$find($stateParams.channelName).$promise;
+          }]
+        }
       })
 
       // Vj session
