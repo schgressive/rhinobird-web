@@ -15,4 +15,21 @@ angular.module('peepoltvApp')
       $scope.mainStream = stream;
     }
 
+    /**
+     * VARIABLES
+     */
+    var vm = {}; // Define viewmodel
+
+    /**
+     * SCOPE
+     */
+    $scope.vm = vm; // Expose the viewmodel in the scope
+    $scope.ctrl = this; // Expose the controller
+
+    // The channel
+    vm.channel = channel;
+
+    // The live streams
+    vm.liveStreams = channel.streams.live();
+
   });
