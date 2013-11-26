@@ -27,9 +27,7 @@
 		    </h3>
 		  </div><!-- /.row-fluid -->
 		  <div class="row-fluid">
-		  	<div class="owl-carousel">
-			  	<div class="module-mini item" ng-repeat="stream in channel.streams | limitTo:12"><div ng-include="'/views/snippets/module-mini.html'"></div></div>
-				</div><!-- /.owl-carousel -->
+        <div owl-carousel items="channel.streams" item-template="/views/snippets/module-mini.html"></div>
 			</div><!--/.row-fluid -->
 		</section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
