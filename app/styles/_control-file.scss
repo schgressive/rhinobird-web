@@ -19,9 +19,10 @@ $white							: hsla(0,0%,100%,1); /*FFF*/
 
 // Brand Colors ------------------------------
 
-$red							: hsla(360,100%,50%,1); /*FF0000*/
+$red								: hsla(360,100%,50%,1); /*FF0000*/
 $redDark						: hsla(358,77%,50%,1); /*E01D25*/
 $redDarker					: hsla(355,81%,33%,1); /*9A101C*/
+$teal								: hsla(193,77%,17%,1); /*0A3E4D*/
 
 // Accent Colors ------------------------------
 
@@ -30,11 +31,13 @@ $orange							: hsla(16,77%,42%,1); /*BD4519*/
 $purple							: hsla(275,63%,37%,1); /*672399*/
 $yellow							: hsla(41,70%,54%,1); /*DCA938*/
 $blue								: hsla(249,13%,44%,1); /*66627E*/
+$paleYellow					: hsla(48,63%,72%,1); /*E4D489*/
+$tan								: hsla(37,20%,84%,1); /*DED8CE*/
 
 // Scaffolding ------------------------------
 
 $bodyBackground					: hsla(0,0%,94%,1); /*F0F0F0*/
-$textColor						: $gray;
+$textColor						: $grayDark;
 
 // Typography ------------------------------
 
@@ -64,23 +67,21 @@ $selectedBackgroundColor		: $purple;
 
 // Tables ------------------------------
 
-$tableBackground				: $white;
-$tableBackgroundAccent			: $grayDark;
-$tableBackgroundHover			: $grayLight;
-$tableBorder					: $grayDarker;
+$tableBackground								: $white;
+$tableBackgroundAccent					: $grayDark;
+$tableBackgroundHover						: $grayLight;
+$tableBorder										: $grayDarker;
 
 // Forms ------------------------------
 
-$placeholderText				: darken($grayLight, 10%);
-$inputBackground				: $white;
-$inputBorder					: $grayLight;
-$inputBorderRadius				: 0px;
-$inputDisabledBackground		: $grayLighter;
-$formActionsBackground			: transparent;
-$btnPrimaryBackground			: $purple;
-$btnPrimaryBackgroundHighlight	: darken($purple, 10%);
-$btnAccentBackground			: $yellow;
-$btnAccentBackgroundHighlight	: darken($yellow, 10%);
+$placeholderText								: lighten($textColor, 30%);
+$inputBackground								: $white;
+$inputBorder										: $grayLight;
+$inputBorderRadius							: 0px;
+$inputDisabledBackground				: $grayLighter;
+$formActionsBackground					: transparent;
+$btnPrimaryBackground						: $teal;
+$btnPrimaryBackgroundHighlight	: darken($teal, 10%);
 
 // Forms State & Alerts ------------------------------
 

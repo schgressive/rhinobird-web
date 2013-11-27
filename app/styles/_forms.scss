@@ -1,0 +1,187 @@
+// ------------ FORM FILE --------------
+// for form and interactive elements
+
+.ui-test {
+	.row-fluid { border-bottom: 1px dashed green; padding-bottom: 20px; padding-top: 10px;}
+	[class*="span"] { outline: 1px dashed red;}
+}
+
+body.base {
+	.btn {
+		color: $textColor;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-shadow: none;
+		background-color: transparent;
+		border: 2px solid $textColor;
+		background-image: none;
+		box-shadow: none;
+		&:hover {
+			color: $white;
+			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+			background-color: lighten($orange, 10%);
+			border-color: $orange;
+			@include font-smoothing;
+		}
+	}
+	.btn-accent:hover {
+		background-color: lighten($purple, 10%);
+		border-color: $purple;
+	}
+	.btn-inverse:hover {
+		background-color: lighten($grayDarker, 10%);
+		border-color: $grayDarker;
+	}
+	.btn-primary {
+		color: $white;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+		background-color: $btnPrimaryBackground;
+		border-color: darken($btnPrimaryBackground, 10%);
+		@include font-smoothing();
+		&:hover {
+			background-color: darken($btnPrimaryBackground, 10%);
+			border-color: darken($btnPrimaryBackground, 20%);
+		}
+		&.btn-block { height: 46px; font-size: 18px;}
+	}
+	.btn, btn-small, .btn-mini, .btn-large, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
+		border-radius: $baseBorderRadius;
+		-webkit-border-radius: $baseBorderRadius;
+	}
+	input {
+		background-color: $inputBackground;
+		border: $inputBorder 2px solid;
+		box-shadow: none;
+		@include placeholder {
+			color: $placeholderText;
+			@include fontSize(11px);
+		}
+		&[class*="span"] { height: 46px;}
+	}
+	input[type="text"], input[type="search"], input[type="email"], input[type="password"] {
+		padding: 11px 16px 11px 8px;
+		&:hover {
+			outline: $orange 1px solid;
+			border-color: $inputBackground;
+		}
+		&:focus {
+			color: $grayDarker;
+			border-color: $inputBorder;
+			background-color: $bodyBackground;
+			box-shadow: none;
+		}
+	}
+	.input-prepend input { border-left-width: 1px;}
+	.input-append input { border-right-width: 1px;}
+	.add-on {
+		padding-top: 11px;
+		padding-bottom: 11px;
+		background-color: $inputBackground;
+		border: $inputBorder 2px solid;
+		&:first-child { border-right: none;}
+		&:last-child { border-left: none;}
+		&[class*="span"] { height: 46px;}
+	}
+	.form-search {
+		input[type="search"], .add-on { border-color: $gray;}
+		input[type="search"]:hover {
+			outline: $orange 1px solid;
+			border-color: $inputBackground;
+		}
+	}
+/*
+	.form-search {
+		.add-on {padding: 10px 7px 10px;}
+		.btn {padding: 12px 0 9px 14px;}
+		input[type="search"] {
+			padding: 10px;
+		}
+	}
+*/
+	.default-wrapper {
+		.form-search {	margin: 42px 0 0 0;}
+	}
+	.action-left .btn-small {
+		&:first-of-type {
+			margin-right: 14px;
+			&:hover {
+				color: $white;
+				background-color: lighten($orange, 10%);
+				border-color: $orange;
+				@include font-smoothing;
+			}
+		}
+		&:last-of-type {
+			&:hover {
+				color: $white;
+				background-color: lighten($purple, 10%);
+				border-color: $purple;
+				@include font-smoothing;
+			}
+		}
+	}
+}
+
+.action-sub {
+	.social-list {
+		a {
+			width: 27px;
+			height: 27px;
+			background-repeat: none;
+			background-position: center center;
+			background-size: cover;
+			display: block;
+			&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
+			&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
+			&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
+			&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
+
+		}
+	}
+}
+
+.modal {
+	@include fontSize(14px);
+	text-align: center;
+	h3, a {color:$grayDarker;}
+	h3 {@include fontSize(26px);}
+	.one-liner {margin-bottom: 7px;}
+	.modal-header {border-bottom: none;}
+	.modal-body {padding-bottom: 0;}
+	.modal-footer {
+    	color: $black;
+		text-align: center;
+		background-color: transparent;
+		border-top: none;
+		box-shadow: none;
+		input, .btn, .add-on {padding: 10px 9px;}
+		input[type="text"], input[type="password"], .add-on {margin-bottom: 22px;}
+		.btn, input, .form-block, .form-block label {width: 234px;}
+    input.input-xlarge {width: 430px;}
+    label.text {text-align: left; display: inline-block;}
+		.input-prepend > input, .form-block label + .input-prepend > input {width:180px;}
+		.form-block label + input, .form-block-inline label + input {width:214px;}
+		.btn-accent {margin-bottom: 22px;}
+		.form-block-inline {
+			width: 492px;
+			.inline {
+				display: inline-block;
+				&:first-of-type {margin-right: 20px;}
+			}
+		}
+		.form-block, .form-block-inline {
+			text-align: left;
+			margin: {
+				left: auto;
+				right: auto;
+			}
+			input {width: auto;}
+		}
+	}
+}
+
+.alert {
+	color: $warningText;
+	background-color: $warningBackground;
+	border: 1px solid $warningText;
+}

@@ -1,14 +1,13 @@
 @import "compass";
 @import "compass/typography/text/ellipsis";
 
-$iconSpritePath:          "../bower_components/bootstrap-sass/img/glyphicons-halflings.png" !default;
-$iconWhiteSpritePath:     "../bower_components/bootstrap-sass/img/glyphicons-halflings-white.png" !default;
+$iconSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflings.png" !default;
+$iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflings-white.png" !default;
 
 @import "../bower_components/bootstrap-sass/lib/bootstrap";
 @import "../bower_components/bootstrap-sass/lib/mixins";
 @import "control-file"; /*overrides bootstrap variables*/
 @import "../bower_components/bootstrap-sass/lib/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
-
 @import "../bower_components/owlcarousel/owl-carousel/owl.carousel.css";
 @import "../bower_components/owlcarousel/owl-carousel/owl.theme.css";
 
@@ -27,18 +26,9 @@ $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Ne
 
 $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
-// HEADER SWAP ------------------------------
+@import "forms"; /*imports styles for forms*/
 
-/*
-.golive .ng-scope > .banner {
-	padding-bottom: 60px;
-	.golive-nav-wrapper {
-		display:block !important;
-		speak:normal;
-		.navLink i[class*="icon"] { margin-top: 2px;}
-	}
-}
-*/
+// HEADER SWAP ------------------------------
 
 .golive footer {display: none;}
 
@@ -93,7 +83,7 @@ h6 {font-size: $fontSizeSmall;}
 
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 
-a {
+a, .btn, input {
 	@include baseTransitionOut;
 	&:hover {@include baseTransitionIn;}
 }
@@ -102,15 +92,6 @@ a {
 // includes Bootstrap Overrides
 
 body.base { /*overrides are here */
-	input {
-		@include placeholder {
-			color: $placeholderText;
-			@include fontSize(11px);
-			font-family: "LatoItalic", $italic-font-stack;
-			background-color: $inputBackground;
-			border-color: $inputBorder;
-		}
-	}
 	input[type="search"] + .add-on {padding: 4px 5px}
 	.tooltip {
 		&.top .tooltip-arrow {border-top-color: $tooltipArrowColor;}
@@ -122,17 +103,6 @@ body.base { /*overrides are here */
 		color: $tooltipColor;
 		background-color: $tooltipBackground;
 	}
-	.btn {
-		text-transform: uppercase;
-		text-shadow: none;
-		background-image: none;
-		box-shadow: none;
-	}
-	.btn, btn-small, .btn-mini, input[type="text"], input[type="password"], input[type="search"], .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
-			-webkit-appearance: none !important;
-			border-radius: $baseBorderRadius;
-			-webkit-border-radius: $baseBorderRadius;
-		}
 	.navbar {
 		color: $navbarText;
 		@include fontSize(14px);
@@ -232,20 +202,6 @@ body.base { /*overrides are here */
 		background-color: $grayLight;
 		h3 {margin: 14px 0 0 0;}
 	}
-	.btn-primary {
-		background-color: $btnPrimaryBackground;
-		&:hover {background-color: $btnPrimaryBackgroundHighlight;}
-	}
-	.btn-accent {
-		background-color: $btnAccentBackground;
-		&:hover {background-color: $btnAccentBackgroundHighlight;}
-	}
-	.btn-primary, .btn-accent, .btn-basic {
-		color: $white;
-		@include fontSize(16px);
-		letter-spacing: 1px;
-		border: none;
-	}
 }
 
 i[class*="icon"] {font-style: normal;}
@@ -261,21 +217,7 @@ i[class*="icon"] {font-style: normal;}
 	font-family: "LatoBold", $bold-font-stack;
 	margin-bottom: 20px;
 	@include font-smoothing;
-	i {
-		width: 34px;
-		height: 34px;
-		margin-right: 5px;
-		display: inline-block;
-		vertical-align: middle;
-	}
 }
-
-.explore-icon {@include vector-bg-with-fallback(globe-icon);}
-.stream-icon {@include vector-bg-with-fallback(stream-icon);}
-.onfire-icon {@include vector-bg-with-fallback(onfire-icon);}
-.featured-icon {@include vector-bg-with-fallback(featured-icon);}
-.suggested-icon {@include vector-bg-with-fallback(suggested-icon);}
-.channel-icon {@include vector-bg-with-fallback(hash-icon);}
 
 .banner {
 	padding-bottom: 40px;
@@ -354,79 +296,17 @@ body.golive {
 
 .top-content {
 	padding: 20px 70px 10px;
-	h2 {
-		color: $grayDark;
+	h1 {
+		color: $grayDarker;
+		line-height: 50px;
 		margin-bottom: 24px;
 	}
 	.default-wrapper {
-		.form-search {	margin: 42px 0 0 0;}
+		.form-search { margin: 42px 0 0 0;}
 	}
 	.loggedin-actions {
 		.form-search { margin-top: 0; margin-bottom: 0;}
 		.user-avatar { margin-right: 14px; display: block;}
-	}
-	.form-search {
-		.add-on {padding: 10px 7px 10px;}
-		input[type="search"] {
-			width: 86%;
-			padding: 10px;
-		}
-	}
-	.action-left .btn-small {
-		font-weight: bold;
-		background-color: $bodyBackground;
-		border: 2px solid $grayDark;
-		&:first-of-type {
-			margin-right: 14px;
-			&:hover {
-				color: $white;
-				background-color: lighten($orange, 10%);
-				border-color: $orange;
-				@include font-smoothing;
-			}
-		}
-		&:last-of-type {
-			&:hover {
-				color: $white;
-				background-color: lighten($purple, 10%);
-				border-color: $purple;
-				@include font-smoothing;
-			}
-		}
-	}
-	.form-search .btn {
-		color: $white;
-		font-family: "Hero", $condensed-font-stack;
-		@include fontSize(16px);
-		letter-spacing: 1px;
-		text-align: left;
-		padding: 12px 0 9px 14px;
-		vertical-align: top;
-		width: 100%;
-		background: $grayDark url('/images/letsgo-icon.svg') top right no-repeat;
-		background-size: auto;
-		border: none;
-		float: right;
-		@include font-smoothing();
-		&:hover { background-color: $grayDarker;}
-	}
-}
-
-.action-sub {
-	.social-list {
-		a {
-			width: 27px;
-			height: 27px;
-			background-repeat: none;
-			background-position: center center;
-			background-size: cover;
-			display: block;
-			&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
-			&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
-			&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
-			&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
-
-		}
 	}
 }
 
@@ -468,7 +348,6 @@ body.golive {
 }
 
 .explore {
-	.form-geo { margin-bottom: 0;}
 	.lower-content { margin-top: 0;}
 }
 
@@ -721,67 +600,6 @@ body.golive {
 	.one-liner, .block {display: block;}
 }
 
-.modal {
-	@include fontSize(14px);
-	text-align: center;
-	h3, a {color:$grayDarker;}
-	h3 {@include fontSize(26px);}
-	.one-liner {margin-bottom: 7px;}
-	.modal-header {border-bottom: none;}
-	.modal-body {padding-bottom: 0;}
-	.modal-footer {
-    	color: $black;
-		text-align: center;
-		background-color: transparent;
-		border-top: none;
-		box-shadow: none;
-		input, .btn, .add-on {padding: 10px 9px;}
-		input[type="text"], input[type="password"], .add-on {margin-bottom: 22px;}
-		.btn, input, .form-block, .form-block label {width: 234px;}
-    input.input-xlarge {width: 430px;}
-    label.text {text-align: left; display: inline-block;}
-		.input-prepend > input, .form-block label + .input-prepend > input {width:180px;}
-		.form-block label + input, .form-block-inline label + input {width:214px;}
-		.btn-accent {margin-bottom: 22px;}
-		.form-block-inline {
-			width: 492px;
-			.inline {
-				display: inline-block;
-				&:first-of-type {margin-right: 20px;}
-			}
-		}
-		.form-block, .form-block-inline {
-			text-align: left;
-			margin: {
-				left: auto;
-				right: auto;
-			}
-			input {width: auto;}
-		}
-	}
-}
-
-.btn-primary {
-	background-color: $btnPrimaryBackground;
-	&:hover {background-color: darken($btnPrimaryBackground, 5%);}
-}
-
-.btn.green {
-	background-color: $green;
-	&:hover {background-color: darken($green, 5%);}
-}
-
-.btn.purple {
-	background-color: $purple;
-	&:hover {background-color: darken($purple, 5%);}
-}
-
-.alert {
-	color: $warningText;
-	background-color: $warningBackground;
-	border: 1px solid $warningText;
-}
-
 .tags-wrapper {
 	background-color: $white;
 	.alpha-col {
@@ -843,10 +661,3 @@ body.golive {
 }
 
 @import "mobile-overrides";
-
-/* buttons, forms, inputs, etc */
-
-.ui-test {
-	.row-fluid { border-bottom: 1px dashed green; padding-bottom: 20px; padding-top: 10px;}
-	[class*="span"] { outline: 1px dashed red;}
-}
