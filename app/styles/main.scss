@@ -18,7 +18,7 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 @include font-face("LatoItalic", '/fonts/lato-regita-webfont');
 @include font-face("LatoBold", '/fonts/lato-bol-webfont');
 @include font-face("Hero",'/fonts/hero-webfont');
-@include font-face("Mission",'/fonts/mission-script-webfont');
+@include font-face("Museo",'/fonts/museo500-regular-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -108,18 +108,25 @@ body.base { /*overrides are here */
 		@include fontSize(14px);
 		.span1 {margin-left: 0;}
 		.navbar-inner {
+			min-height: $navbarHeight;
 			padding-left: 70px;
 			padding-right: 70px;
 			background-color: $navbarBackground;
 			background-image: none;
-			border-bottom: 1px solid $grayLight;
-			@include box-shadow(0 1px 10px rgba(0,0,0,.1));
+			background-repeat: none;
+			border-bottom: 3px solid $orange;
+			box-shadow: none;
+			/* box-shadow: 0px 1px 0 hsla(39,100%,42%,1); */
 			.main-nav { float: left;}
 			a.brand {
-				font-family: "Hero", $condensed-font-stack;
+				width: 150px;
+				height: 32px;
+				background: url('../images/ptv-logo-k.svg') top left no-repeat;
+				background-size: contain;
 				padding: 0;
-				margin: 11px 0 0;
+				margin: 6px 0 0;
 				float: left;
+				transition-property: none;
 			}
 			.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
 				background-color: darken($redDark, 10%);
@@ -172,12 +179,13 @@ body.base { /*overrides are here */
 			.navToggle {
 				width: 38px;
 				height: 32px;
-				margin: 5px 10px 0 0;
+				margin: 7px 3px 0 0;
 				border: none;
 				display: block;
-				@include vector-bg-with-fallback(menu-24);
+				background: url('../images/o-menu-24.svg') top left no-repeat;
+				/* @include vector-bg-with-fallback(menu-24); */
 				background-size: 74%;
-				@include opacity(.4);
+				@include opacity(.7);
 				&:hover { @include opacity(1);}
 			}
 			.submenu {
@@ -224,35 +232,32 @@ i[class*="icon"] {font-style: normal;}
 	@media (max-width: $navbarCollapseWidth) {padding-bottom: 0;}
 }
 
-.golive-btn { /*COMBINE SOME OF THESE STYLES WITH SIMILAR*/
-	font-family: "Hero", $condensed-font-stack;
+.golive-btn {
+	font-family: "Museo";
+	color: $grayDarker;
 	@include fontSize(18px);
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	/* text-transform: uppercase; */
 	background-color: $white;
-	border-left: 1px solid $borderLight;
-	border-right: 1px solid $borderLight;
 	@include font-smoothing;
 	height: 44px;
-	padding: 4px 18px;
+	padding: 8px 18px 4px;
 	border: none;
-	border-left: 1px solid $grayLight;
-	border-right: 1px solid $grayLight;
 	&:hover { background-color: darken($white, 4%); cursor: pointer;}
 	a {
-		color: $grayDark;
+		color: $black;
 		text-decoration: none;
 		padding: 0;
 		width: 100%;
 		height: auto;
 		&:hover {color: $grayDarker; text-decoration: none;}
 	}
-	.golive-icon { /*NEED TO CREATE PROGRESSIVE SVG SPRITE*/
-		width: 32px;
-		height: 32px;
+	.golive-icon {
+		width: 28px;
+		height: 28px;
 		display: inline-block;
 		vertical-align: middle;
 		background: url('/images/golive-icon.svg') top left no-repeat;
+		background-size: contain;
 	}
 }
 
@@ -300,9 +305,6 @@ body.golive {
 		color: $grayDarker;
 		line-height: 50px;
 		margin-bottom: 24px;
-	}
-	.default-wrapper {
-		.form-search { margin: 42px 0 0 0;}
 	}
 	.loggedin-actions {
 		.form-search { margin-top: 0; margin-bottom: 0;}

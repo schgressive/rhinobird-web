@@ -6,6 +6,9 @@
 	[class*="span"] { outline: 1px dashed red;}
 }
 
+.row-fluid {outline: yellow 1px dashed;}
+[class*="span"] {outline: aqua 1px dashed;}
+
 body.base {
 	.btn {
 		color: $textColor;
@@ -89,17 +92,8 @@ body.base {
 			border-color: $inputBackground;
 		}
 	}
-/*
-	.form-search {
-		.add-on {padding: 10px 7px 10px;}
-		.btn {padding: 12px 0 9px 14px;}
-		input[type="search"] {
-			padding: 10px;
-		}
-	}
-*/
 	.default-wrapper {
-		.form-search {	margin: 42px 0 0 0;}
+		.form-search { margin-top: 63px;}
 	}
 	.action-left .btn-small {
 		&:first-of-type {

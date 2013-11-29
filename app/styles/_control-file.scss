@@ -22,12 +22,13 @@ $white							: hsla(0,0%,100%,1); /*FFF*/
 $red								: hsla(360,100%,50%,1); /*FF0000*/
 $redDark						: hsla(358,77%,50%,1); /*E01D25*/
 $redDarker					: hsla(355,81%,33%,1); /*9A101C*/
+$orange							:	hsla(39,100%,50%,1); /*FFA500*/
 $teal								: hsla(193,77%,17%,1); /*0A3E4D*/
 
 // Accent Colors ------------------------------
 
 $green							: hsla(156,100%,35%,1); /*00CC7C*/
-$orange							: hsla(16,77%,42%,1); /*BD4519*/
+$darkOrange					: hsla(16,77%,42%,1); /*BD4519*/
 $purple							: hsla(275,63%,37%,1); /*672399*/
 $yellow							: hsla(41,70%,54%,1); /*DCA938*/
 $blue								: hsla(249,13%,44%,1); /*66627E*/
@@ -85,40 +86,40 @@ $btnPrimaryBackgroundHighlight	: darken($teal, 10%);
 
 // Forms State & Alerts ------------------------------
 
-$warningText					: $yellow;
-$warningBackground				: transparent;
-$errorText						: $red;
-$errorBackground				: transparent;
-$successText					: $green;
-$successBackground				: transparent;
-$infoText						: $blue;
-$infoBackground					: transparent;
+$warningText										: $yellow;
+$warningBackground							: transparent;
+$errorText											: $red;
+$errorBackground								: transparent;
+$successText										: $green;
+$successBackground							: transparent;
+$infoText												: $blue;
+$infoBackground									: transparent;
 
 // Navbar ------------------------------
 
-$navbarHeight					: 40px;
-$navbarBackground				: $white;
-$navbarBackgroundHighlight		: transparent;
-$navbarText						: $gray;
-$navbarBrandColor				: $navbarText;
-$navbarLinkColor				: $white;
-$navbarLinkColorHover			: $white;
-$navbarLinkColorActive			: $grayDark;
-$navbarLinkBackgroundHover		: darken($redDark, 20%);
-$navbarSearchBackground			: lighten($navbarBackground, 25%);
-$navbarSearchBackgroundFocus	: $white;
-$navbarSearchBorder				: darken($navbarSearchBackground, 75%);
-$navbarSearchPlaceholderColor	: $grayLighter;
-$navbarCollapseWidth			: 979px;
-$navbarCollapseDesktopWidth		: $navbarCollapseWidth + 1;
+$navbarHeight										: 44px;
+$navbarBackground								: $white;
+$navbarBackgroundHighlight			: transparent;
+$navbarText											: $gray;
+$navbarBrandColor								: $navbarText;
+$navbarLinkColor								: $white;
+$navbarLinkColorHover						: $white;
+$navbarLinkColorActive					: $grayDark;
+$navbarLinkBackgroundHover			: darken($redDark, 20%);
+$navbarSearchBackground					: lighten($navbarBackground, 25%);
+$navbarSearchBackgroundFocus		: $white;
+$navbarSearchBorder							: darken($navbarSearchBackground, 75%);
+$navbarSearchPlaceholderColor		: $grayLighter;
+$navbarCollapseWidth						: 979px;
+$navbarCollapseDesktopWidth			: $navbarCollapseWidth + 1;
 
 // Dropdowns ------------------------------
 
-$dropdownBackground				: $white;
-$dropdownBorder					: hsla(0%,0%,0%,.2);
-$dropdownLinkColor				: $grayDark;
-$dropdownLinkColorHover			: $white;
-$dropdownLinkBackgroundHover	: $dropdownLinkColor;
+$dropdownBackground							: $white;
+$dropdownBorder									: hsla(0%,0%,0%,.2);
+$dropdownLinkColor							: $grayDark;
+$dropdownLinkColorHover					: $white;
+$dropdownLinkBackgroundHover		: $dropdownLinkColor;
 
 // Components ------------------------------
 
