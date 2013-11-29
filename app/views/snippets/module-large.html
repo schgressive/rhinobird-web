@@ -9,7 +9,7 @@
 	<ul class="no-bullets">
 		<li class="thumb-user pull-left">
 			<a href="#" title="{{stream.user.name}}">
-        <img ng-src="{{stream.user.email | gravatar:42:'/images/profile-default.svg'}}"/>
+        <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:42:'/images/profile-default.svg')}}"/>
 			</a>
 		</li>
 		<li class="ellipsis">
