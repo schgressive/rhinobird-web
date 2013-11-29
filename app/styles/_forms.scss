@@ -6,8 +6,10 @@
 	[class*="span"] { outline: 1px dashed red;}
 }
 
+/*
 .row-fluid {outline: yellow 1px dashed;}
 [class*="span"] {outline: aqua 1px dashed;}
+*/
 
 body.base {
 	.btn {
@@ -62,23 +64,23 @@ body.base {
 		&[class*="span"] { height: 46px;}
 	}
 	input[type="text"], input[type="search"], input[type="email"], input[type="password"] {
-		padding: 11px 16px 11px 8px;
+		padding: 14px 16px 12px 8px;
 		&:hover {
-			outline: $orange 1px solid;
-			border-color: $inputBackground;
+			border-color: $orange;
+			box-shadow: 0 0 0 1px $orange inset;
 		}
 		&:focus {
 			color: $grayDarker;
-			border-color: $inputBorder;
 			background-color: $bodyBackground;
-			box-shadow: none;
+			border-color: $inputBorder;
+			box-shadow: 0 0 0 1px $gray inset;
 		}
 	}
 	.input-prepend input { border-left-width: 1px;}
 	.input-append input { border-right-width: 1px;}
 	.add-on {
-		padding-top: 11px;
-		padding-bottom: 11px;
+		padding-top: 14px;
+		padding-bottom: 12px;
 		background-color: $inputBackground;
 		border: $inputBorder 2px solid;
 		&:first-child { border-right: none;}
@@ -86,11 +88,8 @@ body.base {
 		&[class*="span"] { height: 46px;}
 	}
 	.form-search {
-		input[type="search"], .add-on { border-color: $gray;}
-		input[type="search"]:hover {
-			outline: $orange 1px solid;
-			border-color: $inputBackground;
-		}
+		.input-prepend { margin-right: 14px;}
+		.input-prepend + button[type="submit"] { margin-top: -1px;}
 	}
 	.default-wrapper {
 		.form-search { margin-top: 63px;}

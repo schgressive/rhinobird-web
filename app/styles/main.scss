@@ -185,8 +185,7 @@ body.base { /*overrides are here */
 				background: url('../images/o-menu-24.svg') top left no-repeat;
 				/* @include vector-bg-with-fallback(menu-24); */
 				background-size: 74%;
-				@include opacity(.7);
-				&:hover { @include opacity(1);}
+				&:hover { outline: red solid 1px;}
 			}
 			.submenu {
 				list-style-type: none;
@@ -300,7 +299,8 @@ body.golive {
 }
 
 .top-content {
-	padding: 20px 70px 10px;
+	padding: 9px 70px 18px;
+	background-color: hsla(0,0%,97%,1);
 	h1 {
 		color: $grayDarker;
 		line-height: 50px;
