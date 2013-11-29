@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
-  .config(function ($stateProvider, $locationProvider, $restmodProvider, settings) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, settings) {
     // Remove hashes and enables html push state history
     $locationProvider.html5Mode(true);
+
+    // Force some redirections
+    $urlRouterProvider
+      .otherwise('/');
 
     // Define the application routes
     $stateProvider
@@ -95,7 +99,7 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
 
       // User
       .state('user', {
-        url: '/user/:userName',
+        url: '/user/{userName:[0-9a-zA-Z]*}',
         templateUrl: '/views/user.html',
         controller: 'UserCtrl'
       })
@@ -108,7 +112,7 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
 
       // Channels
       .state('channel', {
-        url: '/:channelName',
+        url: '/{channelName:[0-9a-zA-Z]*}',
         templateUrl: '/views/channel.html',
         controller: 'ChannelCtrl',
         resolve: {
@@ -120,7 +124,7 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
 
       // Vj session
       .state('vjsession', {
-        url: '/:channelName/:userName',
+        url: '/{channelName:[0-9a-zA-Z]*}/{userName:[0-9a-zA-Z]*}',
         templateUrl: '/views/vj-session.html',
         controller: 'VjSessionCtrl'
       })

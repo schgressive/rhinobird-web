@@ -2,5 +2,7 @@
 
 angular.module('peepoltvApp')
   .constant('settings', {
-    apiHost: '/api'
+    apiHost: '/api',
+    channelCleanedRegex: /[^\d^\w]/g
   });
+

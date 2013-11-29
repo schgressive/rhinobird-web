@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, Stream, GeolocationService, CameraService, GoliveService) {
+  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, settings, Stream, GeolocationService, CameraService, GoliveService) {
 
     /**
      * VARIABLES
@@ -68,7 +68,10 @@ angular.module('peepoltvApp')
     // Hashtags
     $scope.$watch('vm.caption', function(a){
       if(a){
-        vm.channels = a.match(regexp);
+        var hashes = a.match(regexp);
+        vm.channels = _.map(hashes, function(c){
+          return c.replace(settings.channelCleanedRegex, '');
+        });
       }
     });
 
