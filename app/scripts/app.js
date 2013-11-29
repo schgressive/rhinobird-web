@@ -135,7 +135,7 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       });
   })
   .run(function($location, $rootScope, AuthService){
-    $rootScope.$on('$routeChangeError', function (event, parameters) {
+    $rootScope.$on('$stateChangeError', function (event, parameters) {
       // Navigate to main page
       $location.path('/');
     });
