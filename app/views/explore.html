@@ -1,7 +1,7 @@
 <section class="top-content feature">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-      <div class="default-wrapper" ng-hide="app.isLoggedIn">
+      <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
       <div class="loggedin-actions" ng-show="app.isLoggedIn">
@@ -17,8 +17,8 @@
       <div class="row-fluid">
         <nav class="faux-tabs span6" role="navigation">
           <ul class="inline no-bullets">
-            <li><a ui-sref="main">Happening Now</a></li>
-            <li><a ui-sref="explore">Explore Your World</a></li>
+            <li><a ui-sref="main"><i class="icon-star"></i> Happening Now</a></li>
+            <li class="active"><a ui-sref="explore"><i class="icon-globe"></i> Explore Your World</a></li>
           </ul>
         </nav>
         <div class="span6">

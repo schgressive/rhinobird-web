@@ -71,7 +71,7 @@ body.base {
 		}
 		&:focus {
 			color: $grayDarker;
-			background-color: $bodyBackground;
+			background-color: hsla(0,0%,97%,1);
 			border-color: $inputBorder;
 			box-shadow: 0 0 0 1px $gray inset;
 		}
@@ -90,6 +90,7 @@ body.base {
 	.form-search {
 		.input-prepend { margin-right: 14px;}
 		.input-prepend + button[type="submit"] { margin-top: -1px;}
+		input[type="search"] { width: 326px;}
 	}
 	.default-wrapper {
 		.form-search { margin-top: 63px;}
