@@ -83,7 +83,7 @@ h6 {font-size: $fontSizeSmall;}
 
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 
-a, .btn, input {
+a, i, .btn, input {
 	@include baseTransitionOut;
 	&:hover {@include baseTransitionIn;}
 }
@@ -326,13 +326,22 @@ body.golive {
 			&:first-of-type { margin-right: 10px;}
 		}
 		a {
-			color: $grayDark;
-			padding: 5px 7px 5px 5px;
+			color: $gray;
+			padding: 5px 7px 5px 0;
 			display: block;
-			&:hover { outline: $purple 1px solid; text-decoration: none;}
-			i { opacity: .9;}
+			&:hover {
+				color: $black;
+				padding-bottom: 4px;
+				border-bottom: $orange 1px solid;
+				text-decoration: none;
+				i { opacity: 1;}
+			}
+			i { opacity: .6;}
 		}
-		li.active a { background-color: $white;}
+		li.active {
+			a { color: $black;}
+			i { opacity: 1;}
+		}
 	}
 }
 
