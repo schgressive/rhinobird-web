@@ -81,8 +81,8 @@ $inputBorder										: $grayLight;
 $inputBorderRadius							: 0px;
 $inputDisabledBackground				: $grayLighter;
 $formActionsBackground					: transparent;
-$btnPrimaryBackground						: $teal;
-$btnPrimaryBackgroundHighlight	: darken($teal, 10%);
+$btnPrimaryBackground						: $grayDark;
+$btnPrimaryBackgroundHighlight	: darken($grayDark, 10%);
 
 // Forms State & Alerts ------------------------------
 

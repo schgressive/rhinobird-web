@@ -177,15 +177,15 @@ body.base { /*overrides are here */
 				background-image: none;
 			}
 			.navToggle {
-				width: 38px;
-				height: 32px;
-				margin: 7px 3px 0 0;
+				width: 24px;
+				height: 24px;
+				margin: 9px 9px 0 0;
 				border: none;
 				display: block;
-				background: url('../images/o-menu-24.svg') top left no-repeat;
+				background: url('../images/menu-up-24.svg') top left no-repeat;
 				/* @include vector-bg-with-fallback(menu-24); */
-				background-size: 74%;
-				&:hover { outline: red solid 1px;}
+				-webkit-transition: none;
+				&:hover { background-image: url('../images/menu-hover-24.svg');}
 			}
 			.submenu {
 				list-style-type: none;
@@ -331,8 +331,6 @@ body.golive {
 			display: block;
 			&:hover {
 				color: $black;
-				padding-bottom: 4px;
-				border-bottom: $orange 1px solid;
 				text-decoration: none;
 				i { opacity: 1;}
 			}
