@@ -16,7 +16,8 @@ angular.module('peepoltvApp')
         return TEMPLATE_PATH + (URL[e.attr('size')] || URL[DEFAULT_SIZE]);
       },
       scope: {
-        stream: "="
+        stream: "=",
+        mute: "@"
       },
       restrict: 'EA'
     };
