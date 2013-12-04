@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: owlCarousel', function () {
+describe('Directive: videoCanvasProjector', function () {
 
   // load the directive's module
   beforeEach(module('peepoltvApp'));
@@ -13,8 +13,8 @@ describe('Directive: owlCarousel', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<owl-carousel></owl-carousel>');
+    element = angular.element('<video-canvas-projector></video-canvas-projector>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the owlCarousel directive');
+    expect(element.text()).toBe('this is the videoCanvasProjector directive');
   }));
 });

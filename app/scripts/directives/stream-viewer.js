@@ -19,6 +19,12 @@ angular.module('peepoltvApp')
         stream: "=",
         mute: "@"
       },
-      restrict: 'EA'
+      restrict: 'EA',
+      link: function postLink(scope, element, attrs, licode) {
+        scope.$on('stream-video-created', function(event, licodeStream){
+          // Set the licode stream object in the licode property of the stream
+          scope.stream.licode = licodeStream;
+        });
+      }
     };
   });

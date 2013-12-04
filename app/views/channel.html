@@ -16,7 +16,9 @@
   	<section class="mid-content">
 		  <div class="row-fluid">
 		    <div class="module-xlarge span12">
-          <canvas id="channel-canvas" width="940" height="512"></canvas>
+          <div video-canvas-projector video="self.currentStream.licode.player.video" width="940" height="512"></div>
+          <div>{{self.pool.mainStream.caption}}</div>
+          <div>{{self.pool.streamsCount}}</div>
 		    </div><!-- /.module-xlarge -->
 		  </div><!-- /.row-fluid -->
 		</section><!-- /.mid-content -->
@@ -27,7 +29,7 @@
 		    </h3>
 		  </div><!-- /.row-fluid -->
 		  <div class="row-fluid">
-        <div owl-carousel items="vm.liveStreams" item-template="/views/snippets/module-mini-playing.html"></div>
+        <div channel-pool channel="self.channel" vj="false" vj-flow="outbound" max-streams="4"></div>
 			</div><!--/.row-fluid -->
 		</section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
