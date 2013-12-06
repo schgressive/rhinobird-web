@@ -39,9 +39,8 @@ body.base {
 	}
 	.btn-primary {
 		color: $white;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 		background-color: $btnPrimaryBackground;
-		border-color: darken($btnPrimaryBackground, 10%);
+		border-color: $btnPrimaryBackground;
 		@include font-smoothing();
 		&:hover {
 			background-color: darken($btnPrimaryBackground, 10%);
@@ -49,6 +48,7 @@ body.base {
 		}
 		&.btn-block { height: 46px; font-size: 18px;}
 	}
+	.btn-large, .btn-primary { padding: 11px 16px 9px 8px;}
 	.btn, btn-small, .btn-mini, .btn-large, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
 		border-radius: $baseBorderRadius;
 		-webkit-border-radius: $baseBorderRadius;
@@ -64,7 +64,7 @@ body.base {
 		&[class*="span"] { height: 46px;}
 	}
 	input[type="text"], input[type="search"], input[type="email"], input[type="password"] {
-		padding: 14px 16px 12px 8px;
+		padding: 11px 16px 9px 8px;
 		&:hover {
 			border-color: $orange;
 			box-shadow: 0 0 0 1px $orange inset;
@@ -79,8 +79,8 @@ body.base {
 	.input-prepend input { border-left-width: 1px;}
 	.input-append input { border-right-width: 1px;}
 	.add-on {
-		padding-top: 14px;
-		padding-bottom: 12px;
+		padding-top: 11px;
+		padding-bottom: 9px;
 		background-color: $inputBackground;
 		border: $inputBorder 2px solid;
 		&:first-child { border-right: none;}
@@ -93,7 +93,10 @@ body.base {
 		input[type="search"] { width: 326px;}
 	}
 	.default-wrapper {
-		.form-search { margin-top: 63px;}
+		.form-search {
+			margin-top: 63px;
+			input, .add-on, button { padding: 14px 16px 12px 8px;}
+		}
 	}
 	.action-left .btn-small {
 		&:first-of-type {
