@@ -2,7 +2,7 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="width-controller container-fluid">
-        <div class="row-fluid">
+        <div class="row">
           <div class="main-nav-wrapper pull-left">
             <nav class="main-nav" role="navigation">
               <a href="#" id="drop1" class="navToggle dropdown-toggle" data-toggle="dropdown" role="button"><span class="visually-hidden">Navigation</span></a>
@@ -16,13 +16,9 @@
                 <li class="navLink deactivated"><a href="/account"><i class="icon-cog icon-white"></i>Account Settings</a></li>
               </ul><!-- /.dropdown-menu -->
             </nav><!-- /.main-nav -->
-            <a href="/" class="brand" title="return to home"><span class="visually-hidden">peepol.tv</span></a>
+            <a href="/" class="brand" title="return to home"><span>peepol.tv</span></a>
           </div><!-- /.main-nav-wrapper -->
-          <div class="golive-btn-wrapper pull-right">
-            <button id="golive-btn" class="golive-btn">
-              <a ui-sref="golive"><i class="golive-icon"></i> <span class="goLive-toggle">go live!</span><span class="onAir-toggle golive-toggle-off">On Air</span></a>
-            </button>
-          </div><!-- /golive-btn-wrapper -->
+          <a class="golive-btn pull-right" ui-sref="golive" role="button"><span class="visually-hidden">Click to Go Live!</span></a>
         </div><!-- /.row-fluid -->
       </div><!-- /.container-fluid -->
     </div><!-- /.inner-navbar -->

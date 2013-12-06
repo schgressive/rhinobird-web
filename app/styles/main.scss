@@ -119,12 +119,8 @@ body.base { /*overrides are here */
 			/* box-shadow: 0px 1px 0 hsla(39,100%,42%,1); */
 			.main-nav { float: left;}
 			a.brand {
-				width: 150px;
-				height: 32px;
-				background: url('../images/ptv-logo-k.svg') top left no-repeat;
-				background-size: contain;
 				padding: 0;
-				margin: 6px 0 0;
+				margin: 9px 0 0;
 				float: left;
 				transition-property: none;
 			}
@@ -232,36 +228,21 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .golive-btn {
-	font-family: "Museo";
-	color: $grayDarker;
-	@include fontSize(18px);
-	/* text-transform: uppercase; */
-	background-color: $white;
-	@include font-smoothing;
-	height: 44px;
-	padding: 8px 18px 4px;
-	border: none;
-	&:hover { background-color: darken($white, 4%); cursor: pointer;}
-	a {
-		color: $black;
-		text-decoration: none;
-		padding: 0;
-		width: 100%;
-		height: auto;
-		&:hover {color: $grayDarker; text-decoration: none;}
+	padding: 0;
+	width: 140px;
+	height: 46px;
+	background: $white url('/images/golive-btn-up.svg') 0px 0px no-repeat;
+	background-size: contain;
+	display: block;
+	transition-property: none;
+	&:hover {
+		background-image: url('/images/golive-btn-hover.svg');
+		transition-property: none;
 	}
-	.golive-icon {
-		width: 28px;
-		height: 28px;
-		display: inline-block;
-		vertical-align: middle;
-		background: url('/images/golive-icon.svg') top left no-repeat;
-		background-size: contain;
+	&.onair {
+		background-image: url('/images/onair-btn.svg');
 	}
 }
-
-/* this is a problem that needs to be fixed or remove the go live on air toggle, it should work w/o 'body.base' */
-body.base #golive-btn span.golive-toggle-off {display: none !important; speak: none;}
 
 .modal-backdrop{
   opacity: 0.5 !important;
