@@ -361,14 +361,24 @@ module.exports = function (grunt) {
       ]);
     }
 
-    grunt.task.run([
+    var defaultServer = [
       'clean:server',
       'concurrent:server',
       'configureProxies',
       'connect:livereload',
       'open',
       'watch'
-    ]);
+    ]
+
+    var noLivereloadServer = [
+      'clean:server',
+      'concurrent:server',
+      'open',
+      'configureProxies',
+      'connect:livereload:keepalive'
+    ]
+    var liveReload = grunt.option('livereload') || grunt.option('livereload') === undefined? true : false;
+    grunt.task.run(liveReload ? defaultServer : noLivereloadServer);
   });
 
   grunt.registerTask('test', [
