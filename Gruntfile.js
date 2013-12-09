@@ -110,6 +110,10 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
+              proxySnippet,
+              modRewrite([
+                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico) / [L]'
+              ]),
               mountFolder(connect, yeomanConfig.dist)
             ];
           }
@@ -349,7 +353,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+      return grunt.task.run([
+        'build',
+        'open',
+        'configureProxies',
+        'connect:dist:keepalive'
+      ]);
     }
 
     grunt.task.run([
