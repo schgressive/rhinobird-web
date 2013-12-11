@@ -1,8 +1,8 @@
-<section class="top-content feature">
+<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
   <div class="width-controller container-fluid">
-    <div class="row-fluid"><!-- default-wrapper-->
-      <div class="loggedin-actions clearfix" ng-hide="app.isLoggedIn">
-        <div ng-include="'/views/layouts/base-actions.html'"></div>
+    <div class="row-fluid">
+      <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
+        <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
       <div class="loggedin-actions clearfix" ng-show="app.isLoggedIn">
         <div ng-include="'/views/layouts/base-actions.html'"></div>

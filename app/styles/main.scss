@@ -8,6 +8,7 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 @import "../bower_components/bootstrap-sass/lib/mixins";
 @import "control-file"; /*overrides bootstrap variables*/
 @import "../bower_components/bootstrap-sass/lib/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
+@import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/owlcarousel/owl-carousel/owl.carousel.css";
 @import "../bower_components/owlcarousel/owl-carousel/owl.theme.css";
 
@@ -280,11 +281,20 @@ body.golive {
 
 .top-content {
 	padding: 22px 70px 10px;
-	background-color: hsla(0,0%,97%,1);
+	&.loggedIn { background-color: hsla(0,0%,97%,1);}
+	&.feature {
+		background: hsla(0,0%,97%,1) url('/images/slide1.jpg') 0px 7px no-repeat;
+		border-bottom: $orange solid 3px;
+		padding-top: 40px;
+		padding-bottom: 30px;
+	}
 	h1 {
-		color: $grayDarker;
+		color: $white;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+		@include font-smoothing();
 		line-height: 50px;
 		margin-bottom: 24px;
+		.one-liner { margin-top: 10px;}
 	}
 	.default-wrapper {
 		margin-top: -12px;

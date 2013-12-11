@@ -93,6 +93,14 @@ body.base {
 		input[type="search"] { width: 326px;}
 	}
 	.default-wrapper {
+		.btn {
+			color: $white;
+			font-weight: bold;
+			text-transform: uppercase;
+			background-color: hsla(0,0%,0%,.5);
+			border: 2px solid $white;
+			@include font-smoothing();
+		}
 		.form-search {
 			margin-top: 63px;
 			input, .add-on, button { padding: 14px 16px 12px 8px;}
