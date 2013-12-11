@@ -147,41 +147,57 @@ body.base {
 
 .modal {
 	@include fontSize(14px);
-	text-align: center;
+	text-align: left;
 	h3, a {color:$grayDarker;}
 	h3 {@include fontSize(26px);}
-	.one-liner {margin-bottom: 7px;}
+	h4 {margin: 0 0 20px 0;}
+	.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 10px;}
 	.modal-header {border-bottom: none;}
 	.modal-body {padding-bottom: 0;}
 	.modal-footer {
-    	color: $black;
-		text-align: center;
+		text-align: left;
 		background-color: transparent;
 		border-top: none;
 		box-shadow: none;
-		input, .btn, .add-on {padding: 10px 9px;}
-		input[type="text"], input[type="password"], .add-on {margin-bottom: 22px;}
-		.btn, input, .form-block, .form-block label {width: 234px;}
-    input.input-xlarge {width: 430px;}
-    label.text {text-align: left; display: inline-block;}
-		.input-prepend > input, .form-block label + .input-prepend > input {width:180px;}
-		.form-block label + input, .form-block-inline label + input {width:214px;}
-		.btn-accent {margin-bottom: 22px;}
-		.form-block-inline {
-			width: 492px;
-			.inline {
-				display: inline-block;
-				&:first-of-type {margin-right: 20px;}
-			}
+	}
+	.modal-right {
+		border-left: 1px solid $gray;
+		margin-left: 14px;
+		padding-left: 16px;
+	}
+	a.btn-social {
+		font-weight: bold;
+		text-transform: uppercase;
+		background-color: $white;
+		border: {
+			width: 2px;
+			style: solid;
 		}
-		.form-block, .form-block-inline {
-			text-align: left;
-			margin: {
-				left: auto;
-				right: auto;
-			}
-			input {width: auto;}
+		padding: 4px 12px 4px 6px;
+		@include font-smoothing();
+		&[title*="facebook"] {
+			color: hsla(221,44%,41%,1) !important; /*facebook blue*/
+			border-color: hsla(221,44%,41%,1) !important ;
 		}
+		&[title*="twitter"] {
+			color: hsla(195,89%,60%,1)!important; /*twitter blue */
+			border-color: hsla(195,89%,60%,1) !important;
+		}
+		&[title*="google"] {
+			color: hsla(207,100%,42%,1) !important; /*google blue */
+			border-color: hsla(207,100%,42%,1) !important;
+		}
+		i[class*="facebook"],i[class*="twitter"],i[class*="google"] {
+			width: 20px;
+			height: 20px;
+			background-repeat: none;
+			background-position: center center;
+			background-size: contain;
+			margin-right: 10px;
+		}
+		i[class*="facebook"] { background-image: url('../images/facebook-icon.svg');}
+		i[class*="twitter"] { background-image: url('../images/twitter-icon.svg');}
+		i[class*="google"] { background-image: url('../images/googleplus-icon.svg');}
 	}
 }
 

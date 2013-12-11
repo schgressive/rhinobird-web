@@ -73,13 +73,15 @@ table caption, .visually-hidden {display:none !important;}
 .ellipsis { @include ellipsis();}
 
 // Calculate all H# Tags.
-// using 1:1.618, Golden Section
 
 h1 {@include fontSize(47.123px);}
-h2 {@include fontSize(36px);}
-h3 {@include fontSize(29.124px);}
-h4 {@include fontSize(22.250px);}
+
+// using 1:1.618, Golden Section
+h2 {@include fontSize(32.360px);}
+h3 {@include fontSize(22.652px);}
+h4 {@include fontSize(20px);}
 h5 {font-size: $baseFontSize;}
+
 h6 {font-size: $fontSizeSmall;}
 
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
