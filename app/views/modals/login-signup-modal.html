@@ -1,9 +1,9 @@
 <div class="modal-header">
   <button class="close" ng-click="close()" aria-hidden="true" >&times;</button>
-  <h3 id="signIn" ng-show="loginModalAction == 'login'">Hi there!</h3>
-  <h3 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h3>
-  <h3 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h3>
-  <h3 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h3>
+  <h2 id="signIn" ng-show="loginModalAction == 'login'">Hi there!</h2>
+  <h2 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h2>
+  <h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
+  <h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h3>
 </div><!-- /.modal-header -->
 <div class="modal-body">
 	<p ng-show="loginModalAction == 'password'">
@@ -39,14 +39,14 @@
 	          This password is invalid. Please check for spelling.
 	        </small>
 	      </div><!-- /.error -->
-	      <input class="btn btn-primary btn-large" type="submit" value="Sign In"/>
+	      <input class="btn btn-primary btn-xlarge" type="submit" value="Sign In"/>
 	    </form>
     </div><!-- /.modal-left -->
     <div class="modal-right pull-left">
-			<h4>Connect With:</h4>
-      <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><i class="icon-facebook"></i>Facebook</a>
-      <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><i class="icon-twitter"></i>Twitter</a>
-      <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><i class="icon-google"></i>Google</a>
+			<h4>Or connect with:</h4>
+      <a class="btn-xlarge btn-social" href="/registration/facebook" target="_self" title="sign in with facebook">Facebook</a>
+      <a class="btn-xlarge btn-social" href="/registration/twitter" target="_self" title="sign in with twitter">Twitter</a>
+      <a class="btn-xlarge btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google">Google</a>
     </div><!-- /.modal-right -->
   </div>
 
@@ -153,8 +153,8 @@
 </div><!-- /.modal-body -->
 <div class="modal-footer">
   <p ng-show="loginModalAction == 'login'">
-    <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a>
-    <a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a>
+    <h6><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a></h6>
+    <h6><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
   </p>
 </div><!-- /.modal-footer -->
 

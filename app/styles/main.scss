@@ -74,16 +74,17 @@ table caption, .visually-hidden {display:none !important;}
 
 // Calculate all H# Tags.
 
-h1 {@include fontSize(47.123px);}
+h1 {font-family: "LatoBold", $bold-font-stack; @include fontSize(47.123px);}
 
 // using 1:1.618, Golden Section
-h2 {@include fontSize(32.360px);}
+h2 {font-family: "LatoBold", $bold-font-stack; @include fontSize(32.360px);}
 h3 {@include fontSize(22.652px);}
 h4 {@include fontSize(20px);}
 h5 {font-size: $baseFontSize;}
 
 h6 {font-size: $fontSizeSmall;}
 
+h1, h2, h3, h4, h5, h6 {font-weight: normal;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 
 a, i, .btn, input {
@@ -205,8 +206,9 @@ body.base { /*overrides are here */
 		}
 	}
 	.modal {
-		background-color: $grayLight;
-		h3 {margin: 14px 0 0 0;}
+		background: url('../images/slide4_a.jpg') top left no-repeat;
+		background-size: cover;
+		border: 4px solid $white;
 	}
 }
 
@@ -216,13 +218,6 @@ i[class*="icon"] {font-style: normal;}
 	width: 44px;
 	height: 44px;
 	background-size: cover;
-}
-
-.section-title {
-	color: $grayDarker;
-	font-family: "LatoBold", $bold-font-stack;
-	margin-bottom: 20px;
-	@include font-smoothing;
 }
 
 .banner {

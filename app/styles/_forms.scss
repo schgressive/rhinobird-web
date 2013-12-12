@@ -39,8 +39,9 @@ body.base {
 	}
 	.btn-primary {
 		color: $white;
+		font-family: "LatoBold", $bold-font-stack;
 		background-color: $btnPrimaryBackground;
-		border-color: $btnPrimaryBackground;
+		border-color: darken($btnPrimaryBackground, 10%);
 		@include font-smoothing();
 		&:hover {
 			background-color: darken($btnPrimaryBackground, 10%);
@@ -49,6 +50,7 @@ body.base {
 		&.btn-block { height: 46px; font-size: 18px;}
 	}
 	.btn-large, .btn-primary { padding: 11px 16px 9px 8px;}
+	.btn-xlarge { padding: 11px 48px 11px 39px; @include fontSize(14px);}
 	.btn, btn-small, .btn-mini, .btn-large, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
 		border-radius: $baseBorderRadius;
 		-webkit-border-radius: $baseBorderRadius;
@@ -95,7 +97,7 @@ body.base {
 	.default-wrapper {
 		.btn {
 			color: $white;
-			font-weight: bold;
+			font-family: "LatoBold", $bold-font-stack;
 			text-transform: uppercase;
 			background-color: hsla(0,0%,0%,.5);
 			border: 2px solid $white;
@@ -148,10 +150,17 @@ body.base {
 .modal {
 	@include fontSize(14px);
 	text-align: left;
-	h3, a {color:$grayDarker;}
-	h3 {@include fontSize(26px);}
-	h4 {margin: 0 0 20px 0;}
-	.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 10px;}
+	.close {
+		color: $white;
+		text-shadow: 0 1px 0 $black;
+		opacity: .5;
+		&:hover { opacity: .7;}
+	}
+	h2 { color: $black;}
+	h4 { margin: 0 0 20px 0; @include font-smoothing;}
+	h6 a { color: $white; background-color: hsla(0,0%,0%,.5); padding: 3px;}
+	.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 20px;}
+	input[type*="password"], input[type*="email"], input[type*="text"], .input-prepend .add-on, .input-append .add-on { border-color: $white;}
 	.modal-header {border-bottom: none;}
 	.modal-body {padding-bottom: 0;}
 	.modal-footer {
@@ -160,44 +169,61 @@ body.base {
 		border-top: none;
 		box-shadow: none;
 	}
+	form .btn-primary {
+		color: $white;
+		text-transform: uppercase;
+		background-color: hsla(0,0%,0%,.5);
+		border: 2px solid $white;
+		@include font-smoothing();
+	}
+	.modal-left h4 { color: $black;}
 	.modal-right {
-		border-left: 1px solid $gray;
-		margin-left: 14px;
-		padding-left: 16px;
+		border-left: 1px solid $white;
+		margin-left: 20px;
+		padding-left: 24px;
+		h4 { color: $white;}
 	}
 	a.btn-social {
+		color: $white;
 		font-weight: bold;
+		text-align: left;
 		text-transform: uppercase;
-		background-color: $white;
 		border: {
 			width: 2px;
 			style: solid;
 		}
-		padding: 4px 12px 4px 6px;
+		background-repeat: no-repeat;
+		background-position: 6px 50%;
+		background-size: 24px 24px;
 		@include font-smoothing();
+		&:hover { text-decoration: none;}
 		&[title*="facebook"] {
-			color: hsla(221,44%,41%,1) !important; /*facebook blue*/
-			border-color: hsla(221,44%,41%,1) !important ;
+			background-image: url('../images/facebook-icon-white.svg');
+			background-color: #3B5998; /*facebook blue*/
+			border-color: darken(#3B5998, 10%);
+			&:hover {
+				background-color: darken(#3B5998, 20%);
+				border-color: darken(#3B5998, 30%);
+			}
 		}
 		&[title*="twitter"] {
-			color: hsla(195,89%,60%,1)!important; /*twitter blue */
-			border-color: hsla(195,89%,60%,1) !important;
+			background-image: url('../images/twitter-icon-white.svg');
+			background-color: #3DC7F4; /*twitter blue */
+			border-color: darken(#3DC7F4, 10%);
+			&:hover {
+				background-color: darken(#3DC7F4, 20%);
+				border-color: darken(#3DC7F4, 30%);
+			}
 		}
 		&[title*="google"] {
-			color: hsla(207,100%,42%,1) !important; /*google blue */
-			border-color: hsla(207,100%,42%,1) !important;
+			background-image: url('../images/googleplus-icon-white.svg');
+			background-color: #0071D4; /*google blue */
+			border-color: darken(#0071D4, 10%);
+			&:hover {
+				background-color: darken(#0071D4, 20%);
+				border-color: darken(#0071D4, 30%);
+			}
 		}
-		i[class*="facebook"],i[class*="twitter"],i[class*="google"] {
-			width: 20px;
-			height: 20px;
-			background-repeat: none;
-			background-position: center center;
-			background-size: contain;
-			margin-right: 10px;
-		}
-		i[class*="facebook"] { background-image: url('../images/facebook-icon.svg');}
-		i[class*="twitter"] { background-image: url('../images/twitter-icon.svg');}
-		i[class*="google"] { background-image: url('../images/googleplus-icon.svg');}
 	}
 }
 
