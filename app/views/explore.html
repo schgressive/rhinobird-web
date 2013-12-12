@@ -1,4 +1,4 @@
-<section class="top-content feature">
+<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
       <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
@@ -22,14 +22,14 @@
           </ul>
         </nav>
         <div class="span6">
-          <form method="get" name="form-geo" class="form-geo pull-right" ng-submit="searchAddress()" role="search">
+          <form method="get" name="form-geo" class="pull-right" ng-submit="searchAddress()" role="search">
             <label for="geolocate" class="visually-hidden">Search by location</label>
             <div class="input-append input-prepend">
-              <span class="add-on">
+              <span class="add-on add-onClick">
                 <a href="#" title="Find Me!" ng-click="getCurrent()" data-title="Find Me!" rel="tooltip"><i class="icon-map-marker"></i></a>
               </span>
               <input type="search" ng-model="address" placeholder="current location">
-              <input class="btn hidden-phone" type="submit" value="Go!">
+              <input class="btn hidden-phone" type="submit" value="Explore!">
             </div><!-- /.input-append -->
           </form>
         </div><!-- /.span6 -->

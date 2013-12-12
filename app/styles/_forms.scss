@@ -1,16 +1,6 @@
 // ------------ FORM FILE --------------
 // for form and interactive elements
 
-.ui-test {
-	.row-fluid { border-bottom: 1px dashed green; padding-bottom: 20px; padding-top: 10px;}
-	[class*="span"] { outline: 1px dashed red;}
-}
-
-/*
-.row-fluid {outline: yellow 1px dashed;}
-[class*="span"] {outline: aqua 1px dashed;}
-*/
-
 body.base {
 	.btn {
 		color: $textColor;
@@ -47,7 +37,6 @@ body.base {
 			background-color: darken($btnPrimaryBackground, 10%);
 			border-color: darken($btnPrimaryBackground, 20%);
 		}
-		&.btn-block { height: 46px; font-size: 18px;}
 	}
 	.btn-large, .btn-primary { padding: 11px 16px 9px 16px;}
 	.btn-xlarge { padding: 11px 48px 11px 39px; @include fontSize(14px);}
@@ -88,6 +77,20 @@ body.base {
 		&:first-child { border-right: none;}
 		&:last-child { border-left: none;}
 		&[class*="span"] { height: 46px;}
+	}
+	.add-onClick:hover { background-color: $grayLight;}
+	.input-prepend.input-append .btn:last-child {
+		background-color: $grayLighter;
+		border-color: $inputBorder;
+		padding: {
+			top: 10px;
+			bottom: 10px;
+		}
+		&:hover, &:focus {
+			color: $white;
+			background-color: $grayDark;
+			@include font-smoothing();
+		}
 	}
 	.form-search {
 		.input-prepend { margin-right: 14px;}

@@ -1,4 +1,4 @@
-<section class="top-content feature">
+<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
 			<div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
