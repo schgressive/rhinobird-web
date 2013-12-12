@@ -105,7 +105,8 @@ body.base {
 		}
 		.form-search {
 			margin-top: 63px;
-			input, .add-on, button { padding: 14px 16px 12px 8px;}
+			input, button { padding: 14px 16px 12px 16px;}
+			.add-on { padding: {top:14px;bottom:12px;}}
 		}
 	}
 	.action-left .btn-small {
