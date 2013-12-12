@@ -19,7 +19,7 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 @include font-face("LatoItalic", '/fonts/lato-regita-webfont');
 @include font-face("LatoBold", '/fonts/lato-bol-webfont');
 @include font-face("Hero",'/fonts/hero-webfont');
-@include font-face("Museo",'/fonts/museo500-regular-webfont');
+@include font-face("Mission",'/fonts/mission-script-webfont');
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -293,13 +293,20 @@ body.golive {
 		margin-bottom: 24px;
 		.one-liner { margin-top: 10px;}
 	}
+	h4.one-liner {
+		font-family: "LatoBold", $bold-font-stack;
+	}
 	.default-wrapper {
 		margin-top: -12px;
 		padding-bottom: 10px;
 	}
 	.loggedin-actions {
-		.form-search { margin-top: 0; margin-bottom: 0;}
+		.form-search { margin: {top:0;bottom: 0;}}
 		.user-avatar { margin-right: 14px; display: block;}
+		.form-search {
+			float: right;
+			input[type="search"] { width: 300px;}
+		}
 	}
 }
 
@@ -349,10 +356,6 @@ body.golive {
 			*width: 48.56559304102504%;
 		}
 	}
-}
-
-.explore {
-	.lower-content { margin-top: 0;}
 }
 
 .map-wrapper, .carousel-wrapper, .module-large, .single-stream-wrapper, .tags-wrapper {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
