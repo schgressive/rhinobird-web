@@ -371,6 +371,7 @@ body.golive {
 }
 
 .subnav {
+	outline: 1px solid purple;
 	margin-top: 5px;
 	li {
 		margin-right: 34px;
@@ -605,31 +606,6 @@ body.golive {
 	}
 	.footer-copy {margin-left: 30px;}
 	.one-liner, .block {display: block;}
-}
-
-.tags-wrapper {
-	background-color: $white;
-	.alpha-col {
-		color: $grayDark;
-		text-transform: uppercase;
-		text-align: center;
-		vertical-align: middle;
-		width: 20px;
-		padding: 10px 20px;
-		background-color: $grayLight;
-		h4 {
-			font-family: "Hero", $condensed-font-stack;
-			@include fontSize(28px);
-		}
-	}
-	.tags-col {padding: 10px 10px 20px 15px; vertical-align: middle;}
-	.tag {
-		margin-left: 10px;
-		display: inline-block;
-		&:first-of-type {margin-left: 0;}
-		a {color: $gray;}
-		&:hover {text-decoration: underline !important;}
-	}
 }
 
 // MAPBOX ------------------------------

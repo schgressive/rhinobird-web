@@ -1,30 +1,28 @@
 <div class="modal-header">
   <button class="close" ng-click="ctrl.ready(true)" aria-hidden="true">&times;</button>
-  <h3 id="GoLive">Going Live?</h3>
+  <h2>Going Live?</h2>
 </div><!-- /.modal-header -->
 <div class="modal-body">
   <div class="alert" ng-hide="vm.camera.access">
-    <strong>Warning!</strong> Please enable camera permissions for your browser.
+    <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
   </div>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
   <form name="goliveForm" role="form" ng-submit="ctrl.ready()">
-    <div>
-      <label for="caption">You can use hashtags to add your stream to a channel:</label>
-      <input type="text" name="caption" placeholder="add a tag, or add a #channel!" ng-model="vm.caption" class="input-xlarge"/>
-    </div>
+    <label for="caption">You can use hashtags to add your stream to a channel:</label>
+    <input type="text" name="caption" placeholder="add a caption, or add a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
     <div ng-show="vm.channels.length">
       <p>Your stream will be published in the following channels</p>
       <ul class="inline no-bullets">
-        <li ng-repeat="channel in vm.channels" class="inline"><b>#{{channel}}</b></li>
+        <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
       </ul>
     </div>
     <label class="checkbox">
     	<input type="checkbox" checked="checked"/> Enable Geolocation?
     </label>
-    <button type="submit" class="btn btn-primary mobile-small">Ready!</button>
+    <button type="submit" class="btn btn-primary btn-xlarge">Ready!</button>
     <!-- Close modal and go live w/o adding metadata -->
-    <button type="button" class="btn btn-accent mobile-small" ng-click="ctrl.ready(true)" aria-hidden="true">Skip It! Let&#39;s Go!</button>
+    <!-- <button type="button" class="btn btn-accent btn-xlarge" ng-click="ctrl.ready(true)" aria-hidden="true">Skip It! Let&#39;s Go!</button> -->
   </form>
 <a ng-show="{{vm.camera.videoSources.length > 1}}" class="btn btn-accent mobile-small" ng-click="vm.camera.toggleSource()">Flip</a>
 </div><!-- /.modal-footer -->

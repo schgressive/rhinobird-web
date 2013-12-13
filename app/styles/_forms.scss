@@ -68,6 +68,7 @@ body.base {
 			box-shadow: 0 0 0 1px $gray inset;
 		}
 	}
+	.input-xxlarge { width: 400px;}
 	.input-prepend input { border-left-width: 1px;}
 	.input-append input { border-right-width: 1px;}
 	.add-on {
@@ -98,7 +99,7 @@ body.base {
 			color: $white;
 			font-family: "LatoBold", $bold-font-stack;
 			text-transform: uppercase;
-			background-color: hsla(0,0%,0%,.5);
+			background-color: $darkTrans;
 			border: 2px solid $white;
 			@include font-smoothing();
 			&:hover {
@@ -166,7 +167,7 @@ body.base {
 		@include fontSize(10px);
 		color: $white;
 		text-align: center;
-		background-color: hsla(0,0%,0%,.5);
+		background-color: $darkTrans;
 		border: 1px solid $errorText;
 		margin-top: -19px;
 		margin-bottom: 19px;
@@ -178,7 +179,7 @@ body.base {
 		@include font-smoothing;
 		.one-liner { margin-top: 10px;}
 	}
-	h6 a { color: $white; background-color: hsla(0,0%,0%,.5); padding: 3px;}
+	h6 a { color: $white; background-color: $darkTrans; padding: 3px;}
 	.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 20px;}
 	input[type*="password"], input[type*="email"], input[type*="text"], .input-prepend .add-on, .input-append .add-on { border-color: $grayLighter;}
 	.modal-header {border-bottom: none;}
@@ -192,9 +193,19 @@ body.base {
 	form .btn-primary {
 		color: $white;
 		text-transform: uppercase;
-		background-color: hsla(0,0%,0%,.5);
+		background-color: $darkTrans;
 		border: 2px solid $white;
 		@include font-smoothing();
+	}
+	form[name="goliveForm"] {
+		color: $white;
+		padding: 6px;
+		background-color: $darkTrans;
+		ul { margin-bottom: 10px;}
+		.btn-primary:hover {
+			background-color: lighten($purple, 10%);
+			border-color: $purple;
+		}
 	}
 	.modal-right {
 		border-left: 1px solid $white;
@@ -248,6 +259,16 @@ body.base {
 
 .alert {
 	color: $warningText;
-	background-color: $warningBackground;
-	border: 1px solid $warningText;
+	text-align: center;
+	text-shadow: none;
+	margin-bottom: 0;
+	border: 2px solid $warningText;
+	background-color: hsla(0,0%,0%,.7);
+	-webkit-border-radius: $baseBorderRadius;
+	-moz-border-radius: $baseBorderRadius;
+	border-radius: $baseBorderRadius;
+	strong {
+		font-family: "LatoBold", $bold-font-stack;
+		font-weight: normal;
+	}
 }
