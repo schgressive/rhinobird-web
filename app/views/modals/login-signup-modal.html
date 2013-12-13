@@ -143,15 +143,10 @@
   </div>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
-  <p ng-show="loginModalAction == 'login'">
+  <div ng-show="loginModalAction == 'login'">
     <h6><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a></h6>
     <h6><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
-  </p>
-  <p ng-show="loginModalAction == 'password'">
-  	<h6><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
-  </p>
-  <p ng-show="loginModalAction == 'signup'">
-  	<h6><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
-  </p>
+  </div>
+  	<h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'"><a href="#" class="one-liner" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
 </div><!-- /.modal-footer -->
 
