@@ -96,6 +96,20 @@ module.exports = function (grunt) {
           }
         }
       },
+      dev: {
+        options: {
+          middleware: function (connect) {
+            return [
+              proxySnippet,
+              modRewrite([
+                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico) / [L]'
+              ]),
+              mountFolder(connect, '.tmp'),
+              mountFolder(connect, yeomanConfig.app)
+            ];
+          }
+        }
+      },
       test: {
         options: {
           middleware: function (connect) {
@@ -375,7 +389,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'open',
       'configureProxies',
-      'connect:livereload:keepalive'
+      'connect:dev:keepalive'
     ]
     var liveReload = grunt.option('livereload') || grunt.option('livereload') === undefined? true : false;
     grunt.task.run(liveReload ? defaultServer : noLivereloadServer);
