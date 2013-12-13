@@ -22,7 +22,7 @@
           </ul>
         </nav>
         <div class="span6">
-          <form method="get" name="form-geo" class="pull-right" ng-submit="searchAddress()" role="search">
+          <form method="get" name="form-geo" class="form-geo" ng-submit="searchAddress()" role="search">
             <label for="geolocate" class="visually-hidden">Search by location</label>
             <div class="input-append input-prepend">
               <span class="add-on add-onClick">
@@ -35,12 +35,14 @@
         </div><!-- /.span6 -->
       </div><!-- /.row-fluid -->
     </div><!-- /.mid-content -->
-    <section class="lower-content">
+  </div><!-- /.width-controller -->
+  <div class="map-controller width-controller container-fluid">
+  	<section class="lower-content">
       <div class="row-fluid">
         <div class="map-wrapper" class="span12">
           <div id="map" class="dark"></div>
         </div>
       </div><!-- /.row-fluid -->
     </section><!-- /.lower-content -->
-  </div><!-- /.container-fluid -->
+  </div><!-- /.map-controller -->
 </div><!-- /.main -->

@@ -5,7 +5,8 @@ body.base {
 	form {margin: 0;}
 	.btn {
 		color: $textColor;
-		font-weight: bold;
+		@include fontSize(14px);
+		font-family: "LatoBold", $bold-font-stack;
 		text-transform: uppercase;
 		text-shadow: none;
 		background-color: transparent;
@@ -30,7 +31,6 @@ body.base {
 	}
 	.btn-primary {
 		color: $white;
-		font-family: "LatoBold", $bold-font-stack;
 		background-color: $btnPrimaryBackground;
 		border-color: darken($btnPrimaryBackground, 10%);
 		@include font-smoothing();
@@ -51,7 +51,7 @@ body.base {
 		box-shadow: none;
 		@include placeholder {
 			color: $placeholderText;
-			@include fontSize(11px);
+			@include fontSize(12px);
 		}
 		&[class*="span"] { height: 46px;}
 	}
@@ -107,12 +107,26 @@ body.base {
 				border-color: darken($btnPrimaryBackground, 10%);
 			}
 		}
+		.action-left, .action-right {
+			@media screen and (max-width: 960px) {
+				width: 100%;
+				margin-left: 0;
+				.one-liner { display: inline;}
+			}
+		}
 		.form-search {
 			margin-top: 63px;
-			input, button { padding: 14px 16px 12px 16px;}
-			input[type="search"] { width: 376px;}
+			float: right;
+			@media screen and (max-width: 990px) { margin-top: 20px; float: none;}
+			input, .input-prepend.input-append .btn:last-child { padding: 14px 16px 12px 16px;}
+			input[type="search"] {
+				width: 300px;
+				@media screen and (min-width: 1280px) { width: 400px;}
+				@media screen and (max-width: 1020px) { width: 300px;}
+				@media screen and (max-width: 990px) { width: 220px;}
+				@media screen and (max-width: 960px) { width: 300px;}
+			}
 			.add-on { padding: {top:14px;bottom:12px;}}
-			.input-prepend { margin-right: 14px;}
 		}
 	}
 	.action-left .btn-small {

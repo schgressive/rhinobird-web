@@ -8,6 +8,7 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 @import "../bower_components/bootstrap-sass/lib/mixins";
 @import "control-file"; /*overrides bootstrap variables*/
 @import "../bower_components/bootstrap-sass/lib/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
+@import "../bower_components/bootstrap-sass/lib/_responsive-utilities";
 @import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/owlcarousel/owl-carousel/owl.carousel.css";
 @import "../bower_components/owlcarousel/owl-carousel/owl.theme.css";
@@ -35,10 +36,20 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 // Global Styles ------------------------------
 
+/* use fontsize mixin (pixels to rems) to declare font-size values for elements, the styles below will act as a control for scaling up/down */
+html {
+	font-size: $baseFontSize;
+	@media screen and (min-width: 1600px) {font-size: 18px;} /* Large Monitors */
+	@media screen and (max-width: 1400px) {font-size: 14px;} /* Small Laptops */
+	@media screen and (max-width: 1100px) {font-size: 13px;} /* Tablet Landscape */
+	/* @media screen and (max-width: 800px) {font-size: 12px;} */ /* Tablet Portrait */
+	/* @media screen and (max-width: 500px) {font-size: 7px;} */ /* Mobile Landscape */
+	/* @media screen and (max-width: 400px) {font-size: 5px;} */ /* Mobile Portrait */
+}
+
 body.base {
 	color: $textColor;
 	font-family: "LatoRegular", $baseFontFamily;
-	font-size: $baseFontSize;
 	line-height: $baseLineHeight;
 	background-color: $bodyBackground;
 }
@@ -66,15 +77,18 @@ table caption, .visually-hidden {display:none !important;}
 .width-controller {
 	max-width: 960px;
 	margin: 0 auto;
+	@media screen and (max-width: 960px) { max-width: 100%;}
 }
 
 .one-liner {display: block;}
 
 .ellipsis { @include ellipsis();}
 
+.hidden-phone {}
+
 // Calculate all H# Tags.
 
-h1 {font-family: "LatoBold", $bold-font-stack; @include fontSize(47.123px);}
+h1 {font-family: "LatoBold", $bold-font-stack; @include fontSize(52.358px);}
 
 // using 1:1.618, Golden Section
 h2 {font-family: "LatoBold", $bold-font-stack; @include fontSize(32.360px);}
@@ -113,14 +127,16 @@ body.base { /*overrides are here */
 		.span1 {margin-left: 0;}
 		.navbar-inner {
 			min-height: $navbarHeight;
-			padding-left: 70px;
-			padding-right: 70px;
+			padding: {
+				left: 70px;
+				right: 70px;
+			}
 			background-color: $navbarBackground;
 			background-image: none;
 			background-repeat: none;
 			border-bottom: 3px solid $orange;
 			box-shadow: none;
-			/* box-shadow: 0px 1px 0 hsla(39,100%,42%,1); */
+			@media screen and (max-width: 960px) { padding: {left:0px!important;right:0px!important;}}
 			.main-nav { float: left;}
 			a.brand {
 				padding: 0;
@@ -210,6 +226,13 @@ body.base { /*overrides are here */
 		background-size: cover;
 		border: 4px solid $white;
 	}
+	.top-content .container-fluid { @media screen and (max-width: 500px) {
+		padding: {
+			left:10px;
+			right:10px;
+			}
+		}
+	}
 }
 
 i[class*="icon"] {font-style: normal;}
@@ -247,8 +270,14 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .mainWrapper {
-	.main {padding: 0 70px 20px; border-top: 1px solid $grayLight;}
 	@media (max-width: $navbarCollapseWidth) { margin-top: -20px;}
+	.main {
+		padding: 0 70px 20px;
+		border-top: 1px solid $grayLight;
+		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
+		.width-controller { @media screen and (max-width: 500px) { padding: {left:10px;right:10px;}}}
+		.map-controller { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
+	}
 }
 
 body.golive {
@@ -278,12 +307,22 @@ body.golive {
 
 .top-content {
 	padding: 22px 70px 10px;
+	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: hsla(0,0%,97%,1);}
 	&.feature {
 		background: hsla(0,0%,97%,1) url('/images/slide1.jpg') 0px 7px no-repeat;
 		border-bottom: $orange solid 3px;
-		padding-top: 40px;
-		padding-bottom: 30px;
+		padding: {
+			top: 40px;
+			bottom: 30px;
+		}
+		@media screen and (max-width: 960px) {
+			background-position: 0px 0px;
+			padding: {
+				top: 20px;
+				bottom: 17px;
+			}
+		}
 	}
 	h1 {
 		color: $white;
@@ -305,7 +344,20 @@ body.golive {
 		.user-avatar { margin-right: 14px; display: block;}
 		.form-search {
 			float: right;
-			input[type="search"] { width: 300px;}
+			@media screen and (max-width: 500px) { float: none;}
+			input[type="search"] {
+				width: 300px;
+				@media screen and (max-width: 740px) { width: 200px;}
+			}
+		}
+		.action-left, .action-right {
+			@media screen and (max-width: 500px) {
+				width: 100%;
+				margin: {
+					left: 0;
+					bottom: 10px;
+				}
+			}
 		}
 	}
 }
@@ -315,7 +367,18 @@ body.golive {
 
 .mid-content {
 	padding-top: 10px;
+	.form-geo {
+		float: right;
+		@media screen and (max-width: 740px) { float: none;}
+		input[type="search"] {
+			@media screen and (max-width: 500px) { width: 300px;}
+		}
+	}
+	[class*="span"] {
+		@media screen and (max-width: 740px){ width: 100%; margin-left: 0;}
+	}
 	.faux-tabs {
+		@media screen and (max-width: 740px) { margin-bottom: 10px;}
 		li {
 			padding: 0;
 			&:first-of-type { margin-right: 10px;}
@@ -643,4 +706,4 @@ body.golive {
   display: none !important;
 }
 
-@import "mobile-overrides";
+/* @import "mobile-overrides"; */
