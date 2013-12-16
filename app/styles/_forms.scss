@@ -179,13 +179,22 @@ body.base {
 }
 
 .modal {
+	width: 100%;
+	left: 0;
+	margin-left: 0;
 	@include fontSize(14px);
 	text-align: left;
+	&.fade.in { top: 0;}
 	.close {
 		color: $white;
 		text-shadow: 0 1px 0 $black;
 		opacity: .5;
 		&:hover { opacity: .7;}
+		@media screen and (max-width: 500px) {
+			margin-top: 0;
+			line-height: 30px;
+			font-size: 30px;
+		}
 	}
 	.error {
 		@include fontSize(10px);
@@ -230,11 +239,20 @@ body.base {
 			background-color: lighten($purple, 10%);
 			border-color: $purple;
 		}
+		@media screen and (max-width: 500px) { .input-xxlarge { width: 74%;}}
 	}
 	.modal-right {
 		border-left: 1px solid $white;
 		margin-left: 20px;
 		padding-left: 24px;
+		@media screen and (max-width: 500px ) {
+			border-top: 1px solid $white;
+			border-left: none;
+			margin-left: 0;
+			padding-left: 0;
+			padding-top: 10px;
+			width:74%;
+		}
 		h4 { color: $white;}
 	}
 	a.btn-social {

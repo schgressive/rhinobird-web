@@ -225,6 +225,7 @@ body.base { /*overrides are here */
 		background: url('../images/slide4_a.jpg') top left no-repeat;
 		background-size: cover;
 		border: 4px solid $white;
+		@media screen and (max-width: 500px) { border: none;}
 	}
 	.top-content .container-fluid { @media screen and (max-width: 500px) {
 		padding: {
