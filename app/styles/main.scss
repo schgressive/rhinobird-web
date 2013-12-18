@@ -9,9 +9,6 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 @import "control-file"; /*overrides bootstrap variables*/
 @import "../bower_components/bootstrap-sass/lib/responsive-navbar"; /*importing responsive partials so that they pick up the new variables from control-file.scss*/
 @import "../bower_components/bootstrap-sass/lib/_responsive-utilities";
-@import "../bower_components/flexslider/flexslider.css";
-@import "../bower_components/owlcarousel/owl-carousel/owl.carousel.css";
-@import "../bower_components/owlcarousel/owl-carousel/owl.theme.css";
 
 // Fonts ------------------------------
 // NOTE FROM CHRIS: please use the fontsize mixin when defining font-size values. It creates REM values (better for responsive) w/a PX fallback.
