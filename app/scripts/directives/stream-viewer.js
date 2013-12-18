@@ -17,7 +17,8 @@ angular.module('peepoltvApp')
       },
       scope: {
         stream: "=",
-        mute: "@"
+        mute: "@",
+        on: "@"
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs, licode) {
