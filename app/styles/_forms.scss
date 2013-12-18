@@ -179,12 +179,14 @@ body.base {
 }
 
 .modal {
-	width: 100%;
-	left: 0;
-	margin-left: 0;
 	@include fontSize(14px);
 	text-align: left;
-	&.fade.in { top: 0;}
+	@media screen and (max-width: 500px) {
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+		&.fade.in { top: 0;}
+	}
 	.close {
 		color: $white;
 		text-shadow: 0 1px 0 $black;
