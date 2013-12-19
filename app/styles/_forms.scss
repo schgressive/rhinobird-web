@@ -160,21 +160,19 @@ body.base {
 	}
 }
 
-.action-sub {
-	.social-list {
-		a {
-			width: 27px;
-			height: 27px;
-			background-repeat: none;
-			background-position: center center;
-			background-size: cover;
-			display: block;
-			&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
-			&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
-			&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
-			&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
+.social-list {
+	a {
+		width: 40px;
+		height: 40px;
+		background-repeat: none;
+		background-position: center center;
+		background-size: cover;
+		display: block;
+		&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
+		&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
+		&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
+		&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
 
-		}
 	}
 }
 

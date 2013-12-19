@@ -342,14 +342,14 @@ body.golive {
 		.user-avatar { margin-right: 14px; display: block;}
 		.form-search {
 			float: right;
-			@media screen and (max-width: 500px) { float: none;}
+			@media screen and (max-width: 580px) { float: none;}
 			input[type="search"] {
 				width: 300px;
 				@media screen and (max-width: 740px) { width: 200px;}
 			}
 		}
 		.action-left, .action-right {
-			@media screen and (max-width: 500px) {
+			@media screen and (max-width: 580px) {
 				width: 100%;
 				margin: {
 					left: 0;
