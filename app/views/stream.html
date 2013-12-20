@@ -12,24 +12,26 @@
 </section><!-- /.top-content -->
 
 <div class="main" role="main">
+  <div class="width-controller mobile-full container-fluid">
+	  <section class="mid-content">
+	    <div class="row-fluid">
+	      <div class="module-xlarge span12">
+	        <div ng-include="'/views/snippets/module-xlarge.html'"></div>
+	      </div><!-- /.module-xlarge -->
+	    </div><!-- /.row-fluid -->
+	  </section><!-- /.mid-content -->
+  </div>
   <div class="width-controller container-fluid">
-      <section class="mid-content">
-        <div class="row-fluid">
-          <div class="module-xlarge span12">
-            <div ng-include="'/views/snippets/module-xlarge.html'"></div>
-          </div><!-- /.module-xlarge -->
-        </div><!-- /.row-fluid -->
-      </section><!-- /.mid-content -->
-      <section class="lower-content">
-        <div class="row-fluid">
-          <h3 class="span6">
-            More Streams
-          </h3>
-        </div><!-- /.row-fluid -->
-        <div class="row-fluid">
-			  	<div owl-carousel items="streams" item-template="/views/snippets/module-mini.html"></div>
-				</div><!--/.row-fluid -->
-      </section><!-- /.lower-content -->
+	  <section class="lower-content">
+	    <div class="row-fluid">
+	      <h3 class="span6">
+	        More Streams
+	      </h3>
+	    </div><!-- /.row-fluid -->
+	    <div class="row-fluid">
+		  	<div owl-carousel items="streams" item-template="/views/snippets/module-mini.html"></div>
+			</div><!--/.row-fluid -->
+	  </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 

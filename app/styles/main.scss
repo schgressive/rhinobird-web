@@ -274,7 +274,7 @@ i[class*="icon"] {font-style: normal;}
 		border-top: 1px solid $grayLight;
 		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 		.width-controller { @media screen and (max-width: 500px) { padding: {left:10px;right:10px;}}}
-		.map-controller { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
+		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
 	}
 }
 
@@ -490,8 +490,9 @@ body.golive {
 }
 
 .module-outer {
+	height: 42px;
 	color: $grayDarker;
-	padding: 5px 10px 7px;
+	padding: 5px 10px 7px 0px;
 	background-color: $white;
 	a {color:$grayDarker;}
 	.thumb-user {
