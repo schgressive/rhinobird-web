@@ -304,6 +304,7 @@ body.golive {
 
 .top-content {
 	padding: 22px 70px 10px;
+	background-color: hsla(0,0%,97%,1);
 	@media screen and (max-width: $navbarCollapseWidth) {
 		margin-top: -20px;
 		padding-top: 13px;
@@ -421,6 +422,19 @@ body.golive {
 			*width: 48.56559304102504%;
 		}
 	}
+}
+
+.profile-list {
+	.user-avatar {
+		margin-right: 20px;
+		img {
+			width: 106px;
+			height: 106px;
+		}
+	}
+	h2 { margin: {top:-6px;bottom:5px;}}
+	i[class*="icon"], strong { margin-right: 5px;}
+	.user-info li { margin-bottom: 3px;}
 }
 
 .map-wrapper, .carousel-wrapper, .module-large, .single-stream-wrapper, .tags-wrapper {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
