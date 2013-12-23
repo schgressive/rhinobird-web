@@ -5,13 +5,11 @@
 	</div>
 	<div class="module-overlay">
 		<div class="btn-overlay">
-			<button class="btn-top pull-right" type="button" ng-click="toggleMute()" rel="tooltip" data-title="Mute Me!">
-            	<i ng-class="{'icon-volume-off': !globalMute, 'icon-volume-up': globalMute }"></i>
-            	<span class="visually-hidden">Mute</span>
+			<button class="btn-top pull-left" type="button" ng-click="toggleMute()">
+      	<i ng-class="{'icon-volume-off icon-white': !globalMute, 'icon-volume-up icon-white': globalMute }">
+      		<span class="visually-hidden">Mute</span>
+      	</i>
 			</button>
-			<a class="btn-play" rel="tooltip" data-title="Play Stream" ui-sref="streams({streamId: stream.id})">
-				<span class="visually-hidden">Play This Stream</span>
-			</a>
 		</div>
 	</div><!-- /.module-overlay -->
   <div stream-viewer stream="stream" size="large" mute="true" on="true"></div>

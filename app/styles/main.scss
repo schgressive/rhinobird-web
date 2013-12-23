@@ -501,8 +501,6 @@ body.golive {
 	top: 0;
 	left: 0;
 	@include opacity(0);
-	background:  hsla(0,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
-	background-size: auto;
 	z-index:2;
 	&:hover {@include opacity(1); cursor: pointer;}
 }
@@ -510,7 +508,7 @@ body.golive {
 .module-outer {
 	height: 42px;
 	color: $grayDarker;
-	padding: 5px 10px 7px 0px;
+	padding: 5px 10px 7px 10px;
 	background-color: $white;
 	a {color:$grayDarker;}
 	.thumb-user {
@@ -520,23 +518,18 @@ body.golive {
 			height: 42px;
 		}
 	}
-	.tag a {color:$gray;}
-}
-
-.specs-tags {
-	.tag a {
-		font-family: "LatoItalic", $italic-font-stack;
-		@include fontSize(10px);
-	}
 }
 
 .module-xlarge {
 	padding: 10px 10px 0;
 	background-color: $white;
-	.specs-stream {
-		color:$white;
-		background-color: $grayDarker;
-		a {color:$white;}
+	.module-outer { padding-left: 0px}
+}
+
+.module-large {
+	.module-overlay {
+		background:  hsla(0,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
+		background-size: auto;
 	}
 }
 
@@ -574,7 +567,7 @@ body.golive {
 .module-video, .live-stream-link {background-color: $black;}
 
 .btn-overlay {
-	right: 0;
+	left: 0;
 	top: 0;
 	position: absolute;
 	width:100%;
@@ -589,16 +582,8 @@ body.golive {
 		@include opacity(.75);
 		&:hover {@include opacity(1);}
 	}
-	a.btn-play {
-		width: 100%;
-		height: 100%;
-		background-color: transparent;
-		position: absolute;
-		left: 0;
-		z-index:5;
-	}
 	button.btn-top {
-		background-color: $white;
+		background-color: $black;
 		margin-left: 3px;
 		position: relative;
 		z-index: 10;
