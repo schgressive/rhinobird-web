@@ -3,6 +3,8 @@
 angular.module('peepoltvApp')
   .controller('ChannelCtrl', function ($scope, $stateParams, $timeout, $browser, AuthService, channel) {
 
+		$scope.user = AuthService.user;
+
     /**
      * SCOPE
      */
