@@ -1,6 +1,6 @@
 <div class="span12">
   <div class="row-fluid">
-    <div class="action-left span5">
+    <div class="action-left span4">
       <a href="#" class="user-avatar pull-left" title="click to view your profile">
 		    <img ng-src="{{ user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
@@ -10,7 +10,8 @@
 		    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
 		  </ul>
     </div><!-- /.action-left -->
-    <div class="action-right span7">
+    <div class="action-right span8">
+      <a class="btn-vj btn btn-large pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
       <form method="get" ng-submit="" class="form-search" role="search">
 		    <label for="search" class="visually-hidden">Search Peepol.tv</label>
 		    <div class="input-prepend input-append">
@@ -19,7 +20,6 @@
 					<input class="btn hidden-phone" type="submit" value="Search">
 		    </div><!-- /.input-prepend -->
 		  </form>
-      <a class="btn btn-large" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
     </div><!-- /.action-right -->
   </div><!-- /.row-fluid -->
   <!-- <div id="share" class="action-sub collapse row-fluid" ng-include="'/views/snippets/share-bar.html'"></div> --><!-- /#share -->
