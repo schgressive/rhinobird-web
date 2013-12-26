@@ -6,22 +6,21 @@
 the links below need to change/filter the results of the search. the search result should default to 'channel-results' unless the search is coming from a specific view e.g. a search run from a streams view page will yield results filtered by streams and so on -->
   <div class="tabs pull-left">
     <ul class="inline no-bullets">
-      <li class="active"><a ui-sref="search.channels" data-toggle="tab">Channels</a></li>
-      <li><a ui-sref="search.streams" data-toggle="tab">Streams</a></li>
-      <li><a ui-sref="search.peepol" data-toggle="tab">Peepol</a></li>
+      <li><a ui-sref="search.channels" data-toggle="tab"><i class="icon-headphones"></i>Channels</a></li>
+      <li class="active"><a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a></li>
+      <li><a ui-sref="search.peepol" data-toggle="tab"><i class="icon-user"></i>Peepol</a></li>
     </ul>
   </div>
 </div><!-- /.action-left -->
 <div class="action-right span6">
   <div class="row-fluid">
-    <form method="get" action="" class="form-search" role="search">
-      <div class="input-prepend span8">
-        <span class="add-on"><i class="icon-search"></i></span>
-        <input type="search" placeholder="search livestreams, locations, tags, #channels, etc">
-      </div>
-      <div class="hidden-phone span4">
-        <button type="submit" class="btn" data-title="under development" rel="tooltip">Let's Go!</button>
-      </div>
-    </form>
+    <form method="get" ng-submit="" class="form-search" role="search">
+	    <label for="search" class="visually-hidden">Search Peepol.tv</label>
+	    <div class="input-prepend input-append">
+	  		<span class="add-on"><i class="icon-search"></i></span>
+				<input type="search" name="search" placeholder="search livestreams, #channels...">
+				<input class="btn hidden-phone" type="submit" value="Search">
+	    </div><!-- /.input-prepend -->
+	  </form>
   </div><!-- /.row-fluid -->
 </div><!-- /.action-right -->
