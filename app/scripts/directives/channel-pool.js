@@ -21,10 +21,8 @@ angular.module('peepoltvApp')
         scope.liveStreams = scope.channel.streams.live().$then(function(){
           // Sets the first streams as playing if this is and outbound vj
           if(attrs.vjFlow == 'outbound'){
-            _.every(scope.liveStreams, function(s, idx){
-              s.isPlaying = true;
-
-              return idx < attrs.maxStreams - 1;
+            _.each(scope.liveStreams, function(s, idx){
+              s.isPlaying = (idx < attrs.maxStreams);
             });
           }
         });
@@ -54,22 +52,16 @@ angular.module('peepoltvApp')
           // after the dom elements are created by the ng-repeat
           $timeout(function(){
 
-            $('.owl-carousel').owlCarousel({
-              items: 6,
-              itemsDesktop : [1199,4],
-              itemsDesktopSmall : [980,4],
-              itemsTablet: [768,3],
-              itemsMobile : [479,3],
+            // Initialize the carousel
+            $('.owl-carousel', element).owlCarousel({
+              items: 2,
+              itemsDesktop : [1199,2],
+              itemsDesktopSmall : [980,2],
+              itemsTablet: [768,2],
+              itemsMobile : [479,2],
               pagination: false,
               navigation: true
             });
-            $(".next").click(function(){
-              owl.trigger('owl.next');
-            })
-            $(".prev").click(function(){
-              owl.trigger('owl.prev');
-            });
-
           });
 
         });
