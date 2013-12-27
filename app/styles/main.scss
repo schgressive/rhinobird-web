@@ -376,6 +376,12 @@ body.golive {
 				}
 			}
 		}
+		&.channel-view {
+			.form-search input[type="search"] {
+				@media screen and (max-width: 840px) { width:200px;}
+			}
+			.btn-vj { @media screen and (max-width: 560px) { margin-right: 20px;}}
+		}
 	}
 }
 
@@ -394,6 +400,7 @@ body.golive {
 	[class*="span"] {
 		@media screen and (max-width: 740px){ width: 100%; margin-left: 0;}
 	}
+	h3 { margin-top: 0;}
 	h4 { margin: {top:0px;bottom:20px;}}
 	.colRight {
 		.well { @media screen and (max-width: 600px){ margin-top: 20px;}}
@@ -430,6 +437,7 @@ body.golive {
 .lower-content {
 	margin-top: 20px;
 	padding-bottom:	30px;
+	h4 { margin-top: 0px;}
 	/*below fixes grid flow problem with streams*/
 	.grid-streams li[class*="module"] {
 		margin: {

@@ -4,7 +4,7 @@
 			<div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions" ng-show="app.isLoggedIn">
+      <div class="loggedin-actions channel-view" ng-show="app.isLoggedIn">
         <div ng-include="'/views/layouts/channel-actions.html'"></div>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->
@@ -14,9 +14,12 @@
 <div class="main" role="main">
   <div class="width-controller container-fluid">
   	<section class="mid-content">
+  		<div class="row-fluid">
+  			<h3 class="span12">Now Viewing: [channel name here]</h3>
+  		</div>
 		  <div class="row-fluid">
 		    <div class="module-xlarge span12">
-          <div video-canvas-projector video="self.currentStream.licode.player.video" width="940" height="512"></div>
+          <div video-canvas-projector video="self.currentStream.licode.player.video"></div>
           <div>{{self.pool.mainStream.caption}}</div>
           <div>{{self.pool.streamsCount}}</div>
 		    </div><!-- /.module-xlarge -->
@@ -24,9 +27,7 @@
 		</section><!-- /.mid-content -->
 		<section class="lower-content">
 		  <div class="row-fluid">
-		    <h3 class="span12">
-		      Switch Camera Views
-		    </h3>
+		    <h4 class="span12">Switch Camera Views</h4>
 		  </div><!-- /.row-fluid -->
 		  <div class="row-fluid">
         <div channel-pool channel="self.channel" vj="false" vj-flow="outbound" max-streams="4"></div>
