@@ -4,13 +4,4 @@
 	</a>
 	<h4 class="one-liner pull-left">Hi <span class="username" >{{user.name}}</span>!</h4>
 </div><!-- /.action-left -->
-<div class="action-right span8">
-	<form method="get" ng-submit="" class="form-search" role="search">
-    <label for="search" class="visually-hidden">Search Peepol.tv</label>
-    <div class="input-prepend input-append">
-  		<span class="add-on"><i class="icon-search"></i></span>
-			<input type="search" name="search" placeholder="search livestreams, #channels...">
-			<input class="btn hidden-phone" type="submit" value="Search">
-    </div><!-- /.input-prepend -->
-  </form>
-</div><!-- /.action-right -->
+<div class="action-right span8" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->

@@ -9,18 +9,9 @@
 		    <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
 		    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
 		  </ul>
+		  <a class="btn-vj btn btn-large pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
     </div><!-- /.action-left -->
-    <div class="action-right span7">
-      <a class="btn-vj btn btn-large pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
-      <form method="get" ng-submit="" class="form-search" role="search">
-		    <label for="search" class="visually-hidden">Search Peepol.tv</label>
-		    <div class="input-prepend input-append">
-		  		<span class="add-on"><i class="icon-search"></i></span>
-					<input type="search" name="search" placeholder="search livestreams, #channels...">
-					<input class="btn hidden-phone" type="submit" value="Search">
-		    </div><!-- /.input-prepend -->
-		  </form>
-    </div><!-- /.action-right -->
+    <div class="action-right span7" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->
   </div><!-- /.row-fluid -->
   <!-- <div id="share" class="action-sub collapse row-fluid" ng-include="'/views/snippets/share-bar.html'"></div> --><!-- /#share -->
 </div><!-- /.span12 -->
