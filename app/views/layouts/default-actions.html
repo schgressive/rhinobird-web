@@ -7,11 +7,11 @@
 		<a href="#" class="btn btn-small pull-left" role="button">Take the Tour!</a>
   </div><!-- /.row-fluid -->
 </div><!-- /.action-left -->
-<div class="action-right span7">
-	<form method="get" action="" class="form-search" role="search">
+<div class="action-right span7" ng-controller="SearchCtrl">
+	<form method="get" action="" class="form-search" role="search" ng-submit="search()">
     <div class="input-prepend input-append">
   		<span class="add-on"><i class="icon-search"></i></span>
-			<input type="search" placeholder="search livestreams, #channels...">
+			<input type="search" placeholder="search livestreams, #channels..." ng-model="searchTerms">
 			<input class="btn hidden-phone" type="submit" value="Go!">
     </div><!-- /.input-prepend -->
   </form>

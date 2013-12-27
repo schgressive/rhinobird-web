@@ -53,7 +53,7 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
         controller: 'SearchResultsCtrl'
       })
       .state('search.streams', {
-        url: '/streams',
+        url: '/streams?q',
         templateUrl: '/views/search-results-streams.html'
       })
       .state('search.channels', {
