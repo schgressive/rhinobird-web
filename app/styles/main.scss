@@ -385,7 +385,14 @@ body.golive {
 	}
 }
 
-.results-item { margin-bottom: 12px;}
+.results-item {
+	margin-bottom: 20px;
+	.module-video { width: 100px;}
+	.data-list {
+		vertical-align: text-bottom;
+		& + li { vertical-align: bottom; margin-bottom: 5px;}
+	}
+}
 .results-item:last-of-type { margin-bottom: 0;}
 
 .mid-content {
