@@ -456,6 +456,9 @@ width: 48.61878453038674%;
 */
 		}
 	}
+	@media screen and (min-width: 761px) {
+		.row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
+	}
 	@media screen and (max-width: 760px) {
 		.row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
 	}
