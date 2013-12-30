@@ -1,6 +1,6 @@
 <div class="span12">
   <div class="row-fluid">
-    <div class="action-left span5">
+    <div class="action-left span6">
       <a href="#" class="user-avatar pull-left" title="click to view your profile">
 		    <img ng-src="{{ user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
@@ -9,9 +9,9 @@
 		    <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
 		    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
 		  </ul>
-		  <a class="btn-vj btn btn-large pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
+		  <a class="btn-vj btn btn-large" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
     </div><!-- /.action-left -->
-    <div class="action-right span7" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->
+    <div class="action-right span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->
   </div><!-- /.row-fluid -->
   <!-- <div id="share" class="action-sub collapse row-fluid" ng-include="'/views/snippets/share-bar.html'"></div> --><!-- /#share -->
 </div><!-- /.span12 -->

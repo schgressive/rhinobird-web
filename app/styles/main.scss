@@ -455,6 +455,24 @@ body.golive {
 	}
 }
 
+.social-list {
+	margin: 0;
+	padding-top: 5px;
+	a {
+		width: 34px;
+		height: 34px;
+		background-repeat: none;
+		background-position: center center;
+		background-size: cover;
+		display: block;
+		&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
+		&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
+		&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
+		&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
+
+	}
+}
+
 .profile-list {
 	.user-avatar {
 		margin-right: 20px;
