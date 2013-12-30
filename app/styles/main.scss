@@ -769,7 +769,22 @@ body.golive {
 }
 .popup img { width: 100%;}
 
-/* rule for hidding elements until angular boots*/
+.hook {
+	text-align: center;
+	a {
+		color: $gray;
+		padding: 5px 30px;
+		background-color: $grayLight;
+		display: inline-block;
+		&:hover {
+			color: $grayDarker;
+			text-decoration: none;
+			background-color: darken($grayLight, 5%);
+		}
+	}
+}
+
+/* rule for hiding elements until angular boots*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
