@@ -20,7 +20,7 @@ angular.module('peepoltvApp')
         // Get the live streams from this channel
         scope.liveStreams = scope.channel.streams.live().$then(function(){
           // Sets the first streams as playing if this is and outbound vj
-          if(attrs.vjFlow == 'outbound'){
+          if(attrs.vjFlow === 'outbound'){
             _.each(scope.liveStreams, function(s, idx){
               s.isPlaying = (idx < attrs.maxStreams);
             });
@@ -28,7 +28,7 @@ angular.module('peepoltvApp')
         });
 
         // Change the main stream
-        scope.changeStream = function(stream, context){
+        scope.changeStream = function(stream){
 
           // Mute all the videos
           _.each(scope.liveStreams, function(_stream){
@@ -45,7 +45,7 @@ angular.module('peepoltvApp')
         };
 
         scope.$watchCollection('liveStreams', function(s){
-          if(!s || s.length == 0) return;
+          if(!s || s.length === 0) { return; }
 
           // Apply the owl slider
           // Note: timeout is used as a hack to be sure the the owl plugin is applied
