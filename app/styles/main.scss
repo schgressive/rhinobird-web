@@ -380,7 +380,6 @@ body.golive {
 			.form-search input[type="search"] {
 				@media screen and (max-width: 840px) { width:200px;}
 			}
-			.btn-vj { @media screen and (max-width: 560px) { margin-right: 20px;}}
 		}
 	}
 }
@@ -499,11 +498,24 @@ body.golive {
 		background-position: center center;
 		background-size: cover;
 		display: block;
-		&[title*="facebook"] {background-image: url('../images/facebook-icon.svg');}
-		&[title*="twitter"] {background-image: url('../images/twitter-icon.svg');}
-		&[title*="google plus"] {background-image: url('../images/googleplus-icon.svg');}
-		&[title*="tumblr"] {background-image: url('../images/tumblr-icon.svg');}
-
+		transition-property: none;
+		&:hover {transition-property: none;}
+		&[title*="facebook"] {
+			background-image: url('../images/facebook-icon.svg');
+			&:hover {background-image: url('../images/facebook-icon-hover.svg');}
+		}
+		&[title*="twitter"] {
+			background-image: url('../images/twitter-icon.svg');
+			&:hover {background-image: url('../images/twitter-icon-hover.svg');}
+		}
+		&[title*="google plus"] {
+			background-image: url('../images/googleplus-icon.svg');
+			&:hover {background-image: url('../images/googleplus-icon-hover.svg');}
+		}
+		&[title*="tumblr"] {
+			background-image: url('../images/tumblr-icon.svg');
+			&:hover {background-image: url('../images/tumblr-icon-hover.svg');}
+		}
 	}
 }
 

@@ -4,12 +4,12 @@
       <a href="#" class="user-avatar pull-left" title="click to view your profile">
 		    <img ng-src="{{ user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
+			<a class="btn-vj btn pull-left" ng-class="{true: 'vj-off', false: 'vj-on'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
       <ul class="social-list inline pull-left clearfix">
 		    <li><a href="#" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
 		    <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
 		    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
 		  </ul>
-		  <a class="btn-vj btn btn-large" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!channel.vj]" ng-click="channel.vj = !channel.vj" role="button">{{!channel.vj && 'VJ Off' || 'VJ On'}}</a>
     </div><!-- /.action-left -->
     <div class="action-right span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->
   </div><!-- /.row-fluid -->
