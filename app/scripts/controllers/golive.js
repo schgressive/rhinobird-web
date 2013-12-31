@@ -77,6 +77,15 @@ angular.module('peepoltvApp')
       }
     });
 
+    // Update the stream id
+    $scope.$on('stream-added', function(event, newStream){
+      var payload = {
+        streamId: newStream.getID()
+      };
+
+      GoliveService.updateStream(payload);
+    });
+
     // Get current location
     GeolocationService.getCurrent();
 

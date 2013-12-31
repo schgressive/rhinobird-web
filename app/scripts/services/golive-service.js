@@ -49,6 +49,24 @@ angular.module('peepoltvApp')
       return $q.when(stream.$save().$promise);
     };
 
+    // Update stream
+    // Receive an object with the properties to update
+    this.updateStream = function(options){
+      angular.extend(stream, options);
+
+      // Post the new stream to the server and return the promise
+      return $q.when(stream.$save().$promise);
+    };
+
+    // Update the thumbnail
+    this.updateThumbnail = function(){
+      // Add thumbnail and caption
+      angular.thumb = getThumbnailURL(CameraService.licodeStream.player.video, 854, 480);
+
+      // Post the new stream to the server and return the promise
+      return $q.when(stream.$save().$promise);
+    };
+
     /**
      * PRIVATE
      */
