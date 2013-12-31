@@ -445,22 +445,11 @@ body.golive {
 	margin-top: 20px;
 	padding-bottom:	30px;
 	h4 { margin-top: 0px;}
-	/*below fixes grid flow problem with streams*/
-	.grid-streams li[class*="module"] {
-		margin: {
-			top:10px;
-			bottom: 50px;
-		}
-	}
 	.row-fluid {margin-bottom: 40px;}
 	.row-fluid [class*="span3"] {
 		@media screen and (max-width: 760px) {
 			width: 31.91%;
 			*width: 31.91%;
-			/*
-width: 48.61878453038674%;
-			*width: 48.56559304102504%;
-*/
 		}
 	}
 	@media screen and (min-width: 761px) {
@@ -468,6 +457,21 @@ width: 48.61878453038674%;
 	}
 	@media screen and (max-width: 760px) {
 		.row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
+	}
+	.module-large .archived { display: none;}
+	.module-large:nth-child(3n) {
+		.module-inner, .module-outer { background-color: $grayLighter;}
+		.archived {
+			width: 32px;
+			height: 32px;
+			background: url('/images/archive-icon-48.svg') top left no-repeat;
+			background-size: contain;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			opacity: .75;
+		}
 	}
 }
 
