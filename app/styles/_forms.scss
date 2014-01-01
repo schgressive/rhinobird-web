@@ -237,9 +237,12 @@ body.base {
 		padding: 6px;
 		background-color: $darkTrans;
 		ul { margin-bottom: 10px;}
-		.btn-primary:hover {
-			background-color: lighten($purple, 10%);
-			border-color: $purple;
+		.btn-primary {
+			margin-top: 10px;
+			&:hover {
+				background-color: lighten($purple, 10%);
+				border-color: $purple;
+			}
 		}
 		@media screen and (max-width: 500px) { .input-xxlarge { width: 74%;}}
 	}
