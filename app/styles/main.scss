@@ -269,33 +269,23 @@ i[class*="icon"] {font-style: normal;}
 		padding: 0 70px 20px;
 		border-top: 1px solid $grayLight;
 		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
-		/* .width-controller {	@media screen and (max-width: 500px) { padding: {left:10px;right:10px;}}} */
 		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
 	}
-}
-
-body.golive {
-	background-color: $grayDarker;
-	li.active > a {border: none;padding: none;}
-	.navbar .navbar-inner li.active > a {
-		background-color: $white;
-		box-shadow: none;
-		border-bottom: none;
-		.golive-btn, .golive-btn.active {
-			background-color: $white !important;
+	.main.golive {
+		background: transparent url('/images/golive-action-bg.png') top left repeat-x;
+		border: none;
+		.golive-view {
+			margin-top: 20px;
+			.user-avatar {
+				margin-right: 10px;
+				& + ul { padding-top: 7px;}
+			}
+			.btn {
+				color: $white;
+				border-color: $white;
+				@include font-smoothing();
+			}
 		}
-	} /*NEED TO CHANGE THIS LATER*/
-	.main {
-    	margin-top: -14px;
-		padding-bottom: 0;
-
-		video {
-	      -webkit-transform: rotateY(180deg);
-	      -moz-transform: rotateY(180deg);
-	      -o-transform: rotateY(180deg);
-	      -ms-transform: rotateY(180deg);
-	      transform: rotateY(180deg);
-	    }
 	}
 }
 
