@@ -1,1 +1,52 @@
-<p>This is the user view.</p>
+<section class="top-content">
+  <div class="width-controller container-fluid">
+    <div class="row-fluid">
+      <ul class="profile-list no-bullets span12">
+        <li class="user-avatar pull-left">
+          <img src="{{ self.user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="user avatar" />
+        </li>
+        <li class="user-info pull-left">
+          <ul class="no-bullets">
+            <li class="name-item">
+              <h2 class="user-name">{{self.user.name}}</h2>
+            </li>
+            <li class="location-item">
+              <i class="icon-map-marker"></i><span>Belfast, Northern Ireland</span>
+            </li>
+            <li class="twitter-item">
+              <i class="icon-user"></i><a href="#" title="Twitter feed" rel="me">{{self.user.username}}</a>
+            </li>
+            <li class="status-item">
+              <strong class="pull-left">Status:</strong>
+<!-- NOTE FROM CHRIS: add show/hide classes to statuses later -->
+              <a href="#" class="status-on visually-hidden">On Air</a>
+              <span class="status-off visually-hidden">Off the Air</span>
+              <a href="#" class="status-vj">In VJ Session</a>
+            </li>
+          </ul>
+        </li>
+      </ul><!-- /.profile-list -->
+    </div><!-- /.row-fluid -->
+  </div><!-- /.container-fluid -->
+</section><!-- /.top-content -->
+
+<div class="main" role="main">
+  <div class="width-controller container-fluid">
+    <section class="lower-content">
+      <div class="row-fluid">
+        <h3 class="span6">
+          Archived Streams:
+        </h3>
+      </div><!-- /.row-fluid -->
+      <div class="row-fluid">
+        <div class="span12">
+          <ol class="no-bullets">
+            <li class="module-large span3" ng-repeat="stream in streams | limitTo:12">
+              <div ng-include="'/views/snippets/module-large.html'"></div>
+            </li><!-- /.module-large -->
+          </ol>
+        </div><!-- /.span12 -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.lower-content -->
+  </div><!-- /.container-fluid -->
+</div><!-- /.main -->
