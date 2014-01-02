@@ -20,7 +20,8 @@ angular.module('peepoltvApp')
           'left': e.position().left
         };
       };
-      scope.$watch(scope.getValues, function (newValue, oldValue) {
+
+      scope.$watch(scope.getValues, function (newValue) {
         // resize Grid to optimize height and position
         $(element)
           .width(newValue.width)
@@ -34,5 +35,5 @@ angular.module('peepoltvApp')
       w.bind('resize', function () {
         scope.$apply();
       });
-    }
+    };
   });

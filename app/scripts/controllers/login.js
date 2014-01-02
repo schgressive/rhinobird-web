@@ -6,7 +6,7 @@ angular.module('peepoltvApp')
 
       var userData = $scope.logUser;
 
-      AuthService.login(userData).then(function(e){
+      AuthService.login(userData).then(function(){
 
         // Validate form
         $scope.loginForm.password.$setValidity('invalid-pw', true);
@@ -14,7 +14,7 @@ angular.module('peepoltvApp')
         // Close modal form
         $scope.$close();
       },
-      function(error){
+      function(){
         // Some error
         $scope.loginForm.password.$setValidity('invalid-pw', false);
       });

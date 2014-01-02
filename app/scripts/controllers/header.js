@@ -5,11 +5,11 @@ angular.module('peepoltvApp')
 
     // Catch the unauthorized pages
     $rootScope.$on('$routeChangeError', function (event, parameters) {
-      if(parameters.$$route.controller === "GoliveCtrl"){
+      if(parameters.$$route.controller === 'GoliveCtrl'){
         // Go to golive after loging in
         AuthService.askLogin().then(function() {
-          $location.path("/golive");
-        })
+          $location.path('/golive');
+        });
       }
     });
 
@@ -31,7 +31,7 @@ angular.module('peepoltvApp')
 
     $scope.login = function(){
       AuthService.askLogin();
-    }
+    };
 
     $scope.logout = function(){
       AuthService.logout();

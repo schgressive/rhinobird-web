@@ -5,5 +5,5 @@ angular.module('peepoltvApp')
     $scope.searchTerms = $state.params.q;
     $scope.search = function() {
       $state.go('search.streams', {q: $scope.searchTerms} , {reload: true});
-    }
+    };
   });

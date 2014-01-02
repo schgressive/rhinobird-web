@@ -6,7 +6,7 @@ angular.module('peepoltvApp')
 
     $scope.login = function(){
       AuthService.askLogin();
-    }
+    };
 
     $scope.logout = function(){
       AuthService.logout();

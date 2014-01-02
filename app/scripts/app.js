@@ -120,15 +120,15 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
         url: '/{channelName:[0-9a-zA-Z]*}/{userName:[0-9a-zA-Z]*}',
         templateUrl: '/views/vj-session.html',
         controller: 'VjSessionCtrl'
-      })
+      });
 
       // Config restmod
-      $restmodProvider.pushModelBase(function() {
-        this.setRestUrlOptions({ baseUrl: settings.apiHost });
-      });
+    $restmodProvider.pushModelBase(function() {
+      this.setRestUrlOptions({ baseUrl: settings.apiHost });
+    });
   })
   .run(function($location, $rootScope, AuthService){
-    $rootScope.$on('$stateChangeError', function (event, parameters) {
+    $rootScope.$on('$stateChangeError', function () {
       // Navigate to main page
       $location.path('/');
     });

@@ -8,15 +8,15 @@ angular.module('peepoltvApp')
 
       var data = {
         email: $scope.user.email
-      }
+      };
 
-      AuthService.askPasswordReset(data).then(function(e) {
+      AuthService.askPasswordReset(data).then(function() {
         $scope.$close();
       },
-      function(e) {
+      function() {
         $scope.invalidEmail = true;
       });
 
-    }
+    };
   });
 

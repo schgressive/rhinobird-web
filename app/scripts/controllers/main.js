@@ -9,13 +9,13 @@ angular.module('peepoltvApp')
 
     // Search streams
     $scope.searchStreams = function(){
-      $location.url("/search?q=" + $scope.searchString);
+      $location.url('/search?q=' + $scope.searchString);
     };
 
     $scope.user = AuthService.user;
 
     if ($stateParams.reset_password_token) {
-      AuthService.askLogin("password-reset");
+      AuthService.askLogin('password-reset');
     }
 
   });

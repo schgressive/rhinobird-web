@@ -3,8 +3,6 @@
 angular.module('peepoltvApp')
   .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password) {
 
-    var _this = this;
-
     // The current session
     var session = Session.$build('current');
 
@@ -27,7 +25,7 @@ angular.module('peepoltvApp')
         //click event for login modal form
         $scope.close = function() {
           $modalInstance.dismiss('cancel');
-        }
+        };
       }];
 
       //create modal and return it
@@ -39,23 +37,23 @@ angular.module('peepoltvApp')
       var password = Password.$create(payload);
 
       return password.$promise;
-    }
+    };
 
     this.resetPassword = function(payload) {
       var password = Password.$build(payload);
-      password.id = "";
+      password.id = '';
       password.$save();
 
 
       return password.$promise;
-    }
+    };
 
     // Register user
     this.register = function(payload) {
       var user = User.$create(payload);
 
       return user.$promise;
-    }
+    };
 
     // Login a user, create a new session
     this.login = function(payload){

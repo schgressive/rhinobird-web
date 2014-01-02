@@ -3,9 +3,9 @@
 angular.module('peepoltvApp')
   .controller('ProfileCtrl', function ($scope, AuthService) {
 
-  	$scope.self = $scope;
+    $scope.self = $scope;
 
-  	// Expose the user in the scope
-  	$scope.user = AuthService.user;
+    // Expose the user in the scope
+    $scope.user = AuthService.user;
 
   });

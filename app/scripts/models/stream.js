@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .factory('Stream', function ($restmod, SyncMask, settings) {
+  .factory('Stream', function ($restmod, SyncMask) {
     return $restmod.model('streams',
     {
       user: { hasOne: 'User' },

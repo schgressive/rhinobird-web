@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .factory('Session', function ($restmod, settings) {
+  .factory('Session', function ($restmod) {
     return $restmod.model('sessions', {
         user: { hasOne: 'User' }
       },

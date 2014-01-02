@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .factory('User', function ($restmod, settings) {
+  .factory('User', function ($restmod) {
     return $restmod.model('users',
       function() {
         this.afterSave(function() {

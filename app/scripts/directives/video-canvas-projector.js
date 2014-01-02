@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .directive('videoCanvasProjector', function ($timeout) {
+  .directive('videoCanvasProjector', function () {
 
     return {
       template: '<canvas width="{{width}}" height="{{height}}"></canvas>',
@@ -12,7 +12,7 @@ angular.module('peepoltvApp')
         height: '@',
         video: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element) {
         // var previewStream, currentStream; // Streams
         var canvas, ctx; // Canvas and it's context
         var interval;
@@ -59,7 +59,7 @@ angular.module('peepoltvApp')
           // Paint the frame
           if(clear || !video){
             // paint it black
-            ctx.fillStyle = "rgb(0,0,0)";
+            ctx.fillStyle = 'rgb(0,0,0)';
             ctx.fillRect (0, 0, width, height);
           }
           else {
@@ -70,11 +70,11 @@ angular.module('peepoltvApp')
             ctx.drawImage(video , widthDiff, 0, dWidth, dHeight);
 
             // paint it black
-            ctx.fillStyle = "rgb(0,0,0)";
+            ctx.fillStyle = 'rgb(0,0,0)';
             ctx.fillRect (0, 0, widthDiff, height);
 
             // paint it black
-            ctx.fillStyle = "rgb(0,0,0)";
+            ctx.fillStyle = 'rgb(0,0,0)';
             ctx.fillRect (widthDiff + dWidth, 0, widthDiff, height);
           }
         };

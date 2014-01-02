@@ -3,7 +3,7 @@
 angular.module('peepoltvApp')
   .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService) {
 
-		$scope.user = AuthService.user;
+    $scope.user = AuthService.user;
 
     $scope.mapSearch = {};
 
@@ -67,7 +67,7 @@ angular.module('peepoltvApp')
           return s;
         });
 
-        if(!$scope.map) return;
+        if(!$scope.map) { return; }
         // Create and add marker layer
         var markerLayer = L.mapbox.markerLayer();
         markerLayer.setGeoJSON({
@@ -81,29 +81,29 @@ angular.module('peepoltvApp')
 
           // Create custom popup content
           var popupContent = '<div class="popup clearfix">' +
-          						'<div class="popup-left pull-left">' +
-          							'<div class="video-popup">' +
-          								'<a href="/streams/{{stream.id}}">' +
-											'<img src="' + feature.thumbs.medium + '">' +
-										'</a>' +
-          							'</div>' +
-          							'<div class="specs-popup clearfix">' +
-          								'<ul class="no-bullets">' +
-          									'<li class="thumb-user pull-left">' +
-          										'<a href="#" title="username">' +
-													'<img src="http://fakeimg.pl/54x54/?text=User">' +
-												'</a>' +
-          									'</li>' +
-          									'<li class="specs-title">' + feature.title + '</li>' +
-          									'<li class="specs-tags">' + feature.tags.join(", ") + '</li>' +
-          								'</ul>' +
-          							'</div>' +
-		  						'</div>' +
-		  						'<div class="popup-right pull-left">' +
-		  							'<a target="_blank" href="/streams/' + feature.id + '">' +
-		  								'<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
-		  							'</a>' +
-		  						'</div>' +
+                      '<div class="popup-left pull-left">' +
+                        '<div class="video-popup">' +
+                          '<a href="/streams/{{stream.id}}">' +
+                      '<img src="' + feature.thumbs.medium + '">' +
+                    '</a>' +
+                        '</div>' +
+                        '<div class="specs-popup clearfix">' +
+                          '<ul class="no-bullets">' +
+                            '<li class="thumb-user pull-left">' +
+                              '<a href="#" title="username">' +
+                          '<img src="http://fakeimg.pl/54x54/?text=User">' +
+                        '</a>' +
+                            '</li>' +
+                            '<li class="specs-title">' + feature.title + '</li>' +
+                            '<li class="specs-tags">' + feature.tags.join(', ') + '</li>' +
+                          '</ul>' +
+                        '</div>' +
+                  '</div>' +
+                  '<div class="popup-right pull-left">' +
+                    '<a target="_blank" href="/streams/' + feature.id + '">' +
+                      '<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
+                    '</a>' +
+                  '</div>' +
                              '</div>';
 
           // http://leafletjs.com/reference.html#popup

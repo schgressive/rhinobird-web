@@ -11,4 +11,4 @@ angular.module('peepoltvApp')
 		// Get the streams based on geolocation
     $scope.streams = Stream.$search();
 
-});
+  });
