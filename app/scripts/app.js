@@ -21,7 +21,6 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       - search.peepol                           /search/peepol
       - golive                                  /golive
       - profile                                 /profile
-      - profile.settings                        /profile/settings
       - stream({streamId: <streamId>})          /stream/:streamId
       - user({userName: <username>})            /user/:userName
       - channel({channelName: <channelname>})   /:channelName
@@ -82,12 +81,6 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
         url: '/profile',
         templateUrl: '/views/profile.html',
         controller: 'ProfileCtrl'
-      })
-
-      .state('profile.settings', {
-        url: '/settings',
-        templateUrl: '/views/profile-settings.html',
-        controller: 'ProfileSettingsCtrl'
       })
 
       // Streams

@@ -3,18 +3,18 @@
     <div class="row-fluid">
       <ul class="profile-list no-bullets span12">
         <li class="user-avatar pull-left">
-          <img src="/images/profile-default.svg" alt="user avatar" />
+          <img src="{{ self.user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="user avatar" />
         </li>
         <li class="user-info pull-left">
           <ul class="no-bullets">
           	<li class="name-item">
-	            <h2 class="user-name">Ginger O'Hara</h2>
+	            <h2 class="user-name">{{self.user.name}}</h2>
 	          </li>
 	          <li class="location-item">
 	            <i class="icon-map-marker"></i><span>Belfast, Northern Ireland</span>
 	          </li>
 	          <li class="twitter-item">
-	            <i class="icon-user"></i><a href="#" title="Twitter feed" rel="me">@ambiguousredhead</a>
+	            <i class="icon-user"></i><a href="#" title="Twitter feed" rel="me">{{self.user.username}}</a>
 	          </li>
 	          <li class="status-item">
 	            <strong class="pull-left">Status:</strong>
@@ -29,8 +29,6 @@
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
-
-<section ui-view></section>
 
 <div class="main" role="main">
   <div class="width-controller container-fluid">
