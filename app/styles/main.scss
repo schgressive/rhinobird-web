@@ -447,23 +447,16 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 760px) {
 		.row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
 	}
-	.module-large .archived, .module-large .flag { display: none;}
+	.module-large .archived { display: none;}
 	.module-large:nth-child(3n) {
-		.module-inner, .module-outer { background-color: $grayLighter;}
-		.archived {
-			width: 32px;
-			height: 32px;
-			background: url('/images/archive-icon-48.svg') top left no-repeat;
-			background-size: contain;
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: block;
-			opacity: .75;
+		outline: 1px solid hsla(39,100%,50%,.5);
+		.module-overlay {
+			background-image: url('/images/archived-bg.svg');
+			background-position-y: 52%;
 		}
 	}
 	.module-large:nth-child(5n) {
-		.flag {
+		.archived {
 			@include fontSize(12px);
 			font-family: "LatoItalic", $italic-font-stack;
 			color: $white;
@@ -621,7 +614,7 @@ i[class*="icon"] {font-style: normal;}
 
 .module-large {
 	.module-overlay {
-		background:  hsla(0,0%,100%,.75) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
+		background:  hsla(0,0%,18%,.7) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
 		background-size: auto;
 	}
 }
