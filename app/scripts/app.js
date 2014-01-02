@@ -144,6 +144,12 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       app.isLoggedIn = logginStatus;
     });
 
+    // On state success
+    $rootScope.$on('$stateChangeSuccess', function (event, parameters) {
+      // Add the current state to the app variable
+      app.state = parameters.name;
+    });
+
     // Try to get a initialized session
     AuthService.getSession();
 
