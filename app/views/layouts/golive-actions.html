@@ -4,18 +4,21 @@
       <a href="#" class="user-avatar pull-left" title="click to view your profile">
 		    <img ng-src="{{ user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
-      <ul class="pull-left inline">
+      <ul class="golive-list pull-left inline">
         <li>
-          <button class="btn btn-mini" ng-click="ctrl.stop(true)">Close & Return</button>
+          <a href="#" ng-click="ctrl.stop(true)" role="button" title="Close & Return"><span class="visually-hidden">Close & Return</span></a>
         </li>
         <li>
-          <button class="btn btn-mini" data-toggle="collapse" data-target="#add" role="button">Add Tags/Channels</button>
+          <a href="#" role="button" title="Take a Snapshot"><span class="visually-hidden">Take Snapshot</span></a>
         </li>
         <li>
-          <button class="btn btn-mini" data-toggle="collapse" data-target="#share" role="button">Share</button>
+          <a href="#" data-toggle="collapse" data-target="#add" role="button" title="Add Captions"><span class="visually-hidden">Add Captions</span></a>
         </li>
         <li>
-          <button class="btn btn-mini" ng-click="ctrl.stop()">Stop Recording</button>
+          <a href="#" data-toggle="collapse" data-target="#share" role="button" title="Share this Stream"><span class="visually-hidden">Share this Stream</span></a>
+        </li>
+        <li>
+          <a href="#" ng-click="ctrl.stop()" title="Stop Recording"><span class="visually-hidden">Stop Recording</span></a>
         </li>
       </ul>
     </div><!-- /.action-left -->

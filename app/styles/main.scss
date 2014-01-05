@@ -471,18 +471,23 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.social-list {
+.social-list, .golive-list {
 	margin: 0;
 	padding-top: 5px;
 	a {
-		width: 34px;
-		height: 34px;
+		width: 32px;
+		height: 32px;
 		background-repeat: none;
 		background-position: center center;
 		background-size: cover;
 		display: block;
 		transition-property: none;
 		&:hover {transition-property: none;}
+	}
+}
+
+.social-list {
+	a {
 		&[title*="facebook"] {
 			background-image: url('../images/facebook-icon.svg');
 			&:hover {background-image: url('../images/facebook-icon-hover.svg');}
@@ -498,6 +503,28 @@ i[class*="icon"] {font-style: normal;}
 		&[title*="tumblr"] {
 			background-image: url('../images/tumblr-icon.svg');
 			&:hover {background-image: url('../images/tumblr-icon-hover.svg');}
+		}
+	}
+}
+
+.golive-list {
+	a {
+		opacity: .7;
+		&:hover { opacity: 1;}
+		&[title*="Return"] {
+			background-image: url('../images/return-icon-32.svg');
+		}
+		&[title*="Add"] {
+			background-image: url('../images/add-icon-32.svg');
+		}
+		&[title*="Share"] {
+			background-image: url('../images/share1-icon-32.svg');
+		}
+		&[title*="Snapshot"] {
+			background-image: url('../images/snapshot-icon-32.svg');
+		}
+		&[title*="Stop"] {
+			background-image: url('../images/cancel-icon-32.svg');
 		}
 	}
 }
