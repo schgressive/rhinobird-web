@@ -27,10 +27,6 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @import "forms"; /*imports styles for forms*/
 
-// HEADER SWAP ------------------------------
-
-.golive footer {display: none;}
-
 // Global Styles ------------------------------
 
 /* use fontsize mixin (pixels to rems) to declare font-size values for elements, the styles below will act as a control for scaling up/down */
@@ -102,6 +98,14 @@ a, i, .btn, input {
 
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
+
+.golive footer {display: none;}
+.golive {
+	@media screen and (max-width: 979px) {
+		.navbar-fixed-top { margin-bottom: 0;}
+		.mainWrapper .main.golive .golive-view { margin-top: 15px;}
+	}
+}
 
 body.base { /*overrides are here */
 	input[type="search"] + .add-on {padding: 4px 5px}
