@@ -1,6 +1,6 @@
 <div class="span12">
   <div class="row-fluid">
-    <div class="action-left span12">
+    <div class="action-left span7">
       <a href="#" class="user-avatar pull-left" title="click to view your profile">
 		    <img ng-src="{{ user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
@@ -32,7 +32,9 @@
 		    <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
 		    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
 		  </ul>
-		  <form method="post" action="" class="pull-right">
+    </div><!-- /.action-left -->
+    <div class="action-right span5">
+    	<form method="post" action="" class="pull-right">
         <fieldset>
           <legend class="visually-hidden">Use this form to add a channel or caption. Use '#' before a word to create a channel for the stream.</legend>
           <div class="input-append">
@@ -41,6 +43,6 @@
           </div>
         </fieldset>
       </form>
-    </div><!-- /.action-left -->
+    </div>
   </div><!-- /.input-prepend -->
   </div><!-- /.row-fluid -->

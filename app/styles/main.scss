@@ -101,9 +101,30 @@ a, i, .btn, input {
 
 .golive footer {display: none;}
 .golive {
+	.main.goliveMain {
+		background: transparent url('/images/golive-action-bg.png') top left repeat-x;
+		border: none;
+		.golive-view {
+			margin-top: 20px;
+			.user-avatar {
+				margin-right: 10px;
+				& + ul { padding-top: 7px;}
+			}
+			.btn {
+				color: $white;
+				border-color: $white;
+				@include font-smoothing();
+			}
+		}
+	}
 	@media screen and (max-width: 979px) {
 		.navbar-fixed-top { margin-bottom: 0;}
-		.mainWrapper .main.golive .golive-view { margin-top: 15px;}
+		.mainWrapper .main.goliveMain .golive-view { margin-top: 15px;}
+	}
+	@media screen and (max-width: 600px) {
+		.main.goliveMain {
+			background: transparent url('/images/golive-action-bg2.png') top left repeat-x;
+		}
 	}
 }
 
@@ -274,22 +295,6 @@ i[class*="icon"] {font-style: normal;}
 		border-top: 1px solid $grayLight;
 		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
-	}
-	.main.golive {
-		background: transparent url('/images/golive-action-bg.png') top left repeat-x;
-		border: none;
-		.golive-view {
-			margin-top: 20px;
-			.user-avatar {
-				margin-right: 10px;
-				& + ul { padding-top: 7px;}
-			}
-			.btn {
-				color: $white;
-				border-color: $white;
-				@include font-smoothing();
-			}
-		}
 	}
 }
 
