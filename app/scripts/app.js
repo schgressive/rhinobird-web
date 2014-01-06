@@ -94,7 +94,12 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       .state('user', {
         url: '/user/{userName:[0-9a-zA-Z]*}',
         templateUrl: '/views/user.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        resolve: {
+          user: ['$stateParams', 'User', function($stateParams, User){
+            return User.$find($stateParams.userName).$promise;
+          }]
+        }
       })
 
       .state('password?reset_password_token', {
