@@ -70,7 +70,7 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
         templateUrl: '/views/golive.html',
         controller: 'GoliveCtrl',
         resolve: {
-          user: ['AuthService', function(AuthService) {
+          session: ['AuthService', function(AuthService) {
             return AuthService.getSession();
           }]
         }
