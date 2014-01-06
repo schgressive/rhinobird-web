@@ -13,35 +13,34 @@
           <a href="#" role="button" title="Take a Snapshot"><span class="visually-hidden">Take Snapshot</span></a>
         </li>
 -->
-        <li>
+        <!--
+<li>
           <a href="#" data-toggle="collapse" data-target="#add" role="button" title="Add Captions"><span class="visually-hidden">Add Captions</span></a>
         </li>
-        <li>
+-->
+        <!--
+<li>
           <a href="#" data-toggle="collapse" data-target="#share" role="button" title="Share this Stream"><span class="visually-hidden">Share this Stream</span></a>
         </li>
+-->
         <li>
           <a href="#" ng-click="ctrl.stop()" title="Stop Recording"><span class="visually-hidden">Stop Recording</span></a>
         </li>
       </ul>
-    </div><!-- /.action-left -->
-  </div><!-- /.row-fluid -->
-  <div id="add" class="action-sub collapse row-fluid">
-    <div class="span12">
-      <form method="post" action="" class="form-inline">
+      <ul class="social-list inline pull-left clearfix">
+		    <li><a href="#" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
+		    <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
+		    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
+		  </ul>
+		  <form method="post" action="" class="pull-right">
         <fieldset>
-          <legend class="visually-hidden">Use this form to add tags or a channel before rebroadcasting the stream.</legend>
-          <label class="checkbox inline" for="input-channel">
-            <input type="checkbox" value="add to channel"> Add to a Channel?
-          </label>
-          <input type="text" id="input-channel" placeholder="#channel">
-          <label class="checkbox inline" for="input-tags">
-            <input type="checkbox" class="checked" value="add tags"> Add Tags?
-          </label>
-          <input type="text" id="input-tags" placeholder="add caption...">
-        <input class="btn btn-small" type="submit" value="Ready!">
+          <legend class="visually-hidden">Use this form to add a channel or caption. Use '#' before a word to create a channel for the stream.</legend>
+          <div class="input-append">
+          	<input type="text" value="add to #channel/add caption">
+          	<input class="btn btn-large hidden-phone" type="submit" value="Add!">
+          </div>
         </fieldset>
       </form>
-    </div>
-  </div><!-- /#add -->
-  <div id="share" class="action-sub collapse row-fluid" ng-include="'/views/snippets/share-bar.html'"></div><!-- /#share -->
-</div><!-- /.span12 -->
+    </div><!-- /.action-left -->
+  </div><!-- /.input-prepend -->
+  </div><!-- /.row-fluid -->

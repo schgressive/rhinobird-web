@@ -533,6 +533,26 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.golive .social-list {
+	a {
+		margin-top: 2px;
+		opacity: .7;
+		&:hover { opacity: 1;}
+		&[title*="facebook"] {
+			background-image: url('../images/facebook-icon-white.svg');
+		}
+		&[title*="twitter"] {
+			background-image: url('../images/twitter-icon-white.svg');
+		}
+		&[title*="google plus"] {
+			background-image: url('../images/googleplus-icon-white.svg');
+		}
+		&[title*="tumblr"] {
+			background-image: url('../images/tumblr-icon-white.svg');
+		}
+	}
+}
+
 .profile-list {
 	.user-avatar {
 		margin-right: 20px;
