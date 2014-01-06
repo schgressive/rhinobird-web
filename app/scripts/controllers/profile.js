@@ -1,11 +1,15 @@
 'use strict';
 
 angular.module('peepoltvApp')
-  .controller('ProfileCtrl', function ($scope, AuthService) {
+  .controller('ProfileCtrl', function ($scope, User, session) {
 
     $scope.self = $scope;
 
     // Expose the user in the scope
-    $scope.user = AuthService.user;
+    $scope.user = session.user;
+
+    // Expose the user streams
+    var userTmp = User.$build(session.user.username);
+    $scope.streams = userTmp.streams.$fetch();
 
   });

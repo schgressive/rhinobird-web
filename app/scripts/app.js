@@ -80,7 +80,12 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       .state('profile', {
         url: '/profile',
         templateUrl: '/views/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        resolve: {
+          session: ['AuthService', function(AuthService) {
+            return AuthService.getSession();
+          }]
+        }
       })
 
       // Streams
