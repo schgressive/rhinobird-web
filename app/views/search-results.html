@@ -15,18 +15,22 @@
   <div class="width-controller container-fluid">
 	  <section class="mid-content">
 		  <div class="row-fluid">
-		    <div class="colLeft span7">
-		    	<div class="tab-content">
-					  <div class="tab-pane active">
-              <div ui-view></div>
-					  </div>
-					</div>
-		    </div><!-- /.colLeft -->
-		    <div class="colRight span5">
-		      <div class="well">promoted content? leaving this here for now</div>
-		    </div><!-- /.colRight -->
+				<div class="tabs span12 pull-left">
+			    <ul class="inline no-bullets">
+			      <li><a ui-sref="search.channels" data-toggle="tab"><i class="icon-headphones"></i>Channels</a></li>
+			      <li class="active"><a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a></li>
+			      <li><a ui-sref="search.peepol" data-toggle="tab"><i class="icon-user"></i>Peepol</a></li>
+			    </ul>
+			  </div>
 		  </div><!-- /.row-fluid -->
 		</section><!-- /.mid-content -->
+		<section class="lower-content">
+			<div class="tab-content">
+			  <div class="tab-pane active">
+          <div ui-view></div>
+			  </div>
+			</div>
+		</section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 

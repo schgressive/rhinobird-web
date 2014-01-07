@@ -2,14 +2,6 @@
   <a ui-sref="user({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
 		<img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
 	</a>
-<!-- NOTE FROM CHRIS
-the links below need to change/filter the results of the search. the search result should default to 'channel-results' unless the search is coming from a specific view e.g. a search run from a streams view page will yield results filtered by streams and so on -->
-  <div class="tabs pull-left">
-    <ul class="inline no-bullets">
-      <li><a ui-sref="search.channels" data-toggle="tab"><i class="icon-headphones"></i>Channels</a></li>
-      <li class="active"><a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a></li>
-      <li><a ui-sref="search.peepol" data-toggle="tab"><i class="icon-user"></i>Peepol</a></li>
-    </ul>
-  </div>
+	<h4>Your search results for <strong>{{searchTerm}}</strong>:</h4>
 </div><!-- /.action-left -->
 <div class="action-right span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->
