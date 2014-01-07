@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, settings) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, settings) {
     // Remove hashes and enables html push state history
     $locationProvider.html5Mode(true);
 
@@ -136,6 +136,12 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
     $restmodProvider.pushModelBase(function() {
       this.setRestUrlOptions({ baseUrl: settings.apiHost });
     });
+
+    // Config whitelist for amazon s3
+    $sceDelegateProvider.resourceUrlWhitelist([
+      'self',
+      'https://s3.amazonaws.com/media-peepol.tv/**'
+    ]);
   })
   .run(function($location, $rootScope, AuthService){
     $rootScope.$on('$stateChangeError', function () {
