@@ -2,7 +2,7 @@
   <div class="row-fluid">
     <div class="action-left span5">
       <a ui-sref="user({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
-		    <img ng-src="{{ user.photo || (user.email | gravatar:42:'/images/profile-default.svg')}}" alt="your avatar"/>
+		    <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
       <ul class="social-list inline pull-left clearfix">
 		    <li><a href="#" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
