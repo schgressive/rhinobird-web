@@ -2,7 +2,7 @@
 	<div class="module-video">
     <a ui-sref="stream({streamId: stream.id})" class="live-stream-link">
 			<img ng-src="{{stream.thumbs.medium}}"/>
-      <div class="liveStream"><span class="visually-hidden">happening live!</span></div>
+      <div class="liveStream" ng-show="stream.status == 'live'"><span class="visually-hidden">happening live!</span></div>
       <div class="module-overlay"></div>
 		</a>
 	</div><!-- /.module-video -->
