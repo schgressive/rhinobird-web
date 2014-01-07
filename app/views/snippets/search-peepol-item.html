@@ -3,12 +3,12 @@ peepol results include a "follow/following" button. This button needs to toggle 
 <li class="results-item clearfix">
   <ul class="no-bullets inline">
     <li class="thumb-user">
-			<a href="#" title="{{stream.user.name}}">
+			<a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
         <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:42:'/images/profile-default.svg')}}"/>
 			</a>
 		</li>
     <li class="ellipsis">
-      <h5><a href="/" title="user's profile">{{stream.user.name}}</a></h5>
+      <h5><a ui-sref="user({userName: stream.user.username})" title="user's profile">{{stream.user.name}}</a></h5>
     </li>
     <li>
       <a href="#" class="btn btn-mini follow" role="button" title="click to follow">Follow</a>
@@ -19,12 +19,12 @@ peepol results include a "follow/following" button. This button needs to toggle 
 <li class="results-item">
   <ul class="no-bullets inline">
     <li class="thumb-user pull-left">
-			<a href="#" title="{{stream.user.name}}">
+			<a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
         <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:42:'/images/profile-default.svg')}}"/>
 			</a>
 		</li>
     <li class="ellipsis">
-      <h5><a href="/" title="user's profile">{{stream.user.name}}</a></h5>
+      <h5><a ui-sref="user({userName: stream.user.username})" title="user's profile">{{stream.user.name}}</a></h5>
     </li>
     <li>
       <a href="#" class="btn btn-mini following" role="button" title="click to unfollow">Following</a>
