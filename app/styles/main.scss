@@ -439,11 +439,13 @@ i[class*="icon"] {font-style: normal;}
 
 .tabs { padding-top: 5px;}
 
+.mid-content + .lower-content { margin-top: 20px;}
+
 .lower-content {
-	margin-top: 20px;
 	padding-bottom:	30px;
 	h4 { margin-top: 0px;}
 	.row-fluid {margin-bottom: 40px;}
+	.row-fluid:first-of-type {margin-bottom: 0;}
 	.row-fluid [class*="span3"] {
 		@media screen and (max-width: 760px) {
 			width: 31.91%;
