@@ -5,10 +5,10 @@
 angular.module('peepoltvApp')
 .service('GeolocationService', function($q, $rootScope) {
 
+  var self = this;
   var current = {};
-  var resolved = false;
 
-  this.resolved = resolved;
+  this.resolved = false;
   this.current = current;
 
   this.getCurrent = function() {
@@ -19,7 +19,7 @@ angular.module('peepoltvApp')
         var deferred = $q.defer();
 
         // If current already exists
-        if(resolved){
+        if(self.resolved){
           deferred.resolve(current);
           return deferred.promise;
         }
@@ -35,7 +35,7 @@ angular.module('peepoltvApp')
               });
 
               // Set resolve flag after getting the location
-              resolved = true;
+              self.resolved = true;
 
               deferred.resolve(current);
             });
