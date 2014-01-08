@@ -16,6 +16,7 @@ angular.module('peepoltvApp')
       // Create map
       if(!$scope.map){
         $scope.map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
+        Stream.$search().$then(function(streams){drawStreamsLayer(streams, $scope.map);});
       }
 
       // Disable scroll to zoom
@@ -28,16 +29,7 @@ angular.module('peepoltvApp')
       $scope.map.setView(new L.LatLng(value.lat, value.lng), zoom );
     });
 
-    // Get current location
-    GeolocationService.getCurrent().then(function(data){
-      angular.extend($scope.mapSearch, {
-        lat: data.lat,
-        lng: data.lng
-      });
-    });
-
-    $scope.getCurrent = function(){
-      $scope.address = '';
+    var updateMapSearch = function(){
       GeolocationService.getCurrent().then(function(data){
         angular.extend($scope.mapSearch, {
           lat: data.lat,
@@ -45,6 +37,10 @@ angular.module('peepoltvApp')
         });
       });
     };
+
+    // Get current location
+    updateMapSearch();
+    $scope.getCurrent = updateMapSearch;
 
     // Address searchAddress
     // $scope.address defined in the view
@@ -59,28 +55,27 @@ angular.module('peepoltvApp')
     };
 
     // Get the streams based on geolocation
-    Stream.$search().$then(function(r){
-        $scope.streams = _.map(r, function(s){
-          s.properties['marker-size'] = 'medium';
-          s.properties['marker-color'] = '#A954F5';
-          s.properties['marker-symbol'] = 'cinema';
-          return s;
-        });
+    var drawStreamsLayer = function(streams, map){
+      $scope.streams = _.map(streams, function(s){
+        s.properties['marker-size'] = 'medium';
+        s.properties['marker-color'] = '#A954F5';
+        s.properties['marker-symbol'] = 'cinema';
+        return s;
+      });
 
-        if(!$scope.map) { return; }
-        // Create and add marker layer
-        var markerLayer = L.mapbox.markerLayer();
-        markerLayer.setGeoJSON({
-          type: 'FeatureCollection',
-          features: $scope.streams
-        });
-        markerLayer.addTo($scope.map);
+      // Create and add marker layer
+      var markerLayer = L.mapbox.markerLayer();
+      markerLayer.setGeoJSON({
+        type: 'FeatureCollection',
+        features: $scope.streams
+      });
+      markerLayer.addTo(map);
 
-        markerLayer.eachLayer(function(marker) {
-          var feature = marker.feature;
+      markerLayer.eachLayer(function(marker) {
+        var feature = marker.feature;
 
-          // Create custom popup content
-          var popupContent = '<div class="popup clearfix">' +
+        // Create custom popup content
+        var popupContent = '<div class="popup clearfix">' +
                       '<div class="popup-left pull-left">' +
                         '<div class="video-popup">' +
                           '<a href="/streams/{{stream.id}}">' +
@@ -106,17 +101,21 @@ angular.module('peepoltvApp')
                   '</div>' +
                              '</div>';
 
-          // http://leafletjs.com/reference.html#popup
-          marker.bindPopup(popupContent,{
-            closeButton: false,
-            minWidth: 320
-          });
-
+        // http://leafletjs.com/reference.html#popup
+        marker.bindPopup(popupContent,{
+          closeButton: false,
+          minWidth: 320
         });
+
+      });
 
         // Set inital center and zoom
         //$scope.map.fitBounds(markerLayer.getBounds());
-      });
+    };
 
+    // Draw streams layer
+    if($scope.map){
+      Stream.$search().$then(function(streams){drawStreamsLayer(streams, $scope.map);});
+    }
 
   });
