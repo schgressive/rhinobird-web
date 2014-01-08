@@ -27,12 +27,15 @@ angular.module('peepoltvApp')
     // The stream
     vm.stream = GoliveService.stream;
 
+    // Use geolocation with default
+    vm.useGeolocation = true;
+
     // Start the new broadcast
-    this.ready = function(skipMetadata){
+    this.ready = function(){
       var coordsPayload, captionPayload;
 
       // Add metadata metadata
-      if(!skipMetadata){
+      if(vm.useGeolocation){
         // Only add geoloaction if the that is resolved from the service
         if(GeolocationService.resolved){
           coordsPayload = {
@@ -40,8 +43,10 @@ angular.module('peepoltvApp')
             lat: GeolocationService.current.lat
           };
         }
-        captionPayload = vm.caption;
       }
+
+      // Add captions
+      captionPayload = vm.caption;
 
       // Start the broadcast in the golive service
       GoliveService.startBroadcast(captionPayload, coordsPayload).then(function(){

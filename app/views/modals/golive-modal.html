@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <button class="close" ng-click="ctrl.ready(true)" aria-hidden="true">&times;</button>
+  <button class="close" aria-hidden="true">&times;</button>
   <h2>Going Live?</h2>
 </div><!-- /.modal-header -->
 <div class="modal-body">
@@ -16,14 +16,12 @@
       </ul>
     </div>
     <label class="checkbox inline">
-    	<input type="checkbox" checked="checked"/> Enable Geolocation?
+    	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
     </label>
     <label class="checkbox inline">
     	<input type="checkbox" checked="checked" ng-click="vm.camera.toggleSource()"/> Flip Camera Forward?
     </label>
     <button type="submit" class="btn btn-primary btn-xlarge">Ready!</button>
-    <!-- Close modal and go live w/o adding metadata -->
-    <!-- <button type="button" class="btn btn-accent btn-xlarge" ng-click="ctrl.ready(true)" aria-hidden="true">Skip It! Let&#39;s Go!</button> -->
   </form>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
