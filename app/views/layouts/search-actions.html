@@ -2,6 +2,6 @@
   <a ui-sref="user({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
 		<img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
 	</a>
-	<h4>Your search results for <strong>{{searchTerm}}</strong>:</h4>
+	<h4>Your search results for:  <strong>{{searchTerm}}</strong></h4>
 </div><!-- /.action-left -->
 <div class="action-right span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div><!-- /.action-right -->

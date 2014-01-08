@@ -575,7 +575,7 @@ i[class*="icon"] {font-style: normal;}
 	.user-info li { margin-bottom: 3px;}
 }
 
-.map-wrapper, .carousel-wrapper, .module-large, .single-stream-wrapper, .tags-wrapper {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
+.map-wrapper, .carousel-wrapper, .module-large {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
 
 .map-wrapper {
 	background-color: $white;
@@ -603,7 +603,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-inner {
-	padding: 8px 10px 0;
+	padding: 8px 10px;
 	background-color: $white;
 	@media screen and (max-width: 500px) { padding: 0;}
 }
@@ -613,25 +613,6 @@ i[class*="icon"] {font-style: normal;}
 .module-video {
 	position: relative;
 	overflow: hidden; /*needs fallback for IE? */
-	.specs-stream {
-		width: 98%;
-		padding: 5px 10px 7px 10px;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		a {margin-right: 10px;}
-	}
-	a {	color: #333;}
-	.specs-title em {
-		font-family: "LatoBold" $bold-font-stack;
-		font-style: normal;
-		margin-bottom: 5px;
-	}
-  .specs-thumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 }
 
 .module-overlay {
@@ -665,6 +646,18 @@ i[class*="icon"] {font-style: normal;}
 		}
 	}
 }
+
+/*
+.module-outer {
+	color: $grayDarker;
+	padding: 3px 0;
+	h5 { font-family: "LatoBold", $bold-font-stack; margin: 0;}
+	.thumb-user {
+		font-size: 12px;
+		img { width:24px; height:24px; margin-right: 5px;}
+	}
+}
+*/
 
 .module-xlarge {
 	padding: 10px 10px 0;
