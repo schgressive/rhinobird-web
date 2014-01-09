@@ -143,10 +143,10 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       'https://s3.amazonaws.com/media-peepol.tv/**'
     ]);
   })
-  .run(function($location, $rootScope, AuthService){
+  .run(function($state, $rootScope, AuthService){
     $rootScope.$on('$stateChangeError', function () {
       // Navigate to main page
-      $location.path('/');
+      $state.go('main');
     });
 
     // Create an app object in the root scope for general application variables
