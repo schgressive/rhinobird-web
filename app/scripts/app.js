@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod'])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, settings) {
+angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod', 'peepoltvApp.streamViewer'])
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, streamViewerConfigProvider, settings) {
     // Remove hashes and enables html push state history
     $locationProvider.html5Mode(true);
 
@@ -142,6 +142,11 @@ angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRest
       'self',
       'https://s3.amazonaws.com/media-peepol.tv/**'
     ]);
+
+    // Set stream viewer size presets
+    streamViewerConfigProvider.addPreset('mini', 120, 90);
+    streamViewerConfigProvider.addPreset('large', 940, 512);
+    streamViewerConfigProvider.setDefaultPreset('large');
   })
   .run(function($state, $rootScope, AuthService){
     $rootScope.$on('$stateChangeError', function () {
