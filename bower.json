@@ -16,7 +16,8 @@
     "bootstrap-sass": "2.3.2",
     "owlcarousel": "*",
     "angular-ui-router": "~0.2.0",
-    "flexslider": "*"
+    "flexslider": "*",
+    "nginfinitescroll": "~1.0.0"
   },
   "resolutions": {
     "angular": "1.2.6"

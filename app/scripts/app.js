@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod', 'peepoltvApp.streamViewer'])
+angular.module('peepoltvApp', ['ui.router', 'ui.bootstrap', 'pl-licode', 'plRestmod', 'peepoltvApp.streamViewer', 'infinite-scroll'])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, streamViewerConfigProvider, settings) {
     // Remove hashes and enables html push state history
     $locationProvider.html5Mode(true);

@@ -2,16 +2,16 @@
 
 angular.module('peepoltvApp')
 
-  .controller('MainCtrl', function ($scope, $location, $timeout, $stateParams, Stream, AuthService) {
+  .controller('MainCtrl', function ($scope, $stateParams, Stream, AuthService) {
 
-    // Get the streams based on geolocation
-    $scope.streams = Stream.$search();
+    // Expose the scope as self
+    $scope.self = $scope;
 
-    // Search streams
-    $scope.searchStreams = function(){
-      $location.url('/search?q=' + $scope.searchString);
-    };
+    // Get the streams
+    $scope.streams = Stream.$collection();
+    $scope.streams.getNextPage();
 
+    // Set the user in scope
     $scope.user = AuthService.user;
 
     if ($stateParams.reset_password_token) {

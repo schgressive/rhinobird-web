@@ -2,7 +2,7 @@
 
 angular.module('peepoltvApp')
   .factory('Stream', function ($restmod, SyncMask) {
-    return $restmod.model('streams',
+    return $restmod.model('streams', 'PagedModel',
     {
       user: { hasOne: 'User' },
       isPlaying: { ignore: true }, // Whether is connected to licode server
@@ -13,8 +13,24 @@ angular.module('peepoltvApp')
       token: { ignore: SyncMask.ENCODE }
     },
     function(){
+      /**
+       * Only get live stream
+       * @return {collection} Collection of streams
+       */
       this.classDefine('live', function(){
         return this.$search({ live: true, 'force_check': true });
+      });
+
+      /**
+       * Get next page of streams
+       * @return {[type]} [description]
+       */
+      this.classDefine('getNextPage', function(){
+        var page = this.$page || 0;
+        if(!this.$pageCount || this.$page + 1 <= this.$pageCount){
+          return this.$fetch({ page: page + 1 });
+        }
+        return this;
       });
     });
   });
