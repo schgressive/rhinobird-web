@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.controllers')
   .controller('StreamCtrl', function ($scope, $stateParams, $timeout, Stream, AuthService) {
 
 		$scope.user = AuthService.user;

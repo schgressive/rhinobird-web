@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.controllers')
   .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService) {
 
     $scope.user = AuthService.user;

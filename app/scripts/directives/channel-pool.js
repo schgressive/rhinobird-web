@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.directives')
   .directive('channelPool', function ($timeout) {
     return {
       templateUrl: '/views/templates/channel-pool.html',

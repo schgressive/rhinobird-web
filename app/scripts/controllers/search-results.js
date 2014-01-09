@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.controllers')
   .controller('SearchResultsCtrl', function ($scope, $location, AuthService, Stream, $state) {
 
     $scope.searchTerm = $location.search().q;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.controllers')
   .controller('UserCtrl', function ($scope, $stateParams, user) {
 
     $scope.self = $scope;

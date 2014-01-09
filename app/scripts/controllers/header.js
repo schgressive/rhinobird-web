@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.controllers')
   .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService) {
 
     // Catch the unauthorized pages

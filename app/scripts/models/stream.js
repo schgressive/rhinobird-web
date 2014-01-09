@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.models')
   .factory('Stream', function ($restmod, SyncMask) {
     return $restmod.model('streams', 'PagedModel',
     {

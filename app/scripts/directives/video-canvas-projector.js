@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.directives')
   .directive('videoCanvasProjector', function () {
 
     return {

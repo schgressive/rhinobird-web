@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.streamViewer', [])
+angular.module('peepoltv.directives')
   .provider('streamViewerConfig', function(){
     var config = {
       presets: {},

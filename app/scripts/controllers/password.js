@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.controllers')
   .controller('PasswordCtrl', function ($scope, AuthService) {
 
     $scope.askPasswordReset = function() {

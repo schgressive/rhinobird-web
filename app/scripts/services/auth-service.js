@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('peepoltv.services')
   .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password) {
 
     // The current session
