@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .controller('ChannelCtrl', function ($scope, $stateParams, $timeout, $browser, AuthService, channel) {
 
 		$scope.user = AuthService.user;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .controller('LoginCtrl', function ($scope, AuthService) {
     $scope.loginUser = function(){
 

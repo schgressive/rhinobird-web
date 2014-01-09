@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .service('GoliveService', function GoliveService($q, CameraService, Stream) {
 
     // The service

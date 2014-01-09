@@ -2,7 +2,7 @@
 
 /* global google: false */
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
 .service('GeolocationService', function($q, $rootScope) {
 
   var self = this;

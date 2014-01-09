@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .controller('GoliveCtrl', function ($scope, $modal, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService) {
 
 		$scope.user = session.user;

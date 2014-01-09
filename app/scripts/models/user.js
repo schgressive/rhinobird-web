@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .factory('User', function ($restmod) {
     return $restmod.model('users', {
       streams: { hasMany: 'Stream'}

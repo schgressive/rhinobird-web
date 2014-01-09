@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .controller('ProfileCtrl', function ($scope, User, session) {
 
     $scope.self = $scope;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .controller('PasswordResetCtrl', function ($scope, AuthService, $stateParams) {
 
     // Call API to reset password

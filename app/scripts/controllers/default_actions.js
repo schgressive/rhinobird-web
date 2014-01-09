@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .controller('DefaultActionsCtrl', function ($scope, AuthService) {
     $scope.user = AuthService.user;
 

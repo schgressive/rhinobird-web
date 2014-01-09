@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
 
   .controller('MainCtrl', function ($scope, $stateParams, Stream, AuthService) {
 

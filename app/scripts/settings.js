@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .constant('settings', {
     apiHost: '/api',
     channelCleanedRegex: /[^\d^\w]/g

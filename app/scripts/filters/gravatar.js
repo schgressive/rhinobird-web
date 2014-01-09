@@ -2,7 +2,7 @@
 
 /* global SparkMD5: false */
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .filter('gravatar', function() {
     return function(input, size, defaultImage){
       if (input) {

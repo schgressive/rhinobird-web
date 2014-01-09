@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltvApp')
+angular.module('peepoltv')
   .directive('fullBleed', function ($window) {
     return function(scope, element){
       var w = angular.element($window);
