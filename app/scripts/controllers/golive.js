@@ -83,7 +83,7 @@ angular.module('peepoltvApp')
     });
 
     // Update the stream id
-    $scope.$on('stream-added', function(event, newStream){
+    $scope.$on('licode-stream-added', function(event, newStream){
       var payload = {
         streamId: newStream.getID()
       };

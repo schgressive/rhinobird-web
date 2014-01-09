@@ -22,7 +22,7 @@ angular.module('peepoltvApp')
       },
       restrict: 'EA',
       link: function postLink(scope) {
-        scope.$on('stream-video-created', function(event, licodeStream){
+        scope.$on('licode-video-created', function(event, licodeStream){
           // Set the licode stream object in the licode property of the stream
           scope.stream.licode = licodeStream;
         });
