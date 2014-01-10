@@ -11,7 +11,7 @@
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
 
-<div class="main" role="main" infinite-scroll="streams.getNextPage()" infinite-scroll-disabled="streams.$pending" infinite-scroll-distance="0.5">
+<div class="main" role="main">
   <div class="width-controller container-fluid">
     <div class="mid-content">
       <div class="row-fluid">
@@ -26,20 +26,9 @@
     <section class="lower-content">
       <div class="row-fluid">
         <div class="span12">
-          <ol class="no-bullets">
-            <li class="module-large span3" ng-repeat="stream in streams">
-              <div ng-include="'/views/snippets/module-large.html'"></div>
-            </li><!-- /.module-large -->
-          </ol>
+          <div infinite-stream-list streams="self.streams"></div>
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
-      <div class="row-fluid">
-				<div class="span12">
-					<div ng-show="streams.$pending">
-						loading...
-					</div>
-				</div>
-			</div><!-- /.row-fluid -->
     </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
