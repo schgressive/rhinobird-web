@@ -12,9 +12,15 @@
 		  <div class="row-fluid">
 				<div class="tabs span6">
 			    <ul class="inline no-bullets">
-			      <li><a ui-sref="search.channels" data-toggle="tab"><i class="icon-headphones"></i>Channels</a></li>
-			      <li class="active"><a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a></li>
-			      <li><a ui-sref="search.peepol" data-toggle="tab"><i class="icon-user"></i>Peepol</a></li>
+			      <li ng-class="getClass('/search/channels')">
+			      	<a ui-sref="search.channels" data-toggle="tab"><i class="icon-headphones"></i>Channels</a>
+			      </li>
+			      <li ng-class="getClass('/search/streams')">
+			      	<a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a>
+			      </li>
+			      <li ng-class="getClass('/search/peepol')">
+			      	<a ui-sref="search.peepol" data-toggle="tab"><i class="icon-user"></i>Peepol</a>
+			      </li>
 			    </ul>
 			  </div><!-- /.tabs -->
 			  <div class="span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div>
