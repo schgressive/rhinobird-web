@@ -611,11 +611,10 @@ i[class*="icon"] {font-style: normal;}
 	padding: 5px 10px 7px 10px;
 	background-color: $white;
 	margin-bottom: 20px;
+	.profile-list .user-avatar { margin-right: 6px;}
 	a {color:$grayDarker;}
-	img { width: 60px;}
 	.user-info {
 		width: 66%;
-		margin-left: 6px;
 		a { text-decoration: underline;}
 	}
 }
