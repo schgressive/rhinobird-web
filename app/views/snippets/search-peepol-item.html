@@ -1,33 +1,17 @@
-<!-- NOTE FROM CHRIS
-peepol results include a "follow/following" button. This button needs to toggle b/n two states that trigger whether or not the user is following someone -->
-<li class="results-item clearfix">
-  <ul class="no-bullets inline">
-    <li class="thumb-user">
-			<a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
-        <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:42:'/images/profile-default.svg')}}"/>
-			</a>
-		</li>
-    <li class="ellipsis">
-      <h5><a ui-sref="user({userName: stream.user.username})" title="user's profile">{{stream.user.name}}</a></h5>
-    </li>
-    <li>
-      <a href="#" class="btn btn-mini follow" role="button" title="click to follow">Follow</a>
-    </li>
-  </ul>
-</li>
-<!-- Following Example -->
-<li class="results-item">
-  <ul class="no-bullets inline">
-    <li class="thumb-user pull-left">
-			<a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
-        <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:42:'/images/profile-default.svg')}}"/>
-			</a>
-		</li>
-    <li class="ellipsis">
-      <h5><a ui-sref="user({userName: stream.user.username})" title="user's profile">{{stream.user.name}}</a></h5>
-    </li>
-    <li>
-      <a href="#" class="btn btn-mini following" role="button" title="click to unfollow">Following</a>
-    </li>
-  </ul>
-</li>
+<ul class="profile-list no-bullets span12">
+  <li class="thumb-user pull-left">
+    <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
+  </li>
+  <li class="user-info pull-left">
+	  <ul class="no-bullets">
+	    <li class="ellipsis">
+	    	<i class="icon-user"></i>
+	      <a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}'s profile">{{stream.user.name}}</h5>
+	    </li>
+    	<li class="ellipsis">
+				<i class="icon-facetime-video"></i>
+				<a ui-sref="stream({streamId: stream.id})">Recent Stream</a>
+			</li>
+	  </ul>
+  </li>
+</ul>
