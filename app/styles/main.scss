@@ -383,21 +383,9 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-/*
-.results-item {
-	margin-bottom: 20px;
-	.module-video { width: 100px;}
-	.data-list {
-		vertical-align: text-bottom;
-		& + li { vertical-align: bottom; margin-bottom: 5px;}
-	}
-}
-.results-item:last-of-type { margin-bottom: 0;}
-*/
-
 .mid-content {
 	padding-top: 10px;
-	.form-geo {
+	.form-geo, .form-search {
 		float: right;
 		@media screen and (max-width: 740px) { float: none;}
 		input[type="search"] {

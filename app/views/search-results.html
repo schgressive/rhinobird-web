@@ -1,12 +1,7 @@
-<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
+<section class="top-content">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-      <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
-        <div ng-include="'/views/layouts/default-actions.html'"></div>
-      </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions search-view" ng-show="app.isLoggedIn">
-        <div ng-include="'/views/layouts/search-actions.html'"></div>
-      </div><!-- /.loggedin-action -->
+      <h4>Your search results for:  <strong>{{searchTerm}}</strong></h4>
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
@@ -15,13 +10,14 @@
   <div class="width-controller container-fluid">
 	  <section class="mid-content">
 		  <div class="row-fluid">
-				<div class="tabs span12 pull-left">
+				<div class="tabs span6">
 			    <ul class="inline no-bullets">
 			      <li><a ui-sref="search.channels" data-toggle="tab"><i class="icon-headphones"></i>Channels</a></li>
 			      <li class="active"><a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a></li>
 			      <li><a ui-sref="search.peepol" data-toggle="tab"><i class="icon-user"></i>Peepol</a></li>
 			    </ul>
-			  </div>
+			  </div><!-- /.tabs -->
+			  <div class="span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div>
 		  </div><!-- /.row-fluid -->
 		</section><!-- /.mid-content -->
 		<section class="lower-content">
