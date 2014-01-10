@@ -8,7 +8,7 @@ angular.module('peepoltv.controllers')
     $scope.self = $scope;
 
     // Get the streams
-    $scope.streams = Stream.$collection();
+    $scope.streams = Stream.$collection({ live: true, archived: true });
     $scope.streams.getNextPage();
 
     // Set the user in scope
