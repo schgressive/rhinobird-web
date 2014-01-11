@@ -5,6 +5,7 @@ angular.module('peepoltv', [
   'ui.bootstrap',
   'infinite-scroll',
   'pl-licode',
+  'leaflet-directive',
   'peepoltv.models',
   'peepoltv.services',
   'peepoltv.directives',

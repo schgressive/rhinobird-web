@@ -558,10 +558,11 @@ i[class*="icon"] {font-style: normal;}
 
 .map-wrapper {
 	background-color: $white;
-	padding: 10px 10px 20px;
+	padding: 10px;
 }
 
-#map {
+#map,
+.map {
   height: 600px;
   width: 100%;
 }

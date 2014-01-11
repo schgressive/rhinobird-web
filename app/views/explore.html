@@ -37,10 +37,10 @@
     </div><!-- /.mid-content -->
   </div><!-- /.width-controller -->
   <div class="width-controller mobile-full container-fluid">
-  	<section class="lower-content">
+    <section class="lower-content">
       <div class="row-fluid">
         <div class="map-wrapper" class="span12">
-          <div id="map" class="dark"></div>
+          <leaflet defaults="map.defaults" center="map.search" geojson="map.geoJSON" class="map dark"></leaflet>
         </div>
       </div><!-- /.row-fluid -->
     </section><!-- /.lower-content -->

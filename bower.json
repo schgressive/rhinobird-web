@@ -11,12 +11,13 @@
     "bootstrap": "~2.3.2",
     "spark-md5": "~0.0.5",
     "jquery": "~2.0.0",
-    "angular-restmod": "~0.8",
+    "angular-restmod": "~0.9",
     "angular-licode": "~0.0.2",
     "bootstrap-sass": "2.3.2",
     "owlcarousel": "*",
     "angular-ui-router": "~0.2.0",
-    "nginfinitescroll": "~1.0.0"
+    "nginfinitescroll": "~1.0.0",
+    "angular-leaflet": "~0.7.2"
   },
   "resolutions": {
     "angular": "1.2.6"

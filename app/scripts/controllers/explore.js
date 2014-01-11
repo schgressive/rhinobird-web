@@ -1,121 +1,125 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout) {
+
+    $scope.self = $scope;
 
     $scope.user = AuthService.user;
 
-    $scope.mapSearch = {};
+    // // Get the streams based on geolocation
+    // var drawStreamsLayer = function(streams, map){
 
-    // Change the location when is changed
-    $scope.$watchCollection('mapSearch', function (value) {
-      if(!value.lat && !value.lng){
-        return;
+    //   markerLayer.eachLayer(function(marker) {
+    //     var feature = marker.feature;
+
+    //     // Create custom popup content
+    //     var popupContent = '<div class="popup clearfix">' +
+    //                   '<div class="popup-left pull-left">' +
+    //                     '<div class="video-popup">' +
+    //                       '<a href="/streams/{{stream.id}}">' +
+    //                   '<img src="' + feature.thumbs.medium + '">' +
+    //                 '</a>' +
+    //                     '</div>' +
+    //                     '<div class="specs-popup clearfix">' +
+    //                       '<ul class="no-bullets">' +
+    //                         '<li class="thumb-user pull-left">' +
+    //                           '<a href="#" title="username">' +
+    //                       '<img src="http://fakeimg.pl/54x54/?text=User">' +
+    //                     '</a>' +
+    //                         '</li>' +
+    //                         '<li class="specs-title">' + feature.title + '</li>' +
+    //                         '<li class="specs-tags">' + feature.tags.join(', ') + '</li>' +
+    //                       '</ul>' +
+    //                     '</div>' +
+    //               '</div>' +
+    //               '<div class="popup-right pull-left">' +
+    //                 '<a target="_blank" href="/streams/' + feature.id + '">' +
+    //                   '<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
+    //                 '</a>' +
+    //               '</div>' +
+    //                          '</div>';
+
+    //     // http://leafletjs.com/reference.html#popup
+    //     marker.bindPopup(popupContent,{
+    //       closeButton: false,
+    //       minWidth: 320
+    //     });
+
+    //   });
+    // };
+    //
+
+    // Map configuration
+    $scope.map = {
+      defaults:{
+        scrollWheelZoom: false,
+        tileLayer: 'http://a.tiles.mapbox.com/v3/peepoltv.map-ujvx87td/{z}/{x}/{y}.png',
+        tileLayerOptions: {
+          attribution: '&copy; <a href="http://www.mapbox.com">Mapbox</a>'
+        },
+      },
+      search: {
+        lat: 0,
+        lng: 0,
+        zoom: 2
       }
-
-      // Create map
-      if(!$scope.map){
-        $scope.map = L.mapbox.map('map', 'peepoltv.map-ujvx87td');
-        Stream.$search().$then(function(streams){drawStreamsLayer(streams, $scope.map);});
-      }
-
-      // Disable scroll to zoom
-      $scope.map.scrollWheelZoom.disable();
-
-      var zoom = 16;
-      if(value.type && value.type !== 'street_address' && value.type !== 'route'){
-        zoom = 13;
-      }
-      $scope.map.setView(new L.LatLng(value.lat, value.lng), zoom );
-    });
-
-    var updateMapSearch = function(){
-      GeolocationService.getCurrent().then(function(data){
-        angular.extend($scope.mapSearch, {
-          lat: data.lat,
-          lng: data.lng
-        });
-      });
     };
 
-    // Get current location
-    updateMapSearch();
-    $scope.getCurrent = updateMapSearch;
-
-    // Address searchAddress
-    // $scope.address defined in the view
-    $scope.searchAddress = function(){
-      GeolocationService.reverseGeocode($scope.address).then(function(data){
-        angular.extend($scope.mapSearch, {
+    /**
+     * Get the current locations
+     */
+    $scope.getCurrent = function (){
+      return GeolocationService.getCurrent().then(function(data){
+        angular.extend($scope.map.search, {
           lat: data.lat,
           lng: data.lng,
-          type: data.type
+          zoom: 16
         });
       });
     };
 
-    // Get the streams based on geolocation
-    var drawStreamsLayer = function(streams, map){
-      $scope.streams = _.map(streams, function(s){
-        s.properties['marker-size'] = 'medium';
-        s.properties['marker-color'] = '#A954F5';
-        s.properties['marker-symbol'] = 'cinema';
-        return s;
-      });
-
-      // Create and add marker layer
-      var markerLayer = L.mapbox.markerLayer();
-      markerLayer.setGeoJSON({
-        type: 'FeatureCollection',
-        features: $scope.streams
-      });
-      markerLayer.addTo(map);
-
-      markerLayer.eachLayer(function(marker) {
-        var feature = marker.feature;
-
-        // Create custom popup content
-        var popupContent = '<div class="popup clearfix">' +
-                      '<div class="popup-left pull-left">' +
-                        '<div class="video-popup">' +
-                          '<a href="/streams/{{stream.id}}">' +
-                      '<img src="' + feature.thumbs.medium + '">' +
-                    '</a>' +
-                        '</div>' +
-                        '<div class="specs-popup clearfix">' +
-                          '<ul class="no-bullets">' +
-                            '<li class="thumb-user pull-left">' +
-                              '<a href="#" title="username">' +
-                          '<img src="http://fakeimg.pl/54x54/?text=User">' +
-                        '</a>' +
-                            '</li>' +
-                            '<li class="specs-title">' + feature.title + '</li>' +
-                            '<li class="specs-tags">' + feature.tags.join(', ') + '</li>' +
-                          '</ul>' +
-                        '</div>' +
-                  '</div>' +
-                  '<div class="popup-right pull-left">' +
-                    '<a target="_blank" href="/streams/' + feature.id + '">' +
-                      '<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
-                    '</a>' +
-                  '</div>' +
-                             '</div>';
-
-        // http://leafletjs.com/reference.html#popup
-        marker.bindPopup(popupContent,{
-          closeButton: false,
-          minWidth: 320
+    /**
+     * Search for an address
+     */
+    $scope.searchAddress = function(){
+      return GeolocationService.reverseGeocode($scope.address).then(function(data){
+        angular.extend($scope.map.search, {
+          lat: data.lat,
+          lng: data.lng,
+          zoom: (data.type && data.type !== 'street_address' && data.type !== 'route')? 13 : 16
         });
-
       });
-
-        // Set inital center and zoom
-        //$scope.map.fitBounds(markerLayer.getBounds());
     };
 
-    // Draw streams layer
-    if($scope.map){
-      Stream.$search().$then(function(streams){drawStreamsLayer(streams, $scope.map);});
-    }
+    // Expose the current location in the scope
+    $scope.getCurrent();
+
+    // Set the stream collection
+    $scope.streams = Stream.$collection();
+
+    // Search for stream when lat change
+    $scope.$watch('map.search.lat', function(){
+      // Get the streams
+      $scope.streams.$refresh($scope.map.search);
+    });
+
+
+    // Search for stream when zoom change
+    $scope.$watch('map.search.zoom', function(){
+      var searchParams = angular.extend($scope.map.search, {
+        range: 1
+      });
+
+      // Get the streams
+      $scope.streams.$refresh(searchParams);
+    });
+
+    // Expose geoJSON collection in the scope
+    $scope.streams.$on('after-fetch-many', function(){
+      $scope.map.geoJSON = {
+        data: this.asGeoJSON()
+      };
+    });
 
   });

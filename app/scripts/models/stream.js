@@ -10,7 +10,15 @@ angular.module('peepoltv.models')
       startedOn: { ignore: SyncMask.ENCODE },
       thumbs: { ignore: SyncMask.ENCODE },
       type: { ignore: SyncMask.ENCODE },
-      token: { ignore: SyncMask.ENCODE }
+      token: { ignore: SyncMask.ENCODE },
+      properties: {
+        ignore: true,
+        init: {
+          'marker-size': 'medium',
+          'marker-color': '#A954F5',
+          'marker-symbol': 'cinema'
+        }
+      }
     },
     function(){
       /**
@@ -31,6 +39,13 @@ angular.module('peepoltv.models')
           return this.$fetch({ page: page + 1 });
         }
         return this;
+      });
+
+      this.classDefine('asGeoJSON', function(){
+        return {
+          type: 'FeatureCollection',
+          features: this
+        };
       });
     });
   });
