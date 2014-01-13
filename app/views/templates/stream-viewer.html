@@ -1,2 +1,2 @@
-<licode flow="inbound" token="{{stream.token}}" width="{{width}}" height="{{height}}" on="{{on}}" ng-if="stream.status == 'offline'" mute="{{mute}}"></licode>
+<licode flow="inbound" token="{{stream.token}}" width="{{width}}" height="{{height}}" on="{{on}}" ng-if="stream.status == 'live'" mute="{{mute}}"></licode>
 <video src="{{stream.archivedUrl}}" ng-if="stream.status == 'archived'" autoplay="true" controls="true" muted="{{mute}}></video>
