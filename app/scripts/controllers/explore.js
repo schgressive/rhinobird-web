@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile) {
 
     // Expose scope as self
     $scope.self = $scope;
@@ -22,6 +22,12 @@ angular.module('peepoltv.controllers')
         lat: 0,
         lng: 0,
         zoom: 2
+      },
+      events: {
+        map: {
+          enable: ['popupopen'],
+          logic: 'emit'
+        }
       }
     };
 
@@ -79,39 +85,29 @@ angular.module('peepoltv.controllers')
       $scope.map.geoJSON = {
         data: this.asGeoJSON(),
         onEachFeature: function(feature, layer){
-          // Create custom popup content
-          var popupContent = '<div class="popup clearfix">' +
-                      '<div class="popup-left pull-left">' +
-                        '<div class="video-popup">' +
-                          '<a href="/streams/{{stream.id}}">' +
-                      '<img src="' + feature.thumbs.medium + '">' +
-                    '</a>' +
-                        '</div>' +
-                        '<div class="specs-popup clearfix">' +
-                          '<ul class="no-bullets">' +
-                            '<li class="thumb-user pull-left">' +
-                              '<a href="#" title="username">' +
-                          '<img src="http://fakeimg.pl/54x54/?text=User">' +
-                        '</a>' +
-                            '</li>' +
-                            '<li class="specs-title">' + feature.title + '</li>' +
-                            '<li class="specs-tags">' + feature.tags.join(', ') + '</li>' +
-                          '</ul>' +
-                        '</div>' +
-                  '</div>' +
-                  '<div class="popup-right pull-left">' +
-                    '<a target="_blank" href="/streams/' + feature.id + '">' +
-                      '<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
-                    '</a>' +
-                  '</div>' +
-                 '</div>';
+          // Create get the view template
+          var popupContent = '<div ng-include="\'/views/templates/map-stream-popup.html\'"></div>';
 
+          // Bind the popup
+          // HACK: I have added the stream in the popup options
           layer.bindPopup(popupContent,{
             closeButton: false,
-            minWidth: 320
+            minWidth: 320,
+            feature: feature
           });
         }
       };
+    });
+
+    $scope.$on('leafletDirectiveMap.popupopen', function(event, leafletEvent){
+
+      // Create the popup view when is opened
+      var feature = leafletEvent.leafletEvent.popup.options.feature;
+
+      var newScope = $scope.$new();
+      newScope.stream = feature;
+
+      $compile(leafletEvent.leafletEvent.popup._contentNode)(newScope);
     });
 
   });
