@@ -3,52 +3,11 @@
 angular.module('peepoltv.controllers')
   .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout) {
 
+    // Expose scope as self
     $scope.self = $scope;
 
+    // Expose the user in the scope
     $scope.user = AuthService.user;
-
-    // // Get the streams based on geolocation
-    // var drawStreamsLayer = function(streams, map){
-
-    //   markerLayer.eachLayer(function(marker) {
-    //     var feature = marker.feature;
-
-    //     // Create custom popup content
-    //     var popupContent = '<div class="popup clearfix">' +
-    //                   '<div class="popup-left pull-left">' +
-    //                     '<div class="video-popup">' +
-    //                       '<a href="/streams/{{stream.id}}">' +
-    //                   '<img src="' + feature.thumbs.medium + '">' +
-    //                 '</a>' +
-    //                     '</div>' +
-    //                     '<div class="specs-popup clearfix">' +
-    //                       '<ul class="no-bullets">' +
-    //                         '<li class="thumb-user pull-left">' +
-    //                           '<a href="#" title="username">' +
-    //                       '<img src="http://fakeimg.pl/54x54/?text=User">' +
-    //                     '</a>' +
-    //                         '</li>' +
-    //                         '<li class="specs-title">' + feature.title + '</li>' +
-    //                         '<li class="specs-tags">' + feature.tags.join(', ') + '</li>' +
-    //                       '</ul>' +
-    //                     '</div>' +
-    //               '</div>' +
-    //               '<div class="popup-right pull-left">' +
-    //                 '<a target="_blank" href="/streams/' + feature.id + '">' +
-    //                   '<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
-    //                 '</a>' +
-    //               '</div>' +
-    //                          '</div>';
-
-    //     // http://leafletjs.com/reference.html#popup
-    //     marker.bindPopup(popupContent,{
-    //       closeButton: false,
-    //       minWidth: 320
-    //     });
-
-    //   });
-    // };
-    //
 
     // Map configuration
     $scope.map = {
@@ -118,7 +77,40 @@ angular.module('peepoltv.controllers')
     // Expose geoJSON collection in the scope
     $scope.streams.$on('after-fetch-many', function(){
       $scope.map.geoJSON = {
-        data: this.asGeoJSON()
+        data: this.asGeoJSON(),
+        onEachFeature: function(feature, layer){
+          // Create custom popup content
+          var popupContent = '<div class="popup clearfix">' +
+                      '<div class="popup-left pull-left">' +
+                        '<div class="video-popup">' +
+                          '<a href="/streams/{{stream.id}}">' +
+                      '<img src="' + feature.thumbs.medium + '">' +
+                    '</a>' +
+                        '</div>' +
+                        '<div class="specs-popup clearfix">' +
+                          '<ul class="no-bullets">' +
+                            '<li class="thumb-user pull-left">' +
+                              '<a href="#" title="username">' +
+                          '<img src="http://fakeimg.pl/54x54/?text=User">' +
+                        '</a>' +
+                            '</li>' +
+                            '<li class="specs-title">' + feature.title + '</li>' +
+                            '<li class="specs-tags">' + feature.tags.join(', ') + '</li>' +
+                          '</ul>' +
+                        '</div>' +
+                  '</div>' +
+                  '<div class="popup-right pull-left">' +
+                    '<a target="_blank" href="/streams/' + feature.id + '">' +
+                      '<button class="play-btn"><span class="visually-hidden">click to play video</span></button>' +
+                    '</a>' +
+                  '</div>' +
+                 '</div>';
+
+          layer.bindPopup(popupContent,{
+            closeButton: false,
+            minWidth: 320
+          });
+        }
       };
     });
 
