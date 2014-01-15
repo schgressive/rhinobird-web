@@ -178,129 +178,128 @@ body.base {
 	}
 }
 
-.base {
-	.modal {
-		@include fontSize(14px);
-		text-align: left;
+.modal {
+	@include fontSize(14px);
+	text-align: left;
+	@media screen and (max-width: 500px) {
+		width: 100%;
+		left: 0;
+		margin-left: 0;
+		&.fade.in { top: 0;}
+	}
+	.close {
+		color: $white;
+		text-shadow: 0 1px 0 $black;
+		opacity: .5;
+		&:hover { opacity: .7;}
 		@media screen and (max-width: 500px) {
-			width: 100%;
-			left: 0;
+			margin-top: 0;
+			line-height: 30px;
+			font-size: 30px;
+		}
+	}
+	.error {
+		@include fontSize(10px);
+		color: $white;
+		text-align: center;
+		background-color: $darkTrans;
+		border: 1px solid $errorText;
+		margin-top: -19px;
+		margin-bottom: 19px;
+	}
+	h2 { color: $black;}
+	h4 {
+		color: $black;
+		margin: 0 0 20px 0;
+		@include font-smoothing;
+		.one-liner { margin-top: 10px;}
+	}
+	h6 a { color: $white; background-color: $darkTrans; padding: 3px;}
+	.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 20px;}
+	input[type*="password"], input[type*="email"], input[type*="text"], .input-prepend .add-on, .input-append .add-on { border-color: $grayLighter;}
+	.modal-header {border-bottom: none;}
+	.modal-body {padding-bottom: 0;}
+	.modal-footer {
+		text-align: left;
+		background-color: transparent;
+		border-top: none;
+		box-shadow: none;
+	}
+	form .btn-primary {
+		color: $white;
+		text-transform: uppercase;
+		background-color: $darkTrans;
+		border: 2px solid $white;
+		@include font-smoothing();
+	}
+	form[name="goliveForm"] {
+		color: $white;
+		padding: 10px;
+		background-color: $darkTrans;
+		.checkbox { font-size: 16px; margin-bottom: 4px;}
+		.input-xxlarge { @media screen and (max-width: 500px) {width: 80%;}}
+		ul { margin-bottom: 10px;}
+		.btn-primary {
+			margin-top: 10px;
+			&:hover {
+				background-color: lighten($purple, 10%);
+				border-color: $purple;
+			}
+		}
+	}
+	.modal-right {
+		border-left: 1px solid $white;
+		margin-left: 20px;
+		padding-left: 24px;
+		@media screen and (max-width: 500px ) {
+			border-top: 1px solid $white;
+			border-left: none;
 			margin-left: 0;
-			&.fade.in { top: 0;}
+			padding-left: 0;
+			padding-top: 10px;
+			width:74%;
 		}
-		.close {
-			color: $white;
-			text-shadow: 0 1px 0 $black;
-			opacity: .5;
-			&:hover { opacity: .7;}
-			@media screen and (max-width: 500px) {
-				margin-top: 0;
-				line-height: 30px;
-				font-size: 30px;
+		h4 { color: $white;}
+	}
+	a.btn-social {
+		color: $white;
+		font-weight: bold;
+		text-align: left;
+		text-transform: uppercase;
+		border: {
+			width: 2px;
+			style: solid;
+		}
+		background-repeat: no-repeat;
+		background-position: 6px 50%;
+		background-size: 24px 24px;
+		@include font-smoothing();
+		&:hover { text-decoration: none;}
+		&[title*="facebook"] {
+			background-image: url('../images/facebook-icon-white.svg');
+			background-color: #3B5998; /*facebook blue*/
+			border-color: darken(#3B5998, 10%);
+			&:hover {
+				background-color: darken(#3B5998, 20%);
+				border-color: darken(#3B5998, 30%);
 			}
 		}
-		.error {
-			@include fontSize(10px);
-			color: $white;
-			text-align: center;
-			background-color: $darkTrans;
-			border: 1px solid $errorText;
-			margin-top: -19px;
-			margin-bottom: 19px;
-		}
-		h2 { color: $black;}
-		h4 {
-			color: $black;
-			margin: 0 0 20px 0;
-			@include font-smoothing;
-			.one-liner { margin-top: 10px;}
-		}
-		h6 a { color: $white; background-color: $darkTrans; padding: 3px;}
-		.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 20px;}
-		input[type*="password"], input[type*="email"], input[type*="text"], .input-prepend .add-on, .input-append .add-on { border-color: $grayLighter;}
-		.modal-header {border-bottom: none;}
-		.modal-body {padding-bottom: 0;}
-		.modal-footer {
-			text-align: left;
-			background-color: transparent;
-			border-top: none;
-			box-shadow: none;
-		}
-		form .btn-primary {
-			color: $white;
-			text-transform: uppercase;
-			background-color: $darkTrans;
-			border: 2px solid $white;
-			@include font-smoothing();
-		}
-		form[name="goliveForm"] {
-			color: $white;
-			padding: 6px;
-			background-color: $darkTrans;
-			.input-xxlarge { @media screen and (max-width: 500px) {width: 74%;}}
-			ul { margin-bottom: 10px;}
-			.btn-primary {
-				margin-top: 10px;
-				&:hover {
-					background-color: lighten($purple, 10%);
-					border-color: $purple;
-				}
+		&[title*="twitter"] {
+			background-image: url('../images/twitter-icon-white.svg');
+			background-color: #3DC7F4; /*twitter blue */
+			border-color: darken(#3DC7F4, 10%);
+			&:hover {
+				background-color: darken(#3DC7F4, 20%);
+				border-color: darken(#3DC7F4, 30%);
 			}
 		}
-		.modal-right {
-			border-left: 1px solid $white;
-			margin-left: 20px;
-			padding-left: 24px;
-			@media screen and (max-width: 500px ) {
-				border-top: 1px solid $white;
-				border-left: none;
-				margin-left: 0;
-				padding-left: 0;
-				padding-top: 10px;
-				width:74%;
-			}
-			h4 { color: $white;}
-		}
-		a.btn-social {
-			color: $white;
-			font-weight: bold;
-			text-align: left;
-			text-transform: uppercase;
-			border: {
-				width: 2px;
-				style: solid;
-			}
-			background-repeat: no-repeat;
-			background-position: 6px 50%;
-			background-size: 24px 24px;
-			@include font-smoothing();
-			&:hover { text-decoration: none;}
-			&[title*="facebook"] {
-				background-image: url('../images/facebook-icon-white.svg');
-				background-color: #3B5998; /*facebook blue*/
-				border-color: darken(#3B5998, 10%);
-				&:hover {
-					background-color: darken(#3B5998, 20%);
-					border-color: darken(#3B5998, 30%);
-				}
-			}
-			&[title*="twitter"] {
-				background-image: url('../images/twitter-icon-white.svg');
-				background-color: #3DC7F4; /*twitter blue */
-				border-color: darken(#3DC7F4, 10%);
-				&:hover {
-					background-color: darken(#3DC7F4, 20%);
-					border-color: darken(#3DC7F4, 30%);
-				}
-			}
-			&[title*="google"] {
-				background-image: url('../images/googleplus-icon-white.svg');
-				background-color: #0071D4; /*google blue */
-				border-color: darken(#0071D4, 10%);
-				&:hover {
-					background-color: darken(#0071D4, 20%);
-					border-color: darken(#0071D4, 30%);
-				}
+		&[title*="google"] {
+			background-image: url('../images/googleplus-icon-white.svg');
+			background-color: #0071D4; /*google blue */
+			border-color: darken(#0071D4, 10%);
+			&:hover {
+				background-color: darken(#0071D4, 20%);
+				border-color: darken(#0071D4, 30%);
 			}
 		}
 	}
