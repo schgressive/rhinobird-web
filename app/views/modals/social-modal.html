@@ -1,0 +1,56 @@
+<div class="modal-header">
+  <h2>Sign up with <span class="network">{{network.name}}</span></h2>
+</div><!-- /.modal-header -->
+<div class="modal-body">
+	<div ng-show="socialModalAction == 'facebook'">
+		<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
+		<button ng-click="" role="button">Continue</button>
+	</div><!-- /facebook -->
+	<div ng-show="socialModalAction == 'twitter'">
+		<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
+		<p>We just need one more thing to get started...</p>
+		<form name="twitterForm" role="form" ng-submit="" ng-controller="">
+			<label class="visually-hidden" for="input-email">Email</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <input type="text" name="email" type="email" placeholder="your email..." ng-model="" required/>
+      </div>
+      <div class="error" ng-show="twitterForm.email.$dirty && twitterForm.email.$invalid">
+        <small ng-show="twitterForm.email.$error.taken">
+          This email is already registered. Did you <a href="#" ng-click="">forget your password</a>?
+        </small>
+        <small ng-show="">
+          This email is invalid. Please input a valid email.
+        </small>
+      </div><!-- /.error -->
+      <input class="btn btn-primary btn-xlarge" type="submit" value="Finish!"/>
+		</form>
+	</div><!-- /twitter -->
+	<div ng-show="socialModalAction == 'google'">
+		<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
+		<p>We just need one more thing to get started...</p>
+		<form name="googleForm" role="form" ng-submit="" ng-controller="">
+			<label class="visually-hidden" for="input-username">Username</label>
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <input type="text" name="username" placeholder="your username" ng-model="" ng-minlength=3 ng-maxlength=20 required/>
+      </div>
+      <div class="error" ng-show="googleForm.username.$dirty && googleForm.username.$invalid">
+        <small ng-show="googleForm.username.$error.taken">
+          This username is already registered. <a ng-click="">Go to login</a>
+        </small>
+        <small ng-show="googleForm.username.$error.minlength">
+          A username must have at least 3 characters.
+        </small>
+        <small ng-show="googleForm.username.$error.maxlength">
+          A username can not have more than 20 characters.
+        </small>
+      </div><!-- /.error -->
+      <input class="btn btn-primary btn-xlarge" type="submit" value="Finish!"/>
+		</form>
+	</div>
+</div><!-- /.modal-body -->
+<div class="modal-footer">
+  	<h6><a href="#" class="one-liner" ng-click="">Return to sign in.</a></h6>
+</div><!-- /.modal-footer -->
+
