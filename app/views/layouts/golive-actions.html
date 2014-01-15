@@ -38,8 +38,8 @@
         <fieldset>
           <legend class="visually-hidden">Use this form to add a channel or caption. Use '#' before a word to create a channel for the stream.</legend>
           <div class="input-append">
-          	<input type="text" placeholder="add to #channel/add caption">
-          	<input class="btn btn-large hidden-phone" type="submit" value="Add!">
+            <input type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
+            <input class="btn btn-large hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.stream.caption"/>
           </div>
         </fieldset>
       </form>

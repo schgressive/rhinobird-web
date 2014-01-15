@@ -68,6 +68,14 @@ angular.module('peepoltv.controllers')
 
     };
 
+    this.updateCaption = function(caption){
+      var payload = {
+        caption: caption
+      };
+
+      GoliveService.updateStream(payload);
+    };
+
     /**
      * EVENTS
      */
