@@ -159,7 +159,7 @@ angular.module('peepoltv', [
   streamViewerConfigProvider.addPreset('large', 940, 512);
   streamViewerConfigProvider.setDefaultPreset('large');
 })
-.run(function($state, $rootScope, AuthService){
+.run(function($state, $rootScope, AuthService, CameraService){
   $rootScope.$on('$stateChangeError', function () {
     // Navigate to main page
     $state.go('main');
@@ -177,9 +177,15 @@ angular.module('peepoltv', [
   });
 
   // On state success
-  $rootScope.$on('$stateChangeSuccess', function (event, parameters) {
+  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
     // Add the current state to the app variable
-    app.state = parameters.name;
+    app.state = toState.name;
+
+    // Stop the camera every time we leave the golive page
+    if(fromState.name === 'golive' && CameraService.licodeStream.stream){
+      CameraService.licodeStream.stream.stop();
+    }
+
   });
 
   // Try to get a initialized session
