@@ -346,7 +346,7 @@ i[class*="icon"] {font-style: normal;}
 			input[type="search"] {
 				width: 300px;
 				@media screen and (max-width: 640px) { width: 240px;}
-				@media screen and (max-width: 560px) { width: 300px;}
+				@media screen and (max-width: 560px) { width: 100%;}
 			}
 		}
 		.action-left, .action-right {
@@ -361,7 +361,7 @@ i[class*="icon"] {font-style: normal;}
 		&.search-view {
 			.form-search input[type="search"] {
 				@media screen and (max-width: 780px) { width:200px;}
-				@media screen and (max-width: 560px) { width:300px;}
+				@media screen and (max-width: 560px) { width:100%;}
 			}
 			.tabs li {
 				@media screen and (max-width: 600px) {
@@ -389,7 +389,7 @@ i[class*="icon"] {font-style: normal;}
 		float: right;
 		@media screen and (max-width: 740px) { float: none;}
 		input[type="search"] {
-			@media screen and (max-width: 500px) { width: 300px;}
+			@media screen and (max-width: 500px) { width: 100%;}
 		}
 	}
 	[class*="span"] {

@@ -5,24 +5,27 @@
   <div class="alert" ng-hide="vm.camera.access">
     <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
   </div>
-  <label for="caption">You can use hashtags to add your stream to a channel:</label>
-  <input type="text" name="caption" placeholder="add a caption, or add a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
-  <div ng-show="vm.channels.length">
-    <p>Your stream will be published in the following channels</p>
-    <ul class="inline no-bullets">
-      <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
-    </ul>
-  </div>
-  <label class="checkbox inline">
-  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
-  </label>
-  <label class="checkbox inline"></label>
-	<button class="btn btn-mini" ng-click="vm.camera.toggleSource()" ng-show="vm.camera.videoSources.length > 1" ng-disabled="!vm.camera.access">
-    Flip Camera
-  </button>
-  <button ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access">
-    Ready!
-  </button>
+  <!-- PLEASE DO NOT REMOVE THE FORM TAGS! -->
+  <form name="goliveForm">
+	  <label for="caption">You can use hashtags to add your stream to a channel:</label>
+	  <input type="text" name="caption" placeholder="add a caption, or add a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
+	  <div ng-show="vm.channels.length">
+	    <p>Your stream will be published in the following channels</p>
+	    <ul class="inline no-bullets">
+	      <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
+	    </ul>
+	  </div>
+	  <label class="checkbox inline">
+	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
+	  </label>
+	  <label class="checkbox inline"></label>
+		<button class="btn btn-mini" ng-click="vm.camera.toggleSource()" ng-show="vm.camera.videoSources.length > 1" ng-disabled="!vm.camera.access">
+	    Flip Camera
+	  </button>
+	  <button ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access">
+	    Ready!
+	  </button>
+  </form><!-- /goliveForm -->
 </div><!-- /.modal-body -->
 <div class="modal-footer">
 	<p>Disclaimer here?</p>
