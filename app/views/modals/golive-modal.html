@@ -19,7 +19,7 @@
 	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
 	  </label>
 	  <label class="checkbox inline" ng-show="vm.camera.videoSources.length > 1">
-	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-show="vm.camera.videoSources.length > 1" ng-disabled="!vm.camera.access"/> Flip Camera?
+	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
 	  </label>
 	  <button ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access" role="submit">
 	    Ready!
