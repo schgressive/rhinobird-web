@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('GoliveCtrl', function ($scope, $modal, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService) {
+  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService) {
 
 		$scope.user = session.user;
 
@@ -60,8 +60,8 @@ angular.module('peepoltv.controllers')
       GoliveService.stopBroadcast().then(function(){
         // Go back
         if(goback && CameraService.licodeStream.stream){
-          CameraService.licodeStream.stream.stream.stop();
-          history.back();
+          CameraService.licodeStream.stream.stop();
+          $state.go('profile');
         }
 
       });

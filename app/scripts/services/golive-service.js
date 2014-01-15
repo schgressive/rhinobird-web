@@ -31,7 +31,7 @@ angular.module('peepoltv.services')
       }
 
       // Post the new stream to the server and return the promise
-      return $q.when(stream.$save().$promise);
+      return stream.$save().$promise;
     };
 
     // Stop the broadcast method
@@ -42,11 +42,8 @@ angular.module('peepoltv.services')
       // Disconnect from room
       CameraService.licodeStream.room.disconnect();
 
-      // Set the stream model as no live
-      stream.live = false;
-
       // Put the stream with live flag false
-      return $q.when(stream.$save().$promise);
+      return stream.$promise;
     };
 
     // Update stream
@@ -55,7 +52,7 @@ angular.module('peepoltv.services')
       angular.extend(stream, options);
 
       // Post the new stream to the server and return the promise
-      return $q.when(stream.$save().$promise);
+      return stream.$save().$promise;
     };
 
     // Update the thumbnail
@@ -64,7 +61,7 @@ angular.module('peepoltv.services')
       angular.thumb = getThumbnailURL(CameraService.licodeStream.player.video, 854, 480);
 
       // Post the new stream to the server and return the promise
-      return $q.when(stream.$save().$promise);
+      return stream.$save().$promise;
     };
 
     /**
