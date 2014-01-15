@@ -101,7 +101,7 @@ angular.module('peepoltv.controllers')
         var payload = {
           streamId: params.stream.getID()
         };
-        GoliveService.updateStream(payload).then(function(){
+        GoliveService.updateStream(payload, true).then(function(){
           // Close the modal
           modalInstance.close();
         });

@@ -58,8 +58,15 @@ angular.module('peepoltv.services')
 
     // Update stream
     // Receive an object with the properties to update
-    this.updateStream = function(options){
+    this.updateStream = function(options, updateThumbnail){
       angular.extend(this.stream, options);
+
+      // Update the thumbnail if required
+      if(updateThumbnail){
+        angular.extend(this.stream, {
+          thumb: getThumbnailURL(CameraService.licodeStream.player.video, 854, 480)
+        });
+      }
 
       // Post the new stream to the server and return the promise
       return this.stream.$save().$promise;
@@ -68,7 +75,9 @@ angular.module('peepoltv.services')
     // Update the thumbnail
     this.updateThumbnail = function(){
       // Add thumbnail and caption
-      angular.thumb = getThumbnailURL(CameraService.licodeStream.player.video, 854, 480);
+      angular.extend(this.stream, {
+        thumb: getThumbnailURL(CameraService.licodeStream.player.video, 854, 480)
+      });
 
       // Post the new stream to the server and return the promise
       return this.stream.$save().$promise;
