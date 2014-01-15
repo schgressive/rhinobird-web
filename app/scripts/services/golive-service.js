@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('peepoltv.services')
-  .service('GoliveService', function GoliveService($q, CameraService, Stream) {
+  .service('GoliveService', function GoliveService($q, $rootScope, CameraService, Stream) {
 
-    // The service
-    var stream = new Stream();
+    var self = this;
 
-    // The live stream
-    this.stream = stream;
+    this.stream = null;
+
+    // Golive status
+    this.status = 'disconnected';
 
     // Start the broadcast method
     this.startBroadcast = function(caption, coords){
@@ -15,6 +16,15 @@ angular.module('peepoltv.services')
         // The mic/cam permissions
         return;
       }
+
+      // The service
+      var stream = new Stream();
+
+      // The live stream
+      this.stream = stream;
+
+      // Set status to connecting
+      this.status = 'connecting';
 
       // Add thumbnail and caption
       angular.extend(stream, {
@@ -43,16 +53,16 @@ angular.module('peepoltv.services')
       CameraService.licodeStream.room.disconnect();
 
       // Put the stream with live flag false
-      return stream.$promise;
+      return this.stream.$promise;
     };
 
     // Update stream
     // Receive an object with the properties to update
     this.updateStream = function(options){
-      angular.extend(stream, options);
+      angular.extend(this.stream, options);
 
       // Post the new stream to the server and return the promise
-      return stream.$save().$promise;
+      return this.stream.$save().$promise;
     };
 
     // Update the thumbnail
@@ -61,7 +71,7 @@ angular.module('peepoltv.services')
       angular.thumb = getThumbnailURL(CameraService.licodeStream.player.video, 854, 480);
 
       // Post the new stream to the server and return the promise
-      return stream.$save().$promise;
+      return this.stream.$save().$promise;
     };
 
     /**
@@ -84,4 +94,22 @@ angular.module('peepoltv.services')
       canvas.ctx.drawImage( video, 0, 0, dWidth, dHeight);
       return canvas.toDataURL('image/jpeg');
     };
+
+    // Update golive service status based on room connection status
+    $rootScope.$on('licode-room-status-changed', function(event, params){
+      if(params.status === 'connecting'){
+        self.status = 'connecting';
+      }
+      else if(params.status === 'disconnected'){
+        self.status = 'disconnected';
+      }
+    });
+
+    // Update golive service status based on stream status
+    $rootScope.$on('licode-stream-status-changed', function(event, params){
+      if(params.status === 'added'){
+        self.status = 'connected';
+      }
+    });
+
   });

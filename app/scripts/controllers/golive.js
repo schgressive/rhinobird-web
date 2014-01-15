@@ -24,6 +24,9 @@ angular.module('peepoltv.controllers')
     // Camera service
     vm.camera = CameraService;
 
+    // Golive service
+    vm.goliveService = GoliveService;
+
     // The stream
     vm.stream = GoliveService.stream;
 
@@ -49,9 +52,7 @@ angular.module('peepoltv.controllers')
       captionPayload = vm.caption;
 
       // Start the broadcast in the golive service
-      GoliveService.startBroadcast(captionPayload, coordsPayload).then(function(){
-        modalInstance.close();
-      });
+      GoliveService.startBroadcast(captionPayload, coordsPayload);
     };
 
     // Stop the current broadcast
@@ -62,6 +63,9 @@ angular.module('peepoltv.controllers')
         if(goback && CameraService.licodeStream.stream){
           CameraService.licodeStream.stream.stop();
           $state.go('profile');
+        }
+        else{
+          openDialog();
         }
 
       });
@@ -90,23 +94,31 @@ angular.module('peepoltv.controllers')
       }
     });
 
-    // Update the stream id
-    $scope.$on('licode-stream-added', function(event, newStream){
-      var payload = {
-        streamId: newStream.getID()
-      };
-
-      GoliveService.updateStream(payload);
+    // When the stream gets published
+    $scope.$on('licode-stream-status-changed', function(event, params){
+      if(params.status === 'added'){
+        // Update the stream id
+        var payload = {
+          streamId: params.stream.getID()
+        };
+        GoliveService.updateStream(payload).then(function(){
+          // Close the modal
+          modalInstance.close();
+        });
+      }
     });
 
     // Get current location
     GeolocationService.getCurrent();
 
     // Open de dialog
-    modalInstance = $modal.open({
-      backdrop: 'static',
-      templateUrl: '/views/modals/golive-modal.html',
-      scope: $scope
-    });
+    var openDialog = function(){
+      modalInstance = $modal.open({
+        backdrop: 'static',
+        templateUrl: '/views/modals/golive-modal.html',
+        scope: $scope
+      });
+    };
+    openDialog();
 
   });
