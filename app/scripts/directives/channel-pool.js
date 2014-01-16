@@ -54,11 +54,11 @@ angular.module('peepoltv.directives')
 
             // Initialize the carousel
             $('.owl-carousel', element).owlCarousel({
-              items: 2,
-              itemsDesktop : [1199,2],
-              itemsDesktopSmall : [980,2],
-              itemsTablet: [768,2],
-              itemsMobile : [479,2],
+              items: 4,
+              itemsDesktop : [767,4],
+              itemsDesktopSmall : false,
+              itemsTablet: false,
+              itemsMobile : false,
               pagination: false,
               navigation: true
             });
