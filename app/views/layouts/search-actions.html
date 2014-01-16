@@ -1,5 +1,5 @@
 <div class="action-left span6">
-  <a ui-sref="user({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
+  <a ui-sref="profile({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
 		<img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
 	</a>
 </div><!-- /.action-left -->
