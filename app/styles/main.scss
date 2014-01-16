@@ -76,6 +76,22 @@ table caption, .visually-hidden {display:none !important;}
 
 .hidden-phone {}
 
+.pageTop { @media screen and (min-width:600) {visibility: hidden;}}
+.back-to-top {
+  color: $black;
+  font-size: 12px;
+  font-family: "LatoBold", $bold-font-stack;
+  text-decoration: none;
+  background-color: rgba(235, 235, 235, 0.80);
+  border: 1px solid $gray;
+  padding: 1em;
+	position: fixed;
+  bottom: 5em;
+  left: 0;
+  display: none;
+  &:hover { background-color: rgba(135, 135, 135, 0.50);}
+}
+
 // Calculate all H# Tags.
 
 h1 {font-family: "LatoBold", $bold-font-stack; @include fontSize(52.358px);}
@@ -776,17 +792,18 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .colophon {
+	color: $grayDark;
 	font-size: $fontSizeSmall;
-	margin-top: 50px;
-	padding: 10px 0 5px;
-	border-top: 2px solid $grayDarker;
-	background-color: $grayDark;
+	h6 { margin: 0;}
 	a {
-		color: hsla(0,0%,45%,1);
-		&:hover {color:$white;}
+		color: $black;
+		text-decoration: underline;
+		&:hover {
+			background-color: $grayDarker;
+			color: $white;
+			text-decoration: none;
+		}
 	}
-	.footer-copy {margin-left: 30px;}
-	.one-liner, .block {display: block;}
 }
 
 // MAPBOX ------------------------------

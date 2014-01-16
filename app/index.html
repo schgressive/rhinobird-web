@@ -29,23 +29,15 @@
     <![endif]-->
 
 	<!-- header here-->
-	<header ng-include="'/views/header.html'"></header>
+	<header name="pageTop" ng-include="'/views/header.html'"></header>
 
 	<!-- content here-->
 	<div class="mainWrapper" ui-view role="main"></div>
 
-	<footer class="colophon" role="contentinfo" style="display: none;">
-		<div class="width-controller container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="footer-copy">
-						<p><span class="one-liner">© 2012 – 2013 Peepol.tv</span><span class="one-liner">Peepol.tv is brought to you by: <a href="http://cl.linkedin.com/in/felipeheusser" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'felipe']);">Felipe Heusser</a>, <a href="http://unterbahn.com/" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'jeff']);">Jeff Warren</a>, <a href="http://www.linkedin.com/in/ladychris" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'chris']);">Chris Rogers</a>, and the very fine folks of <a href="http://platan.us" rel="me" onClick="_gaq.push(['_trackEvent', 'click', 'bio', 'platanus']);">Platan.us</a><span class="one-liner">Built using <a href="http://getbootstrap.com/">Bootstrap</a> and featuring icons by <a href="http://glyphicons.com">Glyphicons</a>.</span>
-						</p>
-					</div><!-- /.footer-copy -->
-				</div>
-			</div>
-		</div>
-	</footer>
+	<div class="pageTop">
+		<a href="#pageTop" class="back-to-top" role="button" title="Return to top of page">Back to Top</a>
+	</div>
+	<footer role="contentinfo" ng-include="'/views/footer.html'"></footer>
 
     <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
@@ -119,7 +111,7 @@
     <!-- endbuild -->
 
     <!-- build:js /scripts/extra.js -->
-    <script src="/scripts/main.js"></script>
+    <!-- <script src="/scripts/main.js"></script> -->
     <!-- endbuild -->
 
   <script>
@@ -127,6 +119,26 @@
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+
+  <script>
+  	jQuery(document).ready(function() {
+	    var offset = 220;
+	    var duration = 500;
+	    jQuery(window).scroll(function() {
+	        if (jQuery(this).scrollTop() > offset) {
+	            jQuery('.back-to-top').fadeIn(duration);
+	        } else {
+	            jQuery('.back-to-top').fadeOut(duration);
+	        }
+	    });
+
+	    jQuery('.back-to-top').click(function(event) {
+	        event.preventDefault();
+	        jQuery('html, body').animate({scrollTop: 0}, duration);
+	        return false;
+	    })
+		});
   </script>
   </body>
 </html>
