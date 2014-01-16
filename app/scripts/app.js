@@ -118,8 +118,8 @@ angular.module('peepoltv', [
       }
     })
 
-    .state('password?reset_password_token', {
-      url: '/profile/edit?reset_password_token',
+    .state('password?reset_password_token&complete', {
+      url: '/profile/edit?reset_password_token&complete',
       templateUrl: '/views/main.html',
       controller: 'MainCtrl'
     })

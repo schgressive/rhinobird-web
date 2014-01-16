@@ -1,19 +1,21 @@
 <div class="modal-header">
-  <h2>Sign up with <span class="network">{{network.name}}</span></h2>
+  <h2>Sign up with <span class="network">{{network}}</span></h2>
 </div><!-- /.modal-header -->
 <div class="modal-body">
-	<div ng-show="socialModalAction == 'facebook'">
+
+	<div ng-show="network == 'facebook'">
 		<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
-		<button ng-click="" role="button">Continue</button>
+		<button ng-click="close()" role="button">Continue</button>
 	</div><!-- /facebook -->
-	<div ng-show="socialModalAction == 'twitter'">
+
+	<div ng-show="network == 'twitter'">
 		<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
 		<p>We just need one more thing to get started...</p>
-		<form name="twitterForm" role="form" ng-submit="" ng-controller="">
+		<form name="twitterForm" role="form" ng-submit="saveInfo()" ng-controller="SignupCompleteCtrl">
 			<label class="visually-hidden" for="input-email">Email</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-envelope"></i></span>
-        <input type="text" name="email" type="email" placeholder="your email..." ng-model="" required/>
+        <input type="text" name="email" type="email" placeholder="your email..." ng-model="email" required/>
       </div>
       <div class="error" ng-show="twitterForm.email.$dirty && twitterForm.email.$invalid">
         <small ng-show="twitterForm.email.$error.taken">
@@ -26,14 +28,15 @@
       <input class="btn btn-primary btn-xlarge" type="submit" value="Finish!"/>
 		</form>
 	</div><!-- /twitter -->
-	<div ng-show="socialModalAction == 'google'">
+
+	<div ng-show="network == 'google'">
 		<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
 		<p>We just need one more thing to get started...</p>
-		<form name="googleForm" role="form" ng-submit="" ng-controller="">
+		<form name="googleForm" role="form" ng-submit="saveInfo()" ng-controller="SignupCompleteCtrl">
 			<label class="visually-hidden" for="input-username">Username</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="username" placeholder="your username" ng-model="" ng-minlength=3 ng-maxlength=20 required/>
+        <input type="text" name="username" placeholder="your username" ng-model="username" ng-minlength=3 ng-maxlength=20 required/>
       </div>
       <div class="error" ng-show="googleForm.username.$dirty && googleForm.username.$invalid">
         <small ng-show="googleForm.username.$error.taken">

@@ -18,4 +18,9 @@ angular.module('peepoltv.controllers')
       AuthService.askLogin('password-reset');
     }
 
+    // open social signup post dialog
+    if ($stateParams.complete) {
+      AuthService.finishSocialSignup($stateParams.complete);
+    }
+
   });

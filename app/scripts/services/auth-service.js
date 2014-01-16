@@ -39,6 +39,26 @@ angular.module('peepoltv.services')
       return password.$promise;
     };
 
+    this.finishSocialSignup = function(network) {
+      var newModalDefaults  = {
+        backdrop: 'static',
+        templateUrl: '/views/modals/social-modal.html'
+      };
+
+      newModalDefaults.controller = ['$scope', '$modalInstance', function($scope, $modalInstance) {
+
+        $scope.network = network;
+
+        //click event for login modal form
+        $scope.close = function() {
+          $modalInstance.dismiss('cancel');
+        }
+      }];
+
+      //create modal and return it
+      return $modal.open(newModalDefaults).result;
+    }
+
     this.resetPassword = function(payload) {
       var password = Password.$build(payload);
       password.id = '';
