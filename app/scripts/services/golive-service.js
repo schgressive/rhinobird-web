@@ -108,9 +108,11 @@ angular.module('peepoltv.services')
     $rootScope.$on('licode-room-status-changed', function(event, params){
       if(params.status === 'connecting'){
         self.status = 'connecting';
+        $rootScope.app.onAir = false;
       }
       else if(params.status === 'disconnected'){
         self.status = 'disconnected';
+        $rootScope.app.onAir = false;
       }
     });
 
@@ -118,6 +120,7 @@ angular.module('peepoltv.services')
     $rootScope.$on('licode-stream-status-changed', function(event, params){
       if(params.status === 'added'){
         self.status = 'connected';
+        $rootScope.app.onAir = true;
       }
     });
 
