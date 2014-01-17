@@ -12,11 +12,13 @@ angular.module('peepoltv.models')
       type: { ignore: SyncMask.ENCODE },
       token: { ignore: SyncMask.ENCODE },
       properties: {
-        ignore: true,
-        init: {
-          'marker-size': 'medium',
-          'marker-color': '#A954F5',
-          'marker-symbol': 'cinema'
+        ignore: SyncMask.ENCODE,
+        decode: function(_data){
+          return angular.extend(_data, {
+            'marker-size': 'medium',
+            'marker-color': '#A954F5',
+            'marker-symbol': 'cinema'
+          });
         }
       }
     },
