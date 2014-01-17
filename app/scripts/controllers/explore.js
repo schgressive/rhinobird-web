@@ -61,7 +61,7 @@ angular.module('peepoltv.controllers')
     $scope.getCurrent();
 
     // Set the stream collection
-    $scope.streams = Stream.$collection();
+    $scope.streams = Stream.$collection({ live: true, archived: true });
 
     // Search for stream when lat change
     $scope.$watch('map.search.lat', function(){
