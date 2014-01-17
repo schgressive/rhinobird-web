@@ -1,25 +1,16 @@
-<div class="popup clearfix">
-  <div class="popup-left pull-left">
-    <div class="video-popup">
-      <a href="/streams/{{stream.id}}">
-        <img src="{{stream.thumbs.medium}}">
-      </a>
-    </div>
-    <div class="specs-popup clearfix">
-      <ul class="no-bullets">
-        <li class="thumb-user pull-left">
-          <a href="#" title="username">
-            <img src="http://fakeimg.pl/54x54/?text=User">
-          </a>
-        </li>
-        <li class="specs-title">{{stream.caption}}</li>
-        <li class="specs-tags">{{stream.channels.join(', ')}}</li>
-      </ul>
-    </div>
-  </div>
-  <div class="popup-right pull-left">
-    <a target="_blank" href="/streams/{{stream.id}}">
-      <button class="play-btn"><span class="visually-hidden">click to play video</span></button>
-    </a>
-  </div>
+<div class="module-video">
+  <a class="live-stream-link" ui-sref="stream({streamId: stream.id})">
+    <img ng-src="{{stream.thumbs.small}}"/>
+  </a>
+</div><!-- /.module-video -->
+<div class="module-outer">
+  <ul class="no-bullets">
+    <li class="ellipsis">
+      <span ng-show="stream.caption == 0">untitled</span>
+      <span class="ellipsis">{{stream.caption}}</span>
+    </li>
+    <li>
+    	<i class="icon-user"></i> Streamed by: <a ui-sref="user({userName: stream.user.username})" class="ellipsis">{{stream.user.username}}</a>
+    </li>
+  </ul>
 </div>

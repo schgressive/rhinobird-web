@@ -92,7 +92,7 @@ angular.module('peepoltv.controllers')
           // HACK: I have added the stream in the popup options
           layer.bindPopup(popupContent,{
             closeButton: false,
-            minWidth: 320,
+            minWidth: 200,
             feature: feature
           });
         }
