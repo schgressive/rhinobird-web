@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('SearchResultsCtrl', function ($scope, $location, AuthService, Stream, $state) {
+  .controller('SearchResultsCtrl', function ($scope, $location, AuthService, Stream, $state, User, Channel) {
 
     $scope.searchTerm = $location.search().q;
     $scope.filter = $location.search().filter;
 
     // Get the streams based on geolocation
     $scope.streams = Stream.$search($state.params);
+    $scope.peepol = User.$search($state.params);
+    $scope.channels = Channel.$search($state.params);
 
     $scope.filterBy = function(filter){
       $location.search('filter', filter);

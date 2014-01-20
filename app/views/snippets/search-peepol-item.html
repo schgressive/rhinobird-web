@@ -1,12 +1,12 @@
 <ul class="profile-list no-bullets span12">
   <li class="user-avatar pull-left">
-    <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
+    <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}"/>
   </li>
   <li class="user-info pull-left">
 	  <ul class="no-bullets">
 	    <li class="ellipsis">
 	    	<i class="icon-user"></i>
-	      <a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}'s profile">{{stream.user.name}}</h5>
+	      <a ui-sref="user({userName: user.username})" title="{{user.name}}'s profile">{{user.name}}</h5>
 	    </li>
     	<li class="ellipsis">
 				<i class="icon-facetime-video"></i>
