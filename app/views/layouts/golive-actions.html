@@ -26,8 +26,8 @@
             <input type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
             <input class="btn btn-large hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption"/>
           </div>
-          <div class="validate" ng-show="goliveForm.caption.$dirty && goliveForm.caption.$invalid">
-				  	<small class="warning" ng-show="goliveForm.caption.$error.maxlength">A caption can not have more than 17 characters.</small>
+          <div class="validate" ng-show="formAddCaption.caption.$dirty && formAddCaption.caption.$invalid">
+				  	<small class="warning" ng-show="formAddCaption.caption.$error.maxlength">A caption can not have more than 17 characters.</small>
 				  </div>
         </fieldset>
       </form>
