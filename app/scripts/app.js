@@ -160,7 +160,12 @@ angular.module('peepoltv', [
   streamViewerConfigProvider.setDefaultPreset('large');
 })
 .run(function($state, $rootScope, AuthService, CameraService){
-  $rootScope.$on('$stateChangeError', function () {
+  $rootScope.$on('$stateChangeError', function (event, to) {
+    if (to.name == "golive") {
+      AuthService.askLogin().then(function() {
+        $state.go('golive');
+      });
+    }
     // Navigate to main page
     $state.go('main');
   });
