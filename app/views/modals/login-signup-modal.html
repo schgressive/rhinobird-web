@@ -15,14 +15,11 @@
 	        <span class="add-on"><i class="icon-envelope"></i></span>
 	        <input type="email" name="email" placeholder="your email" ng-model="logUser.email" required/>
 	      </div>
-	      <div class="error" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
-	        <small ng-show="loginForm.email.$error.required">
-	          The email for your account is required.
-	        </small>
-	        <small ng-show="loginForm.email.$error.invalidtype">
+	      <div class="validate" ng-show="loginForm.email.$dirty">
+	        <small class="warning" ng-show="loginForm.email.$invalid">
 	          This email is invalid. Please input a valid email.
 	        </small>
-	        <small ng-show="loginForm.email.$error.none">
+	        <small class="error" ng-show="loginForm.email.$none">
 	          There is no account associated with this email. Please check for spelling errors.
 	        </small>
 	      </div><!-- /.error -->
@@ -31,8 +28,8 @@
 	        <span class="add-on"><i class="icon-lock"></i></span>
 	        <input type="password" name="password" placeholder="your password" ng-model="logUser.password" required/>
 	      </div>
-	      <div class="error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-	        <small>
+	      <div class="validate" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+	        <small class="error">
 	          This password is invalid. Please check for spelling.
 	        </small>
 	      </div><!-- /.error -->
@@ -55,8 +52,8 @@
         <span class="add-on"><i class="icon-lock"></i></span>
         <input type="password" name="password" placeholder="your password" ng-model="resetData.password" required/>
       </div>
-      <div class="error" ng-show="passwordReset.password.$dirty && passwordReset.password.$invalid">
-        <small>
+      <div class="validate" ng-show="passwordReset.password.$dirty && passwordReset.password.$invalid">
+        <small class="error">
           This password is invalid. Please check for spelling.
         </small>
       </div><!-- /.error -->
@@ -65,8 +62,8 @@
         <span class="add-on"><i class="icon-lock"></i></span>
         <input type="password" name="confirm" placeholder="Confirm password" ng-model="resetData.confirm" required/>
       </div>
-      <div class="error" ng-show="invalidToken">
-        <small>
+      <div class="validate" ng-show="invalidToken">
+        <small class="error">
           Invalid Token.
         </small>
       </div><!-- /.error -->
@@ -80,10 +77,10 @@
       <label class="visually-hidden" for="reset-password">Your Email</label>
       <div class="input-prepend">
         <span class="add-on"><i class="icon-envelope"></i></span>
-        <input type="text" name="reset-password" type="email" placeholder="your email" ng-model="user.email" required/>
+        <input type="text" class="input-xlarge" name="reset-password" type="email" placeholder="your email" ng-model="user.email" required/>
       </div>
-      <div class="error" ng-show="invalidEmail">
-        <small>This email is not registered with Peepol.tv. Please check for errors.</small>
+      <div class="validate" ng-show="invalidEmail">
+        <small class="error">This email is not registered with Peepol.tv. Please check for errors.</small>
       </div>
       <input class="btn btn-primary btn-xlarge" type="submit" value="Send"/>
     </form>
@@ -96,12 +93,12 @@
         <span class="add-on"><i class="icon-envelope"></i></span>
         <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
       </div>
-      <div class="error" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
-        <small ng-show="signupForm.email.$error.taken">
-          This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
-        </small>
-        <small ng-show="">
+      <div class="validate" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+      	<small class="warning" ng-show="signupForm.email.$invalid">
           This email is invalid. Please input a valid email.
+        </small>
+        <small class="error" ng-show="signupForm.email.$error.taken">
+          This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
         </small>
       </div><!-- /.error -->
       <label class="visually-hidden" for="input-name">Name</label>
@@ -114,14 +111,14 @@
         <span class="add-on"><i class="icon-user"></i></span>
         <input type="text" name="username" placeholder="your username" ng-model="regUser.username" ng-minlength=3 ng-maxlength=20 required/>
       </div>
-      <div class="error" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
-        <small ng-show="signupForm.username.$error.taken">
+      <div class="validate" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+        <small class="error" ng-show="signupForm.username.$error.taken">
           This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
         </small>
-        <small ng-show="signupForm.username.$error.minlength">
+        <small class="warning" ng-show="signupForm.username.$error.minlength">
           A username must have at least 3 characters.
         </small>
-        <small ng-show="signupForm.username.$error.maxlength">
+        <small class="warning" ng-show="signupForm.username.$error.maxlength">
           A username can not have more than 20 characters.
         </small>
       </div><!-- /.error -->
@@ -130,7 +127,7 @@
         <span class="add-on"><i class="icon-lock"></i></span>
         <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
       </div>
-      <div class="error" ng-show="signupForm.password.$invalid">
+      <div class="validate" ng-show="signupForm.password.$invalid">
         <small class="error" ng-show="signupForm.password.$error.minlength">
           This password is too short. Passwords must be at least 8 characters long.
         </small>

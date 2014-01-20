@@ -112,6 +112,8 @@ a, i, .btn, input {
 	&:hover {@include baseTransitionIn;}
 }
 
+small {font-size: $fontSizeMini;}
+
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 

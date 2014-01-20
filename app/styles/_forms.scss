@@ -199,15 +199,16 @@ body.base {
 			font-size: 30px;
 		}
 	}
-	.error {
-		@include fontSize(10px);
+	.validate {
 		color: $white;
 		text-align: center;
-		background-color: $darkTrans;
-		border: 1px solid $errorText;
-		margin-top: -19px;
-		margin-bottom: 19px;
+		max-width: 260px;
+		margin: -19px 0 19px 0;
+		small { display: block; width: 100%; height: auto; padding: 3px 0;}
+		a:link { color: $white; text-decoration: underline;}
 	}
+	.warning { background-color: $warningText;}
+	.error { background-color: $errorText;}
 	h2 { color: $black;}
 	h4 {
 		color: $black;
