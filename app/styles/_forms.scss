@@ -209,6 +209,7 @@ body.base {
 	}
 	.warning { background-color: $warningText;}
 	.error { background-color: $errorText;}
+	.input-xxlarge + .validate { max-width: 428px; margin-top: -10px;}
 	h2 { color: $black;}
 	h4 {
 		color: $black;

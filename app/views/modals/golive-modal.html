@@ -8,6 +8,9 @@
   <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
 	  <label for="caption">You can use hashtags to add your stream to a channel:</label>
 	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" ng-maxlength=17/>
+	  <div class="validate" ng-show="goliveForm.caption.$dirty && goliveForm.caption.$invalid">
+	  	<small class="warning" ng-show="goliveForm.caption.$error.maxlength">A caption can not have more than 17 characters.</small>
+	  </div>
 	  <div ng-show="vm.channels.length">
 	    <p>Your stream will be published in the following channels</p>
 	    <ul class="inline no-bullets">
