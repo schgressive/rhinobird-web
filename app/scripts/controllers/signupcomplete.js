@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('SignupCompleteCtrl', function ($scope, AuthService) {
+  .controller('SignupCompleteCtrl', function ($scope, AuthService, User) {
 
     $scope.saveInfo = function() {
-      var user = AuthService.user;
+      var user = User.$build({id: 'current'})
       if ($scope.username) {
         user.username = $scope.username;
       }
@@ -12,6 +12,8 @@ angular.module('peepoltv.controllers')
         user.email = $scope.email;
       }
       user.$save();
+
+      $scope.$close();
     }
 
   });
