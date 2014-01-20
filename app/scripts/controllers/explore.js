@@ -3,6 +3,11 @@
 angular.module('peepoltv.controllers')
   .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile) {
 
+    // Set the default marker location
+    // FIXME: The markers images should be compiled and served with relative path
+    // Maybe we can use awesome markers plugin also
+    L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.6.0/images';
+
     // Expose scope as self
     $scope.self = $scope;
 
