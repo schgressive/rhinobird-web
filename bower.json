@@ -15,7 +15,7 @@
     "angular-licode": "~0.0.10",
     "bootstrap-sass": "2.3.2",
     "owlcarousel": "*",
-    "angular-ui-router": "~0.2.0",
+    "angular-ui-router": "0.2.7",
     "nginfinitescroll": "~1.0.0",
     "angular-leaflet": "~0.7.2"
   },
