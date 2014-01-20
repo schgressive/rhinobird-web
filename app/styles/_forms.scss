@@ -218,7 +218,8 @@ body.base {
 		.one-liner { margin-top: 10px;}
 	}
 	h6 a { color: $white; background-color: $darkTrans; padding: 3px;}
-	.input-prepend, .input-append, .btn, .btn-social { display: block; margin-bottom: 20px;}
+	.btn, .btn-social { display: block;}
+	.input-prepend, .input-append, .btn, .btn-social { margin-bottom: 20px !important;}
 	input[type*="password"], input[type*="email"], input[type*="text"], .input-prepend .add-on, .input-append .add-on { border-color: $grayLighter;}
 	.modal-header {border-bottom: none;}
 	.network { text-transform: capitalize;}
@@ -251,6 +252,7 @@ body.base {
 			}
 		}
 	}
+	.modal-left { width: 50%;}
 	.modal-right {
 		border-left: 1px solid $white;
 		margin-left: 20px;
