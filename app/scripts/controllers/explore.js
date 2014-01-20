@@ -21,7 +21,7 @@ angular.module('peepoltv.controllers')
         tileLayer: 'http://a.tiles.mapbox.com/v3/peepoltv.map-ujvx87td/{z}/{x}/{y}.png',
         tileLayerOptions: {
           attribution: '&copy; <a href="http://www.mapbox.com">Mapbox</a>'
-        },
+        }
       },
       search: {
         lat: 0,
