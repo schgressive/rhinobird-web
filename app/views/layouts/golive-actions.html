@@ -8,21 +8,6 @@
         <li>
           <a href="#" ng-click="ctrl.stop(true)" role="button" title="Close & Return"><span class="visually-hidden">Close & Return</span></a>
         </li>
-        <!--
-<li>
-          <a href="#" role="button" title="Take a Snapshot"><span class="visually-hidden">Take Snapshot</span></a>
-        </li>
--->
-        <!--
-<li>
-          <a href="#" data-toggle="collapse" data-target="#add" role="button" title="Add Captions"><span class="visually-hidden">Add Captions</span></a>
-        </li>
--->
-        <!--
-<li>
-          <a href="#" data-toggle="collapse" data-target="#share" role="button" title="Share this Stream"><span class="visually-hidden">Share this Stream</span></a>
-        </li>
--->
         <li>
           <a href="#" ng-click="ctrl.stop()" title="Stop Recording"><span class="visually-hidden">Stop Recording</span></a>
         </li>
@@ -34,13 +19,16 @@
 		  </ul>
     </div><!-- /.action-left -->
     <div class="action-right span5">
-    	<form method="post" action="" class="pull-right">
+    	<form name="formAddCaption" method="post" class="pull-right" ng-maxlength=17>
         <fieldset>
           <legend class="visually-hidden">Use this form to add a channel or caption. Use '#' before a word to create a channel for the stream.</legend>
           <div class="input-append">
             <input type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
             <input class="btn btn-large hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption"/>
           </div>
+          <div class="validate" ng-show="goliveForm.caption.$dirty && goliveForm.caption.$invalid">
+				  	<small class="warning" ng-show="goliveForm.caption.$error.maxlength">A caption can not have more than 17 characters.</small>
+				  </div>
         </fieldset>
       </form>
     </div>
