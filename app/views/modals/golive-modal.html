@@ -1,10 +1,10 @@
 <div class="modal-header" ng-show="vm.goliveService.status == 'disconnected'">
   <h2>Going Live?</h2>
 </div><!-- /.modal-header -->
+<div class="alert" ng-hide="vm.camera.access">
+  <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
+</div>
 <div class="modal-body">
-  <div class="alert" ng-hide="vm.camera.access">
-    <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
-  </div>
   <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
 	  <label for="caption">You can use hashtags to add your stream to a channel:</label>
 	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" ng-maxlength=17/>
@@ -23,9 +23,7 @@
 	  <label class="checkbox inline" ng-show="vm.camera.videoSources.length > 1">
 	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
 	  </label>
-	  <button ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access" role="submit">
-	    Ready!
-	  </button>
+	  <input ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access" role="submit" type="submit" value="Ready!"/>
   </form><!-- /goliveForm -->
   <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
     <h3>Connecting...</h3>
@@ -35,6 +33,6 @@
   </div>
 </div><!-- /.modal-body -->
 <div class="modal-footer" ng-show="vm.goliveService.status == 'disconnected'">
-	<p>Disclaimer here?</p>
+	<h6>Disclaimer here?</h6>
 </div><!-- /.modal-footer -->
 
