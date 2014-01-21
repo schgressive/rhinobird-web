@@ -248,11 +248,15 @@ body.base {
 	}
 	form[name="goliveForm"] {
 		.checkbox { font-size: 16px; margin-bottom: 4px;}
-		.input-xxlarge { @media screen and (max-width: 500px) {width: 80%;}}
+		.input-xxlarge { @media screen and (max-width: 500px) { width: 80%;}}
+		.input-xxlarge + .validate { @media screen and (max-width: 500px) {width: 88.5%;}}
 		ul { margin-bottom: 10px;}
 		.btn-primary { margin-top: 10px;}
 	}
-	.modal-left { width: 50%;}
+	.modal-left {
+		width: 50%;
+		@media screen and (max-width: 500px) { width: 100%;}
+	}
 	.modal-right {
 		border-left: 1px solid $white;
 		margin-left: 20px;

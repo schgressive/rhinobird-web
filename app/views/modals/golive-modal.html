@@ -4,7 +4,7 @@
 <div class="alert" ng-hide="vm.camera.access">
   <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
 </div>
-<div class="modal-body">
+<div class="modal-body clearfix">
   <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
 	  <label for="caption">You can use hashtags to add your stream to a channel:</label>
 	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" ng-maxlength=17/>
