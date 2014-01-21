@@ -269,6 +269,7 @@ body.base { /*overrides are here */
 		@media screen and (max-width: 500px) { border: none;}
 		h2 { @include font-smoothing; margin-bottom: 0;}
 		h2, h4 { color: $white;}
+		.modal-body { max-height: none;}
 	}
 	.top-content .container-fluid { @media screen and (max-width: 500px) {
 		padding: {
