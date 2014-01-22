@@ -4,6 +4,11 @@
   <h2 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h2>
   <h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
   <h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
+  <div ng-show="loginModalAction == 'login'">
+    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a></h6>
+    <h6><a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
+  </div>
+	<h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'"><a href="#" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
 </div><!-- /.modal-header -->
 <div class="modal-body">
 	<div ng-show="loginModalAction == 'login'">
@@ -38,9 +43,9 @@
     </div><!-- /.modal-left -->
     <div class="modal-right pull-left">
 			<h4>Or connect with:</h4>
-      <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span class="hidden-phone">Facebook</span></a>
-      <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span class="hidden-phone">Twitter</span></a>
-      <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><span class="hidden-phone">Google</span></a>
+      <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span>Facebook</span></a>
+      <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span>Twitter</span></a>
+      <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><span>Google</span></a>
     </div><!-- /.modal-right -->
   </div>
 
@@ -137,10 +142,6 @@
   </div>
 </div><!-- /.modal-body -->
 <div class="modal-footer">
-  <div ng-show="loginModalAction == 'login'">
-    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a></h6>
-    <h6><a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
-  </div>
-  	<h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'"><a href="#" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
+
 </div><!-- /.modal-footer -->
 

@@ -182,7 +182,7 @@ body.base {
 .modal {
 	@include fontSize(14px);
 	text-align: left;
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 598px) {
 		width: 100%;
 		left: 0;
 		margin-left: 0;
@@ -193,7 +193,7 @@ body.base {
 		text-shadow: 0 1px 0 $black;
 		opacity: .5;
 		&:hover { opacity: .7;}
-		@media screen and (max-width: 500px) {
+		@media screen and (max-width: 598px) {
 			margin-top: 0;
 			line-height: 30px;
 			font-size: 30px;
@@ -209,24 +209,31 @@ body.base {
 	}
 	.warning { background-color: $warningText;}
 	.error { background-color: $errorText;}
-	.input-xxlarge + .validate { max-width: 428px; margin-top: -10px;}
-	h2 { color: $black;}
+	.network { text-transform: capitalize;}
+	h2 { margin: { top: 3px; bottom: 0;}}
 	h4 {
-		color: $black;
-		margin: 0 0 20px 0;
+		margin: 0 0 12px 0;
 		@include font-smoothing;
 		.one-liner { margin-top: 10px;}
 	}
 	h6 {
-		background-color: $darkTrans;
+		/*
+background-color: $darkTrans;
 		padding: 3px 3px 3px 7px;
+*/
+		display: inline-block;
+		margin-bottom: 0;
 		a {	color: $white;}
 	}
 	.btn, .btn-social { display: block;}
-	.input-prepend, .input-append, .btn { margin-bottom: 20px !important;}
+	.input-prepend, .input-append, .btn { margin-bottom: 16px !important;}
 	input[type*="password"], input[type*="email"], input[type*="text"], .input-prepend .add-on, .input-append .add-on { border-color: $grayLighter;}
+	.input-xxlarge + .validate { max-width: 428px; margin-top: -10px;}
+	.input-prepend, .input-append, a.btn-social {
+		margin-right: 10px;
+		&:last-of-type { margin-right: 0;}
+	}
 	.modal-header {border-bottom: none;}
-	.network { text-transform: capitalize;}
 	.modal-body {padding: {top:0;bottom:0;}}
 	.modal-footer {
 		text-align: left;
@@ -235,24 +242,34 @@ body.base {
 		box-shadow: none;
 		@media screen and (max-width: 500px) { padding-top: 10px;}
 	}
-	form .btn-primary {
-		color: $white;
-		text-transform: uppercase;
-		background-color: $darkTrans;
-		border: 2px solid $white;
-		@include font-smoothing();
-		&:hover {
-			background-color: lighten($purple, 10%);
-			border-color: $purple;
+	form {
+		.btn-primary {
+			@include fontSize(16px);
+			color: $white;
+			text-transform: uppercase;
+			background-color: $darkTrans;
+			border: 2px solid $white;
+			@include font-smoothing();
+			&:hover {
+				background-color: lighten($purple, 10%);
+				border-color: $purple;
+			}
 		}
-	}
-	form[name="goliveForm"] {
 		.checkbox { font-size: 16px; margin-bottom: 4px;}
 		.input-xxlarge { @media screen and (max-width: 500px) { width: 80%;}}
-		.input-xxlarge + .validate { @media screen and (max-width: 500px) {width: 88.5%;}}
+		.input-xxlarge + .validate {
+			@media screen and (max-width: 500px) {width: 88.5%;}
+		}
+	}
+/*
+	form[name="goliveForm"] {
+
+
 		ul { margin-bottom: 10px;}
 		.btn-primary { margin-top: 10px;}
 	}
+*/
+/*
 	.modal-left {
 		width: 50%;
 		@media screen and (max-width: 500px) { width: 100%;}
@@ -269,17 +286,19 @@ body.base {
 			padding: { top: 10px; left: 0;}
 		}
 	}
+*/
 	a.btn-social {
 		color: $white;
 		font-weight: bold;
 		text-align: left;
 		text-transform: uppercase;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		border: { width: 2px; style: solid;}
 		background-repeat: no-repeat;
 		background-position: 6px 50%;
 		background-size: 24px 24px;
 		padding: 11px 48px 11px 39px;
+		float: left;
 		@include font-smoothing;
 		@media screen and (max-width: 500px) {
 			width: 36px;
@@ -287,6 +306,7 @@ body.base {
 			padding: 0;
 			margin: { right: 20px; bottom: 0;}
 			display: inline-block;
+			span { display: none;}
 		}
 		&:hover { text-decoration: none;}
 		&[title*="facebook"] {
