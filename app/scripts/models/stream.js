@@ -28,8 +28,20 @@ angular.module('peepoltv.models')
        * Only get live stream
        * @return {collection} Collection of streams
        */
-      this.classDefine('live', function(){
-        return this.$search({ live: true, 'force_check': true });
+      this.classDefine('live', function(force){
+        // Live
+        var params = {
+          live: true
+        };
+
+        // Force check
+        if(force){
+          angular.extend(params, {
+            force: true
+          });
+        }
+
+        return this.$search(params);
       });
 
       /**
