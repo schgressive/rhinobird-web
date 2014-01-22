@@ -18,22 +18,20 @@ angular.module('peepoltv.directives')
         attrs.maxStreams = attrs.maxStreams || 4;
 
         // Get the live streams from this channel
-        scope.liveStreams = scope.channel.streams.live().$then(function(){
-          // Sets the first streams as playing if this is and outbound vj
-          if(attrs.vjFlow === 'outbound'){
-            _.each(scope.liveStreams, function(s, idx){
-              s.isPlaying = (idx < attrs.maxStreams);
-            });
-          }
-        });
+        scope.liveStreams = scope.channel.streams.live();
 
         // Change the main stream
         scope.changeStream = function(stream){
 
-          // Mute all the videos
+          // Prepare all the videos
           _.each(scope.liveStreams, function(_stream){
             if(_stream.isPlaying && _stream.licode){
+
+              // Mute them
               _stream.licode.player.video.muted = true;
+
+              // Reset projected
+              _stream.isProjected = _stream.id === stream.id;
             }
           });
 
@@ -55,16 +53,47 @@ angular.module('peepoltv.directives')
             // Initialize the carousel
             $('.owl-carousel', element).owlCarousel({
               items: 4,
-              itemsDesktop : [767,4],
+              itemsDesktop : false,
               itemsDesktopSmall : false,
               itemsTablet: false,
-              itemsMobile : false,
+              itemsMobile : [767,3],
               pagination: false,
-              navigation: true
+              navigation: true,
+              scrollPerPage: true,
+              afterAction : afterAction
             });
           });
 
         });
+
+        // Update owl carrowsel status
+        var afterAction = function(){
+          var owlScope = this;
+
+          scope.$apply(function(){
+            // Disconnect the connected streams that are not visible
+            _.each(scope.liveStreams, function(stream){
+              if(stream.isPlaying && !stream.isProjected){
+                stream.isPlaying = false;
+              }
+            });
+
+            // Connect the streams that become visible
+            _.each(owlScope.visibleItems, function(i){
+              var stream = scope.liveStreams[i];
+
+              // Update the token if it is null
+              if(stream.token === null){
+                stream.$fetch().$then(function(){
+                  stream.isPlaying = true;
+                });
+              }
+              else{
+                stream.isPlaying = true;
+              }
+            });
+          });
+        };
       }
     };
   });

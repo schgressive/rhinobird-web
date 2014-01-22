@@ -6,6 +6,7 @@ angular.module('peepoltv.models')
     {
       user: { hasOne: 'User' },
       isPlaying: { ignore: true }, // Whether is connected to licode server
+      isProjected: { ignore: true }, // Whether is viewed in the canva
       licode: { ignore: true }, // The licode stream object
       startedOn: { ignore: SyncMask.ENCODE },
       thumbs: { ignore: SyncMask.ENCODE },
