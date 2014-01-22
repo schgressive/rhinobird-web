@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('peepoltv.directives')
-  .directive('channelPool', function ($timeout) {
+  .directive('streamPool', function ($timeout) {
     return {
-      templateUrl: '/views/templates/channel-pool.html',
+      templateUrl: '/views/templates/stream-pool.html',
       restrict: 'EA',
       scope: {
-        channel: '=',
+        streams: '=',
+        currentStream: '=',
         vj: '@'
       },
       link: function postLink(scope, element, attrs) {
@@ -14,17 +15,11 @@ angular.module('peepoltv.directives')
         // Set the self scope reference
         scope.self = scope;
 
-        // Set default max streams quantity
-        attrs.maxStreams = attrs.maxStreams || 4;
-
-        // Get the live streams from this channel
-        scope.liveStreams = scope.channel.streams.live();
-
         // Change the main stream
         scope.changeStream = function(stream){
 
           // Prepare all the videos
-          _.each(scope.liveStreams, function(_stream){
+          _.each(scope.streams, function(_stream){
             if(_stream.isPlaying && _stream.licode){
 
               // Mute them
@@ -42,7 +37,15 @@ angular.module('peepoltv.directives')
           scope.$emit('main-stream-changed', stream);
         };
 
-        scope.$watchCollection('liveStreams', function(s){
+        // Watch for the currentStreams change
+        scope.$watch('currentStream', function(value){
+          if(value){
+            scope.changeStream(value);
+          }
+        });
+
+        // Watch if the streams collection change
+        scope.$watchCollection('streams', function(s){
           if(!s || s.length === 0) { return; }
 
           // Apply the owl slider
@@ -72,7 +75,7 @@ angular.module('peepoltv.directives')
 
           scope.$apply(function(){
             // Disconnect the connected streams that are not visible
-            _.each(scope.liveStreams, function(stream){
+            _.each(scope.streams, function(stream){
               if(stream.isPlaying && !stream.isProjected){
                 stream.isPlaying = false;
               }
@@ -80,7 +83,7 @@ angular.module('peepoltv.directives')
 
             // Connect the streams that become visible
             _.each(owlScope.visibleItems, function(i){
-              var stream = scope.liveStreams[i];
+              var stream = scope.streams[i];
 
               // Update the token if it is null
               if(stream.token === null){

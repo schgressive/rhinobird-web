@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: channelPool', function () {
+describe('Directive: streamPool', function () {
 
   // load the directive's module
   beforeEach(module('peepoltvApp'));
@@ -13,8 +13,8 @@ describe('Directive: channelPool', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<channel-pool></channel-pool>');
+    element = angular.element('<stream-pool></stream-pool>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the channelPool directive');
+    expect(element.text()).toBe('this is the streamPool directive');
   }));
 });

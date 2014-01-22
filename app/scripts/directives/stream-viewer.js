@@ -50,9 +50,11 @@ angular.module('peepoltv.directives')
         scope.width = preset[0];
         scope.height = preset[1];
 
-        scope.$on('licode-video-created', function(event, licodeStream){
-          // Set the licode stream object in the licode property of the stream
-          scope.stream.licode = licodeStream;
+        scope.$on('licode-stream-status-changed', function(event, params){
+          if(params.status === 'subscribed'){
+            // Set the licode stream object in the licode property of the stream
+            scope.stream.licode = params.stream;
+          }
         });
       }
     };
