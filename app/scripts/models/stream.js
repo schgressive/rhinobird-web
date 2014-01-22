@@ -34,7 +34,7 @@ angular.module('peepoltv.models')
 
       /**
        * Get next page of streams
-       * @return {[type]} [description]
+       * @return {collection} Stream Collection
        */
       this.classDefine('getNextPage', function(){
         var page = this.$page || 0;
@@ -44,6 +44,10 @@ angular.module('peepoltv.models')
         return this;
       });
 
+      /**
+       * Get the streams collection as a GeoJSON feature collection
+       * @return {collection} Feature Collection
+       */
       this.classDefine('asGeoJSON', function(){
         return {
           type: 'FeatureCollection',
