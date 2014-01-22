@@ -108,7 +108,7 @@ angular.module('peepoltv', [
 
     // User
     .state('user', {
-      url: '/user/{userName:[0-9a-zA-Z]*}',
+      url: '/user/{userName:[0-9a-zA-Z-_]*}',
       templateUrl: '/views/user.html',
       controller: 'UserCtrl',
       resolve: {
@@ -126,7 +126,7 @@ angular.module('peepoltv', [
 
     // Channels
     .state('channel', {
-      url: '/{channelName:[0-9a-zA-Z]*}',
+      url: '/{channelName:[0-9a-zA-Z-_]*}',
       templateUrl: '/views/channel.html',
       controller: 'ChannelCtrl',
       resolve: {
@@ -138,7 +138,7 @@ angular.module('peepoltv', [
 
     // Vj session
     .state('vjsession', {
-      url: '/{channelName:[0-9a-zA-Z]*}/{userName:[0-9a-zA-Z]*}',
+      url: '/{channelName:[0-9a-zA-Z-_]*}/{userName:[0-9a-zA-Z-_]*}',
       templateUrl: '/views/vj-session.html',
       controller: 'VjSessionCtrl'
     });
