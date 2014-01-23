@@ -50,7 +50,7 @@ angular.module('peepoltv', [
 
     // Explore
     .state('explore', {
-      url: '/explore',
+      url: '/explore/',
       templateUrl: '/views/explore.html',
       controller: 'ExploreCtrl'
     })
@@ -63,21 +63,21 @@ angular.module('peepoltv', [
       controller: 'SearchResultsCtrl'
     })
     .state('search.streams', {
-      url: '/streams?q',
+      url: '/streams/?q',
       templateUrl: '/views/search-results-streams.html'
     })
     .state('search.channels', {
-      url: '/channels',
+      url: '/channels/',
       templateUrl: '/views/search-results-channels.html'
     })
     .state('search.peepol', {
-      url: '/peepol',
+      url: '/peepol/',
       templateUrl: '/views/search-results-peepol.html'
     })
 
     // Golive
     .state('golive', {
-      url: '/golive',
+      url: '/golive/',
       templateUrl: '/views/golive.html',
       controller: 'GoliveCtrl',
       resolve: {
@@ -89,7 +89,7 @@ angular.module('peepoltv', [
 
     // Profile
     .state('profile', {
-      url: '/profile',
+      url: '/profile/',
       templateUrl: '/views/profile.html',
       controller: 'ProfileCtrl',
       resolve: {
@@ -101,14 +101,14 @@ angular.module('peepoltv', [
 
     // Streams
     .state('stream', {
-      url: '/stream/:streamId',
+      url: '/stream/:streamId/',
       templateUrl: '/views/stream.html',
       controller: 'StreamCtrl'
     })
 
     // User
     .state('user', {
-      url: '/user/{userName:[0-9a-zA-Z-_]*}',
+      url: '/user/{userName:[0-9a-zA-Z-_]+}/',
       templateUrl: '/views/user.html',
       controller: 'UserCtrl',
       resolve: {
@@ -119,14 +119,14 @@ angular.module('peepoltv', [
     })
 
     .state('password?reset_password_token&complete', {
-      url: '/profile/edit?reset_password_token&complete',
+      url: '/profile/edit/?reset_password_token&complete',
       templateUrl: '/views/main.html',
       controller: 'MainCtrl'
     })
 
     // Channels
     .state('channel', {
-      url: '/{channelName:[0-9a-zA-Z-_]*}',
+      url: '/{channelName:[0-9a-zA-Z-_]+}/',
       templateUrl: '/views/channel.html',
       controller: 'ChannelCtrl',
       resolve: {
@@ -138,7 +138,7 @@ angular.module('peepoltv', [
 
     // Vj session
     .state('vjsession', {
-      url: '/{channelName:[0-9a-zA-Z-_]*}/{userName:[0-9a-zA-Z-_]*}',
+      url: '/{channelName:[0-9a-zA-Z-_]+}/{userName:[0-9a-zA-Z-_]+}/',
       templateUrl: '/views/vj-session.html',
       controller: 'VjSessionCtrl'
     });
