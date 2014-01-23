@@ -69,6 +69,24 @@ angular.module('peepoltv.directives')
 
         });
 
+        // When a stream is added or removed
+        scope.$on('licode-stream-status-changed', function(event, params){
+          if(params.status === 'removed'){
+            var streamToRemove = _.find(scope.streams, function(s){return s.streamId === params.stream.getID();});
+            var indexToRemove = _.indexOf(scope.streams, streamToRemove);
+
+            // Remove it from the carrousel
+            if(indexToRemove >= 0){
+              owl.data('owlCarousel').removeItem(indexToRemove);
+            }
+
+            // If is the selected one, set the current in null
+            if(streamToRemove.id === scope.currentStream.id){
+              scope.currentStream = undefined;
+            }
+          }
+        });
+
         // Update owl carrowsel status
         var afterAction = function(){
           var owlScope = this;
