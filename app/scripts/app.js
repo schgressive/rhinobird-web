@@ -161,7 +161,7 @@ angular.module('peepoltv', [
 })
 .run(function($state, $rootScope, AuthService, CameraService){
   $rootScope.$on('$stateChangeError', function (event, to) {
-    if (to.name == "golive") {
+    if (to.name === 'golive') {
       AuthService.askLogin().then(function() {
         $state.go('golive');
       });
@@ -182,7 +182,7 @@ angular.module('peepoltv', [
   });
 
   // On state success
-  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
     // Add the current state to the app variable
     app.state = toState.name;
 
