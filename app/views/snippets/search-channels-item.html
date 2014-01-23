@@ -1,6 +1,6 @@
 <ul class="channel-list no-bullets span12">
   <li class="module-video">
-    <a class="live-stream-link" ui-sref="{{channel.name}}">
+  <a class="live-stream-link" href="#" ui-sref="channel({channelName: channel.name})">
     	<img ng-src="{{channel.streams.0.thumbs.medium}}"/>
 		</a>
   </li>
