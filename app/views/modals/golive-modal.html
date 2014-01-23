@@ -1,38 +1,41 @@
-<div class="modal-header" ng-show="vm.goliveService.status == 'disconnected'">
+<div ng-show="vm.goliveService.status == 'disconnected'">
   <h2>Going Live?</h2>
-</div><!-- /.modal-header -->
+</div>
 <div class="alert" ng-hide="vm.camera.access">
   <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
 </div>
-<div class="modal-body clearfix">
-  <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
-	  <label for="caption">You can use hashtags to add your stream to a channel:</label>
+<form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
+  <label for="caption">You can use hashtags to add your stream to a channel:</label>
+  <div class="input-prepend">
+  	<span class="add-on"><i class="icon-tag"></i></span>
 	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" ng-maxlength=17/>
 	  <div class="validate" ng-show="goliveForm.caption.$dirty && goliveForm.caption.$invalid">
 	  	<small class="warning" ng-show="goliveForm.caption.$error.maxlength">A caption can not have more than 17 characters.</small>
-	  </div>
-	  <div ng-show="vm.channels.length">
-	    <p>Your stream will be published in the following channels</p>
-	    <ul class="inline no-bullets">
-	      <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
-	    </ul>
-	  </div>
+	  </div><!-- /.validate -->
+  </div><!-- /.input-prepend -->
+  <div ng-show="vm.channels.length">
+    <p>Your stream will be published in the following channels</p>
+    <ul class="inline no-bullets">
+      <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
+    </ul>
+  </div>
+  <div class="checkbox-wrapper">
 	  <label class="checkbox inline">
 	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
 	  </label>
 	  <label class="checkbox inline" ng-show="vm.camera.videoSources.length > 1">
 	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
 	  </label>
-	  <input ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
-  </form><!-- /goliveForm -->
-  <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
-    <h3>Connecting...</h3>
   </div>
-  <div class="text-center" ng-show="vm.goliveService.status == 'connected'">
-    <h3>Connected...</h3>
-  </div>
-</div><!-- /.modal-body -->
-<div class="modal-footer" ng-show="vm.goliveService.status == 'disconnected'">
+  <input ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
+</form><!-- /goliveForm -->
+<div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
+  <h3>Connecting...</h3>
+</div>
+<div class="text-center" ng-show="vm.goliveService.status == 'connected'">
+  <h3>Connected...</h3>
+</div>
+<div ng-show="vm.goliveService.status == 'disconnected'">
 	<h6>Disclaimer here?</h6>
-</div><!-- /.modal-footer -->
+</div>
 
