@@ -4,16 +4,14 @@
   <h2 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h2>
   <h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
   <h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
-  <div ng-show="loginModalAction == 'login'">
-    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a></h6>
-    <h6><a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
-  </div>
-	<h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'"><a href="#" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
 </div><!-- /.modal-header -->
 <div class="modal-body">
 	<div ng-show="loginModalAction == 'login'">
 		<div class="modal-left pull-left">
 			<h4>Please sign in.</h4>
+			<div ng-show="loginModalAction == 'login'">
+		    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a> or <a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
+		  </div>
 			<form name="loginForm" role="form" ng-submit="loginUser()" ng-controller="LoginCtrl">
 	      <label class="visually-hidden" for="email">Your email</label>
 	      <div class="input-prepend">
@@ -140,8 +138,5 @@
       <input class="btn btn-primary btn-xlarge" type="submit" value="Create"/>
     </form>
   </div>
+  <h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'" class="return-link"><a href="#" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
 </div><!-- /.modal-body -->
-<div class="modal-footer">
-
-</div><!-- /.modal-footer -->
-
