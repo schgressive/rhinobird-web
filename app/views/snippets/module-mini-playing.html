@@ -1,6 +1,6 @@
 <div class="module-video">
   <a class="live-stream-link">
-    <div stream-viewer stream="stream" size="mini" mute="true" on="{{stream.isPlaying}}"></div>
+    <div stream-viewer stream="stream" size="mini" mute="{{stream.isMuted}}" on="{{stream.isConnected}}"></div>
   </a>
 </div><!-- /.module-video -->
 <div class="module-outer">
