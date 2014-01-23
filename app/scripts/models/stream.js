@@ -38,7 +38,7 @@ angular.module('peepoltv.models')
         // Force check
         if(force){
           angular.extend(params, {
-            force: true
+            'force_check': true
           });
         }
 
