@@ -14,7 +14,7 @@ angular.module('peepoltv.controllers')
     $scope.channel = channel;
 
     // The live streams
-    $scope.liveStreams = channel.streams.live();
+    $scope.liveStreams = channel.streams.live(true);
 
     $scope.$on('main-stream-changed', function(event, stream){
 
