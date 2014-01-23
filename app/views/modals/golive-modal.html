@@ -19,6 +19,7 @@
 	      <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
 	    </ul>
 	  </div>
+<<<<<<< HEAD
 	  <div class="checkbox-wrapper">
 		  <label class="checkbox inline">
 		  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
@@ -28,6 +29,15 @@
 		  </label>
 	  </div>
 	  <input ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access" role="submit" type="submit" value="Ready!"/>
+=======
+	  <label class="checkbox inline">
+	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
+	  </label>
+	  <label class="checkbox inline" ng-show="vm.camera.videoSources.length > 1">
+	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
+	  </label>
+	  <input ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
+>>>>>>> 47f59813669b88c9e171922750e8dd427b261180
   </form><!-- /goliveForm -->
   <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
     <h3>Connecting...</h3>
