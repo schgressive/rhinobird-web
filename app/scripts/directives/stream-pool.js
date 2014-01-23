@@ -12,35 +12,35 @@ angular.module('peepoltv.directives')
       },
       link: function postLink(scope, element, attrs) {
 
+        var owl = $('.owl-carousel', element);
+
         // Set the self scope reference
         scope.self = scope;
 
         // Change the main stream
         scope.changeStream = function(stream){
-
-          // Prepare all the videos
-          _.each(scope.streams, function(_stream){
-            if(_stream.isPlaying && _stream.licode){
-
-              // Mute them
-              _stream.licode.player.video.muted = true;
-
-              // Reset projected
-              _stream.isProjected = _stream.id === stream.id;
-            }
-          });
-
-          // Unmute the main stream
-          stream.licode.player.video.muted = false;
-
-          // Trigger an event saying that we should show a new stream
-          scope.$emit('main-stream-changed', stream);
+          scope.currentStream = stream;
         };
 
         // Watch for the currentStreams change
-        scope.$watch('currentStream', function(value){
-          if(value){
-            scope.changeStream(value);
+        scope.$watch('currentStream', function(stream){
+          if(stream){
+            // Prepare all the videos
+            _.each(scope.streams, function(_stream){
+              if(_stream.isConnected){
+
+                // Mute them
+                _stream.isMuted = true;
+                // Reset projected
+                _stream.isProjected = _stream.id === stream.id;
+              }
+            });
+
+            // Unmute the main stream
+            stream.isMuted = false;
+
+            // Trigger an event saying that we should show a new stream
+            scope.$emit('main-stream-changed', stream);
           }
         });
 
@@ -54,7 +54,7 @@ angular.module('peepoltv.directives')
           $timeout(function(){
 
             // Initialize the carousel
-            $('.owl-carousel', element).owlCarousel({
+            owl.owlCarousel({
               items: 4,
               itemsDesktop : false,
               itemsDesktopSmall : false,
@@ -69,30 +69,56 @@ angular.module('peepoltv.directives')
 
         });
 
+        // When a stream is added or removed
+        scope.$on('licode-stream-status-changed', function(event, params){
+          if(params.status === 'removed'){
+            var streamToRemove = _.find(scope.streams, function(s){return s.streamId === params.stream.getID();});
+            var indexToRemove = _.indexOf(scope.streams, streamToRemove);
+
+            // Remove it from the carrousel
+            if(indexToRemove >= 0){
+              owl.data('owlCarousel').removeItem(indexToRemove);
+            }
+
+            // If is the selected one, set the current in null
+            if(streamToRemove.id === scope.currentStream.id){
+              scope.currentStream = undefined;
+            }
+          }
+        });
+
         // Update owl carrowsel status
         var afterAction = function(){
           var owlScope = this;
 
           scope.$apply(function(){
             // Disconnect the connected streams that are not visible
-            _.each(scope.streams, function(stream){
-              if(stream.isPlaying && !stream.isProjected){
-                stream.isPlaying = false;
+            _.each(scope.streams, function(stream, key){
+              var isVisible = _.contains(owlScope.visibleItems, key);
+
+              if(!isVisible && stream.isConnected && !stream.isProjected){
+                stream.isConnected = false;
               }
             });
 
             // Connect the streams that become visible
             _.each(owlScope.visibleItems, function(i){
               var stream = scope.streams[i];
+              if(!stream){ return; }
 
               // Update the token if it is null
               if(stream.token === null){
                 stream.$fetch().$then(function(){
-                  stream.isPlaying = true;
+                  stream.isConnected = true;
                 });
               }
               else{
-                stream.isPlaying = true;
+                stream.isConnected = true;
+              }
+
+              // Ensure the visible streams are playing
+              if(stream.licode){
+                stream.licode.player.video.play();
               }
             });
           });

@@ -5,7 +5,8 @@ angular.module('peepoltv.models')
     return $restmod.model('streams', 'PagedModel',
     {
       user: { hasOne: 'User' },
-      isPlaying: { ignore: true }, // Whether is connected to licode server
+      isConnected: { ignore: true }, // Whether is connected to licode server
+      isMuted: { ignore: true }, // Whether is muted
       isProjected: { ignore: true }, // Whether is viewed in the canva
       licode: { ignore: true }, // The licode stream object
       startedOn: { ignore: SyncMask.ENCODE },
@@ -37,7 +38,7 @@ angular.module('peepoltv.models')
         // Force check
         if(force){
           angular.extend(params, {
-            force: true
+            'force_check': true
           });
         }
 
