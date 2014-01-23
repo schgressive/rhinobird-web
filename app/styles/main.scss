@@ -1,4 +1,5 @@
 @import "compass";
+@import "compass/css3";
 @import "compass/typography/text/ellipsis";
 
 $iconSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflings.png" !default;
@@ -13,11 +14,11 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 // Fonts ------------------------------
 // NOTE FROM CHRIS: please use the fontsize mixin when defining font-size values. It creates REM values (better for responsive) w/a PX fallback.
 
-@include font-face("LatoRegular", '/fonts/lato-reg-webfont');
-@include font-face("LatoItalic", '/fonts/lato-regita-webfont');
-@include font-face("LatoBold", '/fonts/lato-bol-webfont');
-@include font-face("Hero",'/fonts/hero-webfont');
-@include font-face("Mission",'/fonts/mission-script-webfont');
+@include font-face("LatoRegular", font-files('/fonts/lato-reg-webfont.woff', '/fonts/lato-reg-webfont.eot', '/fonts/lato-reg-webfont.ttf', '/fonts/lato-reg-webfont.svg'));
+@include font-face("LatoItalic", font-files('/fonts/lato-regita-webfont.woff', '/fonts/lato-regita-webfont.eot', '/fonts/lato-regita-webfont.ttf', '/fonts/lato-regita-webfont.svg'));
+@include font-face("LatoBold", font-files('/fonts/lato-bol-webfont.woff', '/fonts/lato-bol-webfont.eot', '/fonts/lato-bol-webfont.ttf', '/fonts/lato-bol-webfont.svg'));
+@include font-face("Hero", font-files('/fonts/hero-webfont.woff', '/fonts/hero-webfont.eot', '/fonts/hero-webfont.ttf', '/fonts/hero-webfont.svg'));
+@include font-face("Mission", font-files('/fonts/mission-script-webfont.woff', '/fonts/mission-script-webfont.eot', '/fonts/mission-script-webfont.ttf', '/fonts/mission-script-webfont.svg'));
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
