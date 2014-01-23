@@ -14,11 +14,9 @@ $iconWhiteSpritePath: "../bower_components/bootstrap-sass/img/glyphicons-halflin
 // Fonts ------------------------------
 // NOTE FROM CHRIS: please use the fontsize mixin when defining font-size values. It creates REM values (better for responsive) w/a PX fallback.
 
-@include font-face("LatoRegular", font-files('/fonts/lato-reg-webfont.woff', '/fonts/lato-reg-webfont.eot', '/fonts/lato-reg-webfont.ttf', '/fonts/lato-reg-webfont.svg'));
-@include font-face("LatoItalic", font-files('/fonts/lato-regita-webfont.woff', '/fonts/lato-regita-webfont.eot', '/fonts/lato-regita-webfont.ttf', '/fonts/lato-regita-webfont.svg'));
-@include font-face("LatoBold", font-files('/fonts/lato-bol-webfont.woff', '/fonts/lato-bol-webfont.eot', '/fonts/lato-bol-webfont.ttf', '/fonts/lato-bol-webfont.svg'));
+@include font-face("OpenSansReg", font-files('/fonts/opensans-regular-webfont.woff', '/fonts/opensans-regular-webfont.eot', '/fonts/opensans-regular-webfont.ttf', '/fonts/opensans-regular-webfont.svg'));
+@include font-face("OpenSansBold", font-files('/fonts/opensans-bold-webfont.woff', '/fonts/opensans-bold-webfont.eot', '/fonts/opensans-bold-webfont.ttf', '/fonts/opensans-bold-webfont.svg'));
 @include font-face("Hero", font-files('/fonts/hero-webfont.woff', '/fonts/hero-webfont.eot', '/fonts/hero-webfont.ttf', '/fonts/hero-webfont.svg'));
-@include font-face("Mission", font-files('/fonts/mission-script-webfont.woff', '/fonts/mission-script-webfont.eot', '/fonts/mission-script-webfont.ttf', '/fonts/mission-script-webfont.svg'));
 
 $bold-font-stack: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "TeXGyreHerosBold", "TeXGyreHeros-Bold", "TeXGyreHeros Bold", "Helvetica Bold", "Tahoma Bold", "Arial Bold", sans-serif;
 
@@ -40,7 +38,7 @@ html {
 
 body.base {
 	color: $textColor;
-	font-family: "LatoRegular", $baseFontFamily;
+	font-family: $baseFontFamily;
 	line-height: $baseLineHeight;
 	background-color: $bodyBackground;
 }
@@ -75,13 +73,12 @@ table caption, .visually-hidden {display:none !important;}
 
 .ellipsis { @include ellipsis();}
 
-.hidden-phone {}
-
 .pageTop { @media screen and (min-width:600) {visibility: hidden;}}
+
 .back-to-top {
   color: $black;
   @include fontSize(12px);
-  font-family: "LatoBold", $bold-font-stack;
+  font-family: "OpenSansBold", $bold-font-stack;
   text-decoration: none;
   background-color: rgba(235, 235, 235, 0.80);
   border: 1px solid $gray;
@@ -95,10 +92,10 @@ table caption, .visually-hidden {display:none !important;}
 
 // Calculate all H# Tags.
 
-h1 {font-family: "LatoBold", $bold-font-stack; @include fontSize(52.358px);}
+h1 {font-family: "OpenSansBold", $bold-font-stack; @include fontSize(52.358px);}
 
 // using 1:1.618, Golden Section
-h2 {font-family: "LatoBold", $bold-font-stack; @include fontSize(32.360px);}
+h2 {font-family: "OpenSansBold", $bold-font-stack; @include fontSize(32.360px);}
 h3 {@include fontSize(22.652px);}
 h4 {@include fontSize(20px);}
 h5 {font-size: $baseFontSize;}
@@ -261,17 +258,33 @@ body.base { /*overrides are here */
 	}
 	.modal {
 		color: $white;
-		overflow-y: auto;
 		background-color: rgb(76,28,10); // Old browsers
 		@include filter-gradient(#4c1c0a, #7f2f11, horizontal); // IE6-8 fallback on horizontal gradient
 // IE9 SVG, needs conditional override of 'filter' to 'none'
 		$experimental-support-for-svg: true;
 		@include background-image(linear-gradient(left bottom,  rgba(76,28,10,1) 0%,rgba(189,69,25,1) 36%,rgba(204,129,0,1) 60%,rgba(127,47,17,1) 100%));
 		border: 4px solid $white;
-		@media screen and (max-width: 598px) { border: none;}
-		h2, h4, h6 { @include font-smoothing;}
-		.modal-header { padding-bottom: 6px;}
-		.modal-body { padding-top: 0; max-height: none;}
+		padding: 0 14px 18px;
+		@media screen and (max-width: 598px) {
+			width: 100%;
+			left: 0;
+			margin-left: 0;
+			border: none;
+			&.fade.in { top: 0;}
+		}
+		h2, h3, h4, h5, h6 { @include font-smoothing;}
+		.btn { @include fontSize(16px);}
+		.close {
+			color: $white;
+			text-shadow: 0 1px 0 $black;
+			margin-top: 10px;
+			opacity: .5;
+			&:hover { opacity: .7;}
+			@media screen and (max-width: 598px) {
+				line-height: 30px;
+				font-size: 30px;
+			}
+		}
 	}
 	.top-content .container-fluid { @media screen and (max-width: 500px) {
 		padding: { left:10px; right:10px;}
@@ -352,7 +365,7 @@ i[class*="icon"] {font-style: normal;}
 		.one-liner { margin-top: 10px;}
 	}
 	h4.one-liner {
-		font-family: "LatoBold", $bold-font-stack;
+		font-family: "OpenSansBold", $bold-font-stack;
 	}
 	.default-wrapper {
 		margin-top: -12px;

@@ -1,142 +1,133 @@
-<div class="modal-header">
-  <button class="close" ng-click="close()" aria-hidden="true" >&times;</button>
-  <h2 id="signIn" ng-show="loginModalAction == 'login'">Hi there!</h2>
-  <h2 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h2>
-  <h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
-  <h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
-</div><!-- /.modal-header -->
-<div class="modal-body">
+<button class="close" ng-click="close()" aria-hidden="true" >&times;</button>
+<h2 id="signIn" ng-show="loginModalAction == 'login'">Hi there!</h2>
+<h2 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h2>
+<h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
+<h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
+<div ng-show="loginModalAction == 'login'">
+	<h4>Please sign in.</h4>
 	<div ng-show="loginModalAction == 'login'">
-		<div class="modal-left pull-left">
-			<h4>Please sign in.</h4>
-			<div ng-show="loginModalAction == 'login'">
-		    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a> or <a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
-		  </div>
-			<form name="loginForm" role="form" ng-submit="loginUser()" ng-controller="LoginCtrl">
-	      <label class="visually-hidden" for="email">Your email</label>
-	      <div class="input-prepend">
-	        <span class="add-on"><i class="icon-envelope"></i></span>
-	        <input type="email" name="email" placeholder="your email" ng-model="logUser.email" required/>
-	      </div>
-	      <div class="validate" ng-show="loginForm.email.$dirty">
-	        <small class="warning" ng-show="loginForm.email.$invalid">
-	          This email is invalid. Please input a valid email.
-	        </small>
-	        <small class="error" ng-show="loginForm.email.$none">
-	          There is no account associated with this email. Please check for spelling errors.
-	        </small>
-	      </div><!-- /.validate -->
-	      <label class="visually-hidden" for="input-password">Your Password</label>
-	      <div class="input-prepend">
-	        <span class="add-on"><i class="icon-lock"></i></span>
-	        <input type="password" name="password" placeholder="your password" ng-model="logUser.password" required/>
-	      </div>
-	      <div class="validate" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-	        <small class="error">
-	          This password is invalid. Please check for spelling.
-	        </small>
-	      </div><!-- /.validate -->
-	      <input class="btn btn-primary btn-xlarge" type="submit" value="Sign In"/>
-	    </form>
-    </div><!-- /.modal-left -->
-    <div class="modal-right pull-left">
-			<h4>Or connect with:</h4>
-      <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span>Facebook</span></a>
-      <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span>Twitter</span></a>
-      <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><span>Google</span></a>
-    </div><!-- /.modal-right -->
+    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a> or <a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
   </div>
+	<form name="loginForm" class="clearfix" role="form" ng-submit="loginUser()" ng-controller="LoginCtrl">
+    <label class="visually-hidden" for="email">Your email</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span>
+      <input type="email" name="email" placeholder="your email" ng-model="logUser.email" required/>
+      <div class="validate" ng-show="loginForm.email.$dirty">
+	      <small class="warning" ng-show="loginForm.email.$invalid">
+	        This email is invalid. Please input a valid email.
+	      </small>
+	      <small class="error" ng-show="loginForm.email.$none">
+	        There is no account associated with this email.</small>
+	    </div><!-- /.validate -->
+    </div>
+    <label class="visually-hidden" for="input-password">Your Password</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-lock"></i></span>
+      <input type="password" name="password" placeholder="your password" ng-model="logUser.password" required/>
+      <div class="validate" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+	      <small class="error">
+	        This password is invalid. Please check for errors.
+	      </small>
+	    </div><!-- /.validate -->
+    </div>
+    <input class="btn btn-primary btn-xlarge" type="submit" value="Sign In"/>
+  </form>
+	<h4>Or connect with:</h4>
+  <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span>Facebook</span></a>
+  <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span>Twitter</span></a>
+  <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><span>Google</span></a>
+</div>
 
-  <div ng-show="loginModalAction == 'password-reset'">
-  	<h4>Let's reset your password.</h4>
-    <form name="passwordReset" role="form" ng-submit="resetPassword()" ng-controller="PasswordResetCtrl">
-      <label class="visually-hidden" for="input-password">Your Password</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-lock"></i></span>
-        <input type="password" name="password" placeholder="your password" ng-model="resetData.password" required/>
-      </div>
+<div ng-show="loginModalAction == 'password-reset'">
+	<h4>Let's reset your password.</h4>
+  <form name="passwordReset" role="form" ng-submit="resetPassword()" ng-controller="PasswordResetCtrl">
+    <label class="visually-hidden" for="input-password">Your Password</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-lock"></i></span>
+      <input type="password" name="password" placeholder="your password" ng-model="resetData.password" required/>
       <div class="validate" ng-show="passwordReset.password.$dirty && passwordReset.password.$invalid">
-        <small class="error">
-          This password is invalid. Please check for spelling.
-        </small>
-      </div><!-- /.validate -->
-      <label class="visually-hidden" for="input-confirm">Confirm Password</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-lock"></i></span>
-        <input type="password" name="confirm" placeholder="Confirm password" ng-model="resetData.confirm" required/>
-      </div>
+	      <small class="error">
+	        This password is invalid. Please check for errors.
+	      </small>
+	    </div><!-- /.validate -->
+    </div>
+    <label class="visually-hidden" for="input-confirm">Confirm Password</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-lock"></i></span>
+      <input type="password" name="confirm" placeholder="Confirm password" ng-model="resetData.confirm" required/>
       <div class="validate" ng-show="invalidToken">
-        <small class="error">
-          Invalid Token.
-        </small>
-      </div><!-- /.validate -->
-      <input class="btn btn-primary btn-xlarge" type="submit" value="Reset"/>
-    </form>
-  </div>
+	      <small class="error">
+	        Invalid Token.
+	      </small>
+	    </div><!-- /.validate -->
+    </div>
+    <input class="btn btn-primary btn-xlarge" type="submit" value="Reset"/>
+  </form>
+</div>
 
-  <div ng-show="loginModalAction == 'password'">
-  	<h4>Forgot your password?<span class="one-liner">We can email it to you.</span></h4>
-    <form name="passwordReset" role="form" ng-controller="PasswordCtrl" ng-submit="askPasswordReset()">
-      <label class="visually-hidden" for="reset-password">Your Email</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-        <input type="text" class="input-xlarge" name="reset-password" type="email" placeholder="your email" ng-model="user.email" required/>
-      </div>
+<div ng-show="loginModalAction == 'password'">
+	<h4>Forgot your password?</h4><span class="one-liner">We can email it to you.</span>
+  <form name="passwordReset" role="form" ng-controller="PasswordCtrl" ng-submit="askPasswordReset()">
+    <label class="visually-hidden" for="reset-password">Your Email</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span>
+      <input type="text" class="input-xlarge" name="reset-password" type="email" placeholder="your email" ng-model="user.email" required/>
       <div class="validate" ng-show="invalidEmail">
-        <small class="error">This email is not registered with Peepol.tv. Please check for errors.</small>
-      </div>
-      <input class="btn btn-primary btn-xlarge" type="submit" value="Send"/>
-    </form>
-  </div>
+	      <small class="error">There is no account associated with this email.</small>
+	    </div>
+    </div>
+    <input class="btn btn-primary btn-xlarge" type="submit" value="Send"/>
+  </form>
+</div>
 
-  <div ng-show="loginModalAction == 'signup'">
-    <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
-      <label class="visually-hidden" for="input-email">Email</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-envelope"></i></span>
-        <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
-      </div>
+<div ng-show="loginModalAction == 'signup'">
+  <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
+    <label class="visually-hidden" for="input-email">Email</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span>
+      <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
       <div class="validate" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
-      	<small class="warning" ng-show="signupForm.email.$invalid">
-          This email is invalid. Please input a valid email.
-        </small>
-        <small class="error" ng-show="signupForm.email.$error.taken">
-          This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
-        </small>
-      </div><!-- /.validate -->
-      <label class="visually-hidden" for="input-name">Name</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="name" placeholder="your name" ng-model="regUser.name" required/>
-      </div>
-      <label class="visually-hidden" for="input-username">Username</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-        <input type="text" name="username" placeholder="your username" ng-model="regUser.username" ng-minlength=3 ng-maxlength=20 required/>
-      </div>
+	    	<small class="warning" ng-show="signupForm.email.$invalid">
+	        This email is invalid. Please input a valid email.
+	      </small>
+	      <small class="error" ng-show="signupForm.email.$error.taken">
+	        This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
+	      </small>
+	    </div><!-- /.validate -->
+    </div>
+    <label class="visually-hidden" for="input-name">Name</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-user"></i></span>
+      <input type="text" name="name" placeholder="your name" ng-model="regUser.name" required/>
+    </div>
+    <label class="visually-hidden" for="input-username">Username</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-user"></i></span>
+      <input type="text" name="username" placeholder="your username" ng-model="regUser.username" ng-minlength=3 ng-maxlength=20 required/>
       <div class="validate" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
-        <small class="error" ng-show="signupForm.username.$error.taken">
-          This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
-        </small>
-        <small class="warning" ng-show="signupForm.username.$error.minlength">
-          A username must have at least 3 characters.
-        </small>
-        <small class="warning" ng-show="signupForm.username.$error.maxlength">
-          A username can not have more than 20 characters.
-        </small>
-      </div><!-- /.validate -->
-      <label class="visually-hidden" for="password">Password</label>
-      <div class="input-prepend">
-        <span class="add-on"><i class="icon-lock"></i></span>
-        <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
-      </div>
+	      <small class="error" ng-show="signupForm.username.$error.taken">
+	        This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
+	      </small>
+	      <small class="warning" ng-show="signupForm.username.$error.minlength">
+	        A username must have at least 3 characters.
+	      </small>
+	      <small class="warning" ng-show="signupForm.username.$error.maxlength">
+	        A username can not have more than 20 characters.
+	      </small>
+	    </div><!-- /.validate -->
+    </div>
+    <label class="visually-hidden" for="password">Password</label>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-lock"></i></span>
+      <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
       <div class="validate" ng-show="signupForm.password.$invalid">
-        <small class="error" ng-show="signupForm.password.$error.minlength">
-          This password is too short. Passwords must be at least 8 characters long.
-        </small>
-      </div><!-- /.validate -->
-      <input class="btn btn-primary btn-xlarge" type="submit" value="Create"/>
-    </form>
-  </div>
-  <h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'" class="return-link"><a href="#" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
-</div><!-- /.modal-body -->
+	      <small class="error" ng-show="signupForm.password.$error.minlength">
+	        Passwords must be at least 8 characters long.
+	      </small>
+	    </div><!-- /.validate -->
+    </div>
+    <input class="btn btn-primary btn-xlarge" type="submit" value="Create"/>
+  </form>
+</div>
+<h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'" class="return-link"><a href="#" ng-click="$parent.loginModalAction = 'login'" title="return to sign in">Return</a></h6>

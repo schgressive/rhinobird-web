@@ -47,7 +47,7 @@ $sansFontFamily									: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman
 $serifFontFamily								: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 $monoFontFamily									: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 $baseFontSize	         			   	: 14px;
-$baseFontFamily									: "LatoRegular", $sansFontFamily;
+$baseFontFamily									: $sansFontFamily;
 $baseLineHeight									: 20px;
 $altFontFamily									: $serifFontFamily;
 $headingsFontFamily							: inherit;

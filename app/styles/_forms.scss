@@ -1,12 +1,13 @@
 // ------------ FORM FILE --------------
 // for forms, buttons, and other interactive elements
 
+form { margin: 0;}
+
 body.base {
-	form {margin: 0;}
 	.btn {
 		color: $textColor;
 		@include fontSize(14px);
-		font-family: "LatoBold", $bold-font-stack;
+		font-family: "OpenSansBold", $bold-font-stack;
 		text-transform: uppercase;
 		text-shadow: none;
 		background-color: transparent;
@@ -33,7 +34,7 @@ body.base {
 		color: $white;
 		background-color: $btnPrimaryBackground;
 		border-color: darken($btnPrimaryBackground, 10%);
-		@include font-smoothing();
+		@include font-smoothing;
 		&:hover {
 			background-color: darken($btnPrimaryBackground, 10%);
 			border-color: darken($btnPrimaryBackground, 20%);
@@ -115,7 +116,7 @@ body.base {
 	.default-wrapper {
 		.btn {
 			color: $white;
-			font-family: "LatoBold", $bold-font-stack;
+			font-family: "OpenSansBold", $bold-font-stack;
 			background-color: $darkTrans;
 			border: 2px solid $white;
 			@include font-smoothing();
@@ -179,87 +180,43 @@ body.base {
 	}
 }
 
-.modal {
-	@include fontSize(14px);
-	text-align: left;
-	@media screen and (max-width: 598px) {
-		width: 100%;
-		left: 0;
-		margin-left: 0;
-		&.fade.in { top: 0;}
+.alert {
+	color: $warningText;
+	text-align: center;
+	text-shadow: none;
+	width: 85%;
+	margin: 0 auto 15px;
+	border: 2px solid $warningText;
+	background-color: $darkTrans;
+	-webkit-border-radius: $baseBorderRadius;
+	-moz-border-radius: $baseBorderRadius;
+	border-radius: $baseBorderRadius;
+	strong {
+		font-family: "OpenSansBold", $bold-font-stack;
+		font-weight: normal;
 	}
-	.close {
-		color: $white;
-		text-shadow: 0 1px 0 $black;
-		opacity: .5;
-		&:hover { opacity: .7;}
-		@media screen and (max-width: 598px) {
-			margin-top: 0;
-			line-height: 30px;
-			font-size: 30px;
+}
+
+.golive {
+	@media screen and (max-width: 600px) {
+		.action-left, .action-right { width: 100%; float: none; margin-left: 0;}
+		.action-right {
+			form { float: none; position: relative; top: 13px;}
+			input[type="text"] {width: 300px;}
 		}
 	}
-	.validate {
-		color: $white;
-		text-align: center;
-		max-width: 260px;
-		margin: -19px 0 19px 0;
-		small { display: block; width: 100%; height: auto; padding: 3px 0;}
-		a:link { color: $white; text-decoration: underline;}
-	}
+}
+
+.modal {
+	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
 	.warning { background-color: $warningText;}
 	.error { background-color: $errorText;}
-	.network { text-transform: capitalize;}
-	h2 { margin: { top: 3px; bottom: 0;}}
-	h4 {
-		margin: 0 0 8px 0;
-		@include font-smoothing;
-		.one-liner { margin-top: 10px;}
-	}
-	h6 {
-		margin: 0 0 5px 0;
-		float: left;
-		@include font-smoothing;
-		a {	color: $white;}
-		&.return-link {
-				margin: { top:-30px; left:10px;}
-				float: right;
-		}
-	}
-	.btn, .btn-social { display: block;}
-	.input-prepend, .input-append, .btn { margin-bottom: 16px !important;}
-	.input-xxlarge + .validate { max-width: 428px; margin-top: -10px;}
-	.input-prepend, .input-append, a.btn-social {
-		margin-right: 10px;
-		&:last-of-type { margin-right: 0;}
-	}
-	.modal-header {border-bottom: none;}
-	.modal-body {padding: {bottom: 26px;}}
-	form {
-		.btn-primary {
-			@include fontSize(16px);
-			color: $white;
-			text-transform: uppercase;
-			background-color: $darkTrans;
-			border: 2px solid $white;
-			@include font-smoothing();
-			&:hover {
-				background-color: lighten($purple, 10%);
-				border-color: $purple;
-			}
-		}
-		.checkbox { font-size: 16px; margin-bottom: 4px;}
-		.input-xxlarge { @media screen and (max-width: 500px) { width: 80%;}}
-		.input-xxlarge + .validate {
-			@media screen and (max-width: 500px) {width: 88.5%;}
-		}
-	}
+	a { color: $white;}
 	a.btn-social {
-		color: $white;
-		font-weight: bold;
+		font-family: "OpenSansBold", $bold-font-stack;
 		text-align: left;
 		text-transform: uppercase;
-		margin-bottom: 10px;
+		margin: 6px 20px 0 0;
 		border: { width: 2px; style: solid;}
 		background-repeat: no-repeat;
 		background-position: 6px 50%;
@@ -271,8 +228,6 @@ body.base {
 			width: 36px;
 			height: 36px;
 			padding: 0;
-			margin: { right: 20px; bottom: 0;}
-			display: inline-block;
 			span { display: none;}
 		}
 		&:hover { text-decoration: none;}
@@ -304,31 +259,42 @@ body.base {
 			}
 		}
 	}
-}
-
-.alert {
-	color: $warningText;
-	text-align: center;
-	text-shadow: none;
-	width: 85%;
-	margin: 0 auto 15px;
-	border: 2px solid $warningText;
-	background-color: $darkTrans;
-	-webkit-border-radius: $baseBorderRadius;
-	-moz-border-radius: $baseBorderRadius;
-	border-radius: $baseBorderRadius;
-	strong {
-		font-family: "LatoBold", $bold-font-stack;
-		font-weight: normal;
+	h2 { margin-bottom: 8px;}
+	h4 { margin: 0 0 3px 0;}
+	h6 {
+		margin: 0 0 0 0;
+		a { text-decoration: underline;}
+		&.return-link {
+			margin: { top:-33px; right:40px;}
+			float: right;
+		}
 	}
-}
-
-.golive {
-	@media screen and (max-width: 600px) {
-		.action-left, .action-right { width: 100%; float: none; margin-left: 0;}
-		.action-right {
-			form { float: none; position: relative; top: 13px;}
-			input[type="text"] {width: 300px;}
+	form {
+		margin: { top: 8px; bottom: 6px;}
+		.checkbox-wrapper { margin-bottom: 6px;}
+		.checkbox { font-size: 16px; margin-bottom: 4px;}
+		.btn-primary {
+			@include fontSize(16px);
+			color: $white;
+			text-transform: uppercase;
+			background-color: $darkTrans;
+			border: 2px solid $white;
+			margin-bottom: 8px;
+			@include font-smoothing();
+			&:hover {
+				background-color: lighten($purple, 10%);
+				border-color: $purple;
+			}
 		}
 	}
 }
+
+.validate {
+	color: $white;
+	text-align: center;
+	margin: 0;
+	small { display: block; width: 100%; height: auto; padding: 3px 0;}
+	a:link { color: $white; text-decoration: underline;}
+}
+
+.network { text-transform: capitalize;}
