@@ -30,6 +30,7 @@ angular.module('peepoltv.directives')
 
         var projectVideo = function(video){
           if(!video){
+            clearBigScreen();
             return;
           }
 
