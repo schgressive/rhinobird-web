@@ -871,6 +871,10 @@ i[class*="icon"] {font-style: normal;}
 }
 /* .popup img { width: 100%;} */
 
+.licode [id*="bar"]{
+  display: none !important;
+}
+
 /* rule for hiding elements until angular boots*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
