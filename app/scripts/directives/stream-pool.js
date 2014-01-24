@@ -72,17 +72,30 @@ angular.module('peepoltv.directives')
         // When a stream is added or removed
         scope.$on('licode-stream-status-changed', function(event, params){
           if(params.status === 'removed'){
-            var streamToRemove = _.find(scope.streams, function(s){return s.streamId === params.stream.getID();});
-            var indexToRemove = _.indexOf(scope.streams, streamToRemove);
+            var owlScope = owl.data('owlCarousel');
+            var streams = _.filter(scope.streams, function(s){ return !s.ignoreFromCarousel; });
 
-            // Remove it from the carrousel
-            if(indexToRemove >= 0){
-              owl.data('owlCarousel').removeItem(indexToRemove);
-            }
 
-            // If is the selected one, set the current in null
-            if(streamToRemove.id === scope.currentStream.id){
-              scope.currentStream = undefined;
+            var streamToRemove = _.find(streams, function(s){return s.streamId === params.stream.getID();});
+            var indexToRemove = _.indexOf(streams, streamToRemove);
+            var isCurrent = scope.currentStream && streamToRemove.id === scope.currentStream.id;
+
+            // Remove stream
+            if(indexToRemove >= 0 && streamToRemove.isConnected){
+
+              // remove it from carousel
+              owlScope.removeItem(indexToRemove);
+
+              // mark stream as ignored
+              streamToRemove.ignoreFromCarousel = true;
+
+              // connect new streams if new stream becomes visible
+              connectVisibleStreams(owlScope.visibleItems);
+
+              // If is the selected one, set the current in null
+              if(isCurrent){
+                scope.currentStream = undefined;
+              }
             }
           }
         });
@@ -101,26 +114,34 @@ angular.module('peepoltv.directives')
               }
             });
 
-            // Connect the streams that become visible
-            _.each(owlScope.visibleItems, function(i){
-              var stream = scope.streams[i];
-              if(!stream){ return; }
+            // Connect the visible items
+            connectVisibleStreams(owlScope.visibleItems);
+          });
+        };
 
-              // Update the token if it is null
-              if(stream.token === null){
-                stream.$fetch().$then(function(){
-                  stream.isConnected = true;
-                });
-              }
-              else{
+        var connectVisibleStreams = function(visibleItems){
+
+          var streams = _.filter(scope.streams, function(s){ return !s.ignoreFromCarousel; });
+
+          // Connect the streams that become visible
+          _.each(visibleItems, function(i){
+            var stream = streams[i];
+            if(!stream){ return; }
+
+            // Update the token if it is null
+            if(stream.token === null){
+              stream.$fetch().$then(function(){
                 stream.isConnected = true;
-              }
+              });
+            }
+            else{
+              stream.isConnected = true;
+            }
 
-              // Ensure the visible streams are playing
-              if(stream.licode){
-                stream.licode.player.video.play();
-              }
-            });
+            // Ensure the visible streams are playing
+            if(stream.licode){
+              stream.licode.player.video.play();
+            }
           });
         };
       }
