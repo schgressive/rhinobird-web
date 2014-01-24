@@ -71,32 +71,10 @@ angular.module('peepoltv.directives')
 
         // When a stream is added or removed
         scope.$on('licode-stream-status-changed', function(event, params){
-          if(params.status === 'removed'){
-            var owlScope = owl.data('owlCarousel');
-            var streams = _.filter(scope.streams, function(s){ return !s.ignoreFromCarousel; });
 
-
-            var streamToRemove = _.find(streams, function(s){return s.streamId === params.stream.getID();});
-            var indexToRemove = _.indexOf(streams, streamToRemove);
-            var isCurrent = scope.currentStream && streamToRemove.id === scope.currentStream.id;
-
-            // Remove stream
-            if(indexToRemove >= 0 && streamToRemove.isConnected){
-
-              // remove it from carousel
-              owlScope.removeItem(indexToRemove);
-
-              // mark stream as ignored
-              streamToRemove.ignoreFromCarousel = true;
-
-              // connect new streams if new stream becomes visible
-              connectVisibleStreams(owlScope.visibleItems);
-
-              // If is the selected one, set the current in null
-              if(isCurrent){
-                scope.currentStream = undefined;
-              }
-            }
+          // When the status changed to removed
+          if(params.status === 'removed' && params.stream){
+            removeStream(params.stream.getID());
           }
         });
 
@@ -104,7 +82,7 @@ angular.module('peepoltv.directives')
         var afterAction = function(){
           var owlScope = this;
 
-          scope.$apply(function(){
+          $timeout(function(){
             // Disconnect the connected streams that are not visible
             _.each(scope.streams, function(stream, key){
               var isVisible = _.contains(owlScope.visibleItems, key);
@@ -128,21 +106,59 @@ angular.module('peepoltv.directives')
             var stream = streams[i];
             if(!stream){ return; }
 
-            // Update the token if it is null
-            if(stream.token === null){
-              stream.$fetch().$then(function(){
+            // This will connect the streams that aren't connected
+            // but the are becoming visible
+            // Update the token
+            stream.$fetch().$then(function(){
+              // Only try to connect if the refreshed stream
+              // has a valid token
+              if(stream.token !== null){
                 stream.isConnected = true;
-              });
-            }
-            else{
-              stream.isConnected = true;
-            }
+              }
+              // Remove the stream from the carousel
+              else{
+                removeStream(stream.streamId, true);
+              }
+            });
 
             // Ensure the visible streams are playing
             if(stream.licode){
               stream.licode.player.video.play();
             }
           });
+        };
+
+        var removeStream = function(streamId, forceRemove){
+
+          // Filter out the streams that where disconnected and removed
+          var streams = _.filter(scope.streams, function(s){ return !s.ignoreFromCarousel; });
+
+          // The stream to remove
+          var streamToRemove = _.find(streams, function(s){return s.streamId === streamId;});
+          var indexToRemove = _.indexOf(streams, streamToRemove);
+
+          // Is the stream to remove currently playing
+          var isCurrent = scope.currentStream && streamToRemove.id === scope.currentStream.id;
+
+          // Remove stream
+          if(indexToRemove >= 0 && (streamToRemove.isConnected || forceRemove)){
+            // The owl carouse instance
+            var owlScope = owl.data('owlCarousel');
+
+            // remove it from carousel
+            owlScope.removeItem(indexToRemove);
+
+            // mark stream as ignored
+            streamToRemove.ignoreFromCarousel = true;
+
+            // connect new streams if new stream becomes visible
+            connectVisibleStreams(owlScope.visibleItems);
+
+            // If is the selected one, set the current in null
+            if(isCurrent){
+              scope.currentStream = undefined;
+            }
+          }
         };
       }
     };
