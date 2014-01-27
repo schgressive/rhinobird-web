@@ -20,7 +20,7 @@ angular.module('peepoltv.controllers')
     // The live streams
     $scope.liveStreams = channel.streams.live(true);
 
-    $scope.$on('main-stream-changed', function(event, stream){
+    $scope.$on('stream-pool-stream-changed', function(event, stream){
 
       // Set the current stream
       $scope.currentStream = stream;
@@ -57,6 +57,21 @@ angular.module('peepoltv.controllers')
     // cancel polling on controller destroy
     $scope.$on('$destroy', function() {
       $interval.cancel(polling);
+    });
+
+    $scope.$on('stream-pool-changed', function(event, status){
+      var action = status.action;
+      console.log(action, status.stream);
+
+      // Send message new vj stream
+      if(VjService.live){
+        if(status.action === 'add'){
+          VjService.addStream(status.stream);
+        }
+        else if(status.action === 'remove'){
+          VjService.removeStream(status.stream);
+        }
+      }
     });
 
     // Run when the video element is created
