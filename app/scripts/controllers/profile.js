@@ -9,7 +9,7 @@ angular.module('peepoltv.controllers')
     $scope.user = session.user;
 
     // Expose the user streams
-    var userTmp = User.$build(session.user.username);
+    var userTmp = User.$build({id: session.user.username});
     $scope.streams = userTmp.streams.getNextPage();
 
   });

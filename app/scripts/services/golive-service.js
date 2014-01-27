@@ -18,7 +18,7 @@ angular.module('peepoltv.services')
       }
 
       // The service
-      var stream = new Stream();
+      var stream = Stream.$build();
 
       // The live stream
       this.stream = stream;

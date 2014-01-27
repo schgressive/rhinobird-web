@@ -4,7 +4,7 @@ angular.module('peepoltv.services')
   .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password) {
 
     // The current session
-    var session = Session.$build('current');
+    var session = Session.$build({id: 'current'});
 
     // The logged user
     this.user = session.user;

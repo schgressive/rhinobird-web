@@ -145,7 +145,7 @@ angular.module('peepoltv', [
 
     // Config restmod
   $restmodProvider.pushModelBase(function() {
-    this.setRestUrlOptions({ baseUrl: settings.apiHost });
+    this.setUrlPrefix(settings.apiHost);
   });
 
   // Config whitelist for amazon s3
