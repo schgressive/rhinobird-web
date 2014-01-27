@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope) {
+  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjStream, VjService) {
     var POLLING_TIME = 10000; // 10 seconds
 
 		$scope.user = AuthService.user;
@@ -14,6 +14,9 @@ angular.module('peepoltv.controllers')
     // The channel
     $scope.channel = channel;
 
+    // The vj service
+    $scope.vjService = VjService;
+
     // The live streams
     $scope.liveStreams = channel.streams.live(true);
 
@@ -21,6 +24,11 @@ angular.module('peepoltv.controllers')
 
       // Set the current stream
       $scope.currentStream = stream;
+
+      // Send message new vj stream
+      if(VjService.live){
+        VjService.activateStream(stream);
+      }
 
     });
 
@@ -65,5 +73,19 @@ angular.module('peepoltv.controllers')
         }
       }
     });
+
+    $scope.startVj = function(){
+      // The current stream id
+      var currentStreamId = ($scope.currentStream)? $scope.currentStream.id : undefined;
+
+      // Start the vj
+      if($scope.liveStreams && $scope.liveStreams.length >= 1){
+        VjService.startBroadcast($scope.liveStreams, currentStreamId);
+      }
+    };
+
+    $scope.stopVj = function(){
+      VjService.stopBroadcast();
+    };
 
   });
