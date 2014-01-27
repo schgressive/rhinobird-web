@@ -157,6 +157,7 @@ angular.module('peepoltv', [
   // Set stream viewer size presets
   streamViewerConfigProvider.addPreset('mini', 120, 90);
   streamViewerConfigProvider.addPreset('large', 940, 512);
+  streamViewerConfigProvider.addPreset('auto', '100%', '100%');
   streamViewerConfigProvider.setDefaultPreset('large');
 })
 .run(function($state, $rootScope, AuthService, CameraService){
