@@ -19,9 +19,15 @@
   		</div>
 		  <div class="row-fluid">
 		    <div class="module-xlarge span12">
-          <div video-canvas-projector video="self.currentStream.licode.player.video"></div>
-          <div>{{self.pool.mainStream.caption}}</div>
-          <div>{{self.pool.streamsCount}}</div>
+          <div class="module-video">
+          	<div video-canvas-projector video="self.currentStream.licode.player.video"></div>
+          </div><!-- /.module-video -->
+          <div class="module-outer">
+          	<ul class="no-bullets">
+          		<li>{{self.pool.mainStream.caption}}</li>
+							<li><span>Number of streams in channel: {{self.pool.streamsCount}}</span></li>
+          	</ul>
+          </div><!-- /.module-outer -->
 		    </div><!-- /.module-xlarge -->
 		  </div><!-- /.row-fluid -->
 		</section><!-- /.mid-content -->

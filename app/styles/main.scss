@@ -675,6 +675,7 @@ i[class*="icon"] {font-style: normal;}
 .module-xlarge {
 	padding: 10px 10px 0;
 	background-color: $white;
+	canvas, .module-video video { width:100%;}
 	.module-outer { padding-left: 0px}
 }
 
