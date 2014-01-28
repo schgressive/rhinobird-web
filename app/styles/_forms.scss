@@ -126,7 +126,7 @@ body.base {
 			}
 		}
 		.action-left, .action-right {
-			@media screen and (max-width: 960px) {
+			@media screen and (max-width: 1010px) {
 				width: 100%;
 				margin-left: 0;
 				.one-liner { display: inline;}
@@ -135,14 +135,12 @@ body.base {
 		.form-search {
 			margin-top: 63px;
 			float: right;
-			@media screen and (max-width: 990px) { margin-top: 20px; float: none;}
+			@media screen and (max-width: 1010px) { margin-top: 20px; float: none;}
 			input { padding: 14px 16px 12px 16px;}
 			input[type="search"] {
 				width: 300px;
 				@media screen and (min-width: 1280px) { width: 400px;}
 				@media screen and (max-width: 1020px) { width: 300px;}
-				@media screen and (max-width: 990px) { width: 220px;}
-				@media screen and (max-width: 960px) { width: 300px;}
 				@media screen and (max-width: 600px) { width: 270px;}
 			}
 			.add-on { padding: {top:14px;bottom:12px;}}

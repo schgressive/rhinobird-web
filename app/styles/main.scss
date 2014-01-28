@@ -346,14 +346,19 @@ i[class*="icon"] {font-style: normal;}
 	&.loggedIn { background-color: hsla(0,0%,97%,1);}
 	&.feature {
 		background: hsla(0,0%,97%,1) url('/images/slide1.jpg') 0px 7px no-repeat;
+		background-size: 100%;
 		border-bottom: $orange solid 3px;
 		padding: {
 			top: 40px;
 			bottom: 30px;
 		}
-		@media screen and (max-width: 960px) {
+		@media screen and (max-width: 980px) {
 			background-position: 0px 0px;
 			padding: { top: 20px; bottom: 17px;}
+		}
+		@media screen and (max-width: 600px) {
+			background-size: cover;
+			padding: { top: 14px; bottom: 7px;}
 		}
 	}
 	h1 {
