@@ -625,6 +625,7 @@ i[class*="icon"] {font-style: normal;}
 .module-video {
 	position: relative;
 	overflow: hidden; /*needs fallback for IE? */
+	.live-stream-link .licode.ng-scope { width: auto;}
 }
 
 .module-overlay {
