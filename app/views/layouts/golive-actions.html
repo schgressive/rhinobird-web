@@ -23,14 +23,14 @@
         <fieldset>
           <legend class="visually-hidden">Use this form to add a channel or caption. Use '#' before a word to create a channel for the stream.</legend>
           <div class="input-append">
-            <input name="caption" ng-maxlength="17" type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
+            <input name="caption" type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
             <input class="btn btn-large hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)"
             value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}"
-                ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$invalid "/>
+                ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
           </div>
-          <div class="validate" ng-show="formAddCaption.caption.$dirty && formAddCaption.caption.$invalid">
-				  	<small class="warning" ng-show="formAddCaption.caption.$error.maxlength">A caption can not have more than 17 characters.</small>
-				  </div>
+          <div class="validate" ng-show="goliveForm.caption.$pristine">
+	  	<small class="info" ng-show="goliveForm.caption.$pristine">The first 17 characters will display in thumbnail view.</small>
+	  </div><!-- /.validate -->
         </fieldset>
       </form>
     </div>
