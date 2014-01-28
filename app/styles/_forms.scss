@@ -211,6 +211,7 @@ body.base {
 	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
 	.warning { background-color: $warningText;}
 	.error { background-color: $errorText;}
+	.info { background-color: $infoText;}
 	a { color: $white;}
 	a.btn-social {
 		font-family: "OpenSansBold", $bold-font-stack;
