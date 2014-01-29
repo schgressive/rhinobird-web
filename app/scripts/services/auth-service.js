@@ -61,7 +61,7 @@ angular.module('peepoltv.services')
 
     this.resetPassword = function(payload) {
       var password = Password.$build(payload);
-      password.id = '';
+      password.$pk = undefined;
       password.$save();
 
 
@@ -78,7 +78,7 @@ angular.module('peepoltv.services')
     // Login a user, create a new session
     this.login = function(payload){
       // Set id to undefined to force POST on save
-      session.id = undefined;
+      session.$pk = undefined;
 
       // Set the login information
       session.email = payload.email;

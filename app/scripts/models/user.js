@@ -6,7 +6,7 @@ angular.module('peepoltv.models')
       streams: { hasMany: 'Stream'}
     },
     function() {
-      this.on('afterSave', function() {
+      this.on('after-save', function() {
         var user = this;
         //remove the password after signup
         delete user.password;

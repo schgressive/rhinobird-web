@@ -6,7 +6,7 @@ angular.module('peepoltv.models')
         user: { hasOne: 'User' }
       },
       function() {
-        this.on('afterDestroy', function() {
+        this.on('after-destroy', function() {
 
           var session = this;
 
@@ -23,7 +23,7 @@ angular.module('peepoltv.models')
           });
         });
 
-        this.on('afterSave', function(){
+        this.on('after-save', function(){
           var session = this;
 
           // Reset the id to current to be able to perform further actions
