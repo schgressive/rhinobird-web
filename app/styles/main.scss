@@ -703,7 +703,20 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.owl-carousel .item { margin-right: 16px;}
+.owl-carousel {
+	.item { margin-right: 16px;}
+	.module-outer + .streamSelected {
+		color: $white;
+		font-size: 12px;
+		padding: 2px 5px;
+		background-color: $purple;
+		display: block;
+		opacity: .5;
+		position: relative;
+		z-index: 99999;
+		top: -22px;
+	}
+}
 
 .video-slider {
 	padding: 10px 10px 20px;
