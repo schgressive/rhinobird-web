@@ -68,7 +68,8 @@ angular.module('peepoltv.directives')
             var dHeight = height;
             var widthDiff = (width-dWidth)/2;
 
-            ctx.drawImage(video , widthDiff, 0, dWidth, dHeight);
+            //ctx.drawImage(video , widthDiff, 0, dWidth, dHeight);
+            ctx.drawImage(video , 0, 0, 640, 480);
 
             // paint it black
             ctx.fillStyle = 'rgb(0,0,0)';
