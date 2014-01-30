@@ -497,6 +497,13 @@ i[class*="icon"] {font-style: normal;}
 		left: 3px;
 		display: block;
 	}
+	.owl-theme .owl-controls .owl-buttons div {
+		padding: 8px 16px;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		background: $purple;
+	}
 }
 
 .social-list, .golive-list {
