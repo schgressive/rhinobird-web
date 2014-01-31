@@ -6,12 +6,11 @@
 </div>
 <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
   <label for="caption">Add a caption! You can use hashtags in your caption to add your stream to a channel:</label>
-  <h5>Pro-tip: Only the first 17 characters of your caption will show up in thumbnail view. So make them count!</h5>
   <div class="input-prepend">
   	<span class="add-on"><i class="icon-tag"></i></span>
 	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
-	  <div class="validate" ng-show="goliveForm.caption.$pristine">
-	  	<small class="info" ng-show="goliveForm.caption.$pristine">The first 17 characters will display in thumbnail view.</small>
+	  <div class="validate" ng-show="goliveForm.caption.$dirty">
+	  	<small class="info">Only the first 17 characters will display in thumbnail view.</small>
 	  </div><!-- /.validate -->
   </div><!-- /.input-prepend -->
   <div ng-show="vm.channels.length">
