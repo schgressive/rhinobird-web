@@ -451,11 +451,23 @@ i[class*="icon"] {font-style: normal;}
 			*width: 31.91%;
 		}
 	}
+	.row-fluid [class*="span4"] {
+		@media screen and (max-width: 670px) {
+			width: 48.7%;
+			*width: 48.7%;
+		}
+	}
 	@media screen and (min-width: 761px) {
 		.row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
 	}
 	@media screen and (max-width: 760px) {
 		.row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
+	}
+	@media screen and (min-width: 671px) {
+		.row-fluid [class*="span4"]:nth-child(3n+1) {margin-left: 0;}
+	}
+	@media screen and (max-width: 670px) {
+		.row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
 	}
 	.liveStream {
 		width: 18px;
@@ -602,8 +614,6 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 500px) { padding: 0;}
 }
 
-.results-item .module-video { outline: black solid 1px;}
-
 .module-video {
 	position: relative;
 	overflow: hidden; /*needs fallback for IE? */
@@ -624,15 +634,18 @@ i[class*="icon"] {font-style: normal;}
 
 .results-item {
 	color: $grayDarker;
-	padding: 5px 10px 7px 10px;
 	background-color: $white;
 	margin-bottom: 20px;
-	.profile-list .user-avatar { margin-right: 6px;}
-	a {color:$grayDarker;}
-	.user-info {
-		width: 66%;
-		a { text-decoration: underline;}
+	&.span3 {padding: 5px 10px 7px 10px;}
+	&.span4 {padding: 5px 7px 7px;}
+	.module-video { outline: black solid 1px;}
+	.profile-list .user-avatar {
+		margin-right: 6px;
+		img { @media screen and (max-width: 500px) { width: 48px; height: 48px;}}
 	}
+	a {color:$grayDarker;}
+	.user-info a { text-decoration: underline;}
+	@media screen and (max-width: 480px) { @include fontSize(12px);}
 }
 
 .module-outer {
