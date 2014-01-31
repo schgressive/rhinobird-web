@@ -71,7 +71,7 @@ table caption, .visually-hidden {display:none !important;}
 
 .one-liner {display: block;}
 
-.ellipsis { @include ellipsis();}
+.ellipsis {	@include ellipsis();}
 
 .pageTop { @media screen and (min-width:600) {visibility: hidden;}}
 
@@ -665,7 +665,7 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.module-outer{
+.module-outer {
 	height: 42px;
 	color: $grayDarker;
 	padding: 5px 10px 7px 10px;
@@ -715,31 +715,6 @@ i[class*="icon"] {font-style: normal;}
 		position: relative;
 		z-index: 99999;
 		top: -22px;
-	}
-}
-
-.video-slider {
-	padding: 10px 10px 20px;
-	background-color: $white;
-	.slider-control {
-		background-color: $grayLighter;
-		text-align: center;
-		display: block;
-		padding-top: 17px;
-		padding-bottom: 17px;
-		i {@include opacity(.5);}
-		&:hover {
-			background-color: darken($grayLighter, 5%);
-			i {@include opacity(1);}
-		}
-	}
-	.slider-wrapper {
-		max-height: 63px;
-		overflow: hidden;
-		 ul {
-		 	width:100%;
-		 	height: auto;
-		 }
 	}
 }
 
@@ -832,6 +807,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .options-row {
+	outline: red solid 1px;
 	margin-top: -24px;
 	background-color: hsla(0,0%,0%,.5);
 	padding-top: 20px;
