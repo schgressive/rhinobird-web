@@ -1,3 +1,25 @@
+<div class="module-inner">
+	<div class="module-video">
+    <a class="live-stream-link" ui-sref="channel({channelName: channel.name})">
+    	<img ng-src="{{channel.streams.0.thumbs.medium}}"/>
+		</a>
+	</div><!-- /.module-video -->
+</div><!-- /.module-inner -->
+<div class="module-outer clearfix">
+	<ul class="no-bullets">
+    <li class="ellipsis">
+    	<i class="icon-headphones"></i>
+      <span>#{{channel.name}}</span>
+    </li>
+  	<li class="ellipsis">
+			<i class="icon-facetime-video"></i>
+			<span ng-show="channel.streamsCount == 0">No streams available.</span>
+			<span ng-show="channel.streamsCount == 1">stream</span>
+			<span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1">{{channel.streamsCount}} streams</span>
+		</li>
+  </ul>
+</div><!-- /.module-outer -->
+<!--
 <ul class="channel-list no-bullets span12">
   <li class="module-video">
   <a class="live-stream-link" href="#" ui-sref="channel({channelName: channel.name})">
@@ -17,3 +39,4 @@
 	  </ul>
   </li>
 </ul>
+-->
