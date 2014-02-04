@@ -10,6 +10,7 @@ angular.module('peepoltv.controllers')
     $scope.streams = Stream.$search($state.params);
     $scope.peepol = User.$search($state.params);
     $scope.channels = Channel.$search($state.params);
+    $scope.location = Stream.$search($state.params);
 
     $scope.filterBy = function(filter){
       $location.search('filter', filter);

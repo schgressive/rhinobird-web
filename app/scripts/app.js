@@ -74,6 +74,10 @@ angular.module('peepoltv', [
       url: '/peepol/',
       templateUrl: '/views/search-results-peepol.html'
     })
+    .state('search.location', {
+      url: '/location/',
+      templateUrl: '/views/search-results-location.html'
+    })
 
     // Golive
     .state('golive', {
