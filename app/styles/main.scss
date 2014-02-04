@@ -76,18 +76,14 @@ table caption, .visually-hidden {display:none !important;}
 .pageTop { @media screen and (min-width:600) {visibility: hidden;}}
 
 .back-to-top {
-  color: $black;
-  @include fontSize(12px);
-  font-family: "OpenSansBold", $bold-font-stack;
-  text-decoration: none;
-  background-color: rgba(235, 235, 235, 0.80);
-  border: 1px solid $gray;
-  padding: 1em;
+  background: rgba(255,255,255,.5) url('/images/top-icon-24.svg') center center no-repeat;
+  border: 1px solid $grayLight;
+  padding: 25px 21px 14px;
 	position: fixed;
-  bottom: 5em;
-  left: 0;
+  bottom: -2px;
+  right: 14px;
   display: none;
-  &:hover { background-color: rgba(135, 135, 135, 0.50);}
+  &:hover { background-color: rgba(135, 135, 135, 0.50); background-image: url('/images/top-icon-wht-24.svg');}
 }
 
 // Calculate all H# Tags.
@@ -579,7 +575,7 @@ i[class*="icon"] {font-style: normal;}
 	.user-info li { margin-bottom: 3px;}
 }
 
-.map-wrapper, .carousel-wrapper, .module-large, .results-item {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
+.map-wrapper, .carousel-wrapper, .module-large, .results-item, .back-to-top {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
 
 .map-wrapper {
 	background-color: $white;
