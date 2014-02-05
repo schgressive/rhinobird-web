@@ -29,9 +29,15 @@
 	      </h3>
 	    </div><!-- /.row-fluid -->
 	    <div class="row-fluid">
-		  	<div owl-carousel items="streams" item-template="/views/snippets/module-mini.html"></div>
+	    	<div class="span12">
+          <ol class="no-bullets">
+					 <li class="module-large span3" ng-repeat="stream in streams | limitTo:12">
+						 <div ng-include="'/views/snippets/module-large.html'"></div>
+					 </li>
+				 </ol>
+        </div><!-- /.span12 -->
+		  	<!-- <div owl-carousel items="streams" item-template="/views/snippets/module-mini.html"></div> -->
 			</div><!--/.row-fluid -->
 	  </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
-
