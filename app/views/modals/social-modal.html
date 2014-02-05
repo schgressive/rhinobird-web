@@ -14,7 +14,7 @@
     </div>
     <div class="validate" ng-show="twitterForm.email.$dirty && twitterForm.email.$invalid">
       <small class="error" ng-show="twitterForm.email.$error.taken">
-        This email is already registered. Did you <a href="#" ng-click="">forget your password</a>?
+        This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
       </small>
       <small class="warning" ng-show="twitterForm.email.$error.invalid">
         This email is invalid. Please input a valid email.
@@ -46,4 +46,4 @@
     <input class="btn btn-primary btn-xlarge" type="submit" value="Finish!"/>
 	</form>
 </div>
-<h6><a href="#" ng-click="">Return to sign in.</a></h6>
+<h6><a href="#" ng-click="$parent.loginModalAction = 'login'">Return to sign in.</a></h6>
