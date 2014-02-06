@@ -176,17 +176,17 @@ body.base { /*overrides are here */
 				float: left;
 				transition-property: none;
 			}
-			.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+			.dropdown-menu ul > li > a:hover, .dropdown-menu ul > li > a:focus, .dropdown-menu ul > .active > a:hover, .dropdown-menu ul > .active > a:focus {
 				background-color: darken($redDark, 10%);
 				background-image: none;
 			}
-			.dropdown-menu > .active > a {
+			.dropdown-menu ul > .active > a {
 				background: transparent url('../assets/active-page-bg.gif') center bottom repeat-x;
 				@media (max-width: $navbarCollapseWidth) {
 					background: transparent url('../assets/active-page-bg2.gif') top left repeat-y;
 				}
 			}
-			.dropdown-menu > li.deactivated > a:hover, .dropdown-menu > li.deactivated > a:focus, {
+			.dropdown-menu ul > li.deactivated > a:hover, .dropdown-menu > li.deactivated ul > a:focus, {
 				background-color: transparent;
 			}
 			.mega-menu {
@@ -235,18 +235,9 @@ body.base { /*overrides are here */
 				-webkit-transition: none;
 				&:hover { background-image: url('../images/menu-hover-24.svg');}
 			}
-			.submenu {
-				list-style-type: none;
-				.navLink {
-					@include fontSize(12px);
-					margin: 5px 0 7px;
-					a:hover {text-decoration: none;}
-				}
-			}
 			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 		}
 	}
-	.subnav > li > a:hover {color: hsla(0%,0%,30%,1);}
 	.container-fluid {
 		padding: {left: 40px;right: 40px;}
 		@media screen and (max-width: 960px) { padding: {left:20px;right:20px;}}
@@ -589,21 +580,6 @@ i[class*="icon"] {font-style: normal;}
   @media screen and (max-width: 500px) { height: 470px;}
 }
 
-.subnav {
-	outline: 1px solid purple;
-	margin-top: 5px;
-	li {
-		margin-right: 34px;
-		display: inline-block;
-		&:last-of-type {margin-right: 0px;}
-		a {color:$gray;}
-		&.active a {
-			color: $grayDarker;
-			border-bottom: 2px solid $grayDarker;
-		}
-	}
-}
-
 .module-inner {
 	padding: 8px 10px;
 	background-color: $white;
@@ -790,21 +766,6 @@ i[class*="icon"] {font-style: normal;}
 	background-color: hsla(0,0%,0%,.5);
 	padding-top: 20px;
 	form {margin-left: 30px;}
-}
-
-.colophon {
-	color: $grayDark;
-	font-size: $fontSizeSmall;
-	h6 { margin: 0;}
-	a {
-		color: $black;
-		text-decoration: underline;
-		&:hover {
-			background-color: $grayDarker;
-			color: $white;
-			text-decoration: none;
-		}
-	}
 }
 
 // MAPBOX ------------------------------
