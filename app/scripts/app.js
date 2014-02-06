@@ -32,6 +32,9 @@ angular.module('peepoltv', [
     - search.peepol                           /search/peepol
     - golive                                  /golive
     - profile                                 /profile
+    - terms	                                  /terms
+    - privacy                                 /privacy
+    - about                                   /about
     - stream({streamId: <streamId>})          /stream/:streamId
     - user({userName: <username>})            /user/:userName
     - channel({channelName: <channelname>})   /:channelName
@@ -141,6 +144,27 @@ angular.module('peepoltv', [
       url: '/{channelName:[0-9a-zA-Z-_]+}/{userName:[0-9a-zA-Z-_]+}/',
       templateUrl: '/views/vj-session.html',
       controller: 'VjSessionCtrl'
+    })
+
+    // Terms
+    .state('terms', {
+      url: '/',
+      templateUrl: '/views/terms.html',
+      controller: 'TermsCtrl'
+    })
+
+    // Privacy
+    .state('privacy', {
+      url: '/',
+      templateUrl: '/views/privacy.html',
+      controller: 'PrivacyCtrl'
+    })
+
+    // About
+    .state('about', {
+      url: '/',
+      templateUrl: '/views/about.html',
+      controller: 'AboutCtrl'
     });
 
     // Config restmod
