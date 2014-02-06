@@ -176,22 +176,14 @@ body.base { /*overrides are here */
 				float: left;
 				transition-property: none;
 			}
-			.dropdown-menu ul > li > a:hover, .dropdown-menu ul > li > a:focus, .dropdown-menu ul > .active > a:hover, .dropdown-menu ul > .active > a:focus {
-				background-color: darken($redDark, 10%);
-				background-image: none;
-			}
-			.dropdown-menu ul > .active > a {
-				background: transparent url('../assets/active-page-bg.gif') center bottom repeat-x;
-				@media (max-width: $navbarCollapseWidth) {
-					background: transparent url('../assets/active-page-bg2.gif') top left repeat-y;
-				}
-			}
+			.dropdown-menu ul > li > a:hover, .dropdown-menu ul > li > a:focus, .dropdown-menu ul > .active > a:hover, .dropdown-menu ul > .active > a:focus { background-color: darken($redDark, 10%);}
 			.dropdown-menu ul > li.deactivated > a:hover, .dropdown-menu > li.deactivated ul > a:focus, {
 				background-color: transparent;
+				cursor: not-allowed;
 			}
 			.mega-menu {
 				width: 100%;
-				padding: 0 10px 0 11%;
+				padding: 8px 10px 7px 11%;
 				border: none;
 				background-color: $redDark;
 				box-shadow: none;
@@ -201,28 +193,27 @@ body.base { /*overrides are here */
 					max-width: 200px;
 					@include baseTransitionIn;
 				}
+				li {
+					float: left;
+					@media (max-width: $navbarCollapseWidth) { float: none;}
+					a { color: $navbarLinkColor;}
+					&.deactivated {@include opacity(.5);}
+				}
 			}
 			.navLink {
-				float: left;
-				@media (max-width: $navbarCollapseWidth) {
-					float: none;
-					border-bottom: 1px solid lighten($red, 10%);
-				}
+				margin-bottom: 8px;
+				@media (max-width: $navbarCollapseWidth) { border-bottom: 1px solid lighten($red, 10%);}
 				a {
-					color:$navbarLinkColor;
 					padding: 9px 16px;
-					@media (max-width: $navbarCollapseWidth) {
-						padding: 12px 16px 12px 10px;
-					}
+					@media (max-width: $navbarCollapseWidth) { padding: 12px 16px 12px 10px;}
 				}
-				i[class*="icon"] {
-					margin: 2px 7px 0 0;
-				}
-				&.deactivated {@include opacity(.5);}
+				i[class*="icon"] { margin: 2px 7px 0 0;}
 			}
-			navLink.active {
-				background-color: transparent;
-				background-image: none;
+			.colophon {
+				width: 70%;
+				padding-top: 8px;
+				border-top: $white solid 1px;
+				li { margin-right: 10px;}
 			}
 			.navToggle {
 				width: 24px;
