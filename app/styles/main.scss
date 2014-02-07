@@ -158,16 +158,14 @@ body.base { /*overrides are here */
 		.span1 {margin-left: 0;}
 		.navbar-inner {
 			min-height: $navbarHeight;
-			padding: {
-				left: 70px;
-				right: 70px;
-			}
+			padding: { left: 70px; right: 70px;}
 			background-color: $navbarBackground;
 			background-image: none;
 			background-repeat: none;
 			border-bottom: 3px solid $orange;
 			box-shadow: none;
 			@media screen and (max-width: 960px) { padding: {left:0px!important;right:0px!important;}}
+			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 			.main-nav-wrapper { padding-left: 20px;}
 			.main-nav { float: left;}
 			a.brand {
@@ -175,45 +173,6 @@ body.base { /*overrides are here */
 				margin: 9px 0 0;
 				float: left;
 				transition-property: none;
-			}
-			.dropdown-menu ul > li > a:hover, .dropdown-menu ul > li > a:focus, .dropdown-menu ul > .active > a:hover, .dropdown-menu ul > .active > a:focus { background-color: darken($redDark, 10%);}
-			.dropdown-menu ul > li.deactivated > a:hover, .dropdown-menu > li.deactivated ul > a:focus, {
-				background-color: transparent;
-				cursor: not-allowed;
-			}
-			.mega-menu {
-				width: 100%;
-				padding: 8px 10px 7px 11%;
-				border: none;
-				background-color: $redDark;
-				box-shadow: none;
-				top: 39px;
-				@include baseTransitionOut;
-				@media (max-width: $navbarCollapseWidth) {
-					max-width: 200px;
-					@include baseTransitionIn;
-				}
-				li {
-					float: left;
-					@media (max-width: $navbarCollapseWidth) { float: none;}
-					a { color: $navbarLinkColor;}
-					&.deactivated {@include opacity(.5);}
-				}
-			}
-			.navLink {
-				margin-bottom: 8px;
-				@media (max-width: $navbarCollapseWidth) { border-bottom: 1px solid lighten($red, 10%);}
-				a {
-					padding: 9px 16px;
-					@media (max-width: $navbarCollapseWidth) { padding: 12px 16px 12px 10px;}
-				}
-				i[class*="icon"] { margin: 2px 7px 0 0;}
-			}
-			.colophon {
-				width: 70%;
-				padding-top: 8px;
-				border-top: $white solid 1px;
-				li { margin-right: 10px;}
 			}
 			.navToggle {
 				width: 24px;
@@ -226,7 +185,29 @@ body.base { /*overrides are here */
 				-webkit-transition: none;
 				&:hover { background-image: url('../images/menu-hover-24.svg');}
 			}
-			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
+			.mega-menu.dropdown-menu {
+				width: 60%;
+				max-width: 962px;
+				border: none;
+				background-color: $redDark;
+				top: 44px;
+				left: inherit;
+				@include box-shadow(0 5px 4px rgba(0, 0, 0, 0.2));
+				ul { padding: 8px 12px;}
+				li {
+					margin-right: 20px;
+					display: inline-block;
+				}
+			}
+			.main-menu {
+				@include fontSize(16px);
+				margin-bottom: 10px;
+				a { color: $navbarLinkColor;}
+			}
+			.colophon {
+				border-top: 1px solid $redDarker;
+				a { color: $navbarLinkColor;}
+			}
 		}
 	}
 	.container-fluid {
