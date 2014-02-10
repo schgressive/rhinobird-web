@@ -103,46 +103,46 @@ $navbarBackground								: $white;
 $navbarBackgroundHighlight			: transparent;
 $navbarText											: $gray;
 $navbarBrandColor								: $navbarText;
-$navbarLinkColor								: $white;
+$navbarLinkColor								: $grayDark;
 $navbarLinkColorHover						: $white;
 $navbarLinkColorActive					: $grayDark;
-$navbarLinkBackgroundHover			: darken($redDark, 20%);
+$navbarLinkBackgroundHover			: $redDark;
 $navbarSearchBackground					: lighten($navbarBackground, 25%);
 $navbarSearchBackgroundFocus		: $white;
 $navbarSearchBorder							: darken($navbarSearchBackground, 75%);
-$navbarSearchPlaceholderColor		: $grayLighter;
+$navbarSearchPlaceholderColor		: $placeholderText;
 $navbarCollapseWidth						: 979px;
 $navbarCollapseDesktopWidth			: $navbarCollapseWidth + 1;
 
 // Dropdowns ------------------------------
 
-$dropdownBackground							: $white;
-$dropdownBorder									: hsla(0%,0%,0%,.2);
-$dropdownLinkColor							: $grayDark;
-$dropdownLinkColorHover					: $white;
-$dropdownLinkBackgroundHover		: $dropdownLinkColor;
+$dropdownBackground							: $navbarBackground;
+$dropdownBorder									: hsla(0,0%,86%,1); /*#DCDCDC*/
+$dropdownLinkColor							: $navbarLinkColor;
+$dropdownLinkColorHover					: $navbarLinkColorHover;
+$dropdownLinkBackgroundHover		: $navbarLinkBackgroundHover;
 
 // Components ------------------------------
 
-$baseBorderRadius				: 0px;
-$borderRadiusLarge				: 6px;
-$borderRadiusSmall				: 3px;
-$heroUnitBackground				: $grayLighter;
-$heroUnitHeadingColor			: inherit;
-$heroUnitLeadColor				: inherit;
+$baseBorderRadius								: 0px;
+$borderRadiusLarge							: 6px;
+$borderRadiusSmall							: 3px;
+$heroUnitBackground							: $grayLighter;
+$heroUnitHeadingColor						: inherit;
+$heroUnitLeadColor							: inherit;
 
 // Tooltips ------------------------------
 
-$tooltipColor					: $white;
-$tooltipBackground				: $purple;
-$tooltipArrowColor				: $tooltipBackground;
+$tooltipColor										: $white;
+$tooltipBackground							: $purple;
+$tooltipArrowColor							: $tooltipBackground;
 
 // Global Styling
 // ----------------------------------------
 
-$hrColor						: $textColor;
-$borderLight					: lighten($gray, 70%);
-$borderDark						: lighten($gray, 40%);
+$hrColor												: $textColor;
+$borderLight										: $grayLight;
+$borderDark											: $grayDark;
 
 // Fuctions ------------------------------
 
@@ -218,12 +218,4 @@ $public_path: "/";
   &.placeholder { @content }
   &:-moz-placeholder { @content }
   &::-webkit-input-placeholder { @content }
-}
-
-@mixin link-hover {
-	&:hover {
-		color: $linkColorHover;
-		background-color: $linkColorBackgroundHover;
-		background-image: none;
-	}
 }

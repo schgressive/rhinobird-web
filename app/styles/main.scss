@@ -188,25 +188,56 @@ body.base { /*overrides are here */
 			.mega-menu.dropdown-menu {
 				width: 60%;
 				max-width: 962px;
+				padding: 0 0 5px 0;
 				border: none;
-				background-color: $redDark;
+				background-color: $dropdownBackground;
 				top: 44px;
 				left: inherit;
+				@include font-smoothing;
 				@include box-shadow(0 5px 4px rgba(0, 0, 0, 0.2));
-				ul { padding: 8px 12px;}
 				li {
-					margin-right: 20px;
 					display: inline-block;
+					a {
+						padding: {right:16px;left:16px;}
+						display: block;
+						&:hover {
+							color: $dropdownLinkColorHover;
+							text-decoration: none;
+							background-color: $dropdownLinkBackgroundHover;
+						}
+						&[rel="copyright"]:hover {
+							color: $textColor;
+							background-color: transparent;
+							text-decoration: underline;
+							cursor: pointer;
+						}
+					}
+					&.deactivated {
+						@include opacity(.5);
+						a:hover {
+							color: $dropdownLinkColor;
+							background-color: transparent;
+							cursor: not-allowed;
+						}
+					}
 				}
+				i[class*="icon"] { margin: 2px 7px 0 0;}
 			}
 			.main-menu {
 				@include fontSize(16px);
-				margin-bottom: 10px;
-				a { color: $navbarLinkColor;}
+				a { color: $dropdownLinkColor; padding: {top:10px;bottom:10px;}}
 			}
 			.colophon {
-				border-top: 1px solid $redDarker;
-				a { color: $navbarLinkColor;}
+				@include fontSize(14px);
+				border-top: 1px solid $dropdownBorder;
+				a {
+					color: $textColor;
+					padding: {top:6px;bottom:6px;}
+					&[rel="copyright"] {
+						@include fontSize(11px);
+						padding: 3px 0px 3px 16px;
+					}
+				}
 			}
 		}
 	}
