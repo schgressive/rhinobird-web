@@ -8,7 +8,7 @@
         <li>
           <a href="#" ng-click="ctrl.stop(true)" role="button" title="Close & Return"><span class="visually-hidden">Close & Return</span></a>
         </li>
-        <li>
+        <li ng-show="app.onAir">
           <a href="#" ng-click="ctrl.stop()" title="Stop Recording"><span class="visually-hidden">Stop Recording</span></a>
         </li>
       </ul>

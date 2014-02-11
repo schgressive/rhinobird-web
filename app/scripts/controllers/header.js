@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, $state) {
 
     // Catch the unauthorized pages
     $rootScope.$on('$routeChangeError', function (event, parameters) {
@@ -28,6 +28,14 @@ angular.module('peepoltv.controllers')
     $scope.stopBroadcast = function(stay){
       $rootScope.$broadcast('liveStreamStopped', { stay: stay});
     };
+
+    $scope.golive = function() {
+      if ($state.includes('golive')) {
+        $rootScope.$broadcast('golive', {});
+      } else {
+        $state.go('golive');
+      }
+    }
 
     $scope.login = function(){
       AuthService.askLogin();

@@ -65,9 +65,6 @@ angular.module('peepoltv.controllers')
           CameraService.licodeStream.stream.stop();
           $state.go('profile');
         }
-        else{
-          openDialog();
-        }
 
       });
 
@@ -100,6 +97,10 @@ angular.module('peepoltv.controllers')
           return c.replace(settings.channelCleanedRegex, '');
         });
       }
+    });
+
+    $scope.$on('golive', function() {
+      openDialog();
     });
 
     // When the stream gets published
