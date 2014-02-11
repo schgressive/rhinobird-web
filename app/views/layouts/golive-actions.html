@@ -28,7 +28,7 @@
             value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}"
                 ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
           </div>
-          <div class="validate" ng-show="goliveForm.caption.$dirty">
+          <div class="validate" ng-show="vm.caption_warning">
 	  	<small class="info">Only the first 17 characters will display in thumbnail view.</small>
 	  </div><!-- /.validate -->
         </fieldset>

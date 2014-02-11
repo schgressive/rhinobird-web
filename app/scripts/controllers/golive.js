@@ -17,6 +17,7 @@ angular.module('peepoltv.controllers')
      */
     $scope.vm = vm; // Expose the viewmodel in the scope
     $scope.ctrl = this; // Expose the controller
+    $scope.vm.caption_warning = false;
 
     // The the caption for the stream
     vm.caption = '';
@@ -87,6 +88,13 @@ angular.module('peepoltv.controllers')
     // Hashtags
     $scope.$watch('vm.caption', function(a){
       if(a){
+        // sets warning for long caption
+        if (a.length > 17) {
+          vm.caption_warning = true;
+        } else {
+          vm.caption_warning = false;
+        }
+
         var hashes = a.match(regexp);
         vm.channels = _.map(hashes, function(c){
           return c.replace(settings.channelCleanedRegex, '');
