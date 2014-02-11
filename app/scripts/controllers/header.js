@@ -30,7 +30,7 @@ angular.module('peepoltv.controllers')
     };
 
     $scope.golive = function() {
-      if ($state.includes('golive')) {
+      if ($state.includes('golive') && !$scope.app.onAir) {
         $rootScope.$broadcast('golive', {});
       } else {
         $state.go('golive');
