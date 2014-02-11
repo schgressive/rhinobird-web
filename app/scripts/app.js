@@ -148,21 +148,21 @@ angular.module('peepoltv', [
 
     // Terms
     .state('terms', {
-      url: '/',
+      url: '/terms',
       templateUrl: '/views/terms.html',
       controller: 'TermsCtrl'
     })
 
     // Privacy
     .state('privacy', {
-      url: '/',
+      url: '/privacy',
       templateUrl: '/views/privacy.html',
       controller: 'PrivacyCtrl'
     })
 
     // About
     .state('about', {
-      url: '/',
+      url: '/about',
       templateUrl: '/views/about.html',
       controller: 'AboutCtrl'
     });
