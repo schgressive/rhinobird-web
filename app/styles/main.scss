@@ -197,6 +197,7 @@ body.base { /*overrides are here */
 				@include box-shadow(0 5px 4px rgba(0, 0, 0, 0.2));
 				li {
 					display: inline-block;
+					@media screen and (max-width: 580px) { display: block;}
 					a {
 						padding: {right:16px;left:16px;}
 						display: block;
@@ -225,11 +226,13 @@ body.base { /*overrides are here */
 			}
 			.main-menu {
 				@include fontSize(16px);
+				@media screen and (max-width: 580px) { margin-bottom: 10px;}
 				a { color: $dropdownLinkColor; padding: {top:10px;bottom:10px;}}
 			}
 			.colophon {
 				@include fontSize(14px);
 				border-top: 1px solid $dropdownBorder;
+				@media screen and (max-width: 580px) { padding-top: 10px;}
 				a {
 					color: $textColor;
 					padding: {top:6px;bottom:6px;}
