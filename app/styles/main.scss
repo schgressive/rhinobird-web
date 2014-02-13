@@ -335,6 +335,20 @@ i[class*="icon"] {font-style: normal;}
 	h4.one-liner {
 		font-family: "OpenSansBold", $bold-font-stack;
 	}
+	nav {
+		margin-left: 10px;
+		li {
+			padding: 0;
+			&:after {content: "|";}
+			&:last-of-type:after {content: none;}
+			a {
+				color: $textColor;
+				text-decoration: underline;
+				padding: {left:3px;right:6px;}
+				&:hover { color: $black;}
+			}
+		}
+	}
 	.default-wrapper {
 		margin-top: -12px;
 		padding-bottom: 10px;
