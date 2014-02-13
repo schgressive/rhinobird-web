@@ -206,12 +206,6 @@ body.base { /*overrides are here */
 							text-decoration: none;
 							background-color: $dropdownLinkBackgroundHover;
 						}
-						&[rel="copyright"]:hover {
-							color: $textColor;
-							background-color: transparent;
-							text-decoration: underline;
-							cursor: pointer;
-						}
 					}
 					&.deactivated {
 						@include opacity(.5);
@@ -223,6 +217,16 @@ body.base { /*overrides are here */
 					}
 				}
 				i[class*="icon"] { margin: 2px 7px 0 0;}
+				small {
+					margin-left: 14px;
+					display: block;
+					a:hover {
+						color: $textColor;
+						background-color: transparent;
+						text-decoration: underline;
+						cursor: pointer;
+					}
+				}
 			}
 			.main-menu {
 				@include fontSize(16px);
@@ -236,10 +240,6 @@ body.base { /*overrides are here */
 				a {
 					color: $textColor;
 					padding: {top:6px;bottom:6px;}
-					&[rel="copyright"] {
-						@include fontSize(11px);
-						padding: 3px 0px 3px 16px;
-					}
 				}
 			}
 		}
