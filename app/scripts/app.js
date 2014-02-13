@@ -33,6 +33,7 @@ angular.module('peepoltv', [
     - golive                                  /golive
     - profile                                 /profile
     - terms	                                  /terms
+		- trademark	                              /trademark
     - privacy                                 /privacy
     - about                                   /about
     - stream({streamId: <streamId>})          /stream/:streamId
@@ -151,6 +152,13 @@ angular.module('peepoltv', [
       url: '/terms',
       templateUrl: '/views/terms.html',
       controller: 'TermsCtrl'
+    })
+
+    // Terms
+    .state('trademark', {
+      url: '/trademark',
+      templateUrl: '/views/trademark.html',
+      controller: 'TrademarkCtrl'
     })
 
     // Privacy
