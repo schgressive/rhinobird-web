@@ -76,9 +76,9 @@ angular.module('peepoltv.controllers')
 
 
     // Search for stream when zoom change
-    $scope.$watch('map.search.zoom', function(){
+    $scope.$watch('kms', function(){
       var searchParams = angular.extend($scope.map.search, {
-        range: 1
+        range: $scope.kms
       });
 
       // Get the streams
