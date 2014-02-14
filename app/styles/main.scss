@@ -108,6 +108,12 @@ a, i, .btn, input {
 
 small {font-size: $fontSizeMini;}
 
+article {
+	h1 { margin-bottom: 20px;}
+	p + h2 { margin-top: 20px;}
+	blockquote { margin-top: 3px; border-left-color: $grayLight;}
+}
+
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 
@@ -297,6 +303,23 @@ i[class*="icon"] {font-style: normal;}
 		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
 	}
+}
+
+.privacy, .terms, .trademark {
+	.mainWrapper .main { padding-bottom: 0;}
+	.main .width-controller {
+		padding-bottom: 20px;
+		background-color: $white;
+		border: {
+			top: 0;
+			left: 1px;
+			bottom: 0;
+			right: 1px;
+			color: $grayLight;
+			style: solid;
+		}
+	}
+	article { padding-right: 20px;}
 }
 
 .top-content {
@@ -781,6 +804,7 @@ i[class*="icon"] {font-style: normal;}
    to {transform: rotate(359deg);}
 }
 
+/*
 .options-row {
 	outline: red solid 1px;
 	margin-top: -24px;
@@ -788,6 +812,7 @@ i[class*="icon"] {font-style: normal;}
 	padding-top: 20px;
 	form {margin-left: 30px;}
 }
+*/
 
 // MAPBOX ------------------------------
 
