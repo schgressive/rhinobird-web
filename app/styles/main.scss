@@ -519,6 +519,19 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.about {
+	.top-content {
+		background: url('/images/slide4.jpg') top left no-repeat;
+		background-size: cover;
+		border-bottom: 3px solid $orange;
+		.hero-unit {
+			color: $textOnDark;
+			background-color: $darkTrans;
+			border-radius: $baseBorderRadius;
+		}
+	}
+}
+
 .social-list, .golive-list {
 	margin: 0;
 	padding-top: 5px;
