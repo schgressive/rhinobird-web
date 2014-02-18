@@ -437,9 +437,6 @@ i[class*="icon"] {font-style: normal;}
 	}
 	h3 { margin-top: 0;}
 	h4 { margin: {top:0px;bottom:20px;}}
-	.colRight {
-		.well { @media screen and (max-width: 600px){ margin-top: 20px;}}
-	}
 }
 
 .faux-tabs, .tabs {
@@ -530,6 +527,32 @@ i[class*="icon"] {font-style: normal;}
 			border-radius: $baseBorderRadius;
 		}
 	}
+	.mid-content {
+		.well {
+			text-align: center;
+			border-radius: $baseBorderRadius;
+			@media screen and (max-width: 1110px) { min-height: 242px;}
+			@media screen and (max-width: 960px) {
+				font-size: 120%;
+				width: 100%;
+				min-height: inherit;
+				margin-left: 0;
+				float: none;
+			}
+			h3 { margin-top: 10px;}
+		}
+	}
+	.mid-content + .lower-content { border-top: solid 2px white; padding-top: 40px;}
+	.lower-content {
+		.row-fluid:first-of-type { margin-bottom: 40px;}
+	}
+}
+
+.featureIcon {
+	width: 74px;
+	display: block;
+	margin: 0px auto;
+	@media screen and (max-width: 960px) { width: 100px;}
 }
 
 .social-list, .golive-list {
