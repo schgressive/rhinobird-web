@@ -8,6 +8,7 @@ angular.module('peepoltv.controllers')
     // Maybe we can use awesome markers plugin also
     L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.6.0/images';
 
+    // reference to current cluster layer
     var clusterLayer = null;
 
     // Expose scope as self
@@ -17,6 +18,7 @@ angular.module('peepoltv.controllers')
 
     $scope.user = AuthService.user;
 
+    // process cluster layers
     var processLayers = function() {
       leafletData.getMap().then(function(map) {
         if (clusterLayer) {
@@ -26,11 +28,11 @@ angular.module('peepoltv.controllers')
         // only show cluster layer at certain zoom
         if ($scope.map.search.zoom < 14) {
           var markers = L.markerClusterGroup();
-          var rawJson = $scope.streams.asGeoJSON();
-          var json = L.geoJson(rawJson);
-          markers.addLayer(json);
-          clusterLayer = markers;
+          var newLayer = L.geoJson($scope.streams.asGeoJSON());
+          markers.addLayer(newLayer);
           map.addLayer(markers);
+
+          clusterLayer = markers;
           $scope.map.geoJSON = [];
         }
       })
