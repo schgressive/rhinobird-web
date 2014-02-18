@@ -6,7 +6,8 @@ angular.module('peepoltv.models')
       streams: { hasMany: 'Stream'},
       stream_ids: {
         ignore: SyncMask.ENCODE
-      }
+      },
+      vjstreams: { hasMany: 'VjStream', path: 'streams_pool'}
     },
     function() {
       this.on('after-save', function() {
