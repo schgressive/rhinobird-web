@@ -1,18 +1,40 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile, leafletData) {
 
     // Set the default marker location
     // FIXME: The markers images should be compiled and served with relative path
     // Maybe we can use awesome markers plugin also
     L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.6.0/images';
 
+    var clusterLayer = null;
+
     // Expose scope as self
     $scope.self = $scope;
 
     // Expose the user in the scope
+
     $scope.user = AuthService.user;
+
+    var processLayers = function() {
+      leafletData.getMap().then(function(map) {
+        if (clusterLayer) {
+          map.removeLayer(clusterLayer);
+          clusterLayer = null;
+        }
+        // only show cluster layer at certain zoom
+        if ($scope.map.search.zoom < 14) {
+          var markers = L.markerClusterGroup();
+          var rawJson = $scope.streams.asGeoJSON();
+          var json = L.geoJson(rawJson);
+          markers.addLayer(json);
+          clusterLayer = markers;
+          map.addLayer(markers);
+          $scope.map.geoJSON = [];
+        }
+      })
+    }
 
     // Map configuration
     $scope.map = {
@@ -102,6 +124,7 @@ angular.module('peepoltv.controllers')
           });
         }
       };
+      processLayers();
     });
 
     $scope.$on('leafletDirectiveMap.popupopen', function(event, leafletEvent){
