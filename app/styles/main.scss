@@ -739,7 +739,15 @@ i[class*="icon"] {font-style: normal;}
 
 .owl-carousel {
 	.item { margin-right: 16px;}
-	.module-outer + .streamSelected {
+	.streamSelected {
+		padding: 2px 5px;
+		background-color: $white;
+		position: absolute;
+		top: 0;
+	}
+	.module-outer { height: inherit;}
+	/*
+.module-outer + .streamSelected {
 		color: $white;
 		font-size: 12px;
 		padding: 2px 5px;
@@ -750,6 +758,7 @@ i[class*="icon"] {font-style: normal;}
 		z-index: 99999;
 		top: -22px;
 	}
+*/
 }
 
 .module-video, .live-stream-link {background-color: $black;}
