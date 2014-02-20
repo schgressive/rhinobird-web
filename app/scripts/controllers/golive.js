@@ -103,6 +103,11 @@ angular.module('peepoltv.controllers')
       openDialog();
     });
 
+    $scope.gotoTerms = function() {
+      modalInstance.close();
+      $state.go("terms");
+    }
+
     // When the stream gets published
     $scope.$on('licode-stream-status-changed', function(event, params){
       if(params.status === 'added'){
