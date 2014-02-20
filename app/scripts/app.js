@@ -150,29 +150,25 @@ angular.module('peepoltv', [
     // Terms
     .state('terms', {
       url: '/terms',
-      templateUrl: '/views/terms.html',
-      controller: 'TermsCtrl'
+      templateUrl: '/views/terms.html'
     })
 
     // Terms
     .state('trademark', {
       url: '/trademark',
-      templateUrl: '/views/trademark.html',
-      controller: 'TrademarkCtrl'
+      templateUrl: '/views/trademark.html'
     })
 
     // Privacy
     .state('privacy', {
       url: '/privacy',
-      templateUrl: '/views/privacy.html',
-      controller: 'PrivacyCtrl'
+      templateUrl: '/views/privacy.html'
     })
 
     // About
     .state('about', {
       url: '/about',
-      templateUrl: '/views/about.html',
-      controller: 'AboutCtrl'
+      templateUrl: '/views/about.html'
     });
 
     // Config restmod
