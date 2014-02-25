@@ -16,6 +16,35 @@ angular.module('peepoltv', [
   // Remove hashes and enables html push state history
   $locationProvider.html5Mode(true);
 
+
+  // Fix for missing trailing slash
+  // NOTE: All route definitions must end with a Slash now
+  $urlRouterProvider.rule(function($injector, $location) {
+    var path = $location.path()
+    // Note: misnomer. This returns a query object, not a search string
+      , search = $location.search()
+      , params
+    ;
+
+    // check to see if the path already ends in '/'
+    if (path[path.length - 1] === '/') {
+      return;
+    }
+
+    // If there was no search string / query params, return with a `/`
+    if (Object.keys(search).length === 0) {
+      return path + '/';
+    }
+
+    // Otherwise build the search string and return a `/?` prefix
+    params = [];
+    angular.forEach(search, function(v, k){
+      params.push(k + '=' + v);
+    });
+    return path + '/?' + params.join('&');
+  });
+
+
   // Force some redirections
   $urlRouterProvider
     .otherwise('/');
@@ -61,7 +90,7 @@ angular.module('peepoltv', [
 
     // Search
     .state('search', {
-      url: '/search',
+      url: '/search/',
       abstract: true,
       templateUrl: '/views/search-results.html',
       controller: 'SearchResultsCtrl'
@@ -149,25 +178,25 @@ angular.module('peepoltv', [
 
     // Terms
     .state('terms', {
-      url: '/terms',
+      url: '/terms/',
       templateUrl: '/views/terms.html'
     })
 
     // Terms
     .state('trademark', {
-      url: '/trademark',
+      url: '/trademark/',
       templateUrl: '/views/trademark.html'
     })
 
     // Privacy
     .state('privacy', {
-      url: '/privacy',
+      url: '/privacy/',
       templateUrl: '/views/privacy.html'
     })
 
     // About
     .state('about', {
-      url: '/about',
+      url: '/about/',
       templateUrl: '/views/about.html'
     });
 
