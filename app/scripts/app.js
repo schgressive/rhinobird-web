@@ -157,18 +157,6 @@ angular.module('peepoltv', [
       controller: 'MainCtrl'
     })
 
-    // Channels
-    .state('channel', {
-      url: '/{channelName:[0-9a-zA-Z-_]+}/',
-      templateUrl: '/views/channel.html',
-      controller: 'ChannelCtrl',
-      resolve: {
-        channel: ['$stateParams', 'Channel', function($stateParams, Channel){
-          return Channel.$find($stateParams.channelName).$promise;
-        }]
-      }
-    })
-
     // Vj session
     .state('vjsession', {
       url: '/{channelName:[0-9a-zA-Z-_]+}/{userName:[0-9a-zA-Z-_]+}/',
@@ -198,6 +186,18 @@ angular.module('peepoltv', [
     .state('about', {
       url: '/about/',
       templateUrl: '/views/about.html'
+    })
+
+    // Channels
+    .state('channel', {
+      url: '/{channelName:[0-9a-zA-Z-_]+}/',
+      templateUrl: '/views/channel.html',
+      controller: 'ChannelCtrl',
+      resolve: {
+        channel: ['$stateParams', 'Channel', function($stateParams, Channel){
+          return Channel.$find($stateParams.channelName).$promise;
+        }]
+      }
     });
 
     // Config restmod
