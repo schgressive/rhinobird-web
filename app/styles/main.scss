@@ -275,8 +275,8 @@ i[class*="icon"] {font-style: normal;}
 		background-image: url('/images/golive-btn-hover.svg');
 		transition-property: none;
 	}
-	&.onair {
-		background-image: url('/images/onair-btn.svg');
+	&.stopStream {
+		background-image: url('/images/stopStream-btn.svg');
 	}
 }
 
@@ -594,9 +594,6 @@ i[class*="icon"] {font-style: normal;}
 		}
 		&[title*="Snapshot"] {
 			background-image: url('../images/snapshot-icon-32.svg');
-		}
-		&[title*="Stop"] {
-			background-image: url('../images/cancel-icon-32.svg');
 		}
 	}
 }
