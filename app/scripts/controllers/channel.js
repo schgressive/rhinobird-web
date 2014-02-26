@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel) {
+  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope) {
     var POLLING_TIME = 10000; // 10 seconds
 
 		$scope.user = AuthService.user;
@@ -31,6 +31,11 @@ angular.module('peepoltv.controllers')
         var updatedIds = _.pluck(updatedStreams, "id");
         var diff = _.difference(updatedIds, currentIds);
         var result = _.filter(updatedStreams, function(stream) { return diff.indexOf(stream.id) >= 0; });
+
+        if (result.length > 0) {
+          //notify directive to destroy carousel
+          $rootScope.$broadcast('stream-pool-updated');
+        }
 
         //add streams to the array
         angular.forEach(result, function(stream) {  $scope.liveStreams.push(stream);  });
