@@ -729,15 +729,19 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .btn-overlay {
+	width: 100%;
 	background-color: $darkTrans;
   position: absolute;
-  bottom: 32px;
+  bottom: 0;
   button {
-  	font-size: 12px;
   	color: $white;
+  	width: 100%;
 	  background-image: none;
     background-color: transparent;
     border: none;
+    &:hover {
+	    background-color: $purple;
+    }
   }
 }
 
