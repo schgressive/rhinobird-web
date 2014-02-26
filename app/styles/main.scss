@@ -739,9 +739,7 @@ i[class*="icon"] {font-style: normal;}
 	  background-image: none;
     background-color: transparent;
     border: none;
-    &:hover {
-	    background-color: $purple;
-    }
+    &:hover { background-color: $purple;}
   }
 }
 
