@@ -275,12 +275,12 @@ i[class*="icon"] {font-style: normal;}
 		background-image: url('/images/golive-btn-hover.svg');
 		transition-property: none;
 	}
-	&.onAir {
+	&.stopStream {
 		background-image: url('/images/stopStream-btn.svg');
 	}
 }
 
-.modal-backdrop{
+.modal-backdrop {
   opacity: 0.25 !important;
 }
 
