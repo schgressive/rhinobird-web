@@ -7,7 +7,7 @@ body.base {
 	.btn {
 		color: $textColor;
 		@include fontSize(14px);
-		font-family: "OpenSansBold", $bold-font-stack;
+		font-family: $bold-font-stack;
 		text-transform: uppercase;
 		text-shadow: none;
 		background-color: transparent;
@@ -116,7 +116,7 @@ body.base {
 	.default-wrapper {
 		.btn {
 			color: $white;
-			font-family: "OpenSansBold", $bold-font-stack;
+			font-family: $bold-font-stack;
 			background-color: $darkTrans;
 			border: 2px solid $white;
 			@include font-smoothing();
@@ -221,7 +221,7 @@ body.base {
 	-moz-border-radius: $baseBorderRadius;
 	border-radius: $baseBorderRadius;
 	strong {
-		font-family: "OpenSansBold", $bold-font-stack;
+		font-family: $bold-font-stack;
 		font-weight: normal;
 	}
 }
@@ -243,7 +243,7 @@ body.base {
 	.info { background-color: $infoText;}
 	a { color: $white;}
 	a.btn-social {
-		font-family: "OpenSansBold", $bold-font-stack;
+		font-family: $bold-font-stack;
 		text-align: left;
 		text-transform: uppercase;
 		margin: 6px 20px 0 0;
