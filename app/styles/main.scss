@@ -669,9 +669,11 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 500px) { padding: 0;}
 }
 
+.module-video, .live-stream-link { background-color: $black;}
+
 .module-video {
 	position: relative;
-	overflow: hidden; /*needs fallback for IE? */
+	overflow: hidden;
 	.live-stream-link .licode.ng-scope { width: auto;}
 }
 
@@ -685,21 +687,6 @@ i[class*="icon"] {font-style: normal;}
 	@include opacity(0);
 	z-index:2;
 	&:hover {@include opacity(1); cursor: pointer;}
-}
-
-.results-item {
-	color: $grayDarker;
-	background-color: $white;
-	margin-bottom: 20px;
-	&.span3 {padding: 5px 10px 7px 10px;}
-	&.span4 {padding: 5px 7px 7px;}
-	.profile-list .user-avatar {
-		margin-right: 6px;
-		img { @media screen and (max-width: 500px) { width: 48px; height: 48px;}}
-	}
-	a {color:$grayDarker;}
-	.user-info a { text-decoration: underline;}
-	@media screen and (max-width: 480px) { @include fontSize(12px);}
 }
 
 .module-outer {
@@ -734,10 +721,24 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-large {
+	margin-bottom: 20px;
 	.module-overlay {
 		background:  hsla(0,0%,18%,.7) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
 		background-size: auto;
 	}
+}
+
+.btn-overlay {
+	background-color: $darkTrans;
+  position: absolute;
+  bottom: 32px;
+  button {
+  	font-size: 12px;
+  	color: $white;
+	  background-image: none;
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .owl-carousel {
@@ -749,52 +750,7 @@ i[class*="icon"] {font-style: normal;}
 		top: 0;
 	}
 	.module-outer { height: inherit;}
-	/*
-.module-outer + .streamSelected {
-		color: $white;
-		font-size: 12px;
-		padding: 2px 5px;
-		background-color: $purple;
-		display: block;
-		opacity: .5;
-		position: relative;
-		z-index: 99999;
-		top: -22px;
-	}
-*/
 }
-
-.module-video, .live-stream-link {background-color: $black;}
-
-.btn-overlay {
-	left: 0;
-	top: 0;
-	position: absolute;
-	width:100%;
-	height: 100%;
-	@include opacity(0);
-	&:hover {@include opacity(1);}
-	button {
-		width:32px;
-		height: 32px;
-		border: none;
-		background-image: none;
-		@include opacity(.75);
-		&:hover {@include opacity(1);}
-	}
-	button.btn-top {
-		background-color: $black;
-		margin-left: 3px;
-		position: relative;
-		z-index: 10;
-	}
-}
-
-.module-large {
-		margin-bottom: 20px;
-		button.btn-play { top:33%;}
-	}
-.module-xlarge button.btn-play { top:10%; height: 70%;}
 
 .spinner-overlay {
 	width: 100%;
@@ -852,15 +808,20 @@ i[class*="icon"] {font-style: normal;}
    to {transform: rotate(359deg);}
 }
 
-/*
-.options-row {
-	outline: red solid 1px;
-	margin-top: -24px;
-	background-color: hsla(0,0%,0%,.5);
-	padding-top: 20px;
-	form {margin-left: 30px;}
+.results-item {
+	color: $grayDarker;
+	background-color: $white;
+	margin-bottom: 20px;
+	&.span3 {padding: 5px 10px 7px 10px;}
+	&.span4 {padding: 5px 7px 7px;}
+	.profile-list .user-avatar {
+		margin-right: 6px;
+		img { @media screen and (max-width: 500px) { width: 48px; height: 48px;}}
+	}
+	a {color:$grayDarker;}
+	.user-info a { text-decoration: underline;}
+	@media screen and (max-width: 480px) { @include fontSize(12px);}
 }
-*/
 
 // MAPBOX ------------------------------
 
