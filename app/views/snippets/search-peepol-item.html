@@ -3,7 +3,7 @@
     <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}"/>
   </li>
   <li class="user-info pull-left">
-	  <ul class="no-bullets">
+	  <ul class="no-bullets"><!-- need to fix it so name wraps w/o pushing the whole unit down below the profile image -->
 	    <li class="ellipsis">
 	    	<i class="icon-user"></i>
 	      <a ui-sref="user({userName: user.username})" title="{{user.name}}'s profile">{{user.name}}</h5>
