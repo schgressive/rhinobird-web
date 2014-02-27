@@ -238,9 +238,6 @@ body.base {
 
 .modal {
 	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
-	.warning { background-color: $warningText;}
-	.error { background-color: $errorText;}
-	.info { background-color: $infoText;}
 	a { color: $white;}
 	a.btn-social {
 		font-family: $bold-font-stack;
@@ -325,6 +322,10 @@ body.base {
 	margin: 0;
 	small { display: block; width: 100%; height: auto; padding: 3px 0;}
 	a:link { color: $white; text-decoration: underline;}
+	.info { background-color: $infoText;}
+	.warning { background-color: $warningText;}
+	.error { background-color: $errorText;}
+	.success { background-color: $successText;}
 }
 
 .network { text-transform: capitalize;}

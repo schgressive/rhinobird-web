@@ -123,6 +123,7 @@ article {
 				@include font-smoothing();
 			}
 		}
+		.loggedin-actions .validate { margin-top: -10px;}
 	}
 	@media screen and (max-width: 979px) {
 		.navbar-fixed-top { margin-bottom: 0;}
@@ -280,9 +281,7 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.modal-backdrop {
-  opacity: 0.25 !important;
-}
+.modal-backdrop { opacity: 0.25 !important;}
 
 .mainWrapper {
 	.main {
