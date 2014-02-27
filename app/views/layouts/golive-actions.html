@@ -4,7 +4,7 @@
       <a ui-sref="profile({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
 		    <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
 			</a>
-      <ul class="golive-list pull-left inline">
+      <ul class="action-list pull-left inline">
         <li>
           <a href="#" ng-click="ctrl.stop(true)" role="button" title="Close & Return"><span class="visually-hidden">Close & Return</span></a>
         </li>

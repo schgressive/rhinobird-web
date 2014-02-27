@@ -542,7 +542,7 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 960px) { width: 100px;}
 }
 
-.social-list, .golive-list {
+.social-list, .action-list {
 	margin: 0;
 	padding-top: 5px;
 	a {
@@ -578,7 +578,7 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.golive-list {
+.action-list {
 	a {
 		opacity: .7;
 		&:hover { opacity: 1;}
@@ -587,6 +587,9 @@ i[class*="icon"] {font-style: normal;}
 		}
 		&[title*="Snapshot"] {
 			background-image: url('../images/snapshot-icon-32.svg');
+		}
+		&[title*="Download"] {
+			background-image: url('../images/download-icon-32.svg');
 		}
 	}
 }
