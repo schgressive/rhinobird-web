@@ -69,6 +69,16 @@ angular.module('peepoltv.directives')
 
         });
 
+        // destroy carousel to avoid bug when ngrepeat runs before the owl destroy method
+        scope.$on('stream-pool-updated', function() {
+
+            var owlInstance = owl.data('owlCarousel');
+            if (!angular.isUndefined(owlInstance)) {
+              owlInstance.destroy();
+            }
+
+        });
+
         // When a stream is added or removed
         scope.$on('licode-stream-status-changed', function(event, params){
 
