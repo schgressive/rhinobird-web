@@ -146,11 +146,11 @@ angular.module('peepoltv.directives')
                 }
 
               });
+            }
 
-              // Ensure the visible streams are playing
-              if(stream.licode){
-                stream.licode.player.video.play();
-              }
+            // Ensure the visible streams are playing
+            if(stream.licode){
+              stream.licode.player.video.play();
             }
           });
         };
