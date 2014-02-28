@@ -494,7 +494,7 @@ i[class*="icon"] {font-style: normal;}
 		display: block;
 		&.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
 		&.vj-live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
-		&.vj-archive { &.live { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}}
+		&.vj-archive { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
 	}
 	.owl-theme .owl-controls .owl-buttons div {
 		padding: 8px 16px;
