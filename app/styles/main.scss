@@ -791,6 +791,19 @@ i[class*="icon"] {font-style: normal;}
    to {transform: rotate(359deg);}
 }
 
+@keyframes fadeOut {
+    0%, 25%, 75% { opacity: 1;}
+    80% { opacity: .75;}
+    100% { opacity: 0;}
+}
+
+.fadeOut {
+	-webkit-animation: fadeOut .6s 1 linear;
+   -moz-animation: fadeOut .6s 1 linear;
+   -o-animation: fadeOut .6s 1 linear;
+   animation: fadeOut .6s 1 linear;
+}
+
 .results-item {
 	color: $grayDarker;
 	background-color: $white;
@@ -805,6 +818,8 @@ i[class*="icon"] {font-style: normal;}
 	.user-info a { text-decoration: underline;}
 	@media screen and (max-width: 480px) { @include fontSize(12px);}
 }
+
+
 
 // MAPBOX ------------------------------
 
