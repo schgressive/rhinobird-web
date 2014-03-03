@@ -1,13 +1,52 @@
 <div class="row-fluid">
+	<p>Edit your username, avatar, email, etc.</p>
+</div><!-- /.row-fluid -->
+<div class="row-fluid">
   <div class="span8">
     <form name="userSettings" role="form" ng-submit="" ng-controller="">
-			<label class="visually-hidden" for=""></label>
-			<div class="input-prepend">
-				<input type="" name="" placeholder="">
-				<div class="validate" ng-show="">
-					<small class=""></small>
-				</div>
+			<div class="form-block">
+				<fieldset class="inline-form">
+					<label for="input-name">Name</label>
+					<input type="text" id="input-name" value="{{self.user.name}}"/>
+					<div class="validate" ng-show="">
+						<small class=""></small>
+					</div>
+				</fieldset>
+				<small class="detail">How we address you. Your name is not public.</small>
+			</div><!-- /.form-block -->
+			<div class="form-block">
+				<fieldset class="inline-form">
+					<label for="input-username">Username</label>
+					<input type="text" id="input-username" value="{{self.user.username}}"/>
+					<div class="validate" ng-show="">
+						<small class=""></small>
+					</div>
+				</fieldset>
+				<small class="detail">Your Peepol.tv username.</small>
+			</div><!-- /.form-block -->
+			<div class="form-block">
+				<fieldset class="inline-form">
+					<label for="input-email">Email</label>
+					<input type="email" id="input-email" value="{{self.user.email}}"/>
+					<div class="validate" ng-show="">
+						<small class=""></small>
+					</div>
+				</fieldset>
+				<small class="detail">Your email is used for signing-in and correspondence.</small>
+			</div><!-- /.form-block -->
+			<div class="form-buttons">
+				<input class="btn btn-primary pull-left" type="submit" value="Update" ng-click=""/>
+				<a class="pull-right" href="#" ng-click="">Delete Your Account</a>
 			</div>
     </form>
-  </div><!-- /.span12 -->
+  </div><!-- /.span8 -->
+  <div class="span4">
+  	<form name="userAvatar" role="form" ng-submit="" ng-controller="">
+  		<img class="pull-left" src="{{ self.user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt=""/>
+  		<div class="pull-left">
+  			<input class="btn btn-primary" ng-click="" type="button" value="Change Avatar"/>
+  			<input class="btn" ng-click="" type="button" role="button" value="Delete Avatar"/>
+  		</div>
+  	</form>
+  </div><!-- /.span4 -->
 </div><!-- /.row-fluid -->
