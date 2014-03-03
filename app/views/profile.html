@@ -18,15 +18,26 @@
 </section><!-- /.top-content -->
 <div class="main" role="main">
   <div class="width-controller container-fluid">
-    <section class="lower-content">
-      <div class="row-fluid">
-        <h3 class="span6">Your Streams:</h3>
-      </div><!-- /.row-fluid -->
-      <div class="row-fluid">
-        <div class="span12">
-          <div infinite-stream-list streams="self.streams"></div>
-        </div><!-- /.span12 -->
-      </div><!-- /.row-fluid -->
-    </section><!-- /.lower-content -->
+  	<section class="mid-content">
+		  <div class="row-fluid">
+				<div class="tabs span6">
+			    <ul class="inline no-bullets">
+			      <li ng-class="getClass('/profile/streams')">
+			      	<a ui-sref="profile.streams" data-toggle="tab"><i class="icon-headphones"></i>Your Streams</a>
+			      </li>
+			      <li ng-class="getClass('/profile/settings')">
+			      	<a ui-sref="profile.settings" data-toggle="tab"><i class="icon-cog"></i>Settings</a>
+			      </li>
+			    </ul>
+			  </div><!-- /.tabs -->
+		  </div><!-- /.row-fluid -->
+		</section><!-- /.mid-content -->
+		<section class="lower-content">
+			<div class="tab-content">
+			  <div class="tab-pane active">
+          <div ui-view></div>
+			  </div>
+			</div>
+		</section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
