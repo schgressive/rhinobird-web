@@ -60,7 +60,8 @@ angular.module('peepoltv', [
     - search.channels                         /search/channels
     - search.peepol                           /search/peepol
     - golive                                  /golive
-    - profile                                 /profile
+    - profile.streams                         /profile/streams
+    - profile.settings												/profile/settings
     - terms	                                  /terms
 		- trademark	                              /trademark
     - privacy                                 /privacy
@@ -130,6 +131,14 @@ angular.module('peepoltv', [
           return AuthService.getSession();
         }]
       }
+    })
+    .state('profile.streams', {
+      url: '/streams/',
+      templateUrl: '/views/profile-streams.html'
+    })
+    .state('profile.settings', {
+      url: '/settings/',
+      templateUrl: '/views/profile-settings.html'
     })
 
     // Streams
