@@ -459,7 +459,7 @@ i[class*="icon"] {font-style: normal;}
 	padding-bottom:	30px;
 	h4 { margin-top: 0px;}
 	.row-fluid {margin-bottom: 40px;}
-	.row-fluid:first-of-type {margin-bottom: 0;}
+	&.media-area .row-fluid:first-of-type {margin-bottom: 0;}
 	.row-fluid [class*="span3"] {
 		@media screen and (max-width: 760px) {
 			width: 31.91%;
@@ -532,9 +532,6 @@ i[class*="icon"] {font-style: normal;}
 		}
 	}
 	.mid-content + .lower-content { border-top: solid 2px white; padding-top: 40px;}
-	.lower-content {
-		.row-fluid:first-of-type { margin-bottom: 40px;}
-	}
 }
 
 .featureIcon {
