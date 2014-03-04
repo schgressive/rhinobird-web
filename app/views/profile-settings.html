@@ -1,13 +1,11 @@
+<p>Edit your username, avatar, email, etc.</p>
 <div class="row-fluid">
-	<h4>Edit your username, avatar, email, etc.</h4>
-</div><!-- /.row-fluid -->
-<div class="row-fluid">
-  <div class="span8">
+  <div class="span6">
     <form name="userSettings" role="form" ng-submit="" ng-controller="">
 			<div class="form-block">
-				<fieldset class="inline-form">
+				<fieldset>
 					<label for="input-name">Name</label>
-					<input type="text" id="input-name" value="{{self.user.name}}"/>
+					<input class="input-xlarge" type="text" id="input-name" value="{{self.user.name}}"/>
 					<div class="validate" ng-show="">
 						<small class=""></small>
 					</div>
@@ -15,9 +13,9 @@
 				<small class="detail">How we address you. Your name is not public.</small>
 			</div><!-- /.form-block -->
 			<div class="form-block">
-				<fieldset class="inline-form">
+				<fieldset>
 					<label for="input-username">Username</label>
-					<input type="text" id="input-username" value="{{self.user.username}}"/>
+					<input class="input-xlarge" type="text" id="input-username" value="{{self.user.username}}"/>
 					<div class="validate" ng-show="">
 						<small class=""></small>
 					</div>
@@ -25,26 +23,26 @@
 				<small class="detail">Your Peepol.tv username.</small>
 			</div><!-- /.form-block -->
 			<div class="form-block">
-				<fieldset class="inline-form">
+				<fieldset>
 					<label for="input-email">Email</label>
-					<input type="email" id="input-email" value="{{self.user.email}}"/>
+					<input class="input-xlarge" type="email" id="input-email" value="{{self.user.email}}"/>
 					<div class="validate" ng-show="">
 						<small class=""></small>
 					</div>
 				</fieldset>
 				<small class="detail">Your email is used for signing-in and correspondence.</small>
 			</div><!-- /.form-block -->
-			<div class="form-buttons">
-				<input class="btn btn-primary pull-left" type="submit" value="Update" ng-click=""/>
+			<div class="form-buttons clearfix">
+				<input class="btn btn-primary pull-left" type="submit" value="Update Settings" ng-click=""/>
 				<a class="pull-right" href="#" ng-click="">Delete Your Account</a>
 			</div>
     </form>
   </div><!-- /.span8 -->
   <div class="span4">
   	<form name="userAvatar" role="form" ng-submit="" ng-controller="">
-  		<img class="pull-left" src="{{ self.user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt=""/>
+  		<img class="pull-left" src="{{ self.user.photo || (self.user.email | gravatar:120:'/images/profile-default.svg')}}" alt=""/>
   		<div class="pull-left">
-  			<input class="btn btn-primary" ng-click="" type="button" value="Change Avatar"/>
+  			<input class="btn btn-accent" ng-click="" type="button" value="Change Avatar"/>
   			<input class="btn" ng-click="" type="button" role="button" value="Delete Avatar"/>
   		</div>
   	</form>
