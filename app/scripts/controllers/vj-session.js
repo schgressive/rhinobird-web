@@ -54,7 +54,7 @@ angular.module('peepoltv.controllers')
 
       // Only when there is no current stream
       if(!$scope.currentStream){
-        var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode.getID() === stream.getID();});
+        var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
 
         // Choose the one that's active to play in the main screen
         if(eventStream.active){
