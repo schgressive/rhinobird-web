@@ -95,7 +95,7 @@ angular.module('peepoltv.controllers')
 
       // Start the vj
       if(stremsToThePool && stremsToThePool.length >= 1){
-        VjService.startBroadcast(stremsToThePool, currentStreamId);
+        VjService.startBroadcast(stremsToThePool, currentStreamId, $scope.channel.name);
       }
     };
 

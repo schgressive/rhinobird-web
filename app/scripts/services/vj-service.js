@@ -52,8 +52,9 @@ angular.module('peepoltv.services')
      * Is needed at least one stream in the pool to start de connection
      * @param  {array} streams         array of streams to add to the pool
      * @param  {string} currentStreamId Id of the stream that is currently selected
+     * @param  {string} channelName     Set the channel name for the stream_pool
      */
-    this.startBroadcast = function(streams, currentStreamId){
+    this.startBroadcast = function(streams, currentStreamId, channelName){
 
       // Get the current user vj pool of streams
       // Could have streams from a previously initiated session in the same channel
@@ -77,7 +78,7 @@ angular.module('peepoltv.services')
           var isCurrent = s.id === currentStreamId;
 
           // Add the stream to the pool
-          _self.addStream(s, isCurrent).then(function(_vjStream){
+          _self.addStream(s, isCurrent, channelName).then(function(_vjStream){
 
             // create the socked channel after the first stream is added
             if(!_self.live && idx === 0){
@@ -108,11 +109,12 @@ angular.module('peepoltv.services')
     };
 
     // Add a new stream to the pool
-    this.addStream = function(stream, active){
+    this.addStream = function(stream, active, channelName){
 
       var addedStream = _self.pool.$build();
       addedStream.active = active || false;
       addedStream.streamId = stream.id;
+      addedStream.channelName = channelName;
       addedStream.$save();
 
       if(_self.socket){
