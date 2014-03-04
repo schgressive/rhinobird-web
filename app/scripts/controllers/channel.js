@@ -61,7 +61,6 @@ angular.module('peepoltv.controllers')
 
     $scope.$on('stream-pool-changed', function(event, status){
       var action = status.action;
-      console.log(action, status.stream);
 
       // Send message new vj stream
       if(VjService.live){
@@ -79,7 +78,7 @@ angular.module('peepoltv.controllers')
 
       // Only when there is no current stream
       if(!$scope.currentStream){
-        var eventStream = _.find($scope.liveStreams, function(s){return s.streamId === stream.getID();});
+        var eventStream = _.find($scope.liveStreams, function(s){return s.licode.getID() === stream.getID();});
 
         // Choose the first strea to play in the main screen
         if(_.indexOf($scope.liveStreams, eventStream) === 0){
@@ -92,10 +91,11 @@ angular.module('peepoltv.controllers')
     $scope.startVj = function(){
       // The current stream id
       var currentStreamId = ($scope.currentStream)? $scope.currentStream.id : undefined;
+      var stremsToThePool = _.filter($scope.liveStreams, function(s){ return s.isConnected; });
 
       // Start the vj
-      if($scope.liveStreams && $scope.liveStreams.length >= 1){
-        VjService.startBroadcast($scope.liveStreams, currentStreamId);
+      if(stremsToThePool && stremsToThePool.length >= 1){
+        VjService.startBroadcast(stremsToThePool, currentStreamId);
       }
     };
 

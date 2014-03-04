@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('VjSessionCtrl', function ($scope, channel, user, VjService) {
+  .controller('VjSessionCtrl', function ($scope, channel, user, VjService, Stream) {
 
     $scope.self = $scope;
 
@@ -23,6 +23,28 @@ angular.module('peepoltv.controllers')
             streamToActivate.active = true;
             $scope.currentStream = streamToActivate.stream;
           }
+
+          if(streamEvent.msg.event === 'pool-change'){
+            var action = streamEvent.msg.params.action;
+            var streamId = streamEvent.msg.params.streamId;
+
+            if(action === 'add'){
+              Stream.$find(streamId).$then(function(s){
+                var vjStream = $scope.vjstreams.$build();
+                vjStream.streamId = s.id;
+                vjStream.active = false;
+                vjStream.token = s.token;
+                vjStream.stream = s;
+              });
+            }
+
+            if(action === 'remove'){
+              var streamToRemove = _.find($scope.vjstreams, function(vs){
+                return vs.streamId === streamId;
+              });
+              $scope.vjstreams.$remove(streamToRemove);
+            }
+          }
         });
       });
     });
@@ -32,7 +54,7 @@ angular.module('peepoltv.controllers')
 
       // Only when there is no current stream
       if(!$scope.currentStream){
-        var eventStream = _.find($scope.vjstreams, function(s){return s.stream.streamId === stream.getID();});
+        var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode.getID() === stream.getID();});
 
         // Choose the one that's active to play in the main screen
         if(eventStream.active){

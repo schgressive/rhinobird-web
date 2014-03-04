@@ -12,9 +12,9 @@ angular.module('peepoltv.services')
     this.socket = null;
 
     /**
-     * Get the stream from the ppo
+     * Get the stream from the pool
      * @param  {stream} stream
-     * @return {stream}        [description]
+     * @return {stream}
      */
     var getPoolStream = function(stream){
       return _.find(_self.pool, function(vjs){
@@ -55,8 +55,9 @@ angular.module('peepoltv.services')
      */
     this.startBroadcast = function(streams, currentStreamId){
 
-      // Pool of playing streams
-      _self.pool = VjStream.$search().$then(function(){
+      // Get the current user vj pool of streams
+      // Could have streams from a previously initiated session in the same channel
+      _self.pool = VjStream.$search({ 'force_check': true }).$then(function(){
 
         // If there are streams in the pool, connect to the socket
         if(_self.pool.length > 0){
@@ -65,12 +66,12 @@ angular.module('peepoltv.services')
 
         // From the streams currently connected from the channels,
         // Find the ones that arent in the pool.
-        var streamsToAdd = _.filter(streams, function(stream){
-          return _self.pool.$indexOf(getPoolStream(stream)) < 0;
-        });
+        // var streamsToAdd = _.filter(streams, function(stream){
+        //   return _self.pool.$indexOf(getPoolStream(stream)) < 0;
+        // });
 
         // Add the streams to the pool
-        _.each(streamsToAdd, function(s, idx){
+        _.each(streams, function(s, idx){
 
           // Find the stream that is playing
           var isCurrent = s.id === currentStreamId;
@@ -109,37 +110,39 @@ angular.module('peepoltv.services')
     // Add a new stream to the pool
     this.addStream = function(stream, active){
 
-      // Add the stream to the pool
-      var newVjStream = _self.pool.$build();
-      newVjStream.active = active || false;
-      newVjStream.streamId = stream.id;
+      var addedStream = _self.pool.$build();
+      addedStream.active = active || false;
+      addedStream.streamId = stream.id;
+      addedStream.$save();
 
-      newVjStream.$save();
+      if(_self.socket){
+        // Broadcast the event
+        _self.socket.broadcastEvent('pool-change', {
+          action: 'add',
+          streamId: stream.id
+        });
+      }
 
-      // Broadcast the event
-      _self.socket.broadcastEvent('pool-change', {
-        action: 'add',
-        streamId: stream.id
-      });
-
-      return newVjStream.$promise;
+      return addedStream.$promise;
     };
 
     // Remove a stream from the pool
     this.removeStream = function(stream){
 
       // Remove the stream from the pool
-      var removeStream = getPoolStream(stream);
-      removeStream.$pk = stream.id;
-      removeStream.$destroy();
+      var removedStream = getPoolStream(stream);
+      removedStream.$pk = stream.id;
+      removedStream.$destroy();
 
-      // Broadcast the event
-      _self.socket.broadcastEvent('pool-change', {
-        action: 'remove',
-        streamId: stream.id
-      });
+      if(_self.socket){
+        // Broadcast the event
+        _self.socket.broadcastEvent('pool-change', {
+          action: 'remove',
+          streamId: stream.id
+        });
+      }
 
-      return removeStream.$promise;
+      return removedStream.$promise;
     };
 
     // Activate a stream from the pool
@@ -151,9 +154,11 @@ angular.module('peepoltv.services')
       activeStream.$save();
 
       // Broadcast the event
-      _self.socket.broadcastEvent('active-stream-change', {
-        streamId: stream.id
-      });
+      if(_self.socket){
+        _self.socket.broadcastEvent('active-stream-change', {
+          streamId: stream.id
+        });
+      }
 
       return activeStream.$promise;
     };
