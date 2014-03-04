@@ -35,8 +35,8 @@ angular.module('peepoltv.controllers')
     //function that adds new streams to the current live stream array
     var checkNewStreams = function() {
       channel.streams.live(true).$then(function(updatedStreams) {
-        var currentIds = _.pluck($scope.liveStreams, "id");
-        var updatedIds = _.pluck(updatedStreams, "id");
+        var currentIds = _.pluck($scope.liveStreams, 'id');
+        var updatedIds = _.pluck(updatedStreams, 'id');
         var diff = _.difference(updatedIds, currentIds);
         var result = _.filter(updatedStreams, function(stream) { return diff.indexOf(stream.id) >= 0; });
 
@@ -48,7 +48,7 @@ angular.module('peepoltv.controllers')
         //add streams to the array
         angular.forEach(result, function(stream) {  $scope.liveStreams.push(stream);  });
       });
-    }
+    };
 
     // check for new streams every 10 seconds
     var polling = $interval(checkNewStreams, POLLING_TIME);
