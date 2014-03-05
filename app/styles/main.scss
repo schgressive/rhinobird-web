@@ -495,6 +495,7 @@ i[class*="icon"] {font-style: normal;}
 		&.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
 		&.vj-live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
 		&.vj-archive { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
+		&.production { background: transparent url('/images/production-icon-32.svg') top left no-repeat;}
 	}
 	.owl-theme .owl-controls .owl-buttons div {
 		padding: 8px 16px;
@@ -705,6 +706,9 @@ i[class*="icon"] {font-style: normal;}
 	.module-overlay {
 		background:  hsla(0,0%,18%,.7) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
 		background-size: auto;
+	}
+	.production + .module-overlay {
+		background-image: url('/images/archiving-overlay.svg');
 	}
 }
 
