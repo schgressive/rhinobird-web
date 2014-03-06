@@ -877,6 +877,10 @@ i[class*="icon"] {font-style: normal;}
   display: none !important;
 }
 
+[hash-to-link] a{
+  color: $purple;
+}
+
 /* rule for hiding elements until angular boots*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
