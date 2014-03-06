@@ -19,8 +19,14 @@ angular.module('peepoltv.controllers')
       VjService.socket.stream.addEventListener('stream-data', function(streamEvent){
         $scope.$apply(function(){
           if(streamEvent.msg.event === 'active-stream-change'){
+            _.each($scope.vjstreams, function(_vjstream){
+              // Mute them
+              _vjstream.stream.isMuted = true;
+            });
+
             var streamToActivate = _.find($scope.vjstreams, function(s){return s.streamId === streamEvent.msg.params.streamId;});
             streamToActivate.active = true;
+            streamToActivate.stream.isMuted = false;
             $scope.currentStream = streamToActivate.stream;
           }
 
@@ -51,16 +57,19 @@ angular.module('peepoltv.controllers')
 
     // Set the active stream as the current stream in the scope
     $scope.$on('licode-video-created', function(event, stream){
+      var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
 
       // Only when there is no current stream
       if(!$scope.currentStream){
-        var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
 
         // Choose the one that's active to play in the main screen
         if(eventStream.active){
           // Set the current stream
           $scope.currentStream = eventStream.stream;
         }
+
       }
+
+      eventStream.stream.isMuted = !eventStream.active;
     });
   });

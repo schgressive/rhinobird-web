@@ -30,7 +30,7 @@
 	    </div><!-- /.row-fluid -->
       <div class="hidden">
         <div ng-repeat="vjstream in vjstreams | filter:{stream.status: 'live'}">
-          <div stream-viewer stream="vjstream.stream" size="mini" mute="true" on="true"></div>
+          <div stream-viewer stream="vjstream.stream" size="mini" mute="{{vjstream.stream.isMuted}}" on="true"></div>
         </div>
       </div>
 	  </section><!-- /.mid-content -->
