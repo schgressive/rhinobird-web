@@ -70,6 +70,12 @@ angular.module('peepoltv.controllers')
 
     };
 
+
+    // Updates the thumbnail
+    this.updateThumbnail = function() {
+      GoliveService.updateThumbnail();
+    }
+
     this.updateCaption = function(caption){
       var payload = {
         caption: caption
