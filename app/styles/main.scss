@@ -495,7 +495,7 @@ i[class*="icon"] {font-style: normal;}
 		&.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
 		&.vj-live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
 		&.vj-archive { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
-		&.pending { background: transparent url('/images/production-icon-32.svg') top left no-repeat;}
+		&.pending { background: transparent url('/images/pending-icon-32.svg') top left no-repeat;}
 	}
 	.owl-theme .owl-controls .owl-buttons div {
 		padding: 8px 16px;
@@ -679,7 +679,7 @@ i[class*="icon"] {font-style: normal;}
 		@include fontSize(12px);
 		padding: 3px 6px 3px 6px;
 	}
-	a {color:$grayDarker;}
+	a {color:$grayDarker; text-decoration: underline;}
 	.thumb-user {
 		margin-right: 10px;
 		@media screen and (max-width: 500px) { display: none;}
@@ -724,6 +724,7 @@ i[class*="icon"] {font-style: normal;}
     background-color: transparent;
     border: none;
     &:hover { background-color: $purple;}
+    &.active { background-color: $orange;}
   }
 }
 
