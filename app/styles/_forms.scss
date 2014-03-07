@@ -3,11 +3,32 @@
 
 form { margin: 0;}
 
+.general-form {
+	.user-avatar {
+		margin-right: 16px;
+		img {
+			width: 100px;
+			height: 100px;
+		}
+		& + .form-buttons { padding-top: 10px;}
+	}
+}
+
 .form-block {
 	label { @include fontSize(16px); font-family: $bold-font-stack;}
 	input { margin-bottom: 0;}
+	input[type="text"], input[type="email"] { color: $gray;}
 	& + .form-block { margin-top: 16px;}
 	& + .form-buttons { margin-top: 26px;}
+}
+
+.form-buttons {
+		.btn-link {
+			display: block;
+			padding: 0;
+			margin-top: 12px;
+		}
+		.btn + .btn { margin-top: 12px;}
 }
 
 body.base {
