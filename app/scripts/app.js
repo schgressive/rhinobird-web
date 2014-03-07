@@ -145,7 +145,24 @@ angular.module('peepoltv', [
     .state('stream', {
       url: '/stream/:streamId/',
       templateUrl: '/views/stream.html',
-      controller: 'StreamCtrl'
+      controller: 'StreamCtrl',
+      resolve: {
+        stream: function(Stream, $q, $stateParams) {
+          var deferred = $q.defer();
+
+          var stream = Stream.$find($stateParams.streamId).$then(function() {
+            if (stream.status == "pending") {
+              deferred.reject("not yet archived");
+            } else {
+              deferred.resolve(stream);
+            }
+          }, function() {
+            deferred.reject("error");
+          });
+
+          return deferred.promise;
+        }
+      }
     })
 
     // User
@@ -241,8 +258,12 @@ angular.module('peepoltv', [
         $state.go('golive');
       });
     }
-    // Navigate to main page
-    $state.go('main');
+
+    //if we weren't trying to open an archiving stream
+    if (to.name != 'stream') {
+      // Navigate to main page
+      $state.go('main');
+    }
   });
 
   // Create an app object in the root scope for general application variables
