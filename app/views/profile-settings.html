@@ -1,6 +1,6 @@
 <p>Edit your username, avatar, email, etc.</p>
 <div class="row-fluid">
-	<div class="span6">
+	<div class="span6 form-wrapper">
 		<form class="general-form" name="userSettings" role="form" ng-submit="" ng-controller="">
 			<div class="form-block">
 				<fieldset>
@@ -38,12 +38,12 @@
 			</div>
     </form>
 	</div><!-- /.span6 -->
-  <div class="span6">
+  <div class="span6 form-wrapper">
 		<form class="general-form" name="userAvatar" role="form" ng-submit="" ng-controller="">
 			<div class="user-avatar pull-left">
 				<img src="{{ self.user.photo || (self.user.email | gravatar:120:'/images/profile-default.svg')}}" alt=""/>
 			</div>
-  		<div class="form-buttons">
+  		<div class="form-buttons clearfix">
   			<input class="btn btn-accent" ng-click="" type="button" value="Change Avatar"/>
   			<input class="btn" ng-click="" type="button" role="button" value="Delete Avatar"/>
   		</div>

@@ -10,9 +10,15 @@ form { margin: 0;}
 			width: 100px;
 			height: 100px;
 		}
-		& + .form-buttons { padding-top: 10px;}
+		& + .form-buttons {
+			max-width: 280px;
+			padding-top: 10px;
+			.btn { min-width: 141px;}
+		}
 	}
 }
+
+.form-wrapper.span6 {	@media screen and (max-width: 700px) { float: none;}}
 
 .form-block {
 	label { @include fontSize(16px); font-family: $bold-font-stack;}
