@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService) {
+  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService, $timeout) {
 
 		$scope.user = session.user;
 
@@ -18,6 +18,7 @@ angular.module('peepoltv.controllers')
     $scope.vm = vm; // Expose the viewmodel in the scope
     $scope.ctrl = this; // Expose the controller
     $scope.vm.caption_warning = false;
+    $scope.vm.showSuccess = false;
 
     // The the caption for the stream
     vm.caption = '';
@@ -81,7 +82,13 @@ angular.module('peepoltv.controllers')
         caption: caption
       };
 
-      GoliveService.updateStream(payload);
+      GoliveService.updateStream(payload).then(function() {
+        vm.showSuccess = true;
+        $timeout(function() {
+          vm.showSuccess = false
+        }, 3000);
+
+      });
     };
 
     /**
