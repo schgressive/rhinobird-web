@@ -18,7 +18,11 @@ form { margin: 0;}
 	}
 }
 
-.form-wrapper.span6 {	@media screen and (max-width: 700px) { float: none;}}
+.form-wrapper.span6 {
+	@media screen and (max-width: 700px) { float: none; margin-left: 0;}
+	@media screen and (max-width: 600px) { width: 100%;}
+	& + .form-wrapper { @media screen and (max-width: 700px){ margin-top: 20px;}}
+}
 
 .form-block {
 	label { @include fontSize(16px); font-family: $bold-font-stack;}

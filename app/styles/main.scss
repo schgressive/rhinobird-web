@@ -693,7 +693,7 @@ i[class*="icon"] {font-style: normal;}
 .module-xlarge {
 	padding: 10px 10px 0;
 	background-color: $white;
-	canvas { width: 100%;}
+	canvas, video { width: 100%;}
 	.module-outer { padding-left: 0px}
 	.ng-isolate-scope .licode {
 		@media screen and (max-width: 600px) { height: 436px !important;}
