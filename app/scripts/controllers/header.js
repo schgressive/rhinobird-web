@@ -25,8 +25,8 @@ angular.module('peepoltv.controllers')
     };
 
     // Emit stop broadcast event
-    $scope.stopBroadcast = function(stay){
-      $rootScope.$broadcast('liveStreamStopped', { stay: stay});
+    $scope.stopBroadcast = function(params){
+      $rootScope.$broadcast('liveStreamStopped', params);
     };
 
     $scope.golive = function() {

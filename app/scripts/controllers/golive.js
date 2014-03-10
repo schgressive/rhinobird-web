@@ -109,6 +109,11 @@ angular.module('peepoltv.controllers')
       openDialog();
     });
 
+    $scope.$on("liveStreamStopped", function(event, data) {
+      $scope.ctrl.stop(data.goback);
+
+    });
+
     $scope.gotoTerms = function() {
       modalInstance.close();
       $state.go("terms");

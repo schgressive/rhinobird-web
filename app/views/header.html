@@ -33,8 +33,8 @@
             </nav><!-- /.main-nav -->
             <a href="/" class="brand" title="return to home" rel="home"><span>peepol.tv</span></a>
           </div><!-- /.main-nav-wrapper -->
-<!-- NOTE FOR DEVS: please change ng-class to .stopStream when the Start/Stop function is hooked up -->
-          <a class="golive-btn pull-right" ng-class="{onair: app.onAir}" ng-click="golive()" href="#" role="button"><span class="visually-hidden">Click to Go Live!</span></a>
+          <a class="golive-btn pull-right" ng-hide="app.onAir" ng-click="golive()" href="#" role="button"><span class="visually-hidden">Click to Go Live!</span></a>
+          <a class="golive-btn pull-right stopStream" ng-show="app.onAir" ng-click="stopBroadcast({goback: false})" href="#" role="button"><span class="visually-hidden">Click to stop</span></a>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div><!-- /.inner-navbar -->
