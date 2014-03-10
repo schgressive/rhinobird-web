@@ -147,7 +147,7 @@ angular.module('peepoltv', [
       templateUrl: '/views/stream.html',
       controller: 'StreamCtrl',
       resolve: {
-        stream: function(Stream, $q, $stateParams) {
+        stream: ['Stream', '$q', '$stateParams', function(Stream, $q, $stateParams) {
           var deferred = $q.defer();
 
           var stream = Stream.$find($stateParams.streamId).$then(function() {
@@ -161,7 +161,7 @@ angular.module('peepoltv', [
           });
 
           return deferred.promise;
-        }
+        }]
       }
     })
 
