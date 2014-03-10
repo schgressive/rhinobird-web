@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ProfileCtrl', function ($scope, User, session) {
+  .controller('ProfileCtrl', function ($scope, User, session, $location) {
 
     $scope.self = $scope;
 
