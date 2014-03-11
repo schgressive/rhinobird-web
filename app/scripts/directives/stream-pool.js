@@ -8,8 +8,7 @@ angular.module('peepoltv.directives')
       scope: {
         streams: '=',
         currentStream: '=',
-        fixedAudioStream: '=',
-        vj: '@'
+        fixedAudioStream: '='
       },
       link: function postLink(scope, element, attrs) {
 
