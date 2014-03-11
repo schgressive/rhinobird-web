@@ -26,15 +26,25 @@ angular.module('peepoltv.controllers')
           clusterLayer = null;
         }
         // only show cluster layer at certain zoom
-        if ($scope.map.search.zoom < 14) {
-          var markers = L.markerClusterGroup();
-          var newLayer = L.geoJson($scope.streams.asGeoJSON());
-          markers.addLayer(newLayer);
-          map.addLayer(markers);
+        var cluster = L.markerClusterGroup();
+        var newLayer = L.geoJson($scope.streams.asGeoJSON(), {
+          onEachFeature: function(feature, layer) {
+            // Create get the view template
+            var popupContent = '<div ng-include="\'/views/templates/map-stream-popup.html\'"></div>';
 
-          clusterLayer = markers;
-          $scope.map.geoJSON = [];
-        }
+            layer.bindPopup(popupContent, {
+              closeButton: false,
+              minWidth: 200,
+              feature: feature
+            });
+          }
+        });
+
+        cluster.addLayer(newLayer);
+        map.addLayer(cluster);
+
+        clusterLayer = cluster;
+        $scope.map.geoJSON = [];
       })
     }
 
@@ -129,21 +139,6 @@ angular.module('peepoltv.controllers')
 
     // Expose geoJSON collection in the scope
     $scope.streams.$on('after-fetch-many', function(){
-      $scope.map.geoJSON = {
-        data: this.asGeoJSON(),
-        onEachFeature: function(feature, layer){
-          // Create get the view template
-          var popupContent = '<div ng-include="\'/views/templates/map-stream-popup.html\'"></div>';
-
-          // Bind the popup
-          // HACK: I have added the stream in the popup options
-          layer.bindPopup(popupContent,{
-            closeButton: false,
-            minWidth: 200,
-            feature: feature
-          });
-        }
-      };
       processLayers();
     });
 
