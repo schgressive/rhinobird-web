@@ -9,16 +9,20 @@ angular.module('peepoltv.controllers')
     $scope.user = session.user;
 
     // Expose the user streams
-    var userTmp = User.$build({id: session.user.username});
+    var userTmp = User.$build({username: session.user.username});
     $scope.streams = userTmp.streams.getNextPage();
 
     // apply active class to tabs
     $scope.getClass = function(path) {
-		    if ($location.path().substr(0, path.length) == path) {
-		      return "active"
-		    } else {
-		      return ""
-		    }
-		}
+      if ($location.path().substr(0, path.length) === path) {
+        return 'active';
+      } else {
+        return '';
+      }
+    };
+
+    $scope.updateSettings = function(){
+      $scope.user.$save();
+    };
 
   });

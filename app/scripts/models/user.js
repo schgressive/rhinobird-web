@@ -15,5 +15,7 @@ angular.module('peepoltv.models')
         //remove the password after signup
         delete user.password;
       });
+
+      this.setPrimaryKey('username');
     });
   });

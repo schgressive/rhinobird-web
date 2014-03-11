@@ -7,9 +7,9 @@
         </li>
         <li class="user-info pull-left">
           <ul class="no-bullets">
-          	<li>
-	            <h2>{{self.user.username}}</h2>
-	          </li>
+            <li>
+              <h2>{{self.user.username}}</h2>
+            </li>
           </ul>
         </li>
       </ul><!-- /.profile-list -->
@@ -18,29 +18,29 @@
 </section><!-- /.top-content -->
 <div class="main" role="main">
   <div class="width-controller container-fluid">
-  	<section class="mid-content">
-		  <div class="row-fluid">
-				<div class="tabs span6">
-			    <ul class="inline no-bullets">
-			      <li ng-class="getClass('/profile/streams')">
-			      	<a ui-sref="profile.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Your Streams</a>
-			      </li>
-			      <li ng-class="getClass('/profile/settings')">
-			      	<a ui-sref="profile.settings" data-toggle="tab"><i class="icon-cog"></i>Settings</a>
-			      </li>
-			      <li ng-class="getClass('/profile/password')">
-			      	<a ui-sref="profile.password" data-toggle="tab"><i class="icon-lock"></i>Password</a>
-			      </li>
-			    </ul>
-			  </div><!-- /.tabs -->
-		  </div><!-- /.row-fluid -->
-		</section><!-- /.mid-content -->
-		<section class="lower-content">
-			<div class="tab-content">
-			  <div class="tab-pane active">
+    <section class="mid-content">
+      <div class="row-fluid">
+        <div class="tabs span6">
+          <ul class="inline no-bullets">
+            <li ng-class="getClass('/profile/streams')">
+              <a ui-sref="profile.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Your Streams</a>
+            </li>
+            <li ng-class="getClass('/profile/settings')">
+              <a ui-sref="profile.settings" data-toggle="tab"><i class="icon-cog"></i>Settings</a>
+            </li>
+            <!-- <li ng-class="getClass('/profile/password')">
+              <a ui-sref="profile.password" data-toggle="tab"><i class="icon-lock"></i>Password</a>
+            </li> -->
+          </ul>
+        </div><!-- /.tabs -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.mid-content -->
+    <section class="lower-content">
+      <div class="tab-content">
+        <div class="tab-pane active">
           <div ui-view></div>
-			  </div>
-			</div>
-		</section><!-- /.lower-content -->
+        </div>
+      </div>
+    </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
