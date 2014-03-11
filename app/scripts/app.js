@@ -84,7 +84,7 @@ angular.module('peepoltv', [
 
     // Explore
     .state('explore', {
-      url: '/explore/',
+      url: '/explore/?lat&lng',
       templateUrl: '/views/explore.html',
       controller: 'ExploreCtrl'
     })

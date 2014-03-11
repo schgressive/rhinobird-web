@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile, leafletData) {
+  .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile, leafletData, $stateParams) {
 
     // Set the default marker location
     // FIXME: The markers images should be compiled and served with relative path
@@ -74,6 +74,24 @@ angular.module('peepoltv.controllers')
     };
 
     /**
+     * Centers the map
+     */
+    var setCenter = function() {
+      if ($stateParams.lat && $stateParams.lng) {
+
+        angular.extend($scope.map.search, {
+          lat: parseFloat($stateParams.lat),
+          lng: parseFloat($stateParams.lng),
+          zoom: 16
+        });
+
+      }  else {
+        $scope.getCurrent();
+      }
+
+    }
+
+    /**
      * Search for an address
      */
     $scope.searchAddress = function(){
@@ -87,7 +105,7 @@ angular.module('peepoltv.controllers')
     };
 
     // Expose the current location in the scope
-    $scope.getCurrent();
+    setCenter();
 
     // Set the stream collection
     $scope.streams = Stream.$collection({ live: true, archived: true });
