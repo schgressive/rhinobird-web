@@ -8,7 +8,7 @@ angular.module('peepoltv.filters')
     return function(input){
 
       if(!input) { return input; }
-      return $sce.trustAsHtml(input.replace(regexp, '<a class="captionHash" href="/$1">#$1</a>'));
+      return $sce.trustAsHtml(input.replace(regexp, '<a class="caption-hash" href="/$1">#$1</a>'));
 
     };
   });
