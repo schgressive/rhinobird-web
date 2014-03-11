@@ -3,7 +3,7 @@
     <div stream-viewer stream="stream" size="mini" mute="{{stream.isMuted}}" on="{{stream.isConnected}}"></div>
   </a>
   <div class="btn-overlay">
-  	<button role="button">Select Audio</button>
+    <button role="button" ng-class="{ 'btn': stream.isAudioFixed }" ng-click="setAsFixedAudio(stream, $event)">Select Audio</button>
   </div>
 </div><!-- /.module-video -->
 <div ng-show="stream.isProjected" class="streamSelected">Selected</div>

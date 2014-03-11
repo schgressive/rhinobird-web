@@ -32,6 +32,18 @@ angular.module('peepoltv.controllers')
 
     });
 
+    $scope.$on('stream-pool-audiostream-changed', function(event, stream){
+
+      // Set the current stream
+      $scope.fixedAudioStream = stream;
+
+      // Send message new vj stream
+      // if(VjService.live){
+      //   VjService.activateStream(stream);
+      // }
+
+    });
+
     //function that adds new streams to the current live stream array
     var checkNewStreams = function() {
       channel.streams.live(true).$then(function(updatedStreams) {

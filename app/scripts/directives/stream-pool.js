@@ -8,6 +8,7 @@ angular.module('peepoltv.directives')
       scope: {
         streams: '=',
         currentStream: '=',
+        fixedAudioStream: '=',
         vj: '@'
       },
       link: function postLink(scope, element, attrs) {
@@ -22,6 +23,20 @@ angular.module('peepoltv.directives')
           scope.currentStream = stream;
         };
 
+        // Change the main stream
+        scope.setAsFixedAudio = function(stream, e){
+          e.stopPropagation();
+
+          if(!scope.fixedAudioStream || stream.id !== scope.fixedAudioStream.id){
+            // Set the stream
+            scope.fixedAudioStream = stream;
+          }
+          else{
+            scope.fixedAudioStream = undefined;
+          }
+
+        };
+
         // Watch for the currentStreams change
         scope.$watch('currentStream', function(stream){
           if(stream){
@@ -29,19 +44,56 @@ angular.module('peepoltv.directives')
             _.each(scope.streams, function(_stream){
               if(_stream.isConnected){
 
-                // Mute them
-                _stream.isMuted = true;
+                // Mute them all only if there isn't a fixed audio stream
+                if(!scope.fixedAudioStream){
+                  _stream.isMuted = true;
+                }
                 // Reset projected
                 _stream.isProjected = _stream.id === stream.id;
               }
             });
 
-            // Unmute the main stream
-            stream.isMuted = false;
+            // Unmute the current stream only if there isn't a fixed audio stream
+            if(!scope.fixedAudioStream){
+              stream.isMuted = false;
+            }
 
             // Trigger an event saying that we should show a new stream
             scope.$emit('stream-pool-stream-changed', stream);
           }
+        });
+
+        // Watch for the fixedAudioStream change
+        scope.$watch('fixedAudioStream', function(stream, oldvalue){
+          // Prepare all the videos
+          _.each(scope.streams, function(_stream){
+            if(_stream.isConnected){
+
+              // Mute them all
+              _stream.isMuted = true;
+            }
+          });
+
+          // Unmute the current fixed audio stream or the current stream
+          if(stream){
+            stream.isMuted = false;
+            stream.isAudioFixed = true;
+          }
+          else {
+            // When there is no stream selected as audio fixed
+            // Set the curren stream as unmuted
+            if(scope.currentStream){
+              scope.currentStream.isMuted = false;
+            }
+          }
+
+          // Set the previously selected stream as not audio fixed
+          if(oldvalue){
+            oldvalue.isAudioFixed = false;
+          }
+
+          // Trigger an event saying that we should show a new stream
+          scope.$emit('stream-pool-audiostream-changed', stream);
         });
 
         // Watch if the streams collection change
@@ -106,7 +158,7 @@ angular.module('peepoltv.directives')
             _.each(scope.streams, function(stream, key){
               var isVisible = _.contains(owlScope.visibleItems, key);
 
-              if(!isVisible && stream.isConnected && !stream.isProjected){
+              if(!isVisible && stream.isConnected && !stream.isProjected && !stream.isAudioFixed){
                 stream.isConnected = false;
 
                 // Trigger the stream removed
