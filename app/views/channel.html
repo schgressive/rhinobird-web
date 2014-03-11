@@ -23,9 +23,16 @@
             <div video-canvas-projector width="640" height="480" video="self.currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
           <div class="module-outer">
+          <div class="row-fluid">
+            <div class="span6">
+              Current Stream: <span ng-bind-html="self.currentStream.caption | hashToLink"></span>
+            </div>
+            <div class="span6" ng-show="self.fixedAudioStream">
+              Current audio from: <span ng-bind-html="self.fixedAudioStream.caption | hashToLink"></span>
+            </div>
+          </div>
            <ul class="no-bullets">
-            <li><span hash-to-link>{{self.pool.mainStream.caption}}</span></li>
-            <li><span>Number of streams in channel: {{self.pool.streamsCount}}</span></li>
+            <li><span>Number of streams in channel: {{self.channel.streams.length}}</span></li>
           </ul>
         </div><!-- /.module-outer -->
       </div><!-- /.module-xlarge -->
