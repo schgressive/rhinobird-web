@@ -18,16 +18,40 @@ angular.module('peepoltv.controllers')
     VjService.startListening(user.vjToken).then(function(){
       VjService.socket.stream.addEventListener('stream-data', function(streamEvent){
         $scope.$apply(function(){
+          console.info(streamEvent.msg);
           if(streamEvent.msg.event === 'active-stream-change'){
-            _.each($scope.vjstreams, function(_vjstream){
-              // Mute them
-              _vjstream.stream.isMuted = true;
-            });
 
-            var streamToActivate = _.find($scope.vjstreams, function(s){return s.streamId === streamEvent.msg.params.streamId;});
+          	var streamToActivate = _.find($scope.vjstreams, function(s){return s.streamId === streamEvent.msg.params.streamId;});
             streamToActivate.active = true;
-            streamToActivate.stream.isMuted = false;
+
+            if(!$scope.fixedAudioStream){
+	            _.each($scope.vjstreams, function(_vjstream){
+	              // Mute them
+                _vjstream.stream.isMuted = true;
+	            });
+
+              streamToActivate.stream.isMuted = false;
+            }
+
             $scope.currentStream = streamToActivate.stream;
+          }
+
+          if(streamEvent.msg.event === 'audio-mute-change'){
+
+            var streamToFixAudio = _.find($scope.vjstreams, function(s){return s.streamId === streamEvent.msg.params.streamId;});
+
+						if(streamEvent.msg.params.audioActive){
+	            _.each($scope.vjstreams, function(_vjstream){
+	              // Mute them
+                _vjstream.audioActive = false;
+	            });
+
+              streamToFixAudio.stream.isMuted = false;
+            }
+
+            streamToFixAudio.audioActive = streamEvent.msg.params.audioActive;
+            streamToFixAudio.stream.isMuted = !streamEvent.msg.params.audioActive;
+            $scope.fixedAudioStream = (streamEvent.msg.params.audioActive)? streamToFixAudio : undefined;
           }
 
           if(streamEvent.msg.event === 'pool-change'){
@@ -58,6 +82,7 @@ angular.module('peepoltv.controllers')
     // Set the active stream as the current stream in the scope
     $scope.$on('licode-video-created', function(event, stream){
       var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
+      var anyFixed = _.any($scope.vjstreams, function(s){ return s.audioActive; });
 
       // Only when there is no current stream
       if(!$scope.currentStream){
@@ -70,6 +95,17 @@ angular.module('peepoltv.controllers')
 
       }
 
-      eventStream.stream.isMuted = !eventStream.active;
+      // Set the fixed audio if there is any
+      if(eventStream.audioActive){
+      	$scope.fixedAudioStream = eventStream.stream;
+      };
+
+      // Unmute the stream
+      if(anyFixed){
+      	eventStream.stream.isMuted = !eventStream.audioActive;
+      }
+      else{
+	      eventStream.stream.isMuted = !eventStream.active;
+	    }
     });
   });

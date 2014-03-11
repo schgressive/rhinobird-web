@@ -182,8 +182,9 @@ angular.module('peepoltv.services')
 
       // Broadcast the event
       if(_self.socket){
-        _self.socket.broadcastEvent('active-audio-stream-change', {
-          streamId: stream.id
+        _self.socket.broadcastEvent('audio-mute-change', {
+          streamId: stream.id,
+          audioActive: true
         });
       }
 
@@ -203,8 +204,9 @@ angular.module('peepoltv.services')
 
       // Broadcast the event
       if(_self.socket){
-        _self.socket.broadcastEvent('active-audio-stream-change', {
-          streamId: stream.id
+        _self.socket.broadcastEvent('audio-mute-change', {
+          streamId: stream.id,
+          audioActive: false
         });
       }
 
