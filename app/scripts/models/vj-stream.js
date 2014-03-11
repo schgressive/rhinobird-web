@@ -22,6 +22,10 @@ angular.module('peepoltv.models')
             if(vjs.active && vjs.streamId !== vjStream.streamId){
               vjs.active = false;
             }
+
+            if(vjs.audioActive && vjs.streamId !== vjStream.streamId){
+              vjs.audioActive = false;
+            }
           });
         });
 

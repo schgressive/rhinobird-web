@@ -32,15 +32,20 @@ angular.module('peepoltv.controllers')
 
     });
 
-    $scope.$on('stream-pool-audiostream-changed', function(event, stream){
+    $scope.$on('stream-pool-audiostream-changed', function(event, stream, oldStream){
 
       // Set the current stream
       $scope.fixedAudioStream = stream;
 
       // Send message new vj stream
-      // if(VjService.live){
-      //   VjService.activateStream(stream);
-      // }
+      if(VjService.live){
+        if(stream){
+          VjService.setFixedAudioStream(stream);
+        }
+        else {
+          VjService.unsetFixedAudioStream(oldStream);
+        }
+      }
 
     });
 
@@ -103,11 +108,12 @@ angular.module('peepoltv.controllers')
     $scope.startVj = function(){
       // The current stream id
       var currentStreamId = ($scope.currentStream)? $scope.currentStream.id : undefined;
+      var fixedAudioStreamId = ($scope.fixedAudioStream)? $scope.fixedAudioStream.id : undefined;
       var stremsToThePool = _.filter($scope.liveStreams, function(s){ return s.isConnected; });
 
       // Start the vj
       if(stremsToThePool && stremsToThePool.length >= 1){
-        VjService.startBroadcast(stremsToThePool, currentStreamId, $scope.channel.name);
+        VjService.startBroadcast(stremsToThePool, currentStreamId, fixedAudioStreamId, $scope.channel.name);
       }
     };
 

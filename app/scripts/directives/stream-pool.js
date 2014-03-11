@@ -92,7 +92,7 @@ angular.module('peepoltv.directives')
           }
 
           // Trigger an event saying that we should show a new stream
-          scope.$emit('stream-pool-audiostream-changed', stream);
+          scope.$emit('stream-pool-audiostream-changed', stream, oldvalue);
         });
 
         // Watch if the streams collection change

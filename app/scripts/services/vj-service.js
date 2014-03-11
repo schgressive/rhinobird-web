@@ -54,7 +54,7 @@ angular.module('peepoltv.services')
      * @param  {string} currentStreamId Id of the stream that is currently selected
      * @param  {string} channelName     Set the channel name for the stream_pool
      */
-    this.startBroadcast = function(streams, currentStreamId, channelName){
+    this.startBroadcast = function(streams, currentStreamId, fixedAudioStreamId, channelName){
 
       // Get the current user vj pool of streams
       // Could have streams from a previously initiated session in the same channel
@@ -77,8 +77,11 @@ angular.module('peepoltv.services')
           // Find the stream that is playing
           var isCurrent = s.id === currentStreamId;
 
+          // Find the fixed audio stream
+          var isAudioActive = s.id === fixedAudioStreamId;
+
           // Add the stream to the pool
-          _self.addStream(s, isCurrent, channelName).then(function(_vjStream){
+          _self.addStream(s, isCurrent, isAudioActive, channelName).then(function(_vjStream){
 
             // create the socked channel after the first stream is added
             if(!_self.live && idx === 0){
@@ -109,10 +112,11 @@ angular.module('peepoltv.services')
     };
 
     // Add a new stream to the pool
-    this.addStream = function(stream, active, channelName){
+    this.addStream = function(stream, active, audioActive, channelName){
 
       var addedStream = _self.pool.$build();
       addedStream.active = active || false;
+      addedStream.audioActive = audioActive || false;
       addedStream.streamId = stream.id;
       addedStream.channelName = channelName;
       addedStream.$save();
@@ -163,5 +167,47 @@ angular.module('peepoltv.services')
       }
 
       return activeStream.$promise;
+    };
+
+    // Activate a stream from the pool
+    this.setFixedAudioStream = function(stream){
+
+      if(!stream){ return; }
+
+      // Set the vj stream as active
+      var fixedAudioStream = getPoolStream(stream);
+      fixedAudioStream.$pk = stream.id;
+      fixedAudioStream.audioActive = true;
+      fixedAudioStream.$save();
+
+      // Broadcast the event
+      if(_self.socket){
+        _self.socket.broadcastEvent('active-audio-stream-change', {
+          streamId: stream.id
+        });
+      }
+
+      return fixedAudioStream.$promise;
+    };
+
+    // Activate a stream from the pool
+    this.unsetFixedAudioStream = function(stream){
+
+      if(!stream){ return; }
+
+      // Set the vj stream as active
+      var fixedAudioStream = getPoolStream(stream);
+      fixedAudioStream.$pk = stream.id;
+      fixedAudioStream.audioActive = false;
+      fixedAudioStream.$save();
+
+      // Broadcast the event
+      if(_self.socket){
+        _self.socket.broadcastEvent('active-audio-stream-change', {
+          streamId: stream.id
+        });
+      }
+
+      return fixedAudioStream.$promise;
     };
   });
