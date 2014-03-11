@@ -97,15 +97,15 @@ angular.module('peepoltv', [
       controller: 'SearchResultsCtrl'
     })
     .state('search.streams', {
-      url: '/streams/?q',
+      url: 'streams/?q',
       templateUrl: '/views/search-results-streams.html'
     })
     .state('search.channels', {
-      url: '/channels/',
+      url: 'channels/',
       templateUrl: '/views/search-results-channels.html'
     })
     .state('search.peepol', {
-      url: '/peepol/',
+      url: 'peepol/',
       templateUrl: '/views/search-results-peepol.html'
     })
 
@@ -133,11 +133,11 @@ angular.module('peepoltv', [
       }
     })
     .state('profile.streams', {
-      url: '/streams/',
+      url: 'streams/',
       templateUrl: '/views/profile-streams.html'
     })
     .state('profile.settings', {
-      url: '/settings/',
+      url: 'settings/',
       templateUrl: '/views/profile-settings.html'
     })
 
