@@ -1,4 +1,4 @@
-<p>Edit your username, avatar, email, etc.</p>
+<p>Edit your username, email, etc.</p>
 <div class="row-fluid">
   <div class="span6 form-wrapper">
     <form class="general-form" name="userSettings" role="form">
@@ -6,9 +6,9 @@
         <fieldset>
           <label for="input-name">Name:</label>
           <input class="input-xlarge" type="text" id="input-name" ng-model="self.user.name"/>
-          <div class="validate" ng-show="">
-            <small class=""></small>
-          </div>
+          <div class="validate fadeOut" ng-show="vm.showSuccess">
+						<small class="success">Success!</small>
+					</div><!-- /.validate -->
         </fieldset>
         <small class="detail">How we address you. Your name is not public.</small>
       </div><!-- /.form-block -->
@@ -16,9 +16,9 @@
         <fieldset>
           <label for="input-username">Username:</label>
           <input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username"/>
-          <div class="validate" ng-show="">
-            <small class=""></small>
-          </div>
+          <div class="validate fadeOut" ng-show="vm.showSuccess">
+						<small class="success">Success!</small>
+					</div><!-- /.validate -->
         </fieldset>
         <small class="detail">Your Peepol.tv username.</small>
       </div><!-- /.form-block -->
@@ -26,9 +26,9 @@
         <fieldset>
           <label for="input-email">Email:</label>
           <input class="input-xlarge" type="email" id="input-email" ng-model="self.user.email"/>
-          <div class="validate" ng-show="">
-            <small class=""></small>
-          </div>
+          <div class="validate fadeOut" ng-show="vm.showSuccess">
+						<small class="success">Success!</small>
+					</div><!-- /.validate -->
         </fieldset>
         <small class="detail">Your email is used for signing-in and correspondence.</small>
       </div><!-- /.form-block -->
@@ -38,15 +38,16 @@
       </div>
     </form>
   </div><!-- /.span6 -->
+  <!--
   <div class="span6 form-wrapper">
     <form class="general-form" name="userAvatar" role="form">
       <div class="user-avatar pull-left">
         <img ng-src="{{ self.user.photo || (self.user.email | gravatar:120:'/images/profile-default.svg')}}" alt=""/>
       </div>
-      <!-- <div class="form-buttons clearfix">
+      <div class="form-buttons clearfix">
         <input class="btn btn-accent" ng-click="" type="button" value="Change Avatar"/>
         <input class="btn" ng-click="" type="button" role="button" value="Delete Avatar"/>
-      </div> -->
+      </div>
     </form>
-  </div><!-- /.span6 -->
+  </div> -->
 </div><!-- /.row-fluid -->
