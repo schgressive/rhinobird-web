@@ -11,6 +11,6 @@ angular.module('peepoltv.controllers')
     $scope.stream = stream;
 
 		// Get the streams based on geolocation
-    $scope.streams = Stream.$search();
+    $scope.streams = stream.related.$fetch();
 
   });
