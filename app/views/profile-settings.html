@@ -12,7 +12,18 @@
       <div class="form-block">
         <fieldset>
           <label for="input-username">Username:</label>
-          <input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username"/>
+          <input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username" ng-minlength=3 ng-maxlength=20/>
+          <div class="validate" ng-show="userSettings.username.$taken && userSettings.username.$invalid">
+			      <small class="error" ng-show="userSettings.username.$error.taken">
+			        This username is already registered.
+			      </small>
+			      <small class="warning" ng-show="userSettings.username.$error.minlength">
+			        A username must have at least 3 characters.
+			      </small>
+			      <small class="warning" ng-show="userSettings.username.$error.maxlength">
+			        A username can not have more than 20 characters.
+			      </small>
+			    </div><!-- /.validate -->
         </fieldset>
         <small class="detail">Your Peepol.tv username.</small>
       </div><!-- /.form-block -->
@@ -20,6 +31,14 @@
         <fieldset>
           <label for="input-email">Email:</label>
           <input class="input-xlarge" type="email" id="input-email" ng-model="self.user.email"/>
+          <div class="validate" ng-show="userSettings.email.$taken && userSettings.email.$invalid">
+			    	<small class="warning" ng-show="userSettings.email.$invalid">
+			        This email is invalid. Please input a valid email.
+			      </small>
+			      <small class="error" ng-show="userSettings.email.$error.taken">
+			        This email is already registered.
+			      </small>
+			    </div><!-- /.validate -->
         </fieldset>
         <small class="detail">Your email is used for signing-in and correspondence.</small>
       </div><!-- /.form-block -->
