@@ -6,9 +6,6 @@
         <fieldset>
           <label for="input-name">Name:</label>
           <input class="input-xlarge" type="text" id="input-name" ng-model="self.user.name"/>
-          <div class="validate fadeOut" ng-show="vm.showSuccess">
-						<small class="success">Success!</small>
-					</div><!-- /.validate -->
         </fieldset>
         <small class="detail">How we address you. Your name is not public.</small>
       </div><!-- /.form-block -->
@@ -16,9 +13,6 @@
         <fieldset>
           <label for="input-username">Username:</label>
           <input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username"/>
-          <div class="validate fadeOut" ng-show="vm.showSuccess">
-						<small class="success">Success!</small>
-					</div><!-- /.validate -->
         </fieldset>
         <small class="detail">Your Peepol.tv username.</small>
       </div><!-- /.form-block -->
@@ -26,14 +20,14 @@
         <fieldset>
           <label for="input-email">Email:</label>
           <input class="input-xlarge" type="email" id="input-email" ng-model="self.user.email"/>
-          <div class="validate fadeOut" ng-show="vm.showSuccess">
-						<small class="success">Success!</small>
-					</div><!-- /.validate -->
         </fieldset>
         <small class="detail">Your email is used for signing-in and correspondence.</small>
       </div><!-- /.form-block -->
       <div class="form-buttons">
         <input class="btn btn-primary" type="submit" value="Update Settings" ng-click="updateSettings()"/>
+        <div class="formSuccess" ng-show="">
+        	<p class="fadeOut"><strong>Success!</strong></p>
+        </div>
         <!-- <button class="btn-link" ng-click="">Delete Your Account</button> -->
       </div>
     </form>

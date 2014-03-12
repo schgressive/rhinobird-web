@@ -16,6 +16,12 @@ form { margin: 0;}
 			.btn { min-width: 141px;}
 		}
 	}
+	.formSuccess {
+		color: $successText;
+		position: relative;
+		top: -30px;
+		left: 200px;
+	}
 }
 
 .form-wrapper.span6 {
