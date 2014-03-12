@@ -13,12 +13,20 @@
 	  	<small class="info">Only the first 17 characters will display in thumbnail view.</small>
 	  </div><!-- /.validate -->
   </div><!-- /.input-prepend -->
-  <div ng-show="vm.channels.length">
+  <div>
+  	<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
+  	<ol class="inline no-bullets">
+  		<li ng-repeat="| limitTo: 3" class="inline"><a href="#" ng-click="">#{{channel}}</a></li>
+  	</ol>
+  </div>
+  <!--
+<div ng-show="vm.channels.length">
     <p>Your stream will be published in the following channels</p>
     <ul class="inline no-bullets">
       <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
     </ul>
   </div>
+-->
   <div class="checkbox-wrapper">
 	  <label class="checkbox inline">
 	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
