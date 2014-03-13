@@ -186,13 +186,13 @@ body.base { /*overrides are here */
 			.mega-menu.dropdown-menu {
 				width: 60%;
 				max-width: 962px;
-				padding: 0 0 5px 80px;
+				padding: 0 0 10px 90px;
 				border: none;
 				background: $dropdownBackground url('../images/rb-isolate-100.svg') left center no-repeat;
 				top: 44px;
 				left: inherit;
 				@include font-smoothing;
-				@include box-shadow(0 5px 4px rgba(0, 0, 0, 0.2));
+				@include box-shadow(0 5px 4px $deepShadow);
 				li {
 					display: inline-block;
 					@media screen and (max-width: 580px) { display: block;}
@@ -633,7 +633,7 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.map-wrapper, .carousel-wrapper, .module-large, .results-item, .back-to-top {@include box-shadow(0 1px 2px hsla(0,0%,0%,0.07));}
+.map-wrapper, .carousel-wrapper, .module-large, .results-item, .back-to-top {@include box-shadow(0 1px 2px $shadowColor);}
 
 .map-wrapper {
 	background-color: $white;

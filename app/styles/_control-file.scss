@@ -20,7 +20,7 @@ $darkTrans											: hsla(0,0%,0%,.5);
 
 // Brand Colors ------------------------------
 
-$red														: hsla(360,100%,50%,1); /*FF0000*/
+$red														: rgba(239,65,53,1); /*EF4135*/
 $redDark												: hsla(358,77%,50%,1); /*E01D25*/
 $redDarker											: hsla(355,81%,33%,1); /*9A101C*/
 $orange													:	hsla(32,100%,61%,1); /*FFA300*/
@@ -40,6 +40,8 @@ $tan														: hsla(37,20%,84%,1); /*DED8CE*/
 
 $bodyBackground									: hsla(33,12%,93%,1); /*EDE8E0*/
 $textColor											: $grayDark;
+$shadowColor										: hsla(23,10%,39%,.7); /*B1A9A5*/
+$deepShadow											: rgba(0, 0, 0, 0.5);
 
 // Typography ------------------------------
 
@@ -106,7 +108,7 @@ $navbarBrandColor								: $navbarText;
 $navbarLinkColor								: $grayDark;
 $navbarLinkColorHover						: $white;
 $navbarLinkColorActive					: $grayDark;
-$navbarLinkBackgroundHover			: $redDark;
+$navbarLinkBackgroundHover			: $red;
 $navbarSearchBackground					: lighten($navbarBackground, 25%);
 $navbarSearchBackgroundFocus		: $white;
 $navbarSearchBorder							: darken($navbarSearchBackground, 75%);
