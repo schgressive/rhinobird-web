@@ -5,13 +5,13 @@
 	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <g>
 	<g>
-		<path fill="#FFA600" d="M23.445,9.74v4.52H0.554V9.74H23.445z"/>
+		<path fill="#FFA300" d="M23.445,9.74v4.52H0.554V9.74H23.445z"/>
 	</g>
 	<g>
-		<path fill="#FFA600" d="M23.445,17.812v4.52H0.554v-4.52H23.445z"/>
+		<path fill="#FFA300" d="M23.445,17.812v4.52H0.554v-4.52H23.445z"/>
 	</g>
 	<g>
-		<path fill="#FFA600" d="M23.445,1.667v4.519H0.554V1.667H23.445z"/>
+		<path fill="#FFA300" d="M23.445,1.667v4.519H0.554V1.667H23.445z"/>
 	</g>
 </g>
 </svg>

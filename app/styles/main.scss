@@ -165,6 +165,9 @@ body.base { /*overrides are here */
 			.main-nav-wrapper { padding-left: 20px;}
 			.main-nav { float: left;}
 			a.brand {
+				width: 168px;
+				height: 24px;
+				background: url('../images/rb-logotype-24.svg') top left no-repeat;
 				padding: 0;
 				margin: 9px 0 0;
 				float: left;
@@ -183,9 +186,9 @@ body.base { /*overrides are here */
 			.mega-menu.dropdown-menu {
 				width: 60%;
 				max-width: 962px;
-				padding: 0 0 5px 0;
+				padding: 0 0 5px 80px;
 				border: none;
-				background-color: $dropdownBackground;
+				background: $dropdownBackground url('../images/rb-isolate-100.svg') left center no-repeat;
 				top: 44px;
 				left: inherit;
 				@include font-smoothing;
