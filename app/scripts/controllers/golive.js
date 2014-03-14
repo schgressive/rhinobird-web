@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('peepoltv.controllers')
-  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService, $timeout) {
+  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel) {
 
 		$scope.user = session.user;
 
@@ -141,7 +141,11 @@ angular.module('peepoltv.controllers')
     });
 
     // Get current location
-    GeolocationService.getCurrent();
+    GeolocationService.getCurrent().then(function(location){
+    	if(location){
+	    	vm.nearChannels =	Channel.searchByLocation(location.lat, location.lng);
+	    }
+    });
 
     // Open de dialog
     var openDialog = function(){

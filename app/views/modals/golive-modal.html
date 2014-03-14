@@ -13,10 +13,10 @@
 	  	<small class="info">Only the first 17 characters will display in thumbnail view.</small>
 	  </div><!-- /.validate -->
   </div><!-- /.input-prepend -->
-  <div>
+  <div ng-show="vm.nearChannels.length">
   	<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
   	<ol class="inline no-bullets">
-  		<li ng-repeat="| limitTo: 3" class="inline"><a href="#" ng-click="">#{{channel}}</a></li>
+  		<li ng-repeat="channel in vm.nearChannels | limitTo: 3" class="inline"><a href="/{{channel.name}}" ng-click="">#{{channel.name}}</a></li>
   	</ol>
   </div>
   <!--
