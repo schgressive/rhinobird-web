@@ -505,7 +505,7 @@ i[class*="icon"] {font-style: normal;}
 		-webkit-border-radius: 0;
 		-moz-border-radius: 0;
 		border-radius: 0;
-		background: $purple;
+		background: $red;
 	}
 }
 
@@ -726,7 +726,7 @@ i[class*="icon"] {font-style: normal;}
 	  background-image: none;
     background-color: transparent;
     border: none;
-    &:hover { background-color: $purple;}
+    &:hover { background-color: $red;}
     &.active { background-color: $orange;}
   }
 }
@@ -882,7 +882,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 a.caption-hash{
-  color: $purple;
+  color: $red;
 }
 
 /* rule for hiding elements until angular boots*/

@@ -21,19 +21,17 @@ $darkTrans											: hsla(0,0%,0%,.5);
 // Brand Colors ------------------------------
 
 $red														: rgba(239,65,53,1); /*EF4135*/
-$redDark												: hsla(358,77%,50%,1); /*E01D25*/
-$redDarker											: hsla(355,81%,33%,1); /*9A101C*/
-$orange													:	hsla(32,100%,61%,1); /*FFA300*/
+$orange													:	rgba(255,163,0,1); /*FFA300*/
 
 // Accent Colors ------------------------------
 
 $green													: hsla(156,100%,35%,1); /*00CC7C*/
-$darkOrange											: hsla(16,77%,42%,1); /*BD4519*/
-$purple													: hsla(275,63%,37%,1); /*672399*/
 $yellow													: hsla(41,70%,54%,1); /*DCA938*/
 $blue														: hsla(249,13%,44%,1); /*66627E*/
-$paleYellow											: hsla(48,63%,72%,1); /*E4D489*/
 $warmGray1											: rgba(215,210,203,1); /*D7D2CB*/
+$warmGray4											: rgba(182,173,165,1); /*B6ADA5*/
+$warmGray7											: rgba(150,140,131,1); /*968C83*/
+$warmGray11											: rgba(110,98,89,1); /*6E6259*/
 
 // Scaffolding ------------------------------
 
@@ -66,7 +64,7 @@ $linkColorHover									: darken($linkColor, 15%);
 $linkColorBackgroundHover				: $grayLight;
 $linkVisited		        				: $orange;
 $selectedTextColor							: $textOnDark;
-$selectedBackgroundColor				: $purple;
+$selectedBackgroundColor				: $red;
 
 // Tables ------------------------------
 
@@ -79,10 +77,8 @@ $tableBorder										: $grayDarker;
 
 $placeholderText								: lighten($textColor, 30%);
 $inputBackground								: $white;
-$inputBorder										: $grayLight;
-$inputBorderRadius							: 0px;
+$inputBorder										: $warmGray1;
 $inputDisabledBackground				: $grayLighter;
-$formActionsBackground					: transparent;
 $btnPrimaryBackground						: $grayDark;
 $btnPrimaryBackgroundHighlight	: darken($grayDark, 10%);
 
@@ -125,7 +121,7 @@ $dropdownLinkBackgroundHover		: $navbarLinkBackgroundHover;
 
 // Components ------------------------------
 
-$baseBorderRadius								: 0px;
+$baseBorderRadius								: 0;
 $borderRadiusLarge							: 6px;
 $borderRadiusSmall							: 3px;
 $heroUnitBackground							: $grayLighter;
@@ -135,7 +131,7 @@ $heroUnitLeadColor							: inherit;
 // Tooltips ------------------------------
 
 $tooltipColor										: $white;
-$tooltipBackground							: $purple;
+$tooltipBackground							: $red;
 $tooltipArrowColor							: $tooltipBackground;
 
 // Global Styling
