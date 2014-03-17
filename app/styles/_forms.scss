@@ -196,6 +196,9 @@ body.base {
 		}
 	}
 	.action-left .btn-small {
+		color: $grayDarker;
+		background-color: transparent;
+		border-color: $grayDarker;
 		&:first-of-type {
 			margin-right: 14px;
 			&:hover {
