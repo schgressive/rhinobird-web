@@ -1,10 +1,10 @@
 <h2>Sign up with <span class="network">{{network}}</span></h2>
 <div ng-show="network == 'facebook'">
-	<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
+	<h4>Thank you for signing up and Welcome to Rhinobird.tv!</h4>
 	<button ng-click="close()" role="button">Continue</button>
 </div><!-- /facebook -->
 <div ng-show="network == 'twitter'">
-	<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
+	<h4>Thank you for signing up and Welcome to Rhinobird.tv!</h4>
 	<p>We just need one more thing to get started...</p>
 	<form name="twitterForm" role="form" ng-submit="saveInfo()" ng-controller="SignupCompleteCtrl">
 		<label class="visually-hidden" for="input-email">Email</label>
@@ -24,7 +24,7 @@
 	</form>
 </div><!-- /twitter -->
 <div ng-show="network == 'google'">
-	<h4>Thank you for signing up and Welcome to Peepol.tv!</h4>
+	<h4>Thank you for signing up and Welcome to Rhinobird.tv!</h4>
 	<p>We just need one more thing to get started...</p>
 	<form name="googleForm" role="form" ng-submit="saveInfo()" ng-controller="SignupCompleteCtrl">
 		<label class="visually-hidden" for="input-username">Username</label>
