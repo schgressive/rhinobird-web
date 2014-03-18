@@ -166,29 +166,29 @@ body.base { /*overrides are here */
 			.main-nav { float: left;}
 			a.brand {
 				width: 168px;
-				height: 24px;
-				background: url('../images/rb-logotype-24.svg') top left no-repeat;
+				height: 32px;
+				background: url('../images/rb-logo.png') top left no-repeat;
+				background-size: contain;
 				padding: 0;
-				margin: 9px 0 0;
+				margin: 6px 0 0;
 				float: left;
 				transition-property: none;
 			}
 			.navToggle {
-				width: 24px;
-				height: 24px;
-				margin: 9px 9px 0 0;
+				width: 34px;
+				height: 34px;
+				margin: 13px 2px 0 0;
 				border: none;
 				display: block;
-				background: url('../images/menu-up-24.svg') top left no-repeat;
+				background: url('../images/menu-24.svg') top left no-repeat;
 				-webkit-transition: none;
-				&:hover { background-image: url('../images/menu-hover-24.svg');}
+				&:hover { background-image: url('../images/menu-hover.svg');}
 			}
 			.mega-menu.dropdown-menu {
 				width: 60%;
 				max-width: 962px;
-				padding: 0 0 10px 90px;
+				padding: 0 0 10px 0;
 				border: none;
-				background: $dropdownBackground url('../images/rb-isolate-100.svg') left center no-repeat;
 				top: 44px;
 				left: inherit;
 				@include font-smoothing;
@@ -270,7 +270,8 @@ i[class*="icon"] {font-style: normal;}
 .golive-btn {
 	padding: 0;
 	width: 140px;
-	height: 46px;
+	height: 44px;
+	margin-top: 3px;
 	background: $white url('/images/golive-btn-up.svg') 0px 0px no-repeat;
 	background-size: contain;
 	display: block;
