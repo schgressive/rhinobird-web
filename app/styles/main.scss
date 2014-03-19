@@ -165,12 +165,12 @@ body.base { /*overrides are here */
 			.main-nav-wrapper { padding-left: 20px;}
 			.main-nav { float: left;}
 			a.brand {
-				width: 168px;
+				width: 158px;
 				height: 32px;
-				background: url('../images/rb-logo.png') top left no-repeat;
+				background: url('../images/rb-logo.jpg') top left no-repeat;
 				background-size: contain;
 				padding: 0;
-				margin: 6px 0 0;
+				margin: 7px 0 0;
 				float: left;
 				transition-property: none;
 			}
@@ -269,15 +269,15 @@ i[class*="icon"] {font-style: normal;}
 
 .golive-btn {
 	padding: 0;
-	width: 140px;
-	height: 44px;
+	width: 148px;
+	height: 46px;
 	margin-top: 3px;
-	background: $white url('/images/golive-btn-up.svg') 0px 0px no-repeat;
+	background: $white url('/images/goLive-btn.svg') 0px 0px no-repeat;
 	background-size: contain;
 	display: block;
 	transition-property: none;
 	&:hover {
-		background-image: url('/images/golive-btn-hover.svg');
+		background-image: url('/images/goLive-btn-hover.svg');
 		transition-property: none;
 	}
 	&.stopStream {
