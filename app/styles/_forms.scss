@@ -170,12 +170,10 @@ body.base {
 			@media screen and (max-width: 1010px) {
 				width: 100%;
 				margin-left: 0;
-				.one-liner { display: inline;}
 			}
 		}
 		.form-search {
-			margin-top: 63px;
-			float: right;
+			margin-top: 20px;
 			@media screen and (max-width: 1010px) { margin-top: 20px; float: none;}
 			input { padding: 14px 16px 12px 16px;}
 			input[type="search"] {
