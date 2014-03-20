@@ -1,15 +1,11 @@
-<div class="row-fluid">
-	<div class="action-left span12" ng-controller="DefaultActionsCtrl">
+<div ng-controller="DefaultActionsCtrl">
   <div class="row-fluid">
   	<h1>Welcome to Rhinobird!</h1>
   </div>
   <div class="row-fluid">
-		<a href="#" class="btn btn-small pull-left" role="button" ng-click="login()">Sign In</a>
-<!-- 		<a href="#" class="btn btn-small pull-left" role="button">Take the Tour!</a> -->
+		<a href="#" class="btn pull-left" role="button" ng-click="login()">Sign In</a>
+		<a href="#" class="btn pull-left" role="button" ng-click="login()">Join Us!</a>
+		<div class="pull-left" ng-include="'/views/snippets/search-bar.html'"></div>
   </div><!-- /.row-fluid -->
-</div><!-- /.action-left -->
-</div>
-<div class="row-fluid">
-	<div class="action-right span12" ng-include="'/views/snippets/search-bar.html'"></div>
 </div>
 

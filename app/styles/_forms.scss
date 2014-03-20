@@ -155,26 +155,20 @@ body.base {
 		}
 	}
 	.default-wrapper {
-		.btn {
+		a.btn {
 			color: $white;
 			font-family: $bold-font-stack;
 			background-color: $darkTrans;
 			border: 1px solid $white;
+			margin: 8px 12px 0 0;
 			@include font-smoothing();
 			&:hover {
 				background-color: $btnPrimaryBackground;
 				border-color: darken($btnPrimaryBackground, 10%);
 			}
 		}
-		.action-left, .action-right {
-			@media screen and (max-width: 1010px) {
-				width: 100%;
-				margin-left: 0;
-			}
-		}
 		.form-search {
-			margin-top: 20px;
-			@media screen and (max-width: 1010px) { margin-top: 20px; float: none;}
+			@media screen and (max-width: 566px) { margin-top: 20px;}
 			input { padding: 14px 16px 12px 16px;}
 			input[type="search"] {
 				width: 300px;
