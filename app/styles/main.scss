@@ -158,7 +158,7 @@ body.base { /*overrides are here */
 			background-color: $navbarBackground;
 			background-image: none;
 			background-repeat: none;
-			border-bottom: 3px solid $orange;
+			border-bottom: 3px solid $warmGray1;
 			box-shadow: none;
 			@media screen and (max-width: 960px) { padding: {left:0px!important;right:0px!important;}}
 			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
@@ -318,8 +318,8 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: hsla(0,0%,97%,1);}
 	&.feature {
-		background: $warmGray1 url('/images/banner-bg.svg') top left no-repeat;
-		border-bottom: $orange solid 3px;
+		background: #F1EDEA url('/images/banner-bg.jpg') 0px 3px no-repeat;
+		border-bottom: $warmGray1 solid 3px;
 		padding: {
 			top: 40px;
 			bottom: 30px;
