@@ -463,6 +463,10 @@ i[class*="icon"] {font-style: normal;}
 			width: 31.91%;
 			*width: 31.91%;
 		}
+		@media screen and (max-width: 500px) {
+			width: 48.7%;
+			*width: 48.7%;
+		}
 	}
 	.row-fluid [class*="span4"] {
 		@media screen and (max-width: 670px) {
@@ -481,6 +485,12 @@ i[class*="icon"] {font-style: normal;}
 	}
 	@media screen and (max-width: 670px) {
 		.row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
+	}
+	@media screen and (min-width: 501px) {
+		.row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
+	}
+	@media screen and (max-width: 500px) {
+		.row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
 	}
 	.streamStatus {
 		width: 32px;
