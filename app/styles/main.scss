@@ -170,9 +170,10 @@ body.base { /*overrides are here */
 				background: url('../images/rb-logo.svg') top left no-repeat;
 				background-size: contain;
 				padding: 0;
-				margin: 7px 0 0;
-				float: left;
-				transition-property: none;
+				left: 50%;
+				margin: 16px 0 0 -80px;
+				position: absolute;
+				top: -7px;
 			}
 			.navToggle {
 				width: 34px;
