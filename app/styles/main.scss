@@ -427,7 +427,7 @@ i[class*="icon"] {font-style: normal;}
 
 .faux-tabs, .tabs {
 	@media screen and (max-width: 740px) { margin-bottom: 10px;}
-	li { padding: 0; }
+	li { padding: 0;}
 	a {
 		color: $gray;
 		padding: 5px 7px 5px 0;
@@ -449,6 +449,14 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .faux-tabs li:first-of-type { margin-right: 10px;}
+
+.faux-tabs {
+	@media screen and (max-width: 500px) {
+		ul, form { text-align: center;}
+		ul.inline li { padding: 0; width: 48.7%;}
+		li:first-of-type { margin-right: 0px;}
+	}
+}
 
 .tabs { padding-top: 5px;}
 
