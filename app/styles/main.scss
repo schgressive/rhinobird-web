@@ -708,7 +708,7 @@ i[class*="icon"] {font-style: normal;}
 	padding: 10px 10px 0;
 	background-color: $white;
 	canvas, video { width: 100%;}
-	.module-outer { padding-left: 0px}
+	.module-outer { padding: 10px 10px 12px 0px;}
 	.ng-isolate-scope .licode {
 		@media screen and (max-width: 600px) { height: 436px !important;}
 		@media screen and (max-width: 500px) { height: 280px !important;}
