@@ -300,7 +300,7 @@ i[class*="icon"] {font-style: normal;}
 	background: white url('/images/goLive-icon.svg') 0px 12px no-repeat;
 	display: block;
 	&:hover { text-decoration: none; color: $red;}
-	.stopStream { background-image: url('/images/goLive-icon-stop.svg');}
+	&.stopStream { background-image: url('/images/goLive-icon-stop.svg');}
 }
 
 // based on expanding search bar from http://codrops.com
