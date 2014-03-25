@@ -81,6 +81,11 @@ table caption, .visually-hidden {display:none !important;}
 
 [data-icon]:after {
 	font-family: "Listicons";
+	font-size: 24px;
+	line-height: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 6px;
 	content: attr(data-icon);
 	speak: none;
 }
