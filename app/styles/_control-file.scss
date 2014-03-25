@@ -61,9 +61,9 @@ $paddingLarge										: 11px 19px;
 $paddingSmall										: 2px 10px;
 $paddingMini										: 1px 6px;
 $textOnDark											: $white;
-$linkColor											: hsla(234,94%,49%,1); /*0720F4*/
+$linkColor											: hsla(33,19%,41%,1); /*7C6A56*/
 $linkColorHover									: darken($linkColor, 15%);
-$linkColorBackgroundHover				: $grayLight;
+$linkColorBackgroundHover				: $grayLighter;
 $linkVisited		        				: $orange;
 $selectedTextColor							: $textOnDark;
 $selectedBackgroundColor				: $red;

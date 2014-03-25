@@ -55,9 +55,6 @@ body.base {
 	}
 	.brSmall { border-radius: $borderRadiusSmall;}
 	.modal {
-		color: $textColor;
-		background: $warmGray1 url('../images/modal-bg.svg') top left no-repeat;
-		background-size: cover;
 		border: 4px solid $white;
 		padding: 0 14px 18px;
 		@media screen and (max-width: 598px) {
@@ -151,9 +148,11 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .modal {
+	color: $textColor;
+	background: $beigeLight url('../images/modal-bg2.svg') top left no-repeat;
 	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
-	a { color: $white;}
 	a.btn-social {
+		color: $white;
 		font-family: $bold-font-stack;
 		text-align: left;
 		text-transform: uppercase;

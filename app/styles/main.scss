@@ -20,6 +20,8 @@ $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Ne
 
 $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
+@include font-face("OpenSansRegular", font-files("/fonts/opensans-regular-webfont.woff", woff, "/fonts/opensans-regular-webfont.ttf", truetype), "opensans-regular-webfont.eot");
+
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
 
 @include font-face("Listicons", font-files("/fonts/listicons-webfont.woff", woff, "/fonts/listicons-webfont.ttf", truetype), "listicons-webfont.eot");
@@ -41,6 +43,14 @@ body.base {
 	font-family: $baseFontFamily;
 	line-height: $baseLineHeight;
 	background-color: $bodyBackground;
+}
+
+a {
+	color: $linkColor;
+	&:hover {
+		color: $linkColorHover;
+		background-color: $linkColorBackgroundHover;
+	}
 }
 
 table caption, .visually-hidden {display:none !important;}
@@ -95,11 +105,10 @@ table caption, .visually-hidden {display:none !important;}
 h1 {
 	font-family: "OpenSansBold", $bold-font-stack;
 	@include fontSize(52.358px);
-	letter-spacing: -1px;
 }
 
 // using 1:1.618, Golden Section
-h2, article h1 {font-family: $bold-font-stack; @include fontSize(32.360px);}
+h2, article h1 {font-family: "OpenSansBold", $bold-font-stack; @include fontSize(32.360px);}
 h3, article h2 {@include fontSize(22.652px);}
 h4, article h3 {@include fontSize(20px);}
 h5, article h4 {font-size: $baseFontSize;}
@@ -108,6 +117,8 @@ h6 {font-size: $fontSizeSmall;}
 
 h1, h2, h3, h4, h5, h6 {font-weight: normal;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
+h1, h2, h3, h4 { letter-spacing: -1px;}
+h3, h4 { font-family: "OpenSansRegular", $baseFontFamily;}
 
 a, i, .btn, input {
 	@include baseTransitionOut;
@@ -786,7 +797,7 @@ i[class*="icon"] {font-style: normal;}
 		@include fontSize(12px);
 		padding: 3px 6px 3px 6px;
 	}
-	a {color:$grayDarker; text-decoration: underline;}
+	a { text-decoration: underline;}
 	.thumb-user {
 		margin-right: 10px;
 		@media screen and (max-width: 500px) { display: none;}
@@ -979,14 +990,9 @@ i[class*="icon"] {font-style: normal;}
 		margin: 58px 0 0 8px;
 	}
 }
-/* .popup img { width: 100%;} */
 
 .licode [id*="bar"]{
   display: none !important;
-}
-
-a.caption-hash{
-  color: $red;
 }
 
 /* rule for hiding elements until angular boots*/
