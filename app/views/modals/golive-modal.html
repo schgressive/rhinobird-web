@@ -35,7 +35,7 @@
 	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
 	  </label>
   </div>
-  <input ng-click="ctrl.ready()" class="btn btn-primary btn-xlarge" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
+  <input ng-click="ctrl.ready()" class="btn btn-primary" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
   <h3>Connecting...</h3>

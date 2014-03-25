@@ -66,7 +66,7 @@ body.base {
 		}
 		h2, h3, h4, h5, h6 { @include font-smoothing;}
 		.close {
-			color: $white;
+			color: $warmGray11;
 			text-shadow: 0 1px 0 $black;
 			margin-top: 10px;
 			opacity: .5;
@@ -79,6 +79,14 @@ body.base {
 	}
 }
 
+input {
+	&:focus:invalid:focus, &:focus:invalid {
+		color: $textColor;
+		border-color: $inputBorderFocus;
+		box-shadow: none;
+	}
+}
+
 input[type="search"], input[type="text"], input[type="password"], input[type="email"] {
 	color: $textColor;
 	background-color: $inputBackground;
@@ -87,8 +95,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	-webkit-appearance: none;
 	@include placeholder { color: $placeholderText;}
 	&:focus {
-		background-color: $grayLight;
-		border-color: $inputBorder;
+		background-color: $inputBackgroundFocus;
+		border-color: $inputBorderFocus;
 		box-shadow: none;
 	}
 }
@@ -112,12 +120,24 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 
 .btn-feature {
 	color: $textOnDark;
-	@include fontSize(14px);
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
 	background-color: $warmGray11;
 	padding: {left:26px;right:26px;}
 	border-color: darken($warmGray11, 5%);
 	@include font-smoothing;
+}
+
+.btn-primary {
+	color: $white;
+	@include fontSize(16px);
+	padding: {left:36px;right:36px;}
+	background-color: $btnPrimaryBackground;
+	border-color: darken($btnPrimaryBackground, 10%);
+	@include font-smoothing;
+	&:hover {
+		background-color: darken($btnPrimaryBackground, 10%);
+		border-color: darken($btnPrimaryBackground, 20%);
+	}
 }
 
 .alert {
@@ -150,6 +170,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .modal {
 	color: $textColor;
 	background: $beigeLight url('../images/modal-bg2.svg') top left no-repeat;
+	background-size: cover;
 	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
 	a.btn-social {
 		color: $white;

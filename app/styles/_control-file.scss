@@ -77,13 +77,15 @@ $tableBorder										: $grayDarker;
 
 // Forms ------------------------------
 
-$placeholderText								: lighten($textColor, 30%);
+$placeholderText								: $warmGray7;
 $inputBackground								: $white;
 $inputBorder										: $warmGray1;
+$inputBorderFocus								:	$warmGray7;
+$inputBackgroundFocus						: $beigeLight;
 $inputDisabledBackground				: $grayLighter;
 $btnBackground									:	$grayLight;
 $btnPrimaryBackground						: $grayDark;
-$btnPrimaryBackgroundHighlight	: darken($grayDark, 10%);
+$btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
 
 // Forms State & Alerts ------------------------------
 
@@ -107,9 +109,9 @@ $navbarLinkColor								: $grayDark;
 $navbarLinkColorHover						: $white;
 $navbarLinkColorActive					: $grayDark;
 $navbarLinkBackgroundHover			: $red;
-$navbarSearchBackground					: lighten($navbarBackground, 25%);
-$navbarSearchBackgroundFocus		: $white;
-$navbarSearchBorder							: darken($navbarSearchBackground, 75%);
+$navbarSearchBackground					: $beigeLight;
+$navbarSearchBackgroundFocus		: $navbarSearchBackground;
+$navbarSearchBorder							: darken($navbarSearchBackground, 10%);
 $navbarSearchPlaceholderColor		: $placeholderText;
 $navbarCollapseWidth						: 979px;
 $navbarCollapseDesktopWidth			: $navbarCollapseWidth + 1;
