@@ -17,6 +17,7 @@ $grayLight											: hsla(0,0%,87%,1); /*DEDEDE*/
 $grayLighter										: hsla(0,0%,93%,1); /*eee*/
 $white													: hsla(0,0%,100%,1); /*FFF*/
 $darkTrans											: hsla(0,0%,0%,.5);
+$darkTrans2											: rgba(38,34,31,.75);
 
 // Brand Colors ------------------------------
 
@@ -80,6 +81,7 @@ $placeholderText								: lighten($textColor, 30%);
 $inputBackground								: $white;
 $inputBorder										: $warmGray1;
 $inputDisabledBackground				: $grayLighter;
+$btnBackground									:	$grayLight;
 $btnPrimaryBackground						: $grayDark;
 $btnPrimaryBackgroundHighlight	: darken($grayDark, 10%);
 

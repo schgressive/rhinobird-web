@@ -22,6 +22,8 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
 
+@include font-face("Listicons", font-files("/fonts/listicons-webfont.woff", woff, "/fonts/listicons-webfont.ttf", truetype), "listicons-webfont.eot");
+
 @import "forms"; /*imports styles for forms*/
 
 // Global Styles ------------------------------
@@ -77,9 +79,19 @@ table caption, .visually-hidden {display:none !important;}
   &:hover { background-color: rgba(135, 135, 135, 0.50); background-image: url('/images/top-icon-wht-24.svg');}
 }
 
+[data-icon]:after {
+	font-family: "Listicons";
+	content: attr(data-icon);
+	speak: none;
+}
+
 // Calculate all H# Tags.
 
-h1 {font-family: $bold-font-stack; @include fontSize(52.358px);}
+h1 {
+	font-family: "OpenSansBold", $bold-font-stack;
+	@include fontSize(52.358px);
+	letter-spacing: -2px;
+}
 
 // using 1:1.618, Golden Section
 h2, article h1 {font-family: $bold-font-stack; @include fontSize(32.360px);}
@@ -196,6 +208,7 @@ body.base { /*overrides are here */
 				border: none;
 				top: 44px;
 				left: inherit;
+				z-index: 2000;
 				@include font-smoothing;
 				@include box-shadow(0 5px 4px $deepShadow);
 				li {
@@ -395,30 +408,25 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: hsla(0,0%,97%,1);}
 	&.feature {
-		background: #F1EDEA url('/images/banner-bg.jpg') 0px 3px no-repeat;
+		background: $beigeLight url('/images/banner-bg.jpg') top left no-repeat;
 		border-bottom: $warmGray1 solid 3px;
 		padding: {
-			top: 40px;
-			bottom: 30px;
+			top: 30px;
+			bottom: 10px;
 		}
-		@media screen and (max-width: 980px) {
-			background-position: 0px 0px;
-			padding: { top: 20px; bottom: 17px;}
+		@media screen and (max-width: 979px) {
+			padding-top: 20px;
 		}
-		@media screen and (max-width: 600px) {
+		@media screen and (max-width: 560px) {
+			background-image: url('/images/banner-bg2.jpg');
 			background-size: cover;
-			padding: { top: 14px; bottom: 7px;}
 		}
 	}
 	h1 {
-		color: $grayDarker;
-		font-family: "OpenSansBold", $bold-font-stack;
+		color: hsla(28,21%,18%,1);
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-		@include font-smoothing();
-		letter-spacing: -2px;
 		line-height: 50px;
-		margin-bottom: 24px;
-		.one-liner { margin-top: 10px;}
+		margin-bottom: 20px;
 	}
 	h4.one-liner {
 		font-family: $bold-font-stack;
@@ -438,6 +446,7 @@ i[class*="icon"] {font-style: normal;}
 		}
 	}
 	.default-wrapper {
+		text-align: center;
 		margin-top: -12px;
 		padding-bottom: 10px;
 	}

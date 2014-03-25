@@ -49,146 +49,11 @@ form { margin: 0;}
 }
 
 body.base {
-	.btn {
-		color: $textColor;
-		@include fontSize(14px);
-		font-family: $bold-font-stack;
-		text-transform: uppercase;
-		text-shadow: none;
-		background-color: transparent;
-		border: 1px solid $textColor;
-		background-image: none;
-		box-shadow: none;
-		&:hover {
-			color: $white;
-			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-			background-color: $orange;
-			border-color: darken($orange, 10%);
-			@include font-smoothing;
-		}
-	}
-	.btn-accent:hover {
-		background-color: $red;
-		border-color: darken($red, 10%);
-	}
-	.btn-inverse:hover {
-		background-color: lighten($grayDarker, 10%);
-		border-color: $grayDarker;
-	}
-	.btn-primary {
-		color: $white;
-		background-color: $btnPrimaryBackground;
-		border-color: darken($btnPrimaryBackground, 10%);
-		@include font-smoothing;
-		&:hover {
-			background-color: darken($btnPrimaryBackground, 10%);
-			border-color: darken($btnPrimaryBackground, 20%);
-		}
-	}
-	.btn-vj {
-		min-width: 56px;
-		margin: {top:6px;right:6px;}
-		&.vj-on {
-			color: $white;
-			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-			background-color: $orange;
-			border-color: lighten($orange, 10%);
-			box-shadow: 1px 1px 1px 0px darken($orange, 5%) inset;
-			@include font-smoothing;
-			&:hover {
-				background-color: lighten($orange, 10%);
-				border-color: $orange;
-				box-shadow: none;
-			}
-		}
-	}
-	.btn-large, .btn-primary { padding: 11px 16px 9px 16px;}
-	.btn-xlarge { padding: 11px 48px 11px 39px; @include fontSize(14px);}
 	.btn, btn-small, .btn-mini, .btn-large, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu {
 		border-radius: $baseBorderRadius;
 		-webkit-border-radius: $baseBorderRadius;
 	}
-	input {
-		background-color: $inputBackground;
-		border: $inputBorder 1px solid;
-		box-shadow: none;
-		@include placeholder {
-			color: $placeholderText;
-			@include fontSize(12px);
-		}
-		&:focus {
-			background-color: $grayLight;
-			border-color: $inputBorder;
-			box-shadow: none;
-		}
-		&[class*="span"] { height: 46px;}
-		&:focus:invalid:focus, &:focus:invalid { box-shadow: none; border-color: $inputBorder; color: $textColor;}
-	}
-	input[type="text"], input[type="search"], input[type="email"], input[type="password"] {
-		padding: 11px 16px 9px 8px;
-		-webkit-appearance: none;
-	}
-	.input-xxlarge { width: 400px;}
-	.input-prepend input { border-left-width: 1px;}
-	.input-append input { border-right-width: 1px;}
-	.add-on {
-		padding-top: 11px;
-		padding-bottom: 9px;
-		background-color: $inputBackground;
-		border: $inputBorder 1px solid;
-		&:first-child { border-right: none;}
-		&:last-child { border-left: none;}
-		&[class*="span"] { height: 46px;}
-	}
-	.add-onClick:hover { background-color: $grayLight;}
-	.input-prepend.input-append .btn:last-child {
-		background-color: $grayLighter;
-		border-color: $inputBorder;
-		padding: {
-			top: 10px;
-			bottom: 10px;
-		}
-		&:hover, &:focus {
-			color: $white;
-			background-color: $grayDark;
-			@include font-smoothing();
-		}
-	}
-	.default-wrapper {
-		a.btn {
-			color: $white;
-			font-family: $bold-font-stack;
-			background-color: $darkTrans;
-			border: 1px solid $white;
-			margin: 8px 12px 0 0;
-			@include font-smoothing();
-			&:hover {
-				background-color: $btnPrimaryBackground;
-				border-color: darken($btnPrimaryBackground, 10%);
-			}
-		}
-		.form-search {
-			@media screen and (max-width: 566px) { margin-top: 20px;}
-			input { padding: 14px 16px 12px 16px;}
-			input[type="search"] {
-				width: 300px;
-				@media screen and (min-width: 1280px) { width: 400px;}
-				@media screen and (max-width: 1020px) { width: 300px;}
-				@media screen and (max-width: 600px) { width: 270px;}
-			}
-			.add-on { padding: {top:14px;bottom:12px;}}
-			.input-prepend.input-append .btn {
-				@include fontSize(20px);
-				color: $grayDarker;
-				padding: 12px 16px 14px 16px;
-				&:hover {
-					color: $white;
-					background-color: $btnPrimaryBackground;
-					border-color: darken($btnPrimaryBackground, 10%);
-				}
-			}
-		}
-	}
+	.brSmall { border-radius: $borderRadiusSmall;}
 	.modal {
 		color: $textColor;
 		background: $warmGray1 url('../images/modal-bg.svg') top left no-repeat;
@@ -203,8 +68,6 @@ body.base {
 			&.fade.in { top: 0;}
 		}
 		h2, h3, h4, h5, h6 { @include font-smoothing;}
-		.input-xxlarge { @media screen and (max-width: 598px){ width: 280px;}}
-		.btn { @include fontSize(16px);}
 		.close {
 			color: $white;
 			text-shadow: 0 1px 0 $black;
@@ -217,6 +80,47 @@ body.base {
 			}
 		}
 	}
+}
+
+input[type="search"], input[type="text"], input[type="password"], input[type="email"] {
+	color: $textColor;
+	background-color: $inputBackground;
+	border-color: $inputBorder;
+	box-shadow: none;
+	-webkit-appearance: none;
+	@include placeholder { color: $placeholderText;}
+	&:focus {
+		background-color: $grayLight;
+		border-color: $inputBorder;
+		box-shadow: none;
+	}
+}
+
+.btn {
+	color: $textColor;
+	@include fontSize(14px);
+	font-family: "OpenSansBold", $bold-font-stack;
+	text-shadow: none;
+	background-color: $btnBackground;
+	background-image: none;
+	box-shadow: none;
+	&:hover {
+		color: $white;
+		text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+		background-color: $orange;
+		border-color: darken($orange, 10%);
+		@include font-smoothing;
+	}
+}
+
+.btn-feature {
+	color: $textOnDark;
+	@include fontSize(14px);
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+	background-color: $warmGray11;
+	padding: {left:26px;right:26px;}
+	border-color: darken($warmGray11, 5%);
+	@include font-smoothing;
 }
 
 .alert {
