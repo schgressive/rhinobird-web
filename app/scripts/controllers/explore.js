@@ -60,6 +60,7 @@ angular.module('peepoltv.controllers')
       search: {
         lat: 0,
         lng: 0,
+        per_page: 1000,
         zoom: 2
       },
       events: {
