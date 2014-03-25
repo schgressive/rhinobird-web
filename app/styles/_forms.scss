@@ -116,6 +116,16 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		border-color: darken($orange, 10%);
 		@include font-smoothing;
 	}
+	&.disabled, &[disabled] {
+		color: $gray;
+		background-color: $btnDisabledBackground;
+		border-color: $gray;
+		cursor: not-allowed;
+		&:hover, &.btn-primary:hover {
+			background-color: $btnDisabledBackground;
+			border-color: $gray;
+		}
+	}
 }
 
 .btn-feature {
@@ -147,7 +157,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	width: 85%;
 	margin: 0 auto 15px;
 	border: 2px solid $warningText;
-	background-color: $darkTrans;
+	background-color: $white;
 	-webkit-border-radius: $baseBorderRadius;
 	-moz-border-radius: $baseBorderRadius;
 	border-radius: $baseBorderRadius;
