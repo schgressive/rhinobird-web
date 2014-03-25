@@ -150,6 +150,24 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 }
 
+.btn-vj {
+	min-width: 56px;
+	margin: {top:6px;right:6px;}
+	&.vj-on {
+		color: $white;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+		background-color: $orange;
+		border-color: lighten($orange, 10%);
+		box-shadow: 1px 1px 1px 0px darken($orange, 5%) inset;
+		@include font-smoothing;
+		&:hover {
+			background-color: lighten($orange, 10%);
+			border-color: $orange;
+			box-shadow: none;
+		}
+	}
+}
+
 .alert {
 	color: $warningText;
 	text-align: center;

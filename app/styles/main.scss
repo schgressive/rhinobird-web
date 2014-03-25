@@ -421,13 +421,13 @@ i[class*="icon"] {font-style: normal;}
 
 .top-content {
 	padding: 22px 70px 10px;
-	background-color: hsla(0,0%,97%,1);
+	background-color: $bodyBackgroundAccent;
 	@media screen and (max-width: $navbarCollapseWidth) {
 		margin-top: -20px;
 		padding-top: 13px;
 	}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
-	&.loggedIn { background-color: hsla(0,0%,97%,1);}
+	&.loggedIn { background-color: $bodyBackgroundAccent;}
 	&.feature {
 		background: $beigeLight url('/images/banner-bg.jpg') top left no-repeat;
 		border-bottom: $warmGray1 solid 3px;
@@ -672,7 +672,7 @@ i[class*="icon"] {font-style: normal;}
 		background-size: cover;
 		display: block;
 		transition-property: none;
-		&:hover {transition-property: none;}
+		&:hover {transition-property: none; background-color: transparent;}
 	}
 }
 
