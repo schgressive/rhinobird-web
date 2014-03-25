@@ -95,7 +95,7 @@ table caption, .visually-hidden {display:none !important;}
 h1 {
 	font-family: "OpenSansBold", $bold-font-stack;
 	@include fontSize(52.358px);
-	letter-spacing: -2px;
+	letter-spacing: -1px;
 }
 
 // using 1:1.618, Golden Section
