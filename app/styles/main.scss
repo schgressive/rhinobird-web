@@ -297,9 +297,10 @@ i[class*="icon"] {font-style: normal;}
 	text-transform: uppercase;
 	height: 20px;
 	padding: 15px 0px 9px 30px;
-	background: white url("/images/goLive-icon.svg") 0px 12px no-repeat;
+	background: white url('/images/goLive-icon.svg') 0px 12px no-repeat;
 	display: block;
 	&:hover { text-decoration: none; color: $red;}
+	.stopStream { background-image: url('/images/goLive-icon-stop.svg');}
 }
 
 // based on expanding search bar from http://codrops.com
