@@ -32,6 +32,7 @@ $warmGray1											: rgba(215,210,203,1); /*D7D2CB*/
 $warmGray4											: rgba(182,173,165,1); /*B6ADA5*/
 $warmGray7											: rgba(150,140,131,1); /*968C83*/
 $warmGray11											: rgba(110,98,89,1); /*6E6259*/
+$beigeLight											: #F1EDEA; /*F1EDEA*/
 
 // Scaffolding ------------------------------
 
@@ -95,7 +96,7 @@ $infoBackground									: transparent;
 
 // Navbar ------------------------------
 
-$navbarHeight										: 44px;
+$navbarHeight										: 48px;
 $navbarBackground								: $white;
 $navbarBackgroundHighlight			: transparent;
 $navbarText											: $warmGray11;

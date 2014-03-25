@@ -30,17 +30,26 @@
 	              </div><!-- /.menu-bottom -->
               </div><!-- /.mega-menu -->
             </nav><!-- /.main-nav -->
-            <!--
-<form class="navbar-search" ng-controller="SearchCtrl" ng-submit="search()">
-							<input class="input-medium" type="search" placeholder="streams, #channels..." ng-model="searchTerms">
-            </form>
--->
+            <div id="navbar-search" class="navbar-search">
+            	<form ng-controller="SearchCtrl" ng-submit="search()">
+								<input class="nb-search-input" type="search" placeholder="search livestreams, #channels..." ng-model="searchTerms" id="nb-search-icon"/>
+								<input class="nb-search-submit" type="submit" value=""/>
+								<span class="nb-search-icon"></span>
+	            </form>
+            </div>
             <a href="/" class="brand" title="return to home" rel="home"><span class="visually-hidden">rhinobird.tv</span></a>
           </div><!-- /.main-nav-wrapper -->
-          <a class="golive-btn pull-right" ng-hide="app.onAir" ng-click="golive()" href="#" role="button">Go Live</a>
-          <a class="golive-btn pull-right stopStream" ng-show="app.onAir" ng-click="stopBroadcast({goback: false})" href="#" role="button">Stop</a>
+          <a class="golive-btn pull-right" ng-hide="app.onAir" ng-click="golive()" href="#" role="button"><span class="hidden-phone">Go Live</span></a>
+          <a class="golive-btn pull-right stopStream" ng-show="app.onAir" ng-click="stopBroadcast({goback: false})" href="#" role="button"><span class="hidden-phone">Stop</span></a>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div><!-- /.inner-navbar -->
   </div><!-- /.navbar -->
 </header>
+<!-- for expanding search bar -->
+	<script src="/vendor/classie.js"></script>
+	<script src="/vendor/uisearch.js"></script>
+	<script>
+		new UISearch( document.getElementById( 'navbar-search' ) );
+	</script>
+<!-- end -->

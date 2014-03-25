@@ -176,11 +176,13 @@ body.base { /*overrides are here */
 				margin: 0 0 0 -80px;
 				position: absolute;
 				top: 9px;
+				-webkit-transition: none;
+				@media screen and (max-width: 600px) { margin-left: -65px;}
 			}
 			.navToggle {
-				width: 34px;
-				height: 34px;
-				margin: 13px 2px 0 0;
+				width: 24px;
+				height: 24px;
+				margin: 13px 9px 0 0;
 				border: none;
 				display: block;
 				background: url('../images/menu-24.svg') top left no-repeat;
@@ -276,12 +278,84 @@ i[class*="icon"] {font-style: normal;}
 	font-size: 16px;
 	text-transform: uppercase;
 	height: 20px;
-	padding: 16px 0px 9px 28px;
-	background: white url("/images/goLive-icon.svg") 0px 14px no-repeat;
-	background-size: 26%;
+	padding: 15px 0px 9px 30px;
+	background: white url("/images/goLive-icon.svg") 0px 12px no-repeat;
 	display: block;
 	&:hover { text-decoration: none; color: $red;}
 }
+
+// based on expanding search bar from http://codrops.com
+
+.navbar-search {
+  width: 0%;
+  min-width: 24px;
+  max-width: 220px;
+  height: 24px;
+  padding: 8px 0 7px 0;
+  background-color: $navbarBackground;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  transition: width 0.3s;
+  -webkit-backface-visibility: hidden;
+  input[type="search"] {
+  	max-width: 160px;
+  	margin: 0 0 0 28px;
+  	padding: 2px 10px;
+  	border: none;
+		background-color: $beigeLight;
+		@include placeholder { @include fontSize(11px);}
+  }
+}
+
+.nb-search-icon, .nb-search-submit  {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    cursor: pointer;
+}
+
+.nb-search-submit {
+    background: #fff; /* IE needs this */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+    filter: alpha(opacity=0); /* IE 5-7 */
+    opacity: 0;
+    color: transparent;
+    border: none;
+    outline: none;
+    z-index: -1;
+}
+
+.nb-search-icon {
+    background: $beigeLight url('/images/search-24.svg') center center no-repeat;
+    z-index: 1031;
+    &:hover { background: $warmGray11 url('/images/search-white-24.svg');}
+}
+
+.navbar-search.navbar-search-open/* , .no-js .navbar-search */ {
+	width: 100%;
+	z-index: 1033;
+}
+
+.navbar-search.navbar-search-open .nb-search-icon,
+/* .no-js .navbar-search .nb-icon-search */ {
+    background: $red url('/images/search-white-24.svg');
+    z-index: 1029;
+}
+
+.navbar-search.navbar-search-open .nb-search-submit,
+/* .no-js .nb-search .nb-search-submit */ {
+    z-index: 1030;
+}
+
+// end expanding search bar
 
 .modal-backdrop { opacity: 0.25 !important;}
 
@@ -341,6 +415,7 @@ i[class*="icon"] {font-style: normal;}
 		font-family: "OpenSansBold", $bold-font-stack;
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 		@include font-smoothing();
+		letter-spacing: -2px;
 		line-height: 50px;
 		margin-bottom: 24px;
 		.one-liner { margin-top: 10px;}
