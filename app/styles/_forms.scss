@@ -101,10 +101,12 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 }
 
+.add-onClick:hover { background-color: $grayLight;}
+
 .btn {
 	color: $textColor;
 	@include fontSize(14px);
-	font-family: "OpenSansBold", $bold-font-stack;
+	font-family: $bold-font-stack;
 	text-shadow: none;
 	background-color: $btnBackground;
 	background-image: none;

@@ -103,12 +103,12 @@ table caption, .visually-hidden {display:none !important;}
 // Calculate all H# Tags.
 
 h1 {
-	font-family: "OpenSansBold", $bold-font-stack;
+	font-family: $bold-font-stack;
 	@include fontSize(52.358px);
 }
 
 // using 1:1.618, Golden Section
-h2, article h1 {font-family: "OpenSansBold", $bold-font-stack; @include fontSize(32.360px);}
+h2, article h1 {font-family: $bold-font-stack; @include fontSize(32.360px);}
 h3, article h2 {@include fontSize(22.652px);}
 h4, article h3 {@include fontSize(20px);}
 h5, article h4 {font-size: $baseFontSize;}
@@ -210,7 +210,7 @@ body.base { /*overrides are here */
 			.navToggle {
 				width: 24px;
 				height: 24px;
-				margin: 13px 9px 0 0;
+				margin: 13px 12px 0 0;
 				border: none;
 				display: block;
 				background: url('../images/menu-24.svg') top left no-repeat;
@@ -303,7 +303,7 @@ i[class*="icon"] {font-style: normal;}
 
 .golive-btn {
 	color: $navbarText;
-	font-family: "OpenSansBold", $bold-font-stack;
+	font-family: $bold-font-stack;
 	font-size: 16px;
 	text-transform: uppercase;
 	height: 20px;
