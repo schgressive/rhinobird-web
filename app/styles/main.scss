@@ -531,12 +531,11 @@ i[class*="icon"] {font-style: normal;}
 
 .mid-content {
 	padding-top: 10px;
+	.form-geo { @media screen and (max-width: 580px) { margin-top: 10px;}}
 	.form-geo, .form-search {
 		float: right;
 		@media screen and (max-width: 740px) { float: none;}
-		input[type="search"] {
-			@media screen and (max-width: 500px) { width: 280px;}
-		}
+		input[type="search"] { @media screen and (max-width: 500px) { width: 280px;}}
 	}
 	[class*="span"] {
 		@media screen and (max-width: 740px){ width: 100%; margin-left: 0;}
@@ -546,7 +545,6 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .faux-tabs, .tabs {
-	@media screen and (max-width: 740px) { margin-bottom: 10px;}
 	li { padding: 0;}
 	a {
 		color: $gray;
