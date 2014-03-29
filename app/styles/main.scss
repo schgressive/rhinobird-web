@@ -169,6 +169,7 @@ article {
 body.base { /*overrides are here */
 	input[type="search"] + .add-on {padding: 4px 5px}
 	.tooltip {
+		@include font-smoothing();
 		&.top .tooltip-arrow {border-top-color: $tooltipArrowColor;}
 		&.right .tooltip-arrow {border-right-color: $tooltipArrowColor;}
 		&.left .tooltip-arrow {border-left-color: $tooltipArrowColor;}
@@ -200,7 +201,7 @@ body.base { /*overrides are here */
 				background: url('../images/rb-logo.svg') top left no-repeat;
 				background-size: contain;
 				padding: 0;
-				left: 50%;
+				left: 50.75%;
 				margin: 0 0 0 -80px;
 				position: absolute;
 				top: 9px;
