@@ -33,7 +33,7 @@ $warmGray1											: rgba(215,210,203,1); /*D7D2CB*/
 $warmGray4											: rgba(182,173,165,1); /*B6ADA5*/
 $warmGray7											: rgba(150,140,131,1); /*968C83*/
 $warmGray11											: rgba(110,98,89,1); /*6E6259*/
-$beigeLight											: #F1EDEA; /*F1EDEA*/
+$beigeLight											: hsla(25,20%,93%,1); /*F1EDEA*/
 
 // Scaffolding ------------------------------
 
@@ -84,7 +84,7 @@ $inputBorder										: $warmGray1;
 $inputBorderFocus								:	$warmGray7;
 $inputBackgroundFocus						: $beigeLight;
 $inputDisabledBackground				: $grayLighter;
-$btnBackground									:	$grayLight;
+$btnBackground									:	$beigeLight;
 $btnDisabledBackground					:	$grayLighter;
 $btnPrimaryBackground						: $grayDark;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
