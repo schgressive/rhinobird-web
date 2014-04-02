@@ -242,7 +242,8 @@ angular.module('rhinobird', [
   // Config whitelist for amazon s3
   $sceDelegateProvider.resourceUrlWhitelist([
     'self',
-    'https://s3.amazonaws.com/media.rhinobird.tv/**'
+    'https://s3.amazonaws.com/media.rhinobird.tv/**',
+    'https://s3.amazonaws.com/media-peepol.tv/**'
   ]);
 
   // Set stream viewer size presets
