@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.models')
+angular.module('rhinobird.models')
   .factory('Session', function ($restmod) {
     return $restmod.model('sessions', {
         user: { hasOne: 'User' }

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.services')
+angular.module('rhinobird.services')
   .service('GoliveService', function GoliveService($q, $rootScope, CameraService, Stream) {
 
     var self = this;

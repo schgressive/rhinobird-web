@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjStream, VjService) {
     var POLLING_TIME = 10000; // 10 seconds
 

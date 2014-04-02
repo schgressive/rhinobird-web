@@ -4,7 +4,7 @@ set :default_stage, "beta"
 require 'capistrano/ext/multistage'
 
 # Server-side information.
-set :application, "peepoltv"
+set :application, "rhinobird"
 set :user,        "deploy"
 
 # Repository (if any) configuration.

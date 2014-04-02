@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('PasswordResetCtrl', function ($scope, AuthService, $stateParams) {
 
     // Call API to reset password

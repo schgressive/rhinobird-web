@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv')
+angular.module('rhinobird')
   .constant('settings', {
     apiHost: '/api',
     channelCleanedRegex: /[^\d^\w]/g

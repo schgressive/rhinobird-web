@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
 
   .controller('MainCtrl', function ($scope, $stateParams, Stream, AuthService) {
 

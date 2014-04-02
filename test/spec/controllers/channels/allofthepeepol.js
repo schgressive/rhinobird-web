@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: ChannelsAllofthepeepolCtrl', function () {
+describe('Controller: ChannelsAllofthepeopleCtrl', function () {
 
   // load the controller's module
   beforeEach(module('webApp'));
 
-  var ChannelsAllofthepeepolCtrl,
+  var ChannelsAllofthepeopleCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ChannelsAllofthepeepolCtrl = $controller('ChannelsAllofthepeepolCtrl', {
+    ChannelsAllofthepeopleCtrl = $controller('ChannelsAllofthepeopleCtrl', {
       $scope: scope
     });
   }));

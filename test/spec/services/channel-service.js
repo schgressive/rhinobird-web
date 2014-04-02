@@ -3,7 +3,7 @@
 describe('Service: channelService', function () {
 
   // load the service's module
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   // instantiate service
   var channelService;

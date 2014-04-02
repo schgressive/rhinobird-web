@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, $state) {
 
     // Catch the unauthorized pages

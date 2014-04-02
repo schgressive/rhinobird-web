@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.directives')
+angular.module('rhinobird.directives')
   .directive('pixelToKm', function ($window) {
     // constant to calc pixels to metters
     var EcuatorSize = 40075016.68;

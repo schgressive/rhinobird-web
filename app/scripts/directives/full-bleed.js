@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.directives')
+angular.module('rhinobird.directives')
   .directive('fullBleed', function ($window) {
     return function(scope, element){
       var w = angular.element($window);

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.directives')
+angular.module('rhinobird.directives')
   .provider('streamViewerConfig', function(){
     var config = {
       presets: {},

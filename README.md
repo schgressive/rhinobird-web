@@ -1,2 +1,2 @@
-peepoltv-frontend
+rhinobird-frontend
 =================

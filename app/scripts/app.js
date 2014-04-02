@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('peepoltv', [
+angular.module('rhinobird', [
   'ui.router',
   'ui.bootstrap',
   'infinite-scroll',
   'pl-licode',
   'leaflet-directive',
-  'peepoltv.models',
-  'peepoltv.services',
-  'peepoltv.directives',
-  'peepoltv.filters',
-  'peepoltv.controllers'
+  'rhinobird.models',
+  'rhinobird.services',
+  'rhinobird.directives',
+  'rhinobird.filters',
+  'rhinobird.controllers'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, streamViewerConfigProvider, settings) {
   // Remove hashes and enables html push state history
@@ -58,7 +58,7 @@ angular.module('peepoltv', [
     - explore                                 /explore
     - search.streams                          /search/streams
     - search.channels                         /search/channels
-    - search.peepol                           /search/peepol
+    - search.people                           /search/people
     - golive                                  /golive
     - profile.streams                         /profile/streams
     - profile.settings												/profile/settings
@@ -104,9 +104,9 @@ angular.module('peepoltv', [
       url: 'channels/',
       templateUrl: '/views/search-results-channels.html'
     })
-    .state('search.peepol', {
-      url: 'peepol/',
-      templateUrl: '/views/search-results-peepol.html'
+    .state('search.people', {
+      url: 'people/',
+      templateUrl: '/views/search-results-people.html'
     })
 
     // Golive
@@ -242,7 +242,7 @@ angular.module('peepoltv', [
   // Config whitelist for amazon s3
   $sceDelegateProvider.resourceUrlWhitelist([
     'self',
-    'https://s3.amazonaws.com/media-peepol.tv/**'
+    'https://s3.amazonaws.com/media.rhinobird.tv/**'
   ]);
 
   // Set stream viewer size presets

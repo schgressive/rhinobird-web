@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('ExploreCtrl', function ($scope, GeolocationService, Stream, AuthService, $timeout, $compile, leafletData, $stateParams) {
 
     // Set the default marker location

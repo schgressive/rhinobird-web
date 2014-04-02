@@ -3,7 +3,7 @@
 describe('Controller: GoliveCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('peepoltvWebApp'));
+  beforeEach(module('rhinobird'));
 
   var GoliveCtrl,
     scope;

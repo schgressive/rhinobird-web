@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('ProfileCtrl', function ($scope, User, session, $location) {
 
     $scope.self = $scope;

@@ -1,6 +1,6 @@
-/* Peepoltv modules */
-angular.module('peepoltv.models', ['plRestmod']);
-angular.module('peepoltv.services', ['peepoltv.models']);
-angular.module('peepoltv.directives', []);
-angular.module('peepoltv.filters', []);
-angular.module('peepoltv.controllers', ['peepoltv.services', 'peepoltv.models', 'peepoltv.filters']);
+/* Rhinobird modules */
+angular.module('rhinobird.models', ['plRestmod']);
+angular.module('rhinobird.services', ['rhinobird.models']);
+angular.module('rhinobird.directives', []);
+angular.module('rhinobird.filters', []);
+angular.module('rhinobird.controllers', ['rhinobird.services', 'rhinobird.models', 'rhinobird.filters']);

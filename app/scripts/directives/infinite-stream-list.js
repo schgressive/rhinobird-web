@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.directives')
+angular.module('rhinobird.directives')
   .directive('infiniteStreamList', function () {
     return {
       templateUrl: '/views/templates/infinite-stream-list.html',

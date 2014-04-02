@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('SearchResultsCtrl', function ($scope, $location, AuthService, Stream, $state, User, Channel) {
 
     $scope.searchTerm = $location.search().q;
@@ -8,7 +8,7 @@ angular.module('peepoltv.controllers')
 
     // Get the streams based on geolocation
     $scope.streams = Stream.$search($state.params);
-    $scope.peepol = User.$search($state.params);
+    $scope.people = User.$search($state.params);
     $scope.channels = Channel.$search($state.params);
 
     $scope.filterBy = function(filter){

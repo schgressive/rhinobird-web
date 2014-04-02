@@ -3,7 +3,7 @@
 describe('Directive: infiniteStreamList', function () {
 
   // load the directive's module
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   var element,
     scope;

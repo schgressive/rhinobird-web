@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('DefaultActionsCtrl', function ($scope, AuthService) {
     $scope.user = AuthService.user;
 

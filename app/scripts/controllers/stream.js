@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('StreamCtrl', function ($scope, $stateParams, $timeout, Stream, AuthService, $location, stream) {
 
 		$scope.user = AuthService.user;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.models')
+angular.module('rhinobird.models')
   .factory('VjStream', function ($restmod, SyncMask) {
     return $restmod.model('streams_pool', {
       stream: { hasOne: 'Stream' },

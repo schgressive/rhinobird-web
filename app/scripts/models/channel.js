@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.models')
+angular.module('rhinobird.models')
   .factory('Channel', function ($restmod) {
     return $restmod.model('channels', {
       streams: { hasMany: 'Stream' }
@@ -8,7 +8,7 @@ angular.module('peepoltv.models')
      this.classDefine('searchByLocation', function(lat, lng){
       // Payload
       var payload = {
-        lat: lat, 
+        lat: lat,
         lng: lng
       }
 

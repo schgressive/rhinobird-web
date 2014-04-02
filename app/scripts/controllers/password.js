@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('PasswordCtrl', function ($scope, AuthService) {
 
     $scope.askPasswordReset = function() {

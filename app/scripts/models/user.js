@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.models')
+angular.module('rhinobird.models')
   .factory('User', function ($restmod, SyncMask) {
     return $restmod.model('users', {
       streams: { hasMany: 'Stream'},

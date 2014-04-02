@@ -3,7 +3,7 @@
 describe('Controller: MockChannelCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   var MockChannelCtrl,
     scope;

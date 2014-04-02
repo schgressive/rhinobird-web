@@ -3,7 +3,7 @@
 describe('Controller: VjSessionCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   var VjSessionCtrl,
     scope;

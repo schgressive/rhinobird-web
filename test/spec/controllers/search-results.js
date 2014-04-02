@@ -3,7 +3,7 @@
 describe('Controller: SearchResultsCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('peepoltvWebApp'));
+  beforeEach(module('rhinobird'));
 
   var SearchResultsCtrl,
     scope;

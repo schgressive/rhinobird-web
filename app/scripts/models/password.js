@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.models')
+angular.module('rhinobird.models')
   .factory('Password', function ($restmod) {
     return $restmod.model('users/password');
   });

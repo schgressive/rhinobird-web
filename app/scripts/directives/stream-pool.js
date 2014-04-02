@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.directives')
+angular.module('rhinobird.directives')
   .directive('streamPool', function ($timeout) {
     return {
       templateUrl: '/views/templates/stream-pool.html',

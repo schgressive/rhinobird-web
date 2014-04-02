@@ -1,6 +1,6 @@
 # HTTP Server
-upstream peepoltv-api{
-  server unix:/home/deploy/tmp/negroku.peepoltv-api.sock fail_timeout=0;
+upstream rhinobird-api{
+  server unix:/home/deploy/tmp/negroku.rhinobird-api.sock fail_timeout=0;
 }
 
 server {
@@ -40,7 +40,7 @@ server {
     proxy_set_header X-FORWARDED_PROTO http;
     proxy_set_header Host $http_host;
     proxy_redirect off;
-    proxy_pass http://peepoltv-api;
+    proxy_pass http://rhinobird-api;
   }
 
   # Videos mockup

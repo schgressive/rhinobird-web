@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('SearchCtrl', function ($scope, $state) {
     $scope.searchTerms = $state.params.q;
     $scope.search = function() {

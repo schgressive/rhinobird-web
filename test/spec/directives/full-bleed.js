@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Directive: resize', function () {
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   var element;
 

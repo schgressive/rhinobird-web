@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.services')
+angular.module('rhinobird.services')
   .service('VjService', function VjService($q, VjStream, channelSocket) {
 
     var _self = this;

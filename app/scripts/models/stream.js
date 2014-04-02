@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.models')
+angular.module('rhinobird.models')
   .factory('Stream', function ($restmod, SyncMask) {
     var StatusMessages = {
       "pending": "stream under production",

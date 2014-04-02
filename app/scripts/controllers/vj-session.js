@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('peepoltv.controllers')
+angular.module('rhinobird.controllers')
   .controller('VjSessionCtrl', function ($scope, channel, user, VjService, Stream) {
 
     $scope.self = $scope;

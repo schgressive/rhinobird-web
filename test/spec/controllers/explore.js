@@ -3,7 +3,7 @@
 describe('Controller: ExploreCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   var ExploreCtrl,
     scope;

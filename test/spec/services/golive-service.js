@@ -3,7 +3,7 @@
 describe('Service: GoliveService', function () {
 
   // load the service's module
-  beforeEach(module('PeepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   // instantiate service
   var GoliveService;

@@ -3,7 +3,7 @@
 describe('Filter: skip', function () {
 
   // load the filter's module
-  beforeEach(module('peepoltvApp'));
+  beforeEach(module('rhinobird'));
 
   // initialize a new instance of the filter before each test
   var skip;

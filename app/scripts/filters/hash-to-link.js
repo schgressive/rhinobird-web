@@ -1,6 +1,6 @@
 'user strict';
 
-angular.module('peepoltv.filters')
+angular.module('rhinobird.filters')
   .filter('hashToLink', function($sce) {
 
     var regexp = new RegExp('#([^\\s|^#]+)','g'); // Hashtag regex

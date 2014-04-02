@@ -1,10 +1,10 @@
 ## STAGING CONFIGURATION
 
 # Servers and their roles.
-server "church.peepol.tv", :web, :app, :db, primary: true
+server "church.rhinobird.tv", :web, :app, :db, primary: true
 
 # Web server configuration
-set :domains, 		"beta.peepol.tv"
+set :domains, 		"beta.rhinobird.tv"
 
 # Source
 #set :branch,     	"deploy"		# Optional, defaults to master

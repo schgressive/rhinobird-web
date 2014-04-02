@@ -1,0 +1,9 @@
+<div class="row-fluid">
+   <div class="span12">
+		 <ol class="no-bullets">
+			 <li class="results-item span4" ng-repeat="user in people | limitTo:12">
+				 <div ng-include="'/views/snippets/search-people-item.html'"></div>
+			 </li>
+		 </ol>
+   </div>
+</div>
