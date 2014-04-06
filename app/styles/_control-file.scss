@@ -89,7 +89,7 @@ $btnDisabledBackground					:	$grayLighter;
 $btnPrimaryBackground						: $grayDark;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
 $btnFeatureBackground						: $warmGray11;
-$btnAccentBackground						: transparent;
+$btnAccentBackground						: $beigeLight;
 
 // Forms State & Alerts ------------------------------
 

@@ -164,6 +164,10 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	border-color: darken($btnFeatureBackground, 5%);
 	@media screen and (max-width: 500px) {padding-top: 6px;}
 	@include font-smoothing;
+	&:hover {
+		background-color: $red;
+		border-color: darken($red, 10%);
+	}
 }
 
 .btn-vj {
