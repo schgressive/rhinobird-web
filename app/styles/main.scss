@@ -421,7 +421,6 @@ i[class*="icon"] {font-style: normal;}
 .mainWrapper {
 	.main {
 		padding: 0 70px 20px;
-		border-top: 1px solid $grayLight;
 		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
 	}
@@ -452,7 +451,7 @@ i[class*="icon"] {font-style: normal;}
 		padding-top: 13px;
 	}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
-	&.loggedIn { background-color: $bodyBackgroundAccent;}
+	&.loggedIn { background-color: $bodyBackground;}
 	&.feature {
 		background: $beigeLight url('/images/banner-bg.jpg') top left no-repeat;
 		border-bottom: $warmGray1 solid 3px;
@@ -495,6 +494,8 @@ i[class*="icon"] {font-style: normal;}
 		padding-bottom: 16px;
 	}
 	.loggedin-actions {
+		padding-bottom: 10px;
+		border-bottom: 1px solid $grayLight;
 		.form-search { margin: { top:0;bottom: 0;}}
 		.user-avatar { margin-right: 14px; display: block;}
 		.form-search {
