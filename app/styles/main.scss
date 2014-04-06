@@ -311,14 +311,13 @@ i[class*="icon"] {font-style: normal;}
 	font-family: $bold-font-stack;
 	font-size: 16px;
 	text-transform: uppercase;
-	width: 110px;
+	width: 96px;
 	height: 24px;
 	margin-top: 13px;
-	background: $white url('/images/goLive-btn.svg') top right no-repeat;
+	background: $white url('/images/goLive-hover-btn.svg') top right no-repeat;
 	display: block;
-	-webkit-transform: none;
 	&:hover { background-color: $white;}
-	&.livebtn:hover { background-image: url('/images/goLive-hover-btn.svg');}
+	&.livebtn:hover {	@media screen and (min-width: 501px) { width:110px;}}
 	@media screen and (max-width: 580px) {
 		width: auto;
 		height: 20px;
