@@ -74,6 +74,8 @@ table caption, .visually-hidden {display:none !important;}
 
 .one-liner {display: block;}
 
+.inline {display: inline-block;}
+
 .ellipsis {	@include ellipsis();}
 
 .pageTop { @media screen and (min-width:600) {visibility: hidden;}}
@@ -468,7 +470,7 @@ i[class*="icon"] {font-style: normal;}
 	}
 	h1 {
 		color: hsla(28,21%,18%,1);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+		/* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); */
 		line-height: 50px;
 		margin-bottom: 20px;
 	}
