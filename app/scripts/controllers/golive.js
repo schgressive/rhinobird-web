@@ -91,6 +91,23 @@ angular.module('rhinobird.controllers')
       });
     };
 
+    // Add a hash to a the caption
+    this.addHashTag = function(hash){
+      var hashes = vm.caption.match(regexp);
+      if(!_.some(hashes, function(h){ return h === "#" + hash; } )){
+        if(vm.caption.length !== 0){
+          vm.caption += ' ';
+        }
+        vm.caption += "#" + hash;
+      }
+    };
+
+    // To filter out used hashes
+    this.usedHashes = function(hash){
+      var usedHashes = vm.caption.match(regexp) || [];
+      return !_.contains(usedHashes, "#" + hash.name)
+    };
+
     /**
      * EVENTS
      */
