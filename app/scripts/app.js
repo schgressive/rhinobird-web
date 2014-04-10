@@ -12,7 +12,7 @@ angular.module('rhinobird', [
   'rhinobird.filters',
   'rhinobird.controllers'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, streamViewerConfigProvider, settings) {
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider, settings) {
   // Remove hashes and enables html push state history
   $locationProvider.html5Mode(true);
 
@@ -245,6 +245,15 @@ angular.module('rhinobird', [
     'https://s3.amazonaws.com/media-rhinobird.tv/**',
     'https://s3.amazonaws.com/media-peepol.tv/**'
   ]);
+
+  // Set camera service settings
+  var csp = CameraServiceProvider;
+  csp.enableVideo(true);
+  csp.enableAudio(true);
+
+  csp.setVideoConstrain('minWidth', '1280');
+  csp.setVideoConstrain('minHeight', '720');
+  csp.setVideoConstrain('minAspectRatio', 1.778);
 
   // Set stream viewer size presets
   streamViewerConfigProvider.addPreset('mini', 'auto', 100);
