@@ -21,7 +21,6 @@
     "leaflet.markercluster": "~0.4.0"
   },
   "resolutions": {
-    "bootstrap": "~2.3.2",
     "jquery": "~2.0.0"
   }
 }
