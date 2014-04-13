@@ -16,6 +16,9 @@
       <span ng-bind-html="stream.caption | hashToLink"></span>
     </li>
     <li class="ellipsis">
+      <strong>Streamed by:</strong> <span>{{stream.user.username}}</span> at <span>{{stream.startedOn}}</span>
+		</li>
+    <li class="ellipsis">
       <i class="icon-map-marker"></i>
       <span ng-hide="stream.properties.city">anonymous</span>
       <span ng-show="stream.properties.city">{{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</span>
