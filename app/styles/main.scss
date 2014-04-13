@@ -878,7 +878,10 @@ i[class*="icon"] {font-style: normal;}
 	padding: 10px 10px 0;
 	background-color: $white;
 	canvas, video { width: 100%;}
-	.module-outer { padding: 10px 10px 30px 0px;}
+	.module-outer {
+		padding: 10px 10px 30px 0px;
+		@media screen and (max-width: 500px) { padding: {top:8px;bottom:27px;}}
+	}
 	.ng-isolate-scope .licode {
 		@media screen and (max-width: 600px) { height: 436px !important;}
 		@media screen and (max-width: 500px) { height: 280px !important;}
@@ -890,9 +893,14 @@ i[class*="icon"] {font-style: normal;}
 			border-top-left-radius: 10px;
 			border-bottom-right-radius: 10px;
 			margin-right: 10px;
+			@media screen and (max-width: 500px) { width: 42px; height: 42px;}
 		}
 	}
-	li { margin-bottom: 2px;}
+	li {
+		margin-bottom: 2px;
+		@media screen and (max-width: 500px) { margin-bottom: 0;}
+	}
+	li:last-of-type { @media screen and (max-width: 500px){ margin-top: 6px;}}
 }
 
 .module-large {
