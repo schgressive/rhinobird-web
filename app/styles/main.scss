@@ -103,6 +103,11 @@ table caption, .visually-hidden {display:none !important;}
 	speak: none;
 }
 
+a:focus {
+	outline: dashed $warmGray1 1px;
+	outline-offset: 5px;
+}
+
 // Calculate all H# Tags.
 
 h1 {
@@ -215,6 +220,7 @@ body.base { /*overrides are here */
 				top: 9px;
 				-webkit-transition: none;
 				@media screen and (max-width: 600px) { margin-left: -65px;}
+				&:focus { outline: none;}
 			}
 			.navToggle {
 				width: 24px;
@@ -445,7 +451,7 @@ i[class*="icon"] {font-style: normal;}
 
 .top-content {
 	padding: 22px 70px 10px;
-	background-color: $bodyBackgroundAccent;
+	background-color: $bodyBackground;
 	@media screen and (max-width: $navbarCollapseWidth) {
 		margin-top: 47px;
 		padding-top: 13px;
@@ -541,6 +547,16 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.search-results-wrapper {
+	padding-bottom: 10px;
+	border-bottom: 1px solid $grayLight;
+	strong {
+		color: $textColorAccent;
+		font-family: "OpenSansBold", $bold-font-stack;
+		letter-spacing: -1px;
+	}
+}
+
 .mid-content {
 	padding-top: 10px;
 	.form-geo { @media screen and (max-width: 580px) { margin-top: 10px;}}
@@ -591,6 +607,23 @@ i[class*="icon"] {font-style: normal;}
 .tabs { padding-top: 5px;}
 
 .mid-content + .lower-content { margin-top: 20px;}
+
+.no-results {
+	padding-top: 20px;
+	img {
+		width: 106px;
+		height: 70px;
+		margin-right: 15px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	p {
+		font-size: 16px;
+		font-style: italic;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
 
 .lower-content {
 	padding-bottom:	30px;
@@ -758,14 +791,17 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.user-avatar img {
+	border-top-left-radius: 13px;
+	border-bottom-right-radius: 13px;
+}
+
 .profile-list {
 	.user-avatar {
 		margin-right: 20px;
 		img {
 			width: 60px;
 			height: 60px;
-			border-top-left-radius: 13px;
-			border-bottom-right-radius: 13px;
 		}
 	}
 	h2 { margin: {top:8px;bottom:0;}}

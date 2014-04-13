@@ -1,7 +1,9 @@
 <section class="top-content">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-      <h4>Your search results for:  <strong>{{searchTerm}}</strong></h4>
+    	<div class="search-results-wrapper">
+    		<h4>Your search results for:  <strong>{{searchTerm}}</strong></h4>
+    	</div>
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
@@ -19,16 +21,18 @@
 				<a ui-sref="search.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Streams</a>
 			      </li>
 			      <li ng-class="getClass('/search/people')">
-				<a ui-sref="search.people" data-toggle="tab"><i class="icon-user"></i>people</a>
+				<a ui-sref="search.people" data-toggle="tab"><i class="icon-user"></i>People</a>
 			      </li>
 			    </ul>
 			  </div><!-- /.tabs -->
-			  <!-- <div class="span6" ng-controller="SearchCtrl" ng-include="'/views/snippets/search-bar.html'"></div> -->
 		  </div><!-- /.row-fluid -->
 		</section><!-- /.mid-content -->
 		<section class="lower-content">
 			<div class="tab-content">
 			  <div class="tab-pane active">
+			  	<div class="row-fluid" ng-show="">
+						<div ng-include="'/views/snippets/search-no-results.html'"></div>
+					</div>
           <div ui-view></div>
 			  </div>
 			</div>
