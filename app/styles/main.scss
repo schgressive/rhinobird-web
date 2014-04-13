@@ -854,24 +854,26 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-outer {
-	height: 42px;
+	height: 48px;
 	color: $grayDarker;
-	padding: 5px 10px 7px 10px;
+	padding: 0px 10px 7px 10px;
 	background-color: $white;
 	@media screen and (max-width: 500px) {
 		@include fontSize(12px);
 		padding: 3px 6px 3px 6px;
 	}
 	a { text-decoration: underline;}
-	.thumb-user {
+}
+
+.thumb-user {
+	margin-bottom: 5px;
+	/* @media screen and (max-width: 500px) { display: none;} */
+	img {
+		width: 24px;
+		height: 24px;
+		border-top-left-radius: 10px;
+		border-bottom-right-radius: 10px;
 		margin-right: 10px;
-		@media screen and (max-width: 500px) { display: none;}
-		img {
-			width: 42px;
-			height: 42px;
-			border-top-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-		}
 	}
 }
 
