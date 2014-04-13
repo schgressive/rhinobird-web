@@ -20,9 +20,13 @@ $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Ne
 
 $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
+/*
 @include font-face("OpenSansRegular", font-files("/fonts/opensans-regular-webfont.woff", woff, "/fonts/opensans-regular-webfont.ttf", truetype), "opensans-regular-webfont.eot");
 
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
+*/
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
 
 @include font-face("Listicons", font-files("/fonts/listicons-webfont.woff", woff, "/fonts/listicons-webfont.ttf", truetype), "listicons-webfont.eot");
 
@@ -111,8 +115,9 @@ a:focus {
 // Calculate all H# Tags.
 
 h1 {
-	font-family: $bold-font-stack;
+	font-family: 'Open Sans', $bold-font-stack;
 	@include fontSize(52.358px);
+	font-weight: 700;
 }
 
 // using 1:1.618, Golden Section
@@ -126,7 +131,7 @@ h6 {font-size: $fontSizeSmall;}
 h1, h2, h3, h4, h5, h6 {font-weight: normal;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
 h1, h2 { letter-spacing: -1px;}
-h3, h4 { font-family: "OpenSansRegular", $baseFontFamily;}
+h3, h4 { font-family: 'Open Sans', $baseFontFamily;}
 
 a, i, .btn, input {
 	@include baseTransitionOut;
@@ -141,7 +146,7 @@ article {
 	blockquote { margin-top: 3px; border-left-color: $grayLight;}
 }
 
-.thin { font-family: "OpenSansRegular"; @include font-smoothing();}
+.thin { font-family: 'Open Sans'; @include font-smoothing();}
 
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
@@ -553,7 +558,7 @@ i[class*="icon"] {font-style: normal;}
 	border-bottom: 1px solid $grayLight;
 	strong {
 		color: $textColorAccent;
-		font-family: "OpenSansBold", $bold-font-stack;
+		font-family: 'Open Sans', $bold-font-stack;
 		letter-spacing: -1px;
 	}
 }
@@ -839,7 +844,7 @@ i[class*="icon"] {font-style: normal;}
 .module-video {
 	position: relative;
 	overflow: hidden;
-	min-height: 100px;
+	@media screen and (max-width: 500px) {	min-height: 100px;}
 	.live-stream-link .licode.ng-scope { width: auto;}
 }
 
@@ -872,22 +877,29 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 500px) { margin-bottom: 0px;}
 	.img-wrap {
 		@media screen and (max-width: 500px) {
+			display: none;
+/*
 			position: absolute;
 			margin-top: -100px;
 			background-color: $black;
 			border-radius: 8px;
 			z-index: 1028;
+*/
 		}
 	}
 	img {
-		width: 32px;
-		height: 32px;
+		width: 24px;
+		height: 24px;
 		border-top-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 		margin-right: 10px;
 		@media screen and (max-width: 500px) {
+/*
+			width: 32px;
+			height: 32px;
 			margin-right: 0;
 			border: 1px solid $black;
+*/
 		}
 	}
 }
