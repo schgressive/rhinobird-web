@@ -10,7 +10,7 @@
 <div class="module-outer clearfix">
   <ul class="no-bullets">
     <li class="thumb-user">
-      <a ui-sref="user({userName: stream.user.username})" title="{{stream.user.username}}">
+      <a class="img-wrap" ui-sref="user({userName: stream.user.username})" title="{{stream.user.username}}">
         <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
 			</a>
 			<span ng-show="stream.caption == 0">untitled</span>
