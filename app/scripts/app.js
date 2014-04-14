@@ -255,6 +255,8 @@ angular.module('rhinobird', [
   csp.setVideoConstrain('minHeight', '720');
   csp.setVideoConstrain('minAspectRatio', 1.778);
 
+  csp.setVideoConstrain('facingMode', 'environment', true);
+
   // Set stream viewer size presets
   streamViewerConfigProvider.addPreset('mini', 'auto', 100);
   streamViewerConfigProvider.addPreset('large', '100%', 512);
