@@ -70,7 +70,9 @@ angular.module('rhinobird.services')
 
     // Register user
     this.register = function(payload) {
-      var user = User.$create(payload);
+      var user = User.$build(payload);
+      user.$pk = undefined;
+      user.$save();
 
       return user.$promise;
     };
