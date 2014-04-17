@@ -28,7 +28,6 @@ angular.module('rhinobird.services')
 
       // Add thumbnail and caption
       angular.extend(stream, {
-        thumb: getThumbnailURL(CameraService.licodeStream.player.video, 854, 480),
         caption: caption || ''
       });
 
@@ -39,6 +38,9 @@ angular.module('rhinobird.services')
           lat: coords.lat
         });
       }
+
+      // Defere the thumbnail creation
+      this.updateThumbnail();
 
       // Post the new stream to the server and return the promise
       return stream.$save().$promise;
@@ -64,7 +66,7 @@ angular.module('rhinobird.services')
       // Update the thumbnail if required
       if(updateThumbnail){
         angular.extend(this.stream, {
-          thumb: getThumbnailURL(CameraService.licodeStream.player.video, 854, 480)
+          thumb: getThumbnailURL(CameraService.licodeStream.player.video, 1280, 720)
         });
       }
 
@@ -74,13 +76,8 @@ angular.module('rhinobird.services')
 
     // Update the thumbnail
     this.updateThumbnail = function(){
-      // Add thumbnail and caption
-      angular.extend(this.stream, {
-        thumb: getThumbnailURL(CameraService.licodeStream.player.video, 854, 480)
-      });
-
-      // Post the new stream to the server and return the promise
-      return this.stream.$save().$promise;
+      // Update only the thumbnail
+      return this.updateStream({}, true);
     };
 
     /**
@@ -95,12 +92,8 @@ angular.module('rhinobird.services')
       canvas.width = width;
       canvas.height = height;
 
-      // Destination size
-      var dWidth = width;
-      var dHeight = angular.element(video).height() * width / angular.element(video).width();
-
       // Create and return the image
-      canvas.ctx.drawImage( video, 0, 0, dWidth, dHeight);
+      canvas.ctx.drawImage( video, 0, 0, width, height);
       return canvas.toDataURL('image/jpeg');
     };
 
