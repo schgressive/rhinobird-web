@@ -75,10 +75,7 @@ module.exports = function (grunt) {
           context: '/registration',
           host: 'localhost',
           port: 3000,
-          https: false,
-          rewrite: {
-            '^/registration': '/users/auth'
-          }
+          https: false
         }
       ],
       livereload: {
