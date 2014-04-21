@@ -251,8 +251,8 @@ angular.module('rhinobird', [
   csp.enableVideo(true);
   csp.enableAudio(true);
 
-  csp.setVideoConstrain('minWidth', '1280');
-  csp.setVideoConstrain('minHeight', '720');
+  csp.setVideoConstrain('minWidth', '640');
+  csp.setVideoConstrain('minHeight', '360');
   csp.setVideoConstrain('minAspectRatio', 1.778);
 
   csp.setVideoConstrain('facingMode', 'environment', true);
