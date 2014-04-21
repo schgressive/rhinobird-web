@@ -66,7 +66,7 @@ angular.module('rhinobird.services')
       // Update the thumbnail if required
       if(updateThumbnail){
         angular.extend(this.stream, {
-          thumb: getThumbnailURL(CameraService.licodeStream.player.video, 1280, 720)
+          thumb: getThumbnailURL(CameraService.licodeStream.player.video)
         });
       }
 
@@ -86,6 +86,10 @@ angular.module('rhinobird.services')
 
     // Get a proportional thumbnail
     var getThumbnailURL = function(video, width, height){
+      // Default values
+      width = width || video.videoWidth;
+      height = height || video.videoHeight;
+
       // Canvas
       var canvas = document.createElement('canvas');
       canvas.ctx = canvas.getContext('2d');
