@@ -34,6 +34,9 @@
 	  <label class="checkbox inline" ng-show="vm.camera.videoSources.length > 1">
 	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
 	  </label>
+    <label class="checkbox inline">
+      <input type="checkbox" ng-click="vm.camera.toggleHD()" ng-model="vm.camera.isHD" ng-disabled="!vm.camera.access"/> HD Stream?
+    </label>
 	  <label class="checkbox inline">
 	  	<input type="checkbox" checked/> Tweet Your Stream?
 	  </label>
