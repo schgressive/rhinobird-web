@@ -39,11 +39,15 @@ angular.module('rhinobird.services')
         });
       }
 
-      // Defere the thumbnail creation
-      this.updateThumbnail();
-
       // Post the new stream to the server and return the promise
-      return stream.$save().$promise;
+      var promise = stream.$save().$promise;
+
+      // Defere the thumbnail creation
+      promise.then(function(){
+        self.updateThumbnail();
+      });
+
+      return promise;
     };
 
     // Stop the broadcast method
