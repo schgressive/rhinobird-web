@@ -847,6 +847,14 @@ i[class*="icon"] {font-style: normal;}
 	.live-stream-link .licode.ng-scope { width: auto;}
 }
 
+.module-large .module-video {
+	max-height: 114px;
+	.live-stream-link img {
+		width: auto;
+		height: auto;
+	}
+}
+
 .module-overlay {
 	color: $grayDarker;
 	width: 100%;
