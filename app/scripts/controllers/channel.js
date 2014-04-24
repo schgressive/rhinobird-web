@@ -20,7 +20,7 @@ angular.module('rhinobird.controllers')
     // The live streams
     $scope.liveStreams = channel.streams.live(true);
 
-    $scope.$on('stream-pool-stream-changed', function(event, stream){
+    $scope.$on('stream-carousel-stream-changed', function(event, stream){
 
       // Set the current stream
       $scope.currentStream = stream;
@@ -32,7 +32,7 @@ angular.module('rhinobird.controllers')
 
     });
 
-    $scope.$on('stream-pool-audiostream-changed', function(event, stream, oldStream){
+    $scope.$on('stream-carousel-audiostream-changed', function(event, stream, oldStream){
 
       // Set the current stream
       $scope.fixedAudioStream = stream;
@@ -59,7 +59,7 @@ angular.module('rhinobird.controllers')
 
         if (result.length > 0) {
           //notify directive to destroy carousel
-          $rootScope.$broadcast('stream-pool-updated');
+          $rootScope.$broadcast('stream-carousel-updated');
         }
 
         //add streams to the array
@@ -76,7 +76,7 @@ angular.module('rhinobird.controllers')
       $interval.cancel(polling);
     });
 
-    $scope.$on('stream-pool-changed', function(event, status){
+    $scope.$on('stream-carousel-changed', function(event, status){
       var action = status.action;
 
       // Send message new vj stream

@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('streamPool', function ($timeout) {
+  .directive('streamCarousel', function ($timeout) {
     return {
-      templateUrl: '/views/templates/stream-pool.html',
+      templateUrl: '/views/templates/stream-carousel.html',
       restrict: 'EA',
       scope: {
         streams: '=',
@@ -58,7 +58,7 @@ angular.module('rhinobird.directives')
             }
 
             // Trigger an event saying that we should show a new stream
-            scope.$emit('stream-pool-stream-changed', stream);
+            scope.$emit('stream-carousel-stream-changed', stream);
           }
         });
 
@@ -92,7 +92,7 @@ angular.module('rhinobird.directives')
           }
 
           // Trigger an event saying that we should show a new stream
-          scope.$emit('stream-pool-audiostream-changed', stream, oldvalue);
+          scope.$emit('stream-carousel-audiostream-changed', stream, oldvalue);
         });
 
         // Watch if the streams collection change
@@ -121,7 +121,7 @@ angular.module('rhinobird.directives')
         });
 
         // destroy carousel to avoid bug when ngrepeat runs before the owl destroy method
-        scope.$on('stream-pool-updated', function() {
+        scope.$on('stream-carousel-updated', function() {
 
             var owlInstance = owl.data('owlCarousel');
             if (!angular.isUndefined(owlInstance)) {
@@ -145,7 +145,7 @@ angular.module('rhinobird.directives')
             stream: stream
           };
 
-          scope.$emit('stream-pool-changed', status);
+          scope.$emit('stream-carousel-changed', status);
         };
 
         // Update owl carrowsel status
