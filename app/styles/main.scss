@@ -20,11 +20,9 @@ $italic-font-stack: "HelveticaNeueItalic", "HelveticaNeue-Italic", "Helvetica Ne
 
 $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeueRomanCondensed", "HelveticaNeue-Roman-Condensed", "Helvetica Neue Roman Condensed", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
 
-/*
 @include font-face("OpenSansRegular", font-files("/fonts/opensans-regular-webfont.woff", woff, "/fonts/opensans-regular-webfont.ttf", truetype), "opensans-regular-webfont.eot");
 
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
-*/
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
 
@@ -115,9 +113,8 @@ a:focus {
 // Calculate all H# Tags.
 
 h1 {
-	font-family: 'Open Sans', $bold-font-stack;
+	font-family: 'OpenSansBold', $bold-font-stack;
 	@include fontSize(52.358px);
-	font-weight: 700;
 }
 
 // using 1:1.618, Golden Section
