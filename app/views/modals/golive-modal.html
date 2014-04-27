@@ -1,7 +1,7 @@
 <div ng-show="vm.goliveService.status == 'disconnected'">
   <h2>Going Live?</h2>
 </div>
-<div class="alert" ng-hide="vm.camera.access">
+<div class="alert alert-text" ng-hide="vm.camera.access">
   <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
 </div>
 <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">

@@ -1,66 +1,69 @@
-<p>Edit your username, email, etc.</p>
 <div class="row-fluid">
   <div class="span6 form-wrapper">
-    <form class="general-form" name="userSettings" role="form">
-      <div class="form-block">
-        <fieldset>
-          <label for="input-name">Name:</label>
+  	<p class="lead">Edit your username, email, etc.</p>
+    <form class="form-horizontal general-form" name="userSettings" role="form">
+      <div class="control-group">
+        <label class="control-label" for="input-name">Name:</label>
+        <div class="controls">
           <input class="input-xlarge" type="text" id="input-name" ng-model="self.user.name"/>
-        </fieldset>
-        <small class="detail">How we address you. Your name is not public.</small>
-      </div><!-- /.form-block -->
-      <div class="form-block">
-        <fieldset>
-          <label for="input-username">Username:</label>
-          <input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username" ng-minlength=3 ng-maxlength=20/>
-          <div class="validate" ng-show="userSettings.username.$taken && userSettings.username.$invalid">
-			      <small class="error" ng-show="userSettings.username.$error.taken">
-			        This username is already registered.
-			      </small>
-			      <small class="warning" ng-show="userSettings.username.$error.minlength">
-			        A username must have at least 3 characters.
-			      </small>
-			      <small class="warning" ng-show="userSettings.username.$error.maxlength">
-			        A username can not have more than 20 characters.
-			      </small>
-			    </div><!-- /.validate -->
-        </fieldset>
-        <small class="detail">Your Rhinobird.tv username.</small>
-      </div><!-- /.form-block -->
-      <div class="form-block">
-        <fieldset>
-          <label for="input-email">Email:</label>
-          <input class="input-xlarge" type="email" id="input-email" ng-model="self.user.email"/>
-          <div class="validate" ng-show="userSettings.email.$taken && userSettings.email.$invalid">
-			    	<small class="warning" ng-show="userSettings.email.$invalid">
-			        This email is invalid. Please input a valid email.
-			      </small>
-			      <small class="error" ng-show="userSettings.email.$error.taken">
-			        This email is already registered.
-			      </small>
-			    </div><!-- /.validate -->
-        </fieldset>
-        <small class="detail">Your email is used for signing-in and correspondence.</small>
-      </div><!-- /.form-block -->
-      <div class="form-buttons">
-        <input class="btn btn-primary" type="submit" value="Update Settings" ng-click="updateSettings()"/>
-        <div class="formSuccess" ng-show="">
-        	<p class="fadeOut"><strong>Success!</strong></p>
+					<span class="help-block"><small>How we address you. Your name is not public.</small></span>
         </div>
-        <!-- <button class="btn-link" ng-click="">Delete Your Account</button> -->
-      </div>
+      </div><!-- /.control-group -->
+      <div class="control-group">
+          <label class="control-label" for="input-username">Username:</label>
+					<div class="controls">
+						<input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username" ng-minlength=3 ng-maxlength=20/>
+						<span class="help-block"><small>Your Rhinobird.tv username.</small></span>
+						<div class="validate" ng-show="userSettings.username.$taken && userSettings.username.$invalid">
+				      <small class="error" ng-show="userSettings.username.$error.taken">
+				        This username is already registered.
+				      </small>
+				      <small class="warning" ng-show="userSettings.username.$error.minlength">
+				        A username must have at least 3 characters.
+				      </small>
+				      <small class="warning" ng-show="userSettings.username.$error.maxlength">
+				        A username can not have more than 20 characters.
+				      </small>
+						</div><!-- /.validate -->
+					</div>
+      </div><!-- /.control-group -->
+      <div class="control-group">
+          <label class="control-label" for="input-email">Email:</label>
+          <div class="controls">
+          	<input class="input-xlarge" type="email" id="input-email" ng-model="self.user.email"/>
+	          <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
+	          <div class="validate" ng-show="userSettings.email.$taken && userSettings.email.$invalid">
+				    	<small class="warning" ng-show="userSettings.email.$invalid">
+				        This email is invalid. Please input a valid email.
+				      </small>
+				      <small class="error" ng-show="userSettings.email.$error.taken">
+				        This email is already registered.
+				      </small>
+				    </div><!-- /.validate -->
+          </div>
+      </div><!-- /.control-group -->
+      <div class="control-group">
+        <label class="control-label" for="input-pw">Password:</label>
+        <div class="controls">
+          <input class="input-xlarge" type="password" id="input-pw" disabled="disabled" placeholder="disabled"/>
+					<span class="help-block"><small>Your password must be at least eight characters long.</small></span>
+        </div>
+      </div><!-- /.control-group -->
+      <div class="control-group">
+      	<div class="controls">
+      		<input class="btn btn-primary" type="submit" value="Update Settings" ng-click="updateSettings()"/>
+	        <input class="btn btn-default" type="submit" value="Reset" ng-click=""/>
+	        <div class="formSuccess" ng-show="">
+	        	<p class="fadeOut"><strong>Success!</strong></p>
+	        </div>
+	        <button class="btn-link" ng-click="">Delete Your Account</button>
+      	</div>
+      </div><!-- /.control-group -->
     </form>
   </div><!-- /.span6 -->
-  <!--
-  <div class="span6 form-wrapper">
-    <form class="general-form" name="userAvatar" role="form">
-      <div class="user-avatar pull-left">
-        <img ng-src="{{ self.user.photo || (self.user.email | gravatar:120:'/images/profile-default.svg')}}" alt=""/>
-      </div>
-      <div class="form-buttons clearfix">
-        <input class="btn btn-accent" ng-click="" type="button" value="Change Avatar"/>
-        <input class="btn" ng-click="" type="button" role="button" value="Delete Avatar"/>
-      </div>
-    </form>
-  </div> -->
+  <div class="span6">
+  	<div class="alert alert-info">
+  		<p>User Settings are currently under development. Some features may be disabled.</p>
+  	</div>
+  </div><!-- /.span6 -->
 </div><!-- /.row-fluid -->

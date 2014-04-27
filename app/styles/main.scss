@@ -76,7 +76,7 @@ table caption, .visually-hidden {display:none !important;}
 	@media screen and (max-width: 960px) { max-width: 100%;}
 }
 
-.one-liner {display: block;}
+.one-liner, .block {display: block;}
 
 .inline {display: inline-block;}
 
@@ -124,9 +124,9 @@ h1 {
 h2, article h1 {font-family: $bold-font-stack; @include fontSize(32.360px);}
 h3, article h2 {@include fontSize(22.652px);}
 h4, article h3 {@include fontSize(20px);}
-h5, article h4 {font-size: $baseFontSize;}
+h5, article h4, legend {font-size: $baseFontSize;}
 
-h6 {font-size: $fontSizeSmall;}
+h6  {font-size: $fontSizeSmall;}
 
 h1, h2, h3, h4, h5, h6 {font-weight: normal;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
@@ -139,6 +139,8 @@ a, i, .btn, input {
 }
 
 small {font-size: $fontSizeMini;}
+
+.lead { @include fontSize(18px);}
 
 article {
 	h1 { margin-bottom: 20px;}
@@ -798,6 +800,11 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
+.fb-icon, .fb-label { background-image: url('../images/facebook-icon.svg');}
+.twt-icon, .twt-label {	background-image: url('../images/twitter-icon.svg');}
+.gplus-icon, .gplus-label {	background-image: url('../images/googleplus-icon.svg');}
+.tblr-icon, .tblr-label { background-image: url('../images/tumblr-icon.svg');}
+
 .user-avatar img {
 	border-top-left-radius: 13px;
 	border-bottom-right-radius: 13px;
@@ -922,18 +929,7 @@ i[class*="icon"] {font-style: normal;}
 	.thumb-user {
 		margin-bottom: 5px;
 		@media screen and (max-width: 500px) { margin-bottom: 0px;}
-		.img-wrap {
-			@media screen and (max-width: 500px) {
-				display: none;
-	/*
-				position: absolute;
-				margin-top: -100px;
-				background-color: $black;
-				border-radius: 8px;
-				z-index: 1028;
-	*/
-			}
-		}
+		.img-wrap { @media screen and (max-width: 500px) {display: none;}}
 		img {
 			width: 24px;
 			height: 24px;

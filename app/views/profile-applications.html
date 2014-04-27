@@ -1,0 +1,79 @@
+<div class="row-fluid">
+  <div class="span6 form-wrapper">
+  	<p class="lead">Manage your connected applications.</p>
+    <form class="general-form" id="appSettings" name="appSettings" role="form">
+      <fieldset form="appSettings" name="gplusSettings">
+    		<p class="gplus-label" ng-show=""><strong>Connected to:</strong> (google+ username here)</p>
+    		<p class="gplus-label"><strong>You are not connected to Google+</strong></p>
+    		<button class="btn-link block" ng-click="" role="button">Connect to Google+</button>
+    		<div class="form-block" ng-show="">
+    			<label>
+	      		<input type="checkbox" value=""/>
+	      		Enable Google+ Login.
+	      	</label>
+	      	<span class="help-block"><small>Login in Rhinobird with your Google+ account credentials.</small></span>
+	      	<label>
+	      		<input type="checkbox" value=""/>
+	      		Enable automatic sharing to your Google+ page.
+	      	</label>
+					<span class="help-block"><small>Save time and share your streams as soon as you Go Live.</small></span>
+					<button class="btn-link block" ng-click="" role="button">Disconnect from Google+</button>
+    		</div><!-- /.form-block -->
+      </fieldset>
+      <fieldset form="appSettings" name="fbSettings">
+    		<p class="fb-label"><strong>Connected to:</strong> (facebook username here)</p>
+    		<p class="fb-label" ng-show=""><strong>You are not connected to Facebook</strong></p>
+    		<button class="btn-link block" ng-click="" role="button" ng-show="">Connect to Facebook</button>
+    		<div class="form-block">
+    			<label>
+	      		<input type="checkbox" value="" checked="checked"/>
+	      		Enable Facebook Login.
+	      	</label>
+	      	<span class="help-block"><small>Login in Rhinobird with your Facebook account credentials.</small></span>
+	      	<label>
+	      		<input type="checkbox" value=""/>
+	      		Enable automatic sharing to your Facebook timeline.
+	      	</label>
+					<span class="help-block"><small>Save time and share your streams as soon as you Go Live.</small></span>
+					<button class="btn-link block" ng-click="" role="button">Disconnect from Facebook</button>
+    		</div><!-- /.form-block -->
+      </fieldset>
+      <fieldset form="appSettings" name="twtSettings">
+    		<p class="twt-label"><strong>Connected to:</strong> (twitter username here)</p>
+    		<p class="twt-label" ng-show=""><strong>You are not connected to Twitter</strong></p>
+    		<button class="btn-link block" ng-click="" role="button" ng-show="">Connect to Twitter</button>
+    		<div class="form-block">
+    			<label>
+      		<input type="checkbox" value="" checked="checked"/>
+      		Enable Twitter Login.
+      	</label>
+      	<span class="help-block"><small>Login in Rhinobird with your Twitter account credentials.</small></span>
+      	<label>
+      		<input type="checkbox" value="" checked="checked"/>
+      		Enable automatic sharing to your Twitter feed.
+      	</label>
+				<span class="help-block"><small>Save time and share your streams as soon as you Go Live.</small></span>
+      	<label>
+      		<input type="checkbox" value=""/>
+      		Enable customized tweet.
+      	</label>
+      	<textarea form="appSettings" rows="3" placeholder="ex. ???" ng-maxlength=114></textarea>
+				<span class="help-block"><small>Prepare your sharing ahead of time by customizing your tweet.</small></span>
+				<button class="btn-link block" ng-click="" role="button">Disconnect from Twitter</button>
+    		</div><!-- /.form-block -->
+      </fieldset>
+      <div class="form-actions">
+      		<input class="btn btn-primary" type="submit" value="Update Applications" ng-click="updateSettings()"/>
+      		<input class="btn btn-default" type="submit" value="Reset" ng-click=""/>
+	        <div class="formSuccess" ng-show="">
+	        	<p class="fadeOut"><strong>Success!</strong></p>
+	        </div>
+      </div><!-- /.form-actions -->
+    </form>
+  </div><!-- /.span6 -->
+  <div class="span6">
+  	<div class="alert alert-info">
+  		<p>Application Settings are currently under development. Some features may be disabled.</p>
+  	</div>
+  </div><!-- /.span6 -->
+</div><!-- /.row-fluid -->

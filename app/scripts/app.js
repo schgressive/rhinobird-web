@@ -62,6 +62,7 @@ angular.module('rhinobird', [
     - golive                                  /golive
     - profile.streams                         /profile/streams
     - profile.settings												/profile/settings
+    - profile.applications										/profile/applications
     - terms	                                  /terms
 		- trademark	                              /trademark
     - privacy                                 /privacy
@@ -139,6 +140,10 @@ angular.module('rhinobird', [
     .state('profile.settings', {
       url: 'settings/',
       templateUrl: '/views/profile-settings.html'
+    })
+    .state('profile.applications', {
+      url: 'applications/',
+      templateUrl: '/views/profile-applications.html'
     })
 
     // Streams
