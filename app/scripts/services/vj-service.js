@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.services')
-  .service('VjService', function VjService($q, VjStream, channelSocket) {
+  .service('VjService', function VjService($q, Vj, channelSocket) {
 
     var _self = this;
 
@@ -12,13 +12,13 @@ angular.module('rhinobird.services')
     this.socket = null;
 
     /**
-     * Get the stream from the pool
+     * Get the pick from the vj
      * @param  {stream} stream
      * @return {stream}
      */
-    var getPoolStream = function(stream){
-      return _.find(_self.pool, function(vjs){
-        return vjs.stream.id === stream.id;
+    var getPick = function(stream){
+      return _.find(_self.vj.picks, function(p){
+        return p.streamId === stream.id;
       });
     };
 
@@ -38,7 +38,7 @@ angular.module('rhinobird.services')
         _self.live = true;
 
         // Broadcast the event
-        _self.socket.broadcastEvent('pool-change');
+        _self.socket.broadcastEvent('picks-change');
 
         deferred.resolve();
 
@@ -56,38 +56,27 @@ angular.module('rhinobird.services')
      */
     this.startBroadcast = function(streams, currentStreamId, fixedAudioStreamId, channelName){
 
-      // Get the current user vj pool of streams
-      // Could have streams from a previously initiated session in the same channel
-      _self.pool = VjStream.$search({ 'force_check': true }).$then(function(){
+      // Create a new vj
+      _self.vj = Vj.$create({ channelName: channelName}).$then(function(vj){
 
-        // If there are streams in the pool, connect to the socket
-        if(_self.pool.length > 0){
-          socketConnect(_.first(_self.pool).token, 'outbound');
-        }
+        // create the socked channel
+        socketConnect(vj.token, 'outbound').then(function(){
+          // Set the vj in live state
+          _self.vj.status = 'live';
+          _self.vj.$save();
+        });
 
-        // From the streams currently connected from the channels,
-        // Find the ones that arent in the pool.
-        // var streamsToAdd = _.filter(streams, function(stream){
-        //   return _self.pool.$indexOf(getPoolStream(stream)) < 0;
-        // });
-
-        // Add the streams to the pool
+        // Add the streams to the vj
         _.each(streams, function(s, idx){
 
           // Find the stream that is playing
           var isCurrent = s.id === currentStreamId;
 
           // Find the fixed audio stream
-          var isAudioActive = s.id === fixedAudioStreamId;
+          var isactiveAudio = s.id === fixedAudioStreamId;
 
-          // Add the stream to the pool
-          _self.addStream(s, isCurrent, isAudioActive, channelName).then(function(_vjStream){
-
-            // create the socked channel after the first stream is added
-            if(!_self.live && idx === 0){
-              socketConnect(_vjStream.token, 'outbound');
-            }
-          });
+          // Add the stream to the vj
+          _self.addPick(s, isCurrent, isactiveAudio);
 
         });
       });
@@ -106,58 +95,60 @@ angular.module('rhinobird.services')
 
     // The vj will close the socket connection and stop the broadcast
     this.stopBroadcast = function(){
+      // Disconnect the sockec channel
       _self.socket.disconnect();
+
+      // Set the vj status as pending
+      _self.vj.status = 'pending';
+      _self.vj.$save();
 
       this.live = false;
     };
 
-    // Add a new stream to the pool
-    this.addStream = function(stream, active, audioActive, channelName){
+    // Add a new pick to the vj
+    this.addPick = function(stream, active, activeAudio){
 
-      var addedStream = _self.pool.$build();
-      addedStream.active = active || false;
-      addedStream.audioActive = audioActive || false;
-      addedStream.streamId = stream.id;
-      addedStream.channelName = channelName;
-      addedStream.$save();
+      var addedPick = _self.vj.picks.$build();
+      addedPick.active = active || false;
+      addedPick.activeAudio = activeAudio || false;
+      addedPick.streamId = stream.id;
+      addedPick.$save();
 
       if(_self.socket){
         // Broadcast the event
-        _self.socket.broadcastEvent('pool-change', {
+        _self.socket.broadcastEvent('picks-change', {
           action: 'add',
           streamId: stream.id
         });
       }
 
-      return addedStream.$promise;
+      return addedPick.$promise;
     };
 
-    // Remove a stream from the pool
-    this.removeStream = function(stream){
+    // Remove a pick from the vj
+    this.removePick = function(stream){
 
-      // Remove the stream from the pool
-      var removedStream = getPoolStream(stream);
-      removedStream.$pk = stream.id;
-      removedStream.$destroy();
+      // Remove the pick from the vj
+      var removedPick = getPick(stream);
+      removedPick.$destroy();
 
       if(_self.socket){
         // Broadcast the event
-        _self.socket.broadcastEvent('pool-change', {
+        _self.socket.broadcastEvent('picks-change', {
           action: 'remove',
           streamId: stream.id
         });
       }
 
-      return removedStream.$promise;
+      return removedPick.$promise;
     };
 
-    // Activate a stream from the pool
-    this.activateStream = function(stream){
-      // Set the vj stream as active
-      var activeStream = getPoolStream(stream);
-      activeStream.$pk = stream.id;
-      activeStream.active = true;
-      activeStream.$save();
+    // Activate a pick from the vj
+    this.activatePick = function(stream){
+      // Set the pick as active
+      var activePick = getPick(stream);
+      activePick.active = true;
+      activePick.$save();
 
       // Broadcast the event
       if(_self.socket){
@@ -166,50 +157,48 @@ angular.module('rhinobird.services')
         });
       }
 
-      return activeStream.$promise;
+      return activePick.$promise;
     };
 
-    // Activate a stream from the pool
-    this.setFixedAudioStream = function(stream){
+    // Activate a pick from the vj
+    this.setFixedAudioPick = function(stream){
 
       if(!stream){ return; }
 
-      // Set the vj stream as active
-      var fixedAudioStream = getPoolStream(stream);
-      fixedAudioStream.$pk = stream.id;
-      fixedAudioStream.audioActive = true;
-      fixedAudioStream.$save();
+      // Set the pick audio as active
+      var fixedAudioPick = getPick(stream);
+      fixedAudioPick.activeAudio = true;
+      fixedAudioPick.$save();
 
       // Broadcast the event
       if(_self.socket){
         _self.socket.broadcastEvent('audio-mute-change', {
           streamId: stream.id,
-          audioActive: true
+          activeAudio: true
         });
       }
 
-      return fixedAudioStream.$promise;
+      return fixedAudioPick.$promise;
     };
 
     // Activate a stream from the pool
-    this.unsetFixedAudioStream = function(stream){
+    this.unsetFixedAudioPick = function(stream){
 
       if(!stream){ return; }
 
-      // Set the vj stream as active
-      var fixedAudioStream = getPoolStream(stream);
-      fixedAudioStream.$pk = stream.id;
-      fixedAudioStream.audioActive = false;
-      fixedAudioStream.$save();
+      // Set the pick audio as inactive
+      var fixedAudioPick = getPick(stream);
+      fixedAudioPick.activeAudio = false;
+      fixedAudioPick.$save();
 
       // Broadcast the event
       if(_self.socket){
         _self.socket.broadcastEvent('audio-mute-change', {
           streamId: stream.id,
-          audioActive: false
+          activeAudio: false
         });
       }
 
-      return fixedAudioStream.$promise;
+      return fixedAudioPick.$promise;
     };
   });

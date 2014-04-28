@@ -4,10 +4,7 @@ angular.module('rhinobird.models')
   .factory('User', function ($restmod, SyncMask) {
     return $restmod.model('users', {
       streams: { hasMany: 'Stream'},
-      stream_ids: {
-        ignore: SyncMask.ENCODE
-      },
-      vjstreams: { hasMany: 'VjStream', path: 'streams_pool'}
+      vjs: { hasMany: 'Vj' }
     },
     function() {
       this.on('after-save', function() {

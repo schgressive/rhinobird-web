@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjStream, VjService) {
+  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjService) {
     var POLLING_TIME = 10000; // 10 seconds
 
 		$scope.user = AuthService.user;
@@ -25,9 +25,9 @@ angular.module('rhinobird.controllers')
       // Set the current stream
       $scope.currentStream = stream;
 
-      // Send message new vj stream
+      // Send message new pick
       if(VjService.live){
-        VjService.activateStream(stream);
+        VjService.activatePick(stream);
       }
 
     });
@@ -37,13 +37,13 @@ angular.module('rhinobird.controllers')
       // Set the current stream
       $scope.fixedAudioStream = stream;
 
-      // Send message new vj stream
+      // Send message new pick
       if(VjService.live){
         if(stream){
-          VjService.setFixedAudioStream(stream);
+          VjService.setFixedAudioPick(stream);
         }
         else {
-          VjService.unsetFixedAudioStream(oldStream);
+          VjService.unsetFixedAudioPick(oldStream);
         }
       }
 
@@ -79,13 +79,13 @@ angular.module('rhinobird.controllers')
     $scope.$on('stream-carousel-changed', function(event, status){
       var action = status.action;
 
-      // Send message new vj stream
+      // Send message new pick
       if(VjService.live){
         if(status.action === 'add'){
-          VjService.addStream(status.stream);
+          VjService.addPick(status.stream);
         }
         else if(status.action === 'remove'){
-          VjService.removeStream(status.stream);
+          VjService.removePick(status.stream);
         }
       }
     });
@@ -109,11 +109,11 @@ angular.module('rhinobird.controllers')
       // The current stream id
       var currentStreamId = ($scope.currentStream)? $scope.currentStream.id : undefined;
       var fixedAudioStreamId = ($scope.fixedAudioStream)? $scope.fixedAudioStream.id : undefined;
-      var stremsToThePool = _.filter($scope.liveStreams, function(s){ return s.isConnected; });
+      var pickedStreams = _.filter($scope.liveStreams, function(s){ return s.isConnected; });
 
       // Start the vj
-      if(stremsToThePool && stremsToThePool.length >= 1){
-        VjService.startBroadcast(stremsToThePool, currentStreamId, fixedAudioStreamId, $scope.channel.name);
+      if(pickedStreams && pickedStreams.length >= 1){
+        VjService.startBroadcast(pickedStreams, currentStreamId, fixedAudioStreamId, $scope.channel.name);
       }
     };
 
