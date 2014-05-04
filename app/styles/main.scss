@@ -926,10 +926,10 @@ i[class*="icon"] {font-style: normal;}
 	.thumb-user {
 		margin-bottom: 5px;
 		@media screen and (max-width: 500px) { margin-bottom: 0px;}
-		.img-wrap {
+		a.img-wrap {
 			margin-right: 6px;
-			&.a { text-decoration: none;}
-			&.a:hover { background-color: transparent;}
+			text-decoration: none !important;
+			&:hover { background-color: transparent;}
 			@media screen and (max-width: 500px) {display: none;}
 		}
 		img {
