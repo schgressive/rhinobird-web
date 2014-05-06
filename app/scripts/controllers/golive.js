@@ -74,7 +74,12 @@ angular.module('rhinobird.controllers')
 
     // Updates the thumbnail
     this.updateThumbnail = function() {
-      GoliveService.updateThumbnail();
+      GoliveService.updateThumbnail().then(function() {
+        vm.showSuccessSnapshot = true;
+        $timeout(function() {
+          vm.showSuccessSnapshot = false
+        }, 3000);
+      });
     }
 
     this.updateCaption = function(caption){
