@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.models')
-  .factory('Pick', function ($restmod, SyncMask) {
+  .factory('Pick', function ($restmod) {
     return $restmod.model('picks', {
       stream: { hasOne: 'Stream' }
     }, function(){

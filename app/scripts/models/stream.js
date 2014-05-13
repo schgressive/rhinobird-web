@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.models')
-  .factory('Stream', function ($restmod, SyncMask) {
+  .factory('Stream', function ($restmod) {
     var StatusMessages = {
       "pending": "stream under production",
       "vj-live": "live VJ session",
@@ -18,12 +18,12 @@ angular.module('rhinobird.models')
       isMuted: { ignore: true }, // Whether is muted
       isProjected: { ignore: true }, // Whether is viewed in the canva
       licode: { ignore: true }, // The licode stream object
-      startedOn: { ignore: SyncMask.ENCODE },
-      thumbs: { ignore: SyncMask.ENCODE },
-      type: { ignore: SyncMask.ENCODE },
-      token: { ignore: SyncMask.ENCODE },
+      startedOn: { ignore: 'CU' },
+      thumbs: { ignore: 'CU' },
+      type: { ignore: 'CU' },
+      token: { ignore: 'CU' },
       properties: {
-        ignore: SyncMask.ENCODE,
+        ignore: 'CU',
         decode: function(_data){
           return angular.extend(_data, {
             'marker-size': 'medium',

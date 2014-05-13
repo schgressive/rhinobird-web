@@ -11,7 +11,7 @@
     "bootstrap": "~2.3.2",
     "spark-md5": "~0.0.5",
     "jquery": "~2.0.0",
-    "angular-restmod": "0.12",
+    "angular-restmod": "0.13",
     "angular-licode": "0.0.17",
     "bootstrap-sass": "2.3.2",
     "owlcarousel": "*",

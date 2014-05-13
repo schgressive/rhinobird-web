@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.models')
-  .factory('User', function ($restmod, SyncMask) {
+  .factory('User', function ($restmod) {
     return $restmod.model('users', {
       streams: { hasMany: 'Stream'},
       vjs: { hasMany: 'Vj' }
