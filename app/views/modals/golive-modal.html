@@ -8,9 +8,9 @@
   <label for="caption">Add a caption! You can use hashtags in your caption to add your stream to a channel:</label>
   <div class="input-prepend">
   	<span class="add-on"><i class="icon-tag"></i></span>
-	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
+	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" maxlength="17"/>
 	  <div class="validate" ng-show="vm.caption_warning">
-	  	<small class="info">Only the first 17 characters will display in thumbnail view.</small>
+	  	<small class="info">Caption limited to 17 characters.</small>
 	  </div><!-- /.validate -->
   </div><!-- /.input-prepend -->
   <div ng-show="vm.nearChannels.length">
