@@ -14,19 +14,11 @@
 	  </div><!-- /.validate -->
   </div><!-- /.input-prepend -->
   <div ng-show="vm.nearChannels.length">
-	<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
-	<ol class="inline no-bullets">
-		<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
-	</ol>
+		<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
+		<ol class="inline no-bullets">
+			<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
+		</ol>
   </div>
-  <!--
-<div ng-show="vm.channels.length">
-    <p>Your stream will be published in the following channels</p>
-    <ul class="inline no-bullets">
-      <li ng-repeat="channel in vm.channels" class="inline">#{{channel}}</li>
-    </ul>
-  </div>
--->
   <div class="checkbox-wrapper">
 	  <label class="checkbox inline">
 	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
@@ -45,6 +37,9 @@
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
   <h3>Connecting...</h3>
+  <div class="alert alert-text" ng-show="">
+	  <p>You may have a network problem. Try again later.</p>
+	</div>
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'connected'">
   <h3>Connected...</h3>
