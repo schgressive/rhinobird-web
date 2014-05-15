@@ -887,7 +887,7 @@ i[class*="icon"] {font-style: normal;}
 .module-xlarge {
 	padding: 10px 10px 0;
 	background-color: $white;
-	canvas, video { width: 100%;}
+	canvas, video { width: 100%; display:block;}
 	.module-outer {
 		padding: 10px 10px 7px 0px;
 		@media screen and (max-width: 500px) { padding: {top:8px;bottom:5px;}}
