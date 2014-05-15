@@ -27,7 +27,7 @@ angular.module('rhinobird.controllers')
 
       // Send message new pick
       if(VjService.live){
-        VjService.activatePick(stream);
+        VjService.activatePickByStreamId(stream.id);
       }
 
     });
@@ -40,10 +40,10 @@ angular.module('rhinobird.controllers')
       // Send message new pick
       if(VjService.live){
         if(stream){
-          VjService.setFixedAudioPick(stream);
+          VjService.fixAudioPickByStreamId(stream.id);
         }
         else {
-          VjService.unsetFixedAudioPick(oldStream);
+          VjService.unfixAudioPickByStreamId(oldStream.id);
         }
       }
 
@@ -82,10 +82,10 @@ angular.module('rhinobird.controllers')
       // Send message new pick
       if(VjService.live){
         if(status.action === 'add'){
-          VjService.addPick(status.stream);
+          VjService.addPickByStreamId(status.stream.id);
         }
         else if(status.action === 'remove'){
-          VjService.removePick(status.stream);
+          VjService.removePickByStreamId(status.stream.id);
         }
       }
     });

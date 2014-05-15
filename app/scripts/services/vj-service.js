@@ -12,18 +12,6 @@ angular.module('rhinobird.services')
     this.socket = null;
 
     /**
-     * Get the pick from the vj
-     * @param  {stream} stream
-     * @return {stream}
-     */
-    var getPick = function(stream){
-      return _.find(_self.vj.picks, function(p){
-        return p.streamId === stream.id;
-      });
-    };
-
-
-    /**
      * Create the room based on the token
      * @param  {string} token Licode token
      * @param  {string} flow  Direction of the connection
@@ -38,7 +26,7 @@ angular.module('rhinobird.services')
         _self.live = true;
 
         // Broadcast the event
-        _self.socket.broadcastEvent('picks-change');
+        _self.socket.broadcastEvent('picks-changed');
 
         deferred.resolve();
 
@@ -76,7 +64,7 @@ angular.module('rhinobird.services')
           var isactiveAudio = s.id === fixedAudioStreamId;
 
           // Add the stream to the vj
-          _self.addPick(s, isCurrent, isactiveAudio);
+          _self.addPickByStreamId(s.id, isCurrent, isactiveAudio);
 
         });
       });
@@ -106,99 +94,99 @@ angular.module('rhinobird.services')
     };
 
     // Add a new pick to the vj
-    this.addPick = function(stream, active, activeAudio){
+    this.addPickByStreamId = function(streamId, active, activeAudio){
 
-      var addedPick = _self.vj.picks.$build();
-      addedPick.active = active || false;
-      addedPick.activeAudio = activeAudio || false;
-      addedPick.streamId = stream.id;
-      addedPick.$save();
+      var pick = _self.vj.picks.$build();
+      pick.active = active || false;
+      pick.activeAudio = activeAudio || false;
+      pick.streamId = streamId;
+      pick.$save().$then(function(){
 
-      if(_self.socket){
-        // Broadcast the event
-        _self.socket.broadcastEvent('picks-change', {
-          action: 'add',
-          streamId: stream.id
-        });
-      }
+        if(_self.socket){
+          // Broadcast the event
+          _self.socket.broadcastEvent('picks-changed', {
+            action: 'add',
+            pickId: pick.id
+          });
+        }
 
-      return addedPick.$promise;
+      });
+
+      return pick.$promise;
     };
 
     // Remove a pick from the vj
-    this.removePick = function(stream){
+    this.removePickByStreamId = function(streamId){
 
       // Remove the pick from the vj
-      var removedPick = getPick(stream);
-      removedPick.$destroy();
+      var pick = _self.vj.picks.getByStreamId(streamId);
+      pick.$destroy();
 
       if(_self.socket){
         // Broadcast the event
-        _self.socket.broadcastEvent('picks-change', {
+        _self.socket.broadcastEvent('picks-changed', {
           action: 'remove',
-          streamId: stream.id
+          pickId: pick.id
         });
       }
 
-      return removedPick.$promise;
+      return pick.$promise;
     };
 
     // Activate a pick from the vj
-    this.activatePick = function(stream){
+    this.activatePickByStreamId = function(streamId){
       // Set the pick as active
-      var activePick = getPick(stream);
-      activePick.active = true;
-      activePick.$save();
+      var pick = _self.vj.picks.getByStreamId(streamId);
+      pick.activate();
 
       // Broadcast the event
       if(_self.socket){
-        _self.socket.broadcastEvent('active-stream-change', {
-          streamId: stream.id
+        _self.socket.broadcastEvent('active-pick-changed', {
+          pickId: pick.id
         });
       }
 
-      return activePick.$promise;
+      return pick.$promise;
     };
 
-    // Activate a pick from the vj
-    this.setFixedAudioPick = function(stream){
+    // Choose a pick to solo it's audio
+    this.fixAudioPickByStreamId = function(streamId){
 
-      if(!stream){ return; }
+      if(!streamId){ return; }
 
       // Set the pick audio as active
-      var fixedAudioPick = getPick(stream);
-      fixedAudioPick.activeAudio = true;
-      fixedAudioPick.$save();
+      var pick = _self.vj.picks.getByStreamId(streamId);
+      pick.activateAudio();
+      pick.$save();
 
       // Broadcast the event
       if(_self.socket){
-        _self.socket.broadcastEvent('audio-mute-change', {
-          streamId: stream.id,
+        _self.socket.broadcastEvent('active-audio-pick-changed', {
+          pickId: pick.id,
           activeAudio: true
         });
       }
 
-      return fixedAudioPick.$promise;
+      return pick.$promise;
     };
 
-    // Activate a stream from the pool
-    this.unsetFixedAudioPick = function(stream){
+    // Choose a pick to unsolo it's audio
+    this.unfixAudioPickByStreamId = function(streamId){
 
-      if(!stream){ return; }
+      if(!streamId){ return; }
 
       // Set the pick audio as inactive
-      var fixedAudioPick = getPick(stream);
-      fixedAudioPick.activeAudio = false;
-      fixedAudioPick.$save();
+      var pick = _self.vj.picks.getByStreamId(streamId);
+      pick.deactivateAudio();
 
       // Broadcast the event
       if(_self.socket){
-        _self.socket.broadcastEvent('audio-mute-change', {
-          streamId: stream.id,
+        _self.socket.broadcastEvent('active-audio-pick-changed', {
+          pickId: pick.id,
           activeAudio: false
         });
       }
 
-      return fixedAudioPick.$promise;
+      return pick.$promise;
     };
   });

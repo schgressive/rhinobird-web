@@ -9,8 +9,7 @@ angular.module('rhinobird.models')
       "live": "happening live!"
     };
 
-    return $restmod.model('streams', 'PagedModel',
-    {
+    return $restmod.model('streams', 'PagedModel', {
       user: { hasOne: 'User' },
       related: { hasMany: 'Stream'},
       isAudioFixed: { ignore: true, init: false }, // Whether it's audio is using for a channel
@@ -31,14 +30,13 @@ angular.module('rhinobird.models')
             'marker-symbol': 'cinema'
           });
         }
-      }
-    },
-    function(){
+      },
+
       /**
        * Only get live stream
        * @return {collection} Collection of streams
        */
-      this.classDefine('live', function(force){
+      '@live': function(force){
         // Live
         var params = {
           live: true
@@ -52,36 +50,36 @@ angular.module('rhinobird.models')
         }
 
         return this.$search(params);
-      });
+      },
 
       /**
        * Get next page of streams
        * @return {collection} Stream Collection
        */
-      this.classDefine('getNextPage', function(){
+      '@getNextPage': function(){
         var page = this.$page || 0;
         if(!this.$pageCount || this.$page + 1 <= this.$pageCount){
           return this.$fetch({ page: page + 1 });
         }
         return this;
-      });
+      },
 
       /**
        * Returns a formated message for a given current status
        */
-      this.define('getStatusMessage', function() {
+      'getStatusMessage': function() {
         return StatusMessages[this.status];
-      });
+      },
 
       /**
        * Get the streams collection as a GeoJSON feature collection
        * @return {collection} Feature Collection
        */
-      this.classDefine('asGeoJSON', function(){
+      '@asGeoJSON': function(){
         return {
           type: 'FeatureCollection',
           features: this
         };
-      });
+      }
     });
   });

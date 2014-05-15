@@ -1,111 +1,106 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('VjSessionCtrl', function ($scope, channel, user, VjService, Stream) {
+  .controller('VjSessionCtrl', function ($scope, vj, user, VjService, Stream) {
 
     $scope.self = $scope;
-
-    // The current channel
-    $scope.channel = channel;
 
     // The current user
     $scope.user = user;
 
-    // The streams in the user vj pool
-    $scope.vjstreams = user.vjstreams.$fetch();
+    // The vj
+    $scope.vj = vj;
+
+    // The picks
+    $scope.picks = vj.picks.$fetch();
+
+    // The currently playing pick
+    $scope.currentPick = null;
 
     // Create a socket data connection with the user token
-    VjService.startListening(user.vjToken).then(function(){
-      VjService.socket.stream.addEventListener('stream-data', function(streamEvent){
+    VjService.startListening(vj.token).then(function(){
+      VjService.socket.stream.addEventListener('stream-data', function(data){
         $scope.$apply(function(){
-          console.info(streamEvent.msg);
-          if(streamEvent.msg.event === 'active-stream-change'){
+          if(data.msg.event === 'active-pick-changed'){
 
-          	var streamToActivate = _.find($scope.vjstreams, function(s){return s.streamId === streamEvent.msg.params.streamId;});
-            streamToActivate.active = true;
+	          var pickToActivate = vj.picks.getById(data.msg.params.pickId);
+            pickToActivate.active = true;
 
-            if(!$scope.fixedAudioStream){
-	            _.each($scope.vjstreams, function(_vjstream){
+            if(!$scope.currentAudioPick){
+	            _.each($scope.picks, function(_pick){
 	              // Mute them
-                _vjstream.stream.isMuted = true;
+                _pick.stream.isMuted = true;
 	            });
 
-              streamToActivate.stream.isMuted = false;
+              pickToActivate.stream.isMuted = false;
             }
 
-            $scope.currentStream = streamToActivate.stream;
+            $scope.currentPick = pickToActivate.stream;
           }
 
-          if(streamEvent.msg.event === 'audio-mute-change'){
+          if(data.msg.event === 'active-audio-pick-changed'){
 
-            var streamToFixAudio = _.find($scope.vjstreams, function(s){return s.streamId === streamEvent.msg.params.streamId;});
+            var pickToFixAudio = vj.picks.getById(data.msg.params.pickId);
 
-						if(streamEvent.msg.params.audioActive){
-	            _.each($scope.vjstreams, function(_vjstream){
+						if(data.msg.params.activeAudio){
+	            _.each($scope.picks, function(_pick){
 	              // Mute them
-                _vjstream.audioActive = false;
+                _pick.activeAudio = false;
 	            });
 
-              streamToFixAudio.stream.isMuted = false;
+              pickToFixAudio.stream.isMuted = false;
             }
 
-            streamToFixAudio.audioActive = streamEvent.msg.params.audioActive;
-            streamToFixAudio.stream.isMuted = !streamEvent.msg.params.audioActive;
-            $scope.fixedAudioStream = (streamEvent.msg.params.audioActive)? streamToFixAudio : undefined;
+            pickToFixAudio.activeAudio = data.msg.params.activeAudio;
+            pickToFixAudio.stream.isMuted = !data.msg.params.activeAudio;
+            $scope.currentAudioPick = (data.msg.params.activeAudio)? pickToFixAudio : undefined;
           }
 
-          if(streamEvent.msg.event === 'pool-change'){
-            var action = streamEvent.msg.params.action;
-            var streamId = streamEvent.msg.params.streamId;
+          if(data.msg.event === 'picks-changed'){
+            var action = data.msg.params.action;
+            var pickId = data.msg.params.pickId;
 
             if(action === 'add'){
-              Stream.$find(streamId).$then(function(s){
-                var vjStream = $scope.vjstreams.$build();
-                vjStream.streamId = s.id;
-                vjStream.active = false;
-                vjStream.token = s.token;
-                vjStream.stream = s;
-              });
+              var pickToAdd = vj.picks.$find(pickId);
+              $scope.picks.$add(pickToAdd);
             }
 
             if(action === 'remove'){
-              var streamToRemove = _.find($scope.vjstreams, function(vs){
-                return vs.streamId === streamId;
-              });
-              $scope.vjstreams.$remove(streamToRemove);
+              var pickToRemove = vj.picks.getById(pickId);
+              $scope.picks.$remove(pickToRemove);
             }
           }
         });
       });
     });
 
-    // Set the active stream as the current stream in the scope
+    // Set the active pick as the current pick in the scope
     $scope.$on('licode-video-created', function(event, stream){
-      var eventStream = _.find($scope.vjstreams, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
-      var anyFixed = _.any($scope.vjstreams, function(s){ return s.audioActive; });
+      var pickEvent = _.find($scope.picks, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
+      var anyFixed = _.any($scope.picks, function(s){ return s.activeAudio; });
 
       // Only when there is no current stream
-      if(!$scope.currentStream){
+      if(!$scope.currentPick){
 
         // Choose the one that's active to play in the main screen
-        if(eventStream.active){
+        if(pickEvent.active){
           // Set the current stream
-          $scope.currentStream = eventStream.stream;
+          $scope.currentPick = pickEvent.stream;
         }
 
       }
 
       // Set the fixed audio if there is any
-      if(eventStream.audioActive){
-      	$scope.fixedAudioStream = eventStream.stream;
+      if(pickEvent.activeAudio){
+        $scope.currentAudioPick = pickEvent.stream;
       };
 
       // Unmute the stream
       if(anyFixed){
-      	eventStream.stream.isMuted = !eventStream.audioActive;
+	      pickEvent.stream.isMuted = !pickEvent.activeAudio;
       }
       else{
-	      eventStream.stream.isMuted = !eventStream.active;
+	      pickEvent.stream.isMuted = !pickEvent.active;
 	    }
     });
   });

@@ -3,21 +3,72 @@
 angular.module('rhinobird.models')
   .factory('Pick', function ($restmod) {
     return $restmod.model('picks', {
-      stream: { hasOne: 'Stream' }
-    }, function(){
+      stream: { hasOne: 'Stream' },
 
-      // this.setPrimaryKey('streamId');
+      '@getById': function(pickId){
+        return _.find(this, function(p){
+          return p.id === pickId;
+        });
+      },
 
-      this.on('after-add', function(pick){
-        var collection = this;
+      /**
+       * Get a pick by stream id
+       * @param  {string} streamId The stream id the search for
+       * @return {pick}            The pick the match
+       */
+      '@getByStreamId': function(streamId){
+        return _.find(this, function(p){
+          return p.streamId === streamId;
+        });
+      },
 
-        // Add the stream id to the vj stream
-        // pick.streamId = pick.stream.id;
+      /**
+       * Activate the pick
+       * @return {promise}
+       */
+      'activate': function(){
+        this.active = true;
+        return this.$save().promise;
+      },
+
+      /**
+       * Deactivate the pick
+       * @return {promise}
+       */
+      'deactivate': function(){
+        this.active = false;
+        return this.$save().promise;
+      },
+
+      /**
+       * Activate the audio from the pick
+       * @return {promise}
+       */
+      'activateAudio': function(){
+        this.activeAudio = true;
+        return this.$save().promise;
+      },
+
+      /**
+       * Deactivate the audio from the pick
+       * @return {promise}
+       */
+      'deactivateAudio': function(){
+        this.activeAudio = false;
+        return this.$save().promise;
+      },
+
+      /**
+       * After each pick is added to the collection
+       * @param  {pick} pick    Vj pick
+       */
+      '~after-add': function(pick){
+        var picks = this;
 
         // Add a hook the each element to mantain the active status
         // when a vj pick is set as active
         pick.$on('after-save', function(){
-          _.each(collection, function(_pick){
+          _.each(picks, function(_pick){
             if(_pick.active && _pick.stream.id !== pick.stream.id){
               _pick.active = false;
             }
@@ -29,6 +80,6 @@ angular.module('rhinobird.models')
         });
 
 
-      });
+      }
     });
   });
