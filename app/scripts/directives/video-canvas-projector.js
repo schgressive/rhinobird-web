@@ -69,7 +69,7 @@ angular.module('rhinobird.directives')
             var widthDiff = (width-dWidth)/2;
 
             //ctx.drawImage(video , widthDiff, 0, dWidth, dHeight);
-            ctx.drawImage(video , 0, 0, 640, 480);
+            ctx.drawImage(video , 0, 0, 640, 360);
 
             // paint it black
             ctx.fillStyle = 'rgb(0,0,0)';
