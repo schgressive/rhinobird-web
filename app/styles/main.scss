@@ -155,6 +155,7 @@ article {
 	.main.goliveMain {
 		background: transparent url('/images/golive-action-bg.png') top left repeat-x;
 		border: none;
+		@media screen and (max-width: 980px) {margin-top: 42px;}
 		.golive-view {
 			margin-top: 20px;
 			.user-avatar {
