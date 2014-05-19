@@ -67,14 +67,16 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/api',
-          host: 'localhost',
-          port: 3000,
+          changeOrigin: true,
+          host: process.env.PROXY_HOST || 'localhost',
+          port: process.env.PROXY_PORT || 3000,
           https: false
         },
         {
           context: '/registration',
-          host: 'localhost',
-          port: 3000,
+          changeOrigin: true,
+          host: process.env.PROXY_HOST || 'localhost',
+          port: process.env.PROXY_PORT || 3000,
           https: false
         }
       ],
