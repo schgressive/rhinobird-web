@@ -4,7 +4,7 @@
       <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions clearfix" ng-show="app.isLoggedIn">
+      <div class="loggedin-actions" ng-show="app.isLoggedIn">
         <div ng-include="'/views/layouts/stream-actions.html'"></div>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->
@@ -14,30 +14,37 @@
 <div class="main" role="main">
   <div class="width-controller mobile-full container-fluid">
 	  <section class="mid-content">
+		<div class="row-fluid">
+			<h3 class="span12">Now Viewing: #{{vj.channel_name}}</h3>
+		</div>
+		<div class="row-fluid">
+			<h4 class="span12">This session is VJ'd by: <a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a></h4>
+		</div>
 	    <div class="row-fluid">
 	      <div class="module-xlarge span12">
-	        <div ng-include="'/views/snippets/module-xlarge.html'"></div>
+          <div video-canvas-projector width="640" height="360" video="self.currentPick.licode.player.video"></div>
+          <div hash-to-link>
+            {{self.currentStream.caption}}
+          </div>
 	      </div><!-- /.module-xlarge -->
 	    </div><!-- /.row-fluid -->
+      <div class="hidden">
+        <div ng-repeat="pick in picks | filter:{stream.status: 'live'}">
+          <div stream-viewer stream="pick.stream" size="mini" mute="{{pick.stream.isMuted}}" on="true"></div>
+        </div>
+      </div>
 	  </section><!-- /.mid-content -->
   </div>
-  <div class="width-controller container-fluid">
+  <!-- <div class="width-controller container-fluid">
 	  <section class="lower-content media-area">
 	    <div class="row-fluid">
 	      <h3 class="span6">
 	        More Streams
 	      </h3>
-	    </div><!-- /.row-fluid -->
+	    </div>
 	    <div class="row-fluid">
-	    	<div class="span12">
-          <ol class="no-bullets">
-					 <li class="module-large span3" ng-repeat="stream in streams | limitTo:12">
-						 <div ng-include="'/views/snippets/module-large.html'"></div>
-					 </li>
-				 </ol>
-        </div><!-- /.span12 -->
-		  	<!-- <div owl-carousel items="streams" item-template="/views/snippets/module-mini.html"></div> -->
-			</div><!--/.row-fluid -->
-	  </section><!-- /.lower-content -->
-  </div><!-- /.container-fluid -->
+			<div owl-carousel items="streams" item-template="/views/snippets/module-mini.html"></div>
+			</div>
+	  </section>
+  </div> -->
 </div><!-- /.main -->

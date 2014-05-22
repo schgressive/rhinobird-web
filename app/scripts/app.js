@@ -70,10 +70,11 @@ angular.module('rhinobird', [
     - stream({streamId: <streamId>})          /stream/:streamId
     - user({userName: <username>})            /user/:userName
     - channel({channelName: <channelname>})   /:channelName
-    - vjsession({                             /:channelName/:userName
+    - vjsession.live({                             /:channelName/:userName
           channelName: <channelname>,
           userName: <username>
         })
+    - vjsession.archived({vjId}: <vjId>)               /vj/:vjId
     */
 
     // Main
@@ -189,10 +190,35 @@ angular.module('rhinobird', [
     })
 
     // Vj session
-    .state('vjsession', {
-      url: '/{channelName:[0-9a-zA-Z-_]+}/{userName:[0-9a-zA-Z-_]+}/',
+    .state('vjsession',{
+      url: '/vj/:vjId/',
       templateUrl: '/views/vj-session.html',
       controller: 'VjSessionCtrl',
+      resolve: {
+        vj: ['Vj', '$q', '$stateParams', function(Vj, $q, $stateParams) {
+          var deferred = $q.defer();
+
+          var vj = Vj.$find($stateParams.vjId).$then(function() {
+            if (vj.status == "pending") {
+              deferred.reject("not yet archived");
+            } else {
+              deferred.resolve(vj);
+            }
+          }, function() {
+            deferred.reject("error");
+          });
+
+          return deferred.promise;
+        }],
+        user: ['$stateParams', 'User', 'vj', function($stateParams, User, vj){
+          return User.$find(vj.username).$promise;
+        }]
+      }
+    })
+    .state('vjsession-live',{
+      url: '/{channelName:[0-9a-zA-Z-_]+}/{userName:[0-9a-zA-Z-_]+}/',
+      templateUrl: '/views/vj-session-live.html',
+      controller: 'VjSessionLiveCtrl',
       resolve: {
         user: ['$stateParams', 'User', function($stateParams, User){
           return User.$find($stateParams.userName).$promise;
