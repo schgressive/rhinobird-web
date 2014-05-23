@@ -8,8 +8,7 @@ angular.module('rhinobird.controllers')
     // Expose the user in the scope
     $scope.user = user;
 
-    // Get the user streams
-    //
-    $scope.streams = user.streams.$collection({ live: true, archived: true });
-    $scope.streams.getNextPage();
+    // Get the user timeline
+    $scope.timeline = user.timeline.$collection({ live: true, archived: true });
+    $scope.timeline.getNextPage();
   });

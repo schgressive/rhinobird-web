@@ -209,9 +209,6 @@ angular.module('rhinobird', [
           });
 
           return deferred.promise;
-        }],
-        user: ['$stateParams', 'User', 'vj', function($stateParams, User, vj){
-          return User.$find(vj.username).$promise;
         }]
       }
     })

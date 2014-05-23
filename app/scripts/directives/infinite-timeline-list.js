@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('infiniteStreamList', function () {
+  .directive('infiniteTimelineList', function () {
     return {
-      templateUrl: '/views/templates/infinite-stream-list.html',
+      templateUrl: '/views/templates/infinite-timeline-list.html',
       restrict: 'EA',
       scope: {
-        streams: '='
+        timeline: '='
       },
       link: function postLink(scope, element, attrs) {
       }

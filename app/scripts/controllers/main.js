@@ -2,14 +2,14 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('MainCtrl', function ($scope, $stateParams, Stream, AuthService) {
+  .controller('MainCtrl', function ($scope, $stateParams, Timeline, AuthService) {
 
     // Expose the scope as self
     $scope.self = $scope;
 
-    // Get the streams
-    $scope.streams = Stream.$collection({ live: true, archived: true });
-    $scope.streams.getNextPage();
+    // Get the timeline
+    $scope.timeline = Timeline.$collection({ live: true, archived: true });
+    $scope.timeline.getNextPage();
 
     // Set the user in scope
     $scope.user = AuthService.user;
