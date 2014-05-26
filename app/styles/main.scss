@@ -604,6 +604,7 @@ i[class*="icon"] {font-style: normal;}
 
 .faux-tabs {
 	@media screen and (max-width: 500px) {
+		@include fontSize(13px);
 		ul, form { text-align: center;}
 		ul { width: 100%;}
 		ul.inline li { padding: 0; width: 48.7%;}
