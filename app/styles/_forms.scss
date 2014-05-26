@@ -66,6 +66,11 @@ form { margin: 0;}
 }
 
 body.base {
+	.checkbox.inline:first-of-type { margin-right: 10px;}
+	.radio.inline+.radio.inline, .checkbox.inline+.checkbox.inline {
+		margin-left: 0;
+		margin-right: 10px;
+	}
 	.btn, btn-small, .btn-mini, .btn-large, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu, textarea, .alert {
 		border-radius: $baseBorderRadius;
 		-webkit-border-radius: $baseBorderRadius;
@@ -119,6 +124,10 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		border-color: $inputBorderFocus;
 		box-shadow: none;
 	}
+}
+
+.input-xxlarge {
+	@media screen and (max-width: 500px) {max-width: 300px;}
 }
 
 .add-onClick:hover { background-color: $grayLight;}
@@ -221,6 +230,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 			font-family: $bold-font-stack;
 			font-weight: normal;
 		}
+		@media screen and (max-width: 500px) {width:75%;}
 	}
 }
 
@@ -309,7 +319,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 				border-color: darken($red, 10%);
 			}
 		}
-		ol { margin-top: -7px;}
+		.channel-suggest { margin-top: -7px; margin-bottom: 5px;}
 	}
 }
 

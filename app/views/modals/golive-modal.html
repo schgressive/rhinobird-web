@@ -15,7 +15,7 @@
   </div><!-- /.input-prepend -->
   <div ng-show="vm.nearChannels.length">
 		<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
-		<ol class="inline no-bullets">
+		<ol class="channel-suggest inline no-bullets">
 			<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
 		</ol>
   </div>
