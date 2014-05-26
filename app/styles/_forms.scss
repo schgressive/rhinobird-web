@@ -127,6 +127,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .input-xxlarge {
+	max-width: 516px;
 	@media screen and (max-width: 500px) {max-width: 300px;}
 }
 
@@ -327,7 +328,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	color: $white;
 	text-align: center;
 	margin: 0;
-	small { display: block; width: 100%; height: auto; padding: 3px 0;}
+	small { display: block; width: 100%; height: auto; }
 	a:link { color: $white; text-decoration: underline;}
 	.info { background-color: $infoText;}
 	.warning { background-color: $warningText;}

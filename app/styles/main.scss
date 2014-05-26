@@ -168,7 +168,11 @@ article {
 				@include font-smoothing();
 			}
 		}
-		.loggedin-actions .validate { margin-top: -10px;}
+		.loggedin-actions .validate {
+			margin-top: 12px;
+			padding-bottom: 8px;
+			@media screen and (max-width: 600px) { margin-top: 26px;}
+		}
 	}
 	@media screen and (max-width: 600px) {
 		.main.goliveMain {

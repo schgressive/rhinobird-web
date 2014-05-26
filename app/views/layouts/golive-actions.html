@@ -10,9 +10,6 @@
         </li>
         <li>
           <a href="#" ng-click="ctrl.updateThumbnail()" role="button" title="Take Snapshot"><span class="visually-hidden">Take Snapshot</span></a>
-          <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
-						<small class="success">Snapshot success!</small>
-					</div><!-- /.validate -->
         </li>
       </ul>
       <ul class="social-list inline pull-left clearfix">
@@ -23,20 +20,20 @@
     </div><!-- /.action-left -->
     <div class="action-right span5">
     	<form name="formAddCaption" method="post" class="pull-right" ng-maxlength=17>
-        <fieldset>
-          <legend class="visually-hidden">Use this form to add a channel or caption. Use '#' before a word to create a channel for the stream.</legend>
-          <div class="input-append">
-            <input name="caption" type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
-            <input class="btn hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
-          </div>
-          <div class="validate" ng-show="vm.caption_warning">
-						<small class="info">Only the first 17 characters will display in thumbnail view.</small>
-					</div><!-- /.validate -->
-					<div class="validate fadeOut" ng-show="vm.showSuccess">
-						<small class="success">Caption successfully changed.</small>
-					</div><!-- /.validate -->
-        </fieldset>
+        <div class="input-append">
+          <input name="caption" type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
+          <input class="btn hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
+        </div>
       </form>
-    </div>
-  </div><!-- /.input-prepend -->
+    </div><!-- /.action-right -->
   </div><!-- /.row-fluid -->
+  <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
+		<small class="success">Snapshot success!</small>
+	</div><!-- /.validate -->
+	<div class="validate" ng-show="vm.caption_warning">
+		<small class="info">Only the first 17 characters will display in thumbnail view.</small>
+	</div><!-- /.validate -->
+	<div class="validate fadeOut" ng-show="vm.showSuccess">
+		<small class="success">Caption successfully changed.</small>
+	</div><!-- /.validate -->
+</div><!-- /.span12 -->
