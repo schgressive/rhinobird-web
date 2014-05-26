@@ -9,6 +9,6 @@ angular.module('rhinobird.controllers')
     $scope.user = user;
 
     // Get the user timeline
-    $scope.timeline = user.timeline.$collection({ live: true, archived: true });
+    $scope.timeline = user.timeline.$collection();
     $scope.timeline.getNextPage();
   });
