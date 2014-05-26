@@ -10,7 +10,7 @@ angular.module('rhinobird.controllers')
 
     // Expose the user streams
     var userTmp = User.$build({username: session.user.username});
-    $scope.timeline = userTmp.timeline.$collection();
+    $scope.timeline = userTmp.timeline.$collection({ pending: true });
     $scope.timeline.getNextPage();
 
     // apply active class to tabs
