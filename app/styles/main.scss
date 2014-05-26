@@ -539,7 +539,6 @@ i[class*="icon"] {font-style: normal;}
 				@media screen and (max-width: 560px) {
 					padding-left: 5px;
 					padding-right: 5px;
-					@include fontSize(14px);
 				}
 			}
 		}
