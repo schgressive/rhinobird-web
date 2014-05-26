@@ -665,7 +665,7 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 500px) {
 		.row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
 	}
-	.streamStatus {
+	.timelineStatus {
 		width: 32px;
 		height: 32px;
 		background-size: contain;
@@ -674,8 +674,8 @@ i[class*="icon"] {font-style: normal;}
 		left: 0;
 		display: block;
 		&.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
-		&.vj-live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
-		&.vj-archive { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
+		&.vj.live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
+		&.vj.archived { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
 		&.pending { background: transparent url('/images/pending-icon-32.svg') top left no-repeat;}
 	}
 	.owl-theme .owl-controls .owl-buttons div {

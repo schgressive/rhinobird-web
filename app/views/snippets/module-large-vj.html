@@ -2,7 +2,7 @@
   <div class="module-video">
     <a ui-sref="vjsession({vjId: vj.id})" class="live-stream-link">
       <img ng-src="{{vj.thumbs.medium}}"/>
-      <div class="streamStatus" ng-class="vj.status"><span class="visually-hidden">{{vj.getStatusMessage()}}</span></div>
+      <div class="timelineStatus vj" ng-class="vj.status"><span class="visually-hidden">{{vj.getStatusMessage()}}</span></div>
       <div class="module-overlay"></div>
     </a>
   </div><!-- /.module-video -->
