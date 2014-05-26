@@ -874,7 +874,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-outer {
-	height: 48px;
+	min-height: 10px;
 	color: $grayDarker;
 	padding: 0px 10px 7px 10px;
 	background-color: $white;
@@ -892,8 +892,8 @@ i[class*="icon"] {font-style: normal;}
 	background-color: $white;
 	canvas, video { width: 100%;}
 	.module-outer {
-		padding: 10px 10px 30px 0px;
-		@media screen and (max-width: 500px) { padding: {top:8px;bottom:27px;}}
+		padding: 10px 10px 7px 0px;
+		@media screen and (max-width: 500px) { padding: {top:8px;bottom:5px;}}
 	}
 	.ng-isolate-scope .licode {
 		@media screen and (max-width: 600px) { height: 436px !important;}
