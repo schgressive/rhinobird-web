@@ -119,7 +119,7 @@ angular.module('rhinobird.controllers')
     setCenter();
 
     // Set the stream collection
-    $scope.streams = Stream.$collection({ live: true, archived: true });
+    $scope.streams = Stream.$collection({ live: true });
 
     // Search for stream when lat change
     $scope.$watch('map.search.lat', function(){
