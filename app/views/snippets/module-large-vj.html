@@ -1,6 +1,11 @@
 <div class="module-inner">
   <div class="module-video">
-    <a ui-sref="vjsession({vjId: vj.id})" class="live-stream-link">
+    <a ui-sref="vjsession({vjId: vj.id})" ng-if="vj.status !== 'live'" class="live-stream-link">
+      <img ng-src="{{vj.thumbs.medium}}"/>
+      <div class="timelineStatus vj" ng-class="vj.status"><span class="visually-hidden">{{vj.getStatusMessage()}}</span></div>
+      <div class="module-overlay"></div>
+    </a>
+    <a ui-sref="vjsession-live({ channelName: vj.channelName, userName: vj.user.username })" ng-if="vj.status == 'live'" class="live-stream-link">
       <img ng-src="{{vj.thumbs.medium}}"/>
       <div class="timelineStatus vj" ng-class="vj.status"><span class="visually-hidden">{{vj.getStatusMessage()}}</span></div>
       <div class="module-overlay"></div>
