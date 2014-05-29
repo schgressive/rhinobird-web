@@ -65,7 +65,7 @@ angular.module('rhinobird.directives')
           }
           else {
             var dWidth = height*video.videoWidth/video.videoHeight;
-            var dHeight = height;
+            //var dHeight = height;
             var widthDiff = (width-dWidth)/2;
 
             //ctx.drawImage(video , widthDiff, 0, dWidth, dHeight);

@@ -52,12 +52,12 @@ angular.module('rhinobird.services')
         //click event for login modal form
         $scope.close = function() {
           $modalInstance.dismiss('cancel');
-        }
+        };
       }];
 
       //create modal and return it
       return $modal.open(newModalDefaults).result;
-    }
+    };
 
     this.resetPassword = function(payload) {
       var password = Password.$build(payload);

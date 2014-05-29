@@ -10,7 +10,7 @@ angular.module('rhinobird.directives')
         currentStream: '=',
         fixedAudioStream: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element) {
 
         var owl = $('.owl-carousel', element);
 

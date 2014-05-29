@@ -35,7 +35,7 @@ angular.module('rhinobird.controllers')
       } else {
         $state.go('golive');
       }
-    }
+    };
 
     $scope.login = function(){
       AuthService.askLogin();

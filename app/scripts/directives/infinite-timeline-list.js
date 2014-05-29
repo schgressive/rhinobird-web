@@ -8,7 +8,7 @@ angular.module('rhinobird.directives')
       scope: {
         timeline: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink() {
       }
     };
   });

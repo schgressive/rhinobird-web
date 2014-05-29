@@ -12,9 +12,9 @@ angular.module('rhinobird.controllers')
         token: $stateParams.reset_password_token,
         password: $scope.resetData.password,
         password_confirmation: $scope.resetData.confirm
-      }
+      };
 
-      AuthService.resetPassword(resetData).then(function(e) {
+      AuthService.resetPassword(resetData).then(function() {
         $scope.$close();
       },
       function(e) { // Handle errors
@@ -22,7 +22,7 @@ angular.module('rhinobird.controllers')
         $scope.invalidToken = (!angular.isUndefined(error.reset_password_token) && error.reset_password_token[0].match(/invalid/) != null);
       });
 
-    }
+    };
   });
 
 

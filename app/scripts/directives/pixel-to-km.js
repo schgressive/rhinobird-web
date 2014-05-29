@@ -6,7 +6,7 @@ angular.module('rhinobird.directives')
     var EcuatorSize = 40075016.68;
 
     var pixelsToMts = function(zoom, pixels) {
-      var metters = EcuatorSize / (pixels * (Math.pow(2, zoom)) )
+      var metters = EcuatorSize / (pixels * (Math.pow(2, zoom)) );
       metters =  metters * pixels;
       if (metters < 1000) {
         metters = 1000;
@@ -20,7 +20,7 @@ angular.module('rhinobird.directives')
         currentKm: '=currentKm',
         zoom: '=zoom'
       },
-      link: function(scope, element, attrs) {
+      link: function(scope, element) {
         var w = angular.element($window);
         var e = angular.element(element);
 
@@ -39,6 +39,6 @@ angular.module('rhinobird.directives')
           scope.$apply();
         });
       }
-    }
+    };
   });
 

@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 /* global SparkMD5: false */
 

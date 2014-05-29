@@ -3,10 +3,10 @@
 angular.module('rhinobird.models')
   .factory('Stream', function ($restmod) {
     var StatusMessages = {
-      "pending": "stream under production",
-      "vj-live": "live VJ session",
-      "vj-archive": "archived VJ session",
-      "live": "happening live!"
+      'pending': 'stream under production',
+      'vj-live': 'live VJ session',
+      'vj-archive': 'archived VJ session',
+      'live': 'happening live!'
     };
 
     return $restmod.model('streams', 'PagedModel', {

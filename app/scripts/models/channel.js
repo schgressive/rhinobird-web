@@ -16,7 +16,7 @@ angular.module('rhinobird.models')
         var payload = {
           lat: lat,
           lng: lng
-        }
+        };
 
         return this.$search(payload);
       }

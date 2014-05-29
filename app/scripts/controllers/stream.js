@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $stateParams, $timeout, Stream, AuthService, $location, stream) {
+  .controller('StreamCtrl', function ($scope, $window, $stateParams, $timeout, Stream, AuthService, $location, stream) {
 
 		$scope.user = AuthService.user;
     $scope.url = encodeURIComponent($location.absUrl());
-    $scope.shareTextEnconded = escape("Share this video!");
+    $scope.shareTextEnconded = $window.escape('Share this video!');
 
     // Get the stream
     $scope.stream = stream;

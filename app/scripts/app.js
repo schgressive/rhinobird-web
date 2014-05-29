@@ -20,11 +20,10 @@ angular.module('rhinobird', [
   // Fix for missing trailing slash
   // NOTE: All route definitions must end with a Slash now
   $urlRouterProvider.rule(function($injector, $location) {
-    var path = $location.path()
+    var path = $location.path(),
     // Note: misnomer. This returns a query object, not a search string
-      , search = $location.search()
-      , params
-    ;
+    search = $location.search(),
+    params;
 
     // check to see if the path already ends in '/'
     if (path[path.length - 1] === '/') {
@@ -157,13 +156,13 @@ angular.module('rhinobird', [
           var deferred = $q.defer();
 
           var stream = Stream.$find($stateParams.streamId).$then(function() {
-            if (stream.status == "pending") {
-              deferred.reject("not yet archived");
+            if (stream.status === 'pending') {
+              deferred.reject('not yet archived');
             } else {
               deferred.resolve(stream);
             }
           }, function() {
-            deferred.reject("error");
+            deferred.reject('error');
           });
 
           return deferred.promise;
@@ -199,13 +198,13 @@ angular.module('rhinobird', [
           var deferred = $q.defer();
 
           var vj = Vj.$find($stateParams.vjId).$then(function() {
-            if (vj.status == "pending") {
-              deferred.reject("not yet archived");
+            if (vj.status === 'pending') {
+              deferred.reject('not yet archived');
             } else {
               deferred.resolve(vj);
             }
           }, function() {
-            deferred.reject("error");
+            deferred.reject('error');
           });
 
           return deferred.promise;
@@ -223,8 +222,8 @@ angular.module('rhinobird', [
         vj: ['$q', '$stateParams', 'user', function($q, $stateParams, user){
           var deferred = $q.defer();
 
-          var liveVjs = user.vjs.$search({ 'channel_name': $stateParams.channelName, live: true }).$then(function(vjs){
-            if(vjs.length == 0){
+          user.vjs.$search({ 'channel_name': $stateParams.channelName, live: true }).$then(function(vjs){
+            if(vjs.length === 0){
               deferred.reject();
             }
             else if(vjs.length > 0){
@@ -311,7 +310,7 @@ angular.module('rhinobird', [
     }
 
     //if we weren't trying to open an archiving stream
-    if (to.name != 'stream') {
+    if (to.name !== 'stream') {
       // Navigate to main page
       $state.go('main');
     }

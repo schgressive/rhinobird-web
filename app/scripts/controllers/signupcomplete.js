@@ -4,7 +4,7 @@ angular.module('rhinobird.controllers')
   .controller('SignupCompleteCtrl', function ($scope, AuthService, User) {
 
     $scope.saveInfo = function() {
-      var user = User.$build({id: 'current'})
+      var user = User.$build({id: 'current'});
       if ($scope.username) {
         user.username = $scope.username;
       }
@@ -14,6 +14,6 @@ angular.module('rhinobird.controllers')
       user.$save();
 
       $scope.$close();
-    }
+    };
 
   });

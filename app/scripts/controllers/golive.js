@@ -17,7 +17,7 @@ angular.module('rhinobird.controllers')
      */
     $scope.vm = vm; // Expose the viewmodel in the scope
     $scope.ctrl = this; // Expose the controller
-    $scope.vm.caption_warning = false;
+    $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
 
     // The the caption for the stream
@@ -77,10 +77,10 @@ angular.module('rhinobird.controllers')
       GoliveService.updateThumbnail().then(function() {
         vm.showSuccessSnapshot = true;
         $timeout(function() {
-          vm.showSuccessSnapshot = false
+          vm.showSuccessSnapshot = false;
         }, 3000);
       });
-    }
+    };
 
     this.updateCaption = function(caption){
       var payload = {
@@ -90,7 +90,7 @@ angular.module('rhinobird.controllers')
       GoliveService.updateStream(payload).then(function() {
         vm.showSuccess = true;
         $timeout(function() {
-          vm.showSuccess = false
+          vm.showSuccess = false;
         }, 3000);
 
       });
@@ -99,18 +99,18 @@ angular.module('rhinobird.controllers')
     // Add a hash to a the caption
     this.addHashTag = function(hash){
       var hashes = vm.caption.match(regexp);
-      if(!_.some(hashes, function(h){ return h === "#" + hash; } )){
+      if(!_.some(hashes, function(h){ return h === '#' + hash; } )){
         if(vm.caption.length !== 0){
           vm.caption += ' ';
         }
-        vm.caption += "#" + hash;
+        vm.caption += '#' + hash;
       }
     };
 
     // To filter out used hashes
     this.usedHashes = function(hash){
       var usedHashes = vm.caption.match(regexp) || [];
-      return !_.contains(usedHashes, "#" + hash.name)
+      return !_.contains(usedHashes, '#' + hash.name);
     };
 
     /**
@@ -122,9 +122,9 @@ angular.module('rhinobird.controllers')
       if(a){
         // sets warning for long caption
         if (a.length > 17) {
-          vm.caption_warning = true;
+          vm.captionWarning = true;
         } else {
-          vm.caption_warning = false;
+          vm.captionWarning = false;
         }
 
         var hashes = a.match(regexp);
@@ -138,15 +138,15 @@ angular.module('rhinobird.controllers')
       openDialog();
     });
 
-    $scope.$on("liveStreamStopped", function(event, data) {
+    $scope.$on('liveStreamStopped', function(event, data) {
       $scope.ctrl.stop(data.goback);
 
     });
 
     $scope.gotoTerms = function() {
       modalInstance.close();
-      $state.go("terms");
-    }
+      $state.go('terms');
+    };
 
     // When the stream gets published
     $scope.$on('licode-stream-status-changed', function(event, params){

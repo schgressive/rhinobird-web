@@ -55,7 +55,7 @@ angular.module('rhinobird.services')
         });
 
         // Add the streams to the vj
-        _.each(streams, function(s, idx){
+        _.each(streams, function(s){
 
           // Find the stream that is playing
           var isCurrent = s.id === currentStreamId;

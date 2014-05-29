@@ -77,8 +77,6 @@ angular.module('rhinobird.controllers')
     });
 
     $scope.$on('stream-carousel-changed', function(event, status){
-      var action = status.action;
-
       // Send message new pick
       if(VjService.live){
         if(status.action === 'add'){

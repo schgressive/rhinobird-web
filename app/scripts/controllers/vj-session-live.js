@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('VjSessionLiveCtrl', function ($scope, vj, user, VjService, Stream) {
+  .controller('VjSessionLiveCtrl', function ($scope, vj, user, VjService) {
 
     $scope.self = $scope;
 
@@ -93,7 +93,7 @@ angular.module('rhinobird.controllers')
       // Set the fixed audio if there is any
       if(pickEvent.activeAudio){
         $scope.currentAudioPick = pickEvent.stream;
-      };
+      }
 
       // Unmute the stream
       if(anyFixed){

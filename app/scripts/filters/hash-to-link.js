@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 angular.module('rhinobird.filters')
   .filter('hashToLink', function($sce) {

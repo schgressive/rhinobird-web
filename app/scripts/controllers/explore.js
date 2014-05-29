@@ -45,8 +45,8 @@ angular.module('rhinobird.controllers')
 
         clusterLayer = cluster;
         $scope.map.geoJSON = [];
-      })
-    }
+      });
+    };
 
     // Map configuration
     $scope.map = {
@@ -100,7 +100,7 @@ angular.module('rhinobird.controllers')
         $scope.getCurrent();
       }
 
-    }
+    };
 
     /**
      * Search for an address
