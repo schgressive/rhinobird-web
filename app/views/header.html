@@ -14,13 +14,13 @@
 		                  <a href="#" ng-click="logout()" ng-show="user.email"><i class="icon-lock"></i>Sign Out</a>
 		                </li>
 		                <li class="navLink"><a ui-sref="explore"><i class="icon-globe"></i>Explore</a></li>
-		                <li class="navLink deactivated"><a href="/tour"><i class="icon-info-sign"></i>Take the Tour!</a></li>
+		                <li class="navLink deactivated"><a ui-sref=""><i class="icon-info-sign"></i>Take the Tour!</a></li>
 		                <li class="navLink" ng-show="app.isLoggedIn"><a ui-sref="profile.streams"><i class="icon-user"></i>Your Profile</a></li>
 		              </ul>
               	</div><!-- /.menu-top -->
               	<div class="colophon clearfix" role="content-info">
 	              	<ul class="no-bullets">
-										<li><a ui-sref="about" title="about rhinobird.tv">About Rhinobird</a></li>
+										<li class="deactivated"><a ui-sref="" title="about rhinobird.tv">About Rhinobird</a></li>
 										<li><a ui-sref="privacy" title="privacy statement">Privacy</a></li>
 										<li><a ui-sref="terms" title="terms of service" rel="license">Terms of Service</a></li>
 										<li><a ui-sref="trademark" title="copyright and trademark" >Copyright & Trademark</a></li>
