@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.services')
-  .service('GoliveService', function GoliveService($q, $rootScope, CameraService, Stream) {
+  .service('GoliveService', function GoliveService($q, $rootScope, $timeout, CameraService, Stream) {
 
     var self = this;
 
@@ -110,6 +110,10 @@ angular.module('rhinobird.services')
       if(params.status === 'connecting'){
         self.status = 'connecting';
         $rootScope.app.onAir = false;
+
+        $timeout(function(){
+          self.status = 'error';
+        }, 10000);
       }
       else if(params.status === 'disconnected'){
         self.status = 'disconnected';

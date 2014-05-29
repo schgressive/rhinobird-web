@@ -37,9 +37,12 @@
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
   <h3>Connecting...</h3>
-  <div class="alert alert-text" ng-show="">
-	  <p>You may have a network problem. Try again later.</p>
-	</div>
+</div>
+<div class="text-center" ng-show="vm.goliveService.status == 'error'">
+  <h3>Something happend...</h3>
+  <div class="alert alert-text">
+    <p>You may have a network problem. Please wait or try again later.</p>
+  </div>
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'connected'">
   <h3>Connected...</h3>
