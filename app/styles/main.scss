@@ -882,7 +882,9 @@ i[class*="icon"] {font-style: normal;}
 	a { text-decoration: underline;}
 }
 
-
+.module-large .module-outer {
+	min-height: 50px;
+}
 
 .module-xlarge {
 	padding: 10px 10px 0;
