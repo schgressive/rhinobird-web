@@ -79,6 +79,12 @@ angular.module('rhinobird.controllers')
       VjService.stopBroadcast();
     });
 
+    $scope.$on('$locationChangeStart', function(event, next, current) {
+      if(VjService.live && !confirm("You have an ongoing vj, you really want to leave this page?")) {
+        event.preventDefault();
+      }
+    });
+
     $scope.$on('stream-carousel-changed', function(event, status){
       // Send message new pick
       if(VjService.live){
