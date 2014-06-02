@@ -83,14 +83,16 @@ angular.module('rhinobird.services')
 
     // The vj will close the socket connection and stop the broadcast
     this.stopBroadcast = function(){
-      // Disconnect the sockec channel
-      _self.socket.disconnect();
+      if(this.live){
+        // Disconnect the sockec channel
+        _self.socket.disconnect();
 
-      // Set the vj status as pending
-      _self.vj.status = 'pending';
-      _self.vj.$save();
+        // Set the vj status as pending
+        _self.vj.status = 'pending';
+        _self.vj.$save();
 
-      this.live = false;
+        this.live = false;
+      }
     };
 
     // Add a new pick to the vj
