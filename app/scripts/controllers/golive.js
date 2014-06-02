@@ -117,6 +117,12 @@ angular.module('rhinobird.controllers')
      * EVENTS
      */
 
+    $scope.$on('$locationChangeStart', function(event, next, current) {
+      if(GoliveService.status === 'connected' && !confirm("You have live, you really want to leave this page?")) {
+        event.preventDefault();
+      }
+    });
+
     // Hashtags
     $scope.$watch('vm.caption', function(a){
       if(a){
