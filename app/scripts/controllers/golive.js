@@ -123,6 +123,13 @@ angular.module('rhinobird.controllers')
       }
     });
 
+    $scope.$on('$destroy', function() {
+      if(GoliveService.status === 'connected'){
+        // Stop golive session if the user navigates away
+        $scope.ctrl.stop();
+      }
+    });
+
     // Hashtags
     $scope.$watch('vm.caption', function(a){
       if(a){
