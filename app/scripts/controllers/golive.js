@@ -128,6 +128,9 @@ angular.module('rhinobird.controllers')
         // Stop golive session if the user navigates away
         $scope.ctrl.stop();
       }
+
+      // Close the modal when navigating away
+      modalInstance.close();
     });
 
     // Hashtags
