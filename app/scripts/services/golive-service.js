@@ -113,7 +113,7 @@ angular.module('rhinobird.services')
 
         $timeout(function(){
           self.status = 'error';
-        }, 10000);
+        }, 15000);
       }
       else if(params.status === 'disconnected'){
         self.status = 'disconnected';
