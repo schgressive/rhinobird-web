@@ -71,9 +71,12 @@ angular.module('rhinobird.controllers')
     var polling = $interval(checkNewStreams, POLLING_TIME);
 
 
-    // cancel polling on controller destroy
     $scope.$on('$destroy', function() {
+      // cancel polling on controller destroy
       $interval.cancel(polling);
+
+      // Stop the vj if the user navigates away
+      VjService.stopBroadcast();
     });
 
     $scope.$on('stream-carousel-changed', function(event, status){
