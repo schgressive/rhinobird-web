@@ -177,6 +177,10 @@ angular.module('rhinobird.services')
 
       if(!streamId){ return; }
 
+      // Set the pick audio as inactive
+      var pick = _self.vj.picks.getByStreamId(streamId);
+      pick.deactivateAudio();
+
       // Broadcast the event
       if(_self.socket){
         _self.socket.broadcastEvent('active-audio-pick-changed', {

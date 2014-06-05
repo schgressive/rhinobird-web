@@ -32,11 +32,29 @@ angular.module('rhinobird.models')
       },
 
       /**
+       * Deactivate the pick
+       * @return {promise}
+       */
+      'deactivate': function(){
+        this.active = false;
+        return this.$save().promise;
+      },
+
+      /**
        * Activate the audio from the pick
        * @return {promise}
        */
       'activateAudio': function(){
         this.activeAudio = true;
+        return this.$save().promise;
+      },
+
+      /**
+       * Deactivate the audio from the pick
+       * @return {promise}
+       */
+      'deactivateAudio': function(){
+        this.activeAudio = false;
         return this.$save().promise;
       },
 
