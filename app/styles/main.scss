@@ -851,7 +851,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-large .module-video {
-	max-height: 114px;
+	height: 110px !important; /*needs to change later w/masonry */
 	.live-stream-link img {
 		width: auto;
 		height: auto;
