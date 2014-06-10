@@ -6,5 +6,5 @@ app/bower_components
 npm-debug.log
 .DS_Store
 .Gemfile.lock
-
+.nodenv-vars
 Gemfile.lock
