@@ -159,7 +159,6 @@ angular.module('rhinobird.services')
       // Set the pick audio as active
       var pick = _self.vj.picks.getByStreamId(streamId);
       pick.activateAudio();
-      pick.$save();
 
       // Broadcast the event
       if(_self.socket){

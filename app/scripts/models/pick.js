@@ -2,6 +2,7 @@
 
 angular.module('rhinobird.models')
   .factory('Pick', function ($restmod) {
+
     return $restmod.model('picks', {
       stream: { hasOne: 'Stream' },
 
@@ -32,15 +33,6 @@ angular.module('rhinobird.models')
       },
 
       /**
-       * Deactivate the pick
-       * @return {promise}
-       */
-      'deactivate': function(){
-        this.active = false;
-        return this.$save().promise;
-      },
-
-      /**
        * Activate the audio from the pick
        * @return {promise}
        */
@@ -59,27 +51,49 @@ angular.module('rhinobird.models')
       },
 
       /**
-       * After each pick is added to the collection
-       * @param  {pick} pick    Vj pick
+       * Sync the state of the picks active and
+       * audioActive properties
        */
-      '~after-add': function(pick){
-        var picks = this;
+      'syncLocalState': function(){
+        var pick = this;
 
-        // Add a hook the each element to mantain the active status
-        // when a vj pick is set as active
-        pick.$on('after-save', function(){
-          _.each(picks, function(_pick){
-            if(_pick.active && _pick.stream.id !== pick.stream.id){
+        if(this.$scope.$isCollection){
+
+          _.each(this.$scope, function(_pick){
+
+            // Skip if is the same stream
+            if(_pick.stream.id == pick.stream.id) { return; }
+
+            // Setting pick as active
+            // Will deactivate former active stream
+            if(pick.active && _pick.active){
               _pick.active = false;
             }
 
-            if(_pick.audioActive && _pick.stream.id !== pick.stream.id){
-              _pick.audioActive = false;
+            // Setting the pick audio as active
+            if(pick.audioActive){
+              // Will deactivate former audio active stream
+              if(_pick.audioActive){
+                _pick.audioActive = false;
+              }
+            }
+            // Setting the pick audio as inactive
+            else{
+              // Will activate back the active stream
+              if(_pick.active){
+                _pick.audioActive = true;
+              }
             }
           });
-        });
+        }
+      },
 
-
+      /**
+       * After each pick is added to the collection
+       * @param  {pick} pick    Vj pick
+       */
+      '~after-save': function(){
+        this.syncLocalState();
       }
     });
   });
