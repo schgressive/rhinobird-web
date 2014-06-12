@@ -44,18 +44,18 @@ angular.module('rhinobird.controllers')
             var pickToFixAudio = vj.picks.getById(data.msg.params.pickId);
             pickToFixAudio.syncLocalState();
 
-            if(data.msg.params.activeAudio){
+            if(data.msg.params.fixedAudio){
               _.each($scope.picks, function(_pick){
                 // Mute them
-                _pick.activeAudio = false;
+                _pick.fixedAudio = false;
               });
 
               pickToFixAudio.stream.isMuted = false;
             }
 
-            pickToFixAudio.activeAudio = data.msg.params.activeAudio;
-            pickToFixAudio.stream.isMuted = !data.msg.params.activeAudio;
-            $scope.currentAudioPick = (data.msg.params.activeAudio)? pickToFixAudio : undefined;
+            pickToFixAudio.fixedAudio = data.msg.params.fixedAudio;
+            pickToFixAudio.stream.isMuted = !data.msg.params.fixedAudio;
+            $scope.currentAudioPick = (data.msg.params.fixedAudio)? pickToFixAudio : undefined;
           }
 
           if(data.msg.event === 'picks-changed'){
@@ -79,7 +79,7 @@ angular.module('rhinobird.controllers')
     // Set the active pick as the current pick in the scope
     $scope.$on('licode-video-created', function(event, stream){
       var pickEvent = _.find($scope.picks, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
-      var anyFixed = _.any($scope.picks, function(s){ return s.activeAudio; });
+      var anyFixed = _.any($scope.picks, function(s){ return s.fixedAudio; });
 
       // Only when there is no current stream
       if(!$scope.currentPick){
@@ -93,13 +93,13 @@ angular.module('rhinobird.controllers')
       }
 
       // Set the fixed audio if there is any
-      if(pickEvent.activeAudio){
+      if(pickEvent.fixedAudio){
         $scope.currentAudioPick = pickEvent.stream;
       }
 
       // Unmute the stream
       if(anyFixed){
-	      pickEvent.stream.isMuted = !pickEvent.activeAudio;
+	      pickEvent.stream.isMuted = !pickEvent.fixedAudio;
       }
       else{
 	      pickEvent.stream.isMuted = !pickEvent.active;

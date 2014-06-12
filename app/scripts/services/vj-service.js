@@ -61,10 +61,10 @@ angular.module('rhinobird.services')
           var isCurrent = s.id === currentStreamId;
 
           // Find the fixed audio stream
-          var isactiveAudio = s.id === fixedAudioStreamId;
+          var isfixedAudio = s.id === fixedAudioStreamId;
 
           // Add the stream to the vj
-          _self.addPickByStreamId(s.id, isCurrent, isactiveAudio);
+          _self.addPickByStreamId(s.id, isCurrent, isfixedAudio);
 
         });
       });
@@ -96,11 +96,11 @@ angular.module('rhinobird.services')
     };
 
     // Add a new pick to the vj
-    this.addPickByStreamId = function(streamId, active, activeAudio){
+    this.addPickByStreamId = function(streamId, active, fixedAudio){
 
       var pick = _self.vj.picks.$build();
       pick.active = active || false;
-      pick.activeAudio = activeAudio || false;
+      pick.fixedAudio = fixedAudio || false;
       pick.streamId = streamId;
       pick.$save().$then(function(){
 
@@ -158,13 +158,13 @@ angular.module('rhinobird.services')
 
       // Set the pick audio as active
       var pick = _self.vj.picks.getByStreamId(streamId);
-      pick.activateAudio();
+      pick.fixAudio();
 
       // Broadcast the event
       if(_self.socket){
         _self.socket.broadcastEvent('active-audio-pick-changed', {
           pickId: pick.id,
-          activeAudio: true
+          fixedAudio: true
         });
       }
 
@@ -178,13 +178,13 @@ angular.module('rhinobird.services')
 
       // Set the pick audio as inactive
       var pick = _self.vj.picks.getByStreamId(streamId);
-      pick.deactivateAudio();
+      pick.unfixAudio();
 
       // Broadcast the event
       if(_self.socket){
         _self.socket.broadcastEvent('active-audio-pick-changed', {
           pickId: pick.id,
-          activeAudio: false
+          fixedAudio: false
         });
       }
 
