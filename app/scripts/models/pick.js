@@ -52,7 +52,7 @@ angular.module('rhinobird.models')
 
       /**
        * Sync the state of the picks active and
-       * audioActive properties
+       * fixedAudio properties
        */
       'syncLocalState': function(){
         var pick = this;
@@ -71,17 +71,17 @@ angular.module('rhinobird.models')
             }
 
             // Setting the pick audio as active
-            if(pick.audioActive){
+            if(pick.fixedAudio){
               // Will deactivate former audio active stream
-              if(_pick.audioActive){
-                _pick.audioActive = false;
+              if(_pick.fixedAudio){
+                _pick.fixedAudio = false;
               }
             }
             // Setting the pick audio as inactive
             else{
               // Will activate back the active stream
               if(_pick.active){
-                _pick.audioActive = true;
+                _pick.fixedAudio = true;
               }
             }
           });
