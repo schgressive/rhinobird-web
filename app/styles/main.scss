@@ -153,19 +153,31 @@ article {
 .golive footer {display: none;}
 .golive {
 	.main.goliveMain {
-		background: transparent url('/images/golive-action-bg.png') top left repeat-x;
+		/* background: transparent url('/images/golive-action-bg.png') 0px -10px repeat-x; */
 		border: none;
 		@media screen and (max-width: 980px) {margin-top: 42px;}
 		.golive-view {
-			margin-top: 20px;
-			.user-avatar {
-				margin-right: 10px;
-				& + ul { padding-top: 7px;}
+			padding-top: 24px;
+			background-color: rgba(0,0,0,.6);
+			@media screen and (max-width: 540px) {
+				.span1 { width: 11%;}
+				.span11 { width: 80%;}
 			}
-			.btn {
-				color: $white;
-				border-color: $white;
-				@include font-smoothing();
+			.btn-sm { margin-left: 10px;}
+			form {
+				margin-right: 10px;
+				@media screen and (max-width: 540px) {
+					float: none;
+					margin-right: 0;
+					margin-left: 16px;
+				}
+			}
+			form .btn { border-color: $white; background-color: $white; color: $black;}
+			.social-list, .action-list {
+				@media screen and (max-width: 540px) { margin-bottom: 7px;}
+			}
+			.action-list {
+				@media screen and (max-width: 780px) { margin-left: 10px;}
 			}
 		}
 		.loggedin-actions .validate {
@@ -174,11 +186,13 @@ article {
 			@media screen and (max-width: 600px) { margin-top: 26px;}
 		}
 	}
-	@media screen and (max-width: 600px) {
+	/*
+@media screen and (max-width: 540px) {
 		.main.goliveMain {
-			background: transparent url('/images/golive-action-bg2.png') top left repeat-x;
+			background: transparent url('/images/golive-action-bg2.png') 0px -20px repeat-x;
 		}
 	}
+*/
 }
 
 body.base { /*overrides are here */
@@ -738,7 +752,6 @@ i[class*="icon"] {font-style: normal;}
 
 .social-list, .action-list {
 	margin: 0;
-	padding-top: 5px;
 	a {
 		width: 32px;
 		height: 32px;
@@ -790,7 +803,6 @@ i[class*="icon"] {font-style: normal;}
 
 .golive .social-list {
 	a {
-		margin-top: 2px;
 		opacity: .7;
 		&:hover { opacity: 1;}
 		&[title*="facebook"] {

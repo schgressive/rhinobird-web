@@ -1,7 +1,13 @@
 <section class="main goliveMain">
   <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="loggedin-actions golive-view clearfix">
+    <div class="row-fluid golive-view">
+      <div class="span1">
+    		<button class="btn btn-sm"
+    			data-toggle="collapse" data-target="#actionBar" role="button">
+    			<i class="icon-chevron-up"></i>
+    		</button>
+    	</div>
+      <div class="loggedin-actions span11">
         <div ng-include="'/views/layouts/golive-actions.html'"></div>
       </div><!-- /.loggedin-action -->
     </div>
