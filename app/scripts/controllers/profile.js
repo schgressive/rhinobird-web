@@ -20,15 +20,8 @@ angular.module('rhinobird.controllers')
       return win;
     };
 
-
-    $scope.connectTwitter = function() {
-      openDialog("/registration/twitter", "_blank", {}, function(win) {
-        session.$fetch();
-      });
-    }
-
-    $scope.connectFacebook = function() {
-      openDialog("/registration/facebook", "_blank", {}, function(win) {
+    $scope.connectPopup = function(network) {
+      openDialog("/registration/" + network + "?popup=true", "_blank", {}, function(win) {
         session.$fetch();
       });
     }
