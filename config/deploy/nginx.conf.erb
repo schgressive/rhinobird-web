@@ -4,7 +4,16 @@ upstream rhinobird-api{
 }
 
 server {
-  listen      80;
+  listen 80;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443;
+  ssl on;
+  ssl_certificate /etc/ssl/certs/<%= nginx_ssl_certificate %>;
+  ssl_certificate_key /etc/ssl/private/<%= nginx_ssl_certificate_key %>;
+
   server_name <%= fetch(:domains) %>;
   root        <%= fetch(:deploy_to) %>/current;
 
@@ -31,20 +40,5 @@ server {
   # If no asset matches, send it to your javascript app. Hopefully it's a route in the app!
   location @rewrites {
     rewrite ^(.+)$ /index.html last;
-  }
-
-  # Api
-  location /api {
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-FORWARDED_PROTO http;
-    proxy_set_header Host $http_host;
-    proxy_redirect off;
-    proxy_pass http://rhinobird-api;
-  }
-
-  # Videos mockup
-  location /videos {
-    root <%= fetch(:deploy_to) %>/shared;
   }
 }
