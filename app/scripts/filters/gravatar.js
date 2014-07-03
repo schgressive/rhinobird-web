@@ -7,7 +7,7 @@ angular.module('rhinobird.filters')
     return function(input, size, defaultImage){
       if (input) {
         var emailHash = SparkMD5.hash(input.toLowerCase().trim());
-        return 'http://www.gravatar.com/avatar/' + emailHash + '?s=' + size;
+        return 'https://www.gravatar.com/avatar/' + emailHash + '?s=' + size;
       } else {
         return defaultImage;
       }
