@@ -61,7 +61,7 @@ angular.module('rhinobird.services')
 
     this.resetPassword = function(payload) {
       var password = Password.$build(payload);
-      password.$pk = undefined;
+      password.$pk = 'current';
       password.$save();
 
 
