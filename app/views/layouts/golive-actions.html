@@ -1,5 +1,6 @@
-<div class="collapse in" id="actionBar">
-    <ul class="action-list pull-left inline">
+<div class="collapse in width" id="actionBar">
+  <div class="contents">
+		<ul class="action-list pull-left inline">
       <li>
         <a href="#" ng-click="ctrl.stop(true)" role="button" title="Close & Return"><span class="visually-hidden">Close & Return</span></a>
       </li>
@@ -18,6 +19,7 @@
         <input class="btn hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
       </div>
     </form>
+  </div><!-- /.contents -->
   <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
 		<small class="success">Snapshot success!</small>
 	</div><!-- /.validate -->
