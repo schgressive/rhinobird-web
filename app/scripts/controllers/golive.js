@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session, Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel) {
+  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session,
+                                      Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel,
+                                     OpenAndWatch) {
 
 		$scope.user = session.user;
 
@@ -25,6 +27,12 @@ angular.module('rhinobird.controllers')
 
     // Camera service
     vm.camera = CameraService;
+
+    // Sharing Options
+    vm.sharingOptions = {
+      shareTwitter: $scope.user.shareTwitter,
+      shareFacebook: $scope.user.shareFacebook
+    }
 
     // Golive service
     vm.goliveService = GoliveService;
@@ -53,14 +61,8 @@ angular.module('rhinobird.controllers')
       // Add captions
       captionPayload = vm.caption;
 
-      // Sharing Options
-      var sharingPayload = {
-        shareTwitter: $scope.user.shareTwitter,
-        shareFacebook: $scope.user.shareFacebook
-      }
-
       // Start the broadcast in the golive service
-      GoliveService.startBroadcast(captionPayload, coordsPayload, sharingPayload );
+      GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
     };
 
     // Stop the current broadcast
@@ -77,6 +79,15 @@ angular.module('rhinobird.controllers')
 
     };
 
+    // Tries to connect social network if not connected
+    this.tryConnection = function(network, share) {
+
+      if (share && !$scope.user[network + "Connected"]) {
+        OpenAndWatch.open("/registration/" + network + "?popup=true", "_blank", {}, function(win) {
+          session.$fetch();
+        });
+      }
+    }
 
     // Updates the thumbnail
     this.updateThumbnail = function() {
