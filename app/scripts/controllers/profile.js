@@ -43,6 +43,11 @@ angular.module('rhinobird.controllers')
       }
     };
 
+    $scope.disconnect = function(network) {
+      $scope.user[network + "_token"] = null;
+      $scope.updateSettings();
+    }
+
     $scope.updateSettings = function(){
       $scope.user.$save();
     };
