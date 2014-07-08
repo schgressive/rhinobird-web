@@ -1,27 +1,12 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ProfileCtrl', function ($scope, User, session, $location) {
+  .controller('ProfileCtrl', function ($scope, User, session, $location, OpenAndWatch) {
 
     $scope.self = $scope;
 
-    var openDialog = function(uri, name, options, closeCallback) {
-      var win = window.open(uri, name, options);
-      var interval = window.setInterval(function() {
-        try {
-          if (win == null || win.closed) {
-            window.clearInterval(interval);
-            closeCallback(win);
-          }
-        }
-        catch (e) {
-        }
-      }, 1000);
-      return win;
-    };
-
     $scope.connectPopup = function(network) {
-      openDialog("/registration/" + network + "?popup=true", "_blank", {}, function(win) {
+      OpenAndWatch.open("/registration/" + network + "?popup=true", "_blank", {}, function(win) {
         session.$fetch();
       });
     }
