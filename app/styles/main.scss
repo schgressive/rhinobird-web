@@ -24,7 +24,7 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
 
 @include font-face("Listicons", font-files("/fonts/listicons-webfont.woff", woff, "/fonts/listicons-webfont.ttf", truetype), "listicons-webfont.eot");
 
@@ -151,49 +151,71 @@ article {
 // includes Bootstrap Overrides
 
 .golive footer {display: none;}
-.golive {
-	.main.goliveMain {
-		/* background: transparent url('/images/golive-action-bg.png') 0px -10px repeat-x; */
-		border: none;
-		@media screen and (max-width: 980px) {margin-top: 42px;}
-		.golive-view {
-			padding-top: 24px;
-			background-color: rgba(0,0,0,.6);
-			@media screen and (max-width: 540px) {
-				.span1 { width: 11%;}
-				.span11 { width: 80%;}
+.main.goliveMain {
+	border: none;
+	@media screen and (max-width: 980px) {margin-top: 42px;}
+	@media screen and (max-width: 640px) {margin-top: 0;}
+	.golive-view {
+		padding-top: 9px;
+		@media screen and (max-width: 640px) {padding-top: 0; margin-top: 52px;}
+		.btn-sm { margin-left: 10px;}
+		.contents { margin-top: 9px;}
+		form {
+			margin-right: 10px;
+			@media screen and (max-width: 560px) {
+				float: none;
+				margin: 10px 0 0 10px;
 			}
-			.btn-sm { margin-left: 10px;}
-			form {
-				margin-right: 10px;
-				@media screen and (max-width: 540px) {
-					float: none;
-					margin-right: 0;
-					margin-left: 16px;
-				}
-			}
-			form .btn { border-color: $white; background-color: $white; color: $black;}
-			.social-list, .action-list {
-				@media screen and (max-width: 540px) { margin-bottom: 7px;}
-			}
-			.action-list {
-				@media screen and (max-width: 780px) { margin-left: 10px;}
-			}
+			.btn { border-color: $white; background-color: $white; color: $black;}
 		}
-		.loggedin-actions .validate {
-			margin-top: 12px;
-			padding-bottom: 8px;
-			@media screen and (max-width: 600px) { margin-top: 26px;}
+		.social-list, .action-list {
+			margin-top: 0;
+			@media screen and (max-width: 560px) { margin-bottom: 7px;}
+		}
+		.action-list { margin-left: 60px;}
+		.social-list {
+			@media screen and (max-width: 560px) { float: none;}
 		}
 	}
-	/*
-@media screen and (max-width: 540px) {
-		.main.goliveMain {
-			background: transparent url('/images/golive-action-bg2.png') 0px -20px repeat-x;
-		}
+	.loggedin-actions .validate {
+		margin-top: 52px;
+		padding-bottom: 8px;
+		@media screen and (max-width: 560px) { margin-top: 4px;}
 	}
-*/
 }
+
+.collapse-btn-wrapper {
+	position: absolute;
+	float: left;
+	margin-top: 10px;
+}
+
+#actionBar { background-color: rgba(0, 0, 0, 0.6);}
+
+// * collapse horizontal *//
+
+/*
+.collapse {
+  height: auto;
+  width: auto;
+}
+
+.collapse.width {
+  position: relative;
+  width: 0;
+  overflow: hidden;
+  -webkit-transition: width 0.35s ease;
+  -moz-transition: width 0.35s ease;
+  -o-transition: width 0.35s ease;
+  transition: width 0.35s ease;
+}
+
+.collapse.in.width {
+  width: auto;
+}
+*/
+
+// * end collapse horizontal * //
 
 body.base { /*overrides are here */
 	input[type="search"] + .add-on {padding: 4px 5px}
@@ -223,6 +245,7 @@ body.base { /*overrides are here */
 			box-shadow: none;
 			@media screen and (max-width: 960px) { padding: {left:0px!important;right:0px!important;}}
 			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
+			@media screen and (max-width: 640px) { background-color: rgba(255,255,255,.6);}
 			.main-nav-wrapper { padding-left: 20px;}
 			.main-nav { float: left;}
 			a.brand {
@@ -341,9 +364,9 @@ i[class*="icon"] {font-style: normal;}
 	width: 96px;
 	height: 24px;
 	margin-top: 13px;
-	background: $white url('/images/goLive-hover-btn.svg') top right no-repeat;
+	background: transparent url('/images/goLive-hover-btn.svg') top right no-repeat;
 	display: block;
-	&:hover { background-color: $white;}
+	&:hover { background-color: transparent;}
 	&.livebtn:hover {	@media screen and (min-width: 501px) { width:110px;}}
 	@media screen and (max-width: 580px) {
 		width: auto;
@@ -371,7 +394,7 @@ i[class*="icon"] {font-style: normal;}
   max-width: 220px;
   height: 24px;
   padding: 8px 0 7px 0;
-  background-color: $navbarBackground;
+  background-color: transparent;
   position: relative;
   float: left;
   overflow: hidden;
@@ -483,11 +506,6 @@ i[class*="icon"] {font-style: normal;}
 			top: 30px;
 			bottom: 10px;
 		}
-		/*
-@media screen and (max-width: 979px) {
-			padding-top: 20px;
-		}
-*/
 		@media screen and (max-width: 560px) {
 			background-image: url('/images/banner-bg2.jpg');
 			background-size: cover;
@@ -519,7 +537,6 @@ i[class*="icon"] {font-style: normal;}
 	}
 	.loggedin-actions {
 		padding-bottom: 10px;
-		border-bottom: 1px solid $grayLight;
 		.form-search { margin: { top:0;bottom: 0;}}
 		.user-avatar { margin-right: 14px; display: block;}
 		.form-search {
@@ -673,24 +690,9 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 730px) {
 		.row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
 	}
-	/*
-@media screen and (min-width: 501px) and (max-width: 760px) {
-		.row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
-	}
-*/
-	/*
-@media screen and (min-width: 671px) {
-		.row-fluid [class*="span4"]:nth-child(3n+1) {margin-left: 0;}
-	}
-*/
 	@media screen and (max-width: 730px) {
 		.row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
 	}
-	/*
-@media screen and (max-width: 500px) {
-		.row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
-	}
-*/
 	.timelineStatus {
 		width: 32px;
 		height: 32px;
@@ -751,7 +753,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .social-list, .action-list {
-	margin: 0;
+	margin: 4px 0 0;
 	a {
 		width: 32px;
 		height: 32px;
@@ -786,6 +788,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .action-list {
+	margin-right: 4px;
 	a {
 		opacity: .7;
 		&:hover { opacity: 1;}

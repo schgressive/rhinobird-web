@@ -275,6 +275,9 @@ angular.module('rhinobird', [
     // Config restmod
   $restmodProvider.pushModelBase(function() {
     this.setUrlPrefix(settings.apiHost);
+    this.on('before-request', function(req){
+      req.withCredentials = true;
+    });
   });
 
   // Config whitelist for amazon s3

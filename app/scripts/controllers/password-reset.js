@@ -20,6 +20,8 @@ angular.module('rhinobird.controllers')
       function(e) { // Handle errors
         var error = e.$response.data;
         $scope.invalidToken = (!angular.isUndefined(error.reset_password_token) && error.reset_password_token[0].match(/invalid/) != null);
+        $scope.passwordError = (!angular.isUndefined(error.password) && error.password[0].match(/match|short/) != null);
+        $scope.passwordErrorText = error.password[0];
       });
 
     };
