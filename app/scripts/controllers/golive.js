@@ -53,8 +53,14 @@ angular.module('rhinobird.controllers')
       // Add captions
       captionPayload = vm.caption;
 
+      // Sharing Options
+      var sharingPayload = {
+        shareTwitter: $scope.user.shareTwitter,
+        shareFacebook: $scope.user.shareFacebook
+      }
+
       // Start the broadcast in the golive service
-      GoliveService.startBroadcast(captionPayload, coordsPayload);
+      GoliveService.startBroadcast(captionPayload, coordsPayload, sharingPayload );
     };
 
     // Stop the current broadcast
