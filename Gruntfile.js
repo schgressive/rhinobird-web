@@ -60,9 +60,10 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '0.0.0.0'
+        hostname: '0.0.0.0',
+        protocol: grunt.option('ssl')? 'https' : 'http',
+        port: grunt.option('ssl')? 8443 : 9000
       },
       proxies: [
         {
@@ -135,7 +136,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= connect.options.port %>'
+        url: '<%= connect.options.protocol %>://localhost:<%= connect.options.port %>'
       }
     },
     clean: {
