@@ -1152,3 +1152,9 @@ i[class*="icon"] {font-style: normal;}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+.compatibility-flag { margin: {top:50px;bottom:0;}; display: none;}
+
+.iphone, .ipad, .ipod,  {
+	& .compatibility-flag { display: block;}
+}
