@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'negroku', '~>1.1.4'
-gem 'railsless-deploy'
+group :development do
+  gem 'negroku', github: 'platanus/negroku', branch: 'v2'
+end
 gem 'compass'
