@@ -1,9 +1,15 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ProfileCtrl', function ($scope, User, session, $location) {
+  .controller('ProfileCtrl', function ($scope, User, session, $location, OpenAndWatch) {
 
     $scope.self = $scope;
+
+    $scope.connectPopup = function(network) {
+      OpenAndWatch.open("/registration/" + network + "?popup=true", "_blank", {}, function(win) {
+        session.$fetch();
+      });
+    }
 
     // Expose the user in the scope
     $scope.user = session.user;
@@ -21,6 +27,11 @@ angular.module('rhinobird.controllers')
         return '';
       }
     };
+
+    $scope.disconnect = function(network) {
+      $scope.user[network + "_token"] = null;
+      $scope.updateSettings();
+    }
 
     $scope.updateSettings = function(){
       $scope.user.$save();

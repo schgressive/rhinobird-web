@@ -11,7 +11,7 @@ angular.module('rhinobird.services')
     this.status = 'disconnected';
 
     // Start the broadcast method
-    this.startBroadcast = function(caption, coords){
+    this.startBroadcast = function(caption, coords, sharing){
       if(!CameraService.access){
         // The mic/cam permissions
         return;
@@ -30,6 +30,9 @@ angular.module('rhinobird.services')
       angular.extend(stream, {
         caption: caption || ''
       });
+
+      // Adds sharing options
+      angular.extend(stream, sharing);
 
       // Add geoloation data if it's available
       if(coords && coords.lng && coords.lat){
