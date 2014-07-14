@@ -21,9 +21,6 @@ set :copy_exclude, [".git", ".DS_Store", ".gitmodules", "build", "grunt.js", "as
 set :use_sudo, false
 set :keep_releases, 2
 
-set :nginx_ssl_certificate, 'rhinobird.crt'
-set :nginx_ssl_certificate_key,  'rhinobird.key'
-
 task :uname do
     run "uname -a"
 end
