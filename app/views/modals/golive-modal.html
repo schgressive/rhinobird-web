@@ -30,10 +30,10 @@
       <input type="checkbox" ng-click="vm.camera.toggleHD()" ng-model="vm.camera.isHD" ng-disabled="!vm.camera.access"/> HD Stream?
     </label>
 	  <label class="checkbox inline">
-      <input type="checkbox" checked/ ng-model="vm.sharingOptions.shareTwitter"  ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"> Tweet Your Stream?
+      <input type="checkbox" ng-model="vm.sharingOptions.shareTwitter"  ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"> Tweet Your Stream?
 	  </label>
 	  <label class="checkbox inline">
-      <input type="checkbox" checked/ ng-model="vm.sharingOptions.shareFacebook" ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"> Post on Your Wall?
+      <input type="checkbox" ng-model="vm.sharingOptions.shareFacebook" ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"> Post on Your Wall?
 	  </label>
   </div>
   <input ng-click="ctrl.ready()" class="btn btn-primary" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
