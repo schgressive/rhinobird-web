@@ -1,14 +1,5 @@
-## STAGING CONFIGURATION
+## BETA CONFIGURATION
+set :nginx_domains, "beta.rhinobird.tv"
+set :branch, "beta"
 
-# Servers and their roles.
-server "church.rhinobird.tv", :web, :app, :db, primary: true
-
-# Web server configuration
-set :domains, 		"beta.rhinobird.tv"
-
-# Source
-#set :branch,     	"deploy"		# Optional, defaults to master
-# set :remote,   	"origin"			# Optional, defaults to origin
-
-# Rails
-# set :rails_env, 	"staging"		# Optional, defaults to production
+server 'church.rhinobird.tv', user: 'deploy', roles: %w{web app db}

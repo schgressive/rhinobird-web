@@ -1,45 +1,31 @@
-# Set server stages
-set :stages, %w(production beta)
-set :default_stage, "beta"
-require 'capistrano/ext/multistage'
+#########################################
+# Negroky deploy.rb configuration file
+#
+# There are three types of settings here
+#  * Capistrano settings
+#  * Gem specific settings
+#  * Negroku settings
 
-# Server-side information.
-set :application, "rhinobird"
-set :user,        "deploy"
+set :application,   "rhinobird-web-#{fetch(:stage)}"
+set :repo_url,      'https://github.com/rhinobird/rhinobird-web.git'
+set :deploy_to,     "/home/deploy/applications/#{fetch(:application)}"
 
-# Repository (if any) configuration.
-set :scm, :none
-set :repository, "#{File.expand_path('dist')}"
-set :deploy_to,   "/home/#{user}/applications/#{application}"
-set :deploy_via, :copy
-#set :deploy_env, 'dist'
+linked_files = Set.new(fetch(:linked_files, [])) # https://github.com/capistrano/rails/issues/52
+linked_files.merge(%w{})
+set :linked_files, linked_files.to_a
 
-set :copy_remote_dir, deploy_to
-set :copy_exclude, [".git", ".DS_Store", ".gitmodules", "build", "grunt.js", "assets", "staging", "production"]
-# set :git_enable_submodules, 1
+linked_dirs = Set.new(fetch(:linked_dirs, [])) # https://github.com/capistrano/rails/issues/52
+linked_dirs.merge(%w{node_modules})
+set :linked_dirs, linked_dirs.to_a
 
-set :use_sudo, false
-set :keep_releases, 2
+# set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
+set :app_server, false
+set :nginx_static_dir, 'dist'
 
-task :uname do
-    run "uname -a"
-end
+set :npm_flags, '--quiet'
 
-namespace :h5bp do
-    task :build do
-        system("grunt build") or fail
-    end
-    task :clean do
-        system("grunt clean") or fail
-    end
-end
+fetch(:nodenv_map_bins) << 'grunt'
 
-task :cleanup do;
-    if releases.length > 7
-        logger.info "Too many releases, running deploy:cleanup."
-        deploy.cleanup
-    end
-end;
-
-before 'deploy', 'h5bp:build'
-after 'deploy', 'h5bp:clean', :cleanup
+set :grunt_flags, '--no-color --debug'
+set :grunt_tasks, 'build'
+before 'deploy:updated', 'grunt'
