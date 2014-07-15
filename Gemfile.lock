@@ -53,10 +53,10 @@ GEM
       capistrano (>= 3.1.0)
     chunky_png (1.2.9)
     colorize (0.7.3)
-    compass (0.12.2)
+    compass (0.12.6)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
-      sass (~> 3.1)
+      sass (~> 3.2.19)
     fssm (0.2.10)
     gli (2.9.0)
     highline (1.6.20)
@@ -66,7 +66,7 @@ GEM
     net-ssh (2.9.1)
     rainbow (2.0.0)
     rake (10.3.2)
-    sass (3.2.14)
+    sass (3.2.19)
     sshkit (1.5.1)
       colorize
       net-scp (>= 1.1.2)
@@ -77,5 +77,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  compass
+  compass (~> 0.12.6)
   negroku!
