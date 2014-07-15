@@ -2,7 +2,7 @@
 
 angular.module('rhinobird')
   .constant('settings', {
-    apiHost: '/api',
+    apiHost: 'http://api.rhinobird.tv/beta',
     channelCleanedRegex: /[^\d^\w]/g
   });
 
