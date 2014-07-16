@@ -181,6 +181,11 @@ angular.module('rhinobird.controllers')
       $state.go('terms');
     };
 
+    $scope.gotoProfile = function() {
+      modalInstance.close();
+      $state.go('profile.streams');
+    };
+
     // When the stream gets published
     $scope.$on('licode-stream-status-changed', function(event, params){
       if(params.status === 'added'){

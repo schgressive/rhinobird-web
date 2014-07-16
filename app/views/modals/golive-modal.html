@@ -37,7 +37,7 @@
 	  </label>
   </div>
   <input ng-click="ctrl.ready()" class="btn btn-primary pull-left m_20r" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
-  <input class="btn btn-default" role="button" type="button" value="Cancel"/>
+  <input class="btn btn-default" role="button" type="button" value="Cancel" ng-click="gotoProfile()"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
   <h3>Connecting...</h3>
