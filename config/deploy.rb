@@ -18,7 +18,7 @@ linked_dirs = Set.new(fetch(:linked_dirs, [])) # https://github.com/capistrano/r
 linked_dirs.merge(%w{node_modules})
 set :linked_dirs, linked_dirs.to_a
 
-# set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
+set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
 set :app_server, false
 set :nginx_static_dir, 'dist'
 
