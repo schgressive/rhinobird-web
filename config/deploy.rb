@@ -7,6 +7,8 @@
 #  * Negroku settings
 
 set :application,   "rhinobird-web-#{fetch(:stage)}"
+set :api_application, "rhinobird-api-#{fetch(:stage)}"
+
 set :repo_url,      'https://github.com/rhinobird/rhinobird-web.git'
 set :deploy_to,     "/home/deploy/applications/#{fetch(:application)}"
 
@@ -19,13 +21,14 @@ linked_dirs.merge(%w{node_modules})
 set :linked_dirs, linked_dirs.to_a
 
 set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
-set :app_server, false
+
+set :app_server_assets, '/home/deploy/applications/rhinobird-api-beta/current/public'
 set :nginx_static_dir, 'dist'
 
 set :npm_flags, '--quiet'
 
 fetch(:nodenv_map_bins) << 'grunt'
 
-set :grunt_flags, '--no-color --debug'
+set :grunt_flags, '--no-color'
 set :grunt_tasks, 'build'
 before 'deploy:updated', 'grunt'
