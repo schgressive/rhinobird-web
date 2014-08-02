@@ -14,11 +14,6 @@
         <div class="form-block" ng-show="">
           <label>
             <input type="checkbox" value=""/>
-            Enable Google+ Login.
-          </label>
-          <span class="help-block"><small>Login in Rhinobird with your Google+ account credentials.</small></span>
-          <label>
-            <input type="checkbox" value=""/>
             Enable automatic sharing to your Google+ page.
           </label>
           <span class="help-block"><small>Save time and share your streams as soon as you Go Live.</small></span>
@@ -31,11 +26,6 @@
         <p class="fb-label" ng-hide="user.facebookConnected"><strong>You are not connected to Facebook</strong></p>
         <button class="btn-link block" ng-click="connectPopup('facebook')" role="button" ng-hide="user.facebookConnected">Connect to Facebook</button>
         <div class="form-block" ng-show="user.facebookConnected">
-          <label>
-            <input type="checkbox" value="" checked="checked"/>
-            Enable Facebook Login.
-          </label>
-          <span class="help-block"><small>Login in Rhinobird with your Facebook account credentials.</small></span>
           <label>
             <input type="checkbox" ng-model="user.shareFacebook" value=""/>
             Enable automatic sharing to your Facebook timeline.
@@ -50,11 +40,6 @@
         <p class="twt-label" ng-hide="user.twitterConnected"><strong>You are not connected to Twitter</strong></p>
         <button class="btn-link block" ng-click="connectPopup('twitter')" role="button" ng-hide="user.twitterConnected">Connect to Twitter</button>
         <div class="form-block" ng-show="user.twitterConnected">
-          <label>
-            <input type="checkbox" value="" checked="checked"/>
-            Enable Twitter Login.
-          </label>
-          <span class="help-block"><small>Login in Rhinobird with your Twitter account credentials.</small></span>
           <label>
             <input type="checkbox" ng-model="user.shareTwitter" checked="checked"/>
             Enable automatic sharing to your Twitter feed.
