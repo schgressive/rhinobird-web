@@ -164,22 +164,12 @@ article {
 		padding-top: 9px;
 		@media screen and (max-width: 640px) {padding-top: 0; margin-top: 52px;}
 		.btn-sm { margin-left: 10px;}
-		.contents { margin-top: 9px;}
+		.contents { margin-top: 10px;
+			button { margin: 0 10px 0 60px;}
+		}
 		form {
-			margin-right: 10px;
-			@media screen and (max-width: 560px) {
-				float: none;
-				margin: 10px 0 0 10px;
-			}
+			input { @media screen and (max-width: 560px) { width: 150px;}}
 			.btn { border-color: $white; background-color: $white; color: $black;}
-		}
-		.social-list, .action-list {
-			margin-top: 0;
-			@media screen and (max-width: 560px) { margin-bottom: 7px;}
-		}
-		.action-list { margin-left: 60px;}
-		.social-list {
-			@media screen and (max-width: 560px) { float: none;}
 		}
 	}
 	.loggedin-actions .validate {
@@ -248,9 +238,14 @@ body.base { /*overrides are here */
 			background-repeat: none;
 			border-bottom: 3px solid $warmGray1;
 			box-shadow: none;
-			@media screen and (max-width: 960px) { padding: {left:0px!important;right:0px!important;}}
+			@media screen and (max-width: 960px) {
+				padding: { left:0px !important; right: 0px!important;}
+			}
 			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
-			@media screen and (max-width: 640px) { background-color: rgba(255,255,255,.6);}
+			@media screen and (max-width: 640px) {
+				background-color: hsla(0,0%,100%,.6);
+				border-bottom-color: hsla(35,13%,82%,.4);
+			}
 			.main-nav-wrapper { padding-left: 20px;}
 			.main-nav { float: left;}
 			a.brand {
@@ -265,6 +260,7 @@ body.base { /*overrides are here */
 				top: 9px;
 				-webkit-transition: none;
 				@media screen and (max-width: 600px) { margin-left: -65px;}
+				@media screen and (max-width: 400px) { margin-left: -72px;}
 				&:focus { outline: none;}
 			}
 			.navToggle {

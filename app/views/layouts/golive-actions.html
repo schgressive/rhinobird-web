@@ -1,21 +1,9 @@
 <div class="collapse in width" id="actionBar">
   <div class="contents">
-		<ul class="action-list pull-left inline">
-      <li>
-        <a href="#" ng-click="ctrl.stop(true)" role="button" title="Close & Return"><span class="visually-hidden">Close & Return</span></a>
-      </li>
-      <li>
-        <a href="#" ng-click="ctrl.updateThumbnail()" role="button" title="Take Snapshot"><span class="visually-hidden">Take Snapshot</span></a>
-      </li>
-    </ul>
-    <ul class="social-list inline pull-left">
-	    <li><a href="#" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
-	    <li><a href="#" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
-	    <li><a href="#" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
-	  </ul>
-  	<form name="formAddCaption" method="post" class="pull-right" ng-maxlength=17>
+    <button class="btn btn-default pull-left" ng-click="ctrl.updateThumbnail()" role="button">Take Snapshot</button>
+  	<form name="formAddCaption" method="post" class="pull-left" ng-maxlength=17>
       <div class="input-append">
-        <input name="caption" type="text" ng-model="vm.caption" placeholder="add to #channel/add caption"/>
+        <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
         <input class="btn hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
       </div>
     </form>
