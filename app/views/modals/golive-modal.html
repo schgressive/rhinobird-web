@@ -42,16 +42,22 @@
   <input class="btn btn-default" role="button" type="button" value="Cancel" ng-click="gotoProfile()"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
-  <h3>Connecting...</h3>
+  <div class="loading-wrapper">
+    <img src="../images/loading-bars.svg" width="64" height="64">
+  </div>
+  <h3>Connecting to service...</h3>
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'error'">
-  <h3>Something happened...</h3>
+  <div class="loading-wrapper">
+    <img src="../images/loading-bars.svg" width="64" height="64">
+  </div>
+  <h3>Something is wrong, still trying...</h3>
   <div class="alert alert-text">
     <p>You may have a network problem. Please wait or try again later.</p>
   </div>
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'connected'">
-  <h3>Connected...</h3>
+  <h3>Connected!</h3>
 </div>
 <h6 class="m_10t" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
 

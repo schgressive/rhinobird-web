@@ -1095,7 +1095,7 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 480px) { @include fontSize(12px);}
 }
 
-
+.loading-wrapper { vertical-align: middle; text-align: center;}
 
 // MAPBOX ------------------------------
 
