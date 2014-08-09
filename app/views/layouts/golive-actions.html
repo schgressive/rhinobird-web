@@ -1,7 +1,7 @@
 <div class="collapse in width" id="actionBar">
   <div class="contents">
     <button class="btn btn-default pull-left" ng-click="ctrl.updateThumbnail()" role="button">Take Snapshot</button>
-  	<form name="formAddCaption" method="post" class="pull-left" ng-maxlength=17>
+  	<form name="formAddCaption" method="post" class="pull-left">
       <div class="input-append">
         <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
         <input class="btn hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>

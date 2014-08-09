@@ -5,13 +5,15 @@
   <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
 </div>
 <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
-  <label for="caption">Add a caption! You can use hashtags in your caption to add your stream to a channel:</label>
+  <label for="caption">Add a caption! Use hashtags in your caption to add your stream to a channel:</label>
   <div class="input-prepend">
   	<span class="add-on"><i class="icon-tag"></i></span>
-	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" maxlength="17"/>
-	  <div class="validate" ng-show="vm.captionWarning">
+	  <input type="text" name="caption" placeholder="add caption or to a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
+	  <!--
+<div class="validate" ng-show="vm.captionWarning">
 	  	<small class="info">Caption limited to 17 characters.</small>
-	  </div><!-- /.validate -->
+	  </div>
+--><!-- /.validate -->
   </div><!-- /.input-prepend -->
   <div ng-show="vm.nearChannels.length">
 		<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
