@@ -10,6 +10,9 @@ angular.module('rhinobird.services')
     // Golive status
     this.status = 'disconnected';
 
+    // Connectime time
+    this.connectingTime = 0;
+
     // Start the broadcast method
     this.startBroadcast = function(caption, coords, sharing){
       if(!CameraService.access){
@@ -114,9 +117,16 @@ angular.module('rhinobird.services')
         self.status = 'connecting';
         $rootScope.app.onAir = false;
 
-        $timeout(function(){
-          self.status = 'error';
-        }, 15000);
+        var checkStatus = function(){
+          $timeout(function(){
+            self.connectingTime++;            
+            if(self.status === 'connecting'){
+              checkStatus();
+            }
+          }, 1000);
+        }
+
+        checkStatus();
       }
       else if(params.status === 'disconnected'){
         self.status = 'disconnected';

@@ -42,19 +42,21 @@
   <input class="btn btn-default" role="button" type="button" value="Cancel" ng-click="gotoProfile()"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
-  <div class="loading-wrapper">
-    <img src="../images/loading-bars.svg" width="64" height="64">
-  </div>
-  <h3>Connecting to service...</h3>
-</div>
-<div class="text-center" ng-show="vm.goliveService.status == 'error'">
-  <div class="loading-wrapper">
-    <img src="../images/loading-bars.svg" width="64" height="64">
-  </div>
-  <h3>Something is wrong, still trying...</h3>
-  <div class="alert alert-text">
-    <p>You may have a network problem. Please wait or try again later.</p>
-  </div>
+    <div class="loading-wrapper">
+      <img src="../images/loading-bars.svg" width="64" height="64">
+    </div>
+
+    <div ng-show="vm.goliveService.connectingTime < 20">
+      <h3>Connecting to service...</h3>
+    </div>
+
+    <div ng-show="vm.goliveService.connectingTime >= 20">
+      <h3>Something is wrong, still trying...</h3>
+      <div class="alert alert-text">
+        <p>You may have a network problem. Please wait or try again later.</p>
+      </div>
+    </div>
+  </div>  
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'connected'">
   <h3>Connected!</h3>
