@@ -168,7 +168,11 @@ article {
 			button { margin: 0 10px 0 60px;}
 		}
 		form {
-			input { @media screen and (max-width: 560px) { width: 150px;}}
+			@media screen and (max-width: 400px) { margin: 10px 0 0 10px;}
+			input {
+				@media screen and (max-width: 560px) { width: 150px;}
+				@media screen and (max-width: 400px) { width: 200px;}
+			}
 			.btn { border-color: $white; background-color: $white; color: $black;}
 		}
 	}
@@ -1095,7 +1099,7 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 480px) { @include fontSize(12px);}
 }
 
-
+.loading-wrapper { vertical-align: middle; text-align: center;}
 
 // MAPBOX ------------------------------
 

@@ -5,13 +5,15 @@
   <p><strong>Warning!</strong><span class="one-liner">Please enable camera permissions for your browser.</span></p>
 </div>
 <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
-  <label for="caption">Add a caption! You can use hashtags in your caption to add your stream to a channel:</label>
+  <label for="caption">Add a caption! Use hashtags in your caption to add your stream to a channel:</label>
   <div class="input-prepend">
   	<span class="add-on"><i class="icon-tag"></i></span>
-	  <input type="text" name="caption" placeholder="add a caption, or add to a #channel!" ng-model="vm.caption" class="input-xxlarge" maxlength="17"/>
-	  <div class="validate" ng-show="vm.captionWarning">
+	  <input type="text" name="caption" placeholder="add caption or to a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
+	  <!--
+<div class="validate" ng-show="vm.captionWarning">
 	  	<small class="info">Caption limited to 17 characters.</small>
-	  </div><!-- /.validate -->
+	  </div>
+--><!-- /.validate -->
   </div><!-- /.input-prepend -->
   <div ng-show="vm.nearChannels.length">
 		<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
@@ -40,16 +42,22 @@
   <input class="btn btn-default" role="button" type="button" value="Cancel" ng-click="gotoProfile()"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
-  <h3>Connecting...</h3>
+  <div class="loading-wrapper">
+    <img src="../images/loading-bars.svg" width="64" height="64">
+  </div>
+  <h3>Connecting to service...</h3>
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'error'">
-  <h3>Something happened...</h3>
+  <div class="loading-wrapper">
+    <img src="../images/loading-bars.svg" width="64" height="64">
+  </div>
+  <h3>Something is wrong, still trying...</h3>
   <div class="alert alert-text">
     <p>You may have a network problem. Please wait or try again later.</p>
   </div>
 </div>
 <div class="text-center" ng-show="vm.goliveService.status == 'connected'">
-  <h3>Connected...</h3>
+  <h3>Connected!</h3>
 </div>
 <h6 class="m_10t" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
 
