@@ -142,4 +142,12 @@ angular.module('rhinobird.services')
       }
     });
 
+    // Update stream recoding id when the recording is started
+    $rootScope.$on('licode-stream-recording-started', function(event, recordingId){
+      if(recordingId){
+        self.stream.recordingId = recordingId;
+        self.stream.$save();
+      }
+    });
+
   });
