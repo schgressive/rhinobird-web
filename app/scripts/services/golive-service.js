@@ -119,7 +119,7 @@ angular.module('rhinobird.services')
 
         var checkStatus = function(){
           $timeout(function(){
-            self.connectingTime++;            
+            self.connectingTime++;
             if(self.status === 'connecting'){
               checkStatus();
             }
