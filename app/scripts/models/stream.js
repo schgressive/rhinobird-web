@@ -80,6 +80,12 @@ angular.module('rhinobird.models')
           type: 'FeatureCollection',
           features: this
         };
+      },
+
+      '~after-save': function(){
+        // Remove the thumb property after is saved
+        debugger;
+        delete(this.thumb);
       }
     });
   });
