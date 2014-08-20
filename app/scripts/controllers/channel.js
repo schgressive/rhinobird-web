@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjService) {
+  .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjService, GeolocationService) {
     var POLLING_TIME = 10000; // 10 seconds
 
 		$scope.user = AuthService.user;
@@ -113,19 +113,30 @@ angular.module('rhinobird.controllers')
     });
 
     $scope.startVj = function(){
+      var coordsPayload;
       // The current stream id
       var currentStreamId = ($scope.currentStream)? $scope.currentStream.id : undefined;
       var fixedAudioStreamId = ($scope.fixedAudioStream)? $scope.fixedAudioStream.id : undefined;
       var pickedStreams = _.filter($scope.liveStreams, function(s){ return s.isConnected; });
 
+      // Only add geoloaction if the that is resolved from the service
+      if(GeolocationService.resolved){
+        coordsPayload = {
+          lng: GeolocationService.current.lng,
+          lat: GeolocationService.current.lat
+        };
+      }
+
       // Start the vj
       if(pickedStreams && pickedStreams.length >= 1){
-        VjService.startBroadcast(pickedStreams, currentStreamId, fixedAudioStreamId, $scope.channel.name);
+        VjService.startBroadcast(pickedStreams, currentStreamId, fixedAudioStreamId, $scope.channel.name, coordsPayload);
       }
     };
 
     $scope.stopVj = function(){
       VjService.stopBroadcast();
     };
+
+    GeolocationService.getCurrent();
 
   });

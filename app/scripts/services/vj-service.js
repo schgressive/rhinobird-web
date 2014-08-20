@@ -42,10 +42,20 @@ angular.module('rhinobird.services')
      * @param  {string} currentStreamId Id of the stream that is currently selected
      * @param  {string} channelName     Set the channel name for the stream_pool
      */
-    this.startBroadcast = function(streams, currentStreamId, fixedAudioStreamId, channelName){
+    this.startBroadcast = function(streams, currentStreamId, fixedAudioStreamId, channelName, coords){
+
+      var vj_object = { channelName: channelName };
+
+      // Add geoloation data if it's available
+      if(coords && coords.lng && coords.lat){
+        angular.extend(vj_object, {
+          lng: coords.lng,
+          lat: coords.lat
+        });
+      }
 
       // Create a new vj
-      _self.vj = Vj.$create({ channelName: channelName}).$then(function(vj){
+      _self.vj = Vj.$create(vj_object).$then(function(vj){
 
         // create the socked channel
         socketConnect(vj.token, 'outbound').then(function(){
