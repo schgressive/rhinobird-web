@@ -4,7 +4,7 @@
   	<form name="formAddCaption" method="post" class="pull-left">
       <div class="input-append">
         <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
-        <input class="btn hidden-phone" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
+        <input class="btn" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
       </div>
     </form>
   </div><!-- /.contents -->

@@ -169,7 +169,7 @@ article {
 		}
 		form {
 			@media screen and (max-width: 400px) { margin: 10px 0 0 10px;}
-			input {
+			input[type="text"] {
 				@media screen and (max-width: 560px) { width: 150px;}
 				@media screen and (max-width: 400px) { width: 200px;}
 			}
