@@ -6,8 +6,8 @@
 #  * Gem specific settings
 #  * Negroku settings
 
-set :application,   "rhinobird-web-#{fetch(:stage)}"
-set :api_application, "rhinobird-api-#{fetch(:stage)}"
+set :application,   "rhinobird-web"
+set :api_application, "rhinobird-api"
 
 set :repo_url,      'https://github.com/rhinobird/rhinobird-web.git'
 set :deploy_to,     "/home/deploy/applications/#{fetch(:application)}"
@@ -22,7 +22,7 @@ set :linked_dirs, linked_dirs.to_a
 
 set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
 
-set :app_server_assets, '/home/deploy/applications/rhinobird-api-beta/current/public'
+set :app_server_assets, '/home/deploy/applications/rhinobird-api/current/public'
 set :nginx_static_dir, 'dist'
 
 set :npm_flags, '--quiet'
