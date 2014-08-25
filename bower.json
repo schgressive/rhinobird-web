@@ -12,6 +12,7 @@
     "spark-md5": "~0.0.5",
     "jquery": "~2.0.0",
     "angular-restmod": "0.13",
+    "angular-inflector": "0.0.2",
     "angular-licode": "0.0.18",
     "bootstrap-sass": "2.3.2",
     "owlcarousel": "*",
