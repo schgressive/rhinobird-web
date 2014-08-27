@@ -284,6 +284,7 @@ angular.module('rhinobird', [
   $sceDelegateProvider.resourceUrlWhitelist([
     'self',
     'https://s3.amazonaws.com/media-rhinobird.tv/**',
+    'https://s3.amazonaws.com/media-staging-rhinobird.tv/**',
     'https://s3.amazonaws.com/media-peepol.tv/**'
   ]);
 
