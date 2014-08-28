@@ -43,6 +43,7 @@ angular.module('rhinobird.services')
           },
           // On error
           function (error) {
+            console.log("Error getting geolocation", error);
             $rootScope.$apply(function(){
               deferred.reject({
                 error: error,
