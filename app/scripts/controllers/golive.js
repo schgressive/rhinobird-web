@@ -13,6 +13,7 @@ angular.module('rhinobird.controllers')
     var vm = {}; // Define viewmodel
     var regexp = new RegExp('#([^\\s|^#]+)','g'); // Hashtag regex
     var modalInstance; // The modal dialog
+    var streamLive = false;
 
     /**
      * SCOPE
@@ -55,6 +56,11 @@ angular.module('rhinobird.controllers')
             lng: GeolocationService.current.lng,
             lat: GeolocationService.current.lat
           };
+        } else {
+          coordsPayload = {
+            lng: 0,
+            lat: 0
+          };
         }
       }
 
@@ -62,11 +68,13 @@ angular.module('rhinobird.controllers')
       captionPayload = vm.caption;
 
       // Start the broadcast in the golive service
+      streamLive = true;
       GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
     };
 
     // Stop the current broadcast
     this.stop = function(goback){
+      streamLive = false;
       // Stop the broadcast in the golive service
       GoliveService.stopBroadcast().then(function(){
         // Go back
@@ -204,6 +212,16 @@ angular.module('rhinobird.controllers')
     GeolocationService.getCurrent().then(function(location){
     	if(location){
 	    	vm.nearChannels =	Channel.searchByLocation(location.lat, location.lng);
+
+        // Update stream's location
+        if (streamLive && vm.useGeolocation) {
+          var coords = {
+            lat: location.lat,
+            lng: location.lng
+          };
+
+          GoliveService.updateStream(coords);
+        }
 	    }
     });
 
