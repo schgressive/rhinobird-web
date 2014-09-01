@@ -505,7 +505,7 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: $bodyBackground;}
 	&.feature {
-		background: $beigeLight url('/images/banner-bg.jpg') top left no-repeat;
+		background: $beigeLight url('/images/banner-bg.jpg') 0 10px no-repeat;
 		border-bottom: $warmGray1 solid 3px;
 		padding: {
 			top: 30px;
@@ -518,7 +518,12 @@ i[class*="icon"] {font-style: normal;}
 	}
 	h1 {
 		color: hsla(28,21%,18%,1);
-		line-height: 50px;
+		line-height: 1;
+		margin-top: 30px;
+		@media screen and (max-width: 600px) {
+			line-height: 1.2;
+			& span { display: block;}
+		}
 	}
 	h2 { margin-bottom: 22px;}
 	nav {
