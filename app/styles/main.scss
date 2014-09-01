@@ -168,18 +168,23 @@ article {
 			button { margin: 0 10px 0 60px;}
 		}
 		form {
-			@media screen and (max-width: 400px) { margin: 10px 0 0 10px;}
+			@media screen and (max-width: 443px) { margin: 10px 0 0 10px;}
 			input[type="text"] {
 				@media screen and (max-width: 560px) { width: 150px;}
-				@media screen and (max-width: 400px) { width: 200px;}
+				@media screen and (max-width: 443px) { width: 200px;}
 			}
-			.btn { border-color: $white; background-color: $white; color: $black;}
+			.btn {
+				border-color: $white;
+				background-color: $white;
+				color: $black;
+				&[disabled="disabled"] { border-color: transparent;}
+			}
 		}
 	}
 	.loggedin-actions .validate {
 		margin-top: 52px;
 		padding-bottom: 8px;
-		@media screen and (max-width: 560px) { margin-top: 4px;}
+		@media screen and (max-width: 443px) { margin-top: 92px;}
 	}
 }
 
