@@ -26,5 +26,10 @@
       <span ng-bind-html="stream.caption | hashToLink"></span>
 		</li>
 -->
+		<li class="ellipsis">
+      <a href="#" ui-sref="explore({lat: vj.geometry.coordinates[1], lng: vj.geometry.coordinates[0]})"><i class="icon-map-marker"></i></a>
+			<span ng-hide="vj.properties.city">anonymous</span>
+			<span ng-show="vj.properties.city">{{vj.properties.city}}, {{vj.properties.country}} - {{vj.properties.address}}</span>
+		</li>
 	</ul>
 </div><!-- /.module-outer -->
