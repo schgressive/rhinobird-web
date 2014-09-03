@@ -18,6 +18,11 @@ angular.module('rhinobird.controllers')
       AuthService.askLogin('password-reset');
     }
 
+    if ($stateParams.signup) {
+      AuthService.askLogin('signup');
+    }
+
+
     if ($stateParams.complete) {
       AuthService.finishSocialSignup($stateParams.complete);
     }
