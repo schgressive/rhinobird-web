@@ -78,7 +78,7 @@ angular.module('rhinobird', [
 
     // Main
     .state('main', {
-      url: '/',
+      url: '/?signup',
       templateUrl: '/views/main.html',
       controller: 'MainCtrl'
     })
