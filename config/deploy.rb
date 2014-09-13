@@ -20,6 +20,11 @@ linked_dirs = Set.new(fetch(:linked_dirs, [])) # https://github.com/capistrano/r
 linked_dirs.merge(%w{node_modules})
 set :linked_dirs, linked_dirs.to_a
 
+set :nginx_use_ssl, true
+
+set :nginx_ssl_certificate, 'rhinobird.crt'
+set :nginx_ssl_certificate_key,  'rhinobird.key'
+
 set :nginx_template, "#{stage_config_path}/#{fetch :stage}/nginx.conf.erb"
 
 set :app_server_assets, '/home/deploy/applications/rhinobird-api/current/public'
