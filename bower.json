@@ -19,7 +19,8 @@
     "angular-ui-router": "0.2.7",
     "nginfinitescroll": "~1.0.0",
     "angular-leaflet": "0.7.2",
-    "leaflet.markercluster": "~0.4.0"
+    "leaflet.markercluster": "~0.4.0",
+    "detectrtc": "https://raw.githubusercontent.com/muaz-khan/WebRTC-Experiment/master/DetectRTC/DetectRTC.js"
   },
   "resolutions": {
     "angular": "1.2.6"

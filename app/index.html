@@ -49,7 +49,7 @@
 		<![endif]-->
 
 	<!-- header here-->
-	<header name="pageTop" ng-include="'/views/header.html'"></header>
+	<header name="pageTop" ng-include="'/views/header.html'" ng-class="{'no-webrtc': !detectRTC.isWebRTCSupported}"></header>
 
 	<!-- content here-->
 	<div class="mainWrapper" ui-view role="main"></div>
@@ -92,6 +92,7 @@
     <script src="/bower_components/nginfinitescroll/build/ng-infinite-scroll.js"></script>
 
     <script src="/bower_components/spark-md5/spark-md5.js"></script>
+    <script src="/bower_components/detectrtc/index.js"></script>
     <!-- endbuild -->
 
     <!-- build:js /scripts/scripts.js -->
@@ -121,6 +122,7 @@
     <script src="/scripts/services/auth-service.js"></script>
     <script src="/scripts/services/golive-service.js"></script>
     <script src="/scripts/services/vj-service.js"></script>
+    <script src="/scripts/services/detectrtc.js"></script>
     <script src="/scripts/models/stream.js"></script>
     <script src="/scripts/models/channel.js"></script>
     <script src="/scripts/models/pick.js"></script>
@@ -149,31 +151,6 @@
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-  <script>
-		// adds mobile browser class to html tag. From @ctcherry on github.
-		(function(){
-		    var ua = navigator.userAgent.toLowerCase().replace(/\s+/,'');
-
-		    var matchers = {
-		        ios: /(iphone|ipod|ipad)/,
-		        ipad: /ipad/,
-		        iphone: /(iphone|ipod)/,
-		        android: 'android',
-		        android2: 'android2',
-		        android4: 'android4'
-		    }
-
-		    var h = $('html');
-
-		    for (i in matchers) {
-		        var m = matchers[i];
-		        if ((typeof(m) == "string" && ua.indexOf(m) > -1) || (typeof(m) == "object" && ua.match(m))) {
-		            h.addClass(i)
-		        }
-		    }
-
-		})();
-	</script>
   <script>
   	jQuery(document).ready(function() {
 	    var offset = 220;
