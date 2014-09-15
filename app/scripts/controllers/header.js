@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, $state) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, DetectRTCService, $state) {
 
     // Catch the unauthorized pages
     $rootScope.$on('$routeChangeError', function (event, parameters) {
@@ -12,6 +12,16 @@ angular.module('rhinobird.controllers')
         });
       }
     });
+
+    // RTC alert
+    $scope.webRTCAlertDismissed = false;
+    $scope.showWebRTCAlert = function(){
+      return (!DetectRTCService.isWebRTCSupported && !$scope.webRTCAlertDismissed);
+    };
+
+    $scope.dismissWebRTCAlert = function(){
+      $scope.webRTCAlertDismissed = true;
+    };
 
     // The user
     $scope.user = AuthService.user;

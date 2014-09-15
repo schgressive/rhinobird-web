@@ -305,9 +305,7 @@ angular.module('rhinobird', [
   streamViewerConfigProvider.addPreset('auto', '100%', '100%');
   streamViewerConfigProvider.setDefaultPreset('large');
 })
-.run(function($state, $rootScope, AuthService, CameraService, DetectRTCService){
-
-  $rootScope.detectRTC = DetectRTCService;
+.run(function($state, $rootScope, AuthService, CameraService){
 
   $rootScope.$on('$stateChangeError', function (event, to) {
     if (to.name === 'golive') {

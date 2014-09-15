@@ -1168,8 +1168,4 @@ i[class*="icon"] {font-style: normal;}
   display: none !important;
 }
 
-.compatibility-flag { margin: {top:50px;bottom:0;}; display: none;}
-
-.no-webrtc,  {
-	& .compatibility-flag { display: block;}
-}
+.compatibility-flag { margin: {top:50px;bottom:0;};}
