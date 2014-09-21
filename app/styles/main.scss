@@ -188,6 +188,22 @@ article {
 	}
 }
 
+.activity-flag {
+	width: 75px;
+	height: 75px;
+	border-radius: 38px;
+	background-color: $darkTrans;
+	position: absolute;
+	z-index: 999999;
+	top:33%;
+	right:50%;
+	margin-right: -60px;
+	@media screen and (max-width: 980px) { margin-right: -56px;}
+	@media screen and (max-width: 640px) { margin-right: -44px;}
+	@media screen and (max-width: 560px) { margin-right: -40px;}
+	@media screen and (max-width: 443px) { margin-right: -38px;}
+}
+
 .collapse-btn-wrapper {
 	position: absolute;
 	float: left;
