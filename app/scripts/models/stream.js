@@ -84,7 +84,6 @@ angular.module('rhinobird.models')
 
       '~after-save': function(){
         // Remove the thumb property after is saved
-        debugger;
         delete(this.thumb);
       }
     });
