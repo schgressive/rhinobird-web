@@ -1,6 +1,3 @@
-<div ng-show="vm.goliveService.status == 'disconnected'">
-  <h2>Going Live?</h2>
-</div>
 <div class="alert alert-text" ng-hide="vm.camera.access">
   <span>Enable camera permissions for your browser.</span>
   <span class="visible-desktop">
@@ -32,18 +29,18 @@
   </span><!-- /.hidden-desktop -->
 </div><!-- /.alert -->
 <form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
-  <label for="caption">Use hashtags in your caption to add your video to a channel:</label>
-  <div class="input-prepend">
-  	<span class="add-on"><i class="icon-tag"></i></span>
-	  <input type="text" name="caption" placeholder="add caption or to a #channel!" ng-model="vm.caption" class="input-xxlarge"/>
-	  <!--
-<div class="validate" ng-show="vm.captionWarning">
-	  	<small class="info">Caption limited to 17 characters.</small>
-	  </div>
---><!-- /.validate -->
-  </div><!-- /.input-prepend -->
+  <label class="visually-hidden" for="caption">Use hashtags in your caption to add your video to a channel:</label>
+  <textarea name="caption"
+  					rows="4"
+  					maxlength="120"
+  					placeholder="Going Live? Add caption or use #hashtag to add video to a channel."
+  					ng-model="vm.caption">
+  </textarea>
+  <div class="validate" ng-show="vm.captionWarning">
+  	<small class="info">Caption limited to 120 characters.</small>
+  </div><!-- /.validate -->
   <div ng-show="vm.nearChannels.length">
-		<p>Want to join an existing channel? <span class="one-liner">We suggest:</span></p>
+		<p>Suggested channels:</p>
 		<ol class="channel-suggest inline no-bullets">
 			<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
 		</ol>
@@ -65,8 +62,17 @@
       <input type="checkbox" ng-model="vm.sharingOptions.shareFacebook" ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"> Post on Your Wall?
 	  </label>
   </div>
-  <input ng-click="ctrl.ready()" class="btn btn-primary pull-left m_20r" ng-disabled="!vm.camera.access || goliveForm.caption.$invalid" role="submit" type="submit" value="Ready!"/>
-  <input class="btn btn-default" role="button" type="button" value="Cancel" ng-click="gotoProfile()"/>
+  <input ng-click="ctrl.ready()"
+  			 class="btn btn-primary btn-large"
+  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+  			 role="submit" type="submit" value="Ready!"/>
+  <input ng-click="ctrl.ready()"
+  			 class="btn btn-accent"
+  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+  			 role="submit" type="submit" value="Skip It!"/>
+  <input ng-click="gotoProfile()"
+  			 class="btn btn-default"
+  			 role="button" type="button" value="Cancel"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
     <div class="loading-wrapper">
