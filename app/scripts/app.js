@@ -260,6 +260,12 @@ angular.module('rhinobird', [
       templateUrl: '/views/about.html'
     })
 
+    // GoLiveForm
+    .state('goliveform', {
+      url: '/goliveform/',
+      templateUrl: '/views/goliveform.html'
+    })
+
     // Channels
     .state('channel', {
       url: '/{channelName:[0-9a-zA-Z-_]+}/',
