@@ -18,11 +18,15 @@ angular.module('rhinobird.models')
       '~after-feed': function(raw){
         var timeline = this;
 
-        if(timeline.type === 'Stream'){
-          timeline.resource = Stream.$buildRaw(raw);
+        if(timeline.resourceType === 'Stream'){
+          timeline.resource = Stream.$buildRaw(raw.resource);
         }
-        else if(timeline.type === 'Vj'){
-          timeline.resource = Vj.$buildRaw(raw);
+        else if(timeline.resourceType === 'Vj'){
+          timeline.resource = Vj.$buildRaw(raw.resource);
+        }
+
+        if (timeline.resource.status === 'live') {
+          timeline.resource.$fetch();
         }
       }
     });
