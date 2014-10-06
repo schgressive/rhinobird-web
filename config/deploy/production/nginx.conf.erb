@@ -1,6 +1,22 @@
 # HTTP Server
+<% if fetch(:nginx_use_ssl) %>
 server {
-  listen      80;
+  listen 80;
+  return 301 https://$host$request_uri;
+}
+<% end %>
+
+server {
+
+  <% if fetch(:nginx_use_ssl) %>
+    listen 443;
+    ssl on;
+    ssl_certificate <%= fetch(:nginx_ssl_certificate_path) %>/<%= fetch(:nginx_ssl_certificate) %>;
+    ssl_certificate_key <%= fetch(:nginx_ssl_certificate_key_path) %>/<%= fetch(:nginx_ssl_certificate_key) %>;
+  <% else %>
+    listen 80;
+  <% end %>
+
   server_name <%= fetch(:nginx_domains) %>;
   root        <%= fetch(:deploy_to) %>/current/<%= fetch(:nginx_static_dir) %>;
 
@@ -27,7 +43,13 @@ server {
     proxy_set_header X-FORWARDED_PROTO http;
     proxy_set_header Host $http_host;
     proxy_redirect off;
-    proxy_pass http://<%= fetch(:api_application) %>-app-server;
+    <% if fetch(:nginx_use_ssl) %>
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_pass http://<%= fetch(:api_application) %>-app-server;
+    <% else %>
+      proxy_pass https://<%= fetch(:api_application) %>-app-server;
+    <% end %>
+    proxy_redirect off;
   }
 
   location ~ /(assets) {
