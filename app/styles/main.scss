@@ -1127,6 +1127,29 @@ i[class*="icon"] {font-style: normal;}
 
 .loading-wrapper { vertical-align: middle; text-align: center;}
 
+// SVG COLOR ANIMATION ------------------
+
+.svg-animate .flash {
+    fill: hsl(1,89%,59%);
+    -webkit-animation-name: glow-red;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+    animation-name: glow-red;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+@-webkit-keyframes glow-red {
+    0% { fill: hsl(1,89%,59%); }
+    100% { fill: hsl(1,89%,39%); }
+}
+@keyframes glow-red {
+    0% { fill: hsl(1,89%,59%); }
+    100% { fill: hsl(1,89%,39%); }
+}
 // MAPBOX ------------------------------
 
 .base .angular-leaflet-map .leaflet-map-pane .leaflet-objects-pane {
