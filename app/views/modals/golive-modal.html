@@ -45,22 +45,65 @@
 			<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
 		</ol>
   </div>
-  <div class="checkbox-wrapper">
-	  <label class="checkbox inline">
-	  	<input type="checkbox" ng-model="vm.useGeolocation"/> Enable Geolocation?
-	  </label>
-	  <label class="checkbox inline" ng-show="vm.camera.videoSources.length > 1">
-	  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"/> Flip Camera?
-	  </label>
-    <label class="checkbox inline">
-      <input type="checkbox" ng-click="vm.camera.toggleHD()" ng-model="vm.camera.isHD" ng-disabled="!vm.camera.access"/> HD Video?
-    </label>
-	  <label class="checkbox inline">
-      <input type="checkbox" ng-model="vm.sharingOptions.shareTwitter"  ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"> Tweet Your Video?
-	  </label>
-	  <label class="checkbox inline">
-      <input type="checkbox" ng-model="vm.sharingOptions.shareFacebook" ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"> Post on Your Wall?
-	  </label>
+  <div>
+  	<button type="button"
+  					class="btn btn-default btn-small pull-left"
+  					ng-model="vm.useGeolocation"
+  					btn-checkbox
+  					btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="icon-map-marker"></i>
+        <span class="visually-hidden"> Enable Geolocation?</span>
+    </button>
+    <button type="button"
+  					class="btn btn-default btn-small pull-left"
+  					ng-show="vm.camera.videoSources.length > 1"
+  					ng-model="singleModel"
+  					ng-click="vm.camera.toggleSource()"
+  					ng-disabled="!vm.camera.access"
+  					btn-checkbox
+  					btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="icon-camera"></i>
+        <span class="visually-hidden"> Flip Camera?</span>
+    </button>
+    <button type="button"
+  					class="btn btn-default btn-small pull-left"
+  					ng-model="vm.camera.isHD"
+  					ng-click="vm.camera.toggleHD()"
+  					ng-disabled="!vm.camera.access"
+  					btn-checkbox
+  					btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="icon-facetime-video"></i>
+        <span class="visually-hidden"> HD Video?</span>
+    </button>
+  </div>
+	<div>
+		<button type="button"
+  					class="btn btn-default btn-small pull-left"
+  					ng-model="vm.sharingOptions.shareTwitter"
+  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
+  					btn-checkbox
+  					btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="icon-retweet"></i>
+        <span class="visually-hidden"> Tweet Your Video?</span>
+    </button>
+    <button type="button"
+  					class="btn btn-default btn-small pull-left"
+  					ng-model="vm.sharingOptions.shareFacebook"
+  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
+  					btn-checkbox
+  					btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="icon-thumbs-up"></i>
+        <span class="visually-hidden"> Post on Your Wall?</span>
+    </button>
+    <button type="button"
+  					class="btn btn-default btn-small pull-left"
+  					ng-model=""
+  					ng-change=""
+  					btn-checkbox
+  					btn-checkbox-true="1" btn-checkbox-false="0">
+        <i class="icon-comment"></i>
+        <span class="visually-hidden"> Share on WhatsApp?</span>
+    </button>
   </div>
   <input ng-click="ctrl.ready()"
   			 class="btn btn-primary btn-large"
