@@ -23,6 +23,9 @@ angular.module('rhinobird.controllers')
     $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
 
+    // Boot controller
+    init();
+
     // The the caption for the stream
     vm.caption = '';
 
@@ -208,31 +211,27 @@ angular.module('rhinobird.controllers')
       }
     });
 
-    // Get current location
-    GeolocationService.getCurrent().then(function(location){
-    	if(location){
-	    	vm.nearChannels =	Channel.searchByLocation(location.lat, location.lng);
-
+    function geolocationCallback(location) {
+      if(location){
+        vm.nearChannels =	Channel.searchByLocation(location.lat, location.lng);
         // Update stream's location
         if (streamLive && vm.useGeolocation) {
-          var coords = {
-            lat: location.lat,
-            lng: location.lng
-          };
-
-          GoliveService.updateStream(coords);
+          GoliveService.updateStream({lat: location.lat,lng: location.lng });
         }
-	    }
-    });
+      }
+    };
 
-    // Open de dialog
-    var openDialog = function(){
+    function openGoliveModal(){
       modalInstance = $modal.open({
         backdrop: 'static',
         templateUrl: '/views/modals/golive-modal.html',
         scope: $scope
       });
     };
-    openDialog();
+
+    function init() {
+      GeolocationService.getCurrent().then(geolocationCallback);
+      openGoliveModal();
+    }
 
   });
