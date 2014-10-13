@@ -23,6 +23,7 @@ $darkTrans2											: rgba(38,34,31,.75);
 
 $red														: rgba(239,65,53,1); /*EF4135*/
 $orange													:	rgba(255,163,0,1); /*FFA300*/
+$gold														: hsla(32,100%,61%,1);
 
 // Accent Colors ------------------------------
 
@@ -87,8 +88,9 @@ $inputBackgroundFocus						: $beigeLight;
 $inputDisabledBackground				: $grayLighter;
 $btnBackground									:	$beigeLight;
 $btnDisabledBackground					:	$grayLighter;
-$btnPrimaryBackground						: $grayDark;
+$btnPrimaryBackground						: $gold;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
+$btnPrimaryBackgroundHover			: $red;
 $btnFeatureBackground						: $warmGray11;
 $btnAccentBackground						: $beigeLight;
 
@@ -131,7 +133,7 @@ $dropdownLinkBackgroundHover		: $navbarLinkBackgroundHover;
 
 // Components ------------------------------
 
-$baseBorderRadius								: 0;
+$baseBorderRadius								: 3px;
 $borderRadiusLarge							: 6px;
 $borderRadiusSmall							: 3px;
 $heroUnitBackground							: $grayLighter;

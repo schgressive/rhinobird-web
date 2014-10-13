@@ -1,8 +1,8 @@
 <div class="alert alert-text" ng-hide="vm.camera.access">
-  <span>Enable camera permissions for your browser.</span>
-  <span class="visible-desktop">
+  <span class="message pull-left">Please enable camera permissions for your browser.</span>
+  <span class="text-right visible-desktop">
   	<!-- this svg points up for desktop -->
-  	<svg class="svg-animate"
+  	<svg class="warning-arrow"
 		     xmlns="http://www.w3.org/2000/svg"
 				 width="32px" height="32px" viewBox="0 0 32 32"
 				 enable-background="new 0 0 32 32" xml:space="preserve">
@@ -14,9 +14,9 @@
 			C7.377,0.371,0.37,7.403,0.371,16z"/>
 		</svg>
   </span><!-- /.visible-desktop -->
-  <span class="hidden-desktop">
+  <span class="text-right hidden-desktop">
 		<!-- this svg points up for desktop -->
-		<svg class="svg-animate"
+		<svg class="warning-arrow"
 				 xmlns="http://www.w3.org/2000/svg"
 				 width="32px" height="32px" viewBox="0 0 32 32"
 				 enable-background="new 0 0 32 32" xml:space="preserve">
@@ -28,9 +28,10 @@
 			</svg>
   </span><!-- /.hidden-desktop -->
 </div><!-- /.alert -->
-<form name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
+<form class="goliveForm" name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
   <label class="visually-hidden" for="caption">Use hashtags in your caption to add your video to a channel:</label>
-  <textarea name="caption"
+  <textarea class="input-block-level"
+  					name="caption"
   					rows="4"
   					maxlength="120"
   					placeholder="Going Live? Add caption or use #hashtag to add video to a channel."
@@ -45,77 +46,40 @@
 			<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
 		</ol>
   </div>
-  <div>
-  	<button type="button"
-  					class="btn btn-default btn-small pull-left"
-  					ng-model="vm.useGeolocation"
-  					btn-checkbox
-  					btn-checkbox-true="1" btn-checkbox-false="0">
-        <i class="icon-map-marker"></i>
-        <span class="visually-hidden"> Enable Geolocation?</span>
-    </button>
-    <button type="button"
-  					class="btn btn-default btn-small pull-left"
-  					ng-show="vm.camera.videoSources.length > 1"
-  					ng-model="singleModel"
-  					ng-click="vm.camera.toggleSource()"
-  					ng-disabled="!vm.camera.access"
-  					btn-checkbox
-  					btn-checkbox-true="1" btn-checkbox-false="0">
-        <i class="icon-camera"></i>
-        <span class="visually-hidden"> Flip Camera?</span>
-    </button>
-    <button type="button"
-  					class="btn btn-default btn-small pull-left"
-  					ng-model="vm.camera.isHD"
-  					ng-click="vm.camera.toggleHD()"
-  					ng-disabled="!vm.camera.access"
-  					btn-checkbox
-  					btn-checkbox-true="1" btn-checkbox-false="0">
-        <i class="icon-facetime-video"></i>
-        <span class="visually-hidden"> HD Video?</span>
-    </button>
-  </div>
-	<div>
-		<button type="button"
-  					class="btn btn-default btn-small pull-left"
-  					ng-model="vm.sharingOptions.shareTwitter"
-  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
-  					btn-checkbox
-  					btn-checkbox-true="1" btn-checkbox-false="0">
-        <i class="icon-retweet"></i>
-        <span class="visually-hidden"> Tweet Your Video?</span>
-    </button>
-    <button type="button"
-  					class="btn btn-default btn-small pull-left"
-  					ng-model="vm.sharingOptions.shareFacebook"
-  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
-  					btn-checkbox
-  					btn-checkbox-true="1" btn-checkbox-false="0">
-        <i class="icon-thumbs-up"></i>
-        <span class="visually-hidden"> Post on Your Wall?</span>
-    </button>
-    <button type="button"
-  					class="btn btn-default btn-small pull-left"
-  					ng-model=""
-  					ng-change=""
-  					btn-checkbox
-  					btn-checkbox-true="1" btn-checkbox-false="0">
-        <i class="icon-comment"></i>
-        <span class="visually-hidden"> Share on WhatsApp?</span>
-    </button>
-  </div>
-  <input ng-click="ctrl.ready()"
-  			 class="btn btn-primary btn-large"
-  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
-  			 role="submit" type="submit" value="Ready!"/>
-  <input ng-click="ctrl.ready()"
-  			 class="btn btn-accent"
-  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
-  			 role="submit" type="submit" value="Skip It!"/>
+  <div class="checkbox-wrapper">
+	  <div>
+		  <label class="checkbox inline">
+		  	<input type="checkbox" ng-model="vm.useGeolocation" class="ng-pristine ng-valid"> Enable Geolocation?
+		  </label>
+		  <label class="checkbox inline ng-hide" ng-show="vm.camera.videoSources.length > 1">
+		  	<input type="checkbox" ng-click="vm.camera.toggleSource()" ng-disabled="!vm.camera.access"> Flip Your Camera?
+		  </label>
+	    <label class="checkbox inline">
+	      <input type="checkbox" ng-click="vm.camera.toggleHD()" ng-model="vm.camera.isHD" ng-disabled="!vm.camera.access" class="ng-pristine ng-valid"> Stream HD Video?
+	    </label>
+	  </div>
+	  <div>
+		  <label class="checkbox inline">
+	      <input type="checkbox" ng-model="vm.sharingOptions.shareTwitter" ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)" class="ng-pristine ng-valid"> Tweet Your Video?
+		  </label>
+		  <label class="checkbox inline">
+	      <input type="checkbox" ng-model="vm.sharingOptions.shareFacebook" ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)" class="ng-pristine ng-valid"> Post on Your Wall?
+		  </label>
+	  </div>
+  </div><!-- /.checkbox-wrapper -->
+  <div class="submit-wrapper">
+	  <input ng-click="ctrl.ready()"
+	  			 class="btn btn-accent btn-large span3"
+	  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+	  			 role="submit" type="submit" value="Skip It!"/>
+	  <input ng-click="ctrl.ready()"
+	  			 class="btn btn-primary btn-large span3 pull-right"
+	  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+	  			 role="submit" type="submit" value="Ready!"/>
+  </div><!-- /.submit-wrapper -->
   <input ng-click="gotoProfile()"
-  			 class="btn btn-default"
-  			 role="button" type="button" value="Cancel"/>
+			 class="btn btn-default"
+			 role="button" type="button" value="Cancel"/>
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
     <div class="loading-wrapper">

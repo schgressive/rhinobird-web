@@ -161,7 +161,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .btn-feature {
-	font-size: 18px;
+	@include fontSize(18px);
 	line-height: 1.3;
 	color: $textOnDark;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -180,9 +180,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background-color: $btnPrimaryBackground;
 	border-color: darken($btnPrimaryBackground, 10%);
 	@include font-smoothing;
-	&:hover {
-		background-color: darken($btnPrimaryBackground, 10%);
-		border-color: darken($btnPrimaryBackground, 20%);
+	&:hover, &:focus, &:active {
+		background-color: $btnPrimaryBackgroundHover;
+		border-color: darken($btnPrimaryBackgroundHover, 20%);
 	}
 }
 
@@ -222,8 +222,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		color: $warningText;
 		text-align: center;
 		text-shadow: none;
-		width: 85%;
-		margin: 0 auto 15px;
+		padding: 8px 14px;
+		margin: 10px auto 15px;
 		border: 2px solid $warningText;
 		background-color: $white;
 		-webkit-border-radius: $baseBorderRadius;
@@ -242,6 +242,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background: $beigeLight url('../images/modal-bg2.svg') top left no-repeat;
 	background-size: cover;
 	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
+	.btn-large { @include fontSize(18px);}
 	a.btn-social {
 		color: $white;
 		font-family: $bold-font-stack;
@@ -301,16 +302,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 	form {
 		margin: { top: 8px; bottom: 6px;}
-		.checkbox-wrapper { margin-bottom: 6px;}
+		.checkbox-wrapper { margin: 6px 0 10px;}
 		.checkbox { font-size: 16px; margin-bottom: 4px;}
-		.btn-primary {
-			margin-bottom: 8px;
-			@include font-smoothing();
-			&:hover {
-				background-color: $red;
-				border-color: darken($red, 10%);
-			}
-		}
+		.submit-wrapper { margin: 13px 0 18px;}
 		.channel-suggest { margin-top: -7px; margin-bottom: 5px;}
 	}
 }

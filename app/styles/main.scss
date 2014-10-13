@@ -1129,7 +1129,7 @@ i[class*="icon"] {font-style: normal;}
 
 // SVG COLOR ANIMATION ------------------
 
-.svg-animate .flash {
+.warning-arrow .flash {
     fill: hsl(1,89%,59%);
     -webkit-animation-name: glow-red;
     -webkit-animation-duration: .5s;
@@ -1207,4 +1207,8 @@ i[class*="icon"] {font-style: normal;}
   display: none !important;
 }
 
+// WARNINGS and ALERTS ------------------------------
+
 .compatibility-flag { margin: {top:50px;bottom:0;};}
+
+.alert .message { font-size: 18px; padding-top: 6px;}
