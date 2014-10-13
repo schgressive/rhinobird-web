@@ -101,15 +101,13 @@
 					        <i class="icon-thumbs-up"></i>
 					        <span class="visually-hidden"> Post on Your Wall?</span>
 					    </button>
-					    <button type="button"
+					    <a href="#" ng-click="ctrl.shareWhatsapp()"
 					  					class="btn btn-default btn-small pull-left"
-					  					ng-model=""
-					  					ng-change=""
 					  					btn-checkbox
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
 					        <i class="icon-comment"></i>
-					        <span class="visually-hidden"> Share on WhatsApp?</span>
-					    </button>
+					        <span class="visually-hidden"> Share on WhatsApp</span>
+					    </a>
 					  </div>
 					  <input ng-click="ctrl.ready()"
 					  			 class="btn btn-primary btn-large"
@@ -148,5 +146,10 @@
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
+    <div class="row-fluid">
+      <div class="span12">
+        <licode token="vm.goliveService.stream.token" flow="outbound" on="true" record="true" full-bleed></licode>
+      </div>
+    </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->

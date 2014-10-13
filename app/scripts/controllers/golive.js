@@ -135,6 +135,16 @@ angular.module('rhinobird.controllers')
       }
     };
 
+    this.shareWhatsapp = function() {
+      var uri = "whatsapp://send?text=";
+      var user = session.user.$pk;
+      var currentUrl = $state.href("user",{userName: user}, {absolute: true});
+      var text = "Watch me go live! ";
+      uri += encodeURIComponent(currentUrl);
+      window.open(uri, "_blank");
+    }
+
+
     // To filter out used hashes
     this.usedHashes = function(hash){
       var usedHashes = vm.caption.match(regexp) || [];
