@@ -92,7 +92,8 @@ $btnPrimaryBackground						: $gold;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
 $btnPrimaryBackgroundHover			: $red;
 $btnFeatureBackground						: $warmGray11;
-$btnAccentBackground						: $beigeLight;
+$btnAccentColor									: $textOnDark;
+$btnAccentBackground						: $warmGray7;
 
 // Forms State & Alerts ------------------------------
 
