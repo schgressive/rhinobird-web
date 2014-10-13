@@ -3,7 +3,7 @@
 angular.module('rhinobird.controllers')
   .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session,
                                       Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel,
-                                     OpenAndWatch) {
+                                     OpenAndWatch, isMobile) {
 
 		$scope.user = session.user;
 
@@ -158,7 +158,7 @@ angular.module('rhinobird.controllers')
       }
 
       // Close the modal when navigating away
-      modalInstance.close();
+      closeModal();
     });
 
     // Hashtags
@@ -188,12 +188,12 @@ angular.module('rhinobird.controllers')
     });
 
     $scope.gotoTerms = function() {
-      modalInstance.close();
+      closeModal();
       $state.go('terms');
     };
 
     $scope.gotoProfile = function() {
-      modalInstance.close();
+      closeModal();
       $state.go('profile.streams');
     };
 
@@ -206,7 +206,7 @@ angular.module('rhinobird.controllers')
         };
         GoliveService.updateStream(payload, true).then(function(){
           // Close the modal
-          modalInstance.close();
+          closeModal();
         });
       }
     });
@@ -221,6 +221,12 @@ angular.module('rhinobird.controllers')
       }
     };
 
+    function closeModal() {
+      if (modalInstance) {
+        modalInstance.close();
+      }
+    }
+
     function openGoliveModal(){
       modalInstance = $modal.open({
         backdrop: 'static',
@@ -231,7 +237,9 @@ angular.module('rhinobird.controllers')
 
     function init() {
       GeolocationService.getCurrent().then(geolocationCallback);
-      openGoliveModal();
+      if (!isMobile) {
+        openGoliveModal();
+      }
     }
 
   });
