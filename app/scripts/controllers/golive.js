@@ -3,7 +3,7 @@
 angular.module('rhinobird.controllers')
   .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session,
                                       Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel,
-                                     OpenAndWatch) {
+                                     OpenAndWatch, isMobile) {
 
 		$scope.user = session.user;
 
@@ -22,6 +22,9 @@ angular.module('rhinobird.controllers')
     $scope.ctrl = this; // Expose the controller
     $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
+
+    // Boot controller
+    init();
 
     // The the caption for the stream
     vm.caption = '';
@@ -132,6 +135,16 @@ angular.module('rhinobird.controllers')
       }
     };
 
+    this.shareWhatsapp = function() {
+      var uri = "whatsapp://send?text=";
+      var user = session.user.$pk;
+      var currentUrl = $state.href("user",{userName: user}, {absolute: true});
+      var text = "Watch me go live! ";
+      uri += encodeURIComponent(currentUrl);
+      window.open(uri, "_blank");
+    }
+
+
     // To filter out used hashes
     this.usedHashes = function(hash){
       var usedHashes = vm.caption.match(regexp) || [];
@@ -155,7 +168,7 @@ angular.module('rhinobird.controllers')
       }
 
       // Close the modal when navigating away
-      modalInstance.close();
+      closeModal();
     });
 
     // Hashtags
@@ -185,12 +198,12 @@ angular.module('rhinobird.controllers')
     });
 
     $scope.gotoTerms = function() {
-      modalInstance.close();
+      closeModal();
       $state.go('terms');
     };
 
     $scope.gotoProfile = function() {
-      modalInstance.close();
+      closeModal();
       $state.go('profile.streams');
     };
 
@@ -203,36 +216,40 @@ angular.module('rhinobird.controllers')
         };
         GoliveService.updateStream(payload, true).then(function(){
           // Close the modal
-          modalInstance.close();
+          closeModal();
         });
       }
     });
 
-    // Get current location
-    GeolocationService.getCurrent().then(function(location){
-    	if(location){
-	    	vm.nearChannels =	Channel.searchByLocation(location.lat, location.lng);
-
+    function geolocationCallback(location) {
+      if(location){
+        vm.nearChannels =	Channel.searchByLocation(location.lat, location.lng);
         // Update stream's location
         if (streamLive && vm.useGeolocation) {
-          var coords = {
-            lat: location.lat,
-            lng: location.lng
-          };
-
-          GoliveService.updateStream(coords);
+          GoliveService.updateStream({lat: location.lat,lng: location.lng });
         }
-	    }
-    });
+      }
+    };
 
-    // Open de dialog
-    var openDialog = function(){
+    function closeModal() {
+      if (modalInstance) {
+        modalInstance.close();
+      }
+    }
+
+    function openGoliveModal(){
       modalInstance = $modal.open({
         backdrop: 'static',
         templateUrl: '/views/modals/golive-modal.html',
         scope: $scope
       });
     };
-    openDialog();
+
+    function init() {
+      GeolocationService.getCurrent().then(geolocationCallback);
+      if (!isMobile) {
+        openGoliveModal();
+      }
+    }
 
   });

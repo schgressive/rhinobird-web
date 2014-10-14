@@ -12,9 +12,12 @@ angular.module('rhinobird', [
   'rhinobird.filters',
   'rhinobird.controllers'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider, settings) {
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, 
+                  $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider, 
+                  settings, mobileDetect) {
   // Remove hashes and enables html push state history
   $locationProvider.html5Mode(true);
+  var isMobile = mobileDetect();
 
 
   // Fix for missing trailing slash
@@ -113,9 +116,14 @@ angular.module('rhinobird', [
     // Golive
     .state('golive', {
       url: '/golive/',
-      templateUrl: '/views/golive.html',
+      templateUrl: function() {
+        return isMobile ? '/views/goliveform.html' : '/views/golive.html';
+      },
       controller: 'GoliveCtrl',
       resolve: {
+        isMobile: function() {
+          return isMobile;
+        },
         session: ['AuthService', function(AuthService) {
           return AuthService.getSession();
         }]

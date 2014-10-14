@@ -1,0 +1,171 @@
+<div class="main mobileForm" role="main">
+  <div class="width-controller container-fluid">
+    <section class="top-content">
+      <div class="row-fluid">
+        <div class="span12">
+
+         	<div class="alert alert-text" ng-hide="vm.camera.access">
+					  <span class="m_10b block">Please enable camera permissions for your browser.</span>
+					  <span class="visible-desktop">
+					  	<!-- this svg points up for desktop -->
+					  	<svg class="svg-animate"
+							     xmlns="http://www.w3.org/2000/svg"
+									 width="32px" height="32px" viewBox="0 0 32 32"
+									 enable-background="new 0 0 32 32" xml:space="preserve">
+									 <rect fill="none" width="32" height="32"/>
+									 <path class="flash"
+									 d="M14.463,14.985v9.951h3.386v-9.951h5.238l-7.192-7.267l-7.007,7.267H14.463z M28.504,16c0,6.903-5.625,12.504-12.504,12.504
+								C9.123,28.504,3.497,22.903,3.497,16C3.497,9.123,9.123,3.52,16,3.52C22.879,3.52,28.504,9.123,28.504,16z M0.371,16
+								C0.37,24.623,7.377,31.63,16,31.63C24.624,31.631,31.63,24.622,31.63,16c0-8.598-7.006-15.63-15.63-15.629
+								C7.377,0.371,0.37,7.403,0.371,16z"/>
+							</svg>
+					  </span><!-- /.visible-desktop -->
+					  <span class="hidden-desktop">
+							<!-- this svg points up for desktop -->
+							<svg class="svg-animate"
+									 xmlns="http://www.w3.org/2000/svg"
+									 width="32px" height="32px" viewBox="0 0 32 32"
+									 enable-background="new 0 0 32 32" xml:space="preserve">
+								<rect fill="none" width="32" height="32"/>
+								<path class="flash" d="M17.537,17.016V7.064H14.15v9.951H8.913l7.192,7.267l7.006-7.267H17.537z M3.496,16C3.496,9.098,9.121,3.496,16,3.496
+									c6.877,0,12.503,5.602,12.503,12.504c0,6.877-5.626,12.48-12.503,12.48C9.121,28.48,3.496,22.877,3.496,16z M31.629,16
+									C31.63,7.377,24.623,0.37,16,0.37C7.376,0.369,0.37,7.378,0.37,16c0,8.599,7.006,15.63,15.63,15.629
+									C24.623,31.629,31.63,24.598,31.629,16z"/>
+								</svg>
+					  </span><!-- /.hidden-desktop -->
+					</div><!-- /.alert -->
+        </div><!-- /.span12 -->
+      </div><!-- /.row-fluid -->
+
+			<div class="row-fluid">
+				<div class="span12">
+					<form class="goliveForm" name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
+					  <label class="visually-hidden" for="caption">Use hashtags in your caption to add your video to a channel:</label>
+					  <textarea class="input-block-level"
+					  					name="caption"
+					  					rows="4"
+					  					maxlength="120"
+					  					placeholder="Going Live? Add caption or use #hashtag to add video to a channel."
+					  					ng-model="vm.caption">
+					  </textarea>
+					  <div class="validate" ng-show="vm.captionWarning">
+					  	<small class="info">Caption limited to 120 characters.</small>
+					  </div><!-- /.validate -->
+					  <div class="m_20b" ng-show="vm.nearChannels.length">
+							<p>Suggested channels:</p>
+							<ol class="channel-suggest inline no-bullets">
+								<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
+							</ol>
+					  </div>
+					  <div class="controls controls-row">
+					  	<button type="button"
+					  					class="btn btn-default btn-small btn-checkbox"
+					  					ng-model="vm.useGeolocation"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <i class="icon-map-marker"></i>
+					        <span class="visually-hidden"> Enable Geolocation?</span>
+					    </button>
+					    <button type="button"
+					  					class="btn btn-default btn-small btn-checkbox"
+					  					ng-show="vm.camera.videoSources.length > 1"
+					  					ng-model="singleModel"
+					  					ng-click="vm.camera.toggleSource()"
+					  					ng-disabled="!vm.camera.access"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <i class="icon-camera"></i>
+					        <span class="visually-hidden"> Flip Camera?</span>
+					    </button>
+					    <button type="button"
+					  					class="btn btn-default btn-small btn-checkbox"
+					  					ng-model="vm.camera.isHD"
+					  					ng-click="vm.camera.toggleHD()"
+					  					ng-disabled="!vm.camera.access"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <i class="icon-facetime-video"></i>
+					        <span class="visually-hidden"> HD Video?</span>
+					    </button>
+					  </div><!-- /.controls.controls-row -->
+						<div class="controls controls-row">
+							<button type="button"
+					  					class="btn btn-default btn-small btn-checkbox"
+					  					ng-model="vm.sharingOptions.shareTwitter"
+					  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <i class="icon-retweet"></i>
+					        <span class="visually-hidden"> Tweet Your Video?</span>
+					    </button>
+					    <button type="button"
+					  					class="btn btn-default btn-small btn-checkbox"
+					  					ng-model="vm.sharingOptions.shareFacebook"
+					  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <i class="icon-thumbs-up"></i>
+					        <span class="visually-hidden"> Post on Your Wall?</span>
+					    </button>
+					    <a href="#" ng-click="ctrl.shareWhatsapp()"
+					  					class="btn btn-default btn-small btn-checkbox">
+					        <i class="icon-comment"></i>
+					        <span class="visually-hidden"> Share on WhatsApp</span>
+					    </a>
+					  </div><!-- /.controls.controls-row -->
+					  <div class="controls controls-row">
+						  <input ng-click="ctrl.ready()"
+						  			 class="btn btn-primary btn-large btn-block"
+						  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+						  			 role="submit" type="submit" value="Ready!"/>
+						  <input ng-click="ctrl.ready()"
+						  			 class="btn btn-accent btn-large btn-block"
+						  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+						  			 role="submit" type="submit" value="Skip It!"/>
+						  <input ng-click="gotoProfile()"
+						  			 class="btn btn-default btn-block"
+						  			 role="button" type="button" value="Cancel"/>
+					  </div><!-- /.controls.controls-row -->
+					</form><!-- /goliveForm -->
+				</div><!-- /.span12 -->
+			</div><!-- /.row-fluid -->
+
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
+					    <div class="loading-wrapper">
+					      <img src="../images/loading-bars.svg" width="64" height="64" alt="loading icon">
+					    </div>
+
+					    <div ng-show="vm.goliveService.connectingTime < 20">
+					      <h3>Connecting to service...</h3>
+					    </div>
+
+					    <div ng-show="vm.goliveService.connectingTime >= 20">
+					      <h3>Something is wrong, still trying...</h3>
+					      <div class="alert alert-text">
+					        <p>You may have a network problem. Please wait or try again later.</p>
+					      </div>
+					    </div>
+					 </div><!-- /.status-wrapper -->
+				</div><!-- /.span12 -->
+			</div><!-- /.row-fluid -->
+
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="status-wrapper">
+						<div ng-show="vm.goliveService.status == 'connected'">
+						  <h3>Connected!</h3>
+						</div>
+						<h6 class="m_10t" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
+					</div><!-- /.status-wrapper -->
+        </div><!-- /.span12 -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.top-content -->
+    <div class="row-fluid">
+      <div class="span12">
+        <licode token="vm.goliveService.stream.token" flow="outbound" on="true" record="true" full-bleed></licode>
+      </div>
+    </div><!-- /.row-fluid -->
+  </div><!-- /.container-fluid -->
+</div><!-- /.main -->

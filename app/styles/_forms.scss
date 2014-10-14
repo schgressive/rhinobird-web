@@ -71,9 +71,13 @@ body.base {
 		margin-left: 0;
 		margin-right: 10px;
 	}
-	.btn, btn-small, .btn-mini, .btn-large, input, .input-append input, .input-append .add-on:last-child, .input-append .btn:last-child, .input-prepend .add-on:first-child, .input-prepend .btn:first-child, .modal, table, .table-bordered, .tooltip-inner, .dropdown-menu, textarea, .alert {
+	.btn, btn-small, .btn-mini, .btn-large, .tooltip-inner {
 		border-radius: $baseBorderRadius;
 		-webkit-border-radius: $baseBorderRadius;
+	}
+	.modal, table, .table-bordered {
+		border-radius: 0px;
+		-webkit-border-radius: 0px;
 	}
 	.add-on {
 		background-color: $inputBackground;
@@ -82,6 +86,7 @@ body.base {
 	.modal {
 		border: 4px solid $white;
 		padding: 0 14px 18px;
+		&.fade.in { top: 6%;}
 		@media screen and (max-width: 598px) {
 			width: 93%;
 			left: 0;
@@ -161,7 +166,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .btn-feature {
-	font-size: 18px;
+	@include fontSize(18px);
 	line-height: 1.3;
 	color: $textOnDark;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -180,22 +185,22 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background-color: $btnPrimaryBackground;
 	border-color: darken($btnPrimaryBackground, 10%);
 	@include font-smoothing;
-	&:hover {
-		background-color: darken($btnPrimaryBackground, 10%);
-		border-color: darken($btnPrimaryBackground, 20%);
+	&:hover, &:focus, &:active {
+		background-color: $btnPrimaryBackgroundHover;
+		border-color: darken($btnPrimaryBackgroundHover, 20%);
 	}
 }
 
 .btn-accent {
-	color: $btnFeatureBackground;
+	color: $btnAccentColor;
 	background-color: $btnAccentBackground;
 	padding: {left:26px;right:26px;}
-	border-color: darken($btnFeatureBackground, 5%);
+	border-color: darken($btnAccentBackground, 5%);
 	@media screen and (max-width: 500px) {padding-top: 6px;}
 	@include font-smoothing;
 	&:hover {
-		background-color: $red;
-		border-color: darken($red, 10%);
+		background-color: darken($btnAccentBackground, 10%);
+		border-color: darken($btnAccentBackground, 15%);
 	}
 }
 
@@ -217,13 +222,58 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 }
 
-.modal {
+.mobileForm {
+	color: $textOnDark;
+	background-color: transparent;
+	.top-content {
+		background-color: transparent;
+		@media screen and (max-width: 979px) { margin-top: 10px;}
+	}
+	.goliveForm {
+		padding: 10px 10px 20px;
+		background-color: $darkTrans2;
+		.controls-row {
+			.btn-checkbox {
+				float: left;
+				margin-right: 12px;
+				width: 46px;
+				height: 46px;
+				border-radius: 46px;
+				padding: 0px;
+			}
+			.btn-large { @include fontSize(18px);}
+			.btn-block {
+				display: block;
+				& + .btn-block { margin-top: 14px;}
+			}
+			& + .controls-row { margin-top: 20px;}
+		}
+	}
+	.status-wrapper {
+		color: $textOnDark;
+		text-align: center;
+		padding: 10px;
+		background-color: $darkTrans2;
+	}
+}
+
+.modal, .mobileForm {
+	h2 { margin-bottom: 8px;}
+	h4 { margin: 0 0 3px 0;}
+	h6 {
+		a { text-decoration: underline;}
+		&.return-link {
+			margin: { top:-33px; right:40px;}
+			float: right;
+		}
+	}
+	form { margin: { top: 8px; bottom: 6px;}}
 	.alert {
 		color: $warningText;
 		text-align: center;
 		text-shadow: none;
-		width: 85%;
-		margin: 0 auto 15px;
+		padding: 8px 14px;
+		margin: 10px auto 15px;
 		border: 2px solid $warningText;
 		background-color: $white;
 		-webkit-border-radius: $baseBorderRadius;
@@ -233,8 +283,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 			font-family: $bold-font-stack;
 			font-weight: normal;
 		}
-		@media screen and (max-width: 500px) {width:75%;}
 	}
+	.btn-large { @include fontSize(18px);}
+	.channel-suggest { margin-top: -7px; margin-bottom: 5px;}
 }
 
 .modal {
@@ -290,29 +341,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 			}
 		}
 	}
-	h2 { margin-bottom: 8px;}
-	h4 { margin: 0 0 3px 0;}
-	h6 {
-		a { text-decoration: underline;}
-		&.return-link {
-			margin: { top:-33px; right:40px;}
-			float: right;
-		}
-	}
-	form {
-		margin: { top: 8px; bottom: 6px;}
-		.checkbox-wrapper { margin-bottom: 6px;}
-		.checkbox { font-size: 16px; margin-bottom: 4px;}
-		.btn-primary {
-			margin-bottom: 8px;
-			@include font-smoothing();
-			&:hover {
-				background-color: $red;
-				border-color: darken($red, 10%);
-			}
-		}
-		.channel-suggest { margin-top: -7px; margin-bottom: 5px;}
-	}
+	.checkbox-wrapper { margin: 6px 0 10px;}
+	.checkbox { font-size: 16px; margin-bottom: 4px;}
+	.submit-wrapper { margin: 13px 0 18px;}
 }
 
 .validate {

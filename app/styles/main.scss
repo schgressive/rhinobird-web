@@ -113,6 +113,8 @@ a:focus {
 // Margin/Padding classes
 
 .m_10t { margin-top: 10px;}
+.m_10b { margin-bottom: 10px;}
+.m_20b { margin-bottom: 20px;}
 .m_20r { margin-right: 20px;}
 
 // Calculate all H# Tags.
@@ -1127,6 +1129,29 @@ i[class*="icon"] {font-style: normal;}
 
 .loading-wrapper { vertical-align: middle; text-align: center;}
 
+// SVG COLOR ANIMATION ------------------
+
+.warning-arrow .flash {
+    fill: hsl(1,89%,59%);
+    -webkit-animation-name: glow-red;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+    animation-name: glow-red;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+@-webkit-keyframes glow-red {
+    0% { fill: hsl(1,89%,59%); }
+    100% { fill: hsl(1,89%,39%); }
+}
+@keyframes glow-red {
+    0% { fill: hsl(1,89%,59%); }
+    100% { fill: hsl(1,89%,39%); }
+}
 // MAPBOX ------------------------------
 
 .base .angular-leaflet-map .leaflet-map-pane .leaflet-objects-pane {
@@ -1184,4 +1209,8 @@ i[class*="icon"] {font-style: normal;}
   display: none !important;
 }
 
+// WARNINGS and ALERTS ------------------------------
+
 .compatibility-flag { margin: {top:50px;bottom:0;};}
+
+.alert .message { font-size: 18px; padding-top: 6px;}
