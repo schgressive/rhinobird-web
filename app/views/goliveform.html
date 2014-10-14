@@ -51,7 +51,7 @@
 					  <div class="validate" ng-show="vm.captionWarning">
 					  	<small class="info">Caption limited to 120 characters.</small>
 					  </div><!-- /.validate -->
-					  <div ng-show="vm.nearChannels.length">
+					  <div class="m_20b" ng-show="vm.nearChannels.length">
 							<p>Suggested channels:</p>
 							<ol class="channel-suggest inline no-bullets">
 								<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
@@ -119,7 +119,7 @@
 						  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
 						  			 role="submit" type="submit" value="Ready!"/>
 						  <input ng-click="ctrl.ready()"
-						  			 class="btn btn-accent btn-block"
+						  			 class="btn btn-accent btn-large btn-block"
 						  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
 						  			 role="submit" type="submit" value="Skip It!"/>
 						  <input ng-click="gotoProfile()"

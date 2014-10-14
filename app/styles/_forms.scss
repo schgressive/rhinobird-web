@@ -233,12 +233,20 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		padding: 10px 10px 20px;
 		background-color: $darkTrans2;
 		.controls-row {
-			.btn-checkbox { float: left; margin-right: 12px;}
+			.btn-checkbox {
+				float: left;
+				margin-right: 12px;
+				width: 46px;
+				height: 46px;
+				border-radius: 46px;
+				padding: 0px;
+			}
+			.btn-large { @include fontSize(18px);}
 			.btn-block {
 				display: block;
-				& + .btn-block { margin-top: 10px;}
+				& + .btn-block { margin-top: 14px;}
 			}
-			& + .controls-row { margin-top: 12px;}
+			& + .controls-row { margin-top: 20px;}
 		}
 	}
 	.status-wrapper {
@@ -247,7 +255,6 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		padding: 10px;
 		background-color: $darkTrans2;
 	}
-	.channel-suggest { margin-bottom: 20px;}
 }
 
 .modal, .mobileForm {
