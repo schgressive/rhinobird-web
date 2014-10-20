@@ -89,8 +89,7 @@
 					    </button>
 					    <button type="button"
 					  					class="btn btn-default btn-small btn-checkbox btn-archive"
-					  					ng-model=""
-					  					ng-click=""
+					  					ng-model="vm.sharingOptions.archive"
 					  					ng-disabled="!vm.camera.access"
 					  					btn-checkbox
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
@@ -167,7 +166,7 @@
     </section><!-- /.top-content -->
     <div class="row-fluid">
       <div class="span12">
-        <licode token="vm.goliveService.stream.token" flow="outbound" on="true" record="true" full-bleed></licode>
+        <licode token="vm.goliveService.stream.token" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
       </div>
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->

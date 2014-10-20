@@ -60,6 +60,9 @@
 	  </div>
 	  <div>
 		  <label class="checkbox inline">
+	      <input type="checkbox" ng-model="vm.sharingOptions.archive" class="ng-pristine ng-valid"> Keep a copy
+		  </label>
+		  <label class="checkbox inline">
 	      <input type="checkbox" ng-model="vm.sharingOptions.shareTwitter" ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)" class="ng-pristine ng-valid"> Tweet Your Video?
 		  </label>
 		  <label class="checkbox inline">

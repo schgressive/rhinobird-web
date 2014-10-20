@@ -35,7 +35,8 @@ angular.module('rhinobird.controllers')
     // Sharing Options
     vm.sharingOptions = {
       shareTwitter: $scope.user.shareTwitter,
-      shareFacebook: $scope.user.shareFacebook
+      shareFacebook: $scope.user.shareFacebook,
+      archive: true
     }
 
     // Golive service
