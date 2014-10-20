@@ -222,6 +222,77 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 }
 
+.btn.btn-twitter {
+	background: $twitterBlue url('../images/twitter-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken($twitterBlue, 10%);
+	&:active, &:focus { background-color: darken($twitterBlue, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken($twitterBlue, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+.btn.btn-facebook {
+	background: $facebookBlue url('../images/facebook-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken($facebookBlue, 10%);
+	&:active, &:focus { background-color: darken($facebookBlue, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken($facebookBlue, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+.btn.btn-whatsapp {
+	background: $whatsappGreen url('../images/whatsapp-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken($whatsappGreen, 10%);
+	&:active, &:focus { background-color: darken($whatsappGreen, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken($whatsappGreen, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+.btn.btn-geolocate {
+	background: #5634C2 url('../images/geolocate-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken(#5634C2, 10%);
+	&:active, &:focus { background-color: darken(#5634C2, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken(#5634C2, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+.btn.btn-archive {
+	background: #F40016 url('../images/archive-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken(#F40016, 10%);
+	&:active, &:focus { background-color: darken(#F40016, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken(#F40016, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+.btn.btn-flip {
+ 	background: $orange url('../images/flip-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken($orange, 10%);
+	&:active, &:focus { background-color: darken($orange, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken($orange, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+.btn.btn-hd {
+	background: #395059 url('../images/hdvideo-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: darken(#395059, 10%);
+	&:active, &:focus { background-color: darken(#395059, 10%);}
+	&:hover, &:active, &:focus {
+		border-color: darken(#395059, 25%);
+		box-shadow: 1px 1px 1px 1px $darkTrans inset;
+	}
+}
+
 .mobileForm {
 	color: $textOnDark;
 	background-color: transparent;

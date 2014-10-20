@@ -21,7 +21,7 @@
 							</svg>
 					  </span><!-- /.visible-desktop -->
 					  <span class="hidden-desktop">
-							<!-- this svg points up for desktop -->
+							<!-- this svg points down for mobile -->
 							<svg class="svg-animate"
 									 xmlns="http://www.w3.org/2000/svg"
 									 width="32px" height="32px" viewBox="0 0 32 32"
@@ -58,60 +58,63 @@
 							</ol>
 					  </div>
 					  <div class="controls controls-row">
+							<button type="button"
+					  					class="btn btn-default btn-small btn-checkbox btn-twitter"
+					  					ng-model="vm.sharingOptions.shareTwitter"
+					  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <span class="visually-hidden"> Tweet Your Video?</span>
+					    </button>
+					    <button type="button"
+					  					class="btn btn-default btn-small btn-checkbox btn-facebook"
+					  					ng-model="vm.sharingOptions.shareFacebook"
+					  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <span class="visually-hidden"> Post on Your Wall?</span>
+					    </button>
+					    <a href="#" ng-click="ctrl.shareWhatsapp()"
+					  					class="btn btn-default btn-small btn-checkbox btn-whatsapp">
+					        <span class="visually-hidden"> Share on WhatsApp</span>
+					    </a>
+					  </div><!-- /.controls.controls-row -->
+					  <div class="controls controls-row">
 					  	<button type="button"
-					  					class="btn btn-default btn-small btn-checkbox"
+					  					class="btn btn-default btn-small btn-checkbox btn-geolocate"
 					  					ng-model="vm.useGeolocation"
 					  					btn-checkbox
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
-					        <i class="icon-map-marker"></i>
 					        <span class="visually-hidden"> Enable Geolocation?</span>
 					    </button>
 					    <button type="button"
-					  					class="btn btn-default btn-small btn-checkbox"
+					  					class="btn btn-default btn-small btn-checkbox btn-archive"
+					  					ng-model=""
+					  					ng-click=""
+					  					ng-disabled="!vm.camera.access"
+					  					btn-checkbox
+					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					        <span class="visually-hidden"> Archive a Copy</span>
+					    </button>
+					    <button type="button"
+					  					class="btn btn-default btn-small btn-checkbox btn-flip"
 					  					ng-show="vm.camera.videoSources.length > 1"
 					  					ng-model="singleModel"
 					  					ng-click="vm.camera.toggleSource()"
 					  					ng-disabled="!vm.camera.access"
 					  					btn-checkbox
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
-					        <i class="icon-camera"></i>
 					        <span class="visually-hidden"> Flip Camera?</span>
 					    </button>
 					    <button type="button"
-					  					class="btn btn-default btn-small btn-checkbox"
+					  					class="btn btn-default btn-small btn-checkbox btn-hd"
 					  					ng-model="vm.camera.isHD"
 					  					ng-click="vm.camera.toggleHD()"
 					  					ng-disabled="!vm.camera.access"
 					  					btn-checkbox
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
-					        <i class="icon-facetime-video"></i>
 					        <span class="visually-hidden"> HD Video?</span>
 					    </button>
-					  </div><!-- /.controls.controls-row -->
-						<div class="controls controls-row">
-							<button type="button"
-					  					class="btn btn-default btn-small btn-checkbox"
-					  					ng-model="vm.sharingOptions.shareTwitter"
-					  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
-					        <i class="icon-retweet"></i>
-					        <span class="visually-hidden"> Tweet Your Video?</span>
-					    </button>
-					    <button type="button"
-					  					class="btn btn-default btn-small btn-checkbox"
-					  					ng-model="vm.sharingOptions.shareFacebook"
-					  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
-					        <i class="icon-thumbs-up"></i>
-					        <span class="visually-hidden"> Post on Your Wall?</span>
-					    </button>
-					    <a href="#" ng-click="ctrl.shareWhatsapp()"
-					  					class="btn btn-default btn-small btn-checkbox">
-					        <i class="icon-comment"></i>
-					        <span class="visually-hidden"> Share on WhatsApp</span>
-					    </a>
 					  </div><!-- /.controls.controls-row -->
 					  <div class="controls controls-row">
 						  <input ng-click="ctrl.ready()"
@@ -123,8 +126,8 @@
 						  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
 						  			 role="submit" type="submit" value="Skip It!"/>
 						  <input ng-click="gotoProfile()"
-						  			 class="btn btn-default btn-block"
-						  			 role="button" type="button" value="Cancel"/>
+						  			 class="btn btn-default btn-large btn-block"
+						  			 role="button" type="button" value="Take me to the website"/>
 					  </div><!-- /.controls.controls-row -->
 					</form><!-- /goliveForm -->
 				</div><!-- /.span12 -->
