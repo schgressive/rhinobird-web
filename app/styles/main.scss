@@ -157,7 +157,8 @@ article {
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 
-.golive footer {display: none;}
+.golive footer { display: none;}
+.video-container { background-color: #000;}
 .main.goliveMain {
 	border: none;
 	@media screen and (max-width: 980px) {margin-top: 42px;}

@@ -5,8 +5,8 @@
         <div class="span12">
 
          	<div class="alert alert-text" ng-hide="vm.camera.access">
-					  <span class="m_10b block">Please enable camera permissions for your browser.</span>
-					  <span class="visible-desktop">
+					  <span class="block">Please enable camera permissions for your browser.</span>
+					  <span class="m_10b visible-desktop">
 					  	<!-- this svg points up for desktop -->
 					  	<svg class="svg-animate"
 							     xmlns="http://www.w3.org/2000/svg"
@@ -20,19 +20,6 @@
 								C7.377,0.371,0.37,7.403,0.371,16z"/>
 							</svg>
 					  </span><!-- /.visible-desktop -->
-					  <span class="hidden-desktop">
-							<!-- this svg points down for mobile -->
-							<svg class="svg-animate"
-									 xmlns="http://www.w3.org/2000/svg"
-									 width="32px" height="32px" viewBox="0 0 32 32"
-									 enable-background="new 0 0 32 32" xml:space="preserve">
-								<rect fill="none" width="32" height="32"/>
-								<path class="flash" d="M17.537,17.016V7.064H14.15v9.951H8.913l7.192,7.267l7.006-7.267H17.537z M3.496,16C3.496,9.098,9.121,3.496,16,3.496
-									c6.877,0,12.503,5.602,12.503,12.504c0,6.877-5.626,12.48-12.503,12.48C9.121,28.48,3.496,22.877,3.496,16z M31.629,16
-									C31.63,7.377,24.623,0.37,16,0.37C7.376,0.369,0.37,7.378,0.37,16c0,8.599,7.006,15.63,15.63,15.629
-									C24.623,31.629,31.63,24.598,31.629,16z"/>
-								</svg>
-					  </span><!-- /.hidden-desktop -->
 					</div><!-- /.alert -->
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
@@ -105,7 +92,8 @@
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
 					        <span class="visually-hidden"> Flip Camera?</span>
 					    </button>
-					    <button type="button"
+					    <!--
+<button type="button"
 					  					class="btn btn-default btn-small btn-checkbox btn-hd"
 					  					ng-model="vm.camera.isHD"
 					  					ng-click="vm.camera.toggleHD()"
@@ -114,6 +102,7 @@
 					  					btn-checkbox-true="1" btn-checkbox-false="0">
 					        <span class="visually-hidden"> HD Video?</span>
 					    </button>
+-->
 					  </div><!-- /.controls.controls-row -->
 					  <div class="controls controls-row">
 						  <input ng-click="ctrl.ready()"
@@ -166,7 +155,7 @@
     </section><!-- /.top-content -->
     <div class="row-fluid">
       <div class="span12">
-        <licode token="vm.goliveService.stream.token" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
+        <licode class="video-container" token="vm.goliveService.stream.token" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
       </div>
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
