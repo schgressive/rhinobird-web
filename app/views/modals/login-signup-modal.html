@@ -87,50 +87,70 @@
 
 <div ng-show="loginModalAction == 'signup'">
   <form name="signupForm" role="form" ng-submit="registerUser()" ng-controller="SignupCtrl">
-    <label class="visually-hidden" for="input-email">Email</label>
-    <div class="input-prepend">
-      <span class="add-on"><i class="icon-envelope"></i></span>
-      <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
-      <div class="validate" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
-	    	<small class="warning" ng-show="signupForm.email.$invalid">
-	        This email is invalid. Please input a valid email.
-	      </small>
-	      <small class="error" ng-show="signupForm.email.$error.taken">
-	        This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
-	      </small>
-	    </div><!-- /.validate -->
-    </div>
-    <label class="visually-hidden" for="input-name">Name</label>
-    <div class="input-prepend">
-      <span class="add-on"><i class="icon-user"></i></span>
-      <input type="text" name="name" placeholder="your name" ng-model="regUser.name" required/>
-    </div>
-    <label class="visually-hidden" for="input-username">Username</label>
-    <div class="input-prepend">
-      <span class="add-on"><i class="icon-user"></i></span>
-      <input type="text" name="username" placeholder="your username" ng-model="regUser.username" ng-minlength=3 ng-maxlength=20 required/>
-      <div class="validate" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
-	      <small class="error" ng-show="signupForm.username.$error.taken">
-	        This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
-	      </small>
-	      <small class="warning" ng-show="signupForm.username.$error.minlength">
-	        A username must have at least 3 characters.
-	      </small>
-	      <small class="warning" ng-show="signupForm.username.$error.maxlength">
-	        A username can not have more than 20 characters.
-	      </small>
-	    </div><!-- /.validate -->
-    </div>
-    <label class="visually-hidden" for="password">Password</label>
-    <div class="input-prepend">
-      <span class="add-on"><i class="icon-lock"></i></span>
-      <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
-      <div class="validate" ng-show="signupForm.password.$invalid">
-	      <small class="error" ng-show="signupForm.password.$error.minlength">
-	        Passwords must be at least 8 characters long.
-	      </small>
-	    </div><!-- /.validate -->
-    </div>
+
+  	<fieldset name="mobileSignup" for="signupForm" class="hidden-desktop hidden-tablet">
+  		<label class="visually-hidden" for="input-email">Email</label>
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-envelope"></i></span>
+	      <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
+	      <div class="validate" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+		    	<small class="warning" ng-show="signupForm.email.$invalid">
+		        This email is invalid. Please input a valid email.
+		      </small>
+		      <small class="error" ng-show="signupForm.email.$error.taken">
+		        This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
+		      </small>
+		    </div><!-- /.validate -->
+	    </div>
+  	</fieldset><!-- /mobileSignup -->
+
+	  <fieldset name="desktopSignup" for="signupForm" class="hidden-phone">
+	    <label class="visually-hidden" for="input-email">Email</label>
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-envelope"></i></span>
+	      <input type="text" name="email" type="email" placeholder="email" ng-model="regUser.email" required/>
+	      <div class="validate" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+		    	<small class="warning" ng-show="signupForm.email.$invalid">
+		        This email is invalid. Please input a valid email.
+		      </small>
+		      <small class="error" ng-show="signupForm.email.$error.taken">
+		        This email is already registered. Did you <a href="#" ng-click="$parent.loginModalAction = 'password'">forget your password</a>?
+		      </small>
+		    </div><!-- /.validate -->
+	    </div>
+	    <label class="visually-hidden" for="input-name">Name</label>
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-user"></i></span>
+	      <input type="text" name="name" placeholder="your name" ng-model="regUser.name" required/>
+	    </div>
+	    <label class="visually-hidden" for="input-username">Username</label>
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-user"></i></span>
+	      <input type="text" name="username" placeholder="your username" ng-model="regUser.username" ng-minlength=3 ng-maxlength=20 required/>
+	      <div class="validate" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+		      <small class="error" ng-show="signupForm.username.$error.taken">
+		        This username is already registered. <a ng-click="$parent.loginModalAction = 'login'">Go to login</a>
+		      </small>
+		      <small class="warning" ng-show="signupForm.username.$error.minlength">
+		        A username must have at least 3 characters.
+		      </small>
+		      <small class="warning" ng-show="signupForm.username.$error.maxlength">
+		        A username can not have more than 20 characters.
+		      </small>
+		    </div><!-- /.validate -->
+	    </div>
+	    <label class="visually-hidden" for="password">Password</label>
+	    <div class="input-prepend">
+	      <span class="add-on"><i class="icon-lock"></i></span>
+	      <input type="password" name="password" placeholder="choose a password" ng-model="regUser.password" required/>
+	      <div class="validate" ng-show="signupForm.password.$invalid">
+		      <small class="error" ng-show="signupForm.password.$error.minlength">
+		        Passwords must be at least 8 characters long.
+		      </small>
+		    </div><!-- /.validate -->
+	    </div>
+	  </fieldset><!-- /mobileSignup -->
+
     <input class="btn btn-primary" type="submit" value="Create"/>
   </form>
 </div>

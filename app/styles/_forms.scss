@@ -371,6 +371,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		text-transform: uppercase;
 		margin: 6px 20px 0 0;
 		border: { width: 2px; style: solid;}
+		border-radius: $baseBorderRadius;
 		background-repeat: no-repeat;
 		background-position: 6px 50%;
 		background-size: 24px 24px;
