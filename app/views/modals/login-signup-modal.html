@@ -4,9 +4,11 @@
 <h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
 <h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
 <div ng-show="loginModalAction == 'login'">
-	<h4>Please sign in.</h4>
-	<div ng-show="loginModalAction == 'login'">
-    <h6><a href="#" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a> or <a href="#" ng-click="$parent.loginModalAction = 'password'">Forgot username or password?</a></h6>
+	<h4>Please sign in or <a href="#" class="btn btn-accent btn-small" ng-click="$parent.loginModalAction = 'signup'">Create new account?</a></h4>
+  <div class="m_20t m_20b">
+	  <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span>Facebook</span></a>
+	  <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span>Twitter</span></a>
+	  <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><span>Google</span></a>
   </div>
 	<form name="loginForm" class="clearfix" role="form" ng-submit="loginUser()" ng-controller="LoginCtrl">
     <label class="visually-hidden" for="email">Your email</label>
@@ -33,10 +35,7 @@
     </div>
     <input class="btn btn-primary" type="submit" value="Sign In"/>
   </form>
-	<h4>Or connect with:</h4>
-  <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span>Facebook</span></a>
-  <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span>Twitter</span></a>
-  <a class="btn-social" href="/registration/google_oauth2" target="_self" title="sign in with google"><span>Google</span></a>
+  <h6><a href="#" ng-click="$parent.loginModalAction = 'password'">Did you forget username or password?</a></h6>
 </div>
 
 <div ng-show="loginModalAction == 'password-reset'">

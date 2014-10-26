@@ -375,7 +375,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		background-position: 6px 50%;
 		background-size: 24px 24px;
 		padding: 11px 48px 11px 39px;
-		float: left;
+		display: inline-block;
 		@include font-smoothing;
 		@media screen and (max-width: 500px) {
 			width: 36px;
