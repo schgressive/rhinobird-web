@@ -39,7 +39,8 @@ angular.module('rhinobird.models')
       '@live': function(force){
         // Live
         var params = {
-          live: true
+          live: true,
+          archive: true
         };
 
         // Force check
