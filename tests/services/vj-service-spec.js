@@ -164,4 +164,65 @@ describe('vj service', function() {
 
   });
 
+  it('should broadcast the active pick changed event with the pick id', function() {
+    var msg, fired = false;
+    VjService.socket.stream.addEventListener('stream-data', function(evt){
+      fired = true;
+      msg = evt.msg;
+    });
+
+    VjService.activatePickByStreamId(2);
+
+    expect(fired).toBe(true);
+    expect(msg.event).toBe('active-pick-changed');
+    expect(msg.params.pickId).toBe(scope.picks[1].id);
+  });
+
+  it('should broadcast the active audio pick changed event with the pick id and fixed true', function() {
+    var msg, fired = false;
+    VjService.socket.stream.addEventListener('stream-data', function(evt){
+      fired = true;
+      msg = evt.msg;
+    });
+
+    VjService.fixAudioPickByStreamId(2);
+
+    expect(fired).toBe(true);
+    expect(msg.event).toBe('active-audio-pick-changed');
+    expect(msg.params.pickId).toBe(scope.picks[1].id);
+    expect(msg.params.fixedAudio).toBe(true);
+  });
+
+  it('should broadcast the active audio pick changed event with the pick id and fixed false', function() {
+    var msg, fired = false;
+    VjService.socket.stream.addEventListener('stream-data', function(evt){
+      fired = true;
+      msg = evt.msg;
+    });
+
+    VjService.unfixAudioPickByStreamId(2);
+
+    expect(fired).toBe(true);
+    expect(msg.event).toBe('active-audio-pick-changed');
+    expect(msg.params.pickId).toBe(scope.picks[1].id);
+    expect(msg.params.fixedAudio).toBe(false);
+  });
+
+  it('should broadcast the picks changed event with the pick id and remove action', function() {
+    var msg, fired = false;
+    VjService.socket.stream.addEventListener('stream-data', function(evt){
+      fired = true;
+      msg = evt.msg;
+    });
+
+    var pickIdToRemove = scope.picks[1].id
+
+    VjService.removePickByStreamId(2);
+
+    expect(fired).toBe(true);
+    expect(msg.event).toBe('picks-changed');
+    expect(msg.params.pickId).toBe(pickIdToRemove);
+    expect(msg.params.action).toBe('remove');
+  });
+
 });
