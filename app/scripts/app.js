@@ -313,7 +313,8 @@ angular.module('rhinobird', [
   streamViewerConfigProvider.addPreset('auto', '100%', '100%');
   streamViewerConfigProvider.setDefaultPreset('large');
 })
-.run(function($state, $rootScope, AuthService, CameraService){
+.run(function($state, $rootScope, AuthService, CameraService, mobileDetect, $location){
+  var isMobile = mobileDetect();
 
   $rootScope.$on('$stateChangeError', function (event, to) {
     if (to.name === 'golive') {
@@ -338,6 +339,12 @@ angular.module('rhinobird', [
   // Change the logged in status on session change
   $rootScope.$on('sessionChanged', function(event, session, logginStatus){
     app.isLoggedIn = logginStatus;
+  });
+
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+    if (isMobile && fromState.name === '' && toState.name === 'main') {
+      $location.path('/golive');
+    }
   });
 
   // On state success

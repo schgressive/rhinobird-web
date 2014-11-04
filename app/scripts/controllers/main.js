@@ -13,15 +13,18 @@ angular.module('rhinobird.controllers')
 
     // Set the user in scope
     $scope.user = AuthService.user;
+    AuthService.getSession().then(function() {},
+                                  function() {
+      if ($stateParams.signup) {
+        AuthService.askLogin('signup');
+      }
+
+    });
+
 
     if ($stateParams.reset_password_token) {
       AuthService.askLogin('password-reset');
     }
-
-    if ($stateParams.signup) {
-      AuthService.askLogin('signup');
-    }
-
 
     if ($stateParams.complete) {
       AuthService.finishSocialSignup($stateParams.complete);

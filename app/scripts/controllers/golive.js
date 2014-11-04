@@ -141,7 +141,7 @@ angular.module('rhinobird.controllers')
       var user = session.user.$pk;
       var currentUrl = $state.href("user",{userName: user}, {absolute: true});
       var text = "Watch me go live! ";
-      uri += encodeURIComponent(currentUrl);
+      uri = uri + text + encodeURIComponent(currentUrl);
       window.open(uri, "_blank");
     }
 

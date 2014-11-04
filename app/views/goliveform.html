@@ -35,16 +35,14 @@
 					  					class="btn btn-default btn-small btn-checkbox btn-twitter"
 					  					ng-model="vm.sharingOptions.shareTwitter"
 					  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					  					btn-checkbox>
 					        <span class="visually-hidden"> Tweet Your Video?</span>
 					    </button>
 					    <button type="button"
 					  					class="btn btn-default btn-small btn-checkbox btn-facebook"
 					  					ng-model="vm.sharingOptions.shareFacebook"
 					  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
+                      btn-checkbox>
 					        <span class="visually-hidden"> Post on Your Wall?</span>
 					    </button>
 					    <a href="#" ng-click="ctrl.shareWhatsapp()"
@@ -56,16 +54,14 @@
 					  	<button type="button"
 					  					class="btn btn-default btn-small btn-checkbox btn-geolocate"
 					  					ng-model="vm.useGeolocation"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					  					btn-checkbox>
 					        <span class="visually-hidden"> Enable Geolocation?</span>
 					    </button>
 					    <button type="button"
 					  					class="btn btn-default btn-small btn-checkbox btn-archive"
 					  					ng-model="vm.sharingOptions.archive"
 					  					ng-disabled="!vm.camera.access"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					  					btn-checkbox>
 					        <span class="visually-hidden"> Archive a Copy</span>
 					    </button>
 					    <button type="button"
@@ -74,8 +70,7 @@
 					  					ng-model="singleModel"
 					  					ng-click="vm.camera.toggleSource()"
 					  					ng-disabled="!vm.camera.access"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					  					btn-checkbox>
 					        <span class="visually-hidden"> Flip Camera?</span>
 					    </button>
 					    <!--
@@ -84,8 +79,7 @@
 					  					ng-model="vm.camera.isHD"
 					  					ng-click="vm.camera.toggleHD()"
 					  					ng-disabled="!vm.camera.access"
-					  					btn-checkbox
-					  					btn-checkbox-true="1" btn-checkbox-false="0">
+					  					btn-checkbox>
 					        <span class="visually-hidden"> HD Video?</span>
 					    </button>
 -->
