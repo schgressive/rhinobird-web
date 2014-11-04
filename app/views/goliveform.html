@@ -6,20 +6,6 @@
 
          	<div class="alert alert-warning" ng-hide="vm.camera.access">
 					  <span class="block">Please enable camera permissions for your browser.</span>
-					  <span class="m_10b visible-desktop">
-					  	<!-- this svg points up for desktop -->
-					  	<svg class="svg-animate"
-							     xmlns="http://www.w3.org/2000/svg"
-									 width="32px" height="32px" viewBox="0 0 32 32"
-									 enable-background="new 0 0 32 32" xml:space="preserve">
-									 <rect fill="none" width="32" height="32"/>
-									 <path class="flash"
-									 d="M14.463,14.985v9.951h3.386v-9.951h5.238l-7.192-7.267l-7.007,7.267H14.463z M28.504,16c0,6.903-5.625,12.504-12.504,12.504
-								C9.123,28.504,3.497,22.903,3.497,16C3.497,9.123,9.123,3.52,16,3.52C22.879,3.52,28.504,9.123,28.504,16z M0.371,16
-								C0.37,24.623,7.377,31.63,16,31.63C24.624,31.631,31.63,24.622,31.63,16c0-8.598-7.006-15.63-15.63-15.629
-								C7.377,0.371,0.37,7.403,0.371,16z"/>
-							</svg>
-					  </span><!-- /.visible-desktop -->
 					</div><!-- /.alert -->
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
@@ -153,6 +139,24 @@
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
     </section><!-- /.top-content -->
+
+	  <section class="goliveMobile">
+	  	<div class="row-fluid golive-view">
+	      <div class="loggedin-actions span12">
+	        <div ng-include="'/views/layouts/golive-actions.html'"></div>
+	      </div><!-- /.loggedin-action -->
+	      <div class="collapse-btn-wrapper">
+	    		<button class="btn btn-sm"
+	    			data-toggle="collapse" data-target="#actionBar" role="button">
+	    			<i class="icon-chevron-up"></i>
+	    		</button>
+	    	</div>
+	    </div><!-- /.golive-view.row-fluid -->
+	    <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
+	    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
+	    </div><!-- /.activity-flag -->
+	  </section><!-- /.goliveMobile -->
+
     <div class="row-fluid">
       <div class="span12">
         <licode class="video-container" token="vm.goliveService.stream.token" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
