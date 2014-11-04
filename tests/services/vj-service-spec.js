@@ -25,7 +25,7 @@ describe('vj service', function() {
           id: 1
         },
         streamId: 1,
-        active: true,
+        active: false,
         fixedAudio: false
       },
       {
@@ -58,10 +58,6 @@ describe('vj service', function() {
     ]
   };
 
-  var testActive = function(){
-
-  };
-
   beforeEach(inject(function($injector, $rootScope) {
     $httpBackend = $injector.get('$httpBackend');
     $controller = $injector.get('$controller');
@@ -86,7 +82,10 @@ describe('vj service', function() {
       .respond(200, angular.extend(vjResponse, { status: 'live' }));
 
     $httpBackend.whenPUT(/picks\/.*/)
-      .respond(200, angular.extend(vjResponse.picks[1], { active: true, active_audio: true }));
+      .respond(200, angular.extend(vjResponse.picks[1], { active: true, fixedAudio: true }));
+
+    $httpBackend.whenDELETE(/picks\/.*/)
+      .respond(200);
 
     $httpBackend.whenPOST(/vjs\/.*\/picks/)
       .respond(200, vjResponse.picks[1]);
@@ -99,7 +98,6 @@ describe('vj service', function() {
     // Start listening
     var user = User.$find(userResponse.username);
     var vjs = user.vjs.$search({'channel_name': channelName});
-
     $httpBackend.flush();
 
     VjSessionLiveCtrl = $controller('VjSessionLiveCtrl', {
@@ -115,6 +113,54 @@ describe('vj service', function() {
   it('should create a vj service socket', function() {
 
     expect(VjService.socket).not.toBe(null);
+
+  });
+
+  it('should have 4 picks', function() {
+
+    expect(scope.picks.length).toBe(4);
+
+  });
+
+  it('should deactivate other picks when a pick is activated', function() {
+    VjService.activatePickByStreamId(2);
+
+    expect(scope.picks[1]).toBeTheOnlyPickIn(scope.picks, 'active');
+
+  });
+
+  it('should fix audio to one pick', function() {
+    VjService.fixAudioPickByStreamId(2);
+
+    expect(scope.picks[1]).toBeTheOnlyPickIn(scope.picks, 'active');
+    expect(scope.picks[1]).toBeTheOnlyPickIn(scope.picks, 'fixedAudio');
+
+  });
+
+  it('should change the fix audio to te other picks', function() {
+    VjService.fixAudioPickByStreamId(3);
+
+    expect(scope.picks[1]).toBeTheOnlyPickIn(scope.picks, 'active');
+    expect(scope.picks[2]).toBeTheOnlyPickIn(scope.picks, 'fixedAudio');
+
+  });
+
+  it('should unfix fix audio to the pick', function() {
+    VjService.fixAudioPickByStreamId(3);
+
+    expect(scope.picks[2].fixedAudio).toBe(true);
+    expect(scope.picks[2]).toBeTheOnlyPickIn(scope.picks, 'fixedAudio');
+
+    VjService.unfixAudioPickByStreamId(3);
+
+    expect(scope.picks[2].fixedAudio).toBe(false);
+
+  });
+
+  it('should remove the stream', function() {
+    VjService.removePickByStreamId(3);
+
+    expect(scope.picks.length).toBe(3);
 
   });
 
