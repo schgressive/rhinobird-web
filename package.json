@@ -1,6 +1,6 @@
 {
   "name": "rhinobird",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "connect-livereload": "~0.2.0",
@@ -28,6 +28,7 @@
     "grunt-usemin": "~0.1.12",
     "karma": "^0.12.24",
     "karma-chrome-launcher": "^0.1.5",
+    "karma-osx-reporter": "^0.1.0",
     "karma-jasmine": "~0.2.0",
     "matchdep": "~0.1.2"
   },
