@@ -114,6 +114,7 @@ a:focus {
 
 .m_10t { margin-top: 10px;}
 .m_10b { margin-bottom: 10px;}
+.m_20t { margin-top: 20px;}
 .m_20b { margin-bottom: 20px;}
 .m_20r { margin-right: 20px;}
 
@@ -159,10 +160,12 @@ article {
 
 .golive footer { display: none;}
 .video-container { background-color: #000;}
-.main.goliveMain {
+.main.goliveMain, .main.mobileForm {
 	border: none;
 	@media screen and (max-width: 980px) {margin-top: 42px;}
 	@media screen and (max-width: 640px) {margin-top: 0;}
+}
+.main.goliveMain, .goliveMobile {
 	.golive-view {
 		padding-top: 9px;
 		@media screen and (max-width: 640px) {padding-top: 0; margin-top: 52px;}

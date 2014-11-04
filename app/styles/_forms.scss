@@ -196,7 +196,6 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background-color: $btnAccentBackground;
 	padding: {left:26px;right:26px;}
 	border-color: darken($btnAccentBackground, 5%);
-	@media screen and (max-width: 500px) {padding-top: 6px;}
 	@include font-smoothing;
 	&:hover {
 		background-color: darken($btnAccentBackground, 10%);
@@ -330,7 +329,15 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 
 .modal, .mobileForm {
 	h2 { margin-bottom: 8px;}
-	h4 { margin: 0 0 3px 0;}
+	h4 { margin: 0 0 3px 0;
+		a.btn-accent {
+			@media screen and (max-width: 500px) {
+				display: block;
+				width: 55%;
+				margin-top: 12px;
+			}
+		}
+	}
 	h6 {
 		a { text-decoration: underline;}
 		&.return-link {
@@ -340,16 +347,20 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 	form { margin: { top: 8px; bottom: 6px;}}
 	.alert {
-		color: $warningText;
 		text-align: center;
 		text-shadow: none;
 		padding: 8px 14px;
 		margin: 10px auto 15px;
-		border: 2px solid $warningText;
+		border-size: 2px;
+		border-style: solid;
 		background-color: $white;
 		-webkit-border-radius: $baseBorderRadius;
 		-moz-border-radius: $baseBorderRadius;
 		border-radius: $baseBorderRadius;
+		&.alert-info { color: $infoText; border-color: $infoText;}
+		&.alert-warning { color: $warningText; border-color: $warningText;}
+		&.alert-error { color: $errorText; border-color: $errorText;}
+		&.alert-success { color: $successText; border-color: $successText;}
 		strong {
 			font-family: $bold-font-stack;
 			font-weight: normal;
@@ -371,11 +382,12 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		text-transform: uppercase;
 		margin: 6px 20px 0 0;
 		border: { width: 2px; style: solid;}
+		border-radius: $baseBorderRadius;
 		background-repeat: no-repeat;
 		background-position: 6px 50%;
 		background-size: 24px 24px;
 		padding: 11px 48px 11px 39px;
-		float: left;
+		display: inline-block;
 		@include font-smoothing;
 		@media screen and (max-width: 500px) {
 			width: 36px;

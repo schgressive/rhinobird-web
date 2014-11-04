@@ -211,6 +211,10 @@ angular.module('rhinobird.controllers')
     // When the stream gets published
     $scope.$on('licode-stream-status-changed', function(event, params){
       if(params.status === 'added'){
+        $timeout(function() {
+          vm.connected = true;
+        }, 3000);
+
         // Update the stream id
         var payload = {
           streamId: params.stream.getID()

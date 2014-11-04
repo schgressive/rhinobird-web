@@ -1,4 +1,4 @@
-<div class="alert alert-text" ng-hide="vm.camera.access">
+<div class="alert alert-warning" ng-hide="vm.camera.access">
   <span class="message pull-left">Please enable camera permissions for your browser.</span>
   <span class="text-right visible-desktop">
   	<!-- this svg points up for desktop -->
@@ -84,7 +84,7 @@
 
     <div ng-show="vm.goliveService.connectingTime >= 20">
       <h3>Something is wrong, still trying...</h3>
-      <div class="alert alert-text">
+      <div class="alert alert-error">
         <p>You may have a network problem. Please wait or try again later.</p>
       </div>
     </div>
