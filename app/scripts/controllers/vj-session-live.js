@@ -12,7 +12,7 @@ angular.module('rhinobird.controllers')
     $scope.vj = vj;
 
     // The picks
-    $scope.picks = vj.picks.$fetch();
+    $scope.picks = vj.picks.$refresh();
 
     // The currently playing pick
     $scope.currentPick = null;
