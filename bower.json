@@ -13,7 +13,7 @@
     "jquery": "~2.0.0",
     "angular-restmod": "0.13",
     "angular-inflector": "0.0.2",
-    "angular-licode": "0.0.18",
+    "angular-licode": "0.0.19",
     "bootstrap-sass": "2.3.2",
     "owlcarousel": "*",
     "angular-ui-router": "0.2.11",
