@@ -1,6 +1,6 @@
 <div class="main mobileForm" role="main">
   <div class="width-controller container-fluid">
-    <section class="top-content">
+    <section class="top-content" ng-hide="vm.connected">
       <div class="row-fluid">
         <div class="span12">
 
@@ -134,7 +134,7 @@
       </div><!-- /.row-fluid -->
     </section><!-- /.top-content -->
 
-	  <section class="goliveMobile">
+	  <section class="goliveMobile" ng-show="vm.connected">
 	  	<div class="row-fluid golive-view">
 	      <div class="loggedin-actions span12">
 	        <div ng-include="'/views/layouts/golive-actions.html'"></div>
