@@ -31,12 +31,14 @@
     "karma-cli": "0.0.4",
     "karma-jasmine": "~0.2.0",
     "karma-osx-reporter": "^0.1.0",
-    "matchdep": "~0.1.2"
+    "karma-phantomjs-launcher": "^0.1.4",
+    "matchdep": "~0.1.2",
+    "phantomjs": "^1.9.12"
   },
   "engines": {
     "node": ">=0.8.0"
   },
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run --no-auto-watch --browsers PhantomJS"
+    "test": "./node_modules/.bin/karma start --single-run --no-auto-watch --browsers PhantomJS"
   }
 }
