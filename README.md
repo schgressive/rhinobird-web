@@ -1,7 +1,7 @@
 rhinobird-frontend
 ==================
 
-[![Build Status](https://travis-ci.org/rhinobird/rhinobird-web.svg)](https://travis-ci.org/rhinobird/rhinobird-web)
+[![Build Status](https://travis-ci.org/rhinobird/rhinobird-web.svg?branch=master)](https://travis-ci.org/rhinobird/rhinobird-web)
 
 # Tests
 
