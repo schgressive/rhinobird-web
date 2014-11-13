@@ -6,6 +6,7 @@ angular.module('rhinobird', [
   'infinite-scroll',
   'pl-licode',
   'leaflet-directive',
+  'angularMoment',
   'rhinobird.models',
   'rhinobird.services',
   'rhinobird.directives',
