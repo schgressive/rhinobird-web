@@ -104,8 +104,14 @@
 
 			this.el.addEventListener( 'click', initSearchFn );
 			this.el.addEventListener( 'touchstart', initSearchFn );
-			this.inputEl.addEventListener( 'click', function( ev ) { ev.stopPropagation(); });
-			this.inputEl.addEventListener( 'touchstart', function( ev ) { ev.stopPropagation(); } );
+			this.inputEl.addEventListener( 'click', function( ev ) {
+        self.open();
+        ev.stopPropagation();
+      });
+			this.inputEl.addEventListener( 'touchstart', function( ev ) {
+        self.open();
+        ev.stopPropagation();
+      } );
 		},
 		open : function() {
 			var self = this;
