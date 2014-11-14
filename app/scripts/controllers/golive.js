@@ -190,7 +190,7 @@ angular.module('rhinobird.controllers')
     });
 
     $scope.$on('golive', function() {
-      openDialog();
+      openGoliveModal();
     });
 
     $scope.$on('liveStreamStopped', function(event, data) {
