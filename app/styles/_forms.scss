@@ -225,8 +225,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background: $warmGray11 url('../images/twitter-icon-46.svg') center center no-repeat;
 	background-size: contain;
 	border-color: $white;
-	&.active { background-color: darken($twitterBlue, 10%);}
-	&:hover, &.active {
+	&.active {
+		background-color: darken($twitterBlue, 10%);
 		border-color: darken($twitterBlue, 25%);
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
@@ -235,8 +235,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background: $warmGray11 url('../images/facebook-icon-46.svg') center center no-repeat;
 	background-size: contain;
 	border-color: $white;
-	&.active { background-color: darken($facebookBlue, 10%);}
-	&:hover, &.active {
+	&.active {
+		background-color: darken($facebookBlue, 10%);
 		border-color: darken($facebookBlue, 25%);
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
@@ -245,8 +245,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background: $warmGray11 url('../images/whatsapp-icon-46.svg') center center no-repeat;
 	background-size: contain;
 	border-color: $white;
-	&.active { background-color: darken($whatsappGreen, 10%);}
-	&:hover, &.active {
+	&.active {
+		background-color: darken($whatsappGreen, 10%);
 		border-color: darken($whatsappGreen, 25%);
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
@@ -255,8 +255,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background: $warmGray11 url('../images/geolocate-icon-46.svg') center center no-repeat;
 	background-size: contain;
 	border-color: $white;
-	&.active { background-color: darken(#5634C2, 10%);}
-	&:hover, &.active {
+	&.active {
+		background-color: darken(#5634C2, 10%);
 		border-color: darken(#5634C2, 25%);
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
@@ -265,8 +265,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background: $warmGray11 url('../images/archive-icon-46.svg') center center no-repeat;
 	background-size: contain;
 	border-color: $white;
-	&.active { background-color: darken(#F40016, 10%);}
-	&:hover, &.active {
+	&.active {
+		background-color: darken(#F40016, 10%);
 		border-color: darken(#F40016, 25%);
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
@@ -303,6 +303,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		padding: 10px 10px 20px;
 		background-color: $darkTrans2;
 		.controls-row {
+			.btn:focus { outline: 0; }
 			.btn-checkbox {
 				float: left;
 				margin-right: 12px;
