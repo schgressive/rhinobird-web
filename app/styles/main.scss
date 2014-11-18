@@ -194,6 +194,14 @@ article {
 	}
 }
 
+/* Mobile caption and screenshoot toolbar white area fix */
+.goliveMobile {
+  #actionBar { position: absolute !important; left: 0; }
+  .collapse-btn-wrapper {
+    button { margin-left: 0 !important; }
+  }
+}
+
 .activity-flag {
 	width: 75px;
 	height: 75px;
