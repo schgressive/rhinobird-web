@@ -6,7 +6,7 @@ describe('vj service', function() {
   beforeEach(module('rhinobird.controllers'));
 
   var VjService, VjSessionLiveCtrl, scope, $httpBackend;
-  var channelName = 'channel test';
+  var channelNameResponse = 'channel test';
   var userResponse = {
     email: 'sirius@rhinobird.tv',
     name: 'Sirius Black',
@@ -15,7 +15,7 @@ describe('vj service', function() {
   var vjResponse = {
     id: "e491813b203a5cc841a65804cae88345",
     username: userResponse.username,
-    channelName: channelName,
+    channelName: channelNameResponse,
     status: "created",
     archivedUrl: null,
     picks: [
@@ -66,38 +66,42 @@ describe('vj service', function() {
     User = $injector.get('User');
     scope = $rootScope.$new();
 
+    var userMock = angular.copy(userResponse);
+    var vjMock = angular.copy(vjResponse);
+    var channelNameMock = angular.copy(channelNameResponse);
+
     $httpBackend.whenGET(/users\/siriusblack$/)
-      .respond(200, userResponse);
+      .respond(200, userMock);
 
     $httpBackend.whenGET(/users\/siriusblack\/vjs\?channel_name=channel\+test/ )
-      .respond(200, [vjResponse]);
+      .respond(200, [vjMock]);
 
     $httpBackend.whenGET(/vjs\/.*\/picks/)
-      .respond(200, vjResponse.picks);
+      .respond(200, vjMock.picks);
 
     $httpBackend.whenPOST('vjs')
-      .respond(201, vjResponse);
+      .respond(201, vjMock);
 
     $httpBackend.whenPUT(/vjs\/.*/)
-      .respond(200, angular.extend(vjResponse, { status: 'live' }));
+      .respond(200, angular.extend(vjMock, { status: 'live' }));
 
     $httpBackend.whenPUT(/picks\/.*/)
-      .respond(200, angular.extend(vjResponse.picks[1], { active: true, fixedAudio: true }));
+      .respond(200, angular.extend(vjMock.picks[1], { active: true, fixedAudio: true }));
 
     $httpBackend.whenDELETE(/picks\/.*/)
       .respond(200);
 
     $httpBackend.whenPOST(/vjs\/.*\/picks/)
-      .respond(200, vjResponse.picks[1]);
+      .respond(200, vjMock.picks[1]);
 
     // Start broadcast
-    VjService.startBroadcast(vjResponse.picks, 1, null, channelName, {lng: 5438579438759437, lat: 548357934875943});
+    VjService.startBroadcast(vjMock.picks, 1, null, channelNameMock, {lng: 5438579438759437, lat: 548357934875943});
 
     $httpBackend.flush();
 
     // Start listening
-    var user = User.$find(userResponse.username);
-    var vjs = user.vjs.$search({'channel_name': channelName});
+    var user = User.$find(userMock.username);
+    var vjs = user.vjs.$search({'channel_name': channelNameMock});
     $httpBackend.flush();
 
     VjSessionLiveCtrl = $controller('VjSessionLiveCtrl', {
