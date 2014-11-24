@@ -44,18 +44,21 @@ angular.module('rhinobird.controllers')
             var pickToFixAudio = vj.picks.getById(data.msg.params.pickId);
             pickToFixAudio.syncLocalState();
 
-            if(data.msg.params.fixedAudio){
-              _.each($scope.picks, function(_pick){
-                // Mute them
-                _pick.fixedAudio = false;
-              });
+            _.each($scope.picks, function(_pick){
+              // Mute them
+              _pick.fixedAudio = false;
+            });
 
-              pickToFixAudio.stream.isMuted = false;
+            // Unmute the fixed pick
+            pickToFixAudio.stream.isMuted = !data.msg.params.fixedAudio;
+            // Mute the active pick
+            if($scope.currentPick){
+              $scope.currentPick.stream.isMuted = data.msg.params.fixedAudio;
             }
 
             pickToFixAudio.fixedAudio = data.msg.params.fixedAudio;
             pickToFixAudio.stream.isMuted = !data.msg.params.fixedAudio;
-            $scope.currentAudioPick = (data.msg.params.fixedAudio)? pickToFixAudio : undefined;
+            $scope.currentAudioPick = (data.msg.params.fixedAudio)? pickToFixAudio : null;
           }
 
           if(data.msg.event === 'picks-changed'){
