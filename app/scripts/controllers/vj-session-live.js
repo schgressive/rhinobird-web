@@ -36,7 +36,7 @@ angular.module('rhinobird.controllers')
               pickToActivate.stream.isMuted = false;
             }
 
-            $scope.currentPick = pickToActivate.stream;
+            $scope.currentPick = pickToActivate;
           }
 
           if(data.msg.event === 'active-audio-pick-changed'){
@@ -84,20 +84,20 @@ angular.module('rhinobird.controllers')
       var pickEvent = _.find($scope.picks, function(s){return s.stream.licode && s.stream.licode.getID() === stream.getID();});
       var anyFixed = _.any($scope.picks, function(s){ return s.fixedAudio; });
 
-      // Only when there is no current stream
+      // Only when there is no current stream showing in video
       if(!$scope.currentPick){
 
         // Choose the one that's active to play in the main screen
         if(pickEvent.active){
           // Set the current stream
-          $scope.currentPick = pickEvent.stream;
+          $scope.currentPick = pickEvent;
         }
 
       }
 
       // Set the fixed audio if there is any
       if(pickEvent.fixedAudio){
-        $scope.currentAudioPick = pickEvent.stream;
+        $scope.currentAudioPick = pickEvent;
       }
 
       // Unmute the stream

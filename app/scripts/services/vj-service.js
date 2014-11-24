@@ -11,6 +11,9 @@ angular.module('rhinobird.services')
     // Intanciate a socket
     this.socket = null;
 
+    // Listeners
+    this.listeners = {};
+
     /**
      * Create the room based on the token
      * @param  {string} token Licode token
