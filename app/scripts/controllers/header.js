@@ -41,7 +41,7 @@ angular.module('rhinobird.controllers')
 
     $scope.golive = function() {
       if ($state.includes('golive') && !$scope.app.onAir) {
-        $rootScope.$broadcast('golive', {});
+        $state.reload();
       } else {
         $state.go('golive');
       }
