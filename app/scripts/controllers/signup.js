@@ -20,10 +20,10 @@ angular.module('rhinobird.controllers')
         AuthService.user.email = user.email;
         AuthService.user.name = user.name;
 
-        // close form after 2 seconds
-        $timeout(function() {
+        // Auto close modal form after auto-sign-in
+        AuthService.login(userData).then(function () {
           $scope.$close();
-        }, 2000);
+        });
       },
       function(e){
         vm.unknownError = false;
