@@ -442,19 +442,34 @@ i[class*="icon"] {font-style: normal;}
 			-o-animation:glow 2s infinite; /* Opera */
 			animation:glow 2s infinite;
     }
-    &.test {outline: blue solid 2px;}
 }
 
-@-webkit-keyframes glow /* Safari and Chrome */ {
-    0% {-moz-box-shadow: 0 0 3px 3px #ef4135;
-    -webkit-box-shadow: 0 0 3px 3px #ef4135;
-    box-shadow: 0 0 3px 3px #ef4135;}
-    50% {-moz-box-shadow: 0 0 5px 5px #ef4135;
-    -webkit-box-shadow: 0 0 5px 5px #ef4135;
-    box-shadow: 0 0 5px 5px #ef4135;}
-    100% {-moz-box-shadow: 0 0 3px 3px #ef4135;
-    -webkit-box-shadow: 0 0 3px 3px #ef4135;
-    box-shadow: 0 0 3px 3px #ef4135;}
+/* Safari and Chrome */
+@-webkit-keyframes glow {
+    0% {
+    		-moz-box-shadow: 0 0 0 0 #ef4135;
+				-webkit-box-shadow: 0 0 0 0 #ef4135;
+				box-shadow: 0 0 0 0 #ef4135;
+			}
+		25% {
+    		-moz-box-shadow: 0 0 2px 2px #ef4135;
+				-webkit-box-shadow: 0 0 2px 2px #ef4135;
+				box-shadow: 0 0 2px 2px #ef4135;
+			}
+    50% {
+    		-moz-box-shadow: 0 0 4px 4px #ef4135;
+				-webkit-box-shadow: 0 0 4px 4px #ef4135;
+				box-shadow: 0 0 4px 4px #ef4135;}
+		75% {
+    		-moz-box-shadow: 0 0 2px 2px #ef4135;
+				-webkit-box-shadow: 0 0 2px 2px #ef4135;
+				box-shadow: 0 0 2px 2px #ef4135;
+			}
+    100% {
+    	-moz-box-shadow: 0 0 0 0 #ef4135;
+			-webkit-box-shadow: 0 0 0 0 #ef4135;
+			box-shadow: 0 0 0 0 #ef4135;
+		}
 }
 
 // based on expanding search bar from http://codrops.com
