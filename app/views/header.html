@@ -39,8 +39,39 @@
             </div>
             <a href="/" class="brand" title="return to home" rel="home"><span class="visually-hidden">rhinobird.tv</span></a>
           </div><!-- /.main-nav-wrapper -->
-          <a class="golive-btn pull-right livebtn" ng-hide="app.onAir" ng-click="golive()" href="#" role="button"><span class="visually-hidden">Go Live</span></a>
-          <a class="golive-btn pull-right stopStream" ng-show="app.onAir" ng-click="stopBroadcast({goback: false})" href="#" role="button"><span class="visually-hidden">Stop</span></a>
+          <a class="golive-btn pull-right livebtn" ng-hide="app.onAir" ng-click="golive()" href="#" role="button">
+          	<span class="golive-icon">
+							<svg xmlns="http://www.w3.org/2000/svg"
+									 xmlns:xlink="http://www.w3.org/1999/xlink"
+									 x="0px" y="0px"
+									 width="24px" height="24px"
+									 viewBox="0 0 24 24"
+									 enable-background="new 0 0 24 24"
+									 xml:space="preserve">
+									<g>
+										<circle fill="#F92D30" cx="12" cy="12" r="11.543"/>
+										<circle fill="#660F0E" cx="12" cy="12" r="5.61"/>
+										<circle fill="#FFFFFF" cx="18.693" cy="12" r="2.534"/>
+									</g>
+							</svg>
+          	</span>
+          	<span class="hidden-phone">Go Live</span>
+          </a>
+          <a class="golive-btn pull-right stopStream" ng-show="app.onAir" ng-click="stopBroadcast({goback: false})" href="#" role="button">
+          	<span class="golive-icon" ng-class="{true: 'glow'}[app.onAir]">
+          		<svg xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								x="0px" y="0px"
+								width="24px" height="24px"
+								viewBox="0 0 24 24"
+								enable-background="new 0 0 24 24"
+								xml:space="preserve">
+								<circle fill="#F92D30" cx="12" cy="12" r="11.123"/>
+								<rect x="6.625" y="6.625" fill="#660F0E" width="10.75" height="10.75"/>
+							</svg>
+          	</span>
+          	<span class="hidden-phone">Stop</span>
+          </a>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div><!-- /.inner-navbar -->
