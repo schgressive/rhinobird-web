@@ -397,17 +397,16 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .golive-btn {
-	color: $navbarText;
+	color: $tan;
 	font-family: $bold-font-stack;
 	font-size: 16px;
 	text-transform: uppercase;
-	width: 96px;
 	height: 24px;
 	margin-top: 13px;
-	background: transparent url('/images/goLive-hover-btn.svg') top right no-repeat;
 	display: block;
 	&:hover { background-color: transparent;}
-	&.livebtn:hover {	@media screen and (min-width: 501px) { width:110px;}}
+	/*
+&.livebtn:hover {	@media screen and (min-width: 501px) { width:110px;}}
 	@media screen and (max-width: 580px) {
 		width: auto;
 		height: 20px;
@@ -415,6 +414,8 @@ i[class*="icon"] {font-style: normal;}
 		margin-top: 0;
 		background: url('/images/goLive-icon.svg') 0px 12px no-repeat;
 	}
+*/
+/*
 	&.stopStream {
 		width: 76px;
 		background-image: url('/images/goLive-stop-btn.svg');
@@ -423,6 +424,52 @@ i[class*="icon"] {font-style: normal;}
 			background-image: url('/images/goLive-icon-stop.svg');
 		}
 	}
+*/
+	span { vertical-align: middle;} /*keeps icon inline with text */
+}
+
+.golive-icon { /* container for svg icon */
+		width: 24px;
+		height: 24px;
+		background-color: $red;
+		margin-right: 4px;
+		border-radius: 50%;
+		display: inline-block;
+    &.glow {
+	    animation:glow 2s infinite;
+			-moz-animation:glow 2s infinite; /* Firefox */
+			-webkit-animation:glow 2s infinite; /* Safari and Chrome */
+			-o-animation:glow 2s infinite; /* Opera */
+			animation:glow 2s infinite;
+    }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes glow {
+    0% {
+    		-moz-box-shadow: 0 0 0 0 #ef4135;
+				-webkit-box-shadow: 0 0 0 0 #ef4135;
+				box-shadow: 0 0 0 0 #ef4135;
+			}
+		25% {
+    		-moz-box-shadow: 0 0 2px 2px #ef4135;
+				-webkit-box-shadow: 0 0 2px 2px #ef4135;
+				box-shadow: 0 0 2px 2px #ef4135;
+			}
+    50% {
+    		-moz-box-shadow: 0 0 4px 4px #ef4135;
+				-webkit-box-shadow: 0 0 4px 4px #ef4135;
+				box-shadow: 0 0 4px 4px #ef4135;}
+		75% {
+    		-moz-box-shadow: 0 0 2px 2px #ef4135;
+				-webkit-box-shadow: 0 0 2px 2px #ef4135;
+				box-shadow: 0 0 2px 2px #ef4135;
+			}
+    100% {
+    	-moz-box-shadow: 0 0 0 0 #ef4135;
+			-webkit-box-shadow: 0 0 0 0 #ef4135;
+			box-shadow: 0 0 0 0 #ef4135;
+		}
 }
 
 // based on expanding search bar from http://codrops.com
