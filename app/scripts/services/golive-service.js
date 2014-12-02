@@ -57,6 +57,8 @@ angular.module('rhinobird.services')
       // Disconnect from room
       CameraService.licodeStream.room.disconnect();
 
+      //self.status = "disconnected";
+
       // Put the stream with live flag false
       return this.stream.$promise;
     };
@@ -124,6 +126,7 @@ angular.module('rhinobird.services')
       else if(params.status === 'disconnected'){
         self.status = 'disconnected';
         $rootScope.app.onAir = false;
+        self.connectingTime = 0;
       }
     });
 

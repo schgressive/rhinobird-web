@@ -1,6 +1,6 @@
 <div class="main mobileForm" role="main">
   <div class="width-controller container-fluid">
-    <section class="top-content" ng-hide="vm.connected">
+    <section class="top-content" ng-hide="vm.goliveService.status == 'connected'">
       <div class="row-fluid">
         <div class="span12">
 
@@ -134,7 +134,7 @@
       </div><!-- /.row-fluid -->
     </section><!-- /.top-content -->
 
-	  <section class="goliveMobile" ng-show="vm.connected">
+	  <section class="goliveMobile" ng-show="vm.goliveService.status == 'connected'">
 	  	<div class="row-fluid golive-view">
 	      <div class="loggedin-actions span12">
 	        <div ng-include="'/views/layouts/golive-actions.html'"></div>
@@ -146,7 +146,7 @@
 	    		</button>
 	    	</div>
 	    </div><!-- /.golive-view.row-fluid -->
-	    <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
+	    <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending">
 	    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
 	    </div><!-- /.activity-flag -->
 	  </section><!-- /.goliveMobile -->

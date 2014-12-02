@@ -78,16 +78,19 @@ angular.module('rhinobird.controllers')
 
     // Stop the current broadcast
     this.stop = function(goback){
-      streamLive = false;
-      // Stop the broadcast in the golive service
-      GoliveService.stopBroadcast().then(function(){
-        // Go back
-        if(goback && CameraService.licodeStream.stream){
-          CameraService.licodeStream.stream.stop();
-          $state.go('profile');
-        }
+      // Only cancel if theres no stream operation pending
+      if (vm.goliveService.stream && !vm.goliveService.stream.$pending && vm.goliveService.stream.status == "live") {
+        streamLive = false;
+        // Stop the broadcast in the golive service
+        GoliveService.stopBroadcast().then(function(){
 
-      });
+          // Go back
+          if(goback){
+            $state.go('profile');
+          }
+
+        });
+      }
 
     };
 
