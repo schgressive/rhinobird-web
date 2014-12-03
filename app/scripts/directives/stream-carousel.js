@@ -22,6 +22,12 @@ angular.module('rhinobird.directives')
           scope.currentStream = stream;
         };
 
+
+        // Hides the stream from carrousel
+        scope.hideStream = function(stream) {
+          removeStream(stream.streamId, true);
+        }
+
         // Change the main stream
         scope.setAsFixedAudio = function(stream, e){
           e.stopPropagation();

@@ -1086,6 +1086,14 @@ i[class*="icon"] {font-style: normal;}
 		position: absolute;
 		top: 0;
 	}
+  .streamHide {
+		padding: 2px 5px 0px 5px;
+    margin-right: 15px;
+		background-color: $white;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 	.module-outer { height: inherit;}
 }
 
