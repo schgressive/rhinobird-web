@@ -1206,6 +1206,29 @@ i[class*="icon"] {font-style: normal;}
     0% { fill: hsl(1,89%,59%); }
     100% { fill: hsl(1,89%,39%); }
 }
+
+.vj-on {
+    fill: $orange;
+    -webkit-animation-name: vjGlow;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+    animation-name: vjGlow;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+@-webkit-keyframes vjGlow {
+    0% { fill: $orange;}
+    100% { fill: darken($orange, 20%);}
+}
+@keyframes vjGlow {
+    0% { fill: $orange;}
+    100% { fill: darken($orange, 20%);}
+}
+
 // MAPBOX ------------------------------
 
 .base .angular-leaflet-map .leaflet-map-pane .leaflet-objects-pane {

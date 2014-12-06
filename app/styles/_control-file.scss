@@ -17,13 +17,12 @@ $grayLight											: hsla(0,0%,87%,1); /*DEDEDE*/
 $grayLighter										: hsla(0,0%,93%,1); /*eee*/
 $white													: hsla(0,0%,100%,1); /*FFF*/
 $darkTrans											: hsla(0,0%,0%,.5);
-$darkTrans2											: rgba(38,34,31,.75);
+$darkTrans2											: hsla(0,0%,0%,.75);
 
 // Brand Colors ------------------------------
 
-$red														: rgba(239,65,53,1); /*EF4135*/
-$orange													:	rgba(255,163,0,1); /*FFA300*/
-$gold														: hsla(32,100%,61%,1);
+$red														: hsla(1,89%,59%,1); /*EF4135*/
+$orange													:	hsla(32,100%,61%,1); /*FFA300*/
 
 // Accent Colors ------------------------------
 
@@ -31,10 +30,10 @@ $green													: hsla(156,100%,35%,1); /*00CC7C*/
 $yellow													: hsla(41,70%,54%,1); /*DCA938*/
 $blue														: hsla(204,56%,34%,1); /*256188*/
 $tan														: hsla(25,17%,51%,1); /*977E6B*/
-$warmGray1											: rgba(215,210,203,1); /*D7D2CB*/
-$warmGray4											: rgba(182,173,165,1); /*B6ADA5*/
-$warmGray7											: rgba(150,140,131,1); /*968C83*/
-$warmGray11											: rgba(110,98,89,1); /*6E6259*/
+$warmGray1											: hsla(33,12%,82%,1); /*D7D2CB*/
+$warmGray4											: hsla(25,10%,68%,1); /*B6ADA5*/
+$warmGray7											: hsla(27,8%,55%,1); /*968C83*/
+$warmGray11											: hsla(23,10%,39%,1); /*6E6259*/
 $beigeLight											: hsla(25,20%,93%,1); /*F1EDEA*/
 
 // Social Media Colors -----------------------
@@ -95,7 +94,7 @@ $inputBackgroundFocus						: $beigeLight;
 $inputDisabledBackground				: $grayLighter;
 $btnBackground									:	$beigeLight;
 $btnDisabledBackground					:	$grayLighter;
-$btnPrimaryBackground						: $gold;
+$btnPrimaryBackground						: $orange;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
 $btnPrimaryBackgroundHover			: $red;
 $btnFeatureBackground						: $warmGray11;
