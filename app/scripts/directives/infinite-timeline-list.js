@@ -6,7 +6,8 @@ angular.module('rhinobird.directives')
       templateUrl: '/views/templates/infinite-timeline-list.html',
       restrict: 'EA',
       scope: {
-        timeline: '='
+        timeline: '=',
+        allowDelete: '='
       },
       link: function postLink() {
       }
