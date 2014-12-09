@@ -1,5 +1,12 @@
 <div class="module-inner">
   <div class="module-video">
+    <div class="delete-btn" ng-if="allowDelete">
+      <button class="btn btn-mini" ng-click="removeItem(tl_item)">
+        <i class="icon-remove">
+          <span class="visually-hidden">delete video</span>
+        </i>
+      </button>
+    </div>
     <a ui-sref="vjsession({vjId: vj.id})" ng-if="vj.status !== 'live'" class="live-stream-link">
       <img ng-src="{{vj.thumbs.medium}}"/>
       <div class="timelineStatus vj" ng-class="vj.status"><span class="visually-hidden">{{vj.getStatusMessage()}}</span></div>
@@ -20,12 +27,6 @@
 			</a>
 			<span>#{{vj.channelName}}</span>
 		</li>
-		<!--
-<li class="ellipsis">
-			<span ng-show="stream.caption == 0">untitled</span>
-      <span ng-bind-html="stream.caption | hashToLink"></span>
-		</li>
--->
 		<li class="ellipsis">
       <a href="#" ui-sref="explore({lat: vj.geometry.coordinates[1], lng: vj.geometry.coordinates[0]})"><i class="icon-map-marker"></i></a>
 			<span ng-hide="vj.properties.city">anonymous</span>
