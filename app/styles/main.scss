@@ -194,6 +194,21 @@ article {
 	}
 }
 
+.stream-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+}
+
+.golive-features {
+	position: absolute;
+  bottom: 20px;
+  left: 0;
+  padding: 2px 20px;
+	.commentBox { color: $textOnDark; padding: 3px 0; background-color: $darkTrans;}
+}
+
 /* Mobile caption and screenshoot toolbar white area fix */
 .goliveMobile {
   #actionBar { position: absolute !important; left: 0; }

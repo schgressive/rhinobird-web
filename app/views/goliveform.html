@@ -134,7 +134,10 @@
       </div><!-- /.row-fluid -->
     </section><!-- /.top-content -->
 
-	  <section class="goliveMobile" ng-show="vm.goliveService.status == 'connected'">
+    </div><!-- /.container-fluid -->
+</div><!-- /.main -->
+<div class="container-fluid">
+	<section class="goliveMobile" ng-show="vm.goliveService.status == 'connected'">
 	  	<div class="row-fluid golive-view">
 	      <div class="loggedin-actions span12">
 	        <div ng-include="'/views/layouts/golive-actions.html'"></div>
@@ -149,12 +152,38 @@
 	    <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending">
 	    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
 	    </div><!-- /.activity-flag -->
+	    <div class="golive-features">
+		    	<p class="block">
+		    		<i class="icon-eye-open icon-white"></i>
+		    		25
+		    	</p>
+		    	<p class="block">
+		    		<i class="icon-thumbs-up icon-white"></i>
+		    		4
+		    	</p>
+		    	<p class="block">
+		    		<a  data-toggle="collapse"
+			    			data-target="#commentBox"
+				    		role="button">
+			    		<i class="icon-comment icon-white"></i>
+			    		<span>3 comments</span>
+		    		</a>
+		    	</p>
+		    	<div class="commentBox collapse" id="commentBox">
+			    	<ul class="no-bullets">
+				    	<li><p>Comments here needs character limit</p></li>
+				    	<li><p>Small batch taxidermy Williamsburg, art party post-ironic Echo Park selfies authentic yr try-hard readymade lomo distillery freegan hashtag</p></li>
+				    	<li><p>Three shown max?</p></li>
+			    	</ul>
+		    	</div>
+	    </div><!-- /.golive-features -->
 	  </section><!-- /.goliveMobile -->
+</div><!-- /.container-fluid -->
 
-    <div class="row-fluid">
-      <div class="span12">
-        <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
-      </div>
-    </div><!-- /.row-fluid -->
-  </div><!-- /.container-fluid -->
-</div><!-- /.main -->
+<div class="container-fluid stream-wrapper" ng-show="vm.goliveService.status == 'connected'">
+  <div class="row-fluid">
+    <div class="span12">
+      <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
+    </div>
+  </div><!-- /.row-fluid -->
+</div><!-- /.container-fluid -->
