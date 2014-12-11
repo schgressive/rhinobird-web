@@ -10,11 +10,16 @@ angular.module('rhinobird.services').
         return (screenfull.enabled && screenfull.isFullscreen);
       },
 
+      disableFullScreen: function () {
+        if (this.isEnabled)
+          screenfull.exit();
+      },
+
       toggleFullscreen: function (element) {
         if (!screenfull.enabled)
           return;
 
-        if(this.isEnabled()) {
+        if (this.isEnabled()) {
           screenfull.exit();
         } else if (element) {
           screenfull.request(element);

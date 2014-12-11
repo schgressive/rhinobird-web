@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, DetectRTCService, $state) {
+  .controller('HeaderCtrl', function ($scope, $location, $rootScope, AuthService, DetectRTCService, $state, FullscreenService) {
 
     // Catch the unauthorized pages
     $rootScope.$on('$routeChangeError', function (event, parameters) {
@@ -34,12 +34,12 @@ angular.module('rhinobird.controllers')
       $rootScope.streamingOptions.show = !$rootScope.streamingOptions.show;
     };
 
-    // Emit stop broadcast event
-    $scope.stopBroadcast = function(params){
+    $rootScope.stopBroadcast = function(params){
+      FullscreenService.disableFullScreen();
       $rootScope.$broadcast('liveStreamStopped', params);
     };
 
-    $scope.golive = function() {
+    $rootScope.golive = function() {
       if ($state.includes('golive') && !$scope.app.onAir) {
         $rootScope.$broadcast('golive', {});
       } else {
