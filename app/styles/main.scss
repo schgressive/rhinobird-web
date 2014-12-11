@@ -202,11 +202,22 @@ article {
 }
 
 .golive-features {
+	color: $textOnDark;
 	position: absolute;
   bottom: 20px;
   left: 0;
-  padding: 2px 20px;
-	.commentBox { color: $textOnDark; padding: 3px 0; background-color: $darkTrans;}
+  padding: 6px 20px;
+  background-color: rgba(0, 0, 0, 0.25);
+  a {
+	  color: $textOnDark;
+	  text-decoration: underline;
+	  &:hover { background-color: transparent;}
+	  }
+	.commentBox {
+		color: $textOnDark;
+		background-color: $darkTrans;
+		.inner { padding: 3px 6px;}
+	}
 }
 
 /* Mobile caption and screenshoot toolbar white area fix */
