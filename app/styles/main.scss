@@ -40,6 +40,17 @@ html {
 	@media screen and (max-width: 1100px) {font-size: 13px;} /* Tablet Landscape */
 }
 
+// Fullscreen tweeks
+body.fullscreen .mainWrapper {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+
+  .golive-view {
+    margin-top: 0;
+  }
+}
+
 body.base {
 	color: $textColor;
 	font-family: $baseFontFamily;
