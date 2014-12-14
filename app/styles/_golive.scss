@@ -1,0 +1,105 @@
+// ------------ GOLIVE FILE --------------
+// for GoLive (desktop and mobile) styles
+
+
+.golive footer { display: none;}
+
+.golive-view {
+	width: 100%;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	.contents { margin-top: 10px; margin-left: 45px;}
+	form {
+		margin-bottom: 10px;
+		@media screen and (max-width: 640px) { margin-top: 10px; margin-left: 5px;}
+		input[type="text"] {
+			padding: 0 6px;
+			@media screen and (max-width: 640px) { width: 200px;}
+		}
+		.btn {
+			border-color: $white;
+			background-color: $white;
+			color: $black;
+			&[disabled="disabled"] { border-color: transparent;}
+		}
+	}
+}
+
+.actionBar {
+	background-color: $darkTrans2;
+	.validate {
+		margin-top: 52px;
+		padding-bottom: 8px;
+		@media screen and (max-width: 640px) { margin-top: 74px;}
+	}
+}
+
+.stream-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+}
+
+.golive-features {
+	color: $textOnDark;
+	width: 100%;
+	position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 6px 20px 10px;
+  background-color: $darkTrans2;
+  .btn-link {
+	  color: $textOnDark;
+	  text-decoration: underline;
+	  padding-left: 0;
+	  &:hover { background-color: transparent;}
+	 }
+}
+.commentBox {
+		color: $textOnDark;
+		background-color: $darkTrans;
+		position: absolute;
+		top: 28%;
+		left: 50%;
+		width: 74%;
+		margin-left: -37%;
+		.inner { 	padding: 6px 20px;}
+		textarea { background-color: $darkTrans2; color: $textOnDark; width: 92%;}
+		.cBox-user { font-weight: 700;}
+		.close { color: $textOnDark;}
+	}
+
+.activity-flag {
+	width: 75px;
+	height: 75px;
+	border-radius: 38px;
+	background-color: $darkTrans;
+	position: absolute;
+	z-index: 999999;
+	top:33%;
+	right:50%;
+	margin-right: -60px;
+	@media screen and (max-width: 980px) { margin-right: -56px;}
+	@media screen and (max-width: 640px) { margin-right: -44px;}
+	@media screen and (max-width: 560px) { margin-right: -40px;}
+	@media screen and (max-width: 443px) { margin-right: -38px;}
+}
+
+.collapse-btn-wrapper {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+// Fullscreen tweeks
+body.fullscreen .mainWrapper {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  .golive-btn { margin-top: 0; margin-right: 15px;}
+  .golive-view { top: 3px;}
+  .collapse-btn-wrapper { top: 18px;}
+  .golive-view .contents form { margin-top: 10px;}
+}

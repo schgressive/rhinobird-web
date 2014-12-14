@@ -28,7 +28,7 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @include font-face("Listicons", font-files("/fonts/listicons-webfont.woff", woff, "/fonts/listicons-webfont.ttf", truetype), "listicons-webfont.eot");
 
-@import "forms"; /*imports styles for forms*/
+@import "vendor/font-awesome.scss"; /*imports Font Awesome SASS*/
 
 // Global Styles ------------------------------
 
@@ -38,22 +38,6 @@ html {
 	@media screen and (min-width: 1600px) {font-size: 18px;} /* Large Monitors */
 	@media screen and (max-width: 1400px) {font-size: 14px;} /* Small Laptops */
 	@media screen and (max-width: 1100px) {font-size: 13px;} /* Tablet Landscape */
-}
-
-// Fullscreen tweeks
-body.fullscreen .mainWrapper {
-  height: 100%;
-  width: 100%;
-  background: transparent;
-
-  .golive-btn {
-    margin-top: 0;
-    margin-right: 15px;
-  }
-
-  .golive-view {
-    margin-top: 0;
-  }
 }
 
 body.base {
@@ -110,17 +94,6 @@ table caption, .visually-hidden {display:none !important;}
   &:hover { background-color: rgba(135, 135, 135, 0.50); background-image: url('/images/top-icon-wht-24.svg');}
 }
 
-[data-icon]:after {
-	font-family: "Listicons";
-	font-size: 24px;
-	line-height: 10px;
-	display: inline-block;
-	vertical-align: middle;
-	padding-left: 6px;
-	content: attr(data-icon);
-	speak: none;
-}
-
 a:focus {
 	outline: dashed $warmGray1 1px;
 	outline-offset: 5px;
@@ -174,99 +147,7 @@ article {
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 
-.golive footer { display: none;}
 .video-container { background-color: #000;}
-.main.goliveMain, .main.mobileForm {
-	border: none;
-	@media screen and (max-width: 980px) {margin-top: 42px;}
-	@media screen and (max-width: 640px) {margin-top: 0;}
-}
-.main.goliveMain, .goliveMobile {
-	.golive-view {
-		padding-top: 9px;
-		@media screen and (max-width: 640px) {padding-top: 0; margin-top: 52px;}
-		.btn-sm { margin-left: 10px;}
-		.contents { margin-top: 10px;
-			button { margin: 0 10px 0 60px;}
-		}
-		form {
-			@media screen and (max-width: 443px) { margin: 10px 0 0 10px;}
-			input[type="text"] {
-				@media screen and (max-width: 560px) { width: 150px;}
-				@media screen and (max-width: 443px) { width: 200px;}
-			}
-			.btn {
-				border-color: $white;
-				background-color: $white;
-				color: $black;
-				&[disabled="disabled"] { border-color: transparent;}
-			}
-		}
-	}
-	.loggedin-actions .validate {
-		margin-top: 52px;
-		padding-bottom: 8px;
-		@media screen and (max-width: 443px) { margin-top: 92px;}
-	}
-}
-
-.stream-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -10;
-}
-
-.golive-features {
-	color: $textOnDark;
-	position: absolute;
-  bottom: 20px;
-  left: 0;
-  padding: 6px 20px;
-  background-color: rgba(0, 0, 0, 0.25);
-  a {
-	  color: $textOnDark;
-	  text-decoration: underline;
-	  &:hover { background-color: transparent;}
-	  }
-	.commentBox {
-		color: $textOnDark;
-		background-color: $darkTrans;
-		.inner { padding: 3px 6px;}
-	}
-}
-
-/* Mobile caption and screenshoot toolbar white area fix */
-.goliveMobile {
-  #actionBar { position: absolute !important; left: 0; }
-  .collapse-btn-wrapper {
-    button { margin-left: 0 !important; }
-  }
-}
-
-.activity-flag {
-	width: 75px;
-	height: 75px;
-	border-radius: 38px;
-	background-color: $darkTrans;
-	position: absolute;
-	z-index: 999999;
-	top:33%;
-	right:50%;
-	margin-right: -60px;
-	@media screen and (max-width: 980px) { margin-right: -56px;}
-	@media screen and (max-width: 640px) { margin-right: -44px;}
-	@media screen and (max-width: 560px) { margin-right: -40px;}
-	@media screen and (max-width: 443px) { margin-right: -38px;}
-}
-
-.collapse-btn-wrapper {
-	position: absolute;
-	float: left;
-	margin-top: 10px;
-}
-
-#actionBar { background-color: rgba(0, 0, 0, 0.6);}
 
 // * collapse horizontal *//
 
@@ -1343,3 +1224,10 @@ i[class*="icon"] {font-style: normal;}
 
 .alert .message { font-size: 18px; padding-top: 6px;}
 .alert p { margin-bottom: 0;}
+
+
+
+// OTHER PARTIALS ----------------------------------
+
+@import "forms"; /*imports styles for forms*/
+@import "golive"; /*imports styles for GoLive*/

@@ -1,24 +1,19 @@
-<section class="main goliveMain">
-  <div class="container-fluid">
-    <div class="row-fluid golive-view">
-      <div class="loggedin-actions span12">
-        <div ng-include="'/views/layouts/golive-actions.html'"></div>
-      </div><!-- /.loggedin-action -->
-      <div class="collapse-btn-wrapper">
-    		<button class="btn btn-sm"
+<section class="main">
+  <div class="golive-view">
+    <div ng-include="'/views/layouts/golive-actions.html'"></div>
+    <div class="collapse-btn-wrapper">
+  		<button class="btn btn-mini"
     			data-toggle="collapse" data-target="#actionBar" role="button">
-    			<i class="icon-chevron-up"></i>
+    			<span class="fa fa-chevron-up"></span>
     		</button>
-    	</div>
-    </div>
-    <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
-    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
-    </div>
-    <div ng-include="'/views/layouts/golive-features.html'"></div>
-    <div class="row-fluid">
-      <div class="span12">
-        <licode token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
-      </div>
-    </div><!-- /.row-fluid -->
-  </div><!-- /.container-fluid -->
+  	</div>
+  </div><!-- /.golive-view -->
+  <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
+  	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
+  </div><!-- /.activity-flag -->
+  <div ng-include="'/views/snippets/comment-box.html'"></div>
+  <div ng-include="'/views/layouts/golive-features.html'"></div>
+  <div class="stream-wrapper">
+    <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
+  </div><!-- /.stream-wrapper -->
 </section>
