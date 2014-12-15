@@ -29,6 +29,8 @@ angular.module('rhinobird.controllers')
     // The the caption for the stream
     vm.caption = '';
 
+    vm.liveViewers = 0;
+
     // Camera service
     vm.camera = CameraService;
 
@@ -73,8 +75,26 @@ angular.module('rhinobird.controllers')
 
       // Start the broadcast in the golive service
       streamLive = true;
-      GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
+      var the_stream = GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
+        the_stream.then(function(data) {
+          console.log("Buscando stream ", data.$pk);
+          var watched_stream = Stream.$find(data.$pk);
+          watched_stream.$promise.then(refresh_stream);
+        })
     };
+
+    function refresh_stream(stream) {
+      console.log("Refresh_stream");
+      stream.$fetch().$then(function(data) {
+        console.log("Actualizar data", data);
+        vm.liveViewers = data.liveViewers;
+        $timeout(function() {
+          console.log("Hay ", stream);
+          stream.$fetch().$then(refresh_stream);
+        }, 1000);
+      })
+    }
+
 
     // Stop the current broadcast
     this.stop = function(goback){
