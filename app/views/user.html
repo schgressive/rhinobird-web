@@ -16,6 +16,20 @@
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
+
+<div class="width-controller mobile-full container-fluid"  ng-hide="true" ng-show="stream">
+  <div class="row-fluid">
+    <h3 class="span6">Currently live:</h3>
+  </div><!-- /.row-fluid -->
+  <section class="mid-content">
+    <div class="row-fluid">
+      <div class="module-xlarge span12">
+        <div ng-include="'/views/snippets/module-xlarge.html'"></div>
+      </div><!-- /.module-xlarge -->
+    </div><!-- /.row-fluid -->
+  </section><!-- /.mid-content -->
+</div>
+
 <div class="main" role="main">
   <div class="width-controller container-fluid">
     <section class="lower-content media-area">

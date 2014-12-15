@@ -11,4 +11,9 @@ angular.module('rhinobird.controllers')
     // Get the user timeline
     $scope.timeline = user.timeline.$collection();
     $scope.timeline.getNextPage();
+
+    // Get a live stream if it has
+    var streams = user.streams.$search({live: true, per_page: 1}).$then(function (streams) {
+      $scope.stream = streams[0];
+    });
   });
