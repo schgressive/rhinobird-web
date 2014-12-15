@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, settings, session,
+  .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, $document, settings, session,
                                       Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel,
-                                     OpenAndWatch, isMobile) {
+                                     OpenAndWatch, FullscreenService, isMobile) {
 
 		$scope.user = session.user;
 
@@ -113,6 +113,11 @@ angular.module('rhinobird.controllers')
         }, 3000);
       });
     };
+
+    // Fullscreen action
+    this.showFullScreen = function () {
+      FullscreenService.toggleFullscreen($('.mainWrapper')[0]);
+    }
 
     this.updateCaption = function(caption){
       var payload = {

@@ -16,7 +16,7 @@
 					  <label class="visually-hidden" for="caption">Use hashtags in your caption to add your video to a channel:</label>
 					  <textarea class="input-block-level"
 					  					name="caption"
-					  					rows="4"
+					  					rows="3"
 					  					maxlength="120"
 					  					placeholder="Going Live? Add caption or use #hashtag to add video to a channel."
 					  					ng-model="vm.caption">
@@ -73,16 +73,6 @@
 					  					btn-checkbox>
 					        <span class="visually-hidden"> Flip Camera?</span>
 					    </button>
-					    <!--
-<button type="button"
-					  					class="btn btn-default btn-small btn-checkbox btn-hd"
-					  					ng-model="vm.camera.isHD"
-					  					ng-click="vm.camera.toggleHD()"
-					  					ng-disabled="!vm.camera.access"
-					  					btn-checkbox>
-					        <span class="visually-hidden"> HD Video?</span>
-					    </button>
--->
 					  </div><!-- /.controls.controls-row -->
 					  <div class="controls controls-row">
 						  <input ng-click="ctrl.ready()"
@@ -134,27 +124,27 @@
       </div><!-- /.row-fluid -->
     </section><!-- /.top-content -->
 
-	  <section class="goliveMobile" ng-show="vm.goliveService.status == 'connected'">
-	  	<div class="row-fluid golive-view">
-	      <div class="loggedin-actions span12">
-	        <div ng-include="'/views/layouts/golive-actions.html'"></div>
-	      </div><!-- /.loggedin-action -->
+		<section ng-show="vm.goliveService.status == 'connected'">
+	  	<div class="golive-view">
+	      <div ng-include="'/views/layouts/golive-actions.html'"></div>
 	      <div class="collapse-btn-wrapper">
-	    		<button class="btn btn-sm"
+	    		<button class="btn btn-small"
 	    			data-toggle="collapse" data-target="#actionBar" role="button">
-	    			<i class="icon-chevron-up"></i>
+	    			<span class="fa fa-chevron-up"></span>
 	    		</button>
 	    	</div>
-	    </div><!-- /.golive-view.row-fluid -->
+	    </div><!-- /.golive-view -->
 	    <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending">
 	    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
 	    </div><!-- /.activity-flag -->
-	  </section><!-- /.goliveMobile -->
+	    <div ng-include="'/views/snippets/golive-btn.html'" ng-show="isFullScreenEnabled"></div>
+	    <div ng-include="'/views/snippets/comment-box.html'"></div>
+	    <div ng-include="'/views/layouts/golive-features.html'"></div>
+	  </section>
 
-    <div class="row-fluid">
-      <div class="span12">
-        <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
-      </div>
-    </div><!-- /.row-fluid -->
-  </div><!-- /.container-fluid -->
+	  <div class="stream-wrapper">
+      <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
+    </div><!-- /.stream-wrapper -->
+
+    </div><!-- /.container-fluid -->
 </div><!-- /.main -->

@@ -1,13 +1,40 @@
-<div class="collapse in width" id="actionBar">
+<div class="actionBar collapse in" id="actionBar">
+
   <div class="contents">
-    <button class="btn btn-default pull-left" ng-click="ctrl.updateThumbnail()" role="button">Take Cover Photo</button>
-  	<form name="formAddCaption" method="post" class="pull-left">
-      <div class="input-append">
-        <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
-        <input class="btn" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Change!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
-      </div>
-    </form>
+	  <ul class="unstyled inline pull-left">
+		  <li>
+			  <button class="btn btn-default btn-small"
+			  				ng-click="ctrl.showFullScreen()" role="button">
+			  	<span class="fa fa-expand"></span>
+			  	<span class="visually-hidden">FullScreen</span>
+			  </button>
+		  </li>
+		  <li>
+		    <button class="btn btn-default btn-small"
+		    				ng-click="ctrl.updateThumbnail()" role="button">
+		    	<span class="fa fa-picture-o"></span>
+		    	Update Cover
+		    </button>
+		  </li>
+		  <li>
+		    <button class="btn btn-default btn-small"
+		    				data-toggle="collapse" data-target="#commentBox" role="button">
+		    <span class="fa fa-comments"></span>
+		    <span>0 Comments</span>
+		    </button>
+		  </li>
+	  </ul>
+		<form name="formAddCaption" method="post" class="pull-left">
+	    <div class="input-append">
+	      <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
+	      <input class="btn btn-small" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Update!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
+	  	</div>
+	  </form>
+	  <div class="hidden-phone">
+	    <div ng-include="'/views/snippets/golive-btn.html'" ng-show="isFullScreenEnabled"></div>
+	  </div>
   </div><!-- /.contents -->
+
   <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
 		<small class="success">Snapshot success!</small>
 	</div><!-- /.validate -->
@@ -15,6 +42,6 @@
 		<small class="info">Only the first 17 characters will display in thumbnail view.</small>
 	</div><!-- /.validate -->
 	<div class="validate fadeOut" ng-show="vm.showSuccess">
-		<small class="success">Caption successfully changed.</small>
+		<small class="success">Caption successfully updated.</small>
 	</div><!-- /.validate -->
 </div><!-- /#actionBar -->

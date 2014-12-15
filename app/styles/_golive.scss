@@ -1,0 +1,138 @@
+// ------------ GOLIVE FILE --------------
+// for GoLive (desktop and mobile) styles
+
+
+.golive footer { display: none;}
+
+.golive-view {
+	width: 100%;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	.contents { margin: 10px 0 10px 65px;}
+	ul {
+		@media screen and (max-width: 560px) { margin-bottom: 15px;}
+	}
+	form {
+		margin-left: 10px;
+		@media screen and (max-width: 444px) { margin-left: 5px;}
+		input[type="text"] {
+			padding: 2px 6px;
+			@media screen and (max-width: 600px) { width: 120px;}
+			@media screen and (max-width: 444px) { width: 200px;}
+		}
+		.btn {
+			border-color: $white;
+			background-color: $white;
+			color: $black;
+			&[disabled="disabled"] { border-color: transparent;}
+		}
+	}
+}
+
+.actionBar {
+	background-color: $darkTrans2;
+	.validate {
+		margin-top: 52px;
+		padding-bottom: 8px;
+		@media screen and (max-width: 640px) { margin-top: 74px;}
+	}
+}
+
+.stream-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+}
+
+.golive-features {
+	color: $textOnDark;
+	width: 100%;
+	position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 6px 20px 10px;
+  background-color: $darkTrans2;
+  .btn-link {
+	  color: $textOnDark;
+	  text-decoration: underline;
+	  padding-left: 0;
+	  &:hover { background-color: transparent;}
+	 }
+}
+.commentBox {
+		color: $textOnDark;
+		background-color: $darkTrans;
+		position: absolute;
+		top: 28%;
+		left: 50%;
+		width: 74%;
+		margin-left: -37%;
+		z-index: 9999;
+		@media screen and (max-width: 600px) { top: 10%;}
+		@media screen and (max-width: 560px) { top: 29%;}
+		.inner { 	padding: 6px 20px;}
+		textarea {
+			color: $textOnDark;
+			width: 80%;
+			background-color: $darkTrans2;
+			@media screen and (max-width: 600px) { width: 92%;}
+		}
+		.cBox-user { font-weight: 700;}
+		.close { color: $textOnDark;}
+	}
+
+.activity-flag {
+	width: 75px;
+	height: 75px;
+	border-radius: 38px;
+	background-color: $darkTrans;
+	position: absolute;
+	z-index: 999999;
+	top:33%;
+	right:50%;
+	margin-right: -60px;
+	@media screen and (max-width: 980px) { margin-right: -56px;}
+	@media screen and (max-width: 640px) { margin-right: -44px;}
+	@media screen and (max-width: 560px) { margin-right: -40px;}
+	@media screen and (max-width: 443px) { margin-right: -38px;}
+}
+
+.collapse-btn-wrapper {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+// Fullscreen tweeks
+body.fullscreen .mainWrapper {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  .golive-btn {
+			margin-top: 0;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+	  	@media screen and (max-width: 600px) { top: 50%; margin-top: -12px;}
+			@media screen and (max-width: 560px) {
+				top: inherit;
+				right: inherit;
+				bottom: 15%;
+				left: 50%;
+				margin-left: -12px;
+				margin-top: 0;
+			}
+
+	  }
+  .golive-view { top: 0;}
+  .actionBar {
+	  position: absolute; top: 0; padding-top: 10px; width: 100%;
+		form { position: relative; margin-top: 0 !important;}
+	 }
+  .collapse-btn-wrapper { top: 20px;}
+  .golive-view .contents form { margin-top: 10px;}
+  .commentBox { top: 20%;}
+  .golive-features { padding-bottom: 20px;}
+}

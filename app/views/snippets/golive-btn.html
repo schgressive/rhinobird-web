@@ -1,0 +1,33 @@
+<a class="golive-btn pull-right" ng-hide="app.onAir" ng-click="golive()" href="#" role="button">
+  <span class="golive-icon">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         x="0px" y="0px"
+         width="24px" height="24px"
+         viewBox="0 0 24 24"
+         enable-background="new 0 0 24 24"
+         xml:space="preserve">
+        <g>
+          <circle fill="#F92D30" cx="12" cy="12" r="11.543"></circle>
+          <circle fill="#660F0E" cx="12" cy="12" r="5.61"></circle>
+          <circle fill="#FFFFFF" cx="18.693" cy="12" r="2.534"></circle>
+        </g>
+    </svg>
+  </span>
+  <span class="hidden-phone">Go Live</span>
+</a>
+<a class="golive-btn pull-right" ng-show="app.onAir" ng-click="stopBroadcast({goback: false})" href="#" role="button">
+  <span class="golive-icon glow">
+    <svg xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px" y="0px"
+      width="24px" height="24px"
+      viewBox="0 0 24 24"
+      enable-background="new 0 0 24 24"
+      xml:space="preserve">
+      <circle fill="#F92D30" cx="12" cy="12" r="11.123"></circle>
+      <rect x="6.625" y="6.625" fill="#660F0E" width="10.75" height="10.75"></rect>
+    </svg>
+  </span>
+  <span class="hidden-phone">Stop</span>
+</a>
