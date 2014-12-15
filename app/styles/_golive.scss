@@ -9,13 +9,17 @@
 	position: absolute;
 	top: 52px;
 	left: 0;
-	.contents { margin-top: 10px; margin-left: 45px;}
+	.contents { margin: 10px 0 10px 65px;}
+	ul {
+		@media screen and (max-width: 560px) { margin-bottom: 15px;}
+	}
 	form {
-		margin-bottom: 10px;
-		@media screen and (max-width: 640px) { margin-top: 10px; margin-left: 5px;}
+		margin-left: 10px;
+		@media screen and (max-width: 444px) { margin-left: 5px;}
 		input[type="text"] {
-			padding: 0 6px;
-			@media screen and (max-width: 640px) { width: 200px;}
+			padding: 2px 6px;
+			@media screen and (max-width: 600px) { width: 120px;}
+			@media screen and (max-width: 444px) { width: 200px;}
 		}
 		.btn {
 			border-color: $white;
@@ -65,8 +69,16 @@
 		left: 50%;
 		width: 74%;
 		margin-left: -37%;
+		z-index: 9999;
+		@media screen and (max-width: 600px) { top: 10%;}
+		@media screen and (max-width: 560px) { top: 29%;}
 		.inner { 	padding: 6px 20px;}
-		textarea { background-color: $darkTrans2; color: $textOnDark; width: 92%;}
+		textarea {
+			color: $textOnDark;
+			width: 80%;
+			background-color: $darkTrans2;
+			@media screen and (max-width: 600px) { width: 92%;}
+		}
 		.cBox-user { font-weight: 700;}
 		.close { color: $textOnDark;}
 	}
@@ -98,8 +110,29 @@ body.fullscreen .mainWrapper {
   height: 100%;
   width: 100%;
   background: transparent;
-  .golive-btn { margin-top: 0; margin-right: 15px;}
-  .golive-view { top: 3px;}
-  .collapse-btn-wrapper { top: 18px;}
+  .golive-btn {
+			margin-top: 0;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+	  	@media screen and (max-width: 600px) { top: 50%; margin-top: -12px;}
+			@media screen and (max-width: 560px) {
+				top: inherit;
+				right: inherit;
+				bottom: 15%;
+				left: 50%;
+				margin-left: -12px;
+				margin-top: 0;
+			}
+
+	  }
+  .golive-view { top: 0;}
+  .actionBar {
+	  position: absolute; top: 0; padding-top: 10px; width: 100%;
+		form { position: relative; margin-top: 0 !important;}
+	 }
+  .collapse-btn-wrapper { top: 20px;}
   .golive-view .contents form { margin-top: 10px;}
+  .commentBox { top: 20%;}
+  .golive-features { padding-bottom: 20px;}
 }

@@ -13,26 +13,39 @@
 			</ul>
 			<ul class="inline">
 				<li>
-					<button class="btn btn-default btn-mini">
+					<button type="button" class="btn btn-default btn-small" role="button">
 						<span class="fa fa-chevron-left"></span>
 						<span class="visually-hidden">previous comment</span>
 					</button>
 				</li>
 				<li>
-					<button class="btn btn-default btn-mini">Reply</button>
+					<button
+						type="button"
+						class="btn btn-default btn-small"
+						data-toggle="collapse"
+	    			data-target="#cBox-bottom"
+	    			role="button">
+						Reply
+					</button>
 				</li>
 				<li>
-					<button class="btn btn-default btn-mini">
+					<button type="button" class="btn btn-default btn-small" role="button">
 						<span class="fa fa-chevron-right"></span>
 						<span class="visually-hidden">previous comment</span>
 					</button>
 				</li>
 			</ul>
   	</div>
-  	<div class="cBox-bottom">
+  	<div class="cBox-bottom collapse" id="cBox-bottom">
 	  	<form>
-				<textarea rows="3" placeholder="reply...">
+				<textarea rows="3" value="..." class="pull-left">
 				</textarea>
+				<button
+					type="button"
+					class="btn btn-primary btn-small pull-left hidden-phone"
+					role="submit">
+					Done!
+				</button>
 			</form>
   	</div>
 	</div><!-- /.inner -->
