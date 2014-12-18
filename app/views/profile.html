@@ -24,13 +24,16 @@
         <div class="tabs">
           <ul class="inline no-bullets">
             <li ng-class="getClass('/profile/streams')">
-              <a ui-sref="profile.streams" data-toggle="tab"><i class="icon-facetime-video"></i>Your Videos</a>
+              <a ui-sref="profile.streams" data-toggle="tab">
+	              <span class="fa fa-video-camera"></span>Your Videos</a>
             </li>
             <li ng-class="getClass('/profile/settings')">
-              <a ui-sref="profile.settings" data-toggle="tab"><i class="icon-user"></i>User Settings</a>
+              <a ui-sref="profile.settings" data-toggle="tab">
+	              <span class="fa fa-user"></span>User Settings</a>
             </li>
             <li ng-class="getClass('/profile/applications')">
-              <a ui-sref="profile.applications" data-toggle="tab"><i class="icon-cog"></i>Apps</a>
+              <a ui-sref="profile.applications" data-toggle="tab">
+	              <span class="fa fa-cog"></span>Apps</a>
             </li>
           </ul>
         </div><!-- /.tabs -->

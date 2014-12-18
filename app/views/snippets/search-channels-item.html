@@ -8,11 +8,11 @@
 <div class="module-outer clearfix">
 	<ul class="no-bullets">
     <li class="ellipsis">
-    	<i class="icon-headphones"></i>
+    	<span class="fa fa-headphones"></span>
       <span>#{{channel.name}}</span>
     </li>
   	<li class="ellipsis">
-			<i class="icon-facetime-video"></i>
+			<span class="fa fa-video"></span>
 			<span ng-show="channel.streamsCount == 0">No videos available.</span>
 			<span ng-show="channel.streamsCount == 1">video</span>
 			<span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1">{{channel.streamsCount}} videos</span>

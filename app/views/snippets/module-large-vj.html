@@ -2,9 +2,9 @@
   <div class="module-video">
     <div class="delete-btn" ng-if="allowDelete">
       <button class="btn btn-mini" ng-click="removeItem(tl_item)">
-        <i class="icon-remove">
+        <span class="fa fa-remove">
           <span class="visually-hidden">delete video</span>
-        </i>
+        </span>
       </button>
     </div>
     <a ui-sref="vjsession({vjId: vj.id})" ng-if="vj.status !== 'live'" class="live-stream-link">

@@ -17,9 +17,9 @@
       <div class="row-fluid">
         <nav class="faux-tabs span6" role="navigation">
           <ul class="inline no-bullets">
-            <li class="active"><a ui-sref="main"><i class="icon-star"></i>World</a></li>
-            <li><a ui-sref="explore"><i class="icon-globe"></i>Explore</a></li>
-            <!-- <li><a ui-sref="timeline"><i class="icon-globe"></i>Your Timeline</a></li> -->
+            <li class="active"><a ui-sref="main"><span class="fa fa-star"></span>World</a></li>
+            <li><a ui-sref="explore"><span class="fa fa-globe"></span>Explore</a></li>
+            <!-- <li><a ui-sref="timeline"><span class="fa fa-tachometer"></span>Your Timeline</a></li> -->
           </ul>
         </nav>
         <div class="span6">
@@ -27,7 +27,7 @@
             <label for="geolocate" class="visually-hidden">Search by location</label>
             <div class="input-append input-prepend">
               <span class="add-on add-onClick">
-                <a href="#" title="Find Me!" ng-click="getCurrent()" data-title="Find Me!" rel="tooltip"><i class="icon-map-marker"></i></a>
+                <a href="#" title="Find Me!" ng-click="getCurrent()" data-title="Find Me!" rel="tooltip"><span class="fa fa-map-marker"></span></a>
               </span>
               <input type="search" ng-model="address" placeholder="current location">
               <input class="btn hidden-phone" type="submit" value="Explore!">

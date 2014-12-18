@@ -10,12 +10,12 @@
               	<div class="main-menu clearfix">
               		<ul class="no-bullets">
 		                <li class="navLink">
-		                  <a href="#" ng-click="login()" ng-hide="user.email"><i class="icon-lock"></i>Sign In</a>
-		                  <a href="#" ng-click="logout()" ng-show="user.email"><i class="icon-lock"></i>Sign Out</a>
+		                  <a href="#" ng-click="login()" ng-hide="user.email"><span class="fa fa-lock"></span>Sign In</a>
+		                  <a href="#" ng-click="logout()" ng-show="user.email"><span class="fa fa-lock"></span>Sign Out</a>
 		                </li>
-		                <li class="navLink"><a ui-sref="explore"><i class="icon-globe"></i>Explore</a></li>
-		                <li class="navLink deactivated"><a><i class="icon-info-sign"></i>Take the Tour!</a></li>
-		                <li class="navLink" ng-show="app.isLoggedIn"><a ui-sref="profile.streams"><i class="icon-user"></i>Your Profile</a></li>
+		                <li class="navLink"><a ui-sref="explore"><span class="fa fa-globe"></span>Explore</a></li>
+		                <li class="navLink deactivated"><a><span class="fa fa-info-circle"></span>Take the Tour!</a></li>
+		                <li class="navLink" ng-show="app.isLoggedIn"><a ui-sref="profile.streams"><span class="fa fa-user"></span>Your Profile</a></li>
 		              </ul>
               	</div><!-- /.menu-top -->
               	<div class="colophon clearfix" role="content-info">
