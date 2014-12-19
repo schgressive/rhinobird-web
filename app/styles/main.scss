@@ -26,8 +26,6 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
 
-@include font-face("Listicons", font-files("/fonts/listicons-webfont.woff", woff, "/fonts/listicons-webfont.ttf", truetype), "listicons-webfont.eot");
-
 @import "vendor/font-awesome.scss"; /*imports Font Awesome SASS*/
 
 // Global Styles ------------------------------
@@ -98,6 +96,8 @@ a:focus {
 	outline: dashed $warmGray1 1px;
 	outline-offset: 5px;
 }
+
+li span.fa { margin-right: 5px;}
 
 // Margin/Padding classes
 
