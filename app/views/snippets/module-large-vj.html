@@ -18,19 +18,39 @@
       <div class="module-overlay"></div>
     </a>
   </div><!-- /.module-video -->
+  <div class="feature-overlay">
+    <ul class="unstyled inline">
+      <li>
+        <span class="fa fa-eye"></span>
+        <span class="line-text">12</span>
+      </li>
+      <li>
+        <a href="#">
+          <span class="fa fa-thumbs-up"></span>
+          <span class="line-text">4</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="fa fa-comment"></span>
+          <span class="line-text">6</span>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.feature-overlay-->
 </div><!-- /.module-inner -->
 <div class="module-outer clearfix">
-  <ul class="no-bullets">
+  <ul class="unstyled">
     <li class="thumb-user ellipsis">
       <a class="img-wrap" ui-sref="user({userName: vj.user.username})" title="{{vj.user.username}}">
         <img ng-src="{{ vj.user.photo || (vj.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
-			</a>
-			<span>#{{vj.channelName}}</span>
-		</li>
-		<li class="ellipsis">
-      <a href="#" ui-sref="explore({lat: vj.geometry.coordinates[1], lng: vj.geometry.coordinates[0]})"><i class="icon-map-marker"></i></a>
-			<span ng-hide="vj.properties.city">anonymous</span>
-			<span ng-show="vj.properties.city">{{vj.properties.city}}, {{vj.properties.country}} - {{vj.properties.address}}</span>
-		</li>
-	</ul>
+      </a>
+      <span>#{{vj.channelName}}</span>
+    </li>
+    <li class="ellipsis">
+      <a href="#" ui-sref="explore({lat: vj.geometry.coordinates[1], lng: vj.geometry.coordinates[0]})"><span class="fa fa-map-marker"></span></a>
+      <span class="line-text" ng-hide="vj.properties.city">anonymous</span>
+      <span class="line-text" ng-show="vj.properties.city">{{vj.properties.city}}, {{vj.properties.country}} - {{vj.properties.address}}</span>
+    </li>
+  </ul>
 </div><!-- /.module-outer -->

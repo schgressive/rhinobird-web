@@ -97,7 +97,7 @@ a:focus {
 	outline-offset: 5px;
 }
 
-li span.fa { margin-right: 5px;}
+li span.fa + .line-text { margin-left: 3px;}
 
 // Margin/Padding classes
 
@@ -790,20 +790,26 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .action-list {
-	margin-right: 4px;
-	a {
-		opacity: .7;
-		&:hover { opacity: 1;}
-		&[title*="Return"] {
-			background-image: url('../images/return-icon-32.svg');
-		}
-		&[title*="Snapshot"] {
-			background-image: url('../images/snapshot-icon-32.svg');
-		}
-		&[title*="Download"] {
-			background-image: url('../images/download-icon-32.svg');
-		}
-	}
+  margin-right: 4px;
+  a {
+    opacity: .7;
+    &:hover { opacity: 1;}
+    &[title*="Return"] {
+      background-image: url('../images/return-icon-32.svg');
+    }
+    &[title*="Snapshot"] {
+      background-image: url('../images/snapshot-icon-32.svg');
+    }
+    &[title*="Download"] {
+      background-image: url('../images/download-icon-32.svg');
+    }
+    &[title*="Hoof"] {
+      background-image: url('../images/hoof-icon-32.svg');
+    }
+    &[title*="Comment"] {
+      background-image: url('../images/comment-icon-32.svg');
+    }
+  }
 }
 
 .golive .social-list {
@@ -871,7 +877,7 @@ i[class*="icon"] {font-style: normal;}
 	right: 2px;
 	z-index: 99999999;
 	.btn.btn-mini { border-radius: 70px; padding: 0 3px;}
-	i.icon-remove { vertical-align: middle; margin-top: -2px;}
+	span.fa-remove { vertical-align: middle; margin-top: -2px;}
 }
 
 .module-inner {
@@ -914,6 +920,21 @@ i[class*="icon"] {font-style: normal;}
 	&:hover {@include opacity(1); cursor: pointer;}
 }
 
+.feature-overlay {
+  color: $textOnDark;
+  background-color: $darkTrans;
+  position: relative; /* placement based on parent div */
+  z-index: 10; /* above module-overlay */
+  a {
+    color: $textOnDark;
+    text-decoration: underline;
+    &:hover {
+      color: $orange;
+      background-color: transparent;
+    }
+  }
+}
+
 .module-outer {
 	min-height: 10px;
 	color: $grayDarker;
@@ -931,67 +952,75 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-xlarge {
-	padding: 10px 10px 0;
-	background-color: $white;
-	canvas, video { width: 100%; display:block;}
-	.module-outer {
-		padding: 10px 10px 7px 0px;
-		@media screen and (max-width: 500px) { padding: {top:8px;bottom:5px;}}
-	}
-	.ng-isolate-scope .licode {
-		@media screen and (max-width: 600px) { height: 436px !important;}
-		@media screen and (max-width: 500px) { height: 280px !important;}
-	}
-	.thumb-user {
-		img {
-			width: 64px;
-			height: 64px;
-			border-top-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			margin-right: 10px;
-			@media screen and (max-width: 500px) { width: 42px; height: 42px;}
-		}
-	}
-	li {
-		margin-bottom: 2px;
-		@media screen and (max-width: 500px) { margin-bottom: 0;}
-	}
-	li:last-of-type { @media screen and (max-width: 500px){ margin-top: 6px;}}
+  padding: 10px 10px 0;
+  background-color: $white;
+  canvas, video { width: 100%; display:block;}
+  .feature-overlay {
+      background-color: #222;
+      padding: 10px 0 0 10px;
+      @media screen and (max-width: 540px) {
+        padding-top: 5px;
+        padding-left: 5px;
+        ul { margin-bottom: 3px;}
+      }
+      @media screen and (max-width: 400px) {
+        padding-top: 0;
+        margin-bottom: 4px;
+      }
+    }
+  .module-outer {
+    padding: 10px 10px 7px 0px;
+    @media screen and (max-width: 500px) { padding: {top:8px;bottom:5px;}}
+    li {
+      margin-bottom: 2px;
+      @media screen and (max-width: 500px) { margin-bottom: 0;}
+      &:last-of-type { @media screen and (max-width: 500px){ margin-top: 6px;}}
+    }
+  }
+  .thumb-user {
+    img {
+      width: 64px;
+      height: 64px;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      margin-right: 10px;
+      @media screen and (max-width: 500px) { width: 42px; height: 42px;}
+    }
+  }
+  .ng-isolate-scope .licode {
+    @media screen and (max-width: 600px) { height: 436px !important;}
+    @media screen and (max-width: 500px) { height: 280px !important;}
+  }
 }
 
 .module-large {
-	margin-bottom: 20px;
-	.module-overlay {
-		background:  hsla(0,0%,18%,.7) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
-		background-size: auto;
-	}
-	.pending + .module-overlay {
-		background-image: url('/images/archiving-overlay.svg');
-	}
-	.thumb-user {
-		margin-bottom: 5px;
-		@media screen and (max-width: 500px) { margin-bottom: 0px;}
-		a.img-wrap {
-			margin-right: 6px;
-			text-decoration: none !important;
-			&:hover { background-color: transparent;}
-			@media screen and (max-width: 500px) {display: none;}
-		}
-		img {
-			width: 24px;
-			height: 24px;
-			border-top-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			@media screen and (max-width: 500px) {
-	/*
-				width: 32px;
-				height: 32px;
-				margin-right: 0;
-				border: 1px solid $black;
-	*/
-			}
-		}
-	}
+  margin-bottom: 20px;
+  .module-overlay {
+    background: hsla(0,0%,18%,.7) url('/images/play-icon-faint.svg') 50% 50% no-repeat;
+    background-size: auto;
+  }
+  .pending + .module-overlay {
+    background-image: url('/images/archiving-overlay.svg');
+  }
+  .feature-overlay { margin-top: -20px;}
+  .thumb-user {
+    margin-bottom: 5px;
+    @media screen and (max-width: 500px) { margin-bottom: 0px;}
+    a.img-wrap {
+      margin-right: 6px;
+      text-decoration: none !important;
+      &:hover { background-color: transparent;}
+      @media screen and (max-width: 500px) {display: none;}
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      @media screen and (max-width: 500px) {
+      }
+    }
+  }
 }
 
 .btn-overlay {
@@ -1011,22 +1040,23 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .owl-carousel {
-	.item { margin-right: 16px;}
-	.streamSelected {
-		padding: 2px 5px;
-		background-color: $white;
-		position: absolute;
-		top: 0;
-	}
+  .item { margin-right: 16px;}
+  .streamSelected {
+    padding: 2px 5px;
+    background-color: $white;
+    position: absolute;
+    top: 0;
+  }
   .streamHide {
-		padding: 2px 5px 0px 5px;
+    padding: 2px 5px 0px 5px;
     margin-right: 15px;
-		background-color: $white;
+    background-color: $white;
     position: absolute;
     top: 0;
     right: 0;
   }
-	.module-outer { height: inherit;}
+  .feature-overlay { margin-top: -20px;}
+  .module-outer { height: inherit;}
 }
 
 .spinner-overlay {
