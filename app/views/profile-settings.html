@@ -6,27 +6,27 @@
 <div class="row-fluid">
   <div class="form-wrapper">
   	<p class="lead">Edit your username, email, etc.</p>
-    <form class="form-horizontal general-form" name="userSettings" role="form">
+    <form class="form-horizontal general-form" name="profileForm" role="form">
       <div class="control-group">
         <label class="control-label" for="input-name">Name:</label>
         <div class="controls">
-          <input class="input-xlarge" type="text" id="input-name" ng-model="self.user.name"/>
+          <input class="input-xlarge" type="text" id="input-name" ng-model="vm.user.name"/>
 					<span class="help-block"><small>How we address you. Your name is not public.</small></span>
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
           <label class="control-label" for="input-username">Username:</label>
 					<div class="controls">
-						<input class="input-xlarge" type="text" id="input-username" ng-model="self.user.username" ng-minlength=3 ng-maxlength=20/>
+						<input class="input-xlarge" type="text" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
 						<span class="help-block"><small>Your Rhinobird.tv username.</small></span>
-						<div class="validate" ng-show="userSettings.username.$taken && userSettings.username.$invalid">
-				      <small class="error" ng-show="userSettings.username.$error.taken">
+						<div class="validate" ng-show="profileForm.username.$taken && profileForm.username.$invalid">
+				      <small class="error" ng-show="profileForm.username.$error.taken">
 				        This username is already registered.
 				      </small>
-				      <small class="warning" ng-show="userSettings.username.$error.minlength">
+				      <small class="warning" ng-show="profileForm.username.$error.minlength">
 				        A username must have at least 3 characters.
 				      </small>
-				      <small class="warning" ng-show="userSettings.username.$error.maxlength">
+				      <small class="warning" ng-show="profileForm.username.$error.maxlength">
 				        A username can not have more than 20 characters.
 				      </small>
 						</div><!-- /.validate -->
@@ -35,13 +35,13 @@
       <div class="control-group">
           <label class="control-label" for="input-email">Email:</label>
           <div class="controls">
-          	<input class="input-xlarge" type="email" id="input-email" ng-model="self.user.email"/>
+          	<input class="input-xlarge" type="email" id="input-email" ng-model="vm.user.email"/>
 	          <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
-	          <div class="validate" ng-show="userSettings.email.$taken && userSettings.email.$invalid">
-				    	<small class="warning" ng-show="userSettings.email.$invalid">
+	          <div class="validate" ng-show="profileForm.email.$taken && profileForm.email.$invalid">
+				    	<small class="warning" ng-show="profileForm.email.$invalid">
 				        This email is invalid. Please input a valid email.
 				      </small>
-				      <small class="error" ng-show="userSettings.email.$error.taken">
+				      <small class="error" ng-show="profileForm.email.$error.taken">
 				        This email is already registered.
 				      </small>
 				    </div><!-- /.validate -->
@@ -56,12 +56,12 @@
       </div><!-- /.control-group -->
       <div class="control-group">
       	<div class="controls">
-      		<input class="btn btn-primary" type="submit" value="Update Settings" ng-click="updateSettings()"/>
-	        <input class="btn btn-default" type="submit" value="Reset" ng-click=""/>
+      		<input class="btn btn-primary" type="submit" value="Update Settings" ng-click="vm.updateSettings()"/>
+	        <input class="btn btn-default" type="submit" value="Reset"/>
 	        <div class="formSuccess" ng-show="">
 	        	<p class="fadeOut"><strong>Success!</strong></p>
 	        </div>
-	        <button class="btn-link" ng-click="">Delete Your Account</button>
+	        <button class="btn-link">Delete Your Account</button>
       	</div>
       </div><!-- /.control-group -->
     </form>
