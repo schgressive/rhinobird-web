@@ -10,16 +10,16 @@
       <div class="control-group">
         <label class="control-label" for="input-name">Name:</label>
         <div class="controls">
-          <input class="input-xlarge" type="text" id="input-name" ng-model="vm.user.name"/>
+          <input class="input-xlarge" name="name" type="text" id="input-name" ng-model="vm.user.name"/>
 					<span class="help-block"><small>How we address you. Your name is not public.</small></span>
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
           <label class="control-label" for="input-username">Username:</label>
 					<div class="controls">
-						<input class="input-xlarge" type="text" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
+						<input class="input-xlarge" type="text" name="username" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
 						<span class="help-block"><small>Your Rhinobird.tv username.</small></span>
-						<div class="validate" ng-show="profileForm.username.$taken && profileForm.username.$invalid">
+						<div class="validate" ng-show="profileForm.username.$dirty && profileForm.username.$invalid">
 				      <small class="error" ng-show="profileForm.username.$error.taken">
 				        This username is already registered.
 				      </small>
@@ -35,9 +35,9 @@
       <div class="control-group">
           <label class="control-label" for="input-email">Email:</label>
           <div class="controls">
-          	<input class="input-xlarge" type="email" id="input-email" ng-model="vm.user.email"/>
+          	<input class="input-xlarge" type="email" id="input-email" name="email" ng-model="vm.user.email"/>
 	          <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
-	          <div class="validate" ng-show="profileForm.email.$taken && profileForm.email.$invalid">
+	          <div class="validate" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
 				    	<small class="warning" ng-show="profileForm.email.$invalid">
 				        This email is invalid. Please input a valid email.
 				      </small>
@@ -50,15 +50,20 @@
       <div class="control-group">
         <label class="control-label" for="input-pw">Password:</label>
         <div class="controls">
-          <input class="input-xlarge" type="password" id="input-pw" disabled="disabled" placeholder="disabled"/>
+          <input class="input-xlarge" name="password" type="password" id="input-pw" ng-model="vm.user.password"/>
 					<span class="help-block"><small>Your password must be at least eight characters long.</small></span>
+	          <div class="validate" ng-show="profileForm.password.$dirty && profileForm.password.$invalid">
+				    	<small class="warning" ng-show="profileForm.password.$error.minlength">
+				        Passwords must be at least 8 characters long.
+				      </small>
+				    </div><!-- /.validate -->
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
       	<div class="controls">
-      		<input class="btn btn-primary" type="submit" value="Update Settings" ng-click="vm.updateSettings()"/>
+      		<input class="btn btn-primary" type="submit" value="Update Settings" ng-click="vm.updateSettings(profileForm)"/>
 	        <input class="btn btn-default" type="submit" value="Reset"/>
-	        <div class="formSuccess" ng-show="">
+	        <div class="formSuccess" ng-show="vm.success">
 	        	<p class="fadeOut"><strong>Success!</strong></p>
 	        </div>
 	        <button class="btn-link">Delete Your Account</button>

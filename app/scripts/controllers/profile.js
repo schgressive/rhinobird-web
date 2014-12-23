@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ProfileCtrl', function (User, session, $location, OpenAndWatch) {
+  .controller('ProfileCtrl', function (User, session, $location, OpenAndWatch, ValidateUserResponse) {
 
     var vm = this;
 
@@ -41,8 +41,12 @@ angular.module('rhinobird.controllers')
       vm.updateSettings();
     }
 
-    function updateSettings(){
-      vm.user.$save();
+    function updateSettings(form){
+      vm.user.$save().$then(function() {
+        console.log("Saved with success");
+      }, function(error) {
+        ValidateUserResponse.validate(form, error);
+      });
     };
 
   });
