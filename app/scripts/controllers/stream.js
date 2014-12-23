@@ -13,4 +13,13 @@ angular.module('rhinobird.controllers')
 		// Get the streams based on geolocation
     $scope.streams = stream.related.$fetch();
 
+    $scope.like = function() {
+      stream.toggleLike();
+    }
+
+    $scope.liked = function() {
+      return stream.liked;
+    }
+
+
   });

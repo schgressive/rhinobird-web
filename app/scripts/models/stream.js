@@ -9,7 +9,7 @@ angular.module('rhinobird.models')
       'live': 'happening live!'
     };
 
-    return $restmod.model('streams', 'PagedModel', {
+    return $restmod.model('streams', 'PagedModel', 'Likeable', {
       user: { hasOne: 'User' },
       related: { hasMany: 'Stream'},
       isAudioFixed: { ignore: true, init: false }, // Whether it's audio is using for a channel
