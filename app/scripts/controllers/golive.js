@@ -77,19 +77,15 @@ angular.module('rhinobird.controllers')
       streamLive = true;
       var the_stream = GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
         the_stream.then(function(data) {
-          console.log("Buscando stream ", data.$pk);
           var watched_stream = Stream.$find(data.$pk);
           watched_stream.$promise.then(refresh_stream);
         })
     };
 
     function refresh_stream(stream) {
-      console.log("Refresh_stream");
       stream.$fetch().$then(function(data) {
-        console.log("Actualizar data", data);
         vm.liveViewers = data.liveViewers;
         $timeout(function() {
-          console.log("Hay ", stream);
           stream.$fetch().$then(refresh_stream);
         }, 1000);
       })

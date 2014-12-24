@@ -135,7 +135,7 @@ angular.module('rhinobird', [
     .state('profile', {
       url: '/profile/',
       templateUrl: '/views/profile.html',
-      controller: 'ProfileCtrl',
+      controller: 'ProfileCtrl as vm',
       resolve: {
         session: ['AuthService', function(AuthService) {
           return AuthService.getSession();

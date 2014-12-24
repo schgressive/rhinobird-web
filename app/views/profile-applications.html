@@ -6,8 +6,8 @@
 <div class="row-fluid">
   <div class="form-wrapper">
     <p class="lead">Manage your connected applications.</p>
-    <form class="general-form" id="appSettings" name="appSettings" role="form">
-      <fieldset form="appSettings" name="gplusSettings" ng-hide="true">
+    <form class="general-form" id="settingsForm" name="settingsForm" role="form">
+      <fieldset form="settingsForm" name="gplusSettings" ng-hide="true">
         <p class="gplus-label" ng-show=""><strong>Connected to:</strong> (google+ username here)</p>
         <p class="gplus-label"><strong>You are not connected to Google+</strong></p>
         <button class="btn-link block" ng-click="" role="button">Connect to Google+</button>
@@ -21,38 +21,38 @@
         </div><!-- /.form-block -->
       </fieldset>
 
-      <fieldset form="appSettings" name="fbSettings">
-        <p class="fb-label" ng-show="user.facebookConnected"><strong>Connected to:</strong> (facebook username here)</p>
-        <p class="fb-label" ng-hide="user.facebookConnected"><strong>You are not connected to Facebook</strong></p>
-        <button class="btn-link block" ng-click="connectPopup('facebook')" role="button" ng-hide="user.facebookConnected">Connect to Facebook</button>
-        <div class="form-block" ng-show="user.facebookConnected">
+      <fieldset form="settingsForm" name="fbSettings">
+        <p class="fb-label" ng-show="vm.user.facebookConnected"><strong>Connected to:</strong> (facebook username here)</p>
+        <p class="fb-label" ng-hide="vm.user.facebookConnected"><strong>You are not connected to Facebook</strong></p>
+        <button class="btn-link block" ng-click="vm.connectPopup('facebook')" role="button" ng-hide="vm.user.facebookConnected">Connect to Facebook</button>
+        <div class="form-block" ng-show="vm.user.facebookConnected">
           <label>
-            <input type="checkbox" ng-model="user.shareFacebook" value=""/>
+            <input type="checkbox" ng-model="vm.user.shareFacebook" value=""/>
             Enable automatic sharing to your Facebook timeline.
           </label>
           <span class="help-block"><small>Save time and share your videos as soon as you Go Live.</small></span>
-          <button class="btn-link block" ng-click="disconnect('fb')" role="button" ng-show="user.facebookConnected">Disconnect from Facebook</button>
+          <button class="btn-link block" ng-click="vm.disconnect('fb')" role="button" ng-show="vm.user.facebookConnected">Disconnect from Facebook</button>
         </div><!-- /.form-block -->
       </fieldset>
 
-      <fieldset form="appSettings" name="twtSettings">
-        <p class="twt-label" ng-show="user.twitterConnected"><strong>Connected to:</strong> (twitter username here)</p>
-        <p class="twt-label" ng-hide="user.twitterConnected"><strong>You are not connected to Twitter</strong></p>
-        <button class="btn-link block" ng-click="connectPopup('twitter')" role="button" ng-hide="user.twitterConnected">Connect to Twitter</button>
-        <div class="form-block" ng-show="user.twitterConnected">
+      <fieldset form="settingsForm" name="twtSettings">
+        <p class="twt-label" ng-show="vm.user.twitterConnected"><strong>Connected to:</strong> (twitter username here)</p>
+        <p class="twt-label" ng-hide="vm.user.twitterConnected"><strong>You are not connected to Twitter</strong></p>
+        <button class="btn-link block" ng-click="vm.connectPopup('twitter')" role="button" ng-hide="vm.user.twitterConnected">Connect to Twitter</button>
+        <div class="form-block" ng-show="vm.user.twitterConnected">
           <label>
-            <input type="checkbox" ng-model="user.shareTwitter" checked="checked"/>
+            <input type="checkbox" ng-model="vm.user.shareTwitter" checked="checked"/>
             Enable automatic sharing to your Twitter feed.
           </label>
           <span class="help-block"><small>Save time and share your videos as soon as you Go Live.</small></span>
-          <button class="btn-link block" ng-click="disconnect('tw')" role="button">Disconnect from Twitter</button>
+          <button class="btn-link block" ng-click="vm.disconnect('tw')" role="button">Disconnect from Twitter</button>
         </div><!-- /.form-block -->
       </fieldset>
 
       <div class="form-actions">
-        <input class="btn btn-primary" type="submit" value="Update Applications" ng-click="updateSettings()"/>
-        <input class="btn btn-default" type="submit" value="Reset" ng-click=""/>
-        <div class="formSuccess" ng-show="">
+        <input class="btn btn-primary" type="submit" value="Update Applications" ng-click="vm.updateSettings()"/>
+        <input class="btn btn-default" type="submit" value="Reset"/>
+        <div class="formSuccess" ng-hide="true">
           <p class="fadeOut"><strong>Success!</strong></p>
         </div>
       </div><!-- /.form-actions -->
