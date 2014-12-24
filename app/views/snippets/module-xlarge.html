@@ -1,13 +1,33 @@
 <div class="module-video">
-	<div class="spinner-overlay">
-		<div class="spinner"></div>
-	</div>
+  <div class="spinner-overlay">
+    <div class="spinner"></div>
+  </div>
   <div stream-viewer stream="stream" size="large" mute="false" on="true"></div>
 </div><!-- /.module-video -->
+<div class="feature-overlay">
+  <ul class="unstyled inline">
+    <li>
+      <span class="fa fa-eye"></span>
+      <span class="line-text">12</span>
+    </li>
+    <li>
+      <a href="#">
+        <span class="fa fa-thumbs-up"></span>
+        <span class="line-text">{{stream.likes}}</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="fa fa-comment"></span>
+        <span class="line-text">6</span>
+      </a>
+    </li>
+  </ul>
+</div><!-- /.feature-overlay-->
 <div class="module-outer">
-	<ul class="no-bullets">
-		<li class="thumb-user pull-left">
-			<a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
+  <ul class="unstyled">
+    <li class="thumb-user pull-left">
+      <a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
         <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
       </a>
     </li>
@@ -17,12 +37,14 @@
     </li>
     <li class="ellipsis">
       <span class="fa fa-map-marker"></span>
-      <span ng-hide="stream.properties.city">anonymous</span>
-      <span ng-show="stream.properties.city">{{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</span>
+      <span class="line-text" ng-hide="stream.properties.city">anonymous</span>
+      <span class="line-text" ng-show="stream.properties.city">{{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</span>
 		</li>
 		<li class="ellipsis">
       <span class="fa fa-user"></span>
-      <strong>Streamed by:</strong> <span>{{stream.user.username}}</span> <span am-time-ago="stream.startedOn"></span>
+      <span class="line-text">
+        <strong>Streamed by:</strong> <span>{{stream.user.username}}</span> <span am-time-ago="stream.startedOn"></span>
+      </span>
 		</li>
 	</ul>
 </div>

@@ -15,20 +15,40 @@
       <div class="module-overlay"></div>
     </a>
   </div><!-- /.module-video -->
+  <div class="feature-overlay">
+    <ul class="unstyled inline">
+      <li>
+        <span class="fa fa-eye"></span>
+        <span class="line-text">{{stream.liveViewers}}</span>
+      </li>
+      <li>
+        <a href="#">
+          <span class="fa fa-thumbs-up"></span>
+          <span class="line-text">{{stream.likes}}</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="fa fa-comment"></span>
+          <span class="line-text">6</span>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.feature-overlay-->
 </div><!-- /.module-inner -->
 <div class="module-outer clearfix">
-  <ul class="no-bullets">
+  <ul class="unstyled">
     <li class="thumb-user ellipsis">
       <a class="img-wrap" ui-sref="user({userName: stream.user.username})" title="{{stream.user.username}}">
         <img ng-src="{{ stream.user.photo || (stream.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
-			</a>
-			<span ng-show="stream.caption == 0">untitled</span>
+      </a>
+      <span ng-show="stream.caption == 0">untitled</span>
       <span ng-bind-html="stream.caption | hashToLink"></span>
-		</li>
-		<li class="ellipsis">
-      <a href="#" ui-sref="explore({lat: stream.geometry.coordinates[1], lng: stream.geometry.coordinates[0]})"><i class="icon-map-marker"></i></a>
-			<span ng-hide="stream.properties.city">anonymous</span>
-			<span ng-show="stream.properties.city">{{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</span>
-		</li>
-	</ul>
+    </li>
+    <li class="ellipsis">
+      <a href="#" ui-sref="explore({lat: stream.geometry.coordinates[1], lng: stream.geometry.coordinates[0]})"><span class="fa fa-map-marker"></span></a>
+      <span class="line-text" ng-hide="stream.properties.city">anonymous</span>
+      <span class="line-text" ng-show="stream.properties.city">{{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</span>
+    </li>
+  </ul>
 </div><!-- /.module-outer -->
