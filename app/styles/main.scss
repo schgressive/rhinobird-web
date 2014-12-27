@@ -1022,21 +1022,25 @@ i[class*="icon"] {font-style: normal;}
 
 .comments-header { border-bottom: 2px solid #ccc;}
 
+.single, .thread-group { padding-bottom: 3px; border-bottom: 1px solid #ccc;}
+
 .comment {
-  &.single, &.thread-group {
-    padding-bottom: 3px;
-    border-bottom: 1px solid #ccc;
-  }
-  h2 {
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-  }
+  & + .comment, & + .thread-group { margin-top: 24px;}
+  h2 { font-size: 14px; margin: 0; padding: 0;}
   .username { margin-top: -10px; margin-left: 12px;}
 }
 
 .comment-body { margin-left: 60px; margin-top: -18px;}
 .comment-footer { margin-left: 55px;}
+
+.thread-group {
+  .thread-child {
+    padding-bottom: 3px;
+    margin-top: 10px;
+    margin-left: 58px;
+    & + .thread-child { margin-top: 10px;}
+  }
+}
 
 .btn-overlay {
 	width: 100%;
