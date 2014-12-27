@@ -309,9 +309,11 @@ body.base { /*overrides are here */
 i[class*="icon"] {font-style: normal;}
 
 .user-avatar img {
-	width: 44px;
-	height: 44px;
-	background-size: cover;
+  width: 44px;
+  height: 44px;
+  background-size: cover;
+  border-top-left-radius: 13px;
+  border-bottom-right-radius: 13px;
 }
 
 .banner {
@@ -836,11 +838,6 @@ i[class*="icon"] {font-style: normal;}
 .gplus-icon, .gplus-label {	background-image: url('../images/googleplus-icon.svg');}
 .tblr-icon, .tblr-label { background-image: url('../images/tumblr-icon.svg');}
 
-.user-avatar img {
-	border-top-left-radius: 13px;
-	border-bottom-right-radius: 13px;
-}
-
 .profile-list {
 	.user-avatar {
 		margin-right: 20px;
@@ -1022,6 +1019,24 @@ i[class*="icon"] {font-style: normal;}
     }
   }
 }
+
+.comments-header { border-bottom: 2px solid #ccc;}
+
+.comment {
+  &.single, &.thread-group {
+    padding-bottom: 3px;
+    border-bottom: 1px solid #ccc;
+  }
+  h2 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  .username { margin-top: -10px; margin-left: 12px;}
+}
+
+.comment-body { margin-left: 60px; margin-top: -18px;}
+.comment-footer { margin-left: 55px;}
 
 .btn-overlay {
 	width: 100%;
