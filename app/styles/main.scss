@@ -1020,9 +1020,13 @@ i[class*="icon"] {font-style: normal;}
   }
 }
 
-.comments-header { border-bottom: 2px solid #ccc;}
+.comments-header {
+  border-bottom: 2px solid #ccc;
+  li.active a { color: $grayDarker;}
+}
 
 .single, .thread-group { padding-bottom: 3px; border-bottom: 1px solid #ccc;}
+.comments-header > ul > li:last-of-type { border-bottom: none;}
 
 .comment {
   & + .comment, & + .thread-group { margin-top: 24px;}
@@ -1040,6 +1044,16 @@ i[class*="icon"] {font-style: normal;}
     margin-left: 58px;
     & + .thread-child { margin-top: 10px;}
   }
+}
+
+.reply-area {
+  .user-avatar img {
+    height: 24px;
+    width: 24px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  input[type="text"] { width: 146%;}
 }
 
 .btn-overlay {
