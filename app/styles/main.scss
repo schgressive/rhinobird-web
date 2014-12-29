@@ -1079,7 +1079,7 @@ i[class*="icon"] {font-style: normal;}
   }
   input[type="text"] {
     width: 146%;
-    @media screen and (max-width: 700px) { width: ;}
+    @media screen and (max-width: 700px) { width: 100%;}
     @media screen and (max-width: 540px) { width: 100%;}
   }
 }
