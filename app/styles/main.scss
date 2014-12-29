@@ -805,6 +805,10 @@ i[class*="icon"] {font-style: normal;}
     }
     &[title*="Hoof"] {
       background-image: url('../images/hoof-icon-32.svg');
+      &.liked {
+        opacity: 1;
+        background-image: url('../images/hoof-icon-32b.svg');
+      }
     }
     &[title*="Comment"] {
       background-image: url('../images/comment-icon-32.svg');
