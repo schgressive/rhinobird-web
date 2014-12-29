@@ -146,3 +146,67 @@
   </div><!-- /.form-wrapper.span6 -->
 
 </div><!-- /.row-fluid -->
+
+<!-- MODALS: remove and place elsewhere during implementation -->
+<!-- IMPORTANT: must use different template than the other modals, the class: modal-edit must be used -->
+
+<div id="avatarEdit" class="modal modal-edit hide fade"
+     tabindex="-1" role="dialog"
+     aria-labelledby="avatarEditLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true">
+            <span class="fa fa-times"></span>
+    </button>
+    <h3 id="avatarEditLabel">Edit Avatar</h3>
+  </div>
+  <div class="modal-body" ng-app="" ng-controller="">
+    <label for="fileInput" class="inline">Select an image:</label>
+      <span class="btn btn-default btn-file inline">
+        Upload File <input type="file" id="fileInput"/>
+      </span>
+    <div class="cropArea">
+      <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+    </div>
+    <p>Cropped Image:</p>
+    <div>
+      <img ng-src="{{myCroppedImage}}" />
+    </div>
+  </div><!-- /.modal-body -->
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button class="btn btn-primary">Save Changes</button>
+  </div>
+</div>
+<div id="backdropEdit" class="modal modal-edit hide fade"
+     tabindex="-1" role="dialog"
+     aria-labelledby="backdropEditLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true">
+            <span class="fa fa-times"></span>
+    </button>
+    <h3 id="backdropEditLabel">Edit Backdrop</h3>
+  </div>
+  <div class="modal-body" ng-app="" ng-controller="">
+    <label for="fileInput" class="inline">Select an image:</label>
+      <span class="btn btn-default btn-file inline">
+        Upload File <input type="file" id="fileInput"/>
+      </span>
+    <div class="cropArea">
+      <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+    </div>
+    <p>Cropped Image:</p>
+    <div>
+      <img ng-src="{{myCroppedImage}}" />
+    </div>
+  </div><!-- /.modal-body -->
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button class="btn btn-primary">Save Changes</button>
+  </div>
+</div>
