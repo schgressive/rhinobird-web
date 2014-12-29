@@ -666,57 +666,71 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .lower-content {
-	padding-bottom:	30px;
-	h4 { margin-top: 0px;}
-	&.media-area .row-fluid:first-of-type {margin-bottom: 0;}
-	.row-fluid [class*="span3"] {
-		@media screen and (max-width: 1000px) {
-			width: 31.91%;
-			*width: 31.91%;
-		}
-		@media screen and (max-width: 730px) {
-			width: 48.7%;
-			*width: 48.7%;
-		}
-	}
-	.row-fluid [class*="span4"] {
-		@media screen and (max-width: 670px) {
-			width: 48.7%;
-			*width: 48.7%;
-		}
-	}
-	@media screen and (min-width: 1001px) {
-		.row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
-	}
-	@media screen and (min-width: 731px) and (max-width: 1000px) {
-		.row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
-	}
-	@media screen and (max-width: 730px) {
-		.row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
-	}
-	@media screen and (max-width: 730px) {
-		.row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
-	}
-	.timelineStatus {
-		width: 32px;
-		height: 32px;
-		background-size: contain;
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: block;
-		&.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
-		&.vj.live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
-		&.vj.archived { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
-		&.pending { background: transparent url('/images/pending-icon-32.svg') top left no-repeat;}
-	}
-	.owl-theme .owl-controls .owl-buttons div {
-		padding: 8px 16px;
-		-webkit-border-radius: 0;
-		-moz-border-radius: 0;
-		border-radius: 0;
-		background: $red;
-	}
+  padding-bottom: 30px;
+  h4 { margin-top: 0px;}
+  &.media-area .row-fluid:first-of-type {margin-bottom: 0;}
+  .row-fluid [class*="span3"] {
+    @media screen and (max-width: 1000px) {
+      width: 31.91%;
+      *width: 31.91%;
+    }
+    @media screen and (max-width: 730px) {
+      width: 48.7%;
+      *width: 48.7%;
+    }
+  }
+  .row-fluid [class*="span4"] {
+    @media screen and (max-width: 670px) {
+      width: 48.7%;
+      *width: 48.7%;
+    }
+  }
+  .row-fluid .module-large[class*="span6"] {
+    @media screen and (min-width: 800px) and (max-width: 1000px) {
+      width: 100%;
+      *width: 100%;
+      margin-left: 0px;
+    }
+    &:nth-child(odd) { margin-left: 0px;}
+  }
+  @media screen and (min-width: 1001px) {
+    .row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
+  }
+  @media screen and (min-width: 731px) and (max-width: 1000px) {
+    .row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
+  }
+  @media screen and (max-width: 730px) {
+    .row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
+  }
+  @media screen and (max-width: 730px) {
+    .row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
+  }
+  .timelineStatus {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    &.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
+    &.vj.live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
+    &.vj.archived { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
+    &.pending { background: transparent url('/images/pending-icon-32.svg') top left no-repeat;}
+  }
+  .owl-theme .owl-controls .owl-buttons div {
+    padding: 8px 16px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: $red;
+  }
+  .left-col, .right-col {
+    @media screen and (max-width: 800px) { width: 100%; margin-left: 0;}
+  }
+  .right-col .row-fluid .offset1:first-child {
+    @media screen and (max-width: 800px) { margin-left: 0;}
+  }
 }
 
 .about {
@@ -892,17 +906,26 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-large .module-video {
-	height: 110px;
-	@media screen and (min-width: 1001px) and (max-width: 1150px) { height: 90px;}
-	@media screen and (min-width: 800px) and (max-width: 956px) { height: 124px;}
-	@media screen and (max-width: 800px) { height: 110px;}
-	@media screen and (max-width: 730px) { height: 140px;}
-	@media screen and (max-width: 600px) { height: 120px;}
-	@media screen and (max-width: 540px) { height: 100px;}
-	.live-stream-link img {
-		width: auto;
-		height: auto;
-	}
+  height: 110px;
+  @media screen and (min-width: 1001px) and (max-width: 1150px) { height: 90px;}
+  @media screen and (min-width: 800px) and (max-width: 956px) { height: 124px;}
+  @media screen and (max-width: 800px) { height: 110px;}
+  @media screen and (max-width: 730px) { height: 140px;}
+  @media screen and (max-width: 600px) { height: 120px;}
+  @media screen and (max-width: 540px) { height: 100px;}
+  .live-stream-link img {
+    width: auto;
+    height: auto;
+  }
+}
+
+.module-large.span6 .module-video {
+  height: auto;
+  @media screen and (min-width: 1001px) and (max-width: 1150px) { height: auto;}
+  @media screen and (min-width: 801px) and (max-width: 956px) { height: auto;}
+  @media screen and (max-width: 800px) { height: 178px;}
+  @media screen and (max-width: 714px) { height: 140px;}
+  @media screen and (max-width: 400px) { height: 120px;}
 }
 
 .module-overlay {
@@ -1027,11 +1050,12 @@ i[class*="icon"] {font-style: normal;}
 
 .single, .thread-group { padding-bottom: 3px; border-bottom: 1px solid #ccc;}
 .comments-header > ul > li:last-of-type { border-bottom: none;}
+.comments-block { padding-top: 20px;}
 
 .comment {
   & + .comment, & + .thread-group { margin-top: 24px;}
   h2 { font-size: 14px; margin: 0; padding: 0;}
-  .username { margin-top: -10px; margin-left: 12px;}
+  .username { margin-top: -10px; margin-left: 12px; vertical-align: top;}
 }
 
 .comment-body { margin-left: 60px; margin-top: -18px;}
@@ -1053,18 +1077,22 @@ i[class*="icon"] {font-style: normal;}
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  input[type="text"] { width: 146%;}
+  input[type="text"] {
+    width: 146%;
+    @media screen and (max-width: 700px) { width: ;}
+    @media screen and (max-width: 540px) { width: 100%;}
+  }
 }
 
 .btn-overlay {
-	width: 100%;
-	background-color: $darkTrans;
+  width: 100%;
+  background-color: $darkTrans;
   position: absolute;
   bottom: 0;
   button {
-  	color: $white;
-  	width: 100%;
-	  background-image: none;
+    color: $white;
+    width: 100%;
+    background-image: none;
     background-color: transparent;
     border: none;
     &:hover { background-color: $red;}
