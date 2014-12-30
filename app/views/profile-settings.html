@@ -30,12 +30,15 @@
       <div class="control-group">
         <label class="control-label" for="textarea-bio">Bio:</label>
         <div class="controls">
-          <textarea class="input-xlarge"
-                    id="textarea-bio" name="textarea-bio"
-                    rows="4" cols="1">
-                    Make angular inject current bio
-          </textarea>
-          <span class="help-block"><small>Your bio appears on your <a ui-sref="user({userName: user.username})">user page</a>. URLs are hyperlinked.</small></span>
+          <textarea id="textarea-bio" class="input-xlarge" name="textarea-bio"rows="4" maxlength="140">Make angular inject current bio</textarea>
+          <span class="help-block">
+            <small>Your bio appears on your <a ui-sref="user({userName: user.username})">user page</a>. URLs are hyperlinked.</small>
+          </span><!-- /.help-block -->
+          <div class="validate" ng-show="">
+              <small class="warning" ng-show="">
+                Your bio must be 140 characters or less.
+              </small>
+          </div><!-- /.validate -->
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
