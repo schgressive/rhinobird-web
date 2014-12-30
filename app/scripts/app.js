@@ -70,6 +70,7 @@ angular.module('rhinobird', [
     - trademark                               /trademark
     - privacy                                 /privacy
     - about                                   /about
+    - goodbye                                 /goodbye
     - stream({streamId: <streamId>})          /stream/:streamId
     - user({userName: <username>})            /user/:userName
     - channel({channelName: <channelname>})   /:channelName
@@ -267,6 +268,12 @@ angular.module('rhinobird', [
     .state('about', {
       url: '/about/',
       templateUrl: '/views/about.html'
+    })
+
+    // Goodbye
+    .state('goodbye', {
+      url: '/goodbye/',
+      templateUrl: '/views/goodbye.html'
     })
 
     // Channels
