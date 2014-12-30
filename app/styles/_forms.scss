@@ -113,7 +113,7 @@ body.base {
 		.close {
 			color: $warmGray11;
 			text-shadow: 0 1px 0 $black;
-			margin-top: 10px;
+			margin-top: 4px;
 			opacity: .5;
 			&:hover { opacity: .7;}
 			@media screen and (max-width: 598px) {
@@ -216,6 +216,28 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		background-color: darken($btnAccentBackground, 10%);
 		border-color: darken($btnAccentBackground, 15%);
 	}
+}
+
+.btn-danger {
+  color: $white;
+  background-color: $errorText;
+  border-color: darken($errorText, 5%);
+  @include font-smoothing;
+  &:hover {
+    background-color: darken($errorText, 20%);
+    border-color: darken($errorText, 30%);
+  }
+}
+
+.btn-success {
+  color: $white;
+  background-color: $successText;
+  border-color: darken($successText, 5%);
+  @include font-smoothing;
+  &:hover {
+    background-color: darken($successText, 20%);
+    border-color: darken($successText, 30%);
+  }
 }
 
 .btn-file {
@@ -369,7 +391,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 
 .modal, .mobileForm {
 	h2 { margin-bottom: 8px;}
-	h4 { margin: 0 0 3px 0;
+	h3 { font-weight: 700;}
+	h4 {
+  	margin: 0 0 3px 0;
 		a.btn-accent {
 			@media screen and (max-width: 500px) {
 				display: block;
@@ -492,5 +516,13 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     width:auto;
     height: 350px;
   }
-  .modal-footer { background-color: transparent;}
+  .modal-header { border-bottom: none;}
+  .modal-content { background-color: $darkTrans; color: $textOnDark;}
+  .modal-footer {
+    text-align: center;
+    background-color: transparent;
+    border-top: none;
+    box-shadow: none;
+    .btn { width: 42%;}
+  }
 }
