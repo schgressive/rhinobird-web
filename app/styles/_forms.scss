@@ -8,14 +8,18 @@ form { margin: 0;}
     width: 100%;
     height: auto;
     @include opacity(.5);
-    &:hover {
-      @include opacity(1);
-      cursor: pointer;
-    }
+    &:hover { @include opacity(1);}
   }
   .user-avatar {
     border-top-left-radius: 18px;
     border-bottom-right-radius: 18px;
+  }
+  .overlay {
+    position: relative;
+    margin-top: -50%;
+    margin-left: 50%;
+    font-size: 20px;
+    color: white;
   }
   .formSuccess {
     color: $successText;
