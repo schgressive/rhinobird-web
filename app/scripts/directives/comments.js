@@ -5,7 +5,6 @@ angular.module('rhinobird.directives')
 
     function link (scope, element, attrs) {
 
-      debugger
       var rbComments = new $window.RbComments.ClientDOM({
         host:             'http://localhost:8000',
         auth_token:       scope.user.authenticationToken,
