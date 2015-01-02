@@ -13,8 +13,8 @@ angular.module('rhinobird', [
   'rhinobird.filters',
   'rhinobird.controllers'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, 
-                  $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider, 
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider,
+                  $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider,
                   settings, mobileDetect) {
   // Remove hashes and enables html push state history
   $locationProvider.html5Mode(true);
@@ -72,6 +72,9 @@ angular.module('rhinobird', [
     - about                                   /about
     - stream({streamId: <streamId>})          /stream/:streamId
     - user({userName: <username>})            /user/:userName
+    - user.streams                            /user/:userName/streams
+    - user.following                          /user/:userName/following
+    - user.follwers                           /user/:userName/followers
     - channel({channelName: <channelname>})   /:channelName
     - vjsession.live({                             /:channelName/:userName
           channelName: <channelname>,
@@ -183,12 +186,24 @@ angular.module('rhinobird', [
     .state('user', {
       url: '/user/{userName:[0-9a-zA-Z-_]+}/',
       templateUrl: '/views/user.html',
-      controller: 'UserCtrl',
+      controller: 'UserCtrl as vm',
       resolve: {
         user: ['$stateParams', 'User', function($stateParams, User){
           return User.$find($stateParams.userName).$promise;
         }]
       }
+    })
+    .state('user.streams', {
+      url: 'streams/',
+      templateUrl: '/views/user-streams.html'
+    })
+    .state('user.following', {
+      url: 'following/',
+      templateUrl: '/views/user-following.html'
+    })
+    .state('user.followers', {
+      url: 'followers/',
+      templateUrl: '/views/user-followers.html'
     })
 
     .state('password?reset_password_token&complete', {
