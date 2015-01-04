@@ -888,6 +888,22 @@ i[class*="icon"] {font-style: normal;}
       }
     }
   }
+.streaming-wrapper {
+  h3 { position: relative; margin: 0; background-color: $white;}
+  .h3-text { display: block; padding: 10px 0 3px;}
+  .module-xlarge { position: relative;}
+  .timelineStatus {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    &.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
+    &.vj.live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
+  }
+}
 
 .map-wrapper, .carousel-wrapper, .module-large, .results-item, .back-to-top {@include box-shadow(0 1px 2px $shadowColor);}
 

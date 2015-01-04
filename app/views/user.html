@@ -1,10 +1,10 @@
 <section class="top-content">
-  <div class="width-controller container-fluid text-center">
+  <div class="width-controller container-fluid">
     <div class="row-fluid">
       <div class="backdrop-wrapper">
         <img src="http://fakeimg.pl/1500x800/" alt="user backdrop image" />
       </div>
-      <div class="user-wrapper">
+      <div class="user-wrapper text-center">
         <ul class="unstyled profile-list">
           <li class="user-avatar">
             <img ng-src="{{ self.user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
@@ -13,6 +13,9 @@
             <ul class="unstyled">
               <li>
                 <h2>{{self.user.username}}</h2>
+              </li>
+              <li>
+                <h4>Streaming Now!</h4>
               </li>
               <li>
                 <p>Ennui Banksy DIY, fap forage chambray wayfarers. Brunch cornhole Godard +1 cred aesthetic. YOLO food truck Pinterest freegan semiotics twee.</p>
@@ -55,11 +58,8 @@
     </div><!-- /.row-fluid -->
     <div class="streaming-wrapper" ng-hide="true" ng-show="stream">
       <div class="row-fluid">
-        <h3 class="span12">Currently live:</h3>
-      </div>
-      <div class="row-fluid">
         <div class="module-xlarge span12">
-          <div ng-include="'/views/snippets/module-xlarge.html'"></div>
+          <div ng-include="'/views/snippets/module-featured.html'"></div>
         </div><!-- /.module-xlarge -->
       </div><!-- /.row-fluid -->
     </div><!-- /.streaming-wrapper -->
