@@ -1,18 +1,57 @@
 <section class="top-content">
-  <div class="width-controller container-fluid">
+  <div class="width-controller container-fluid text-center">
     <div class="row-fluid">
-      <ul class="profile-list no-bullets span12">
-        <li class="user-avatar pull-left">
-          <img ng-src="{{ self.user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
-        </li>
-        <li class="user-info pull-left">
-          <ul class="no-bullets">
-            <li>
-              <h2>{{self.user.username}}</h2>
-            </li>
-          </ul>
-        </li>
-      </ul><!-- /.profile-list -->
+      <div class="backdrop-wrapper">
+        <img src="http://fakeimg.pl/1500x500/" alt="user backdrop image" />
+      </div>
+      <div class="user-wrapper">
+        <ul class="unstyled profile-list">
+          <li class="user-avatar">
+            <img ng-src="{{ self.user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+          </li>
+          <li>
+            <ul class="unstyled">
+              <li>
+                <h2>{{self.user.username}}</h2>
+              </li>
+              <li>
+                <p>Ennui Banksy DIY, fap forage chambray wayfarers. Brunch cornhole Godard +1 cred aesthetic. YOLO food truck Pinterest freegan semiotics twee.</p>
+              </li>
+            </ul>
+          </li>
+          <li class="user-stats">
+            <ul class="unstyled inline">
+              <li>
+                <span>12</span>
+                <span class="fa fa-thumbs-o-up"></span>
+                <span class="line-text">Applause</span>
+              </li>
+              <li>
+                <span>43</span>
+                <span class="fa fa-eye"></span>
+                <span class="line-text">Audience</span>
+              </li>
+              <li>
+                <span>22</span>
+                <span class="fa fa-video-camera"></span>
+                <span class="line-text">Videos</span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" role="button"
+                    class="btn btn-default" ng-hide="">
+                    <span class="fa fa-user"></span>
+                    <span class="line-text">Follow</span>
+            </button>
+            <button type="button" role="button"
+                    class="btn btn-success" ng-show="">
+                    <span class="fa fa-user"></span>
+                    <span class="line-text">Following</span>
+            </button>
+          </li>
+        </ul><!-- /.profile-list -->
+      </div><!-- /.user-wrapper -->
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
   <div class="width-controller mobile-full container-fluid"  ng-hide="true" ng-show="stream">
