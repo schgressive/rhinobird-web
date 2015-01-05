@@ -923,13 +923,30 @@ i[class*="icon"] {font-style: normal;}
     img {
       width: 70px;
       height: 70px;
+      @media screen and (max-width: 540px) { width: 60px; height: 60px;}
     }
   }
   .user-info {
     vertical-align: top;
-    h4 { margin-top: 0; font-size: 18px;}
+    @media screen and (max-width: 540px) { width: 64%;}
+    h4 {
+      margin-top: 0;
+      font-size: 18px;
+      @media screen and (max-width: 540px) { font-size: 16px;}
+    }
+    h5 {
+      @media screen and (max-width: 540px) { font-size: 14px;}
+    }
   }
-  .user-bio { margin: 12px 0 0 4px; max-width: 70%;}
+  .user-bio {
+    margin: 12px 0 0 4px;
+    max-width: 70%;
+    @media screen and (max-width: 540px) {
+      margin-top: 5px;
+      font-size: 13px;
+      max-width: 90%;
+    }
+  }
 }
 
 .map-wrapper, .carousel-wrapper, .module-large, .results-item, .back-to-top {@include box-shadow(0 1px 2px $shadowColor);}
