@@ -2,19 +2,26 @@
   <li>
     <ul class="unstyled inline">
       <li class="user-avatar">
-        <a class="img-wrap" ui-sref="user({userName: stream.user.username})" title="{{stream.user.username}}">
-          <img ng-src="//www.gravatar.com/avatar/930736c6bae86ad53ced8e6cb7e63505?s=120" alt="user avatar" src="//www.gravatar.com/avatar/930736c6bae86ad53ced8e6cb7e63505?s=120">
+        <a class="img-wrap" ui-sref="user({userName: following.user.username})" title="{{following.user.username}}">
+          <img ng-src="{{ following.user.photo || (following.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="{{following.user.username}} avatar">
         </a>
       </li><!-- /.user-avatar -->
       <li class="user-info">
         <ul class="unstyled">
           <li>
-            <h4>name</h4>
+            <h4>following.user.username</h4>
           </li>
           <li>
             <h5>
               <span class="fa fa-video-camera"></span>
-              <span class="line-text">Recently streamed from: <a href="#"> location.</a></span>
+              <span class="line-text">Recently streamed from:
+                <span ng-show="">anonymous</span>
+                <a ui-sref="stream({streamId: stream.id})"
+                   title="click to watch video"
+                   ng-hide="">
+                   {{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</a>
+              </span>
+              <span class="line-text" ng-show="">This user has not streamed a video.</span>
             </h5>
           </li>
         </ul>
