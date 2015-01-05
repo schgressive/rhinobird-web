@@ -4,11 +4,8 @@
 
   <div class="row-fluid">
     <div class="span11 offset1">
-      <ol class="rb-comments-list comments-block unstyled">
-        <li class="comment single">
-      </ol>
 
-      <div class="row-fluid reply-area">
+      <div class="row-fluid reply-area" ng-show='user.$pk'>
         <div class="span1">
           <a class="user-avatar" ui-sref="user({userName: user.username})" title="fheusser">
             <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar">
@@ -23,6 +20,11 @@
           </form>
         </div>
       </div>
+
+      <p ng-hide='user.$pk'>You need to <a href="#" ng-click="rootScope.login()">Sign in</a> to be able to post comments</p>
+
+      <ol class="rb-comments-list comments-block unstyled">
+      </ol>
 
       <a href="#" class='rb-load-more top'>Load More</a>
     </div>

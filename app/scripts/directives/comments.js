@@ -1,10 +1,27 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('comments', function ($window) {
+  .directive('comments', function ($window, $compile) {
 
     function link (scope, element, attrs) {
 
+      // Override how the DOM Client for Comments will render a comment
+      //
+      RbComments.ClientDOM.prototype.onIncommingMessage = function (message, method) {
+        var newScope = scope.$new(true);
+
+        newScope.comment = message;
+
+        // FIXME: HACK! booleans and nulls came as String from Redis.
+        if (newScope.comment.user.photo == "null")
+          newScope.comment.user.photo = null;
+
+        var element = $compile($("<li comment class='comment'>"))(newScope);
+        this.$listElement[method || 'prepend'](element);
+      }
+
+      // Create a new instance of Comments Client
+      //
       var rbComments = new $window.RbComments.ClientDOM({
         host:             'http://localhost:8000',
         auth_token:       scope.user.authenticationToken,
@@ -20,4 +37,10 @@ angular.module('rhinobird.directives')
       templateUrl: '/views/rb-comments.html',
       link: link
     };
+  })
+
+  .directive('comment', function () {
+    return {
+      templateUrl: '/views/rb-comment.html'
+    }
   });
