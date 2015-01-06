@@ -95,12 +95,13 @@
                    type="image" class="user-avatar" alt="edit your avatar"
                    role="button"
                    ng-click="vm.editImage('avatar')"
-                   set-src="vm.avatar" />
+                   src="/images/profile-default.svg"
+                   set-src="vm.user.avatar" />
           </div><!-- /.span3 -->
           <div class="span9">
             <input type="image" class="user-backdrop" alt="edit your backdrop"
                    role="button"
-                   set-src="vm.backdrop"
+                   set-src="vm.user.backdrop"
                    ng-click="vm.editImage('backdrop')"
                    src="http://fakeimg.pl/200x100/"/>
           </div><!-- /.span9 -->

@@ -46,7 +46,7 @@ angular.module('rhinobird.controllers')
     // Open the crop modal and returns the image
     function editImage(type) {
       ImageCrop.open(type).then(function(image) {
-        vm[type] = image;
+        vm.user[type] = image;
       });
     }
 

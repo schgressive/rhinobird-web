@@ -8,7 +8,9 @@ angular.module('rhinobird.directives')
         },
         link: function (scope, element, attributes) {
           scope.$watch('setSrc', function(newVal) {
-            element.attr('src', newVal);
+            if (newVal != null) {
+              element.attr('src', newVal);
+            }
           })
         }
     }
