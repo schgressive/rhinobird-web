@@ -3,7 +3,7 @@
     <div class="row-fluid">
       <ul class="profile-list no-bullets span12">
         <li class="user-avatar pull-left">
-          <img ng-src="{{ vm.user.photo || (vm.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+          <img ng-src="{{ vm.user.getProfilePic() || (vm.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
         </li>
         <li class="user-info pull-left">
           <ul class="no-bullets">
@@ -30,14 +30,14 @@
             </li>
             <li ng-class="getClass('/profile/settings')">
               <a ui-sref="profile.settings" data-toggle="tab">
-	              <span class="fa fa-user"></span>
-	              <span class="line-text">User Settings</span>
+	              <span class="fa fa-cog"></span>
+	              <span class="line-text">Your Settings</span>
 	           </a>
             </li>
-            <li ng-class="getClass('/profile/applications')">
-              <a ui-sref="profile.applications" data-toggle="tab">
-	              <span class="fa fa-cog"></span>
-	              <span class="line-text">Apps</span>
+            <li ng-class="getClass('/profile/directvideo')">
+              <a ui-sref="profile.directvideo" data-toggle="tab">
+	              <span class="fa fa-envelope"></span>
+	              <span class="line-text">Direct Videos</span>
 	            </a>
             </li>
           </ul>

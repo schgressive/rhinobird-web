@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ProfileCtrl', function (User, session, $location, OpenAndWatch, ValidateUserResponse, $timeout) {
+  .controller('ProfileCtrl', function (User, session, $location, OpenAndWatch, ValidateUserResponse, $timeout, ImageCrop) {
 
     var vm = this;
 
@@ -11,12 +11,14 @@ angular.module('rhinobird.controllers')
     var userTmp = User.$build({username: session.user.username});
     vm.timeline = userTmp.timeline.$collection({ pending: true });
     vm.timeline.getNextPage();
+    vm.avatar = "/images/profile-default.svg";
 
     // Expose methods to the VM
     vm.getClass = getClass;
     vm.connectPopup = connectPopup;
     vm.disconnect = disconnect;
     vm.updateSettings = updateSettings;
+    vm.editImage = editImage;
 
 
     // PRIVATE METHODS
@@ -39,6 +41,13 @@ angular.module('rhinobird.controllers')
     function disconnect(network) {
       vm.user[network + "_token"] = null;
       vm.updateSettings();
+    }
+
+    // Open the crop modal and returns the image
+    function editImage(type) {
+      ImageCrop.open(type).then(function(image) {
+        vm.user[type] = image;
+      });
     }
 
     function updateSettings(form){
