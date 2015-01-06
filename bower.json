@@ -14,7 +14,7 @@
     "angular-restmod": "0.13",
     "angular-inflector": "0.0.2",
     "angular-licode": "0.0.20",
-    "bootstrap-sass": "2.3.2",
+    "bootstrap-sass": "git@github.com:jlong/sass-bootstrap-defunct.git#v2.3.2",
     "owlcarousel": "*",
     "angular-ui-router": "0.2.11",
     "nginfinitescroll": "~1.0.0",
