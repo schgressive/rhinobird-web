@@ -7,6 +7,7 @@ angular.module('rhinobird', [
   'pl-licode',
   'leaflet-directive',
   'angularMoment',
+  'ngImgCrop',
   'rhinobird.models',
   'rhinobird.services',
   'rhinobird.directives',

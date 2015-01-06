@@ -30,9 +30,9 @@
       <div class="control-group">
         <label class="control-label" for="textarea-bio">Bio:</label>
         <div class="controls">
-          <textarea id="textarea-bio" class="input-xlarge" name="textarea-bio"rows="4" maxlength="140">Make angular inject current bio</textarea>
+          <textarea id="textarea-bio" class="input-xlarge" name="textarea-bio"rows="4" maxlength="140" ng-model="vm.user.bio"></textarea>
           <span class="help-block">
-            <small>Your bio appears on your <a ui-sref="user({userName: user.username})">user page</a>. URLs are hyperlinked.</small>
+            <small>Your bio appears on your <a ui-sref="user({userName: vm.user.username})">user page</a>. URLs are hyperlinked.</small>
           </span><!-- /.help-block -->
           <div class="validate" ng-show="">
               <small class="warning" ng-show="">
@@ -91,15 +91,17 @@
           id="profileForm" name="profileForm" role="form">
       <fieldset form="profileForm" name="profileImages">
           <div class="span3">
-            <input data-picture
+            <input 
                    type="image" class="user-avatar" alt="edit your avatar"
-                   role="button" data-toggle="modal" data-target="#avatarEdit"
-                   ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}"/>
+                   role="button"
+                   ng-click="vm.editImage('avatar')"
+                   set-src="vm.avatar" />
           </div><!-- /.span3 -->
           <div class="span9">
-            <input data-picture
-                   type="image" class="user-backdrop" alt="edit your backdrop"
-                   role="button" data-toggle="modal" data-target="#backdropEdit"
+            <input type="image" class="user-backdrop" alt="edit your backdrop"
+                   role="button"
+                   set-src="vm.backdrop"
+                   ng-click="vm.editImage('backdrop')"
                    src="http://fakeimg.pl/200x100/"/>
           </div><!-- /.span9 -->
       </fieldset>
@@ -161,69 +163,6 @@
 
 </div><!-- /.row-fluid -->
 
-<!-- MODALS: remove and place elsewhere during implementation -->
-<!-- IMPORTANT: must use different template than the other modals, the class: modal-edit must be used -->
-
-<div id="avatarEdit" class="modal modal-edit hide fade"
-     tabindex="-1" role="dialog"
-     aria-labelledby="avatarEditLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-hidden="true">
-            <span class="fa fa-times"></span>
-    </button>
-    <h3 id="avatarEditLabel">Edit Avatar</h3>
-  </div>
-  <div class="modal-body" ng-app="" ng-controller="">
-    <label for="fileInput" class="inline">Select an image:</label>
-      <span class="btn btn-default btn-file inline">
-        Upload File <input type="file" id="fileInput"/>
-      </span>
-    <div class="cropArea">
-      <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
-    </div>
-    <p>Cropped Image:</p>
-    <div>
-      <img ng-src="{{myCroppedImage}}" />
-    </div>
-  </div><!-- /.modal-body -->
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-    <button class="btn btn-success">Save Changes</button>
-  </div>
-</div>
-<div id="backdropEdit" class="modal modal-edit hide fade"
-     tabindex="-1" role="dialog"
-     aria-labelledby="backdropEditLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-hidden="true">
-            <span class="fa fa-times"></span>
-    </button>
-    <h3 id="backdropEditLabel">Edit Backdrop</h3>
-  </div>
-  <div class="modal-body" ng-app="" ng-controller="">
-    <label for="fileInput" class="inline">Select an image:</label>
-      <span class="btn btn-default btn-file inline">
-        Upload File <input type="file" id="fileInput"/>
-      </span>
-    <div class="cropArea">
-      <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
-    </div>
-    <p>Cropped Image:</p>
-    <div>
-      <img ng-src="{{myCroppedImage}}" />
-    </div>
-  </div><!-- /.modal-body -->
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-    <button class="btn btn-success">Save Changes</button>
-  </div>
-</div>
 <div id="deleteModal" class="modal modal-edit hide fade"
      tabindex="-1" role="dialog"
      aria-labelledby="deleteModalLabel" aria-hidden="true">
