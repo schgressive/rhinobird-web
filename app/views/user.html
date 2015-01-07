@@ -1,46 +1,105 @@
 <section class="top-content">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-      <ul class="profile-list no-bullets span12">
-        <li class="user-avatar pull-left">
-          <img ng-src="{{ self.user.getProfilePic() || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
-        </li>
-        <li class="user-info pull-left">
-          <ul class="no-bullets">
-            <li>
-              <h2>{{self.user.username}}</h2>
-            </li>
-          </ul>
-        </li>
-      </ul><!-- /.profile-list -->
+      <div class="backdrop-wrapper">
+        <img ng-src="{{self.user.backdrop}}" alt="user backdrop image" />
+      </div>
+      <div class="user-wrapper text-center">
+        <ul class="unstyled user-profile-list">
+          <li class="user-avatar">
+            <img ng-src="{{ self.user.getProfilePic() || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+          </li>
+          <li>
+            <ul class="unstyled">
+              <li>
+                <h2>{{self.user.username}}</h2>
+              </li>
+              <li>
+                <h4>Streaming Now!</h4>
+              </li>
+              <li>
+                <p>{{self.user.bio}}</p>
+              </li>
+            </ul>
+          </li>
+          <li class="user-stats">
+            <ul class="unstyled inline">
+              <li>
+                <span>12</span>
+                <span class="fa fa-thumbs-o-up"></span>
+                <span class="line-text">Applause</span>
+              </li>
+              <li>
+                <span>43</span>
+                <span class="fa fa-eye"></span>
+                <span class="line-text">Audience</span>
+              </li>
+              <li>
+                <span>22</span>
+                <span class="fa fa-video-camera"></span>
+                <span class="line-text">Videos</span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" role="button"
+                    class="btn btn-default" ng-hide="">
+                    <span class="fa fa-user"></span>
+                    <span class="line-text">Follow</span>
+            </button>
+            <button type="button" role="button"
+                    class="btn btn-success" ng-show="">
+                    <span class="fa fa-user"></span>
+                    <span class="line-text">Following</span>
+            </button>
+          </li>
+        </ul><!-- /.profile-list -->
+      </div><!-- /.user-wrapper -->
     </div><!-- /.row-fluid -->
+    <div class="streaming-wrapper" ng-hide="true" ng-show="stream">
+      <div class="row-fluid">
+        <div class="module-xlarge span12">
+          <div ng-include="'/views/snippets/module-featured.html'"></div>
+        </div><!-- /.module-xlarge -->
+      </div><!-- /.row-fluid -->
+    </div><!-- /.streaming-wrapper -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
 
-<div class="width-controller mobile-full container-fluid"  ng-hide="true" ng-show="stream">
-  <div class="row-fluid">
-    <h3 class="span6">Currently live:</h3>
-  </div><!-- /.row-fluid -->
-  <section class="mid-content">
-    <div class="row-fluid">
-      <div class="module-xlarge span12">
-        <div ng-include="'/views/snippets/module-xlarge.html'"></div>
-      </div><!-- /.module-xlarge -->
-    </div><!-- /.row-fluid -->
-  </section><!-- /.mid-content -->
-</div>
-
 <div class="main" role="main">
   <div class="width-controller container-fluid">
+    <section class="mid-content">
+      <div class="row-fluid">
+        <div class="tabs">
+          <ul class="inline no-bullets">
+            <li ng-class="getClass('/user/streams')">
+              <a ui-sref="user.streams" data-toggle="tab">
+	              <span class="fa fa-video-camera"></span>
+	              <span class="line-text">{{self.user.username}}'s Videos</span>
+	            </a>
+            </li>
+            <li ng-class="getClass('/user/following')">
+              <a ui-sref="user.following" data-toggle="tab">
+	              <span class="fa fa-user"></span>
+	              <span class="line-text">Following</span>
+	           </a>
+            </li>
+            <li ng-class="getClass('/user/followers')">
+              <a ui-sref="user.followers" data-toggle="tab">
+	              <span class="fa fa-group"></span>
+	              <span class="line-text">Followers</span>
+	            </a>
+            </li>
+          </ul>
+        </div><!-- /.tabs -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.mid-content -->
     <section class="lower-content media-area">
-      <div class="row-fluid">
-        <h3 class="span6">Videos streamed by {{self.user.username}}:</h3>
-      </div><!-- /.row-fluid -->
-      <div class="row-fluid">
-        <div class="span12">
-          <div infinite-timeline-list timeline="self.user.timeline"></div>
-        </div><!-- /.span12 -->
-      </div><!-- /.row-fluid -->
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <div ui-view></div>
+        </div><!-- /.tab-pane -->
+      </div>
     </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
