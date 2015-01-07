@@ -9,7 +9,7 @@ angular.module('rhinobird.services').
       image: image
     }
 
-    function open(type) {
+    function open(type, crop) {
 
       var deffered = $q.defer();
 
@@ -18,6 +18,9 @@ angular.module('rhinobird.services').
         windowClass: 'modal-edit',
         controller: "CropModalCtrl",
         resolve: {
+          crop: function() {
+            return crop;
+          },
           type: function() {
             return type;
           }

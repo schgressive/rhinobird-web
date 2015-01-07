@@ -13,15 +13,19 @@
       <span class="btn btn-default btn-file inline">
         Upload File <input type="file" fileread="originalImage"/>
       </span>
-    <div class="cropArea">
+    <div class="cropArea" ng-if="crop">
       <img-crop image="originalImage" result-image="myCroppedImage" area-type="square" />
     </div>
-    <p>Cropped Image:</p>
-    <div>
+    <div class="cropArea" ng-if="!crop">
+      <img ng-src="{{originalImage}}" />
+    </div>
+    <p ng-if="crop">Cropped Image:</p>
+    <div ng-if="crop">
       <img ng-src="{{myCroppedImage}}" />
     </div>
   </div><!-- /.modal-body -->
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">Cancel</button>
-    <button class="btn btn-success" ng-click="save(myCroppedImage)">Save Changes</button>
+    <button class="btn btn-success" ng-click="save(myCroppedImage)" ng-if="crop">Save Changes</button>
+    <button class="btn btn-success" ng-click="save(originalImage)" ng-if="!crop">Save Changes</button>
   </div>

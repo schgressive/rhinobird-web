@@ -45,7 +45,8 @@ angular.module('rhinobird.controllers')
 
     // Open the crop modal and returns the image
     function editImage(type) {
-      ImageCrop.open(type).then(function(image) {
+      var crop = (type == 'backdrop') ? false : true;
+      ImageCrop.open(type,crop).then(function(image) {
         vm.user[type] = image;
       });
     }
