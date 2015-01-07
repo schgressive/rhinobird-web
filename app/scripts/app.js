@@ -7,6 +7,7 @@ angular.module('rhinobird', [
   'pl-licode',
   'leaflet-directive',
   'angularMoment',
+  'ngImgCrop',
   'rhinobird.models',
   'rhinobird.services',
   'rhinobird.directives',
@@ -64,12 +65,13 @@ angular.module('rhinobird', [
     - search.people                           /search/people
     - golive                                  /golive
     - profile.streams                         /profile/streams
-    - profile.settings												/profile/settings
-    - profile.applications										/profile/applications
-    - terms	                                  /terms
-		- trademark	                              /trademark
+    - profile.settings                        /profile/settings
+    - profile.directvideo                     /profile/directvideo
+    - terms                                   /terms
+    - trademark                               /trademark
     - privacy                                 /privacy
     - about                                   /about
+    - goodbye                                 /goodbye
     - stream({streamId: <streamId>})          /stream/:streamId
     - user({userName: <username>})            /user/:userName
     - user.streams                            /user/:userName/streams
@@ -153,9 +155,9 @@ angular.module('rhinobird', [
       url: 'settings/',
       templateUrl: '/views/profile-settings.html'
     })
-    .state('profile.applications', {
+    .state('profile.directvideo', {
       url: 'applications/',
-      templateUrl: '/views/profile-applications.html'
+      templateUrl: '/views/profile-directvideo.html'
     })
 
     // Streams
@@ -282,6 +284,12 @@ angular.module('rhinobird', [
     .state('about', {
       url: '/about/',
       templateUrl: '/views/about.html'
+    })
+
+    // Goodbye
+    .state('goodbye', {
+      url: '/goodbye/',
+      templateUrl: '/views/goodbye.html'
     })
 
     // Channels

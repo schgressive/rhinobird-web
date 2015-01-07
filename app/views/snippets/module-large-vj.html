@@ -43,7 +43,7 @@
   <ul class="unstyled">
     <li class="thumb-user ellipsis">
       <a class="img-wrap" ui-sref="user({userName: vj.user.username})" title="{{vj.user.username}}">
-        <img ng-src="{{ vj.user.photo || (vj.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
+        <img ng-src="{{ vj.user.getProfilePic() || (vj.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
       </a>
       <span>#{{vj.channelName}}</span>
     </li>
