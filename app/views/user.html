@@ -2,7 +2,7 @@
   <div class="width-controller container-fluid">
     <div class="row-fluid">
       <div class="backdrop-wrapper">
-        <img src="http://fakeimg.pl/1500x800/" alt="user backdrop image" />
+        <img ng-src="{{self.user.backdrop}}" alt="user backdrop image" />
       </div>
       <div class="user-wrapper text-center">
         <ul class="unstyled user-profile-list">
@@ -18,7 +18,7 @@
                 <h4>Streaming Now!</h4>
               </li>
               <li>
-                <p>Ennui Banksy DIY, fap forage chambray wayfarers. Brunch cornhole Godard +1 cred aesthetic. YOLO food truck Pinterest freegan semiotics twee.</p>
+                <p>{{self.user.bio}}</p>
               </li>
             </ul>
           </li>
