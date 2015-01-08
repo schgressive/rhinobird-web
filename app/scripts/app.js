@@ -156,7 +156,7 @@ angular.module('rhinobird', [
       templateUrl: '/views/profile-settings.html'
     })
     .state('profile.directvideo', {
-      url: 'applications/',
+      url: 'directvideo/',
       templateUrl: '/views/profile-directvideo.html'
     })
 
