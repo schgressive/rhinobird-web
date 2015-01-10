@@ -5,7 +5,11 @@ angular.module('rhinobird.models')
     return $restmod.model('users', {
       streams: { hasMany: 'Stream'},
       vjs: { hasMany: 'Vj' },
-      timeline: {hasMany: 'Timeline'}
+      timeline: {hasMany: 'Timeline'},
+
+      'getProfilePic': function() {
+        return this.avatar || this.photo;
+      }
     },
     function() {
       this.on('after-save', function() {

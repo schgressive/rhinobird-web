@@ -1,0 +1,31 @@
+  <div class="modal-header">
+    <button type="button"
+            class="close"
+            ng-click="cancel()"
+            data-dismiss="modal"
+            aria-hidden="true">
+            <span class="fa fa-times"></span>
+    </button>
+    <h3 id="backdropEditLabel">Edit {{type}}</h3>
+  </div>
+  <div class="modal-body">
+    <label for="fileInput" class="inline">Select an image:</label>
+      <span class="btn btn-default btn-file inline">
+        Upload File <input type="file" fileread="originalImage"/>
+      </span>
+    <div class="cropArea" ng-if="crop">
+      <img-crop image="originalImage" result-image="myCroppedImage" area-type="square" />
+    </div>
+    <div class="cropArea" ng-if="!crop">
+      <img ng-src="{{originalImage}}" />
+    </div>
+    <p ng-if="crop">Cropped Image:</p>
+    <div ng-if="crop">
+      <img ng-src="{{myCroppedImage}}" />
+    </div>
+  </div><!-- /.modal-body -->
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-success" ng-click="save(myCroppedImage)" ng-if="crop">Save Changes</button>
+    <button class="btn btn-success" ng-click="save(originalImage)" ng-if="!crop">Save Changes</button>
+  </div>

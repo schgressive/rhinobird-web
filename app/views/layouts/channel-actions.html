@@ -1,6 +1,6 @@
 <div class="span12">
     <a ui-sref="user({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
-      <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
+      <img ng-src="{{ user.getProfilePic() || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar"/>
     </a>
     <a class="btn-vj btn pull-left vj-on" ng-click="stopVj()" ng-show="vjService.live" role="button">In Session</a>
     <a class="btn-vj btn pull-left vj-off" ng-click="startVj()" ng-show="!vjService.live" role="button">Start VJ</a>
