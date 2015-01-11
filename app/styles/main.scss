@@ -464,11 +464,22 @@ i[class*="icon"] {font-style: normal;}
 .modal-backdrop { opacity: 0.25 !important;}
 
 .mainWrapper {
-	.main {
-		padding: 0 70px 20px;
-		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
-		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
-	}
+  .main {
+    padding: 0 70px 20px;
+    @media screen and (max-width: 960px) { padding: {left:0;right:0;}}
+    .mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
+  }
+  .userPage {
+    position: relative;
+    margin-top: 3%;
+    @media screen and (max-width: 680px) { margin-top: 1%;}
+    .tabs {
+      @media screen and (min-width: 681px) {
+        background-color: rgba(0,0,0,.05);
+        padding-bottom: 5px;
+      }
+    }
+  }
 }
 
 .privacy, .terms, .trademark {
