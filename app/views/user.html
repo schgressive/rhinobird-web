@@ -70,7 +70,29 @@
   <div class="width-controller container-fluid">
     <section class="mid-content">
       <div class="row-fluid">
-        <div class="tabs">
+        <div class="tabs" ng-show="stream">
+          <ul class="inline no-bullets">
+            <li ng-class="getClass('/user/streams')">
+              <a ui-sref="user.streams" data-toggle="tab">
+	              <span class="fa fa-video-camera"></span>
+	              <span class="line-text">{{self.user.username}}'s Videos</span>
+	            </a>
+            </li>
+            <li ng-class="getClass('/user/following')">
+              <a ui-sref="user.following" data-toggle="tab">
+	              <span class="fa fa-user"></span>
+	              <span class="line-text">Following</span>
+	           </a>
+            </li>
+            <li ng-class="getClass('/user/followers')">
+              <a ui-sref="user.followers" data-toggle="tab">
+	              <span class="fa fa-group"></span>
+	              <span class="line-text">Followers</span>
+	            </a>
+            </li>
+          </ul>
+        </div><!-- /.tabs -->
+        <div class="tabs noStream" ng-hide="stream">
           <ul class="inline no-bullets">
             <li ng-class="getClass('/user/streams')">
               <a ui-sref="user.streams" data-toggle="tab">
