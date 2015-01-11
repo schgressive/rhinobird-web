@@ -14,8 +14,8 @@
               <li>
                 <h2>{{self.user.username}}</h2>
               </li>
-              <li>
-                <h4>Streaming Now!</h4>
+              <li ng-hide="true" ng-show="stream">
+                <h4 class="red"><strong>Streaming Now!</strong></h4>
               </li>
               <li>
                 <p>{{self.user.bio}}</p>

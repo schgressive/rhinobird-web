@@ -145,6 +145,8 @@ article {
 
 .thin { font-family: 'Open Sans'; @include font-smoothing();}
 
+.red { color: $red;}
+
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 
@@ -348,6 +350,26 @@ i[class*="icon"] {font-style: normal;}
     }
 }
 
+.liveEmpty {
+  font-size: 8px;
+  vertical-align: super;
+  width: 3px;
+  height: 3px;
+  background-color: $red;
+  padding: 0 5px;
+  border-radius: 6px;
+  margin-left: 6px;
+  speak: none;
+}
+
+.glow {
+  animation:glow 2s infinite;
+  -moz-animation:glow 2s infinite; /* Firefox */
+  -webkit-animation:glow 2s infinite; /* Safari and Chrome */
+  -o-animation:glow 2s infinite; /* Opera */
+  animation:glow 2s infinite;
+}
+
 
 // Animation for Glow
 
@@ -471,7 +493,7 @@ i[class*="icon"] {font-style: normal;}
   }
   .userPage {
     position: relative;
-    margin-top: 3%;
+    margin-top: 2%;
     @media screen and (max-width: 680px) { margin-top: 1%;}
     .tabs {
       @media screen and (min-width: 681px) {
