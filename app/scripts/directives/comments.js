@@ -23,7 +23,7 @@ angular.module('rhinobird.directives')
       // Create a new instance of Comments Client
       //
       var rbComments = new $window.RbComments.ClientDOM({
-        host:             'https://comments-staging.rhinorbird.tv',
+        host:             'https://comments-staging.rhinobird.tv',
         auth_token:       scope.user.authenticationToken,
         roomId:           scope.stream.id,
         formSelector:     '.rb-comments-form',
