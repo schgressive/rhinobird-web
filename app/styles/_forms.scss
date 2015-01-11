@@ -23,14 +23,11 @@ form { margin: 0;}
   }
   .formSuccess {
     color: $successText;
-    position: relative;
-    top: -30px;
-    left: 200px;
+    margin-top: 10px;
   }
   .validate {
     width: 284px;
-    margin-top: -32px;
-    small { z-index: 1000; position: relative;}
+    margin-top: 5px;
   }
   label { @include fontSize(14px); font-family: $bold-font-stack;}
   input[type="text"], input[type="email"] { color: $gray;}
