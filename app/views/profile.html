@@ -3,7 +3,9 @@
     <div class="row-fluid">
       <ul class="profile-list no-bullets span12">
         <li class="user-avatar pull-left">
-          <img ng-src="{{ vm.user.getProfilePic() || (vm.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+          <a ui-sref="user({userName: vm.user.username})" class="user-avatar pull-left" title="click to view your profile">
+            <img ng-src="{{ vm.user.getProfilePic() || (vm.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+            </a>
         </li>
         <li class="user-info pull-left">
           <ul class="no-bullets">
