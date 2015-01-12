@@ -145,6 +145,8 @@ article {
 
 .thin { font-family: 'Open Sans'; @include font-smoothing();}
 
+.red { color: $red;}
+
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
 
@@ -350,6 +352,26 @@ i[class*="icon"] {font-style: normal;}
     }
 }
 
+.liveEmpty {
+  font-size: 8px;
+  vertical-align: super;
+  width: 3px;
+  height: 3px;
+  background-color: $red;
+  padding: 0 5px;
+  border-radius: 6px;
+  margin-left: 6px;
+  speak: none;
+}
+
+.glow {
+  animation:glow 2s infinite;
+  -moz-animation:glow 2s infinite; /* Firefox */
+  -webkit-animation:glow 2s infinite; /* Safari and Chrome */
+  -o-animation:glow 2s infinite; /* Opera */
+  animation:glow 2s infinite;
+}
+
 
 // Animation for Glow
 
@@ -466,11 +488,22 @@ i[class*="icon"] {font-style: normal;}
 .modal-backdrop { opacity: 0.25 !important;}
 
 .mainWrapper {
-	.main {
-		padding: 0 70px 20px;
-		@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
-		.mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
-	}
+  .main {
+    padding: 0 70px 20px;
+    @media screen and (max-width: 960px) { padding: {left:0;right:0;}}
+    .mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
+  }
+  .userPage {
+    position: relative;
+    margin-top: 2%;
+    @media screen and (max-width: 680px) { margin-top: 1%;}
+    .tabs.noStream {
+      @media screen and (min-width: 681px) {
+        background-color: rgba(0,0,0,.05);
+        padding-bottom: 5px;
+      }
+    }
+  }
 }
 
 .privacy, .terms, .trademark {
@@ -876,12 +909,14 @@ i[class*="icon"] {font-style: normal;}
   overflow: hidden;
   img { transform: none;}
 }
+
 .user-wrapper {
   max-width: 600px;
   height: 100%;
   margin: 0 auto 30px;
   @media screen and (max-width: 600px) { margin-bottom: 60px;}
 }
+
 .user-profile-list {
   position: relative;
   z-index: 10;
@@ -902,17 +937,18 @@ i[class*="icon"] {font-style: normal;}
       border-bottom-right-radius: 16px;
       @media screen and (max-width: 960px) { width: 100px; height: 100px;}
       @media screen and (max-width: 540px) { width: 80px; height: 80px;}
-      }
-    }
-    h2 { margin-bottom: 10px;}
-    .user-stats {
-      margin-bottom: 20px;
-      li {
-        margin-right: 20px;
-        &:last-of-type { margin-right: 0;}
-      }
     }
   }
+  h2 { margin-bottom: 10px;}
+  .user-stats {
+    margin-bottom: 20px;
+    li {
+      margin-right: 20px;
+      &:last-of-type { margin-right: 0;}
+    }
+  }
+}
+
 .streaming-wrapper {
   h3 { position: relative; margin: 0; background-color: $white;}
   .h3-text { display: block; padding: 10px 0 3px;}

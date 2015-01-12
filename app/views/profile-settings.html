@@ -13,7 +13,6 @@
           <label class="control-label" for="input-username">Username:</label>
           <div class="controls">
             <input class="input-xlarge" type="text" name="username" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
-            <span class="help-block"><small>Your Rhinobird.tv username.</small></span>
             <div class="validate" ng-show="profileForm.username.$dirty && profileForm.username.$invalid">
               <small class="error" ng-show="profileForm.username.$error.taken">
                 This username is already registered.
@@ -25,27 +24,27 @@
                 A username can not have more than 20 characters.
               </small>
             </div><!-- /.validate -->
+            <span class="help-block"><small>Your Rhinobird.tv username.</small></span>
           </div>
       </div><!-- /.control-group -->
       <div class="control-group">
         <label class="control-label" for="textarea-bio">Bio:</label>
         <div class="controls">
           <textarea id="textarea-bio" class="input-xlarge" name="textarea-bio"rows="4" maxlength="140" ng-model="vm.user.bio"></textarea>
-          <span class="help-block">
-            <small>Your bio appears on your <a ui-sref="user({userName: vm.user.username})">user page</a>. URLs are hyperlinked.</small>
-          </span><!-- /.help-block -->
           <div class="validate" ng-show="">
               <small class="warning" ng-show="">
                 Your bio must be 140 characters or less.
               </small>
           </div><!-- /.validate -->
+          <span class="help-block">
+            <small>Your bio appears on your <a ui-sref="user({userName: vm.user.username})">user page</a>. URLs are hyperlinked.</small>
+          </span><!-- /.help-block -->
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
           <label class="control-label" for="input-email">Email:</label>
           <div class="controls">
             <input class="input-xlarge" type="email" id="input-email" name="email" ng-model="vm.user.email"/>
-            <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
             <div class="validate" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
               <small class="warning" ng-show="profileForm.email.$invalid">
                 This email is invalid. Please input a valid email.
@@ -54,18 +53,19 @@
                 This email is already registered.
               </small>
             </div><!-- /.validate -->
+            <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
           </div>
       </div><!-- /.control-group -->
       <div class="control-group">
         <label class="control-label" for="input-pw">Password:</label>
         <div class="controls">
           <input class="input-xlarge" name="password" type="password" id="input-pw" ng-model="vm.user.password"/>
-          <span class="help-block"><small>Your password must be at least eight characters long.</small></span>
             <div class="validate" ng-show="profileForm.password.$dirty && profileForm.password.$invalid">
               <small class="warning" ng-show="profileForm.password.$error.minlength">
                 Passwords must be at least 8 characters long.
               </small>
             </div><!-- /.validate -->
+            <span class="help-block"><small>Your password must be at least eight characters long.</small></span>
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
@@ -91,7 +91,7 @@
           id="profileForm" name="profileForm" role="form">
       <fieldset form="profileForm" name="profileImages">
           <div class="span3">
-            <input 
+            <input
                    type="image" class="user-avatar" alt="edit your avatar"
                    role="button"
                    ng-click="vm.editImage('avatar')"
@@ -103,7 +103,7 @@
                    role="button"
                    set-src="vm.user.backdrop"
                    ng-click="vm.editImage('backdrop')"
-                   src="http://fakeimg.pl/200x100/"/>
+                   src="/images/backdrop-default.svg"/>
           </div><!-- /.span9 -->
       </fieldset>
     </form>
