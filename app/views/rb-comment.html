@@ -1,0 +1,23 @@
+<h2>
+  <a class="user-avatar" title="{{comment.user.username}}" ui-sref="user({userName: comment.user.username})">
+    <img ng-src="{{ comment.user.photo || (comment.user.email | gravatar:120:'/images/profile-default.svg') }}"/>
+    <span class="username inline">{{comment.user.username}}</span>
+  </a>
+</h2>
+<div class="comment-body block">
+  <p>
+    <span class="fa fa-quote-left"></span>
+    {{comment.msg}}
+    <span class="fa fa-quote-right"></span>
+  </p>
+</div>
+<div class="comment-footer block">
+  <ul class="inline">
+    <li am-time-ago="comment.time"></li>
+    <!--
+    <li>
+      <button type="button" class="btn-link" role="button">Reply</button>
+    </li>
+    -->
+  </ul>
+</div>

@@ -13,30 +13,32 @@
 
 <div class="main" role="main">
   <div class="width-controller mobile-full container-fluid">
-	  <section class="mid-content">
-	    <div class="row-fluid">
-	      <div class="module-xlarge span12">
-	        <div ng-include="'/views/snippets/module-xlarge.html'"></div>
-	      </div><!-- /.module-xlarge -->
-	    </div><!-- /.row-fluid -->
-	  </section><!-- /.mid-content -->
-  </div>
+    <section class="mid-content">
+      <div class="row-fluid">
+        <div class="module-xlarge span12">
+          <div ng-include="'/views/snippets/module-xlarge.html'"></div>
+        </div><!-- /.module-xlarge -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.mid-content -->
+  </div><!-- /.container-fluid -->
   <div class="width-controller container-fluid">
-	  <section class="lower-content media-area">
-	    <div class="row-fluid">
-	      <h3 class="span6">
-	        More Videos
-	      </h3>
-	    </div><!-- /.row-fluid -->
-	    <div class="row-fluid">
-	    	<div class="span12">
-          <ol class="no-bullets">
-					 <li class="module-large span3" ng-repeat="stream in streams | limitTo:12">
-						 <div ng-include="'/views/snippets/module-large.html'"></div>
-					 </li>
-				 </ol>
-        </div><!-- /.span12 -->
-			</div><!--/.row-fluid -->
-	  </section><!-- /.lower-content -->
+    <section class="lower-content media-area">
+      <div class="row-fluid">
+        <div class="left-col span6">
+          <h3>More Videos</h3>
+          <ol class="unstyled">
+            <li class="module-large span6"
+                ng-repeat="stream in streams | limitTo:12">
+              <div ng-include="'/views/snippets/module-large.html'"></div>
+            </li>
+          </ol>
+        </div><!-- /.span6 -->
+        <div class="right-col span6">
+          <h3>Comments</h3>
+          <div comments></div>
+          <!--<div ng-include="'/views/layouts/comments.html'"></div>-->
+        </div><!-- /.span6 -->
+      </div><!--/.row-fluid -->
+    </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->

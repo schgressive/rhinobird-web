@@ -1,0 +1,39 @@
+<ol class="unstyled">
+  <li class="comment thread-parent">
+    <h2>
+      <a class="user-avatar" title="{{comment.user.username}}"
+         ui-sref="user({userName: comment.user.username})">
+        <img ng-src="{{ comment.user.photo || (comment.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
+        <span class="username inline">{{comment.user.username}}</span>
+      </a>
+    </h2>
+    <div class="comment-body block">
+      <p>
+        <span class="fa fa-quote-left"></span>
+        {{comment}}
+        <span class="fa fa-quote-right"></span>
+      </p>
+    </div><!-- /.comment-body -->
+    <div class="comment-footer block">
+      <ul class="inline">
+        <li>{{comment.time | hours/days ago}}</li>
+        <li>
+<!-- use whatever unique ID number that the thread parent comment has
+  for the collapse so that each thread has a unique collapse target -->
+          <a class="btn-link"
+             class="accordion-toggle" data-toggle="collapse"
+             href="#collapse{{comment.parent.UID}}">
+            {{comment.reply.count}} replies
+<!-- make "fa-caret-down" switch to "fa-caret-up" upon expand -->
+            <span class="fa fa-caret-down"></span>
+          </a>
+        </li>
+      </ul>
+    </div><!-- /.comment-footer -->
+  </li><!-- /.thread-parent -->
+  <div id="collapse{{comment.parent.UID}}" class="collapse in">
+    <li class="comment thread-child">
+      <div ng-include="'/views/snippets/comment.html'"></div>
+    </li><!-- /.thread-child -->
+  </div>
+</ol>
