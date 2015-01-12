@@ -228,9 +228,9 @@ angular.module('rhinobird.controllers')
       $state.go('terms');
     };
 
-    $scope.gotoProfile = function() {
+    $scope.gotoHome = function() {
       closeModal();
-      $state.go('profile.streams');
+      $state.go('main');
     };
 
     // When the stream gets published
