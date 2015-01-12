@@ -16,7 +16,7 @@ angular.module('rhinobird.services').
       var modalInstance = $modal.open({
         templateUrl: '/views/modals/partial-image-crop.html',
         windowClass: 'modal-edit',
-        controller: "CropModalCtrl",
+        controller: "CropModalCtrl as vm",
         resolve: {
           crop: function() {
             return crop;
