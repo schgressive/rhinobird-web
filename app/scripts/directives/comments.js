@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('comments', function ($window, $compile) {
+  .directive('comments', function ($window, $compile, settings) {
 
     function link (scope, element, attrs) {
 
@@ -23,7 +23,10 @@ angular.module('rhinobird.directives')
       // Create a new instance of Comments Client
       //
       var rbComments = new $window.RbComments.ClientDOM({
-        host:             'http://localhost:8000',
+        host:             settings.rbCommentsHost,
+        // Licode polute io global variable so we need to fetch Sockets with
+        // a wrapped function and then tell client library to use that namespace.
+        socketLib:        WrappedIO,
         auth_token:       scope.user.authenticationToken,
         roomId:           scope.stream.id,
         formSelector:     '.rb-comments-form',

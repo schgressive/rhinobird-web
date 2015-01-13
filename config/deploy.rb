@@ -35,5 +35,7 @@ set :npm_flags, '--quiet'
 fetch(:nodenv_map_bins) << 'grunt'
 
 set :grunt_flags, '--no-color'
-set :grunt_tasks, 'build'
+
+ENV['CAPISTRANO_STAGE'] = fetch(:stage).to_s
+set :grunt_tasks, ["build-settings", "build"]
 before 'deploy:updated', 'grunt'

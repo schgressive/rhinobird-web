@@ -31,6 +31,41 @@ module.exports = function (grunt) {
   } catch (e) {}
 
   grunt.initConfig({
+
+    ngconstant: {
+      options: {
+        name: 'rhinobird',
+        dest: './app/scripts/settings.js',
+        constants: {
+          settings: {
+            apiHost: '/v1',
+            channelCleanedRegex: /[^\d^\w]/g
+          }
+        }
+      },
+      development: {
+        constants: {
+          settings: {
+            rbCommentsHost: 'http://localhost:8000'
+          }
+        }
+      },
+      staging: {
+        constants: {
+          settings: {
+            rbCommentsHost: 'https://comments-staging.rhinobird.tv'
+          }
+        }
+      },
+      production: {
+        constants: {
+          settings: {
+            rbCommentsHost: 'https://comments-production.rhinobird.tv'
+          }
+        }
+      }
+    },
+
     yeoman: yeomanConfig,
     watch: {
       coffee: {
@@ -376,6 +411,7 @@ module.exports = function (grunt) {
     }
 
     var defaultServer = [
+      'build-settings',
       'clean:server',
       'concurrent:server',
       'configureProxies',
@@ -385,6 +421,7 @@ module.exports = function (grunt) {
     ]
 
     var noLivereloadServer = [
+      'build-settings',
       'clean:server',
       'concurrent:server',
       'open',
@@ -401,6 +438,14 @@ module.exports = function (grunt) {
     'connect:test',
     'karma'
   ]);
+
+  grunt.registerTask('build-settings', function () {
+    var stage = process.env.CAPISTRANO_STAGE;
+    if (stage)
+      grunt.task.run('ngconstant:' + stage);
+    else
+      grunt.task.run('ngconstant:development');
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
