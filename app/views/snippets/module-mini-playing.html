@@ -1,6 +1,6 @@
 <div class="module-video">
   <a class="live-stream-link">
-    <div stream-viewer stream="stream" size="mini" mute="{{stream.isMuted}}" on="{{stream.isConnected}}"></div>
+    <div stream-viewer stream="stream" size="mini" mute="{{stream.isForcedMuted || stream.isMuted}}" on="{{stream.isConnected}}"></div>
   </a>
   <div class="btn-overlay">
     <button role="button" ng-class="{ 'active': stream.isAudioFixed }" ng-click="setAsFixedAudio(stream, $event)">
