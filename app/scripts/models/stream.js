@@ -13,6 +13,7 @@ angular.module('rhinobird.models')
       user: { hasOne: 'User' },
       related: { hasMany: 'Stream'},
       isAudioFixed: { ignore: true, init: false }, // Whether it's audio is using for a channel
+      isForcedMuted: { ignore: true, init: false }, // Whether it's audio is using for a channel
       isConnected: { ignore: true }, // Whether is connected to licode server
       isMuted: { ignore: true }, // Whether is muted
       isProjected: { ignore: true }, // Whether is viewed in the canva

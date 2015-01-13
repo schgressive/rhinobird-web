@@ -14,7 +14,7 @@
               <li>
                 <h2>{{self.user.username}}</h2>
               </li>
-              <li ng-hide="true" ng-show="stream">
+              <li ng-show="self.stream" ng-show="stream">
                 <h4 class="red"><strong>Streaming Now!</strong></h4>
               </li>
               <li>
@@ -56,7 +56,7 @@
         </ul><!-- /.profile-list -->
       </div><!-- /.user-wrapper -->
     </div><!-- /.row-fluid -->
-    <div class="streaming-wrapper" ng-hide="true" ng-show="stream">
+    <div class="streaming-wrapper" ng-show="self.stream">
       <div class="row-fluid">
         <div class="module-xlarge span12">
           <div ng-include="'/views/snippets/module-featured.html'"></div>
@@ -72,19 +72,19 @@
       <div class="row-fluid">
         <div class="tabs" ng-show="stream">
           <ul class="inline no-bullets">
-            <li ng-class="getClass('/user/streams')">
+            <li ng-class="self.getClass('/user/streams')">
               <a ui-sref="user.streams" data-toggle="tab">
 	              <span class="fa fa-video-camera"></span>
 	              <span class="line-text">{{self.user.username}}'s Videos</span>
 	            </a>
             </li>
-            <li ng-class="getClass('/user/following')">
+            <li ng-class="self.getClass('/user/following')">
               <a ui-sref="user.following" data-toggle="tab">
 	              <span class="fa fa-user"></span>
 	              <span class="line-text">Following</span>
 	           </a>
             </li>
-            <li ng-class="getClass('/user/followers')">
+            <li ng-class="self.getClass('/user/followers')">
               <a ui-sref="user.followers" data-toggle="tab">
 	              <span class="fa fa-group"></span>
 	              <span class="line-text">Followers</span>

@@ -62,6 +62,17 @@
 
 	<script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
+    <!--
+    RB-Comments
+    This need to be a the top to avoid conflict with io global defined by Licode
+    -->
+    <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      WrappedIO = io;
+    </script>
+    <script src="http://localhost:8000/client.js"></script>
+    <script src="http://localhost:8000/client-dom.js"></script>
+
     <!-- build:js /scripts/vendor.js -->
     <script src="/bower_components/underscore/underscore.js"></script>
     <script src="/bower_components/jquery/jquery.js"></script>
@@ -160,11 +171,6 @@
     <!-- build:js /scripts/extra.js -->
     <!-- <script src="/scripts/main.js"></script> -->
     <!-- endbuild -->
-
-    <!-- RB-Comments -->
-    <script src="https://comments-staging.rhinobird.tv/socket.io/socket.io.js"></script>
-    <script src="https://comments-staging.rhinobird.tv/client.js"></script>
-    <script src="https://comments-staging.rhinobird.tv/client-dom.js"></script>
 
   <script>
     var _gaq=[['_setAccount','UA-34077113-1'],['_trackPageview']];

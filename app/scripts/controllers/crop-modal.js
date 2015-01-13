@@ -1,17 +1,19 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('CropModalCtrl', function (type, $scope, $modalInstance, crop) {
-      $scope.myCroppedImage = "";
-      $scope.originalImage = "";
-      $scope.type = type;
-      $scope.crop = crop;
+  .controller('CropModalCtrl', function (type, $modalInstance, crop) {
+    var vm = this;
 
-      $scope.save = function(selectedImage) {
+      vm.myCroppedImage = "";
+      vm.originalImage = "";
+      vm.type = type;
+      vm.crop = crop;
+
+      vm.save = function(selectedImage) {
         $modalInstance.close(selectedImage);
       };
 
-      $scope.cancel = function () {
+      vm.cancel = function () {
         $modalInstance.dismiss('cancel');
       };
   });
