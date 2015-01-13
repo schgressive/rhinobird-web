@@ -7,14 +7,15 @@ angular.module('rhinobird', [
   'pl-licode',
   'leaflet-directive',
   'angularMoment',
+  'ngImgCrop',
   'rhinobird.models',
   'rhinobird.services',
   'rhinobird.directives',
   'rhinobird.filters',
   'rhinobird.controllers'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider, 
-                  $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider, 
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider,
+                  $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider,
                   settings, mobileDetect) {
   // Remove hashes and enables html push state history
   $locationProvider.html5Mode(true);
@@ -64,14 +65,18 @@ angular.module('rhinobird', [
     - search.people                           /search/people
     - golive                                  /golive
     - profile.streams                         /profile/streams
-    - profile.settings												/profile/settings
-    - profile.applications										/profile/applications
-    - terms	                                  /terms
-		- trademark	                              /trademark
+    - profile.settings                        /profile/settings
+    - profile.directvideo                     /profile/directvideo
+    - terms                                   /terms
+    - trademark                               /trademark
     - privacy                                 /privacy
     - about                                   /about
+    - goodbye                                 /goodbye
     - stream({streamId: <streamId>})          /stream/:streamId
     - user({userName: <username>})            /user/:userName
+    - user.streams                            /user/:userName/streams
+    - user.following                          /user/:userName/following
+    - user.follwers                           /user/:userName/followers
     - channel({channelName: <channelname>})   /:channelName
     - vjsession.live({                             /:channelName/:userName
           channelName: <channelname>,
@@ -150,9 +155,9 @@ angular.module('rhinobird', [
       url: 'settings/',
       templateUrl: '/views/profile-settings.html'
     })
-    .state('profile.applications', {
-      url: 'applications/',
-      templateUrl: '/views/profile-applications.html'
+    .state('profile.directvideo', {
+      url: 'directvideo/',
+      templateUrl: '/views/profile-directvideo.html'
     })
 
     // Streams
@@ -183,12 +188,24 @@ angular.module('rhinobird', [
     .state('user', {
       url: '/user/{userName:[0-9a-zA-Z-_]+}/',
       templateUrl: '/views/user.html',
-      controller: 'UserCtrl',
+      controller: 'UserCtrl as vm',
       resolve: {
         user: ['$stateParams', 'User', function($stateParams, User){
           return User.$find($stateParams.userName).$promise;
         }]
       }
+    })
+    .state('user.streams', {
+      url: 'streams/',
+      templateUrl: '/views/user-streams.html'
+    })
+    .state('user.following', {
+      url: 'following/',
+      templateUrl: '/views/user-following.html'
+    })
+    .state('user.followers', {
+      url: 'followers/',
+      templateUrl: '/views/user-followers.html'
     })
 
     .state('password?reset_password_token&complete', {
@@ -267,6 +284,12 @@ angular.module('rhinobird', [
     .state('about', {
       url: '/about/',
       templateUrl: '/views/about.html'
+    })
+
+    // Goodbye
+    .state('goodbye', {
+      url: '/goodbye/',
+      templateUrl: '/views/goodbye.html'
     })
 
     // Channels

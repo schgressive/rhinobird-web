@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('streamCarousel', function ($timeout) {
+  .directive('streamCarousel', function ($timeout, AuthService) {
     return {
       templateUrl: '/views/templates/stream-carousel.html',
       restrict: 'EA',
@@ -185,6 +185,11 @@ angular.module('rhinobird.directives')
           _.each(visibleItems, function(i){
             var stream = streams[i];
             if(!stream){ return; }
+
+            // Force mute if the stream is from the logged user
+            if(AuthService.user){
+              stream.isForcedMuted = stream.user.id === AuthService.user.id;
+            }
 
             if(!stream.isConnected){
               // This will connect the streams that aren't connected

@@ -3,7 +3,9 @@
     <div class="row-fluid">
       <ul class="profile-list no-bullets span12">
         <li class="user-avatar pull-left">
-          <img ng-src="{{ vm.user.photo || (vm.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+          <a ui-sref="user({userName: vm.user.username})" class="user-avatar pull-left" title="click to view your profile">
+            <img ng-src="{{ vm.user.getProfilePic() || (vm.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="user avatar" />
+            </a>
         </li>
         <li class="user-info pull-left">
           <ul class="no-bullets">
@@ -22,23 +24,23 @@
       <div class="row-fluid">
         <div class="tabs">
           <ul class="inline no-bullets">
-            <li ng-class="getClass('/profile/streams')">
-              <a ui-sref="profile.streams" data-toggle="tab">
-	              <span class="fa fa-video-camera"></span>
-	              <span class="line-text">Your Videos</span>
-	            </a>
-            </li>
-            <li ng-class="getClass('/profile/settings')">
+            <li ng-class="vm.getClass('/profile/settings')">
               <a ui-sref="profile.settings" data-toggle="tab">
-	              <span class="fa fa-user"></span>
-	              <span class="line-text">User Settings</span>
-	           </a>
+                <span class="fa fa-user"></span>
+                <span class="line-text">User Settings</span>
+                </a>
             </li>
-            <li ng-class="getClass('/profile/applications')">
-              <a ui-sref="profile.applications" data-toggle="tab">
-	              <span class="fa fa-cog"></span>
-	              <span class="line-text">Apps</span>
-	            </a>
+            <li ng-class="vm.getClass('/profile/streams')">
+              <a ui-sref="profile.streams" data-toggle="tab">
+                <span class="fa fa-video-camera"></span>
+                <span class="line-text">Your Videos</span>
+                </a>
+            </li>
+            <li ng-class="vm.getClass('/profile/directvideo')">
+              <a ui-sref="profile.directvideo" data-toggle="tab">
+                <span class="fa fa-cog"></span>
+                <span class="line-text">Direct Videos</span>
+              </a>
             </li>
           </ul>
         </div><!-- /.tabs -->

@@ -1,74 +1,195 @@
 <div class="row-fluid">
-	<div class="alert alert-info">
-		<p class="text-center">User Settings are currently under development. Some features may be disabled.</p>
-	</div>
-</div>
-<div class="row-fluid">
-  <div class="form-wrapper">
-  	<p class="lead">Edit your username, email, etc.</p>
+  <div class="form-wrapper span6">
+    <p class="lead">Edit your username, email, etc.</p>
     <form class="form-horizontal general-form" name="profileForm" role="form">
       <div class="control-group">
         <label class="control-label" for="input-name">Name:</label>
         <div class="controls">
           <input class="input-xlarge" name="name" type="text" id="input-name" ng-model="vm.user.name"/>
-					<span class="help-block"><small>How we address you. Your name is not public.</small></span>
+          <span class="help-block"><small>How we address you. Your name is not public.</small></span>
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
           <label class="control-label" for="input-username">Username:</label>
-					<div class="controls">
-						<input class="input-xlarge" type="text" name="username" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
-						<span class="help-block"><small>Your Rhinobird.tv username.</small></span>
-						<div class="validate" ng-show="profileForm.username.$dirty && profileForm.username.$invalid">
-				      <small class="error" ng-show="profileForm.username.$error.taken">
-				        This username is already registered.
-				      </small>
-				      <small class="warning" ng-show="profileForm.username.$error.minlength">
-				        A username must have at least 3 characters.
-				      </small>
-				      <small class="warning" ng-show="profileForm.username.$error.maxlength">
-				        A username can not have more than 20 characters.
-				      </small>
-						</div><!-- /.validate -->
-					</div>
+          <div class="controls">
+            <input class="input-xlarge" type="text" name="username" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
+            <div class="validate" ng-show="profileForm.username.$dirty && profileForm.username.$invalid">
+              <small class="error" ng-show="profileForm.username.$error.taken">
+                This username is already registered.
+              </small>
+              <small class="warning" ng-show="profileForm.username.$error.minlength">
+                A username must have at least 3 characters.
+              </small>
+              <small class="warning" ng-show="profileForm.username.$error.maxlength">
+                A username can not have more than 20 characters.
+              </small>
+            </div><!-- /.validate -->
+            <span class="help-block"><small>Your Rhinobird.tv username.</small></span>
+          </div>
+      </div><!-- /.control-group -->
+      <div class="control-group">
+        <label class="control-label" for="textarea-bio">Bio:</label>
+        <div class="controls">
+          <textarea id="textarea-bio" class="input-xlarge" name="textarea-bio"rows="4" maxlength="140" ng-model="vm.user.bio"></textarea>
+          <div class="validate" ng-show="">
+              <small class="warning" ng-show="">
+                Your bio must be 140 characters or less.
+              </small>
+          </div><!-- /.validate -->
+          <span class="help-block">
+            <small>Your bio appears on your <a ui-sref="user({userName: vm.user.username})">user page</a>. URLs are hyperlinked.</small>
+          </span><!-- /.help-block -->
+        </div>
       </div><!-- /.control-group -->
       <div class="control-group">
           <label class="control-label" for="input-email">Email:</label>
           <div class="controls">
-          	<input class="input-xlarge" type="email" id="input-email" name="email" ng-model="vm.user.email"/>
-	          <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
-	          <div class="validate" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
-				    	<small class="warning" ng-show="profileForm.email.$invalid">
-				        This email is invalid. Please input a valid email.
-				      </small>
-				      <small class="error" ng-show="profileForm.email.$error.taken">
-				        This email is already registered.
-				      </small>
-				    </div><!-- /.validate -->
+            <input class="input-xlarge" type="email" id="input-email" name="email" ng-model="vm.user.email"/>
+            <div class="validate" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
+              <small class="warning" ng-show="profileForm.email.$invalid">
+                This email is invalid. Please input a valid email.
+              </small>
+              <small class="error" ng-show="profileForm.email.$error.taken">
+                This email is already registered.
+              </small>
+            </div><!-- /.validate -->
+            <span class="help-block"><small>Your email is used for signing-in and correspondence.</small></span>
           </div>
       </div><!-- /.control-group -->
       <div class="control-group">
         <label class="control-label" for="input-pw">Password:</label>
         <div class="controls">
           <input class="input-xlarge" name="password" type="password" id="input-pw" ng-model="vm.user.password"/>
-					<span class="help-block"><small>Your password must be at least eight characters long.</small></span>
-	          <div class="validate" ng-show="profileForm.password.$dirty && profileForm.password.$invalid">
-				    	<small class="warning" ng-show="profileForm.password.$error.minlength">
-				        Passwords must be at least 8 characters long.
-				      </small>
-				    </div><!-- /.validate -->
+            <div class="validate" ng-show="profileForm.password.$dirty && profileForm.password.$invalid">
+              <small class="warning" ng-show="profileForm.password.$error.minlength">
+                Passwords must be at least 8 characters long.
+              </small>
+            </div><!-- /.validate -->
+            <span class="help-block"><small>Your password must be at least eight characters long.</small></span>
         </div>
       </div><!-- /.control-group -->
       <div class="control-group">
-      	<div class="controls">
-      		<input class="btn btn-primary" type="submit" value="Update Settings" ng-click="vm.updateSettings(profileForm)"/>
-	        <input class="btn btn-default" type="submit" value="Reset"/>
-	        <div class="formSuccess" ng-show="vm.success">
-	        	<p class="fadeOut"><strong>Success!</strong></p>
-	        </div>
-	        <button class="btn-link">Delete Your Account</button>
-      	</div>
-      </div><!-- /.control-group -->
+          <div class="controls">
+            <input class="btn btn-primary" type="submit" value="Update Settings" ng-click="vm.updateSettings(profileForm)"/>
+            <input class="btn btn-default" type="reset" value="Reset"/>
+            <div class="formSuccess" ng-show="vm.success">
+              <p class="fadeOut"><strong>Success!</strong></p>
+            </div>
+            <button type="button"
+                    class="btn-link" role="button"
+                    data-toggle="modal" data-target="#deleteModal">
+                    Delete Your Account
+            </button>
+          </div>
+        </div><!-- /.control-group -->
     </form>
-  </div><!-- /.span6 -->
+  </div><!-- /.form-wrapper.span6 -->
+
+  <div class="form-wrapper span6">
+    <p class="lead">Customize your avatar and backdrop.</p>
+    <form class="form-horizontal general-form"
+          id="profileForm" name="profileForm" role="form">
+      <fieldset form="profileForm" name="profileImages">
+          <div class="span3">
+            <input
+                   type="image" class="user-avatar" alt="edit your avatar"
+                   role="button"
+                   ng-click="vm.editImage('avatar')"
+                   src="/images/profile-default.svg"
+                   set-src="vm.user.avatar" />
+          </div><!-- /.span3 -->
+          <div class="span9">
+            <input type="image" class="user-backdrop" alt="edit your backdrop"
+                   role="button"
+                   set-src="vm.user.backdrop"
+                   ng-click="vm.editImage('backdrop')"
+                   src="/images/backdrop-default.svg"/>
+          </div><!-- /.span9 -->
+      </fieldset>
+    </form>
+
+    <p class="lead">Manage your connected applications.</p>
+    <form class="general-form" id="settingsForm" name="settingsForm" role="form">
+      <fieldset form="settingsForm" name="gplusSettings" ng-hide="true">
+        <p class="gplus-label" ng-show=""><strong>Connected to:</strong> (google+ username here)</p>
+        <p class="gplus-label"><strong>You are not connected to Google+</strong></p>
+        <button class="btn-link block" ng-click="" role="button">Connect to Google+</button>
+        <div class="form-block" ng-show="">
+          <label>
+            <input type="checkbox" value=""/>
+            Enable automatic sharing to your Google+ page.
+          </label>
+          <span class="help-block"><small>Save time and share your videos as soon as you Go Live.</small></span>
+          <button class="btn-link block" ng-click="" role="button">Disconnect from Google+</button>
+        </div><!-- /.form-block -->
+      </fieldset>
+
+      <fieldset form="settingsForm" name="fbSettings">
+        <p class="fb-label" ng-show="vm.user.facebookConnected"><strong>Connected to:</strong> (facebook username here)</p>
+        <p class="fb-label" ng-hide="vm.user.facebookConnected"><strong>You are not connected to Facebook</strong></p>
+        <button class="btn-link block" ng-click="vm.connectPopup('facebook')" role="button" ng-hide="vm.user.facebookConnected">Connect to Facebook</button>
+        <div class="form-block" ng-show="vm.user.facebookConnected">
+          <label>
+            <input type="checkbox" ng-model="vm.user.shareFacebook" value=""/>
+            Enable automatic sharing to your Facebook timeline.
+          </label>
+          <span class="help-block"><small>Save time and share your videos as soon as you Go Live.</small></span>
+          <button class="btn-link block" ng-click="vm.disconnect('fb')" role="button" ng-show="vm.user.facebookConnected">Disconnect from Facebook</button>
+        </div><!-- /.form-block -->
+      </fieldset>
+
+      <fieldset form="settingsForm" name="twtSettings">
+        <p class="twt-label" ng-show="vm.user.twitterConnected"><strong>Connected to:</strong> (twitter username here)</p>
+        <p class="twt-label" ng-hide="vm.user.twitterConnected"><strong>You are not connected to Twitter</strong></p>
+        <button class="btn-link block" ng-click="vm.connectPopup('twitter')" role="button" ng-hide="vm.user.twitterConnected">Connect to Twitter</button>
+        <div class="form-block" ng-show="vm.user.twitterConnected">
+          <label>
+            <input type="checkbox" ng-model="vm.user.shareTwitter" checked="checked"/>
+            Enable automatic sharing to your Twitter feed.
+          </label>
+          <span class="help-block"><small>Save time and share your videos as soon as you Go Live.</small></span>
+          <button class="btn-link block" ng-click="vm.disconnect('tw')" role="button">Disconnect from Twitter</button>
+        </div><!-- /.form-block -->
+      </fieldset>
+
+      <div class="form-actions text-right">
+        <input class="btn btn-primary" type="submit" value="Update Applications" ng-click="vm.updateSettings()"/>
+        <input class="btn btn-default" type="submit" value="Reset"/>
+        <div class="formSuccess" ng-hide="true">
+          <p class="fadeOut"><strong>Success!</strong></p>
+        </div>
+      </div><!-- /.form-actions -->
+    </form>
+  </div><!-- /.form-wrapper.span6 -->
+
 </div><!-- /.row-fluid -->
+
+<div id="deleteModal" class="modal modal-edit hide fade"
+     tabindex="-1" role="dialog"
+     aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true">
+            <span class="fa fa-times"></span>
+    </button>
+    <h3 id="deleteModalLabel">Delete Your Account?</h3>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-error">
+      <p>Upon deleting your account, all video material held <span class="block">within Rhinobird servers will be destroyed.</span></p>
+    </div>
+  </div><!-- /.modal-body -->
+  <div class="modal-footer">
+    <button type="button" class="btn"
+            data-dismiss="modal" aria-hidden="true" role="button">
+      <span class="fa fa-smile-o"></span>
+      <span class="line-text">Changed My Mind!</span>
+    </button>
+    <button type="submit" class="btn btn-danger" role="button">
+      <span class="fa fa-times"></span>
+      <span class="line-text">Delete Account</span>
+    </button>
+  </div>
+</div>
