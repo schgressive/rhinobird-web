@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ProfileCtrl', function (User, session, $location, OpenAndWatch, ValidateUserResponse, $timeout, ImageCrop) {
+  .controller('ProfileCtrl', function (User, session, $location, AuthService,
+                                       OpenAndWatch, ValidateUserResponse, $timeout, ImageCrop, $state) {
 
     var vm = this;
 
@@ -19,6 +20,7 @@ angular.module('rhinobird.controllers')
     vm.disconnect = disconnect;
     vm.updateSettings = updateSettings;
     vm.editImage = editImage;
+    vm.deleteAccount = deleteAccount;
 
 
     // PRIVATE METHODS
@@ -31,6 +33,18 @@ angular.module('rhinobird.controllers')
         return '';
       }
     };
+
+    function deleteAccount() {
+      vm.deleting = true;
+      vm.user.$destroy().$then(function() {
+        AuthService.logout();
+        $state.go('goodbye');
+      }, function(error) {
+        console.log('Error deleting account', error);
+        vm.deleting = false;
+      })
+
+    }
 
     function connectPopup(network) {
       OpenAndWatch.open("/registration/" + network + "?popup=true", "_blank", {}, function(win) {

@@ -183,13 +183,14 @@
   </div><!-- /.modal-body -->
   <div class="modal-footer">
     <button type="button" class="btn"
-            data-dismiss="modal" aria-hidden="true" role="button">
+            data-dismiss="modal" aria-hidden="true" role="button" ng-disabled="vm.deleting">
       <span class="fa fa-smile-o"></span>
       <span class="line-text">Changed My Mind!</span>
     </button>
-    <button type="submit" class="btn btn-danger" role="button">
+    <button type="button" class="btn btn-danger" role="button" ng-click="vm.deleteAccount()" ng-disabled="vm.deleting">
       <span class="fa fa-times"></span>
-      <span class="line-text">Delete Account</span>
+      <span class="line-text" ng-hide="vm.deleting">Delete Account</span>
+      <span class="line-text" ng-show="vm.deleting">Deleting Account...</span>
     </button>
   </div>
 </div>
