@@ -22,7 +22,6 @@
     "grunt-contrib-watch": "~0.4.0",
     "grunt-google-cdn": "git+https://github.com/btford/grunt-google-cdn.git#74a6d419cc83605225c42c3e7f2a4a0e07224794",
     "grunt-karma": "~0.4.3",
-    "grunt-ng-constant": "^1.0.0",
     "grunt-ngmin": "~0.0.3",
     "grunt-open": "~0.2.0",
     "grunt-rev": "~0.1.0",

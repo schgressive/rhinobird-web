@@ -6,4 +6,3 @@ app/bower_components
 npm-debug.log
 .DS_Store
 .nodenv-vars
-app/scripts/settings.js
