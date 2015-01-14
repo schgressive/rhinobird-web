@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $window, $stateParams, $timeout, Stream, AuthService, $location, stream) {
+  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream) {
 
 		$scope.user = AuthService.user;
     $scope.url = encodeURIComponent($location.absUrl());
@@ -22,7 +22,9 @@ angular.module('rhinobird.controllers')
     }
 
     // Expose methods to the VM
-    vm.getClass = getClass;
+    $scope.getClass = getClass;
+
+    $state.go('stream.comments');
 
     // PRIVATE METHODS
     //
