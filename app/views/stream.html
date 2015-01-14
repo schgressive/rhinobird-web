@@ -23,21 +23,30 @@
   </div><!-- /.container-fluid -->
   <div class="width-controller container-fluid">
     <section class="lower-content media-area">
-      <div class="row-fluid">
-        <div class="left-col span6">
-          <h3>More Videos</h3>
-          <ol class="unstyled">
-            <li class="module-large span6"
-                ng-repeat="stream in streams | limitTo:12">
-              <div ng-include="'/views/snippets/module-large.html'"></div>
+      <div class="row-fluid m_20t">
+        <div class="tabs">
+          <ul class="inline no-bullets">
+            <li ng-class="vm.getClass('/stream/comments')">
+              <a ui-sref="stream.comments" data-toggle="tab">
+                <span class="fa fa-comments"></span>
+                <span class="line-text">Comments</span>
+                </a>
             </li>
-          </ol>
-        </div><!-- /.span6 -->
-        <div class="right-col span6">
-          <h3>Comments</h3>
-          <div comments></div>
-          <!--<div ng-include="'/views/layouts/comments.html'"></div>-->
-        </div><!-- /.span6 -->
+            <li ng-class="vm.getClass('/stream/videos')">
+              <a ui-sref="stream.videos" data-toggle="tab">
+                <span class="fa fa-video-camera"></span>
+                <span class="line-text">More Videos</span>
+                </a>
+            </li>
+          </ul>
+        </div><!-- /.tabs -->
+      </div><!-- /.row-fluid -->
+      <div class="row-fluid">
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <div ui-view></div>
+          </div>
+        </div>
       </div><!--/.row-fluid -->
     </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->

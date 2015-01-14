@@ -21,5 +21,19 @@ angular.module('rhinobird.controllers')
       return stream.liked;
     }
 
+    // Expose methods to the VM
+    vm.getClass = getClass;
+
+    // PRIVATE METHODS
+    //
+    // apply active class to tabs
+    function getClass(path) {
+      if ($location.path().substr(0, path.length) === path) {
+        return 'active';
+      } else {
+        return '';
+      }
+    };
+
 
   });
