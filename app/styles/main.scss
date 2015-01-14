@@ -1080,9 +1080,7 @@ i[class*="icon"] {font-style: normal;}
 
 .feature-overlay {
   color: $textOnDark;
-  background-color: $darkTrans;
-  position: relative; /* placement based on parent div */
-  z-index: 10; /* above module-overlay */
+  background-color: #222;
   a {
     color: $textOnDark;
     text-decoration: underline;
@@ -1114,7 +1112,6 @@ i[class*="icon"] {font-style: normal;}
   background-color: $white;
   canvas, video { width: 100%; display:block;}
   .feature-overlay {
-      background-color: #222;
       padding: 10px 0 0 10px;
       @media screen and (max-width: 540px) {
         padding-top: 5px;
@@ -1160,7 +1157,6 @@ i[class*="icon"] {font-style: normal;}
   .pending + .module-overlay {
     background-image: url('/images/archiving-overlay.svg');
   }
-  .feature-overlay { margin-top: -20px;}
   .thumb-user {
     margin-bottom: 5px;
     @media screen and (max-width: 500px) { margin-bottom: 0px;}
@@ -1254,7 +1250,6 @@ i[class*="icon"] {font-style: normal;}
     top: 0;
     right: 0;
   }
-  .feature-overlay { margin-top: -20px;}
   .module-outer { height: inherit;}
 }
 
