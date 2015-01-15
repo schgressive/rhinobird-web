@@ -23,7 +23,9 @@ angular.module('rhinobird.directives')
       // Create a new instance of Comments Client
       //
       var rbComments = new $window.RbComments.ClientDOM({
-        host:             'http://localhost:8000',
+        socketLib:        ioSafe,
+        host:             '/comments',
+        libPath:          '/comments/socket.io',
         auth_token:       scope.user.authenticationToken,
         roomId:           scope.stream.id,
         formSelector:     '.rb-comments-form',
