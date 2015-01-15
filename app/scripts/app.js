@@ -78,7 +78,8 @@ angular.module('rhinobird', [
     - user({userName: <username>})            /user/:userName
     - user.streams                            /user/:userName/streams
     - user.following                          /user/:userName/following
-    - user.follwers                           /user/:userName/followers
+    - user.followers                          /user/:userName/followers
+    - user.live                               /user/:userName/live
     - channel({channelName: <channelname>})   /:channelName
     - vjsession.live({                             /:channelName/:userName
           channelName: <channelname>,
@@ -216,6 +217,10 @@ angular.module('rhinobird', [
     .state('user.followers', {
       url: 'followers/',
       templateUrl: '/views/user-followers.html'
+    })
+    .state('user.live', {
+      url: 'live/',
+      templateUrl: '/views/user-live.html'
     })
 
     .state('password?reset_password_token&complete', {

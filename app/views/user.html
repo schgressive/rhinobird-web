@@ -56,13 +56,6 @@
         </ul><!-- /.profile-list -->
       </div><!-- /.user-wrapper -->
     </div><!-- /.row-fluid -->
-    <div class="streaming-wrapper" ng-show="self.stream">
-      <div class="row-fluid">
-        <div class="module-xlarge span12">
-          <div ng-include="'/views/snippets/module-featured.html'"></div>
-        </div><!-- /.module-xlarge -->
-      </div><!-- /.row-fluid -->
-    </div><!-- /.streaming-wrapper -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
 
@@ -70,47 +63,31 @@
   <div class="width-controller container-fluid">
     <section class="mid-content">
       <div class="row-fluid">
-        <div class="tabs" ng-show="stream">
+        <div class="tabs">
           <ul class="inline no-bullets">
+            <li ng-class="self.getClass('/user/live')" ng-show="self.stream">
+              <a ui-sref="user.live" data-toggle="tab" class="red">
+                <span class="fa fa-star"></span>
+                <span class="line-text">Live Now!</span>
+              </a>
+            </li>
             <li ng-class="self.getClass('/user/streams')">
               <a ui-sref="user.streams" data-toggle="tab">
-	              <span class="fa fa-video-camera"></span>
-	              <span class="line-text">{{self.user.username}}'s Videos</span>
-	            </a>
+                <span class="fa fa-video-camera"></span>
+                <span class="line-text">{{self.user.username}}'s Videos</span>
+              </a>
             </li>
             <li ng-class="self.getClass('/user/following')">
               <a ui-sref="user.following" data-toggle="tab">
-	              <span class="fa fa-user"></span>
-	              <span class="line-text">Following</span>
-	           </a>
+                <span class="fa fa-user"></span>
+                <span class="line-text">Following</span>
+             </a>
             </li>
             <li ng-class="self.getClass('/user/followers')">
               <a ui-sref="user.followers" data-toggle="tab">
-	              <span class="fa fa-group"></span>
-	              <span class="line-text">Followers</span>
-	            </a>
-            </li>
-          </ul>
-        </div><!-- /.tabs -->
-        <div class="tabs noStream" ng-hide="stream">
-          <ul class="inline no-bullets">
-            <li ng-class="getClass('/user/streams')">
-              <a ui-sref="user.streams" data-toggle="tab">
-	              <span class="fa fa-video-camera"></span>
-	              <span class="line-text">{{self.user.username}}'s Videos</span>
-	            </a>
-            </li>
-            <li ng-class="getClass('/user/following')">
-              <a ui-sref="user.following" data-toggle="tab">
-	              <span class="fa fa-user"></span>
-	              <span class="line-text">Following</span>
-	           </a>
-            </li>
-            <li ng-class="getClass('/user/followers')">
-              <a ui-sref="user.followers" data-toggle="tab">
-	              <span class="fa fa-group"></span>
-	              <span class="line-text">Followers</span>
-	            </a>
+                <span class="fa fa-group"></span>
+                <span class="line-text">Followers</span>
+              </a>
             </li>
           </ul>
         </div><!-- /.tabs -->

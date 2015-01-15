@@ -146,6 +146,7 @@ article {
 .thin { font-family: 'Open Sans'; @include font-smoothing();}
 
 .red { color: $red;}
+.active a.red { color: $red !important;}
 
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
@@ -494,15 +495,12 @@ i[class*="icon"] {font-style: normal;}
     .mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
   }
   .userPage {
-    position: relative;
-    margin-top: 2%;
-    @media screen and (max-width: 680px) { margin-top: 1%;}
-    .tabs.noStream {
-      @media screen and (min-width: 681px) {
-        background-color: rgba(0,0,0,.05);
-        padding-bottom: 5px;
-      }
-    }
+    margin-top: 6%;
+    @media screen and (max-width: 1100px) { margin-top: 7%;}
+    @media screen and (max-width: 980px) { margin-top: 5%;}
+    @media screen and (max-width: 960px) { margin-top: 4%;}
+    @media screen and (max-width: 640px) { margin-top: 3%;}
+    @media screen and (max-width: 540px) { margin-top: 0;}
   }
 }
 
@@ -896,25 +894,37 @@ i[class*="icon"] {font-style: normal;}
 .tblr-icon, .tblr-label { background-image: url('../images/tumblr-icon.svg');}
 
 .user-avatar img {
-	border-top-left-radius: 13px;
-	border-bottom-right-radius: 13px;
-}
+  border-top-left-radius: 13px;
+  border-bottom-right-radius: 13px;}
 
 .backdrop-wrapper {
+  max-height: 75%;
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
   overflow: hidden;
-  img { transform: none;}
+  @media screen and (max-width: 980px) { max-height: 70%;}
+  @media screen and (max-width: 960px) { max-height: 65%;}
+  @media screen and (max-width: 720px) { top: 3%;}
+  @media screen and (max-width: 680px) { max-height: 67%;}
+  @media screen and (max-width: 640px) { max-height: 70%; top: -10px;}
+  @media screen and (max-width: 540px) { max-height: 66%;}
+  @media screen and (max-width: 500px) { max-height: 65%; top: 0;}
+  img {
+    @media screen and (max-width: 814px) { height: 100%;}
+    @media screen and (max-width: 640px) { height: 120%; max-width: 120%;}
+    @media screen and (max-width: 600px) { height: auto; max-width: 160%;}
+    @media screen and (max-width: 500px) { max-width: 180%;}
+    @media screen and (max-width: 440px) { max-width: 200%;}
+  }
 }
 
 .user-wrapper {
   max-width: 600px;
   height: 100%;
   margin: 0 auto 30px;
-  @media screen and (max-width: 600px) { margin-bottom: 60px;}
 }
 
 .user-profile-list {
@@ -927,8 +937,10 @@ i[class*="icon"] {font-style: normal;}
   border-radius: 16px;
   background: rgba(255,255,255,.6) url('../images/pattern2.png') top left repeat;
   box-shadow: 0px 0px 7px 2px rgba(0,0,0,.15);
-  @media screen and (max-width: 600px) { top: 62px;}
-  @media screen and (max-width: 540px) { font-size: 13px;}
+  @media screen and (max-width: 640px) { top: 30px;}
+  @media screen and (max-width: 600px) { top: 22px;}
+  @media screen and (max-width: 540px) { font-size: 13px; top: 20px;}
+  @media screen and (max-width: 400px) { font-size: 13px; top: 10px; margin-bottom: 0;}
   .user-avatar {
     img {
       width: 130px;
