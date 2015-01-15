@@ -1,7 +1,13 @@
 // Generated on 2013-06-28 using generator-angular 0.3.0
 'use strict';
+
 var LIVERELOAD_PORT = 35729;
+var COMMENTS_APP_HOST = process.env.COMMENTS_APP_HOST || 'localhost';
+var COMMENTS_APP_PORT = process.env.COMMENTS_APP_PORT || 8000;
+var COMMENTS_APP_PROTOCOL = process.env.COMMENTS_APP_PROTOCOL || 'http';
+
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
+
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -66,6 +72,20 @@ module.exports = function (grunt) {
         port: grunt.option('ssl')? 8443 : 9000
       },
       proxies: [
+        {
+          context: '/comments',
+          ws: true,
+          host: COMMENTS_APP_HOST,
+          port: COMMENTS_APP_PORT,
+          https: (COMMENTS_APP_PROTOCOL == 'https' ? true : false),
+          //xforward: true,
+          headers: {
+            'host': COMMENTS_APP_PROTOCOL + '://' + COMMENTS_APP_HOST + ':' + COMMENTS_APP_PORT
+          },
+          rewrite: {
+            '^/comments': ''
+          }
+        },
         {
           context: '/v1',
           changeOrigin: true,

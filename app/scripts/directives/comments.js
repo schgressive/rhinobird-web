@@ -23,10 +23,9 @@ angular.module('rhinobird.directives')
       // Create a new instance of Comments Client
       //
       var rbComments = new $window.RbComments.ClientDOM({
-        host:             'http://localhost:8000',
-        // Licode polute io global variable so we need to fetch Sockets with
-        // a wrapped function and then tell client library to use that namespace.
-        socketLib:        WrappedIO,
+        socketLib:        ioSafe,
+        host:             '/comments',
+        libPath:          '/comments/socket.io',
         auth_token:       scope.user.authenticationToken,
         roomId:           scope.stream.id,
         formSelector:     '.rb-comments-form',
