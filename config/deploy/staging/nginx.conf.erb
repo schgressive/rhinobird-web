@@ -1,4 +1,9 @@
 # HTTP Server
+
+upstream comments_app {
+  server comments-staging.rhinobird.tv:443;
+}
+
 <% if fetch(:nginx_use_ssl) %>
 server {
   listen 80;
@@ -49,6 +54,25 @@ server {
     <% else %>
       proxy_pass https://<%= fetch(:api_application) %>-app-server;
     <% end %>
+    proxy_redirect off;
+  }
+
+  location /comments_app_host {
+    rewrite ^/comments_app_host(.*) $1 break;
+
+    proxy_pass https://comments_app;
+
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host comments-staging.rhinobird.tv:443;
+    proxy_set_header X-Forwarded-Proto https;
+
+    rewrite_log on;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
     proxy_redirect off;
   }
 
