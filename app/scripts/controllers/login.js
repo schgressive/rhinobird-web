@@ -14,8 +14,9 @@ angular.module('rhinobird.controllers')
         // Close modal form
         $scope.$close();
       },
-      function(){
+      function(session){
         // Some error
+        $scope.loginForm.error = session.error
         $scope.loginForm.password.$setValidity('invalid-pw', false);
       });
     };

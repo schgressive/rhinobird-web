@@ -15,6 +15,7 @@
       </small>
       <small class="error" ng-show="loginForm.email.$none">
         There is no account associated with this email.</small>
+      <small class="error" ng-show="loginForm.error">{{ loginForm.error }}</small>
     </div><!-- /.validate -->
   </div>
   <label class="visually-hidden" for="input-password">Your Password</label>

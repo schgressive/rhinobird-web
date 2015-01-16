@@ -22,6 +22,11 @@ angular.module('rhinobird.models')
         });
       },
 
+      '~after-request-error': function (response) {
+        if (response.data.error)
+          this.error = response.data.error;
+      },
+
       '~after-save': function(){
         var session = this;
 
