@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $window, $stateParams, $timeout, Stream, AuthService, $location, stream) {
+  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream) {
 
 		$scope.user = AuthService.user;
     $scope.url = encodeURIComponent($location.absUrl());
@@ -20,6 +20,22 @@ angular.module('rhinobird.controllers')
     $scope.liked = function() {
       return stream.liked;
     }
+
+    // Expose methods to the VM
+    $scope.getClass = getClass;
+
+    $state.go('stream.comments');
+
+    // PRIVATE METHODS
+    //
+    // apply active class to tabs
+    function getClass(path) {
+      if ($location.path().substr(0, path.length) === path) {
+        return 'active';
+      } else {
+        return '';
+      }
+    };
 
 
   });

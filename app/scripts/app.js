@@ -73,10 +73,13 @@ angular.module('rhinobird', [
     - about                                   /about
     - goodbye                                 /goodbye
     - stream({streamId: <streamId>})          /stream/:streamId
+    - stream.comments                         /stream/:streamId/comments
+    - stream.videos                           /stream/:streamId/videos
     - user({userName: <username>})            /user/:userName
     - user.streams                            /user/:userName/streams
     - user.following                          /user/:userName/following
-    - user.follwers                           /user/:userName/followers
+    - user.followers                          /user/:userName/followers
+    - user.live                               /user/:userName/live
     - channel({channelName: <channelname>})   /:channelName
     - vjsession.live({                             /:channelName/:userName
           channelName: <channelname>,
@@ -164,7 +167,7 @@ angular.module('rhinobird', [
     .state('stream', {
       url: '/stream/:streamId/',
       templateUrl: '/views/stream.html',
-      controller: 'StreamCtrl',
+      controller: 'StreamCtrl as vm',
       resolve: {
         stream: ['Stream', '$q', '$stateParams', function(Stream, $q, $stateParams) {
           var deferred = $q.defer();
@@ -182,6 +185,14 @@ angular.module('rhinobird', [
           return deferred.promise;
         }]
       }
+    })
+    .state('stream.comments', {
+      url: 'comments/',
+      templateUrl: '/views/stream-comments.html'
+    })
+    .state('stream.videos', {
+      url: 'videos/',
+      templateUrl: '/views/stream-videos.html'
     })
 
     // User
@@ -206,6 +217,10 @@ angular.module('rhinobird', [
     .state('user.followers', {
       url: 'followers/',
       templateUrl: '/views/user-followers.html'
+    })
+    .state('user.live', {
+      url: 'live/',
+      templateUrl: '/views/user-live.html'
     })
 
     .state('password?reset_password_token&complete', {

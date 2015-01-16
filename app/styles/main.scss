@@ -146,6 +146,7 @@ article {
 .thin { font-family: 'Open Sans'; @include font-smoothing();}
 
 .red { color: $red;}
+.active a.red { color: $red !important;}
 
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
@@ -492,17 +493,6 @@ i[class*="icon"] {font-style: normal;}
     padding: 0 70px 20px;
     @media screen and (max-width: 960px) { padding: {left:0;right:0;}}
     .mobile-full { @media screen and (max-width: 960px) { padding: {left:0;right:0;}}}
-  }
-  .userPage {
-    position: relative;
-    margin-top: 2%;
-    @media screen and (max-width: 680px) { margin-top: 1%;}
-    .tabs.noStream {
-      @media screen and (min-width: 681px) {
-        background-color: rgba(0,0,0,.05);
-        padding-bottom: 5px;
-      }
-    }
   }
 }
 
@@ -896,39 +886,57 @@ i[class*="icon"] {font-style: normal;}
 .tblr-icon, .tblr-label { background-image: url('../images/tumblr-icon.svg');}
 
 .user-avatar img {
-	border-top-left-radius: 13px;
-	border-bottom-right-radius: 13px;
+  border-top-left-radius: 13px;
+  border-bottom-right-radius: 13px;}
+
+.top-content.userPage {
+  padding: 0;
+  height: 480px;
+  overflow: hidden;
+  @media screen and (min-width: 1500px) { height: 600px;}
+  @media screen and (max-width: 940px) { height: inherit;}
+  + .main {
+    margin-top: 8px;
+    @media screen and (max-width: 600px) { margin-top: 3%;}
+    @media screen and (max-width: 540px) { margin-top: 1%;}
+  }
 }
 
 .backdrop-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  img { transform: none;}
+  img {
+    @media screen and (min-width: 1500px) { width: 100%;}
+    @media screen and (max-width: 600px) { width: 144%; max-width: inherit;}
+    @media screen and (max-width: 480px) { width: 178%; max-width: inherit;}
+  }
 }
 
 .user-wrapper {
-  max-width: 600px;
-  height: 100%;
-  margin: 0 auto 30px;
-  @media screen and (max-width: 600px) { margin-bottom: 60px;}
+  width: 600px;
+  margin: 0px auto;
+  position: absolute;
+  z-index: 10;
+  top: 10%;
+  left: 50%;
+  margin-left: -300px;
+  @media screen and (max-width: 780px) { top: 5%;}
+  @media screen and (max-width: 680px) { top: 4%;}
+  @media screen and (max-width: 640px) { width: 500px; margin-left: -250px;}
+  @media screen and (max-width: 640px) { width: 400px; margin-left: -200px;}
+  @media screen and (max-width: 480px) { width: 300px; margin-left: -150px;}
 }
 
 .user-profile-list {
   position: relative;
   z-index: 10;
   top: 38px;
-  padding: 16px 8px;
-  margin-bottom: 20px;
+  padding: 16px 8px 24px;
   border: 8px solid $white;
   border-radius: 16px;
   background: rgba(255,255,255,.6) url('../images/pattern2.png') top left repeat;
   box-shadow: 0px 0px 7px 2px rgba(0,0,0,.15);
-  @media screen and (max-width: 600px) { top: 62px;}
-  @media screen and (max-width: 540px) { font-size: 13px;}
+  @media screen and (max-width: 640px) { font-size: 13px; padding: 12px 8px 18px;}
+  @media screen and (max-width: 540px) { padding: 8px 8px 12px;}
+  @media screen and (max-width: 480px) { padding: 8px 2px 12px;}
   .user-avatar {
     img {
       width: 130px;
@@ -939,20 +947,24 @@ i[class*="icon"] {font-style: normal;}
       @media screen and (max-width: 540px) { width: 80px; height: 80px;}
     }
   }
-  h2 { margin-bottom: 10px;}
+  h2 {
+    margin-bottom: 10px;
+    @media screen and (max-width: 780px) { margin-bottom: 6px;}
+    @media screen and (max-width: 540px) { margin-bottom: 0;}
+  }
   .user-stats {
     margin-bottom: 20px;
+    @media screen and (max-width: 540px) { margin-bottom: 10px;}
     li {
       margin-right: 20px;
+      @media screen and (max-width: 640px) { margin-right: 10px;}
       &:last-of-type { margin-right: 0;}
     }
   }
+  h4 { @media screen and (max-width: 640px) { font-size: 16px; margin-top: 0;}}
 }
 
 .streaming-wrapper {
-  h3 { position: relative; margin: 0; background-color: $white;}
-  .h3-text { display: block; padding: 10px 0 3px;}
-  .module-xlarge { position: relative;}
   .timelineStatus {
     width: 32px;
     height: 32px;
@@ -1080,9 +1092,7 @@ i[class*="icon"] {font-style: normal;}
 
 .feature-overlay {
   color: $textOnDark;
-  background-color: $darkTrans;
-  position: relative; /* placement based on parent div */
-  z-index: 10; /* above module-overlay */
+  background-color: #222;
   a {
     color: $textOnDark;
     text-decoration: underline;
@@ -1114,7 +1124,6 @@ i[class*="icon"] {font-style: normal;}
   background-color: $white;
   canvas, video { width: 100%; display:block;}
   .feature-overlay {
-      background-color: #222;
       padding: 10px 0 0 10px;
       @media screen and (max-width: 540px) {
         padding-top: 5px;
@@ -1160,7 +1169,6 @@ i[class*="icon"] {font-style: normal;}
   .pending + .module-overlay {
     background-image: url('/images/archiving-overlay.svg');
   }
-  .feature-overlay { margin-top: -20px;}
   .thumb-user {
     margin-bottom: 5px;
     @media screen and (max-width: 500px) { margin-bottom: 0px;}
@@ -1254,7 +1262,6 @@ i[class*="icon"] {font-style: normal;}
     top: 0;
     right: 0;
   }
-  .feature-overlay { margin-top: -20px;}
   .module-outer { height: inherit;}
 }
 
@@ -1453,7 +1460,6 @@ i[class*="icon"] {font-style: normal;}
 
 .alert .message { font-size: 18px; padding-top: 6px;}
 .alert p { margin-bottom: 0;}
-
 
 
 // OTHER PARTIALS ----------------------------------
