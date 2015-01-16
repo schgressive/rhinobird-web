@@ -73,7 +73,7 @@ module.exports = function (grunt) {
       },
       proxies: [
         {
-          context: '/comments',
+          context: '/comments_app_host',
           ws: true,
           host: COMMENTS_APP_HOST,
           port: COMMENTS_APP_PORT,
@@ -83,7 +83,7 @@ module.exports = function (grunt) {
             'host': COMMENTS_APP_PROTOCOL + '://' + COMMENTS_APP_HOST + ':' + COMMENTS_APP_PORT
           },
           rewrite: {
-            '^/comments': ''
+            '^/comments_app_host': ''
           }
         },
         {

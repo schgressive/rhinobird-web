@@ -24,8 +24,8 @@ angular.module('rhinobird.directives')
       //
       var rbComments = new $window.RbComments.ClientDOM({
         socketLib:        ioSafe,
-        host:             '/comments',
-        libPath:          '/comments/socket.io',
+        host:             '/comments_app_host',
+        libPath:          '/comments_app_host/socket.io',
         auth_token:       scope.user.authenticationToken,
         roomId:           scope.stream.id,
         formSelector:     '.rb-comments-form',
