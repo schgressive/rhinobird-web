@@ -76,7 +76,7 @@ table caption, .visually-hidden {display:none !important;}
 
 .inline {display: inline-block;}
 
-.ellipsis {	@include ellipsis();}
+.ellipsis { @include ellipsis();}
 
 .pageTop { @media screen and (min-width:600) {visibility: hidden;}}
 
