@@ -1,28 +1,25 @@
-<div id="comments" class="row-fluid">
-  <div class="span12">
-
-      <div class="row-fluid reply-area" ng-show='user.$pk'>
-        <div class="span1">
-          <a class="user-avatar" ui-sref="user({userName: user.username})" title="fheusser">
-            <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar">
-          </a>
-        </div>
-        <div class="span10">
-          <form class="rb-comments-form" role="form" name="commentReplyForm">
-            <div class="input-append">
-              <input class="rb-comments-input" id="replySubmit" type="text" placeholder="add a comment?">
-              <button class="btn" type="submit">post</button>
-            </div>
-          </form>
-        </div>
+<div class="row-fluid reply-area" ng-show='user.$pk'>
+  <div class="span1">
+    <a class="user-avatar" ui-sref="user({userName: user.username})" title="fheusser">
+      <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar">
+    </a>
+  </div>
+  <div class="span11">
+    <form class="rb-comments-form" role="form" name="commentReplyForm">
+      <div class="input-append">
+        <input class="rb-comments-input" id="replySubmit" type="text" placeholder="add a comment?">
+        <button class="btn" type="submit">post</button>
       </div>
+    </form>
+  </div>
+</div>
 
-      <p ng-hide='user.$pk'>You need to <a href="#" ng-click="rootScope.login()">Sign in</a> to be able to post comments</p>
+<p ng-hide='user.$pk'>You need to <a href="#" ng-click="rootScope.login()">Sign in</a> to be able to post comments</p>
 
-      <ol class="rb-comments-list comments-block unstyled">
-      </ol>
+<ol class="rb-comments-list comments-block unstyled">
+</ol>
 
-      <a href="#" class='rb-load-more top'>Load More</a>
-
-  </div><!-- /.span12 -->
-</div><!-- /.row-fluid -->
+<a href="#" class='rb-load-more top'>
+  <span class="fa fa-refresh"></span>
+  <span class="line-text">Load More</span>
+</a>

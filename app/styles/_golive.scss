@@ -9,6 +9,7 @@
 	position: absolute;
 	top: 52px;
 	left: 0;
+	z-index: 11;
 	.contents { margin: 10px 0 10px 65px;}
 	ul {
 		@media screen and (max-width: 560px) { margin-bottom: 15px;}
@@ -47,19 +48,19 @@
 }
 
 .golive-features {
-	color: $textOnDark;
-	width: 100%;
-	position: absolute;
+  color: $textOnDark;
+  width: 98%;
+  position: absolute;
   bottom: 0;
   left: 0;
-  padding: 6px 20px 10px;
+  padding: 6px 2% 10px;
   background-color: $darkTrans2;
   .btn-link {
-	  color: $textOnDark;
-	  text-decoration: underline;
-	  padding-left: 0;
-	  &:hover { background-color: transparent;}
-	 }
+    color: $textOnDark;
+    text-decoration: underline;
+    padding-left: 0;
+    &:hover { background-color: transparent;}
+   }
 }
 .commentBox {
 		color: $textOnDark;
@@ -82,6 +83,23 @@
 		.cBox-user { font-weight: 700;}
 		.close { color: $textOnDark;}
 	}
+
+.desktop-chat-wrapper {
+  width: 30%;
+  color: $textOnDark;
+  background-color: $darkTrans2;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  padding: 48px 20px 10px;
+  z-index: 10;
+  .reply-area .rb-comments-input { width: 116%;}
+  .rb-comments-list {
+    a .username { color: $textOnDark;}
+    .rb-load-more { color: $textOnDark;}
+  }
+}
 
 .activity-flag {
 	width: 75px;
