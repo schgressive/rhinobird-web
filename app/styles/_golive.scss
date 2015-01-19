@@ -95,8 +95,16 @@
   z-index: 10;
   .reply-area .rb-comments-input { width: 116%;}
   .rb-comments-list {
+    max-height: 370px;
+    overflow-y: scroll;
     a .username { color: $textOnDark;}
-    .rb-load-more { color: $textOnDark;}
+  }
+  a.rb-load-more {
+    color: $textOnDark;
+    padding-top: 10px;
+    border-top: 1px solid $textOnDark;
+    display: block;
+    &:hover { color: $white; text-decoration: underline; background-color: inherit;}
   }
 }
 

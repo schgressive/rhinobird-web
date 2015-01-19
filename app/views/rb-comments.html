@@ -13,13 +13,16 @@
     </form>
   </div>
 </div>
+<div class="row-fluid">
+  <div class="span12">
+    <p ng-hide='user.$pk'>You need to <a href="#" ng-click="rootScope.login()">Sign in</a> to be able to post comments</p>
 
-<p ng-hide='user.$pk'>You need to <a href="#" ng-click="rootScope.login()">Sign in</a> to be able to post comments</p>
+    <ol class="rb-comments-list comments-block unstyled">
+    </ol>
 
-<ol class="rb-comments-list comments-block unstyled">
-</ol>
-
-<a href="#" class='rb-load-more top'>
-  <span class="fa fa-refresh"></span>
-  <span class="line-text">Load More</span>
-</a>
+    <a href="#" class='rb-load-more top'>
+      <span class="fa fa-refresh"></span>
+      <span class="line-text">Load More</span>
+    </a>
+  </div>
+</div>
