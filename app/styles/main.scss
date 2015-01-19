@@ -160,10 +160,11 @@ article {
   height: auto;
   width: auto;
 }
+*/
 
 .collapse.width {
-  position: relative;
   width: 0;
+  padding: 0;
   overflow: hidden;
   -webkit-transition: width 0.35s ease;
   -moz-transition: width 0.35s ease;
@@ -172,9 +173,12 @@ article {
 }
 
 .collapse.in.width {
-  width: auto;
+  /* Need to set width per element. One size does not fit all */
+  &.desktop-chat-wrapper {
+    width: 30% !important;
+    padding: 48px 20px 10px;
+  }
 }
-*/
 
 // * end collapse horizontal * //
 

@@ -10,7 +10,7 @@
 	top: 52px;
 	left: 0;
 	z-index: 11;
-	.contents { margin: 10px 0 10px 65px;}
+	.contents { margin: 10px 0 10px 5.56%;}
 	ul {
 		@media screen and (max-width: 560px) { margin-bottom: 15px;}
 	}
@@ -85,14 +85,13 @@
 	}
 
 .desktop-chat-wrapper {
-  width: 30%;
+  /* width and padding set in main.scss with collapse.width classes */
   color: $textOnDark;
   background-color: $darkTrans2;
   position: absolute;
   top: 60px;
   left: 0;
   bottom: 0;
-  padding: 48px 20px 10px;
   z-index: 10;
   .reply-area .rb-comments-input { width: 116%;}
   .rb-comments-list {
@@ -120,7 +119,7 @@
 .collapse-btn-wrapper {
 	position: absolute;
 	top: 10px;
-	left: 10px;
+	left: 2%;
 }
 
 // Fullscreen tweeks

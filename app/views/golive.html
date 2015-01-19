@@ -11,9 +11,8 @@
   <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
   	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
   </div><!-- /.activity-flag -->
-  <div ng-include="'/views/snippets/comment-box.html'"></div>
   <div ng-include="'/views/layouts/golive-features.html'"></div>
-  <div class="desktop-chat-wrapper hide">
+  <div class="desktop-chat-wrapper collapse width" id="commentSlide">
     <div comments></div>
   </div>
   <div class="stream-wrapper">
