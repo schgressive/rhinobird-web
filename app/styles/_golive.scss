@@ -84,6 +84,13 @@
 		.close { color: $textOnDark;}
 	}
 
+.desktop-features {
+  color: $white;
+  margin-left: 20px;
+  ul { margin: 3px 0 0 0;}
+  li + li { margin-left: 7px;}
+}
+
 .desktop-chat-wrapper {
   /* width and padding set in main.scss with collapse.width classes */
   color: $textOnDark;
@@ -95,9 +102,17 @@
   z-index: 10;
   .reply-area .rb-comments-input { width: 116%;}
   .rb-comments-list {
+    margin-top: 10px;
     max-height: 370px;
     overflow-y: scroll;
     a .username { color: $textOnDark;}
+    @media screen and (min-width: 1400px) and (max-width: 1800px) { max-height: 450px;}
+    @media screen and (min-width: 1800px) {
+      max-height: 500px;
+      h2 { font-size: 140%;}
+      p { font-size: 130%; line-height: 1.4;}
+      .comment-body { margin-top: -10px;}
+    }
   }
   a.rb-load-more {
     color: $textOnDark;
@@ -139,7 +154,7 @@ body.fullscreen .mainWrapper {
 			margin-top: 0;
 			position: absolute;
 			top: 20px;
-			right: 20px;
+			right: 2%;
 	  	@media screen and (max-width: 600px) { top: 50%; margin-top: -12px;}
 			@media screen and (max-width: 560px) {
 				top: inherit;
@@ -159,5 +174,5 @@ body.fullscreen .mainWrapper {
   .collapse-btn-wrapper { top: 20px;}
   .golive-view .contents form { margin-top: 10px;}
   .commentBox { top: 20%;}
-  .golive-features { padding-bottom: 20px;}
+  .desktop-chat-wrapper{ top: 20px;}
 }
