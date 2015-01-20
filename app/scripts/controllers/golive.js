@@ -22,6 +22,7 @@ angular.module('rhinobird.controllers')
     $scope.ctrl = this; // Expose the controller
     $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
+    $scope.vm.commentsCount = 0;
 
     // Boot controller
     init();
@@ -45,7 +46,7 @@ angular.module('rhinobird.controllers')
     vm.goliveService = GoliveService;
 
     // The stream
-    vm.stream = GoliveService.stream;
+    vm.stream = null;
 
     // Use geolocation with default
     vm.useGeolocation = true;
@@ -77,6 +78,7 @@ angular.module('rhinobird.controllers')
       streamLive = true;
       var the_stream = GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
         the_stream.then(function(data) {
+          $scope.vm.stream = vm.goliveService.stream;
           var watched_stream = Stream.$find(data.$pk);
           watched_stream.$promise.then(refresh_stream);
         })
@@ -220,7 +222,6 @@ angular.module('rhinobird.controllers')
 
     $scope.$on('liveStreamStopped', function(event, data) {
       $scope.ctrl.stop(data.goback);
-
     });
 
     $scope.gotoTerms = function() {

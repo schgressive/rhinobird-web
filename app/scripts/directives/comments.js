@@ -7,7 +7,7 @@ angular.module('rhinobird.directives')
 
       // Override how the DOM Client for Comments will render a comment
       //
-      RbComments.ClientDOM.prototype.onIncommingMessage = function (message, method) {
+      RbComments.ClientDOM.prototype.onIncommingMessage = function (message, history) {
         var newScope = scope.$new(true);
 
         newScope.comment = message;
@@ -17,8 +17,19 @@ angular.module('rhinobird.directives')
           newScope.comment.user.photo = null;
 
         var element = $compile($("<li comment class='comment'>"))(newScope);
-        this.$listElement[method || 'prepend'](element);
-      }
+        if (history) {
+          this.$listElement.append(element);
+        } else {
+          this.$listElement.prepend(element);
+          scope.vm.commentsCount += 1;
+        }
+      };
+
+      var stream = null;
+      if (scope.stream)
+        stream = scope.stream.id
+      else if (scope.vm)
+        stream = scope.vm.stream.id
 
       // Create a new instance of Comments Client
       //
@@ -27,7 +38,7 @@ angular.module('rhinobird.directives')
         host:             '/comments_app_host',
         libPath:          '/comments_app_host/socket.io',
         auth_token:       scope.user.authenticationToken,
-        roomId:           scope.stream.id,
+        roomId:           stream,
         formSelector:     '.rb-comments-form',
         inputSelector:    '.rb-comments-input',
         listSelector:     '.rb-comments-list',
