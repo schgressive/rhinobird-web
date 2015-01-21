@@ -12,7 +12,7 @@
   	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
   </div><!-- /.activity-flag -->
   <div class="desktop-chat-wrapper collapse width" id="commentSlide">
-    <div comments></div>
+    <div ng-if="vm.stream" comments></div>
   </div>
   <div class="stream-wrapper">
     <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
