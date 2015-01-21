@@ -26,13 +26,13 @@
       <div class="row-fluid m_20t">
         <div class="tabs">
           <ul class="inline no-bullets">
-            <li ng-class="vm.getClass('/stream/comments')">
+            <li ui-sref-active="active">
               <a ui-sref="stream.comments" data-toggle="tab">
                 <span class="fa fa-comments"></span>
                 <span class="line-text">Comments</span>
                 </a>
             </li>
-            <li ng-class="vm.getClass('/stream/videos')">
+            <li ui-sref-active="active">
               <a ui-sref="stream.videos" data-toggle="tab">
                 <span class="fa fa-video-camera"></span>
                 <span class="line-text">More Videos</span>
