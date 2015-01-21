@@ -1,7 +1,7 @@
 <div class="row-fluid reply-area" ng-show='user.$pk'>
   <div class="span1">
-    <a class="user-avatar" ui-sref="user({userName: user.username})" title="fheusser">
-      <img ng-src="{{ user.photo || (user.email | gravatar:120:'/images/profile-default.svg')}}" alt="your avatar">
+    <a class="user-avatar" ui-sref="user({userName: user.username})" title="{{user.username}}">
+      <img ng-src="{{ user.getProfilePic()}}" alt="your avatar">
     </a>
   </div>
   <div class="span11">
