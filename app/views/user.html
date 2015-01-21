@@ -61,25 +61,25 @@
       <div class="row-fluid">
         <div class="tabs">
           <ul class="inline no-bullets">
-            <li ng-class="vm.getClass('/user/live')" ng-show="self.stream">
+            <li  ui-sref-active="active" ng-show="self.stream">
               <a ui-sref="user.live" data-toggle="tab" class="red">
                 <span class="fa fa-star"></span>
                 <span class="line-text">Live Now!</span>
               </a>
             </li>
-            <li ng-class="vm.getClass('/user/streams')">
+            <li ui-sref-active="active">
               <a ui-sref="user.streams" data-toggle="tab">
                 <span class="fa fa-video-camera"></span>
                 <span class="line-text">{{self.user.username}}'s Videos</span>
               </a>
             </li>
-            <li ng-class="vm.getClass('/user/following')">
+            <li ui-sref-active="active">
               <a ui-sref="user.following" data-toggle="tab">
                 <span class="fa fa-user"></span>
                 <span class="line-text">Following</span>
              </a>
             </li>
-            <li ng-class="vm.getClass('/user/followers')">
+            <li ui-sref-active="active">
               <a ui-sref="user.followers" data-toggle="tab">
                 <span class="fa fa-group"></span>
                 <span class="line-text">Followers</span>

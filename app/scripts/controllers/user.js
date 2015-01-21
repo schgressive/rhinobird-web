@@ -1,36 +1,27 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('UserCtrl', function ($scope, $stateParams, user) {
+  .controller('UserCtrl', function ($scope, $state, user) {
 
     var vm = this;
 
     $scope.self = $scope;
-
-    // Expose the user in the scope
     $scope.user = user;
 
-    // Get the user timeline
-    $scope.timeline = user.timeline.$collection();
-    $scope.timeline.getNextPage();
+    init()
 
-    // Get a live stream if it has
-    var streams = user.streams.$search({live: true, per_page: 1}).$then(function (streams) {
-      $scope.stream = streams[0];
-    });
 
-    // Expose methods to the VM
-    vm.getClass = getClass;
+    function init() {
+      // Go to default tab
+      $state.go('user.streams');
+      // Get the user timeline
+      $scope.timeline = user.timeline.$collection();
+      $scope.timeline.getNextPage();
 
-    // PRIVATE METHODS
-    //
-    // apply active class to tabs
-    function getClass(path) {
-      if ($location.path().substr(0, path.length) === path) {
-        return 'active';
-      } else {
-        return '';
-      }
-    };
+      // Get a live stream if it has
+      var streams = user.streams.$search({live: true, per_page: 1}).$then(function (streams) {
+        $scope.stream = streams[0];
+      });
+    }
 
   });
