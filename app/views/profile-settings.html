@@ -96,12 +96,14 @@
                    role="button"
                    ng-click="vm.editImage('avatar')"
                    src="/images/profile-default.svg"
-                   set-src="vm.user.avatar" />
+                   src-fallback="/images/profile-default.svg"
+                   set-src="vm.user.getProfilePic()" />
           </div><!-- /.span3 -->
           <div class="span9">
             <input type="image" class="user-backdrop" alt="edit your backdrop"
                    role="button"
                    set-src="vm.user.backdrop"
+                   src-fallback="/images/backdrop-default.svg"
                    ng-click="vm.editImage('backdrop')"
                    src="/images/backdrop-default.svg"/>
           </div><!-- /.span9 -->
