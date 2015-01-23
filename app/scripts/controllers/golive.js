@@ -22,15 +22,12 @@ angular.module('rhinobird.controllers')
     $scope.ctrl = this; // Expose the controller
     $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
-    $scope.vm.commentsCount = 0;
 
     // Boot controller
     init();
 
     // The the caption for the stream
     vm.caption = '';
-
-    vm.liveViewers = 0;
 
     // Camera service
     vm.camera = CameraService;
@@ -79,20 +76,8 @@ angular.module('rhinobird.controllers')
       var the_stream = GoliveService.startBroadcast(captionPayload, coordsPayload, vm.sharingOptions );
         the_stream.then(function(data) {
           $scope.vm.stream = vm.goliveService.stream;
-          var watched_stream = Stream.$find(data.$pk);
-          watched_stream.$promise.then(refresh_stream);
         })
     };
-
-    function refresh_stream(stream) {
-      stream.$fetch().$then(function(data) {
-        vm.liveViewers = data.liveViewers;
-        $timeout(function() {
-          stream.$fetch().$then(refresh_stream);
-        }, 1000);
-      })
-    }
-
 
     // Stop the current broadcast
     this.stop = function(goback){
