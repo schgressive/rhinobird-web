@@ -4,22 +4,7 @@
   </div>
   <div stream-viewer stream="stream" size="large" mute="false" on="true"></div>
 </div><!-- /.module-video -->
-<div class="feature-overlay" ng-controller="CommentsCtrl">
-  <ul class="unstyled inline">
-    <li>
-      <span class="fa fa-eye"></span>
-      <span class="line-text">{{watchersCount[stream.id]}}</span>
-    </li>
-    <li>
-      <span class="fa fa-thumbs-up"></span>
-      <span class="line-text">{{stream.likes}}</span>
-    </li>
-    <li>
-      <span class="fa fa-comment"></span>
-      <span class="line-text">{{commentsCount[stream.id]}}</span>
-    </li>
-  </ul>
-</div><!-- /.feature-overlay-->
+<div ng-include="'/views/snippets/feature-overlay.html'">
 <div class="module-outer">
   <ul class="unstyled">
     <li class="thumb-user pull-left">
