@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('ProfileCtrl', function (User, session, $location, AuthService,
+  .controller('ProfileCtrl', function (User, session, AuthService,
                                        OpenAndWatch, ValidateUserResponse, $timeout, ImageCrop, $state) {
 
     var vm = this;
@@ -15,7 +15,6 @@ angular.module('rhinobird.controllers')
     vm.avatar = "/images/profile-default.svg";
 
     // Expose methods to the VM
-    vm.getClass = getClass;
     vm.connectPopup = connectPopup;
     vm.disconnect = disconnect;
     vm.updateSettings = updateSettings;
@@ -25,15 +24,6 @@ angular.module('rhinobird.controllers')
 
     // PRIVATE METHODS
     //
-    // apply active class to tabs
-    function getClass(path) {
-      if ($location.path().substr(0, path.length) === path) {
-        return 'active';
-      } else {
-        return '';
-      }
-    };
-
     function deleteAccount() {
       vm.deleting = true;
       vm.user.$destroy().$then(function() {

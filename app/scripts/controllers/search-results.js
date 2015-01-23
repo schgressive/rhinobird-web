@@ -17,13 +17,4 @@ angular.module('rhinobird.controllers')
 
     $scope.user = AuthService.user;
 
-    // apply active class to tabs
-    $scope.getClass = function(path) {
-		    if ($location.path().substr(0, path.length) === path) {
-		      return 'active';
-		    } else {
-		      return '';
-		    }
-		};
-
   });

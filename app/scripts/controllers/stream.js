@@ -22,20 +22,10 @@ angular.module('rhinobird.controllers')
     }
 
     // Expose methods to the VM
-    $scope.getClass = getClass;
 
     $state.go('stream.comments');
 
     // PRIVATE METHODS
     //
-    // apply active class to tabs
-    function getClass(path) {
-      if ($location.path().substr(0, path.length) === path) {
-        return 'active';
-      } else {
-        return '';
-      }
-    };
-
 
   });
