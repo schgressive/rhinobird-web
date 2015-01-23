@@ -15,7 +15,26 @@
       <div class="module-overlay"></div>
     </a>
   </div><!-- /.module-video -->
-  <div ng-include="'/views/snippets/feature-overlay.html'">
+  <div class="feature-overlay">
+    <ul class="unstyled inline">
+      <li>
+        <span class="fa fa-eye"></span>
+        <span class="line-text">{{stream.liveViewers || stream.playcount}}</span>
+      </li>
+      <li>
+        <a href="#">
+          <span class="fa fa-thumbs-up"></span>
+          <span class="line-text">{{stream.likes}}</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="fa fa-comment"></span>
+          <span class="line-text">6</span>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.feature-overlay-->
 </div><!-- /.module-inner -->
 <div class="module-outer clearfix">
   <ul class="unstyled">
