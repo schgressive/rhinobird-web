@@ -1098,14 +1098,14 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .feature-overlay {
-  color: $textOnDark;
+  color: $white;
   background-color: #222;
   a {
     color: $textOnDark;
-    text-decoration: underline;
     &:hover {
       color: $orange;
       background-color: transparent;
+      text-decoration: none;
     }
   }
 }
