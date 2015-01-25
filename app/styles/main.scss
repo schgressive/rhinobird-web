@@ -357,6 +357,15 @@ i[class*="icon"] {font-style: normal;}
     }
 }
 
+.mini-glow { /* add .glow class to give it the glow animation */
+  width: 10px;
+  height: 10px;
+  background-color: $red;
+  border-radius: 12px;
+  line-height: 0;
+  display: inline-block;
+}
+
 .liveEmpty {
   font-size: 8px;
   vertical-align: super;
@@ -1128,6 +1137,16 @@ i[class*="icon"] {font-style: normal;}
 	min-height: 50px;
 }
 
+.watermark {
+  color: $white;
+  width: 200px;
+  height: 40px;
+  background: rgba(0,0,0,.25) url('../images/rb-logo-wh.svg') 92% 35% no-repeat;
+  background-size: 56%;
+  padding: 18px 0 0 20px;
+  position: absolute;
+}
+
 .module-xlarge {
   padding: 10px 10px 0;
   background-color: $white;
@@ -1227,8 +1246,8 @@ i[class*="icon"] {font-style: normal;}
 
 .reply-area {
   .user-avatar img {
-    height: 24px;
-    width: 24px;
+    height: auto;
+    width: 100%;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
