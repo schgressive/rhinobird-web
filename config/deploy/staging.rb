@@ -1,5 +1,5 @@
 ## BETA CONFIGURATION
 set :nginx_domains, "staging.rhinobird.tv"
-set :branch, "master"
+set :branch, "deploy_staging"
 
 server 'godel.rhinobird.tv', user: 'deploy', roles: %w{web app db}
