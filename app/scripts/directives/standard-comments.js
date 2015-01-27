@@ -1,18 +1,9 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('standardComments', function ($window, $compile) {
+  .directive('standardComments', function ($window, $compile, User) {
 
     function link (scope, element, attrs) {
-
-      // Helpers
-      //
-      function prepareMessageForDisplay(message) {
-        if (message.user.photo == "null")
-            message.user.photo = null;
-
-        return message;
-      }
 
       // Comments API hook and Room identifier
       var CommentsAPI = scope.CommentsService.API,
@@ -26,6 +17,13 @@ angular.module('rhinobird.directives')
       var loadMoreLink = element.find('.rb-load-more'),
           submitForm   = element.find('.rb-comments-form'),
           textInput    = element.find('.rb-comments-input');
+
+      // Helpers
+      //
+      function prepareMessageForDisplay(message) {
+        message.user = User.$buildRaw(message.user);
+        return message;
+      }
 
       // API Bindings
       //
