@@ -10,7 +10,7 @@ angular.module('rhinobird.models')
       following: {hasMany: 'User'},
 
       'getProfilePic': function() {
-        return this.avatar || this.photo;
+        return this.avatar || this.photo || '/images/profile-default.svg';
       }
     },
     function() {

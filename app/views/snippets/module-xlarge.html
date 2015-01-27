@@ -14,7 +14,7 @@
   <ul class="unstyled">
     <li class="thumb-user pull-left">
       <a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
-        <img ng-src="{{ stream.user.getProfilePic() || (stream.user.email | gravatar:120:'/images/profile-default.svg')}}"/>
+        <img ng-src="{{ stream.user.getProfilePic() }}"/>
       </a>
     </li>
     <li class="ellipsis">
