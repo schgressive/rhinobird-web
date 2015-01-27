@@ -16,10 +16,10 @@
               <span class="fa fa-video-camera"></span>
               <span class="line-text" ng-show="following.lastStream">Recently streamed from:
                 <span ng-show="">anonymous</span>
-                <a ui-sref="stream({streamId: following.last_stream.id})"
+                <a ui-sref="stream({streamId: following.lastStream.id})"
                    title="click to watch video"
                    >
-                   {{following.last_stream.properties.city}}, {{following.last_stream.properties.country}} - {{following.last_stream.properties.address}}</a>
+                   {{following.lastStream.properties.city}}, {{following.lastStream.properties.country}} - {{following.lastStream.properties.address}}</a>
               </span>
               <span class="line-text" ng-hide="following.lastStream">This user has not streamed a video.</span>
             </h5>
