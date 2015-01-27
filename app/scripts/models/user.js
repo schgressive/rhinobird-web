@@ -6,6 +6,8 @@ angular.module('rhinobird.models')
       streams: { hasMany: 'Stream'},
       vjs: { hasMany: 'Vj' },
       timeline: {hasMany: 'Timeline'},
+      followers: {hasMany: 'User'},
+      following: {hasMany: 'User'},
 
       'getProfilePic': function() {
         return this.avatar || this.photo;

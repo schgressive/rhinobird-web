@@ -2,26 +2,26 @@
   <li>
     <ul class="unstyled inline">
       <li class="user-avatar">
-        <a class="img-wrap" ui-sref="user({userName: following.user.username})" title="{{following.user.username}}">
-          <img ng-src="{{ following.user.photo || (following.user.email | gravatar:120:'/images/profile-default.svg')}}" alt="{{following.user.username}} avatar">
+        <a class="img-wrap" ui-sref="user({userName: following.username})" title="{{following.username}}">
+          <img ng-src="{{ following.getProfilePic() }}" alt="{{following.username}} avatar">
         </a>
       </li><!-- /.user-avatar -->
       <li class="user-info">
         <ul class="unstyled">
           <li>
-            <h4>following.user.username</h4>
+            <h4>{{following.username}}</h4>
           </li>
           <li>
             <h5>
               <span class="fa fa-video-camera"></span>
-              <span class="line-text">Recently streamed from:
+              <span class="line-text" ng-show="following.lastStream">Recently streamed from:
                 <span ng-show="">anonymous</span>
-                <a ui-sref="stream({streamId: stream.id})"
+                <a ui-sref="stream({streamId: following.last_stream.id})"
                    title="click to watch video"
-                   ng-hide="">
-                   {{stream.properties.city}}, {{stream.properties.country}} - {{stream.properties.address}}</a>
+                   >
+                   {{following.last_stream.properties.city}}, {{following.last_stream.properties.country}} - {{following.last_stream.properties.address}}</a>
               </span>
-              <span class="line-text" ng-show="">This user has not streamed a video.</span>
+              <span class="line-text" ng-hide="following.lastStream">This user has not streamed a video.</span>
             </h5>
           </li>
         </ul>
@@ -29,6 +29,6 @@
     </ul>
   </li>
   <li class="user-bio">
-    <p>Ennui Banksy DIY, fap forage chambray wayfarers. Brunch cornhole Godard +1 cred aesthetic. YOLO food truck Pinterest freegan semiotics twee.</p>
+    <p>{{following.bio}}</p>
   </li>
 </ul>
