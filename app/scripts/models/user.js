@@ -11,6 +11,13 @@ angular.module('rhinobird.models')
 
       'getProfilePic': function() {
         return this.avatar || this.photo || '/images/profile-default.svg';
+      },
+      $unfollow: function() {
+        return this.$send({
+          method: 'DELETE',
+          url: this.$url() + '/followers/me',
+          data: {}
+        }, function(_data) { /* do somthing w data */ });
       }
     },
     function() {

@@ -1,54 +1,49 @@
 <section class="top-content userPage">
   <div class="backdrop-wrapper">
-    <img src="/images/backdrop-default.svg" ng-src="{{self.user.backdrop}}" alt="user backdrop image" />
+    <img src="/images/backdrop-default.svg" ng-src="{{vm.user.backdrop}}" alt="user backdrop image" />
   </div>
     <div class="user-wrapper text-center">
       <ul class="unstyled user-profile-list" style="margin-bottom: 0;">
         <li class="user-avatar">
-          <img ng-src="{{ self.user.getProfilePic() }}" alt="user avatar" />
+          <img ng-src="{{ vm.user.getProfilePic() }}" alt="user avatar" />
         </li>
         <li>
           <ul class="unstyled">
             <li>
-              <h2>{{self.user.username}}</h2>
+              <h2>{{vm.user.username}}</h2>
             </li>
-            <li ng-show="self.stream" ng-show="stream">
+            <li ng-show="vm.stream" ng-show="stream">
               <h4 class="red"><strong>Streaming Now!</strong></h4>
             </li>
             <li>
-              <p>{{self.user.bio}}</p>
+              <p>{{vm.user.bio}}</p>
             </li>
           </ul>
         </li>
         <li class="user-stats">
           <ul class="unstyled inline">
             <li>
-              <span>{{self.user.applause}}</span>
+              <span>{{vm.user.applause}}</span>
               <span class="fa fa-thumbs-o-up"></span>
               <span class="line-text">Applause</span>
             </li>
             <li>
-              <span>{{self.user.playcount}}</span>
+              <span>{{vm.user.playcount}}</span>
               <span class="fa fa-eye"></span>
               <span class="line-text">Total Views</span>
             </li>
             <li>
-              <span>{{self.user.videoCount}}</span>
+              <span>{{vm.user.videoCount}}</span>
               <span class="fa fa-video-camera"></span>
               <span class="line-text">Videos</span>
             </li>
           </ul>
         </li>
         <li>
-          <button type="button" role="button"
-                  class="btn btn-default" ng-hide="">
+          <button type="button" role="button" class="btn "
+            ng-class="{'btn-default': !vm.user.followd, 'btn-success': vm.user.followed}">
                   <span class="fa fa-user"></span>
-                  <span class="line-text">Follow</span>
-          </button>
-          <button type="button" role="button"
-                  class="btn btn-success" ng-show="">
-                  <span class="fa fa-user"></span>
-                  <span class="line-text">Following</span>
+                  <span class="line-text" ng-click="vm.toggleFollow()">{{vm.user.followed ? 'Following' : 'Follow'}}</span>
           </button>
         </li>
       </ul><!-- /.profile-list -->
@@ -61,7 +56,7 @@
       <div class="row-fluid">
         <div class="tabs">
           <ul class="inline no-bullets">
-            <li  ui-sref-active="active" ng-show="self.stream">
+            <li  ui-sref-active="active" ng-show="vm.stream">
               <a ui-sref="user.live" data-toggle="tab" class="red">
                 <span class="fa fa-star"></span>
                 <span class="line-text">Live Now!</span>
@@ -70,7 +65,7 @@
             <li ui-sref-active="active">
               <a ui-sref="user.streams" data-toggle="tab">
                 <span class="fa fa-video-camera"></span>
-                <span class="line-text">{{self.user.username}}'s Videos</span>
+                <span class="line-text">{{vm.user.username}}'s Videos</span>
               </a>
             </li>
             <li ui-sref-active="active">

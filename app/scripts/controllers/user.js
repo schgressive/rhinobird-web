@@ -1,29 +1,37 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('UserCtrl', function ($scope, $state, user) {
+  .controller('UserCtrl', function ($state, user, AuthService) {
 
     var vm = this;
 
-    $scope.self = $scope;
-    $scope.user = user;
+    vm.user = user;
+    vm.toggleFollow = toggleFollow;
 
     init()
-
 
     function init() {
       // Go to default tab
       $state.go('user.streams');
       // Get the user timeline
-      $scope.timeline = user.timeline.$collection();
-      $scope.timeline.getNextPage();
+      vm.timeline = user.timeline.$collection();
+      vm.timeline.getNextPage();
+
       user.followers.$fetch();
       user.following.$fetch();
+    }
 
-      // Get a live stream if it has
-      var streams = user.streams.$search({live: true, per_page: 1}).$then(function (streams) {
-        $scope.stream = streams[0];
-      });
+    function toggleFollow() {
+      if (!user.followed) {
+        user.followed = true;
+        user.followers.$create();
+      } else {
+        user.followed = false;
+        user.$unfollow().$then(function() {
+          var current_user  = _.find(user.followers, function(usr) { return usr.id == AuthService.user.id });
+          user.followers.$remove(current_user);
+        });
+      }
     }
 
   });
