@@ -1,0 +1,38 @@
+<div class="commentBox collapse" id="commentBox">
+	<div class="inner">
+		<button type="button" class="close" data-toggle="collapse" data-target="#commentBox">
+		<span class="fa fa-close"></span>
+		</button>
+  	<div class="cBox-top">
+			<ul class="inline">
+				<li>
+          <button ng-show="comments.length > 0" type="button" class="prev btn btn-default btn-small" role="button">
+						<span class="fa fa-chevron-left"></span>
+						<span class="visually-hidden">previous comment</span>
+					</button>
+				</li>
+        <span ng-show="comments.length > 0">{{comments.length - currentCommentIndex}} of {{comments.length}}</span>
+				<li>
+          <button ng-show="comments.length > 0" type="button" class="next btn btn-default btn-small" role="button">
+						<span class="fa fa-chevron-right"></span>
+						<span class="visually-hidden">previous comment</span>
+					</button>
+				</li>
+			</ul>
+			<ul class="no-bullets">
+        <li class="comment" ng-show="currentCommentIndex == comments.indexOf(comment)" golive-mobile-comment ng-repeat="comment in comments" />
+			</ul>
+  	</div>
+  	<div class="cBox-bottom" id="cBox-bottom">
+	  	<form>
+				<textarea rows="3" placeholder="Something to say?"></textarea>
+				<button
+					type="submit"
+					class="btn btn-primary btn-small"
+					role="submit">
+					Send!
+				</button>
+			</form>
+  	</div>
+	</div><!-- /.inner -->
+</div><!-- /.commentBox -->

@@ -1227,7 +1227,7 @@ i[class*="icon"] {font-style: normal;}
 .comments-block { padding-top: 20px;}
 
 .comment {
-  & + .comment, & + .thread-group { margin-top: 24px;}
+  & + .comment, & + .thread-group { }
   h2 { font-size: 14px; margin: 0; padding: 0;}
   .username { margin-top: -10px; margin-left: 12px; vertical-align: top;}
 }

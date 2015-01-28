@@ -1,12 +1,12 @@
-<div class="golive-features">
+<div ng-if="vm.connected" class="golive-features" ng-controller="CommentsCtrl">
   	<ul class="unstyled inline">
 	  	<li>
 	  		<span class="fa fa-eye"></span>
-        <span class="line-test">{{vm.liveViewers}}</span>
+        <span class="line-test">{{watchersCount[stream.id]}}</span>
 	  	</li>
 	  	<li>
 	  		<span class="fa fa-thumbs-up"></span>
-		  	<span class="line-test">4</span>
+		  	<span class="line-test">{{stream.likes}}</span>
 	  	</li>
 	  	<li>
 	  		<button
@@ -15,7 +15,7 @@
 	    			data-target="#commentBox"
 		    		role="button">
 		    	<span class="fa fa-comments"></span>
-	    		<span class="line-test">3 comments</span>
+	    		<span class="line-test">Comments {{commentsCount[stream.id]}}</span>
 	  		</a>
 	  	</li>
   	</ul>
