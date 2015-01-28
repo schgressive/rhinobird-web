@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('UserCtrl', function ($state, user) {
+  .controller('UserCtrl', function ($state, user, AuthService) {
 
     var vm = this;
 
@@ -24,10 +24,13 @@ angular.module('rhinobird.controllers')
     function toggleFollow() {
       if (!user.followed) {
         user.followed = true;
-        user.following.$create();
+        user.followers.$create();
       } else {
         user.followed = false;
-        user.$unfollow();
+        user.$unfollow().$then(function() {
+          var current_user  = _.find(user.followers, function(usr) { return usr.id == AuthService.user.id });
+          user.followers.$remove(current_user);
+        });
       }
     }
 

@@ -15,7 +15,7 @@ angular.module('rhinobird.models')
       $unfollow: function() {
         return this.$send({
           method: 'DELETE',
-          url: this.$url() + '/following/current',
+          url: this.$url() + '/followers/me',
           data: {}
         }, function(_data) { /* do somthing w data */ });
       }
