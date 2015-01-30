@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream) {
+  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline) {
 
     $scope.user = AuthService.user;
     $scope.url = encodeURIComponent($location.absUrl());
@@ -12,6 +12,11 @@ angular.module('rhinobird.controllers')
 
     // Get the streams based on geolocation
     $scope.streams = stream.related.$fetch();
+
+    $scope.repost = function() {
+      var time = Timeline.$new(stream.timelineId);
+      time.reposts.$create();
+    }
 
     $scope.like = function() {
       stream.toggleLike();

@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('rhinobird.models')
-  .factory('Timeline', function ($restmod, Vj, Stream) {
+  .factory('Timeline', function ($restmod, Vj, Stream, Repost) {
     return $restmod.model('timeline', 'PagedModel', {
+      reposts: { hasMany: 'Repost'},
       /**
        * Get next page of streams
        * @return {collection} Stream Collection
@@ -23,6 +24,9 @@ angular.module('rhinobird.models')
         }
         else if(timeline.resourceType === 'Vj'){
           timeline.resource = Vj.$buildRaw(raw.resource);
+        }
+        else if(timeline.resourceType === 'Repost'){
+          timeline.resource = Repost.$buildRaw(raw.resource);
         }
 
         if (timeline.resource.status === 'live') {
