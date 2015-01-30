@@ -14,13 +14,13 @@
           <li>
             <h5>
               <span class="fa fa-video-camera"></span>
+              <span class="line-text" ng-hide="follower.lastStream">This user has not streamed a video.</span>
               <span class="line-text" ng-show="follower.lastStream">Recently streamed from:
                 <span ng-show="">anonymous</span>
                 <a ui-sref="stream({streamId: follower.lastStream.id})"
                    title="click to watch video">
                    {{follower.lastStream.properties.city}}, {{follower.lastStream.properties.country}} - {{follower.lastStream.properties.address}}</a>
               </span>
-              <span class="line-text" ng-hide="follower.lastStream">This user has not streamed a video.</span>
             </h5>
           </li>
         </ul>

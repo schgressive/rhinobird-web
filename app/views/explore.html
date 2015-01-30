@@ -1,64 +1,7 @@
-<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
-  <div class="width-controller container-fluid">
-    <div class="row-fluid">
-      <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
-        <div ng-include="'/views/layouts/default-actions.html'"></div>
-      </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions clearfix" ng-show="app.isLoggedIn">
-        <div ng-include="'/views/layouts/base-actions.html'"></div>
-      </div><!-- /.loggedin-action -->
-    </div><!-- /.row-fluid -->
-  </div><!-- /.container-fluid -->
-</section><!-- /.top-content -->
-
-<div class="main" role="main">
-  <div class="width-controller container-fluid">
-    <div class="mid-content">
-      <div class="row-fluid">
-        <nav class="faux-tabs span6" role="navigation">
-          <ul class="inline no-bullets">
-            <li>
-              <a ui-sref="main">
-                <span class="fa fa-star"></span>
-                <span class="line-text">World</span>
-              </a>
-            </li>
-            <li class="active">
-              <a ui-sref="explore">
-                <span class="fa fa-globe"></span>
-                <span class="line-text">Explore</span>
-              </a>
-            </li>
-      <!--  <li>
-              <a ui-sref="timeline">
-                <span class="fa fa-tachometer"></span>
-                <span class="line-text">Your Timeline</span>
-              </a>
-            </li> -->
-          </ul>
-        </nav>
-        <div class="span6">
-          <form method="get" name="form-geo" class="form-geo" ng-submit="searchAddress()" role="search">
-            <label for="geolocate" class="visually-hidden">Search by location</label>
-            <div class="input-append input-prepend">
-              <span class="add-on add-onClick">
-                <a href="#" title="Find Me!" ng-click="getCurrent()" data-title="Find Me!" rel="tooltip"><span class="fa fa-map-marker"></span></a>
-              </span>
-              <input type="search" ng-model="address" placeholder="current location">
-              <input class="btn hidden-phone" type="submit" value="Explore!">
-            </div><!-- /.input-append -->
-          </form>
-        </div><!-- /.span6 -->
-      </div><!-- /.row-fluid -->
-    </div><!-- /.mid-content -->
-  </div><!-- /.width-controller -->
-  <div class="width-controller container-fluid">
-    <section class="lower-content">
-      <div class="row-fluid">
-        <div class="map-wrapper" class="span12" pixel-to-km current-km="kms" zoom="map.search.zoom">
-          <leaflet defaults="map.defaults" center="map.search" class="map dark"></leaflet>
-        </div>
-      </div><!-- /.row-fluid -->
-    </section><!-- /.lower-content -->
-  </div><!-- /.map-controller -->
-</div><!-- /.main -->
+<section class="lower-content">
+  <div class="row-fluid">
+    <div class="map-wrapper" class="span12" pixel-to-km current-km="kms" zoom="map.search.zoom">
+      <leaflet defaults="map.defaults" center="map.search" class="map dark"></leaflet>
+    </div>
+  </div><!-- /.row-fluid -->
+</section><!-- /.lower-content -->
