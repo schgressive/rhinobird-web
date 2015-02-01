@@ -1,10 +1,8 @@
 <div class="row-fluid reply-area" ng-show='app.isLoggedIn'>
-  <div class="span1">
+  <div class="span12">
     <a class="user-avatar" ui-sref="user({userName: user.username})" title="{{user.username}}">
       <img ng-src="{{ user.getProfilePic() }}" alt="your avatar">
     </a>
-  </div>
-  <div class="span11">
     <form class="rb-comments-form" role="form" name="commentReplyForm">
       <div class="input-append">
         <input class="rb-comments-input" id="replySubmit" type="text" placeholder="add a comment?">

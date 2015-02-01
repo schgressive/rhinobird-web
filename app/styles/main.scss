@@ -1108,8 +1108,8 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .feature-overlay {
-  color: $white;
-  background-color: #222;
+  color: $textOnDark;
+  background-color: $black;
   a {
     color: $textOnDark;
     &:hover {
@@ -1148,40 +1148,26 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .module-xlarge {
-  padding: 10px 10px 0;
-  background-color: $white;
   canvas, video { width: 100%; display:block;}
   .feature-overlay {
-      padding: 10px 0 0 10px;
-      @media screen and (max-width: 540px) {
-        padding-top: 5px;
-        padding-left: 5px;
-        ul { margin-bottom: 3px;}
-      }
-      @media screen and (max-width: 400px) {
-        padding-top: 0;
-        margin-bottom: 4px;
-      }
+      padding: 10px 5px 0 0;
+      background-color: transparent;
+      text-align: right;
+      ul { background-color: rgba(0,0,0,.25);}
     }
   .module-outer {
-    padding: 10px 10px 7px 0px;
+    padding: 10px 10px 12px 10px;
     @media screen and (max-width: 500px) { padding: {top:8px;bottom:5px;}}
-    li {
-      margin-bottom: 2px;
-      @media screen and (max-width: 500px) { margin-bottom: 0;}
-      &:last-of-type { @media screen and (max-width: 500px){ margin-top: 6px;}}
-    }
   }
-  .thumb-user {
+  .user-avatar {
+    margin-right: 10px;
+    float: left;
     img {
-      width: 64px;
-      height: 64px;
-      border-top-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      margin-right: 10px;
       @media screen and (max-width: 500px) { width: 42px; height: 42px;}
     }
   }
+  h5 { margin-bottom: 0;}
+  h5 + h5 { margin-top: 0;}
   .ng-isolate-scope .licode {
     @media screen and (max-width: 600px) { height: 436px !important;}
     @media screen and (max-width: 500px) { height: 280px !important;}
@@ -1217,17 +1203,18 @@ i[class*="icon"] {font-style: normal;}
   }
 }
 
-.comments-header {
-  /* border-bottom: 2px solid #ccc; */
-  li.active a { color: $grayDarker;}
+.comments-block { padding-top: 20px;}
+.video-chat .comments-block {
+  overflow-y: scroll;
+  @media screen and (min-width: 1500px) { max-height: 400px;}
+  @media screen and (max-width: 1499px) { max-height: 300px;}
+  @media screen and (max-width: 1212px) { max-height: 238px;}
+  @media screen and (min-width: 1081px) and (max-width: 1200px) { max-height: 200px;}
+  @media screen and (min-width: 980px) and (max-width: 1080px) { max-height: 120px;}
 }
 
-.single, .thread-group { padding-bottom: 3px; border-bottom: 1px solid #ccc;}
-.comments-header > ul > li:last-of-type { border-bottom: none;}
-.comments-block { padding-top: 20px;}
-
 .comment {
-  & + .comment, & + .thread-group { }
+  & + .comment { margin-top: 10px;}
   h2 { font-size: 16px; margin: 0; padding: 0;}
   .username { margin-top: -10px; margin-left: 12px; vertical-align: top;}
 }
@@ -1235,28 +1222,18 @@ i[class*="icon"] {font-style: normal;}
 .comment-body { margin-left: 60px; margin-top: -18px;}
 .comment-footer { margin-left: 55px; font-size: 12px; color: $gray;}
 
-.thread-group {
-  .thread-child {
-    padding-bottom: 3px;
-    margin-top: 10px;
-    margin-left: 58px;
-    & + .thread-child { margin-top: 10px;}
-  }
-}
-
 .reply-area {
   .user-avatar img {
     height: auto;
-    width: 100%;
+    width: 32px;
+    margin-right: 22px;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    display: inline-block;
   }
-  input[type="text"] {
-    width: 146%;
-    @media screen and (max-width: 700px) { width: 100%;}
-    @media screen and (max-width: 540px) { width: 100%;}
-  }
+  form { display: inline-block; vertical-align: top;}
 }
+.video-chat .reply-area .user-avatar { @media screen and (max-width: 1212px) { display: none;}}
 
 .btn-overlay {
   width: 100%;
