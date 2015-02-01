@@ -15,9 +15,13 @@
   <div class="width-controller mobile-full container-fluid">
     <section class="mid-content">
       <div class="row-fluid">
-        <div class="module-xlarge span12">
+        <div class="module-xlarge span8">
           <div ng-include="'/views/snippets/module-xlarge.html'"></div>
         </div><!-- /.module-xlarge -->
+        <div class="span4 visible-desktop">
+          <h3>Video Chat</h3>
+          <div standard-comments ng-controller="CommentsCtrl"></div>
+        </div>
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
   </div><!-- /.container-fluid -->
