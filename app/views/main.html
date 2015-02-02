@@ -15,36 +15,31 @@
   <div class="width-controller container-fluid">
     <div class="mid-content">
       <div class="row-fluid">
-        <nav class="faux-tabs span12" role="navigation">
+        <nav class="faux-tabs span6" role="navigation">
           <ul class="inline no-bullets">
-            <li class="active">
-              <a ui-sref="main">
+            <li ui-sref-active="active">
+              <a ui-sref="main.timeline">
+                <span class="fa fa-star"></span>
+                <span class="line-text">My RB</span>
+              </a>
+            </li>
+            <li ui-sref-active="active">
+              <a ui-sref="main.world">
                 <span class="fa fa-star"></span>
                 <span class="line-text">World</span>
               </a>
             </li>
-            <li>
-              <a ui-sref="explore">
+            <li ui-sref-active="active">
+              <a ui-sref="main.explore">
                 <span class="fa fa-globe"></span>
                 <span class="line-text">Explore</span>
               </a>
             </li>
-      <!--  <li>
-              <a ui-sref="timeline">
-                <span class="fa fa-tachometer"></span>
-                <span class="line-text">Your Timeline</span>
-              </a>
-            </li> -->
           </ul>
         </nav>
+        <div class="span6" ui-view="rightaction"></div>
       </div><!-- /.row-fluid -->
     </div><!-- /.mid-content -->
-    <section class="lower-content media-area">
-      <div class="row-fluid">
-        <div class="span12">
-          <div infinite-timeline-list timeline="self.timeline"></div>
-        </div><!-- /.span12 -->
-      </div><!-- /.row-fluid -->
-    </section><!-- /.lower-content -->
+    <div ui-view></div>
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->

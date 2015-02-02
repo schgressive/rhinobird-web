@@ -1,0 +1,10 @@
+<form method="get" name="form-geo" class="form-geo" ng-submit="searchAddress()" role="search">
+  <label for="geolocate" class="visually-hidden">Search by location</label>
+  <div class="input-append input-prepend">
+    <span class="add-on add-onClick">
+      <a href="#" title="Find Me!" ng-click="getCurrent()" data-title="Find Me!" rel="tooltip"><span class="fa fa-map-marker"></span></a>
+    </span>
+    <input type="search" ng-model="address" placeholder="current location">
+    <input class="btn hidden-phone" type="submit" value="Explore!">
+  </div><!-- /.input-append -->
+</form>

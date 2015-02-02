@@ -96,11 +96,29 @@ angular.module('rhinobird', [
       controller: 'MainCtrl'
     })
 
+    .state('main.world', {
+      templateUrl: '/views/world.html',
+      controller: 'WorldCtrl'
+    })
+
+    .state('main.timeline', {
+      url: 'myrb/',
+      templateUrl: '/views/mytimeline.html'
+    })
+
     // Explore
-    .state('explore', {
-      url: '/explore/?lat&lng',
-      templateUrl: '/views/explore.html',
-      controller: 'ExploreCtrl'
+    .state('main.explore', {
+      url: 'explore/?lat&lng',
+      views: {
+        "rightaction": {
+          templateUrl: '/views/snippets/rightaction.html',
+          controller: 'ExploreCtrl'
+        },
+        "": {
+          templateUrl: '/views/explore.html',
+          controller: 'ExploreCtrl'
+        }
+      }
     })
 
     // Search

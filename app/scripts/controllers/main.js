@@ -2,14 +2,12 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('MainCtrl', function ($scope, $stateParams, Timeline, AuthService) {
+  .controller('MainCtrl', function ($scope, $stateParams, $state, AuthService) {
 
     // Expose the scope as self
     $scope.self = $scope;
-
-    // Get the timeline
-    $scope.timeline = Timeline.$collection();
-    $scope.timeline.getNextPage();
+    // default route
+    $state.go('main.world');
 
     // Set the user in scope
     $scope.user = AuthService.user;
