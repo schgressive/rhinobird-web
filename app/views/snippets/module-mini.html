@@ -1,6 +1,6 @@
 <div class="module-video">
   <a class="live-stream-link" ui-sref="stream({streamId: stream.id})">
-    <img ng-src="{{stream.thumbs.small}}"/>
+    <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
   </a>
 </div><!-- /.module-video -->
 <div class="feature-overlay">

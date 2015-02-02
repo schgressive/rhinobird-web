@@ -1,7 +1,7 @@
 <div class="module-inner">
 	<div class="module-video">
     <a class="live-stream-link" ui-sref="channel({channelName: channel.name})">
-    	<img ng-src="{{channel.streams.0.thumbs.medium}}"/>
+	<img ng-src="{{channel.streams.0.thumbs.medium}}" src-fallback="/images/missing.png"/>
 		</a>
 	</div><!-- /.module-video -->
 </div><!-- /.module-inner -->
