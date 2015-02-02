@@ -103,7 +103,8 @@ angular.module('rhinobird', [
 
     .state('main.timeline', {
       url: 'myrb/',
-      templateUrl: '/views/mytimeline.html'
+      templateUrl: '/views/mytimeline.html',
+      controller: 'MyTimelineCtrl as vm'
     })
 
     // Explore
