@@ -15,31 +15,45 @@
   <div class="width-controller container-fluid">
   	<section class="mid-content">
       <div class="row-fluid">
-        <div class="module-xlarge span12">
+        <div class="module-xlarge span8">
           <div class="module-video">
-            <div video-canvas-projector width="640" height="360" video="self.currentStream.licode.player.video"></div>
+            <div ng-include="'/views/snippets/feature-overlay.html'"></div>
+            <!-- <div video-canvas-projector width="640" height="360" video="self.currentStream.licode.player.video"></div> -->
+            <div video-canvas-projector video="self.currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
+          <div class="span4 visible-desktop hidden-tablet video-chat">
+            <h3>Video Chat</h3>
+            <div standard-comments ng-controller="CommentsCtrl"></div>
+          </div><!-- /.video-chat.span4 -->
           <div class="module-outer">
-            <div class="row-fluid">
-              <div class="span6">
-              Current Stream: <span ng-bind-html="self.currentStream.caption | hashToLink"></span>
-              </div>
-              <div class="span6" ng-show="self.fixedAudioStream">
-              Current Audio from: <span ng-bind-html="self.fixedAudioStream.caption | hashToLink"></span>
-              </div>
-            </div><!-- /.row-fluid -->
+              <h5>
+                <span class="fa fa-video-camera"></span>
+                <span class="line-text"><strong>Current Stream:</strong> <span ng-bind-html="self.currentStream.caption | hashToLink"></span></span>
+              </h5>
+              <h5 ng-show="self.fixedAudioStream">
+                <span class="fa fa-headphones"></span>
+                <span class="line-text"><strong>Current Audio from:</strong> <span ng-bind-html="self.fixedAudioStream.caption | hashToLink"></span></span>
+              </h5>
           </div><!-- /.module-outer -->
         </div><!-- /.module-xlarge -->
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
     <section class="lower-content media-area">
       <div class="row-fluid">
-        <h4 class="span12">Switch Camera Views</h4>
-      </div><!-- /.row-fluid -->
-      <div class="row-fluid">
-        <div stream-carousel streams="self.liveStreams" current-stream="self.currentStream" fixed-audio-stream="self.fixedAudioStream"></div>
+        <div class="span12">
+          <h3>Switch Camera Views</h3>
+          <div stream-carousel streams="self.liveStreams" current-stream="self.currentStream" fixed-audio-stream="self.fixedAudioStream"></div>
+        </div>
       </div><!--/.row-fluid -->
+      <div class="hidden-desktop">
+        <div class="row-fluid">
+          <div class="span12">
+            <h3>Comments</h3>
+            <div standard-comments ng-controller="CommentsCtrl"></div>
+          </div>
+        </div><!-- /.row-fluid -->
+      </div>
     </section><!-- /.lower-content -->
-</div><!-- /.container-fluid -->
+  </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 
