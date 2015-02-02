@@ -75,6 +75,7 @@ angular.module('rhinobird', [
     - stream({streamId: <streamId>})          /stream/:streamId
     - stream.comments                         /stream/:streamId/comments
     - stream.videos                           /stream/:streamId/videos
+    - stream.user                             /stream/:streamId/user
     - user({userName: <username>})            /user/:userName
     - user.streams                            /user/:userName/streams
     - user.following                          /user/:userName/following
@@ -193,6 +194,10 @@ angular.module('rhinobird', [
     .state('stream.videos', {
       url: 'videos/',
       templateUrl: '/views/stream-videos.html'
+    })
+    .state('stream.user', {
+      url: 'user/',
+      templateUrl: '/views/stream-user.html'
     })
 
     // User

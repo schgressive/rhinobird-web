@@ -1247,7 +1247,7 @@ i[class*="icon"] {font-style: normal;}
     background-color: transparent;
     border: none;
     &:hover { background-color: $red;}
-    &.active { background-color: $orange;}
+    &.active { background-color: $orange; opacity: .25;}
   }
 }
 
@@ -1268,6 +1268,7 @@ i[class*="icon"] {font-style: normal;}
     right: 0;
   }
   .module-outer { height: inherit;}
+  .feature-overlay { @media screen and (max-width: 600px) {font-size: 12px;}}
 }
 
 .spinner-overlay {

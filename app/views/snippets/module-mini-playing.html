@@ -4,8 +4,8 @@
   </a>
   <div class="btn-overlay">
     <button role="button" ng-class="{ 'active': stream.isAudioFixed }" ng-click="setAsFixedAudio(stream, $event)">
-    	<span ng-hide="stream.isAudioFixed">Select Audio</span>
-    	<span ng-show="stream.isAudioFixed">Deselect Audio</span>
+      <span ng-hide="stream.isAudioFixed">Select Audio</span>
+      <span ng-show="stream.isAudioFixed">Deselect Audio</span>
     </button>
   </div>
 </div><!-- /.module-video -->
@@ -13,15 +13,15 @@
   <ul class="unstyled inline">
     <li>
       <span class="fa fa-eye"></span>
-      <span class="line-text">12</span>
+      <span class="line-text">{{watchersCount[stream.id]}}</span>
     </li>
     <li>
       <span class="fa fa-thumbs-up"></span>
-      <span class="line-text">4</span>
+      <span class="line-text">{{stream.likes}}</span>
     </li>
-    <li>
+    <li class="hidden-phone">
       <span class="fa fa-comment"></span>
-      <span class="line-text">6</span>
+      <span class="line-text">{{commentsCount[stream.id]}}</span>
     </li>
   </ul>
 </div><!-- /.feature-overlay-->

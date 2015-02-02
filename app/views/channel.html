@@ -20,26 +20,26 @@
             <div video-canvas-projector width="640" height="360" video="self.currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
           <div class="module-outer">
-<div class="row-fluid">
-            <div class="span6">
+            <div class="row-fluid">
+              <div class="span6">
               Current Stream: <span ng-bind-html="self.currentStream.caption | hashToLink"></span>
-            </div>
-            <div class="span6" ng-show="self.fixedAudioStream">
+              </div>
+              <div class="span6" ng-show="self.fixedAudioStream">
               Current Audio from: <span ng-bind-html="self.fixedAudioStream.caption | hashToLink"></span>
-            </div>
-          </div><!-- /.row-fluid -->
-        </div><!-- /.module-outer -->
-      </div><!-- /.module-xlarge -->
-    </div><!-- /.row-fluid -->
-  </section><!-- /.mid-content -->
-  <section class="lower-content media-area">
-    <div class="row-fluid">
-      <h4 class="span12">Switch Camera Views</h4>
-    </div><!-- /.row-fluid -->
-    <div class="row-fluid">
-      <div stream-carousel streams="self.liveStreams" current-stream="self.currentStream" fixed-audio-stream="self.fixedAudioStream"></div>
-    </div><!--/.row-fluid -->
-  </section><!-- /.lower-content -->
+              </div>
+            </div><!-- /.row-fluid -->
+          </div><!-- /.module-outer -->
+        </div><!-- /.module-xlarge -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.mid-content -->
+    <section class="lower-content media-area">
+      <div class="row-fluid">
+        <h4 class="span12">Switch Camera Views</h4>
+      </div><!-- /.row-fluid -->
+      <div class="row-fluid">
+        <div stream-carousel streams="self.liveStreams" current-stream="self.currentStream" fixed-audio-stream="self.fixedAudioStream"></div>
+      </div><!--/.row-fluid -->
+    </section><!-- /.lower-content -->
 </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 
