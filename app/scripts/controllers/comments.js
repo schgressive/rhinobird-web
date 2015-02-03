@@ -3,6 +3,10 @@
 angular.module('rhinobird.controllers')
   .controller('CommentsCtrl', function ($scope, CommentsService) {
 
+    $scope.init = function(roomId) {
+      $scope.roomId = roomId;
+    };
+
     var stream = null;
 
     if ($scope.stream)
@@ -11,8 +15,6 @@ angular.module('rhinobird.controllers')
       stream = $scope.currentStream;
     else if ($scope.vm && $scope.vm.stream)
       stream = $scope.vm.stream;
-    else
-      return false;
 
     $scope.stream = stream;
     $scope.watchersCount = {};
@@ -24,7 +26,12 @@ angular.module('rhinobird.controllers')
       $scope.$apply();
     };
 
-    var roomId = stream.id;
+    var roomId = $scope.roomId || (stream ? stream.id : null);
+
+    if (!roomId) {
+      console.log('WARNING: No Room ID or Stream to init comments');
+      return false;
+    }
 
     CommentsService.API.on('incomming-stats', onStats);
     CommentsService.API.joinStatsRoom(roomId);

@@ -33,7 +33,7 @@
         </div><!-- /.module-xlarge -->
         <div class="span4 visible-desktop hidden-tablet video-chat">
           <h3>Video Chat</h3>
-          <div standard-comments ng-controller="CommentsCtrl"></div>
+          <div standard-comments ng-if="currentStream" ng-controller="CommentsCtrl" ng-init="init(channel.name)"></div>
         </div><!-- /.video-chat.span4 -->
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
@@ -48,7 +48,7 @@
         <div class="row-fluid">
           <div class="span12">
             <h3>Comments</h3>
-            <div standard-comments ng-controller="CommentsCtrl"></div>
+            <div standard-comments ng-if="currentStream" ng-controller="CommentsCtrl" ng-init="init(channel.name)"></div>
           </div>
         </div><!-- /.row-fluid -->
       </div>
