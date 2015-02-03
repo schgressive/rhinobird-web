@@ -4,6 +4,8 @@ angular.module('rhinobird.controllers')
   .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline) {
 
     $scope.user = AuthService.user;
+    $scope.user.timeline.getNextPage();
+
     $scope.url = encodeURIComponent($location.absUrl());
     $scope.shareTextEnconded = $window.escape('Share this video!');
 
@@ -35,7 +37,7 @@ angular.module('rhinobird.controllers')
 
     // Choose default tab
     if ($scope.streamLive()) {
-      $state.go('stream.videos');
+      $state.go('stream.user');
     } else {
       $state.go('stream.comments');
     }
