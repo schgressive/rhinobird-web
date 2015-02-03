@@ -11,9 +11,7 @@
   <div class="module-outer clearfix">
     <ul class="no-bullets">
       <li class="thumb-user pull-left">
-        <a ui-sref="user({userName: stream.user.username})" title="{{stream.user.name}}">
-          <img ng-src="{{ stream.user.getProfilePic() }}"/>
-        </a>
+        <rb-avatar user="stream.user" class="user-avatar pull-left" title="{{stream.user.username}}"></rb-avatar>
       </li>
       <li class="ellipsis">
         <span ng-show="stream.caption == 0">untitled</span>

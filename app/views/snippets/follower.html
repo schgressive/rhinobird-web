@@ -2,9 +2,7 @@
   <li>
     <ul class="unstyled inline">
       <li class="user-avatar">
-        <a class="img-wrap" ui-sref="user({userName: follower.username})" title="{{follower.username}}">
-          <img ng-src="{{ follower.getProfilePic()}}" alt="{{follower.username}} avatar">
-        </a>
+        <rb-avatar user="follower" class="img-wrap" title="{{follower.username}}"></rb-avatar>
       </li><!-- /.user-avatar -->
       <li class="user-info">
         <ul class="unstyled">
