@@ -13,6 +13,11 @@ angular.module('rhinobird.controllers')
     // Get the streams based on geolocation
     $scope.streams = stream.related.$fetch();
 
+    // returns true if stream is live
+    $scope.streamLive = function() {
+      return stream.status === 'live';
+    }
+
     $scope.repost = function() {
       var time = Timeline.$new(stream.timelineId);
       time.reposts.$create();
@@ -28,7 +33,12 @@ angular.module('rhinobird.controllers')
 
     // Expose methods to the VM
 
-    $state.go('stream.comments');
+    // Choose default tab
+    if ($scope.streamLive()) {
+      $state.go('stream.videos');
+    } else {
+      $state.go('stream.comments');
+    }
 
     // PRIVATE METHODS
     //

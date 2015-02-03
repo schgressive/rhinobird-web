@@ -207,15 +207,12 @@ angular.module('rhinobird', [
       }
     })
     .state('stream.comments', {
-      url: 'comments/',
       templateUrl: '/views/stream-comments.html'
     })
     .state('stream.videos', {
-      url: 'videos/',
       templateUrl: '/views/stream-videos.html'
     })
     .state('stream.user', {
-      url: 'user/',
       templateUrl: '/views/stream-user.html'
     })
 
