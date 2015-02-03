@@ -3,7 +3,16 @@
 angular.module('rhinobird.controllers')
   .controller('CommentsCtrl', function ($scope, CommentsService) {
 
-    var stream = $scope.stream ? $scope.stream : $scope.vm.stream;
+    var stream = null;
+
+    if ($scope.stream)
+      stream = $scope.stream;
+    else if ($scope.currentStream)
+      stream = $scope.currentStream;
+    else if ($scope.vm && $scope.vm.stream)
+      stream = $scope.vm.stream;
+    else
+      return false;
 
     $scope.stream = stream;
     $scope.watchersCount = {};

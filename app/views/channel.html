@@ -17,9 +17,8 @@
       <div class="row-fluid">
         <div class="module-xlarge span8">
           <div class="module-video">
-            <div ng-include="'/views/snippets/feature-overlay.html'"></div>
-            <!-- <div video-canvas-projector width="640" height="360" video="self.currentStream.licode.player.video"></div> -->
-            <div video-canvas-projector video="self.currentStream.licode.player.video"></div>
+            <div ng-if="currentStream" ng-include="'/views/snippets/feature-overlay.html'"></div>
+            <div video-canvas-projector width="640" height="360" video="self.currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
           <div class="module-outer">
               <h5>

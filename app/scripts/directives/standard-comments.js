@@ -5,6 +5,9 @@ angular.module('rhinobird.directives')
 
     function link (scope, element, attrs) {
 
+      if (!scope.CommentsService)
+        return false;
+
       // Comments API hook and Room identifier
       var CommentsAPI = scope.CommentsService.API,
           roomId = scope.stream.id;
