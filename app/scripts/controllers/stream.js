@@ -4,7 +4,8 @@ angular.module('rhinobird.controllers')
   .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline) {
 
     $scope.user = AuthService.user;
-    $scope.user.timeline.getNextPage();
+    $scope.timeline = stream.user.timeline;
+    $scope.timeline.getNextPage();
 
     $scope.url = encodeURIComponent($location.absUrl());
     $scope.shareTextEnconded = $window.escape('Share this video!');
