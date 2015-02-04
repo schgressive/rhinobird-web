@@ -13,6 +13,8 @@ angular.module('rhinobird.controllers')
       stream = $scope.stream;
     else if ($scope.currentStream)
       stream = $scope.currentStream;
+    else if ($scope.currentPick)
+      stream = $scope.currentPick;
     else if ($scope.vm && $scope.vm.stream)
       stream = $scope.vm.stream;
 

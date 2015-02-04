@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('VjSessionLiveCtrl', function ($scope, vj, user, VjService) {
+  .controller('VjSessionLiveCtrl', function ($scope, vj, user, VjService, $stateParams) {
 
     $scope.self = $scope;
 
@@ -16,6 +16,9 @@ angular.module('rhinobird.controllers')
 
     // The currently playing pick
     $scope.currentPick = null;
+
+    // Channel name
+    $scope.channelName = $stateParams.channelName;
 
     // Create a socket data connection with the user token
     VjService.startListening(vj.token).then(function(){

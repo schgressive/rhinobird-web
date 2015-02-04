@@ -15,6 +15,9 @@
   <div class="width-controller container-fluid">
   	<section class="mid-content">
       <div class="row-fluid">
+        <h3 class="span12">Now Viewing: #{{channel.name}}</h3>
+      </div>
+      <div class="row-fluid">
         <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
             <div ng-if="currentStream" ng-include="'/views/snippets/feature-overlay.html'"></div>
