@@ -1147,6 +1147,11 @@ i[class*="icon"] {font-style: normal;}
   z-index: 100;
 }
 
+.module-xlarge.offline {
+  canvas { visibility: hidden; }
+  .module-video { background: #000 url('/images/rb-logo-wh.svg') 50% 50% no-repeat; }
+}
+
 .module-xlarge {
   canvas, video { width: 100%; display:block;}
   .feature-overlay {
