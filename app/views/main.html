@@ -15,8 +15,8 @@
   <div class="width-controller container-fluid">
     <div class="mid-content">
       <div class="row-fluid">
-        <nav class="faux-tabs span6" role="navigation">
-          <ul class="inline no-bullets">
+        <div class="tabs">
+          <ul class="inline unstyled">
             <li ui-sref-active="active" ng-show="app.isLoggedIn">
               <a ui-sref="main.timeline">
                 <span class="fa fa-star"></span>
@@ -25,7 +25,7 @@
             </li>
             <li ui-sref-active="active">
               <a ui-sref="main.world">
-                <span class="fa fa-star"></span>
+                <span class="fa fa-video-camera"></span>
                 <span class="line-text">World</span>
               </a>
             </li>
@@ -36,10 +36,18 @@
               </a>
             </li>
           </ul>
-        </nav>
-        <div class="span6" ui-view="rightaction"></div>
+        </div><!-- /.tabs -->
+        <div ui-view="rightaction"></div>
       </div><!-- /.row-fluid -->
     </div><!-- /.mid-content -->
-    <div ui-view></div>
+    <section class="lower-content media-area">
+      <div class="row-fluid">
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <div ui-view></div>
+          </div>
+        </div><!-- /.tab-content -->
+      </div><!-- /.row-fluid -->
+    </section>
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
