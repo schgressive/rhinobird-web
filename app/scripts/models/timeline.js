@@ -29,7 +29,7 @@ angular.module('rhinobird.models')
           timeline.resource = Repost.$buildRaw(raw.resource);
         }
 
-        if (timeline.resource.status === 'live') {
+        if (!angular.isUndefined(timeline.resource) && timeline.resource.status === 'live') {
           timeline.resource.$fetch();
         }
       }
