@@ -3,6 +3,7 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+bower_components
 npm-debug.log
 .DS_Store
 .nodenv-vars
