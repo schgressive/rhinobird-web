@@ -6,8 +6,8 @@ angular.module('rhinobird.controllers')
     $scope.init = function(roomId) {
       $scope.roomId = roomId;
       CommentsService.API.on('incomming-stats', onStats);
-      CommentsService.API.joinStatsRoom($scope.roomId);
-      CommentsService.API.fetchStats($scope.roomId);
+      CommentsService.API.joinStatsRoom(roomId);
+      CommentsService.API.fetchStats(roomId);
     };
 
     $scope.watchersCount = {};
