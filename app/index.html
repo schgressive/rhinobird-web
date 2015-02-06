@@ -30,7 +30,7 @@
 		<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
 		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152-precomposed.png">
 
-    <!-- build:css({app,.tmp}) /styles/style.css -->
+    <!-- build:css({app,.tmp}) styles/style.css -->
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/bower_components/owlcarousel/owl-carousel/owl.carousel.css" />
     <link rel="stylesheet" href="/bower_components/owlcarousel/owl-carousel/owl.theme.css" />
@@ -72,7 +72,7 @@
     </script>
     <script src="/comments_app_host/client.js"></script>
 
-    <!-- build:js /scripts/vendor.js -->
+    <!-- build:js(.) scripts/vendor.js -->
     <script src="/bower_components/underscore/underscore.js"></script>
     <script src="/bower_components/jquery/jquery.js"></script>
     <script src="/bower_components/owlcarousel/owl-carousel/owl.carousel.js"></script>
@@ -112,7 +112,7 @@
     <script src="/vendor/uisearch.js"></script>
     <!-- endbuild -->
 
-    <!-- build:js /scripts/scripts.js -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="/scripts/app.js"></script>
     <script src="/scripts/modules.js"></script>
     <script src="/scripts/settings.js"></script>
@@ -174,7 +174,7 @@
     <script src="/scripts/filters/hash-to-link.js"></script>
     <!-- endbuild -->
 
-    <!-- build:js /scripts/extra.js -->
+    <!-- build:js(.) scripts/extra.js -->
     <!-- <script src="/scripts/main.js"></script> -->
     <!-- endbuild -->
 
