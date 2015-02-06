@@ -9,7 +9,7 @@
     </button>
   </div>
 </div><!-- /.module-video -->
-<div ng-if="stream.isConnected" ng-include="'/views/snippets/feature-overlay.html'"></div>
+<div ng-if="stream.isConnected" feature-overlay stream="stream"></div>
 <div ng-show="stream.isProjected" class="streamSelected">Selected</div>
 <div class="streamHide">
   <a href="#" ng-click="hideStream(stream)">Hide<a>

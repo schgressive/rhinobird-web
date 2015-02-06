@@ -20,6 +20,9 @@ angular.module('rhinobird.controllers')
     // Channel name
     $scope.channelName = $stateParams.channelName;
 
+    // The room id for comments
+    $scope.roomId = $scope.channelName + '-' + user.username;
+
     // Create a socket data connection with the user token
     VjService.startListening(vj.token).then(function(){
       VjService.socket.stream.addEventListener('stream-data', function(data){

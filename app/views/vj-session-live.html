@@ -23,14 +23,14 @@
 	    <div class="row-fluid">
         <div class="module-xlarge span8 {{currentPick ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div ng-if="currentPick" ng-include="'/views/snippets/feature-overlay.html'"></div>
+            <div ng-if="currentPick" feature-overlay stream="self.currentPick"></div>
             <div video-canvas-projector width="640" height="360" video="self.currentPick.licode.player.video"></div>
           </div><!-- /.module-video -->
 	      </div><!-- /.module-xlarge -->
         <div class="span4 visible-desktop hidden-tablet video-chat">
           <div class="comments-wrapper" ng-if="currentPick">
             <h3>What people say on this VJ session</h3>
-            <div standard-comments ng-controller="CommentsCtrl"></div>
+            <div standard-comments room="roomId"></div>
           </div>
           <h3 ng-if="!currentPick">This channel is offline now, <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a><em>
             is not doing any VJ session at the moment. This channel will become online
@@ -47,12 +47,13 @@
       <div class="hidden-desktop">
         <div class="row-fluid">
           <div class="span12" ng-if="!currentPick">
-            <h3>This channel is offline now, it will become online as soon you or someone else start
-              streaming with caption including <em>#{{channel.name}}</em> hashtag.</h3>
+          <h3 ng-if="!currentPick">This channel is offline now, <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a><em>
+            is not doing any VJ session at the moment. This channel will become online
+            as soon as <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a></em> starts a new VJ session.</h3>
           </div>
           <div class="span12" ng-if="currentPick">
             <h3>What people say on this VJ session</h3>
-            <div standard-comments ng-controller="CommentsCtrl" ng-init="init(channel.name)"></div>
+            <div standard-comments room="roomId"></div>
           </div>
         </div><!-- /.row-fluid -->
       </div>

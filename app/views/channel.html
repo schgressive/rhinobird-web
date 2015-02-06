@@ -20,7 +20,7 @@
       <div class="row-fluid">
         <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div ng-if="currentStream" ng-include="'/views/snippets/feature-overlay.html'"></div>
+            <div ng-if="currentStream" feature-overlay stream="self.currentStream"></div>
             <div video-canvas-projector width="640" height="360" video="currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
           <div class="module-outer">
@@ -37,7 +37,7 @@
         <div class="span4 visible-desktop hidden-tablet video-chat">
           <div ng-if="currentStream" class="comments-wrapper">
             <h3>What people say on #{{channel.name}}</h3>
-            <div standard-comments ng-controller="CommentsCtrl" ng-init="init(channel.name)">
+            <div standard-comments room="channel.name">
             </div>
           </div>
           <div ng-if="!currentStream" class="comments-wrapper">
@@ -62,7 +62,7 @@
           </div>
           <div class="span12" ng-if="currentStream">
             <h3>What people say on #{{channel.name}}</h3>
-            <div standard-comments ng-controller="CommentsCtrl" ng-init="init(channel.name)"></div>
+            <div standard-comments room="channel.name"></div>
           </div>
         </div><!-- /.row-fluid -->
       </div>

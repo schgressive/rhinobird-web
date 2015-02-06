@@ -3,7 +3,7 @@
     <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
   </a>
 </div><!-- /.module-video -->
-<div class="feature-overlay">
+<div class="feature-overlay" ng-controller="CommentsCtrl" ng-init="init(stream.id)">
   <ul class="unstyled inline">
     <li>
       <span class="fa fa-eye"></span>
