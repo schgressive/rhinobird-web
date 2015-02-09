@@ -41,9 +41,9 @@
         </li>
         <li>
           <button type="button" role="button" class="btn "
-            ng-class="{'btn-default': !vm.user.followd, 'btn-success': vm.user.followed}">
+            ng-class="{'btn-default': !vm.user.followed, 'btn-success': vm.user.followed}">
                   <span class="fa fa-user"></span>
-                  <span class="line-text" ng-click="vm.toggleFollow()">{{vm.user.followed ? 'Following' : 'Follow'}}</span>
+                  <span class="line-text" ng-click="vm.toggleFollow(vm.user)">{{vm.user.followed ? 'Following' : 'Follow'}}</span>
           </button>
         </li>
       </ul><!-- /.profile-list -->

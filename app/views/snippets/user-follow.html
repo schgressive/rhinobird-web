@@ -16,6 +16,13 @@
               <span class="line-text">{{userFollow.bio}}</span>
             </h5>
           </li>
+          <li>
+            <button type="button" role="button" class="btn " ng-if="userFollow.id != vm.currentUser.id"
+              ng-class="{'btn-default': !userFollow.followed, 'btn-success': userFollow.followed}">
+              <span class="fa fa-user"></span>
+              <span class="line-text" ng-click="vm.toggleFollow(userFollow)">{{userFollow.followed ? 'Following' : 'Follow'}}</span>
+            </button>
+          </li>
         </ul>
       </li><!-- /.user-info -->
     </ul>
