@@ -329,6 +329,16 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
 }
+.btn.btn-share, .btn.btn-share:focus {
+	background: $warmGray11 url('../images/screenshare-icon-46.svg') center center no-repeat;
+	background-size: contain;
+	border-color: $white;
+	&.active {
+		background-color: darken(#7F66D1, 10%);
+		border-color: darken(#7F66D1, 25%);
+		box-shadow: 1px 1px 2px 2px $darkTrans inset;
+	}
+}
 .btn.btn-flip, .btn.btn-flip:focus {
  	background: $warmGray11 url('../images/flip-icon-46.svg') center center no-repeat;
 	background-size: contain;
