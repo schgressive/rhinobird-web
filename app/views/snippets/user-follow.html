@@ -1,0 +1,33 @@
+<ul class="unstyled">
+  <li>
+    <ul class="unstyled inline">
+      <li class="user-avatar">
+        <a class="img-wrap" ui-sref="user({userName: userFollow.username})" title="{{userFollow.username}}">
+          <img ng-src="{{ userFollow.getProfilePic()}}" alt="{{userFollow.username}} avatar">
+        </a>
+      </li><!-- /.user-avatar -->
+      <li class="user-info">
+        <ul class="unstyled">
+          <li>
+            <h4>{{userFollow.username}}</h4>
+          </li>
+          <li>
+            <h5>
+              <span class="fa fa-video-camera"></span>
+              <span class="line-text" ng-hide="userFollow.lastStream">This user has not streamed a video.</span>
+              <span class="line-text" ng-show="userFollow.lastStream">Recently streamed from:
+                <span ng-show="">anonymous</span>
+                <a ui-sref="stream({streamId: userFollow.lastStream.id})"
+                   title="click to watch video">
+                   {{userFollow.lastStream.properties.city}}, {{userFollow.lastStream.properties.country}} - {{userFollow.lastStream.properties.address}}</a>
+              </span>
+            </h5>
+          </li>
+        </ul>
+      </li><!-- /.user-info -->
+    </ul>
+  </li>
+  <li class="user-bio">
+    <p>{{userFollow.bio}}</p>
+  </li>
+</ul>
