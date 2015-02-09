@@ -13,14 +13,7 @@
           </li>
           <li>
             <h5>
-              <span class="fa fa-video-camera"></span>
-              <span class="line-text" ng-hide="userFollow.lastStream">This user has not streamed a video.</span>
-              <span class="line-text" ng-show="userFollow.lastStream">Recently streamed from:
-                <span ng-show="">anonymous</span>
-                <a ui-sref="stream({streamId: userFollow.lastStream.id})"
-                   title="click to watch video">
-                   {{userFollow.lastStream.properties.city}}, {{userFollow.lastStream.properties.country}} - {{userFollow.lastStream.properties.address}}</a>
-              </span>
+              <span class="line-text">{{userFollow.bio}}</span>
             </h5>
           </li>
         </ul>
@@ -28,6 +21,13 @@
     </ul>
   </li>
   <li class="user-bio">
-    <p>{{userFollow.bio}}</p>
+    <span class="fa fa-video-camera"></span>
+    <span class="line-text" ng-hide="userFollow.lastStream">This user has not streamed a video.</span>
+    <span class="line-text" ng-show="userFollow.lastStream">Recently streamed from:
+      <span ng-show="">anonymous</span>
+      <a ui-sref="stream({streamId: userFollow.lastStream.id})"
+        title="click to watch video">
+        {{userFollow.lastStream.properties.city}}, {{userFollow.lastStream.properties.country}} - {{userFollow.lastStream.properties.address}}</a>
+    </span>
   </li>
 </ul>
