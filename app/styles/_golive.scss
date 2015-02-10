@@ -35,6 +35,30 @@
 	}
 }
 
+@-webkit-keyframes comment-glowing {
+  0% { background-color: #f1edea; -webkit-box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; -webkit-box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; -webkit-box-shadow: 0 0 3px #f1edea; }
+}
+
+@-moz-keyframes comment-glowing {
+  0% { background-color: #f1edea; -moz-box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; -moz-box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; -moz-box-shadow: 0 0 3px #f1edea; }
+}
+
+@-o-keyframes comment-glowing {
+  0% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+}
+
+@keyframes comment-glowing {
+  0% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+}
+
 .actionBar {
 	background-color: $darkTrans2;
 	.validate {
@@ -42,6 +66,12 @@
 		padding-bottom: 8px;
 		@media screen and (max-width: 640px) { margin-top: 74px;}
 	}
+  .toggle-comments.new-comment {
+    -webkit-animation: comment-glowing 1500ms 1;
+    -moz-animation: comment-glowing 1500ms 1;
+    -o-animation: comment-glowing 1500ms 1;
+    animation: comment-glowing 1500ms 1;
+  }
 }
 
 .stream-wrapper {
