@@ -12,6 +12,13 @@
             <li>
               <h2>{{vm.user.username}}</h2>
             </li>
+            <li>
+              <button type="button" role="button" class="btn "
+                ng-class="{'btn-default': !vm.user.followed, 'btn-success': vm.user.followed}">
+                      <span class="fa fa-user"></span>
+                      <span class="line-text" ng-click="vm.toggleFollow(vm.user)">{{vm.user.followed ? 'Following' : 'Follow'}}</span>
+              </button>
+            </li>
             <li ng-show="vm.stream" ng-show="stream">
               <h4 class="red"><strong>Streaming Now!</strong></h4>
             </li>
@@ -38,13 +45,6 @@
               <span class="line-text">Videos</span>
             </li>
           </ul>
-        </li>
-        <li>
-          <button type="button" role="button" class="btn "
-            ng-class="{'btn-default': !vm.user.followed, 'btn-success': vm.user.followed}">
-                  <span class="fa fa-user"></span>
-                  <span class="line-text" ng-click="vm.toggleFollow(vm.user)">{{vm.user.followed ? 'Following' : 'Follow'}}</span>
-          </button>
         </li>
       </ul><!-- /.profile-list -->
     </div><!-- /.user-wrapper -->
