@@ -32,7 +32,7 @@
       <div class="row-fluid m_20t">
         <div class="tabs">
           <ul class="inline unstyled">
-            <li ui-sref-active="active" ng-if="!streamLive()">
+            <li ui-sref-active="active" ng-if="!streamLive() || app.isMobile">
               <a ui-sref="stream.comments" data-toggle="tab">
                 <span class="fa fa-comments"></span>
                 <span class="line-text">Comments</span>

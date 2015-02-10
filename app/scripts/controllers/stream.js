@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline) {
+  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline, mobileDetect) {
 
     $scope.user = AuthService.user;
     $scope.timeline = stream.user.timeline;
@@ -37,7 +37,7 @@ angular.module('rhinobird.controllers')
     // Expose methods to the VM
 
     // Choose default tab
-    if ($scope.streamLive()) {
+    if ($scope.streamLive() && !mobileDetect()) {
       $state.go('stream.user');
     } else {
       $state.go('stream.comments');

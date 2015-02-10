@@ -388,7 +388,8 @@ angular.module('rhinobird', [
 
   // Create an app object in the root scope for general application variables
   var app = {
-    isLoggedIn: false // Set the logged in app status
+    isLoggedIn: false, // Set the logged in app status
+    isMobile: isMobile
   };
   $rootScope.app = app;
 
