@@ -13,6 +13,7 @@ angular.module('rhinobird.controllers')
 
     $scope.watchersCount = {};
     $scope.commentsCount = {};
+    $scope.collapsedComments = true;
 
     var onStats = function (stats) {
       $scope.watchersCount[stats.roomId] = stats.watchersCount;
@@ -21,7 +22,8 @@ angular.module('rhinobird.controllers')
     };
 
     var onIncommingMessage = function (message) {
-      $scope.$emit('incomming-message');
+      $scope.newComment = true;
+      $scope.$apply();
     };
   });
 

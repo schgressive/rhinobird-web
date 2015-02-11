@@ -77,19 +77,4 @@ angular.module('rhinobird.directives')
     return {
       templateUrl: '/views/rb-comments/standard-comment.html'
     }
-  })
-
-  .directive('highlightNewComment', function ($timeout) {
-    function link (scope, element, attrs) {
-      scope.$on('incomming-message', function () {
-        element.addClass('new-comment');
-        $timeout(function () {
-          element.removeClass('new-comment');
-        }, 1500);
-      });
-    };
-
-    return {
-      link: link
-    }
   });

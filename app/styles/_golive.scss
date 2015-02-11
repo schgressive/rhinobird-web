@@ -66,11 +66,11 @@
 		padding-bottom: 8px;
 		@media screen and (max-width: 640px) { margin-top: 74px;}
 	}
-  .toggle-comments.new-comment {
-    -webkit-animation: comment-glowing 1500ms 1;
-    -moz-animation: comment-glowing 1500ms 1;
-    -o-animation: comment-glowing 1500ms 1;
-    animation: comment-glowing 1500ms 1;
+  .toggle-comments.newComment {
+    -webkit-animation: comment-glowing ease-in-out 1500ms infinite;
+    -moz-animation: comment-glowing ease-in-out 1500ms infinite;
+    -o-animation: comment-glowing ease-in-out 1500ms infinite;
+    animation: comment-glowing ease-in-out 1500ms infinite;
   }
   @media screen and (max-width: 640px) {
     .contents li { margin-bottom: 10px;}

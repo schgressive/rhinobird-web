@@ -9,12 +9,12 @@
 			  </button>
 		  </li>
 		  <li>
-        <button highlight-new-comment class="toggle-comments btn btn-default btn-small visible-phone"
+        <button ng-click="newComment=false; collapsedComments=!collapsedComments" ng-class="{newComment: collapsedComments && newComment}" class="toggle-comments btn btn-default btn-small visible-phone"
                 data-toggle="collapse" data-target="#commentBox" role="button">
                 <span class="fa fa-comments"></span>
                 <span class="line-text">{{commentsCount[roomId]}}</span>
         </button>
-        <button highlight-new-comment class="toggle-comments btn btn-default btn-small hidden-phone"
+        <button ng-click="newComment=false; collapsedComments=!collapsedComments" ng-class="{newComment: collapsedComments && newComment}" class="toggle-comments btn btn-default btn-small hidden-phone"
                 data-toggle="collapse" data-target="#commentSlide" role="button">
                 <span class="fa fa-comments"></span>
                 <span class="line-text">{{commentsCount[roomId]}} Comments</span>
