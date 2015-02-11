@@ -6,6 +6,7 @@ angular.module('rhinobird.controllers')
     $scope.init = function(roomId) {
       $scope.roomId = roomId;
       CommentsService.API.on('incomming-stats', onStats);
+      CommentsService.API.on('incomming-message', onIncommingMessage);
       CommentsService.API.joinStatsRoom(roomId);
       CommentsService.API.fetchStats(roomId);
     };
@@ -17,6 +18,10 @@ angular.module('rhinobird.controllers')
       $scope.watchersCount[stats.roomId] = stats.watchersCount;
       $scope.commentsCount[stats.roomId] = stats.commentsCount;
       $scope.$apply();
+    };
+
+    var onIncommingMessage = function (message) {
+      $scope.$emit('incomming-message');
     };
   });
 

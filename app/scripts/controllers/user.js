@@ -6,6 +6,7 @@ angular.module('rhinobird.controllers')
     var vm = this;
 
     vm.user = user;
+    vm.currentUser = AuthService.user;
     vm.toggleFollow = toggleFollow;
 
     init()
@@ -21,15 +22,15 @@ angular.module('rhinobird.controllers')
       user.following.$fetch();
     }
 
-    function toggleFollow() {
-      if (!user.followed) {
-        user.followed = true;
-        user.followers.$create();
+    function toggleFollow(_user) {
+      if (!_user.followed) {
+        _user.followed = true;
+        _user.followers.$create();
       } else {
-        user.followed = false;
-        user.$unfollow().$then(function() {
-          var current_user  = _.find(user.followers, function(usr) { return usr.id == AuthService.user.id });
-          user.followers.$remove(current_user);
+        _user.followed = false;
+        _user.$unfollow().$then(function() {
+          var current_user  = _.find(_user.followers, function(usr) { return usr.id == AuthService.user.id });
+          _user.followers.$remove(current_user);
         });
       }
     }
