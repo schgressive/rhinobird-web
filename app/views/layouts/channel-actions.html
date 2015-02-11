@@ -1,7 +1,5 @@
 <div class="span12">
-    <a ui-sref="user({userName: user.username})" class="user-avatar pull-left" title="click to view your profile">
-      <img ng-src="{{ user.getProfilePic()}}" alt="your avatar"/>
-    </a>
+    <rb-avatar user="user" class="user-avatar pull-left"></rb-avatar>
     <a class="btn-vj btn pull-left vj-on" ng-click="stopVj()" ng-show="vjService.live" role="button">In Session</a>
     <a class="btn-vj btn pull-left vj-off" ng-click="startVj()" ng-show="!vjService.live" role="button">Start VJ</a>
     <ul class="action-list pull-left inline">

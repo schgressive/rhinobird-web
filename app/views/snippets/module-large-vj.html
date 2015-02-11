@@ -42,9 +42,7 @@
 <div class="module-outer clearfix">
   <ul class="unstyled">
     <li class="user-avatar ellipsis">
-      <a class="img-wrap" ui-sref="user({userName: vj.user.username})" title="{{vj.user.username}}">
-        <img ng-src="{{ vj.user.getProfilePic() }}"/>
-      </a>
+      <rb-avatar user="vj.user" class="img-wrap" title={{vj.user.username}}></rb-avatar>
       <span>#{{vj.channelName}}</span>
     </li>
     <li class="ellipsis">
