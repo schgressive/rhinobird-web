@@ -60,7 +60,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.app %>/video/{,*/}*.{mp4,webm,ogv}'
         ]
       }
     },
@@ -108,7 +109,7 @@ module.exports = function (grunt) {
               lrSnippet,
               proxySnippet,
               modRewrite([
-                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico) / [L]'
+                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico|webm|mp4|ogv) / [L]'
               ]),
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
@@ -122,7 +123,7 @@ module.exports = function (grunt) {
             return [
               proxySnippet,
               modRewrite([
-                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico) / [L]'
+                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico|webm|mp4|ogv) / [L]'
               ]),
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
@@ -146,7 +147,7 @@ module.exports = function (grunt) {
             return [
               proxySnippet,
               modRewrite([
-                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico) / [L]'
+                '!\\.?(js|css|html|eot|svg|ttf|woff|otf|css|png|jpg|git|ico|webm|mp4|ogv) / [L]'
               ]),
               mountFolder(connect, yeomanConfig.dist)
             ];
@@ -318,6 +319,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.{gif,webp,svg}',
             'img/{,*/}*.{gif,webp,svg}',
             'fonts/*',
+            'video/*',
             'vendor/*'
           ]
         }, {
@@ -432,7 +434,6 @@ module.exports = function (grunt) {
     'ngmin',
     'cssmin',
     'uglify',
-    'rev',
     'usemin'
   ]);
 

@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('goliveMobileComments', function ($window, $compile, User) {
+  .directive('goliveMobileComments', function ($window, $compile, User, CommentsService, AuthService) {
 
     function link (scope, element, attrs) {
 
-      // Comments API hook and Room identifier
-      var CommentsAPI = scope.CommentsService.API,
-          roomId = scope.stream.id;
+      // VM
+      scope.roomId = scope.stream.id;
+      scope.user = AuthService.user;
+      scope.app = scope.$parent.app;
 
       // Keep a track of fetched comments
       scope.comments = [];
@@ -44,7 +45,7 @@ angular.module('rhinobird.directives')
 
       // API Bindings
       //
-      CommentsAPI.on('incomming-history', function (history) {
+      CommentsService.API.on('incomming-history', function (history) {
         for (var i=0; i<history.messages.length; i++) {
           scope.comments.push(prepareMessageForDisplay(history.messages[i]));
         }
@@ -52,11 +53,11 @@ angular.module('rhinobird.directives')
         scope.$apply();
       }, this);
 
-      CommentsAPI.on('end-of-history', function (history) {
+      CommentsService.API.on('end-of-history', function (history) {
         loadMoreLink.hide();
       }, this);
 
-      CommentsAPI.on('incomming-message', function (message) {
+      CommentsService.API.on('incomming-message', function (message) {
         textInput.val('');
 
         scope.comments.unshift(prepareMessageForDisplay(message));
@@ -75,7 +76,7 @@ angular.module('rhinobird.directives')
       // HTML Bindings
       //
       loadMoreLink.click(function () {
-        CommentsAPI.fetchHistory(roomId, {sorting: 'DESC'});
+        CommentsService.API.fetchHistory(scope.roomId, {sorting: 'DESC'});
       });
 
       movePrev.click(function () {
@@ -95,18 +96,21 @@ angular.module('rhinobird.directives')
       });
 
       submitForm.submit(function () {
-        CommentsAPI.sendMessage(roomId, textInput.val());
+        CommentsService.API.sendMessage(scope.roomId, textInput.val());
         return false;
       });
 
       // Join and Fetch history
       //
-      CommentsAPI.joinRoom(roomId);
-      CommentsAPI.fetchHistory(roomId, {sorting: 'DESC'});
+      CommentsService.API.joinRoom(scope.roomId);
+      CommentsService.API.fetchHistory(scope.roomId, {sorting: 'DESC'});
     }
 
     return {
       templateUrl: '/views/rb-comments/golive-mobile-comments.html',
+      scope: {
+        stream: '='
+      },
       link: link
     };
   })

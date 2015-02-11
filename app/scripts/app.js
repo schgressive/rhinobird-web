@@ -207,15 +207,12 @@ angular.module('rhinobird', [
       }
     })
     .state('stream.comments', {
-      url: 'comments/',
       templateUrl: '/views/stream-comments.html'
     })
     .state('stream.videos', {
-      url: 'videos/',
       templateUrl: '/views/stream-videos.html'
     })
     .state('stream.user', {
-      url: 'user/',
       templateUrl: '/views/stream-user.html'
     })
 
@@ -391,7 +388,8 @@ angular.module('rhinobird', [
 
   // Create an app object in the root scope for general application variables
   var app = {
-    isLoggedIn: false // Set the logged in app status
+    isLoggedIn: false, // Set the logged in app status
+    isMobile: isMobile
   };
   $rootScope.app = app;
 

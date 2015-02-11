@@ -20,6 +20,9 @@ angular.module('rhinobird.controllers')
     // The live streams
     $scope.liveStreams = channel.streams.live(true);
 
+    // The Vj ongoing status
+    $scope.vjStarted = false;
+
     $scope.$on('stream-carousel-stream-changed', function(event, stream){
 
       // Set the current stream
@@ -129,12 +132,17 @@ angular.module('rhinobird.controllers')
 
       // Start the vj
       if(pickedStreams && pickedStreams.length >= 1){
-        VjService.startBroadcast(pickedStreams, currentStreamId, fixedAudioStreamId, $scope.channel.name, coordsPayload);
+        VjService.startBroadcast(pickedStreams, currentStreamId, fixedAudioStreamId, $scope.channel.name, coordsPayload).$then( function () {
+          // The room id for vj comments
+          $scope.vjCommentsRoomId = channel.name + '-' + $scope.user.username + '-' + VjService.vj.id;
+          $scope.vjStarted = true;
+        });
       }
     };
 
     $scope.stopVj = function(){
       VjService.stopBroadcast();
+      $scope.vjStarted = false;
     };
 
     GeolocationService.getCurrent();

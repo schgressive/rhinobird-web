@@ -55,7 +55,9 @@ angular.module('rhinobird.services')
       }
 
       // Create a new vj
-      _self.vj = Vj.$create(vj_object).$then(function(vj){
+      _self.vj = Vj.$create(vj_object);
+
+      _self.vj.$then(function(vj){
 
         // create the socked channel
         socketConnect(vj.token, 'outbound').then(function(){
@@ -79,6 +81,7 @@ angular.module('rhinobird.services')
         });
       });
 
+      return _self.vj;
     };
 
     this.startListening = function(token){

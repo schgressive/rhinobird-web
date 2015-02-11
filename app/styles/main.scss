@@ -540,7 +540,8 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: $bodyBackground;}
 	&.feature {
-		background: $beigeLight url('/images/banner-bg.jpg') 0 10px no-repeat;
+		background: $beigeLight url('/images/banner-bg-tile.svg') top left repeat;
+		background-size: 100%;
 		border-bottom: $warmGray1 solid 3px;
 		padding: {
 			top: 30px;
@@ -718,6 +719,11 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 730px) {
       width: 48.7%;
       *width: 48.7%;
+    }
+    @media screen and (max-width: 580px) {
+      width: 100%;
+      *width: 100%;
+      margin-left: 0;
     }
   }
   .row-fluid [class*="span4"] {
@@ -967,9 +973,10 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 780px) { margin-bottom: 6px;}
     @media screen and (max-width: 540px) { margin-bottom: 0;}
   }
+  button { margin: 3px 6px;}
   .user-stats {
-    margin-bottom: 20px;
-    @media screen and (max-width: 540px) { margin-bottom: 10px;}
+    margin-bottom: 10px;
+    @media screen and (max-width: 540px) { margin-bottom: 5px;}
     li {
       margin-right: 20px;
       @media screen and (max-width: 640px) { margin-right: 10px;}
@@ -1079,7 +1086,7 @@ i[class*="icon"] {font-style: normal;}
   @media screen and (max-width: 800px) { height: 110px;}
   @media screen and (max-width: 730px) { height: 140px;}
   @media screen and (max-width: 600px) { height: 120px;}
-  @media screen and (max-width: 540px) { height: 100px;}
+  @media screen and (max-width: 580px) { height: auto;}
   .live-stream-link img {
     width: auto;
     height: auto;
@@ -1147,6 +1154,11 @@ i[class*="icon"] {font-style: normal;}
   z-index: 100;
 }
 
+.module-xlarge.offline {
+  canvas { visibility: hidden; }
+  .module-video { background: #000 url('/images/rb-logo-wh.svg') 50% 50% no-repeat; }
+}
+
 .module-xlarge {
   canvas, video { width: 100%; display:block;}
   .feature-overlay {
@@ -1183,22 +1195,19 @@ i[class*="icon"] {font-style: normal;}
   .pending + .module-overlay {
     background-image: url('/images/archiving-overlay.svg');
   }
-  .thumb-user {
+  .user-avatar {
     margin-bottom: 5px;
-    @media screen and (max-width: 500px) { margin-bottom: 0px;}
+    @media screen and (max-width: 600px) { margin-bottom: 10px;}
     a.img-wrap {
       margin-right: 6px;
       text-decoration: none !important;
       &:hover { background-color: transparent;}
-      @media screen and (max-width: 500px) {display: none;}
     }
     img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       border-top-left-radius: 10px;
       border-bottom-right-radius: 10px;
-      @media screen and (max-width: 500px) {
-      }
     }
   }
 }

@@ -5,7 +5,7 @@
   <div class="timelineStatus" ng-class="stream.status"><span class="visually-hidden">{{stream.getStatusMessage()}}</span></div>
   <div stream-viewer stream="stream" size="large" mute="false" on="true"></div>
 </div><!-- /.module-video -->
-<div ng-include="'/views/snippets/feature-overlay.html'">
+<div feature-overlay ng-controller="CommentsCtrl" ng-init="init(stream.id)">
 <div class="module-outer">
   <ul class="unstyled">
     <li>

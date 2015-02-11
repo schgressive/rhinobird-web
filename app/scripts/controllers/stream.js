@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline) {
+  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline, mobileDetect) {
 
     $scope.user = AuthService.user;
+    $scope.timeline = stream.user.timeline;
+    $scope.timeline.getNextPage();
+
     $scope.url = encodeURIComponent($location.absUrl());
     $scope.shareTextEnconded = $window.escape('Share this video!');
 
@@ -12,6 +15,11 @@ angular.module('rhinobird.controllers')
 
     // Get the streams based on geolocation
     $scope.streams = stream.related.$fetch();
+
+    // returns true if stream is live
+    $scope.streamLive = function() {
+      return stream.status === 'live';
+    }
 
     $scope.repost = function() {
       var time = Timeline.$new(stream.timelineId);
@@ -28,7 +36,12 @@ angular.module('rhinobird.controllers')
 
     // Expose methods to the VM
 
-    $state.go('stream.comments');
+    // Choose default tab
+    if ($scope.streamLive() && !mobileDetect()) {
+      $state.go('stream.user');
+    } else {
+      $state.go('stream.comments');
+    }
 
     // PRIVATE METHODS
     //

@@ -3,9 +3,14 @@
 angular.module('rhinobird.controllers')
   .controller('CommentsCtrl', function ($scope, CommentsService) {
 
-    var stream = $scope.stream ? $scope.stream : $scope.vm.stream;
+    $scope.init = function(roomId) {
+      $scope.roomId = roomId;
+      CommentsService.API.on('incomming-stats', onStats);
+      CommentsService.API.on('incomming-message', onIncommingMessage);
+      CommentsService.API.joinStatsRoom(roomId);
+      CommentsService.API.fetchStats(roomId);
+    };
 
-    $scope.stream = stream;
     $scope.watchersCount = {};
     $scope.commentsCount = {};
 
@@ -15,12 +20,8 @@ angular.module('rhinobird.controllers')
       $scope.$apply();
     };
 
-    var roomId = stream.id;
-
-    CommentsService.API.on('incomming-stats', onStats);
-    CommentsService.API.joinStatsRoom(roomId);
-    CommentsService.API.fetchStats(roomId);
-
-    $scope.CommentsService = CommentsService;
+    var onIncommingMessage = function (message) {
+      $scope.$emit('incomming-message');
+    };
   });
 

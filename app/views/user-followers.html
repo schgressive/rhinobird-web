@@ -1,8 +1,8 @@
 <div class="row-fluid">
   <div class="span12">
     <ul class="unstyled user-list">
-      <li ng-repeat="follower in vm.user.followers">
-        <div ng-include="'/views/snippets/follower.html'"></div>
+      <li ng-repeat="userFollow in vm.user.followers">
+        <div ng-include="'/views/snippets/user-follow.html'"></div>
       </li>
     </ul>
   </div><!-- /.span12 -->

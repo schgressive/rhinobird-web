@@ -15,16 +15,18 @@
   <div class="width-controller container-fluid">
   	<section class="mid-content">
       <div class="row-fluid">
-        <div class="module-xlarge span8">
+        <h3 class="span12">Now Viewing: #{{channel.name}}</h3>
+      </div>
+      <div class="row-fluid">
+        <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div ng-include="'/views/snippets/feature-overlay.html'"></div>
-            <!-- <div video-canvas-projector width="640" height="360" video="self.currentStream.licode.player.video"></div> -->
-            <div video-canvas-projector video="self.currentStream.licode.player.video"></div>
+            <div ng-if="currentStream" feature-overlay stream="self.currentStream"></div>
+            <div video-canvas-projector width="640" height="360" video="currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
           <div class="module-outer">
               <h5>
                 <span class="fa fa-video-camera"></span>
-                <span class="line-text"><strong>Current Stream:</strong> <span ng-bind-html="self.currentStream.caption | hashToLink"></span></span>
+                <span class="line-text"><strong>Current Stream:</strong> <span ng-bind-html="currentStream.caption | hashToLink"></span></span>
               </h5>
               <h5 ng-show="self.fixedAudioStream">
                 <span class="fa fa-headphones"></span>
@@ -33,23 +35,45 @@
           </div><!-- /.module-outer -->
         </div><!-- /.module-xlarge -->
         <div class="span4 visible-desktop hidden-tablet video-chat">
-          <h3>Video Chat</h3>
-          <div standard-comments ng-controller="CommentsCtrl"></div>
+          <div ng-if="currentStream" class="comments-wrapper">
+            <div ng-if="!vjStarted">
+              <h3>What people say on #{{channel.name}}</h3>
+              <div standard-comments room="channel.name"></div>
+            </div>
+            <div ng-if="vjStarted">
+              <h3>What people say on your Vj Session</h3>
+              <div standard-comments room="vjCommentsRoomId"></div>
+            </div>
+          </div>
+          <div ng-if="!currentStream" class="comments-wrapper">
+            <h3>This channel is offline now, it will become online as soon you or someone else start
+              streaming with caption including <em>#{{channel.name}}</em> hashtag.</h3>
+          </div>
         </div><!-- /.video-chat.span4 -->
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
     <section class="lower-content media-area">
       <div class="row-fluid">
         <div class="span12">
-          <h3>Switch Camera Views</h3>
-          <div stream-carousel streams="self.liveStreams" current-stream="self.currentStream" fixed-audio-stream="self.fixedAudioStream"></div>
+          <h3 ng-if="currentStream">Switch Camera Views</h3>
+          <div stream-carousel streams="self.liveStreams" current-stream="currentStream" fixed-audio-stream="self.fixedAudioStream"></div>
         </div>
       </div><!--/.row-fluid -->
       <div class="hidden-desktop">
         <div class="row-fluid">
-          <div class="span12">
-            <h3>Comments</h3>
-            <div standard-comments ng-controller="CommentsCtrl"></div>
+          <div class="span12" ng-if="!currentStream">
+            <h3>This channel is offline now, it will become online as soon you or someone else start
+              streaming with caption including <em>#{{channel.name}}</em> hashtag.</h3>
+          </div>
+          <div class="span12" ng-if="currentStream">
+            <div ng-if="!vjStarted">
+              <h3>What people say on #{{channel.name}}</h3>
+              <div standard-comments room="channel.name"></div>
+            </div>
+            <div ng-if="vjStarted">
+              <h3>What people say on your Vj Session</h3>
+              <div standard-comments room="vjCommentsRoomId"></div>
+            </div>
           </div>
         </div><!-- /.row-fluid -->
       </div>

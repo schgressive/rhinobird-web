@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('standardComments', function ($window, $compile, User) {
+  .directive('standardComments', function ($window, $compile, User, CommentsService, AuthService) {
 
     function link (scope, element, attrs) {
 
-      // Comments API hook and Room identifier
-      var CommentsAPI = scope.CommentsService.API,
-          roomId = scope.stream.id;
+      // VM
+      scope.roomId = scope.room ? scope.room : scope.stream.id;
+      scope.user = AuthService.user;
+      scope.app = scope.$parent.app;
 
       // Keep a track of fetched comments
       scope.comments = [];
@@ -27,18 +28,18 @@ angular.module('rhinobird.directives')
 
       // API Bindings
       //
-      CommentsAPI.on('incomming-history', function (history) {
+      CommentsService.API.on('incomming-history', function (history) {
         for (var i=0; i<history.messages.length; i++) {
           scope.comments.push(prepareMessageForDisplay(history.messages[i]));
         }
         scope.$apply();
       }, this);
 
-      CommentsAPI.on('end-of-history', function (history) {
+      CommentsService.API.on('end-of-history', function (history) {
         loadMoreLink.hide();
       }, this);
 
-      CommentsAPI.on('incomming-message', function (message) {
+      CommentsService.API.on('incomming-message', function (message) {
         textInput.val('');
         scope.comments.unshift(prepareMessageForDisplay(message));
         scope.$apply();
@@ -47,22 +48,27 @@ angular.module('rhinobird.directives')
       // HTML Bindings
       //
       loadMoreLink.click(function () {
-        CommentsAPI.fetchHistory(roomId, {sorting: 'DESC'});
+        CommentsService.API.fetchHistory(scope.roomId, {sorting: 'DESC'});
       });
 
       submitForm.submit(function () {
-        CommentsAPI.sendMessage(roomId, textInput.val());
+        CommentsService.API.sendMessage(scope.roomId, textInput.val());
         return false;
       });
 
       // Join and Fetch history
       //
-      CommentsAPI.joinRoom(roomId);
-      CommentsAPI.fetchHistory(roomId, {sorting: 'DESC'});
+      CommentsService.API.joinRoom(scope.roomId);
+      CommentsService.API.fetchHistory(scope.roomId, {sorting: 'DESC'});
     }
 
     return {
       templateUrl: '/views/rb-comments/standard-comments.html',
+      transclude: true,
+      scope: {
+        stream: '=',
+        room: '='
+      },
       link: link
     };
   })
@@ -70,5 +76,20 @@ angular.module('rhinobird.directives')
   .directive('standardComment', function () {
     return {
       templateUrl: '/views/rb-comments/standard-comment.html'
+    }
+  })
+
+  .directive('highlightNewComment', function ($timeout) {
+    function link (scope, element, attrs) {
+      scope.$on('incomming-message', function () {
+        element.addClass('new-comment');
+        $timeout(function () {
+          element.removeClass('new-comment');
+        }, 1500);
+      });
+    };
+
+    return {
+      link: link
     }
   });

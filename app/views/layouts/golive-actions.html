@@ -1,31 +1,39 @@
-<div ng-if="vm.connected" class="actionBar collapse in" id="actionBar">
-  <div class="contents" ng-controller="CommentsCtrl">
+<div ng-if="vm.connected" class="actionBar collapse in" id="actionBar" ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
+  <div class="contents">
 	  <ul class="unstyled inline pull-left">
-		  <li>
+  	  <li>
 			  <button class="btn btn-default btn-small"
 			  				ng-click="ctrl.showFullScreen()" role="button">
 			  	<span class="fa fa-expand"></span>
-			  	<span class="line-text visually-hidden">FullScreen</span>
+			  	<span class="visually-hidden">FullScreen</span>
 			  </button>
 		  </li>
+		  <li>
+        <button highlight-new-comment class="toggle-comments btn btn-default btn-small visible-phone"
+                data-toggle="collapse" data-target="#commentBox" role="button">
+                <span class="fa fa-comments"></span>
+                <span class="line-text">{{commentsCount[roomId]}}</span>
+        </button>
+        <button highlight-new-comment class="toggle-comments btn btn-default btn-small hidden-phone"
+                data-toggle="collapse" data-target="#commentSlide" role="button">
+                <span class="fa fa-comments"></span>
+                <span class="line-text">{{commentsCount[roomId]}} Comments</span>
+        </button>
+		  </li>
+		  <li>
+        <button role="button"
+                class="btn btn-default btn-small">
+                <span class="fa fa-desktop"></span>
+                <span class="line-text">Sharing</span>
+                <!--<span class="line-text">Share?</span>-->
+        </button>
+      </li>
 		  <li>
 		    <button class="btn btn-default btn-small"
 		    				ng-click="ctrl.updateThumbnail()" role="button">
 		    	<span class="fa fa-picture-o"></span>
 		    	<span class="line-text">Update Cover</span>
 		    </button>
-		  </li>
-		  <li>
-        <button class="btn btn-default btn-small visible-phone"
-                data-toggle="collapse" data-target="#commentBox" role="button">
-                <span class="fa fa-comments"></span>
-                <span class="line-text">{{commentsCount[stream.id]}}</span>
-        </button>
-        <button class="btn btn-default btn-small hidden-phone"
-                data-toggle="collapse" data-target="#commentSlide" role="button">
-                <span class="fa fa-comments"></span>
-                <span class="line-text">{{commentsCount[stream.id]}} Comments</span>
-        </button>
 		  </li>
 	  </ul>
 		<form name="formAddCaption" method="post" class="pull-left">
@@ -41,7 +49,7 @@
       <ul class="unstyled inline">
         <li>
           <span class="fa fa-eye"></span>
-          <span class="line-test">{{watchersCount[stream.id]}}</span>
+          <span class="line-test">{{watchersCount[roomId]}}</span>
         </li>
         <li>
           <span class="fa fa-thumbs-up"></span>

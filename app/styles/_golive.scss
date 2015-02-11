@@ -35,6 +35,30 @@
 	}
 }
 
+@-webkit-keyframes comment-glowing {
+  0% { background-color: #f1edea; -webkit-box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; -webkit-box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; -webkit-box-shadow: 0 0 3px #f1edea; }
+}
+
+@-moz-keyframes comment-glowing {
+  0% { background-color: #f1edea; -moz-box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; -moz-box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; -moz-box-shadow: 0 0 3px #f1edea; }
+}
+
+@-o-keyframes comment-glowing {
+  0% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+}
+
+@keyframes comment-glowing {
+  0% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+  50% { background-color: #FF911E; box-shadow: 0 0 10px #FF911E; }
+  100% { background-color: #f1edea; box-shadow: 0 0 3px #f1edea; }
+}
+
 .actionBar {
 	background-color: $darkTrans2;
 	.validate {
@@ -42,6 +66,15 @@
 		padding-bottom: 8px;
 		@media screen and (max-width: 640px) { margin-top: 74px;}
 	}
+  .toggle-comments.new-comment {
+    -webkit-animation: comment-glowing 1500ms 1;
+    -moz-animation: comment-glowing 1500ms 1;
+    -o-animation: comment-glowing 1500ms 1;
+    animation: comment-glowing 1500ms 1;
+  }
+  @media screen and (max-width: 640px) {
+    .contents li { margin-bottom: 10px;}
+  }
 }
 
 .stream-wrapper {
@@ -71,9 +104,8 @@
 		background-color: $darkTrans;
 		position: absolute;
 		top: 28%;
-		left: 50%;
-		width: 74%;
-		margin-left: -37%;
+		left: 0;
+		width: 100%;
 		z-index: 9999;
 		@media screen and (max-width: 600px) { top: 10%;}
 		@media screen and (max-width: 560px) { top: 29%;}
@@ -84,6 +116,9 @@
 			background-color: $darkTrans2;
 			@media screen and (max-width: 600px) { width: 92%;}
 		}
+    button {
+      padding: 5px !important;
+    }
 		.cBox-user { font-weight: 700;}
 		.close { color: $textOnDark;}
 	}
