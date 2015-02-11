@@ -540,7 +540,8 @@ i[class*="icon"] {font-style: normal;}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: $bodyBackground;}
 	&.feature {
-		background: $beigeLight url('/images/banner-bg.jpg') 0 10px no-repeat;
+		background: $beigeLight url('/images/banner-bg-tile.svg') top left repeat;
+		background-size: 100%;
 		border-bottom: $warmGray1 solid 3px;
 		padding: {
 			top: 30px;
