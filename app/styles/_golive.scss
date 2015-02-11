@@ -72,6 +72,9 @@
     -o-animation: comment-glowing 1500ms 1;
     animation: comment-glowing 1500ms 1;
   }
+  @media screen and (max-width: 640px) {
+    .contents li { margin-bottom: 10px;}
+  }
 }
 
 .stream-wrapper {
