@@ -2,13 +2,6 @@
   <div class="contents">
 	  <ul class="unstyled inline pull-left">
 		  <li>
-			  <button class="btn btn-default btn-small"
-			  				ng-click="ctrl.showFullScreen()" role="button">
-			  	<span class="fa fa-expand"></span>
-			  	<span class="line-text visually-hidden">FullScreen</span>
-			  </button>
-		  </li>
-		  <li>
 		    <button class="btn btn-default btn-small"
 		    				ng-click="ctrl.updateThumbnail()" role="button">
 		    	<span class="fa fa-picture-o"></span>
@@ -18,10 +11,17 @@
       <li>
         <button role="button"
                 class="btn btn-default btn-small">
-                <span class="fa fa-share-alt"></span>
-                <span class="visually-hidden"> Share Your Screen?</span>
+                <span class="fa fa-desktop"></span>
+                <span class="line-text">Screen Share</span>
         </button>
       </li>
+      <li>
+			  <button class="btn btn-default btn-small"
+			  				ng-click="ctrl.showFullScreen()" role="button">
+			  	<span class="fa fa-expand"></span>
+			  	<span class="line-text visually-hidden">FullScreen</span>
+			  </button>
+		  </li>
 		  <li>
         <button highlight-new-comment class="toggle-comments btn btn-default btn-small visible-phone"
                 data-toggle="collapse" data-target="#commentBox" role="button">
