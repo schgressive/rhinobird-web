@@ -547,8 +547,8 @@ i[class*="icon"] {font-style: normal;}
 			top: 30px;
 			bottom: 10px;
 		}
-		@media screen and (max-width: 560px) {
-			background-image: url('/images/banner-bg2.jpg');
+		@media screen and (max-width: 980px) {
+			background: url('/images/banner-bg.jpg') 0 3px no-repeat;
 			background-size: cover;
 		}
 	}
@@ -625,6 +625,26 @@ i[class*="icon"] {font-style: normal;}
 			}
 		}
 	}
+}
+
+.bgvid {
+  width: auto;
+  height: 403px;
+  margin: 0 auto;
+  @media screen and (min-width: 1070px) {
+    margin-left: -6% !important;
+    margin-right: 20px !important;
+    float: left;
+    & + .title-wrapper {
+      text-align: left;
+    h1 {
+      font-size: 60px;
+      margin-top: 10px;
+      span { display: block;}
+    }
+    .btn-feature { margin-top: 20px;}
+    }
+  }
 }
 
 .search-results-wrapper {
