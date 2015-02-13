@@ -69,7 +69,6 @@ angular.module('rhinobird.directives')
         }
 
         disableButtons();
-
         scope.$apply();
       }, this);
 
