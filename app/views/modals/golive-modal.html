@@ -56,17 +56,13 @@
   </div><!-- /.checkbox-wrapper -->
   <div class="submit-wrapper">
 	  <input ng-click="ctrl.ready()"
-	  			 class="btn btn-accent btn-large span3"
-	  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
-	  			 role="submit" type="submit" value="Skip It!"/>
-	  <input ng-click="ctrl.ready()"
-	  			 class="btn btn-primary btn-large span3 pull-right"
+	  			 class="btn btn-primary btn-large"
 	  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
 	  			 role="submit" type="submit" value="Ready!"/>
-  </div><!-- /.submit-wrapper -->
-  <input ng-click="gotoHome()"
-			 class="btn btn-default"
+	 <input ng-click="gotoHome()"
+			 class="btn btn-default btn-large"
 			 role="button" type="button" value="Cancel"/>
+  </div><!-- /.submit-wrapper -->
 </form><!-- /goliveForm -->
 <div class="text-center" ng-show="vm.goliveService.status == 'connecting'">
     <div class="loading-wrapper">
