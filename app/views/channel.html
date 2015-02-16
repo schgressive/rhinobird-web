@@ -20,6 +20,11 @@
       <div class="row-fluid">
         <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
+            <div class="watermark" ng-if="stream.status == 'live'">
+              <span class="mini-glow glow">
+              </span>
+              <b>Live on:</b>
+            </div>
             <div ng-if="currentStream" feature-overlay stream="self.currentStream"></div>
             <div video-canvas-projector width="640" height="360" video="currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
