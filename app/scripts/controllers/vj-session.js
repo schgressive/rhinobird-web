@@ -15,7 +15,16 @@ angular.module('rhinobird.controllers')
       vj.toggleLike();
     }
 
+    $scope.repost = function() {
+      vj.repost();
+    }
+
+
+    $scope.reposted = function() {
+      return vj.reposted;
+    }
+
     $scope.liked = function() {
-      vj.liked;
+      return vj.liked;
     }
   });

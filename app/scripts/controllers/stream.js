@@ -22,12 +22,15 @@ angular.module('rhinobird.controllers')
     }
 
     $scope.repost = function() {
-      var time = Timeline.$new(stream.timelineId);
-      time.reposts.$create();
+      stream.repost();
     }
 
     $scope.like = function() {
       stream.toggleLike();
+    }
+
+    $scope.reposted = function() {
+      return stream.reposted;
     }
 
     $scope.liked = function() {

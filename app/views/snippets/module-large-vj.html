@@ -43,6 +43,7 @@
   <ul class="unstyled">
     <li class="user-avatar ellipsis">
       <rb-avatar user="vj.user" class="img-wrap" title={{vj.user.username}}></rb-avatar>
+      <rb-avatar ng-if="vj.source" user="vj.source.user" class="img-wrap" title="{{vj.source.user.username}}"></rb-avatar>
       <span>#{{vj.channelName}}</span>
     </li>
     <li class="ellipsis">

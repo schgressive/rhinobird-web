@@ -887,6 +887,10 @@ i[class*="icon"] {font-style: normal;}
     }
     &[title*="Repost"] {
       background-image: url('../images/repost-icon-32.svg');
+      &.reposted {
+        opacity: 1;
+        background-image: url('../images/repost-icon-32.svg');
+      }
     }
     &[title*="Hoof"] {
       background-image: url('../images/hoof-icon-32.svg');

@@ -11,7 +11,7 @@
 
     <a ui-sref="stream({streamId: stream.id})" class="live-stream-link">
       <img ng-src="{{stream.thumbs.medium}}" src-fallback="/images/missing.png"/>
-      <div class="timelineStatus" ng-class="stream.status"><span class="visually-hidden">{{stream.getStatusMessage()}}</span></div>
+      <div class="timelineStatus" ng-class="[tl_item.resourceType.toLowerCase(), stream.status]"><span class="visually-hidden">{{stream.getStatusMessage()}}</span></div>
       <div class="module-overlay"></div>
     </a>
   </div><!-- /.module-video -->
@@ -40,6 +40,7 @@
   <ul class="unstyled">
     <li class="user-avatar ellipsis">
       <rb-avatar user="stream.user" class="img-wrap" title="{{stream.user.username}}"></rb-avatar>
+      <rb-avatar ng-if="stream.source" user="stream.source.user" class="img-wrap" title="{{stream.source.user.username}}"></rb-avatar>
       <span ng-show="stream.caption == 0">untitled</span>
       <span ng-bind-html="stream.caption | hashToLink"></span>
     </li>

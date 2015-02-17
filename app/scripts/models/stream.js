@@ -9,7 +9,7 @@ angular.module('rhinobird.models')
       'live': 'happening live!'
     };
 
-    return $restmod.model('streams', 'PagedModel', 'Likeable', {
+    var streamModel = $restmod.model('streams', 'PagedModel', 'Likeable', 'Repostable', {
       user: { hasOne: 'User' },
       related: { hasMany: 'Stream'},
       isAudioFixed: { ignore: true, init: false }, // Whether it's audio is using for a channel
@@ -30,6 +30,13 @@ angular.module('rhinobird.models')
             'marker-color': '#A954F5',
             'marker-symbol': 'cinema'
           });
+        }
+      },
+
+      '~after-feed': function(raw){
+        var stream = this;
+        if (stream.source) {
+          stream.source = streamModel.$buildRaw(stream.source);
         }
       },
 
@@ -89,4 +96,6 @@ angular.module('rhinobird.models')
         delete(this.thumb);
       }
     });
+
+    return streamModel;
   });

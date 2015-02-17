@@ -2,9 +2,17 @@
 
 angular.module('rhinobird.models')
   .factory('Vj', function ($restmod) {
-    return $restmod.model('vjs', 'Likeable', {
+    var vjModel = $restmod.model('vjs', 'Likeable', 'Repostable', {
       user: { hasOne: 'User' },
       channel: { hasOne: 'Channel' },
-      picks: { hasMany: 'Pick' }
+      picks: { hasMany: 'Pick' },
+
+      '~after-feed': function(raw){
+        var vj = this;
+        if (vj.source) {
+          vj.source = vjModel.$buildRaw(vj.source);
+        }
+      },
     });
+    return vjModel;
   });
