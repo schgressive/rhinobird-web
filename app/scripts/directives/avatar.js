@@ -10,7 +10,7 @@ angular
         user: '='
       },
       replace: true,
-      templateUrl: '/views/templates/avatar.html'
+      templateUrl: '/views/directives/avatar.html'
     };
 
     return directive;
