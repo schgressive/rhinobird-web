@@ -4,8 +4,8 @@
       <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions clearfix" ng-show="app.isLoggedIn">
-        <div ng-include="'/views/layouts/stream-actions.html'"></div>
+      <div class="loggedin-actions clearfix" ng-if="app.isLoggedIn">
+        <rb-video-actions resource="stream" user="user"></rb-video-actions>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->

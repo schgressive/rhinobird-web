@@ -1,11 +1,11 @@
 <section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-      <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
+      <div class="default-wrapper clearfix" ng-if="!app.isLoggedIn">
         <div ng-include="'/views/layouts/default-actions.html'"></div>
       </div><!-- /.default-wrapper -->
-      <div class="loggedin-actions" ng-show="app.isLoggedIn">
-        <div ng-include="'/views/layouts/stream-actions.html'"></div>
+      <div class="loggedin-actions" ng-if="app.isLoggedIn">
+        <rb-video-actions resource="self.currentPick" user="user"></rb-video-actions>
       </div><!-- /.loggedin-action -->
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->

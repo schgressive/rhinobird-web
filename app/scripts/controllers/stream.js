@@ -21,24 +21,6 @@ angular.module('rhinobird.controllers')
       return stream.status === 'live';
     }
 
-    $scope.repost = function() {
-      stream.repost();
-    }
-
-    $scope.like = function() {
-      stream.toggleLike();
-    }
-
-    $scope.reposted = function() {
-      return stream.reposted;
-    }
-
-    $scope.liked = function() {
-      return stream.liked;
-    }
-
-    // Expose methods to the VM
-
     // Choose default tab
     if ($scope.streamLive() && !mobileDetect()) {
       $state.go('stream.user');
