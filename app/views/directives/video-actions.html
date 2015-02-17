@@ -1,25 +1,24 @@
-<div class="span12">
-    <rb-avatar user="vm.user" class="user-avatar pull-left"></rb-avatar>
-    <ul class="action-list pull-left inline">
-      <li ng-show="vm.resource.archivedUrl">
-        <a href="{{vm.resource.archivedUrl}}" role="button" title="Download" target="_self">
-          <span class="visually-hidden">Download</span>
-        </a>
-      </li>
-      <li class="hide">
-        <a href="" role="button" title="Repost" ng-click="vm.repost()" ng-class="{reposted: vm.resource.reposted}">
-          <span class="visually-hidden">Repost this stream on your timeline</span>
-        </a>
-      </li>
-      <li>
-        <a href="" role="button" title="Hoof" ng-click="vm.like()" ng-class="{liked: vm.resource.liked}">
-          <span class="visually-hidden">Like this video</span>
-        </a>
-      </li>
-    </ul>
-    <ul class="social-list inline pull-left">
-      <li><a href="//www.facebook.com/sharer/sharer.php?s=100&p[url]={{url}}&p[images][0]={{stream.thumbs.medium}}&p[title]={{shareTextEnconded}}" target="_blank" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
-      <li><a href="//twitter.com/intent/tweet?via=peepoltv&url={{url}}&text={{shareTextEnconded}}" target="_blank" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
-      <li><a href="//plus.google.com/share?url={{url}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
-	  </ul>
+<div>
+  <ul class="action-list pull-left inline">
+    <li ng-show="vm.resource.archivedUrl">
+      <a href="{{vm.resource.archivedUrl}}" role="button" title="Download" target="_self">
+        <span class="visually-hidden">Download</span>
+      </a>
+    </li>
+    <li class="hide">
+      <a href="" role="button" title="Repost" ng-click="vm.repost()" ng-class="{reposted: vm.resource.reposted}">
+        <span class="visually-hidden">Repost this stream on your timeline</span>
+      </a>
+    </li>
+    <li>
+      <a href="" role="button" title="Hoof" ng-click="vm.like()" ng-class="{liked: vm.resource.liked}">
+        <span class="visually-hidden">Like this video</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="social-list inline pull-left">
+    <li><a href="//www.facebook.com/sharer/sharer.php?s=100&p[url]={{vm.url}}&p[images][0]={{stream.thumbs.medium}}&p[title]={{vm.shareTextEnconded}}" target="_blank" title="click to share via facebook"><span class="visually-hidden">Facebook</span></a></li>
+    <li><a href="//twitter.com/intent/tweet?via=rhinobirdtv&url={{vm.url}}&text={{vm.shareTextEnconded}}" target="_blank" title="click to share via twitter"><span class="visually-hidden">Twitter</span></a></li>
+    <li><a href="//plus.google.com/share?url={{vm.url}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" title="click to share via google plus"><span class="visually-hidden">Google Plus</span></a></li>
+  </ul>
 </div>

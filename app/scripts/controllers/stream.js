@@ -1,14 +1,11 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('StreamCtrl', function ($scope, $window, $state, $timeout, Stream, AuthService, $location, stream, Timeline, mobileDetect) {
+  .controller('StreamCtrl', function ($scope, $state, AuthService, stream, mobileDetect) {
 
     $scope.user = AuthService.user;
     $scope.timeline = stream.user.timeline;
     $scope.timeline.getNextPage();
-
-    $scope.url = encodeURIComponent($location.absUrl());
-    $scope.shareTextEnconded = $window.escape('Share this video!');
 
     // Get the stream
     $scope.stream = stream;

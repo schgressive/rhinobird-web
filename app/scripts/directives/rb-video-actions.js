@@ -7,8 +7,7 @@ angular
     var directive = {
       restrict: 'E',
       scope: {
-        resource: '=',
-        user: '='
+        resource: '='
       },
       replace: true,
       controller: VideoActionsCtrl,
@@ -20,14 +19,16 @@ angular
     return directive;
   }
 
-VideoActionsCtrl.$inject = [];
+VideoActionsCtrl.$inject = ['$location', '$window'];
 
-function VideoActionsCtrl() {
+function VideoActionsCtrl($location, $window) {
     var vm = this;
 
     // Expose methods
     vm.like = like;
     vm.repost = repost;
+    vm.url = encodeURIComponent($location.absUrl());
+    vm.shareTextEnconded = $window.escape('Share this video!');
 
     function repost() {
       vm.resource.repost();
