@@ -497,7 +497,10 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	}
 	.checkbox-wrapper { margin: 6px 0 10px;}
 	.checkbox { font-size: 16px; margin-bottom: 4px;}
-	.submit-wrapper { margin: 13px 0 18px;}
+	.submit-wrapper {
+    margin: 13px 0 18px;
+    .btn { margin-right: 10px;}
+  }
 }
 
 .validate {

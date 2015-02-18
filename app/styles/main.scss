@@ -573,10 +573,11 @@ i[class*="icon"] {font-style: normal;}
 			top: 30px;
 			bottom: 10px;
 		}
-		@media screen and (max-width: 560px) {
-			background-image: url('/images/banner-bg2.jpg');
+		@media screen and (max-width: 980px) {
+			background: url('/images/banner-bg.jpg') 0 3px no-repeat;
 			background-size: cover;
 		}
+		@media screen and (max-width: 640px) { background-image: url('/images/banner-bg2.jpg');}
 	}
 	h1 {
 		color: hsla(28,21%,18%,1);
@@ -651,6 +652,24 @@ i[class*="icon"] {font-style: normal;}
 			}
 		}
 	}
+}
+
+.bgvid {
+  width: auto;
+  height: 403px;
+  margin: 0 auto;
+  @media screen and (min-width: 1280px) {
+    margin: 40px 20px 40px -6% !important;
+    float: left;
+    & + .title-wrapper {
+      text-align: center;
+      h1 {
+        font-size: 60px;
+        margin-top: 144px;
+      }
+      .btn-feature { margin-top: 20px;}
+    }
+  }
 }
 
 .search-results-wrapper {
@@ -894,6 +913,10 @@ i[class*="icon"] {font-style: normal;}
     }
     &[title*="Repost"] {
       background-image: url('../images/repost-icon-32.svg');
+      &.reposted {
+        opacity: 1;
+        background-image: url('../images/repost-icon-32.svg');
+      }
     }
     &[title*="Hoof"] {
       background-image: url('../images/hoof-icon-32.svg');
@@ -1103,6 +1126,9 @@ i[class*="icon"] {font-style: normal;}
 	position: relative;
 	overflow: hidden;
 	.live-stream-link .licode.ng-scope { width: auto;}
+  a {
+    display: block;
+  }
 }
 
 .module-large .module-video {

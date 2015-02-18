@@ -11,11 +11,4 @@ angular.module('rhinobird.controllers')
     // The current user
     $scope.user = vj.user;
 
-    $scope.like = function() {
-      vj.toggleLike();
-    }
-
-    $scope.liked = function() {
-      vj.liked;
-    }
   });

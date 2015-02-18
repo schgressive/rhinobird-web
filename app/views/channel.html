@@ -1,15 +1,7 @@
-<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[app.isLoggedIn]">
-  <div class="width-controller container-fluid">
-    <div class="row-fluid">
-     <div class="default-wrapper clearfix" ng-hide="app.isLoggedIn">
-      <div ng-include="'/views/layouts/default-actions.html'"></div>
-    </div><!-- /.default-wrapper -->
-    <div class="loggedin-actions channel-view clearfix" ng-show="app.isLoggedIn">
-      <div ng-include="'/views/layouts/channel-actions.html'"></div>
-    </div><!-- /.loggedin-action -->
-  </div><!-- /.row-fluid -->
-</div><!-- /.container-fluid -->
-</section><!-- /.top-content -->
+<rb-top-bar user="user" app="app">
+  <a class="btn-vj btn pull-left vj-on" ng-click="stopVj()" ng-show="vjService.live" role="button">In Session</a>
+  <a class="btn-vj btn pull-left vj-off" ng-click="startVj()" ng-show="!vjService.live" role="button">Start VJ</a>
+</rb-top-bar>
 
 <div class="main" role="main">
   <div class="width-controller container-fluid">
@@ -20,6 +12,11 @@
       <div class="row-fluid">
         <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
+            <div class="watermark" ng-if="vjService.live">
+              <span class="mini-glow glow">
+              </span>
+              <b>Live on:</b>
+            </div>
             <div ng-if="currentStream" feature-overlay stream="self.currentStream"></div>
             <div video-canvas-projector width="640" height="360" video="currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->

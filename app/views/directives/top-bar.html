@@ -1,0 +1,19 @@
+<section class="top-content" ng-class="{true: 'loggedIn', false: 'feature'}[vm.app.isLoggedIn]">
+  <div class="width-controller container-fluid">
+
+    <div class="row-fluid">
+
+      <div class="default-wrapper clearfix" ng-if="!vm.app.isLoggedIn">
+        <div ng-include="'/views/layouts/default-actions.html'"></div>
+      </div>
+
+      <div class="loggedin-actions clearfix" ng-if="vm.app.isLoggedIn">
+        <rb-avatar user="vm.user" class="user-avatar pull-left"></rb-avatar>
+        <ng-transclude></ng-transclude>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
