@@ -32,9 +32,9 @@ angular.module('rhinobird.directives')
       elements.push(element);
     };
 
-    $rootScope.$on('request-success',     startAnimation);
-    $rootScope.$on('$stateChangeStart',   startAnimation);
-    $rootScope.$on('viewContentLoading',  startAnimation);
+    $rootScope.$on('request-success',     function () { $timeout(startAnimation, 1); });
+    $rootScope.$on('$stateChangeStart',   function () { $timeout(startAnimation, 1); });
+    $rootScope.$on('viewContentLoading',  function () { $timeout(startAnimation, 1); });
 
     $rootScope.$on('response-success',    function () { $timeout(endAnimation, 1000); });
     $rootScope.$on('request-error',       function () { $timeout(endAnimation, 1000); });
