@@ -1,25 +1,47 @@
 'use strict';
 
 angular.module('rhinobird.directives')
-  .directive('standardLoadingIndicator', function ($http) {
+  .directive('standardLoadingIndicator', function ($http, $rootScope, $timeout) {
 
-    var $element = null;
+    var elements = [],
+        startedCount = 0;
 
-    function startAnimation () {
-      $element.addClass('animate');
-    }
+    function startAnimation (event) {
+      startedCount++;
+
+      if (startedCount == 1) {
+        for (var i in elements) {
+          elements[i].addClass('animate');
+        }
+      }
+    };
 
     function endAnimation () {
-    }
+      startedCount--;
+
+      if (startedCount <= 0) {
+        for (var i in elements) {
+          elements[i].removeClass('animate');
+        }
+
+        startedCount = 0;
+      }
+    };
 
     function link (scope, element, attrs) {
-      $element = element;
-
-      scope.$on('request-success',  startAnimation);
-      scope.$on('response-success', endAnimation);
-      scope.$on('request-error',    endAnimation);
-      scope.$on('response-error',   endAnimation);
+      elements.push(element);
     };
+
+    $rootScope.$on('request-success',     function () { $timeout(startAnimation, 200); });
+    $rootScope.$on('$stateChangeStart',   function () { $timeout(startAnimation, 200); });
+    $rootScope.$on('viewContentLoading',  function () { $timeout(startAnimation, 200); });
+
+    $rootScope.$on('response-success',    function () { $timeout(endAnimation, 1000); });
+    $rootScope.$on('request-error',       function () { $timeout(endAnimation, 1000); });
+    $rootScope.$on('response-error',      function () { $timeout(endAnimation, 1000); });
+    $rootScope.$on('$stateChangeSuccess', function () { $timeout(endAnimation, 1000); });
+    $rootScope.$on('$stateChangeError',   function () { $timeout(endAnimation, 1000); });
+    $rootScope.$on('viewContentLoaded',   function () { $timeout(endAnimation, 1000); });
 
     return {
       link: link
