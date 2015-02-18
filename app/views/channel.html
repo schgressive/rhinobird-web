@@ -12,7 +12,7 @@
       <div class="row-fluid">
         <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div class="watermark" ng-if="stream.status == 'live'">
+            <div class="watermark" ng-if="vjService.live">
               <span class="mini-glow glow">
               </span>
               <b>Live on:</b>

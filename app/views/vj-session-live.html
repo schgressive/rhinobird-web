@@ -14,7 +14,7 @@
 	    <div class="row-fluid">
         <div class="module-xlarge span8 {{currentPick ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div class="watermark" ng-if="stream.status == 'live'">
+            <div class="watermark" ng-if="currentPick">
               <span class="mini-glow glow">
               </span>
               <b>Live on:</b>
