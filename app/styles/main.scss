@@ -340,6 +340,26 @@ i[class*="icon"] {font-style: normal;}
 	span { vertical-align: middle;} /*keeps icon inline with text */
 }
 
+@-webkit-keyframes golive-icon-rotate {
+  0% { -webkit-transform: rotateZ(0deg); }
+  100% { -webkit-transform: rotateZ(360deg); }
+}
+
+@-moz-keyframes golive-icon-rotate {
+  0% { -moz-transform: rotateZ(0deg); }
+  100% { -moz-transform: rotateZ(360deg); }
+}
+
+@-o-keyframes golive-icon-rotate {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+@keyframes golive-icon-rotate {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
 .golive-icon { /* container for svg icon */
 		width: 24px;
 		height: 24px;
@@ -347,10 +367,16 @@ i[class*="icon"] {font-style: normal;}
 		margin-right: 4px;
 		border-radius: 50%;
 		display: inline-block;
+    /*transform: rotateZ(0deg); -webkit-transform: rotateZ(0deg); -moz-transform: rotateZ(0deg);*/
+    &.animate {
+      -webkit-animation: golive-icon-rotate linear 1500ms infinite;
+      -moz-animation: golive-icon-rotate linear 1500ms infinite;
+      -o-animation: golive-icon-rotate linear 1500ms infinite;
+      animation: golive-icon-rotate linear 1500ms infinite;
+    }
     &.glow {
-	    animation:glow 2s infinite;
-			-moz-animation:glow 2s infinite; /* Firefox */
 			-webkit-animation:glow 2s infinite; /* Safari and Chrome */
+			-moz-animation:glow 2s infinite; /* Firefox */
 			-o-animation:glow 2s infinite; /* Opera */
 			animation:glow 2s infinite;
     }

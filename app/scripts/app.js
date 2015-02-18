@@ -11,16 +11,16 @@ angular.module('rhinobird', [
   'rhinobird.models',
   'rhinobird.services',
   'rhinobird.directives',
+  'rhinobird.providers',
   'rhinobird.filters',
   'rhinobird.controllers'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $restmodProvider,
                   $sceDelegateProvider, streamViewerConfigProvider, CameraServiceProvider,
-                  settings, mobileDetect) {
+                  settings, mobileDetect, $httpProvider, HttpInterceptorProvider) {
   // Remove hashes and enables html push state history
   $locationProvider.html5Mode(true);
   var isMobile = mobileDetect();
-
 
   // Fix for missing trailing slash
   // NOTE: All route definitions must end with a Slash now
@@ -48,6 +48,8 @@ angular.module('rhinobird', [
     return path + '/?' + params.join('&');
   });
 
+  // Intercept requests
+  $httpProvider.interceptors.push(HttpInterceptorProvider.$get);
 
   // Force some redirections
   $urlRouterProvider
