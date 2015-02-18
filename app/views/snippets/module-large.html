@@ -12,7 +12,7 @@
     <a ui-sref="stream({streamId: stream.id})" class="live-stream-link">
       <img ng-src="{{stream.thumbs.medium}}" src-fallback="/images/missing.png"/>
       <div class="timelineStatus" ng-class="[tl_item.resourceType.toLowerCase(), stream.status]"><span class="visually-hidden">{{stream.getStatusMessage()}}</span></div>
-      <div class="module-overlay"></div>
+      <div class="visible-desktop module-overlay"></div>
     </a>
   </div><!-- /.module-video -->
   <div class="feature-overlay">

@@ -10,7 +10,7 @@
     <a ui-sref="vjsession({vjId: vj.id})" ng-if="vj.status !== 'live'" class="live-stream-link">
       <img ng-src="{{vj.thumbs.medium}}" src-fallback="/images/missing.png"/>
       <div class="timelineStatus vj" ng-class="vj.status"><span class="visually-hidden">{{vj.getStatusMessage()}}</span></div>
-      <div class="module-overlay"></div>
+      <div class="visible-desktop module-overlay"></div>
     </a>
     <a ui-sref="vjsession-live({ channelName: vj.channelName, userName: vj.user.username })" ng-if="vj.status == 'live'" class="live-stream-link">
       <img ng-src="{{vj.thumbs.medium}}" src-fallback="/images/missing.png"/>
