@@ -12,7 +12,7 @@
       <div class="control-group">
           <label class="control-label" for="input-username">Username:</label>
           <div class="controls">
-            <input class="input-xlarge" type="text" name="username" id="input-username" ng-model="vm.user.username" ng-minlength=3 ng-maxlength=20/>
+            <input class="input-xlarge" type="text" name="username" id="input-username" ng-model="vm.user.username" ng-minlength="3" ng-maxlength="20" />
             <div class="validate" ng-show="profileForm.username.$dirty && profileForm.username.$invalid">
               <small class="error" ng-show="profileForm.username.$error.taken">
                 This username is already registered.
