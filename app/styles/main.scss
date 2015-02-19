@@ -914,8 +914,7 @@ i[class*="icon"] {font-style: normal;}
     &[title*="Repost"] {
       background-image: url('../images/repost-icon-32.svg');
       &.reposted {
-        opacity: 1;
-        background-image: url('../images/repost-icon-32.svg');
+        background-image: url('../images/repost-icon-32-pink.svg');
       }
     }
     &[title*="Hoof"] {
