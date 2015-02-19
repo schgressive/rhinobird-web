@@ -1520,6 +1520,11 @@ i[class*="icon"] {font-style: normal;}
   display: none !important;
 }
 
+// TO ORGANIZE!
+.infinite-scroll {
+  overflow: hidden;
+}
+
 // WARNINGS and ALERTS ------------------------------
 
 .compatibility-flag { margin: {top:50px;bottom:0;};}

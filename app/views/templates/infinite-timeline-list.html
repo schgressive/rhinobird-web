@@ -1,4 +1,4 @@
-<div infinite-scroll="timeline.getNextPage()" infinite-scroll-disabled="timeline.$pending" infinite-scroll-distance="2">
+<div class="infinite-scroll" infinite-scroll="timeline.getNextPage()" infinite-scroll-disabled="timeline.$pending" infinite-scroll-distance="2">
   <ol class="no-bullets">
     <li class="module-large span3" ng-repeat="tl_item in timeline" ng-if="tl_item.resource.status != 'pending'">
       <div ng-if="tl_item.resourceType == 'Stream'" ng-include="'/views/snippets/module-large.html'" ng-init="stream = tl_item.resource"></div>
