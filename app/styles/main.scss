@@ -24,7 +24,7 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
 
-@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,700italic');
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,500,500italic,700,700');
 
 @import "vendor/font-awesome.scss"; /*imports Font Awesome SASS*/
 
@@ -560,22 +560,6 @@ i[class*="icon"] {font-style: normal;}
   width: auto;
   height: 403px;
   margin: 0 auto;
-  border: solid 2px $warmGray11;
-  border-radius: 9px;
-/*
-  @media screen and (min-width: 1280px) {
-    margin: 40px 20px 40px -6% !important;
-    float: left;
-    & + .title-wrapper {
-      text-align: center;
-      h1 {
-        font-size: 60px;
-        margin-top: 144px;
-      }
-      .btn-feature { margin-top: 20px;}
-    }
-  }
-*/
 }
 
 .top-content {
@@ -587,18 +571,35 @@ i[class*="icon"] {font-style: normal;}
 	}
 	@media screen and (max-width: 960px) { padding: {left:0;right:0;}}
 	&.loggedIn { background-color: $bodyBackground;}
-	&.feature {
-		background: $beigeLight url('/images/banner-bg-tile.svg') top left repeat;
-		background-size: 100%;
-		border-bottom: $warmGray1 solid 3px;
-		padding: {
-			top: 30px;
-			bottom: 10px;
-		}
-		@media screen and (max-width: 980px) {
-			background: url('/images/banner-bg.jpg') 0 3px no-repeat;
-			background-size: cover;
-		}
+  &.feature {
+    background-image: url('/images/rb-banner-desktop.svg');
+    background-color: hsla(32,92%,54%,1);
+    background-repeat: no-repeat;
+    border-bottom: $warmGray1 solid 3px;
+    padding: {
+      top: 30px;
+      bottom: 10px;
+    }
+    @media screen and (min-width: 1601px) {
+      background-position: center center;
+      background-size: 118%;
+    }
+    @media screen and (max-width: 1600px) and (min-width: 1281px) {
+      background-position: center center;
+      background-size: 142%;
+    }
+    @media screen and (max-width: 1280px) and (min-width: 1081px) {
+      background-position: -71px 24px;
+      background-size: 115%;
+    }
+    @media screen and (max-width: 1080px) and (min-width: 981px) {
+      background-position: -180px 33px;
+      background-size: 145%;
+    }
+    @media screen and (max-width: 980px) and (min-width: 641px){
+      background-position: center center;
+      background-size: cover;
+    }
     @media screen and (max-width: 640px) {
       height: 380px;
       background-image: url('/images/rb-banner-mobile.png');
@@ -623,10 +624,11 @@ i[class*="icon"] {font-style: normal;}
   }
   h2 {
     color: $white;
-    @include fontSize(26px);
+    @include fontSize(24px);
     font-style: italic;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0;
+    letter-spacing: 1px;
   }
 	nav {
 		margin-left: 10px;
