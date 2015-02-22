@@ -24,7 +24,7 @@ $condensed-font-stack: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Hel
 
 @include font-face("OpenSansBold", font-files("/fonts/opensans-bold-webfont.woff", woff, "/fonts/opensans-bold-webfont.ttf", truetype), "opensans-bold-webfont.eot");
 
-@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700');
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,700italic');
 
 @import "vendor/font-awesome.scss"; /*imports Font Awesome SASS*/
 
@@ -608,20 +608,26 @@ i[class*="icon"] {font-style: normal;}
   .btn-feature {
       margin: { top:40px; bottom:10px;}
       @media screen and (max-width: 640px) { margin-top: 16px;}
-      @media screen and (max-width: 480px) { margin-top: 36%;}
+      @media screen and (max-width: 480px) { margin-top: 40%;}
     }
   h1 {
     color: $white;
     line-height: 1;
-    margin-top: 30px;
+    margin: 30px 0 0;
     @media screen and (max-width: 640px) {
       margin-top: 10px;
       line-height: 1.2;
       & span { display: block;}
     }
-    @media screen and (max-width: 480px) { margin-top: -6px;}
+    @media screen and (max-width: 480px) { margin-top: 10px;}
   }
-  h2 { margin-bottom: 22px;}
+  h2 {
+    color: $white;
+    @include fontSize(26px);
+    font-style: italic;
+    font-weight: 700;
+    margin: 0;
+  }
 	nav {
 		margin-left: 10px;
 		li {
