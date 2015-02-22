@@ -658,6 +658,8 @@ i[class*="icon"] {font-style: normal;}
   width: auto;
   height: 403px;
   margin: 0 auto;
+  border: solid 2px $warmGray11;
+  border-radius: 9px;
   @media screen and (min-width: 1280px) {
     margin: 40px 20px 40px -6% !important;
     float: left;
