@@ -603,6 +603,8 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 640px) {
       height: 380px;
       background-image: url('/images/rb-banner-mobile.png');
+      background-size: 108%;
+      background-position: center bottom;
     }
     @media screen and (max-width: 480px) { height: 540px;}
   }
