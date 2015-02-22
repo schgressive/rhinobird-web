@@ -556,6 +556,28 @@ i[class*="icon"] {font-style: normal;}
   img { width: 100%;}
 }
 
+.bgvid {
+  width: auto;
+  height: 403px;
+  margin: 0 auto;
+  border: solid 2px $warmGray11;
+  border-radius: 9px;
+/*
+  @media screen and (min-width: 1280px) {
+    margin: 40px 20px 40px -6% !important;
+    float: left;
+    & + .title-wrapper {
+      text-align: center;
+      h1 {
+        font-size: 60px;
+        margin-top: 144px;
+      }
+      .btn-feature { margin-top: 20px;}
+    }
+  }
+*/
+}
+
 .top-content {
 	padding: 22px 70px 10px;
 	background-color: $bodyBackground;
@@ -577,18 +599,29 @@ i[class*="icon"] {font-style: normal;}
 			background: url('/images/banner-bg.jpg') 0 3px no-repeat;
 			background-size: cover;
 		}
-		@media screen and (max-width: 640px) { background-image: url('/images/banner-bg2.jpg');}
-	}
-	h1 {
-		color: hsla(28,21%,18%,1);
-		line-height: 1;
-		margin-top: 30px;
-		@media screen and (max-width: 600px) {
-			line-height: 1.2;
-			& span { display: block;}
-		}
-	}
-	h2 { margin-bottom: 22px;}
+    @media screen and (max-width: 640px) {
+      height: 380px;
+      background-image: url('/images/rb-banner-mobile.png');
+    }
+    @media screen and (max-width: 480px) { height: 540px;}
+  }
+  .btn-feature {
+      margin: { top:40px; bottom:10px;}
+      @media screen and (max-width: 640px) { margin-top: 16px;}
+      @media screen and (max-width: 480px) { margin-top: 36%;}
+    }
+  h1 {
+    color: $white;
+    line-height: 1;
+    margin-top: 30px;
+    @media screen and (max-width: 640px) {
+      margin-top: 10px;
+      line-height: 1.2;
+      & span { display: block;}
+    }
+    @media screen and (max-width: 480px) { margin-top: -6px;}
+  }
+  h2 { margin-bottom: 22px;}
 	nav {
 		margin-left: 10px;
 		li {
@@ -652,26 +685,6 @@ i[class*="icon"] {font-style: normal;}
 			}
 		}
 	}
-}
-
-.bgvid {
-  width: auto;
-  height: 403px;
-  margin: 0 auto;
-  border: solid 2px $warmGray11;
-  border-radius: 9px;
-  @media screen and (min-width: 1280px) {
-    margin: 40px 20px 40px -6% !important;
-    float: left;
-    & + .title-wrapper {
-      text-align: center;
-      h1 {
-        font-size: 60px;
-        margin-top: 144px;
-      }
-      .btn-feature { margin-top: 20px;}
-    }
-  }
 }
 
 .search-results-wrapper {
