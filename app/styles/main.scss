@@ -805,10 +805,17 @@ i[class*="icon"] {font-style: normal;}
     top: 0;
     left: 0;
     display: block;
-    &.live { background: transparent url('/images/live-icon-32.svg') top left no-repeat;}
-    &.vj.live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
-    &.vj.archived { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
-    &.pending { background: transparent url('/images/pending-icon-32.svg') top left no-repeat;}
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    &.vj.live { background-image: url('/images/vj-live-icon-32.svg');}
+    &.vj.archived { background-image: url('/images/vj-archive-icon-32.svg');}
+    &.pending { background-image: url('/images/pending-icon-32.svg');}
+    &.live {
+      width: 64px;
+      top: -1px;
+      background-image: url('/images/live-flag.svg');
+    }
     &.repost {
       width: 24px;
       height: 24px;
@@ -816,7 +823,7 @@ i[class*="icon"] {font-style: normal;}
       right: 3px;
       left: inherit;
       opacity: .6;
-      background: transparent url('/images/repost-flag-32.svg') top left no-repeat;
+      background-image: url('/images/repost-flag-32.svg');
       background-size: cover;
     }
   }
