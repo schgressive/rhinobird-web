@@ -809,6 +809,16 @@ i[class*="icon"] {font-style: normal;}
     &.vj.live { background: transparent url('/images/vj-live-icon-32.svg') top left no-repeat;}
     &.vj.archived { background: transparent url('/images/vj-archive-icon-32.svg') top left no-repeat;}
     &.pending { background: transparent url('/images/pending-icon-32.svg') top left no-repeat;}
+    &.repost {
+      width: 24px;
+      height: 24px;
+      top: 3px;
+      right: 3px;
+      left: inherit;
+      opacity: .6;
+      background: transparent url('/images/repost-flag-32.svg') top left no-repeat;
+      background-size: cover;
+    }
   }
   .owl-theme .owl-controls .owl-buttons div {
     padding: 8px 16px;
