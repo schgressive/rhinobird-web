@@ -34,7 +34,7 @@
         </div><!-- /.video-chat.span4 -->
 	    </div><!-- /.row-fluid -->
       <div class="hidden">
-        <div ng-repeat="pick in picks | filter:{stream.status: 'live'}">
+        <div ng-repeat="pick in picks | filter: {stream: {status: 'live'}}">
           <div stream-viewer stream="pick.stream" size="mini" mute="{{pick.stream.isMuted}}" on="true"></div>
         </div>
       </div>
