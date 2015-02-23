@@ -85,6 +85,7 @@ angular.module('rhinobird.services')
       // Set the login information
       session.email = payload.email;
       session.password = payload.password;
+      session.auth_token = payload.authentication_token;
 
       // Do login
       session.$save().$finally(broadcastSessionChanged);
