@@ -17,14 +17,14 @@ angular.module('rhinobird.controllers')
         AuthService.askLogin('signup');
       }
 
+      if ($stateParams.reset_password_token) {
+        AuthService.askLogin('password-reset', {reset_password_token: $stateParams.reset_password_token});
+      }
+
+      if ($stateParams.complete) {
+        AuthService.finishSocialSignup($stateParams.complete);
+      }
+
     });
-
-    if ($stateParams.reset_password_token) {
-      AuthService.askLogin('password-reset', {reset_password_token: $stateParams.reset_password_token});
-    }
-
-    if ($stateParams.complete) {
-      AuthService.finishSocialSignup($stateParams.complete);
-    }
 
   });
