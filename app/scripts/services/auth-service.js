@@ -10,7 +10,7 @@ angular.module('rhinobird.services')
     this.user = session.user;
 
     // Login in and signing up
-    this.askLogin = function(action){
+    this.askLogin = function(action, copyScopeVariables){
       var defaultAction = action || 'login';
 
       var newModalDefaults  = {
@@ -19,6 +19,14 @@ angular.module('rhinobird.services')
       };
 
       newModalDefaults.controller = ['$scope', '$modalInstance', function($scope, $modalInstance) {
+
+        // copy scope variables
+        if (copyScopeVariables) {
+          for (var i in copyScopeVariables) {
+            $scope[i] = copyScopeVariables[i];
+          }
+        }
+
         //set default action to login
         $scope.loginModalAction = defaultAction;
 

@@ -19,9 +19,8 @@ angular.module('rhinobird.controllers')
 
     });
 
-
     if ($stateParams.reset_password_token) {
-      AuthService.askLogin('password-reset');
+      AuthService.askLogin('password-reset', {reset_password_token: $stateParams.reset_password_token});
     }
 
     if ($stateParams.complete) {

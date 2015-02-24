@@ -9,13 +9,14 @@ angular.module('rhinobird.controllers')
       $scope.invalidToken = false;
 
       var resetData = {
-        token: $stateParams.reset_password_token,
+        token: $scope.reset_password_token,
         password: $scope.resetData.password,
         password_confirmation: $scope.resetData.confirm
       };
 
       AuthService.resetPassword(resetData).then(function() {
         $scope.$close();
+        AuthService.askLogin();
       },
       function(e) { // Handle errors
         var error = e.$response.data;
