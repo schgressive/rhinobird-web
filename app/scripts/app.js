@@ -245,10 +245,7 @@ angular.module('rhinobird', [
     .state('password?reset_password_token&complete', {
       url: '/profile/edit/?reset_password_token&complete',
       templateUrl: '/views/main.html',
-      controller: 'MainCtrl',
-      resolve: ['$stateParams', function ($stateParams) {
-        return $stateParams;
-      }]
+      controller: 'MainCtrl'
     })
 
     // Vj session
