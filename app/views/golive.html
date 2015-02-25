@@ -11,7 +11,7 @@
   <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
   	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
   </div><!-- /.activity-flag -->
-  <div ng-if="vm.connected && vm.stream" class="desktop-chat-wrapper collapse width" id="commentSlide">
+  <div ng-if="vm.connected && vm.stream.status == 'live'" class="desktop-chat-wrapper collapse width" id="commentSlide">
     <div standard-comments stream="vm.stream"></div>
   </div>
   <div class="stream-wrapper">

@@ -134,8 +134,8 @@
 	    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
 	    </div><!-- /.activity-flag -->
 	    <div ng-include="'/views/snippets/golive-btn.html'" ng-show="isFullScreenEnabled"></div>
-      <div ng-if="vm.connected" golive-mobile-comments stream="vm.stream"></div>
-	    <div ng-if="vm.connected" ng-include="'/views/layouts/golive-features.html'"></div>
+      <div ng-if="vm.connected && vm.stream.status == 'live'" golive-mobile-comments stream="vm.stream"></div>
+	    <div ng-if="vm.connected && vm.stream.status == 'live'" ng-include="'/views/layouts/golive-features.html'"></div>
 	  </section>
 
 	  <div class="stream-wrapper">

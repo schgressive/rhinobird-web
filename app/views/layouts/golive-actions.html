@@ -1,4 +1,4 @@
-<div ng-if="vm.connected" class="actionBar collapse in" id="actionBar" ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
+<div ng-if="vm.connected && vm.stream.status == 'live'" class="actionBar collapse in" id="actionBar" ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
   <div class="contents">
     <ul class="unstyled inline pull-left">
       <li>
