@@ -10,6 +10,7 @@ angular.module('rhinobird.controllers')
 
     // Get the timeline
     vm.user.timeline.$collection();
+    vm.user.timeline.$refresh({page: 1});
     vm.user.timeline.getNextPage();
 
   });
