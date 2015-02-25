@@ -2,14 +2,15 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('MyTimelineCtrl', function (AuthService) {
+  .controller('MyTimelineCtrl', function (User) {
 
     // Expose the scope as self
     var vm = this;
-    vm.user = AuthService.user;
+    vm.user = User.$new("current");
 
     // Get the timeline
     vm.user.timeline.$collection();
+    vm.user.timeline.$refresh({page: 1});
     vm.user.timeline.getNextPage();
 
   });
