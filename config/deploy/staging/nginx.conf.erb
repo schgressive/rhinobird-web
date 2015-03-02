@@ -57,6 +57,25 @@ server {
     proxy_redirect off;
   }
 
+  location /stream/ {
+    set $prerender 0;
+    if ($http_user_agent ~* "twitterbot") {
+      set $prerender 1;
+    }
+
+    if ($prerender = 1) {
+      rewrite .* /meta$request_uri? break;
+      <% if fetch(:nginx_use_ssl) %>
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_pass http://<%= fetch(:api_application) %>-app-server;
+      <% else %>
+        proxy_pass https://<%= fetch(:api_application) %>-app-server;
+      <% end %>
+      break;
+    }
+    try_files $uri $uri/ /index.html;
+  }
+
   location /comments_app_host {
     rewrite ^/comments_app_host(.*) $1 break;
 
