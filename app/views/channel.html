@@ -12,12 +12,15 @@
       <div class="row-fluid">
         <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div class="watermark">
+            <div class="watermark" ng-show="self.currentStream">
               <span class="mini-glow glow">
               </span>
               <b>Live on:</b>
             </div>
             <div ng-if="currentStream" feature-overlay stream="self.currentStream"></div>
+	    <div class="activity-flag" ng-if="currentStream">
+	    	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
+	    </div><!-- /.activity-flag -->
             <div video-canvas-projector width="640" height="360" video="currentStream.licode.player.video"></div>
           </div><!-- /.module-video -->
           <div class="module-outer">

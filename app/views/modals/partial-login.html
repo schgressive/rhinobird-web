@@ -28,6 +28,10 @@
       </small>
     </div><!-- /.validate -->
   </div>
+  <p ng-show="haveToConfirm">
+    You need to confirm your account before being able to sign in, please confirm your account following the instruction
+    we have sent to your email address or <a href="#" ng-click="$parent.loginModalAction = 'send-confirmation'">request a new confirmation email.</a>
+  </p>
   <input class="btn btn-primary" type="submit" value="Sign In"/>
 </form>
 <h6><a href="#" ng-click="$parent.loginModalAction = 'password'">Did you forget your username or password?</a></h6>

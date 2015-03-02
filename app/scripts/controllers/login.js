@@ -18,6 +18,11 @@ angular.module('rhinobird.controllers')
         // Some error
         $scope.loginForm.error = session.error
         $scope.loginForm.password.$setValidity('invalid-pw', false);
+
+        if (session.error.match(/confirm/))
+          $scope.haveToConfirm = true;
+        else
+          $scope.haveToConfirm = false;
       });
     };
   });

@@ -1,13 +1,16 @@
 <button class="close" ng-click="close()" aria-hidden="true" >&times;</button>
-<h2 id="signIn" ng-show="loginModalAction == 'login'">Hi there!</h2>
-<h2 id="signUp" ng-show="loginModalAction == 'signup'">Create Account</h2>
-<h2 id="forgetPassword" ng-show="loginModalAction == 'password'">Recover Your Password</h2>
-<h2 id="resetPassword" ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
 
-<div ng-show="loginModalAction == 'login'" ng-include="'/views/modals/partial-login.html'"></div>
-<div ng-show="loginModalAction == 'password-reset'" ng-include="'/views/modals/partial-password-reset.html'"></div>
-<div ng-show="loginModalAction == 'password'" ng-include="'/views/modals/partial-password-recovery.html'"></div>
-<div ng-show="loginModalAction == 'signup'" ng-include="'/views/modals/partial-register.html'"></div>
+<h2 id="signIn"           ng-show="loginModalAction == 'login'">Hi there!</h2>
+<h2 id="signUp"           ng-show="loginModalAction == 'signup'">Create Account</h2>
+<h2 id="forgetPassword"   ng-show="loginModalAction == 'password'">Recover Your Password</h2>
+<h2 id="resetPassword"    ng-show="loginModalAction == 'password-reset'">Reset Your Password</h2>
+<h2 id="sendConfirm"      ng-show="loginModalAction == 'send-confirmation'">Send Confirmation Instructions</h2>
+
+<div ng-show="loginModalAction == 'login'"              ng-include="'/views/modals/partial-login.html'"></div>
+<div ng-show="loginModalAction == 'password-reset'"     ng-include="'/views/modals/partial-password-reset.html'"></div>
+<div ng-show="loginModalAction == 'password'"           ng-include="'/views/modals/partial-password-recovery.html'"></div>
+<div ng-show="loginModalAction == 'signup'"             ng-include="'/views/modals/partial-register.html'"></div>
+<div ng-show="loginModalAction == 'send-confirmation'"  ng-include="'/views/modals/partial-send-confirmation.html'"></div>
 
 <div class="row">
   <h6 ng-show="loginModalAction == 'password' || loginModalAction == 'signup'">
