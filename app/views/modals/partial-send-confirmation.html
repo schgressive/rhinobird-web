@@ -1,0 +1,12 @@
+<h4 class="one-liner">You will recieve an email with instructions.</h4>
+<form name="confirmationForm" role="form" ng-controller="ConfirmationsCtrl" ng-submit="sendConfirmation()">
+  <label class="visually-hidden" for="email">Your Email</label>
+  <div class="input-prepend">
+    <span class="add-on"><span class="fa fa-envelope"></span></span>
+    <input type="text" class="input-xlarge" name="email" type="email" placeholder="your email" ng-model="user.email" required/>
+    <div class="validate" ng-show="invalidEmail">
+      <small class="error">There is no account associated with this email.</small>
+    </div>
+  </div>
+  <input class="btn btn-primary" type="submit" value="Send"/>
+</form>

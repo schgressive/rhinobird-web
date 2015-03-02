@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.services')
-  .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password) {
+  .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password, Confirmation) {
 
     // The current session
     var session = Session.$build({id: 'current'});
@@ -39,6 +39,12 @@ angular.module('rhinobird.services')
       //create modal and return it
       return $modal.open(newModalDefaults).result;
 
+    };
+
+    this.sendConfirmation = function(payload) {
+      var confirmation = Confirmation.$create(payload);
+
+      return confirmation.$promise;
     };
 
     this.askPasswordReset = function(payload) {
