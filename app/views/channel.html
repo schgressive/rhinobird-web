@@ -10,9 +10,12 @@
         <h3 class="span12">Now Viewing: #{{channel.name}}</h3>
       </div>
       <div class="row-fluid">
-        <div class="module-xlarge span8 {{currentStream ? 'online' : 'offline'}}">
+        <div class="module-xlarge span8 {{self.willPlayback() || self.currentStream ? 'online' : 'offline'}}">
           <div class="module-video">
-            <div class="watermark">
+            <div class="activity-flag" ng-show="self.willPlayback()">
+              <img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>
+            </div><!-- /.activity-flag -->
+            <div class="watermark" ng-show="self.currentPick">
               <span class="mini-glow glow">
               </span>
               <b>Live on:</b>
@@ -43,8 +46,7 @@
             </div>
           </div>
           <div ng-if="!currentStream" class="comments-wrapper">
-            <h3>This channel is offline now, it will become online as soon you or someone else start
-              streaming with caption including <em>#{{channel.name}}</em> hashtag.</h3>
+            <h3>If after a few seconds you don't see videos, it's because the channel is offline now. It will become online as soon you or someone else start streaming with a caption including <em>#{{channel.name}}</em>.</h3>
           </div>
         </div><!-- /.video-chat.span4 -->
       </div><!-- /.row-fluid -->
@@ -59,8 +61,7 @@
       <div class="hidden-desktop">
         <div class="row-fluid">
           <div class="span12" ng-if="!currentStream">
-            <h3>This channel is offline now, it will become online as soon you or someone else start
-              streaming with caption including <em>#{{channel.name}}</em> hashtag.</h3>
+            <h3>If after a few seconds you don't see videos, it's because the channel is offline now. It will become online as soon you or someone else start streaming with a caption including <em>#{{channel.name}}</em>.</h3>
           </div>
           <div class="span12" ng-if="currentStream">
             <div ng-if="!vjStarted">

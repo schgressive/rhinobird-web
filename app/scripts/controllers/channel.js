@@ -145,6 +145,10 @@ angular.module('rhinobird.controllers')
       $scope.vjStarted = false;
     };
 
+    $scope.willPlayback = function () {
+      return $scope.liveStreams && $scope.liveStreams.length > 0 && !$scope.currentStream;
+    };
+
     GeolocationService.getCurrent();
 
   });

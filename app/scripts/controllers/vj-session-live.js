@@ -111,4 +111,8 @@ angular.module('rhinobird.controllers')
 	      pickEvent.stream.isMuted = !pickEvent.active;
 	    }
     });
+
+    $scope.willPlayback = function () {
+      return $scope.picks && $scope.picks.length > 0 && !$scope.currentPick;
+    };
   });
