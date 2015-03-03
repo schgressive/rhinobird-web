@@ -73,7 +73,6 @@ angular.module('rhinobird.controllers')
     // check for new streams every 10 seconds
     var polling = $interval(checkNewStreams, POLLING_TIME);
 
-
     $scope.$on('$destroy', function() {
       // cancel polling on controller destroy
       $interval.cancel(polling);

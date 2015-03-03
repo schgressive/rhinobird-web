@@ -276,22 +276,14 @@ angular.module('rhinobird', [
       templateUrl: '/views/vj-session-live.html',
       controller: 'VjSessionLiveCtrl',
       resolve: {
-        user: ['$stateParams', 'User', function($stateParams, User){
-          return User.$find($stateParams.userName).$promise;
-        }],
-        vj: ['$q', '$stateParams', 'user', function($q, $stateParams, user){
+        user: ['$q', '$stateParams', 'User', function($q, $stateParams, User){
           var deferred = $q.defer();
 
-          user.vjs.$search({ 'channel_name': $stateParams.channelName, live: true }).$then(function(vjs){
-            if(vjs.length === 0){
-              deferred.reject();
-            }
-            else if(vjs.length > 0){
-              deferred.resolve(vjs[0]);
-            }
+          User.$find($stateParams.userName).$then( function(user) {
+            deferred.resolve(user);
           });
 
-          return deferred.$promise;
+          return deferred.promise;
         }]
       }
     })
