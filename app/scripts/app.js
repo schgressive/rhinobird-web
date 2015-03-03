@@ -291,7 +291,7 @@ angular.module('rhinobird', [
             }
           });
 
-          return deferred.promise;
+          return deferred.$promise;
         }]
       }
     })
