@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('rhinobird.controllers')
-  .controller('VjSessionLiveCtrl', function ($scope, vj, user, VjService, $stateParams) {
+  .controller('VjSessionLiveCtrl', function ($scope, user, VjService, $stateParams, $interval) {
+
+    var POLLING_TIME = 10000;
 
     $scope.self = $scope;
 
@@ -9,10 +11,10 @@ angular.module('rhinobird.controllers')
     $scope.user = user;
 
     // The vj
-    $scope.vj = vj;
+    $scope.vj = null;
 
     // The picks
-    $scope.picks = vj.picks.$refresh();
+    $scope.picks = [];
 
     // The currently playing pick
     $scope.currentPick = null;
@@ -21,10 +23,37 @@ angular.module('rhinobird.controllers')
     $scope.channelName = $stateParams.channelName;
 
     // The room id for comments
-    $scope.roomId = $scope.channelName + '-' + user.username + '-' + vj.id;
+    $scope.roomId = $scope.channelName + '-' + user.username + '-vj-offline';
 
-    // Create a socket data connection with the user token
-    VjService.startListening(vj.token).then(function(){
+    // Streaming in progress indicator
+    $scope.streamingInProgress = false;
+
+    // Check if there are vjs sessions to subscribe
+    var checkVj = function () {
+      if ($scope.streamingInProgress)
+        return false;
+
+      user.vjs.$search({ 'channel_name': $stateParams.channelName, live: true }).$then(function (vjs) {
+        if (!vjs.length > 0)
+          return false;
+
+        var vj = vjs[0];
+        $scope.vj = vj;
+        $scope.picks = vj.picks.$refresh();
+        $scope.roomId = $scope.channelName + '-' + user.username + '-' + vj.id;
+
+        VjService.startListening(vj.token).then(subscribeStream);
+
+        $scope.streamingInProgress = true;
+      });
+    };
+
+    // check now and periodicaly check for vj every 10 seconds
+    checkVj();
+    var polling = $interval(checkVj, POLLING_TIME);
+
+    // Subscribe to a vj session
+    var subscribeStream = function () {
       VjService.socket.stream.addEventListener('stream-data', function(data){
         $scope.$apply(function(){
           if(data.msg.event === 'active-pick-changed'){
@@ -80,7 +109,7 @@ angular.module('rhinobird.controllers')
           }
         });
       });
-    });
+    };
 
     // Set the active pick as the current pick in the scope
     $scope.$on('licode-video-created', function(event, stream){
@@ -95,7 +124,6 @@ angular.module('rhinobird.controllers')
           // Set the current stream
           $scope.currentPick = pickEvent.stream;
         }
-
       }
 
       // Set the fixed audio if there is any
@@ -105,11 +133,15 @@ angular.module('rhinobird.controllers')
 
       // Unmute the stream
       if(anyFixed){
-	      pickEvent.stream.isMuted = !pickEvent.fixedAudio;
+        pickEvent.stream.isMuted = !pickEvent.fixedAudio;
       }
       else{
-	      pickEvent.stream.isMuted = !pickEvent.active;
-	    }
+        pickEvent.stream.isMuted = !pickEvent.active;
+      }
+    });
+
+    $scope.$on('$destroy', function() {
+      $interval.cancel(polling);
     });
 
     $scope.willPlayback = function () {
