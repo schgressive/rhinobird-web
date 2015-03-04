@@ -115,16 +115,15 @@ h1 {
 }
 
 // using 1:1.618, Golden Section
-h2, article h1 {font-family: $bold-font-stack; @include fontSize(32.360px);}
-h3, article h2 {@include fontSize(22.652px);}
-h4, article h3 {@include fontSize(20px);}
+h2 { font-family: $bold-font-stack; @include fontSize(32.360px);}
+h3 {@include fontSize(22.652px);}
+h4 {@include fontSize(20px);}
 h5, article h4, legend {font-size: $baseFontSize;}
 
 h6  {font-size: $fontSizeSmall;}
 
 h1, h2, h3, h4, h5, h6 {font-weight: normal;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
-h1, h2 { letter-spacing: -1px;}
 h3, h4 { font-family: 'Open Sans', $baseFontFamily;}
 
 a, i, .btn, input {
@@ -137,12 +136,15 @@ small {font-size: $fontSizeMini;}
 .lead { @include fontSize(18px);}
 
 article {
-	h1 { margin-bottom: 20px;}
+	h1 { margin-bottom: 20px;  @include fontSize(26px); font-family: $bold-font-stack;}
+	h2 { @include fontSize(20px);}
+	h3 { @include fontSize(18px);}
 	p + h2 { margin-top: 20px;}
 	blockquote { margin-top: 3px; border-left-color: $grayLight;}
 }
 
 .thin { font-family: 'Open Sans'; @include font-smoothing();}
+.caps { text-transform: uppercase;}
 
 .red { color: $red;}
 .active a.red { color: $red !important;}
