@@ -10,7 +10,7 @@ angular.module('rhinobird.models')
 
         return this.$send({method: 'POST', url: this.$url() + '/reposts'}).$then(function() {
           obj.reposted = true;
-          obj.repost_count = obj.repost_count + 1;
+          obj.reposts = obj.reposts + 1;
         });
 
       }
