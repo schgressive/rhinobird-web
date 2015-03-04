@@ -10,28 +10,10 @@ angular.module('rhinobird.controllers')
 
     vm.registerUser = registerUser;
 
-    function generateRandomUserData(userData) {
-      var name = userData.email.match(/(^.*)@/);
-      if (name != null)
-        name = name[1];
-      else
-        name = "null";
-
-      userData.name     = name;
-      userData.username = name + sjcl.codec.hex.fromBits( sjcl.random.randomWords(8) ).slice(0,5);
-      userData.password = sjcl.codec.hex.fromBits( sjcl.random.randomWords(8) );
-      userData.password_confirmation = userData.password;
-
-      return userData;
-    }
-
     function registerUser(signupForm) {
       var userData = {};
       angular.copy(vm.user, userData);
       userData.isMobile = vm.isMobile;
-
-      if (vm.isMobile)
-        userData = generateRandomUserData(userData);
 
       AuthService.register(userData).then(function(user){
         vm.signupSuccess = true;
