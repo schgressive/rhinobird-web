@@ -724,7 +724,7 @@ i[class*="icon"] {font-style: normal;}
   h4 { margin: {top:0px;bottom:20px;}}
   .tabs {
     text-align: center;
-    padding: { top: 5px; bottom: 5px;}
+    padding: { top: 7px; bottom: 5px;}
     @media screen and (min-width: 980px) { @include fontSize(16px);}
     li a {
       @media screen and (min-width: 980px) {
@@ -856,6 +856,33 @@ i[class*="icon"] {font-style: normal;}
   .right-col .row-fluid .offset1:first-child {
     @media screen and (max-width: 800px) { margin-left: 0;}
   }
+}
+
+.row-title { margin-bottom: 16px;}
+.img-grid {
+  img {
+    display: inline-block;
+  }
+}
+.channel-grid {
+  li {
+    font-size: 15px;
+    width: 15%;
+    margin-bottom: 12px;
+    &:nth-child(1n) a { color: $blue;}
+    &:nth-child(2n) a { color: $red;}
+    &:nth-child(3n) a { color: $green;}
+    &:nth-child(5n) a { color: magenta;}
+    &:nth-child(7n) a { color: $warmGray11;}
+  }
+}
+.pop-user-grid {
+  li.pop-user {
+    text-align: center;
+    width: 10%;
+    & + li { margin-left: 1%;}
+  }
+  .user-avatar { width: 100%; height: auto;}
 }
 
 .about {
