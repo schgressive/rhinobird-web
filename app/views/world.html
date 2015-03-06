@@ -1,53 +1,42 @@
 <div class="span12">
   <div class="row-fluid">
     <div class="span12">
-      <h4 class="row-title">Happening Near You</h4>
-      <a href="#" class="img-grid">
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-      </a>
-    </div>
+      <h4 class="row-title">
+        <span>Happening Near You</span>
+        <a class="btn btn-default btn-mini" href="#">See All</a>
+      </h4>
+<!-- ON MOBILE MAKE SHOW ONLY 1 AND SWIPE/SCROLL HORIZONTAL -->
+      <div class="video-slide-wrapper">
+        <ol class="unstyled">
+          <li class="module-large span3"
+              ng-repeat="stream in streams | limitTo:4">
+            <div ng-include="'/views/snippets/module-large.html'"></div>
+          </li>
+        </ol>
+      </div><!-- /.video-slide-wrapper -->
+    </div><!-- /.span12 -->
   </div><!-- /.row-fluid -->
   <div class="row-fluid">
     <div class="span12">
-      <h4>World Exciting</h4>
-      <a href="#" class="img-grid">
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-        <img ng-src="{{stream.thumbs.small}}" src-fallback="/images/missing.png"/>
-      </a>
-    </div>
+      <h4 class="row-title">
+        <span>World Exciting</span>
+        <a class="btn btn-default btn-mini" href="#">See All</a>
+      </h4>
+<!-- ON MOBILE MAKE SHOW ONLY 1 AND SWIPE/SCROLL HORIZONTAL -->
+      <div class="video-slide-wrapper">
+        <ol class="unstyled">
+          <li class="module-large span3"
+              ng-repeat="stream in streams | limitTo:4">
+            <div ng-include="'/views/snippets/module-large.html'"></div>
+          </li>
+        </ol>
+      </div><!-- /.video-slide-wrapper -->
+    </div><!-- /.span12 -->
   </div><!-- /.row-fluid -->
   <div class="row-fluid">
     <div class="span12">
       <h4 class="row-title">Watch Channels</h4>
+<! -- SHOW MAX OF 12 CHANNELS -->
       <ul class="channel-grid inline unstyled">
         <li>
           <a href="#">#channelname</a>
@@ -91,146 +80,14 @@
   <div class="row-fluid">
     <div class="span12">
       <h4 class="row-title">Popular Animals</h4>
-      <ul class="pop-user-grid unstyled inline">
-        <li class="pop-user">
-          <ul class="unstyled">
+      <ul class="pop-user-grid unstyled">
+<!-- MAKE PU-WRAPPER AND ITS CHILDREN INTO SNIPPET AND REPEAT, MAX OF 8 USERS -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
             <li class="user-avatar">
               <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
             </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
-              <a href="#" title="{{user.username}}'s page">
-                Username Here
-              </a>
-            </li>
-            <li>
-              <button type="button" role="button"
-                      class="btn btn-default btn-mini">
-                      <span class="fa fa-user-plus"></span>
-                      Follow
-              </button>
-            </li>
-          </ul>
-        </li><!-- /.pop-user -->
-        <li class="pop-user">
-          <ul class="unstyled">
-            <li class="user-avatar">
-              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
-            </li>
-            <li>
+            <li class="ellipsis">
               <a href="#" title="{{user.username}}'s page">
                 Username Here
               </a>
@@ -239,7 +96,113 @@
               <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
             </li>
           </ul>
-        </li><!-- /.pop-user -->
+        </li><!-- /.pu-wrapper -->
+
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
+        <li class="pu-wrapper">
+          <ul class="pop-user unstyled">
+            <li class="user-avatar">
+              <rb-avatar class="img-wrap" title="{{user.username}}"></rb-avatar>
+            </li>
+            <li class="ellipsis">
+              <a href="#" title="{{user.username}}'s page">
+                Username Here
+              </a>
+            </li>
+            <li>
+              <button type="button" role="button" class="btn btn-default btn-mini">Follow</button>
+            </li>
+          </ul>
+        </li><!-- /.pu-wrapper -->
       </ul>
     </div>
   </div><!-- /.row-fluid -->

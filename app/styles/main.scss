@@ -770,7 +770,7 @@ i[class*="icon"] {font-style: normal;}
 .lower-content {
   padding-bottom: 30px;
   h4 { margin-top: 0px;}
-  &.media-area .row-fluid:first-of-type {margin-bottom: 0;}
+  &.media-area .row-fluid + .row-fluid { margin-top: 20px;}
   .row-fluid [class*="span3"] {
     @media screen and (max-width: 1000px) {
       width: 31.91%;
@@ -858,29 +858,54 @@ i[class*="icon"] {font-style: normal;}
   }
 }
 
-.row-title { margin-bottom: 16px;}
-.img-grid {
-  img {
-    display: inline-block;
-  }
+.row-title {
+  margin-bottom: 24px;
+  span + a { margin-left: 10px;}
 }
+
+.video-slide-wrapper {
+  width: 100%;
+  overflow: hidden;
+  max-height: 215px;
+}
+
 .channel-grid {
+  @media screen and (min-width: 980px) { width: 80%;}
   li {
     font-size: 15px;
-    width: 15%;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     &:nth-child(1n) a { color: $blue;}
-    &:nth-child(2n) a { color: $red;}
-    &:nth-child(3n) a { color: $green;}
-    &:nth-child(5n) a { color: magenta;}
-    &:nth-child(7n) a { color: $warmGray11;}
+    &:nth-child(2n - 9) a { color: $red;}
+    &:nth-child(4n - 7) a { color: $green;}
+    &:nth-child(3n - 4) a { color: magenta;}
+    &:nth-child(5n) a { color: $warmGray11;}
+    a { padding: 3px 5px;}
   }
 }
+
 .pop-user-grid {
-  li.pop-user {
+  @include fontSize(12px);
+  width: 100%;
+  overflow: hidden;
+  height: 140px;
+  .pu-wrapper {
+      width: 88px;
+      max-height: 140px;
+      margin: 0 18px 30px;
+      float: left;
+    &:first-of-type { margin-left: 0;}
+  }
+  .pop-user {
     text-align: center;
-    width: 10%;
-    & + li { margin-left: 1%;}
+    background-color: $white;
+    padding: 11px 5px;
+    width: 100%;
+    border: 2px solid $warmGray1;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    li { line-height: 16px;}
+    li + li { margin-top: 5px;}
+    button { font-size: 12px;}
   }
   .user-avatar { width: 100%; height: auto;}
 }
