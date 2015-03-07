@@ -15,7 +15,7 @@
 </div>
 <div class="row-fluid">
   <div class="span12">
-    <p ng-if='!app.isLoggedIn'>You need to sign in to be able to post comments</p>
+    <p ng-if='!app.isLoggedIn'>Please <a href="#" ng-click="login()">sign in</a> to post comments.</p>
 
     <ol class="rb-comments-list comments-block unstyled">
       <li class="comment" standard-comment ng-repeat="comment in comments" />
