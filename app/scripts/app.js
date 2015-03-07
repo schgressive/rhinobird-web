@@ -83,6 +83,7 @@ angular.module('rhinobird', [
     - user.following                          /user/:userName/following
     - user.followers                          /user/:userName/followers
     - user.live                               /user/:userName/live
+    - allchannels                             /allchannels
     - channel({channelName: <channelname>})   /:channelName
     - vjsession.live({                             /:channelName/:userName
           channelName: <channelname>,
@@ -294,7 +295,7 @@ angular.module('rhinobird', [
       templateUrl: '/views/terms.html'
     })
 
-    // Terms
+    // Trademark
     .state('trademark', {
       url: '/trademark/',
       templateUrl: '/views/trademark.html'
@@ -316,6 +317,12 @@ angular.module('rhinobird', [
     .state('goodbye', {
       url: '/goodbye/',
       templateUrl: '/views/goodbye.html'
+    })
+
+    // AllChannels
+    .state('allchannels', {
+      url: '/allchannels/',
+      templateUrl: '/views/allchannels.html'
     })
 
     // Channels
