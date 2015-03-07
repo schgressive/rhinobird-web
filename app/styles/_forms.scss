@@ -88,7 +88,10 @@ body.base {
 	input[type="email"] { padding: { top: 6px; bottom: 6px;}}
 	.input-prepend,
 	.input-append {
-    .btn { padding: { top: 6px; bottom: 6px;}}
+    .btn {
+      padding: { top: 6px; bottom: 6px;}
+      &.btn-small { padding: { top: 2px; bottom: 2px;}}
+    }
 	}
 	.btn, btn-small, .btn-mini, .btn-large, .tooltip-inner {
 		border-radius: $baseBorderRadius;
@@ -117,13 +120,18 @@ body.base {
 		h2, h3, h4, h5, h6 { @include font-smoothing;}
 		.close {
 			color: $warmGray11;
+			font-size: 30px;
 			text-shadow: 0 1px 0 $black;
 			margin-top: 4px;
+			padding-bottom: 3px;
 			opacity: .5;
 			&:hover { opacity: .7;}
-			@media screen and (max-width: 598px) {
+			@media screen and (max-width: 640px) {
 				line-height: 30px;
-				font-size: 30px;
+				font-size: 40px;
+				padding-bottom: 10px;
+				margin-right: 10px;
+				margin-top: 6px;
 			}
 		}
 	}
@@ -169,8 +177,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	&:hover {
 		color: $white;
 		text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-		background-color: $orange;
-		border-color: darken($orange, 10%);
+		background-color: $purple;
+		border-color: darken($purple, 10%);
 		@include font-smoothing;
 	}
 	&.disabled, &[disabled] {
@@ -376,6 +384,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
   margin-top: 10px;
   .btn-primary + .btn-accent { margin-left: 16px;}
 }
+
+.goliveForm { padding-top: 12px;}
 
 .mobileForm {
 	color: $textOnDark;

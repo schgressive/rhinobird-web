@@ -1,6 +1,6 @@
 <div class="alert alert-warning" ng-hide="vm.camera.access">
   <span class="message pull-left">Please enable camera permissions for your browser.</span>
-  <span class="text-right visible-desktop">
+  <span class="text-right">
   	<!-- this svg points up for desktop -->
   	<svg class="warning-arrow"
 		     xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@
   					name="caption"
   					rows="4"
   					maxlength="120"
-  					placeholder="Going Live? Add caption or use #hashtag to add video to a channel. Caption limited to 120 characters."
+  					placeholder="What are you broadcasting today? example: Live from #NYC"
   					ng-model="vm.caption">
   </textarea>
   <div class="validate" ng-show="vm.captionWarning">
@@ -56,11 +56,11 @@
   </div><!-- /.checkbox-wrapper -->
   <div class="submit-wrapper">
 	  <input ng-click="ctrl.ready()"
-	  			 class="btn btn-primary btn-large"
+	  			 class="btn btn-primary"
 	  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
 	  			 role="submit" type="submit" value="Ready!"/>
 	 <input ng-click="gotoHome()"
-			 class="btn btn-default btn-large"
+			 class="btn btn-default"
 			 role="button" type="button" value="Cancel"/>
   </div><!-- /.submit-wrapper -->
 </form><!-- /goliveForm -->

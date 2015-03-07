@@ -249,6 +249,8 @@ body.base { /*overrides are here */
 				max-width: 962px;
 				padding: 0 0 10px 0;
 				border: none;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
 				top: 44px;
 				left: inherit;
 				z-index: 2000;
@@ -1241,9 +1243,9 @@ i[class*="icon"] {font-style: normal;}
 	color: $grayDarker;
 	padding: 0px 10px 7px 10px;
 	background-color: $white;
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 640px) {
 		@include fontSize(12px);
-		padding: 3px 6px 0px 6px;
+		padding: 5px 6px;
 	}
 	a { text-decoration: underline;}
 }
