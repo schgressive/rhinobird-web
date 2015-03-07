@@ -96,7 +96,8 @@ a:focus {
 	outline-offset: 5px;
 }
 
-li span.fa + .line-text { margin-left: 3px;}
+li span.fa + .line-text,
+h3 span.fa + .line-text { margin-left: 6px;}
 
 // Margin/Padding classes
 
