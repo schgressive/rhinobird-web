@@ -1311,6 +1311,23 @@ i[class*="icon"] {font-style: normal;}
   }
 }
 
+.channel-item {
+  h4 { font-family: $bold-font-stack;}
+  .module-large { box-shadow: none;}
+  .module-video {
+    margin-bottom: 10px;
+    + ul li + li { margin-top: 8px;}
+  }
+  .user-avatar { margin-right: 8px;}
+  .channel-details {
+    li + li { margin-top: 8px;}
+  }
+  + .channel-item {
+    border-top: 1px solid $borderLight;
+    padding-top: 30px;
+  }
+}
+
 .comments-block { padding-top: 20px;}
 .video-chat .comments-block {
   overflow-y: scroll;
