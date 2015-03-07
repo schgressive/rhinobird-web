@@ -30,6 +30,7 @@ $green													: hsla(156,100%,35%,1); /*00CC7C*/
 $yellow													: hsla(41,70%,54%,1); /*DCA938*/
 $blue														: hsla(204,56%,34%,1); /*256188*/
 $tan														: hsla(25,17%,51%,1); /*977E6B*/
+$purple                         : hsla(275,74%,62%,1); /*b56eef*/
 $warmGray1											: hsla(33,12%,82%,1); /*D7D2CB*/
 $warmGray4											: hsla(25,10%,68%,1); /*B6ADA5*/
 $warmGray7											: hsla(27,8%,55%,1); /*968C83*/
@@ -97,9 +98,8 @@ $btnDisabledBackground					:	$grayLighter;
 $btnPrimaryBackground						: $orange;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
 $btnPrimaryBackgroundHover			: $red;
-$btnFeatureBackground						: $warmGray11;
-$btnAccentColor									: $textOnDark;
-$btnAccentBackground						: $warmGray7;
+$btnAccentColor									: $white;
+$btnAccentBackground						: $purple;
 
 // Forms State & Alerts ------------------------------
 

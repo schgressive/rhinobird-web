@@ -83,6 +83,16 @@ body.base {
 		margin-left: 0;
 		margin-right: 10px;
 	}
+	input[type="text"],
+	input[type="password"],
+	input[type="email"] { padding: { top: 6px; bottom: 6px;}}
+	.input-prepend,
+	.input-append {
+    .btn {
+      padding: { top: 6px; bottom: 6px;}
+      &.btn-small { padding: { top: 2px; bottom: 2px;}}
+    }
+	}
 	.btn, btn-small, .btn-mini, .btn-large, .tooltip-inner {
 		border-radius: $baseBorderRadius;
 		-webkit-border-radius: $baseBorderRadius;
@@ -92,6 +102,7 @@ body.base {
 		-webkit-border-radius: 0px;
 	}
 	.add-on {
+  	padding: { top: 6px; bottom: 6px;}
 		background-color: $inputBackground;
 	}
 	.brSmall { border-radius: $borderRadiusSmall;}
@@ -109,13 +120,18 @@ body.base {
 		h2, h3, h4, h5, h6 { @include font-smoothing;}
 		.close {
 			color: $warmGray11;
+			font-size: 30px;
 			text-shadow: 0 1px 0 $black;
 			margin-top: 4px;
+			padding-bottom: 3px;
 			opacity: .5;
 			&:hover { opacity: .7;}
-			@media screen and (max-width: 598px) {
+			@media screen and (max-width: 640px) {
 				line-height: 30px;
-				font-size: 30px;
+				font-size: 40px;
+				padding-bottom: 10px;
+				margin-right: 10px;
+				margin-top: 6px;
 			}
 		}
 	}
@@ -161,8 +177,8 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	&:hover {
 		color: $white;
 		text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-		background-color: $orange;
-		border-color: darken($orange, 10%);
+		background-color: $purple;
+		border-color: darken($purple, 10%);
 		@include font-smoothing;
 	}
 	&.disabled, &[disabled] {
@@ -182,11 +198,15 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	line-height: 1.3;
 	color: $white;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
-	background-color: transparent;
+	background-color: rgba(0, 0, 0, 0.1);
 	padding: { left:26px; right:26px;}
 	border-color: $white;
 	border-width: 3px;
 	@include font-smoothing;
+	&:hover {
+    background-color: darken($btnAccentBackground, 10%);
+    border-color: darken($btnAccentBackground, 15%);
+  }
 	& + .btn { margin-left: 10px;}
 }
 
@@ -359,6 +379,13 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		box-shadow: 1px 1px 2px 2px $darkTrans inset;
 	}
 }
+
+.signinBtns {
+  margin-top: 10px;
+  .btn-primary + .btn-accent { margin-left: 16px;}
+}
+
+.goliveForm { padding-top: 12px;}
 
 .mobileForm {
 	color: $textOnDark;

@@ -11,7 +11,11 @@
         </div><!-- /.module-xlarge -->
 
         <div class="span4 visible-desktop hidden-tablet video-chat" ng-if="streamLive()">
-          <h3>Say something</h3>
+          <h3>
+            <span class="fa fa-comment-o"></span>
+            <span class="line-text">Say something...</span>
+          </h3>
+          <p>Please <a href="#" ng-click="login()">sign in</a> to post comments.</p>
           <div standard-comments stream="stream"></div>
         </div>
 
@@ -31,9 +35,15 @@
             </li>
             <li ui-sref-active="active">
               <a ui-sref="stream.user" data-toggle="tab">
-                <span class="fa fa-user"></span>
-                <span class="line-text">{{stream.user.username}}'s RB</span>
-                </a>
+                <span class="hidden-phone">
+                  <span class="fa fa-user"></span>
+                  <span class="line-text">{{stream.user.username}}'s Rhinobird</span>
+                </span>
+                <span class="visible-phone">
+                  <span class="fa fa-user"></span>
+                  <span class="line-text">{{stream.user.username}}'s RB</span>
+                </span>
+              </a>
             </li>
             <li ui-sref-active="active">
               <a ui-sref="stream.videos" data-toggle="tab">

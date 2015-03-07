@@ -49,7 +49,6 @@ server {
     proxy_set_header Host $http_host;
     proxy_redirect off;
     <% if fetch(:nginx_use_ssl) %>
-      proxy_set_header X-Forwarded-Proto https;
       proxy_pass http://<%= fetch(:api_application) %>-app-server;
     <% else %>
       proxy_pass https://<%= fetch(:api_application) %>-app-server;
