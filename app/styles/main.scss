@@ -263,7 +263,6 @@ body.base { /*overrides are here */
 						&:hover {
 							color: $dropdownLinkColorHover;
 							text-decoration: none;
-							background-color: $dropdownLinkBackgroundHover;
 						}
 					}
 					&.deactivated {
@@ -275,30 +274,37 @@ body.base { /*overrides are here */
 						}
 					}
 				}
-				i[class*="icon"] { margin: 2px 7px 0 0;}
 				small {
+  				color: $dropdownLinkColor;
 					margin-left: 14px;
 					display: block;
-					a:hover {
-						color: $textColor;
-						background-color: transparent;
-						text-decoration: underline;
-						cursor: pointer;
+					a {
+  					color: $dropdownLinkColor;
+  					text-decoration: underline;
+  					&:hover {
+              color: $purple;
+						  background-color: transparent;
+					  }
 					}
 				}
 			}
 			.main-menu {
 				@include fontSize(16px);
 				@media screen and (max-width: 580px) { margin-bottom: 10px;}
-				a { color: $dropdownLinkColor; padding: {top:10px;bottom:10px;}}
+				a {
+  				color: $dropdownLinkColor;
+  				padding: {top:10px;bottom:10px;}
+          &:hover { background-color: $dropdownLinkBackgroundHover;}
+  		  }
 			}
 			.colophon {
 				@include fontSize(14px);
 				border-top: 1px solid $dropdownBorder;
 				@media screen and (max-width: 580px) { padding-top: 10px;}
 				a {
-					color: $textColor;
+ 					color: $textColor;
 					padding: {top:6px;bottom:6px;}
+					&:hover { background-color: $btnAccentBackground;}
 				}
 				ul {margin-bottom: 6px;}
 			}
@@ -470,6 +476,7 @@ i[class*="icon"] {font-style: normal;}
   	margin: 0 0 0 28px;
   	padding: 2px 10px;
   	border: none;
+  	border-radius: 0;
 		background-color: $navbarSearchBackground;
 		@include placeholder {
 			color: $navbarSearchPlaceholderColor;
@@ -715,7 +722,10 @@ i[class*="icon"] {font-style: normal;}
 	.form-geo, .form-search {
 		float: right;
 		@media screen and (max-width: 740px) { float: none;}
-		input[type="search"] { @media screen and (max-width: 500px) { width: 280px;}}
+		input[type="search"] {
+  		padding: { top: 6px; bottom: 6px;}
+  		@media screen and (max-width: 500px) { width: 280px;}
+    }
 	}
 	[class*="span"] {
 		@media screen and (max-width: 740px){ width: 100%; margin-left: 0;}

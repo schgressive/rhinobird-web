@@ -1,4 +1,4 @@
-<h4>Please sign in.</h4>
+<h4>Please sign in or create a new account.</h4>
 <div class="m_20t m_20b">
   <a class="btn-social" href="/registration/facebook" target="_self" title="sign in with facebook"><span>Facebook</span></a>
   <a class="btn-social" href="/registration/twitter" target="_self" title="sign in with twitter"><span>Twitter</span></a>
@@ -32,8 +32,9 @@
     You need to confirm your account before being able to sign in, please confirm your account following the instruction
     we have sent to your email address or <a href="#" ng-click="$parent.$parent.loginModalAction = 'send-confirmation'">request a new confirmation email.</a>
   </p>
-  <input class="btn btn-primary" type="submit" value="Sign In"/>
+  <div class="signinBtns">
+    <input class="btn btn-primary pull-left" type="submit" value="Sign In"/>
+    <a href="#" class="btn btn-accent" ng-click="$parent.loginModalAction = 'signup'">New Account</a>
+  </div>
 </form>
 <h6><a href="#" ng-click="$parent.loginModalAction = 'password'">Did you forget your username or password?</a></h6>
-<a href="#" class="btn btn-accent" ng-click="$parent.loginModalAction = 'signup'">Create New Account</a>
-
