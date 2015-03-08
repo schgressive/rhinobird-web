@@ -388,39 +388,36 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .goliveForm { padding-top: 12px;}
 
 .mobileForm {
-	color: $textOnDark;
-	background-color: transparent;
-	.top-content {
-		background-color: transparent;
-		@media screen and (max-width: 979px) { margin-top: 10px;}
-	}
-	.goliveForm {
-		padding: 10px 10px 20px;
-		background-color: $darkTrans2;
-		.controls-row {
-			.btn:focus { outline: 0; }
-			.btn-checkbox {
-				float: left;
-				margin-right: 12px;
-				width: 46px;
-				height: 46px;
-				border-radius: 46px;
-				padding: 0px;
-			}
-			.btn-large { @include fontSize(18px);}
-			.btn-block {
-				display: block;
-				& + .btn-block { margin-top: 14px;}
-			}
-			& + .controls-row { margin-top: 20px;}
-		}
-	}
-	.status-wrapper {
-		color: $textOnDark;
-		text-align: center;
-		padding: 10px;
-		background-color: $darkTrans2;
-	}
+  color: $textOnDark;
+  background-color: transparent;
+  .top-content {
+    background-color: transparent;
+    @media screen and (max-width: 979px) { margin-top: 10px;}
+  }
+  .goliveForm { padding: 10px 10px 20px; background-color: $darkTrans2;}
+  .controls-row {
+    .btn:focus { outline: 0; }
+    .btn-checkbox {
+      float: left;
+      margin-right: 12px;
+      width: 46px;
+      height: 46px;
+      border-radius: 46px;
+      padding: 0px;
+    }
+    .btn-large { @include fontSize(18px);}
+    .btn-block {
+      display: block;
+      & + .btn-block { margin-top: 14px;}
+    }
+    & + .controls-row { margin-top: 20px;}
+  }
+  .status-wrapper {
+    color: $textOnDark;
+    text-align: center;
+    padding: 10px;
+    background-color: $darkTrans2;
+  }
 }
 
 .modal, .mobileForm {
