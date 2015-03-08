@@ -5,7 +5,7 @@
     </div>
   </div><!-- /.row-fluid -->
   <div class="row-fluid">
-    <div class="span4">
+    <div class="span6 channel-details-wrapper">
       <ul class="channel-details unstyled">
         <li class="clearfix">
           <div class="user-avatar pull-left">
@@ -35,8 +35,8 @@
           <span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1" class="line-text">{{channel.streamsCount}} videos</span>
         </li>
       </ul>
-    </div><!-- /.span3 -->
-    <div class="module-large span8 hidden-phone">
+    </div><!-- /.span6 -->
+    <div class="module-large span6 hidden-phone">
       <div class="module-video">
         <a class="live-stream-link" ui-sref="channel({channelName: channel.name})">
           <img ng-src="{{channel.streams.0.thumbs.medium}}"
@@ -53,6 +53,6 @@
           <span class="line-text">stream likes</span>
         </li>
       </ul>
-    </div><!-- /.span8 -->
+    </div><!-- /.span6 -->
   </div><!-- /.row-fluid -->
 </div><!-- /.channel-item -->
