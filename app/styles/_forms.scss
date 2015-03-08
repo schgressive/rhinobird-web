@@ -394,12 +394,11 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     background-color: transparent;
     @media screen and (max-width: 979px) { margin-top: 10px;}
   }
-  .goliveForm { padding: 10px 10px 20px; background-color: $darkTrans2;}
-  .controls-row {
-    .btn:focus { outline: 0; }
+  .goliveForm {
+    padding: 40px 10px 20px;
+    background-color: $darkTrans2;
+    .btn:focus { outline: 0;}
     .btn-checkbox {
-      float: left;
-      margin-right: 12px;
       width: 46px;
       height: 46px;
       border-radius: 46px;
@@ -409,6 +408,13 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     .btn-block {
       display: block;
       & + .btn-block { margin-top: 14px;}
+    }
+  }
+  .controls-row {
+    .btn-checkbox {
+      float: left;
+      @media screen and (max-width: 640px) { margin-left: 9.5%;}
+      @media screen and (max-width: 480px) { margin-left: 5.25%;}
     }
     & + .controls-row { margin-top: 20px;}
   }
@@ -461,8 +467,11 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 			font-weight: normal;
 		}
 	}
-	.btn-large { @include fontSize(18px);}
-	.channel-suggest { margin-top: -7px; margin-bottom: 5px;}
+  .btn-large { @include fontSize(18px);}
+  .channel-suggest {
+    width: 100%;
+    margin: -7px auto 5px;
+  }
 }
 
 .modal {

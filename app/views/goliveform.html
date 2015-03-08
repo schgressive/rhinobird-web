@@ -3,14 +3,14 @@
     <section class="top-content" ng-hide="vm.goliveService.status == 'connected'">
       <div class="row-fluid">
         <div class="span12">
-          <div class="alert alert-warning" ng-hide="vm.camera.access">
+          <!-- <div class="alert alert-warning" ng-hide="vm.camera.access">
             <span class="block">
             Please enable camera permissions for your browser.
             </span>
-          </div><!-- /.alert -->
+          </div> -->
           <form class="goliveForm" name="goliveForm" role="form"
                 ng-show="vm.goliveService.status == 'disconnected'">
-            <div class="m_10t m_10b controls-row text-center">
+            <div class="m_20b text-center">
               <button type="button" role="button"
                 class="btn btn-default btn-small btn-checkbox btn-flip"
                 ng-show="vm.camera.videoSources.length > 1"
@@ -23,8 +23,8 @@
             Use hashtags in your caption to add your video to a channel:
             </label>
             <textarea class="input-block-level" name="caption"
-                      rows="3" maxlength="120" ng-model="vm.caption"
-                      placeholder="What are you broadcasting today? example: Live from #NYC"></textarea>
+              rows="3" maxlength="120" ng-model="vm.caption"
+              placeholder="What are you broadcasting today? example: Live from #NYC"></textarea>
             <div class="char-count">
               <span>-12</span>
             </div><!-- /.char-count -->
@@ -32,16 +32,15 @@
               <small class="info">Caption limited to 120 characters.</small>
             </div><!-- /.validate -->
             <div class="m_20b" ng-show="vm.nearChannels.length">
-              <p>Suggested channels:</p>
-              <ol class="channel-suggest inline no-bullets">
-                <li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline">
+              <p class="text-center">Suggested channels:</p>
+              <ol class="channel-suggest inline unstyled text-center">
+                <li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3">
                   <input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/>
                 </li>
               </ol>
             </div>
-            <div class="m_10t m_10b">
-              <button type="button" role="button"
-                class="btn btn-large btn-default"
+            <div class="m_20b text-center">
+              <button type="button" role="button" class="btn btn-accent"
                 data-toggle="collapse" data-target="#sharingOpts">
                 <span class="fa fa-share-alt-square"></span>
                 <span class="line-text">Sharing Options</span>
@@ -58,7 +57,7 @@
               <input ng-click="gotoHome()"
                 class="btn btn-default btn-large btn-block"
                 role="button" type="button" value="Take me to the website"/>
-            </div><!-- /.controls.controls-row -->
+            </div><!-- /.controls-row -->
           </form><!-- /goliveForm -->
           <div class="status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
             <div class="loading-wrapper">
