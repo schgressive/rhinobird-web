@@ -712,6 +712,7 @@ i[class*="icon"] {font-style: normal;}
 .search-results-wrapper {
 	padding-bottom: 10px;
 	border-bottom: 1px solid $grayLight;
+	outline: red solid 1px;
 	strong {
 		color: $textColorAccent;
 		font-family: 'Open Sans', $bold-font-stack;

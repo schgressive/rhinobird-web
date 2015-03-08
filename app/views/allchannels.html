@@ -60,7 +60,13 @@
                   </li>
                   <li>
                     <span class="fa fa-video-camera"></span>
-                    <span class="line-text">total active streams</span>
+                    <span ng-show="channel.streamsCount == 0" class="line-text">
+                      No videos available.
+                    </span>
+                    <span ng-show="channel.streamsCount == 1" class="line-text">
+                      video
+                    </span>
+                    <span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1" class="line-text">{{channel.streamsCount}} videos</span>
                   </li>
                 </ul>
               </div><!-- /.span3 -->
@@ -74,8 +80,7 @@
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by:
-username</span>
+                    <span class="line-text">Streamed by: username</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
@@ -93,8 +98,7 @@ username</span>
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by:
-username</span>
+                    <span class="line-text">Streamed by: username</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
@@ -112,8 +116,7 @@ username</span>
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by:
-username</span>
+                    <span class="line-text">Streamed by: username</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
@@ -153,7 +156,13 @@ username</span>
                   </li>
                   <li>
                     <span class="fa fa-video-camera"></span>
-                    <span class="line-text">total active streams</span>
+                    <span ng-show="channel.streamsCount == 0" class="line-text">
+                      No videos available.
+                    </span>
+                    <span ng-show="channel.streamsCount == 1" class="line-text">
+                      video
+                    </span>
+                    <span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1" class="line-text">{{channel.streamsCount}} videos</span>
                   </li>
                 </ul>
               </div><!-- /.span3 -->
@@ -167,8 +176,7 @@ username</span>
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by:
-username</span>
+                    <span class="line-text">Streamed by: username</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
@@ -186,8 +194,7 @@ username</span>
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by:
-username</span>
+                    <span class="line-text">Streamed by: username</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
@@ -205,8 +212,7 @@ username</span>
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by:
-username</span>
+                    <span class="line-text">Streamed by: username</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
