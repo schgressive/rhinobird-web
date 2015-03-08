@@ -4,88 +4,88 @@
       <div class="row-fluid">
         <div class="span12">
 
-         	<div class="alert alert-warning" ng-hide="vm.camera.access">
-					  <span class="block">Please enable camera permissions for your browser.</span>
-					</div><!-- /.alert -->
+          <div class="alert alert-warning" ng-hide="vm.camera.access">
+            <span class="block">
+            Please enable camera permissions for your browser.
+            </span>
+          </div><!-- /.alert -->
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
 
-			<div class="row-fluid">
-				<div class="span12">
-					<form class="goliveForm" name="goliveForm" role="form" ng-show="vm.goliveService.status == 'disconnected'">
-					  <label class="visually-hidden" for="caption">Use hashtags in your caption to add your video to a channel:</label>
-					  <textarea class="input-block-level"
-					  					name="caption"
-					  					rows="3"
-					  					maxlength="120"
-					  					placeholder="What are you broadcasting today? example: Live from #NYC"
-					  					ng-model="vm.caption">
-					  </textarea>
-					  <div class="validate" ng-show="vm.captionWarning">
-					  	<small class="info">Caption limited to 120 characters.</small>
-					  </div><!-- /.validate -->
-					  <div class="m_20b" ng-show="vm.nearChannels.length">
-							<p>Suggested channels:</p>
-							<ol class="channel-suggest inline no-bullets">
-								<li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline"><input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/></li>
-							</ol>
-					  </div>
-					  <div class="controls controls-row">
-							<button type="button"
-					  					class="btn btn-default btn-small btn-checkbox btn-twitter"
-					  					ng-model="vm.sharingOptions.shareTwitter"
-					  					ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)"
-					  					btn-checkbox>
-					        <span class="visually-hidden"> Tweet Your Video?</span>
-					    </button>
-					    <button type="button"
-					  					class="btn btn-default btn-small btn-checkbox btn-facebook"
-					  					ng-model="vm.sharingOptions.shareFacebook"
-					  					ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)"
-                      btn-checkbox>
-					        <span class="visually-hidden"> Post on Facebook?</span>
-					    </button>
-					    <a href="#" ng-click="ctrl.shareWhatsapp()"
-					  					class="btn btn-default btn-small btn-checkbox btn-whatsapp">
-					        <span class="visually-hidden"> Share on WhatsApp</span>
-					    </a>
-					  </div><!-- /.controls.controls-row -->
-					  <div class="controls controls-row">
-					  	<button type="button"
-					  					class="btn btn-default btn-small btn-checkbox btn-geolocate"
-					  					ng-model="vm.useGeolocation"
-					  					btn-checkbox>
-					        <span class="visually-hidden"> Enable Geolocation?</span>
-					    </button>
-					    <button type="button"
-					  					class="btn btn-default btn-small btn-checkbox btn-archive"
-					  					ng-model="vm.sharingOptions.archive"
-					  					ng-disabled="!vm.camera.access"
-					  					btn-checkbox>
-					        <span class="visually-hidden"> Archive a Copy</span>
-					    </button>
-					    <button type="button"
-					  					class="btn btn-default btn-small btn-checkbox btn-flip"
-					  					ng-show="vm.camera.videoSources.length > 1"
-					  					ng-model="singleModel"
-					  					ng-click="vm.camera.toggleSource()"
-					  					ng-disabled="!vm.camera.access"
-					  					btn-checkbox>
-					        <span class="visually-hidden"> Flip Camera?</span>
-					    </button>
-					  </div><!-- /.controls.controls-row -->
-					  <div class="controls controls-row">
-						  <input ng-click="ctrl.ready()"
-						  			 class="btn btn-primary btn-large btn-block"
-						  			 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
-						  			 role="submit" type="submit" value="Ready!"/>
-						  <input ng-click="gotoHome()"
-						  			 class="btn btn-default btn-large btn-block"
-						  			 role="button" type="button" value="Take me to the website"/>
-					  </div><!-- /.controls.controls-row -->
-					</form><!-- /goliveForm -->
-				</div><!-- /.span12 -->
-			</div><!-- /.row-fluid -->
+      <div class="row-fluid">
+        <div class="span12">
+          <form class="goliveForm" name="goliveForm"
+                role="form" ng-show="vm.goliveService.status == 'disconnected'">
+                <label class="visually-hidden" for="caption">
+                Use hashtags in your caption to add your video to a channel:
+                </label>
+                <textarea class="input-block-level" name="caption"
+                          rows="3" maxlength="120" ng-model="vm.caption"
+                          placeholder="What are you broadcasting today? example: Live from #NYC"></textarea>
+                <div class="char-count">
+                  <span>-12</span>
+                </div><!-- /.char-count -->
+                <div class="validate" ng-show="vm.captionWarning">
+                  <small class="info">Caption limited to 120 characters.</small>
+                </div><!-- /.validate -->
+                <div class="m_20b" ng-show="vm.nearChannels.length">
+                  <p>Suggested channels:</p>
+                  <ol class="channel-suggest inline no-bullets">
+                    <li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline">
+                      <input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/>
+                    </li>
+                  </ol>
+                </div>
+                <div class="controls controls-row">
+                  <button type="button" role="button"
+                    class="btn btn-default btn-small btn-checkbox btn-twitter"
+                    ng-model="vm.sharingOptions.shareTwitter"
+                    ng-change="ctrl.tryConnection('twitter', vm.sharingOptions.shareTwitter)" btn-checkbox>
+                    <span class="visually-hidden"> Tweet Your Video?</span>
+                  </button>
+                <button type="button" role="button"
+                        class="btn btn-default btn-small btn-checkbox btn-facebook"
+                        ng-model="vm.sharingOptions.shareFacebook"
+                        ng-change="ctrl.tryConnection('facebook', vm.sharingOptions.shareFacebook)" btn-checkbox>
+                        <span class="visually-hidden"> Post on Facebook?</span>
+                </button>
+                <a href="#" ng-click="ctrl.shareWhatsapp()"
+                   class="btn btn-default btn-small btn-checkbox btn-whatsapp">
+                   <span class="visually-hidden"> Share on WhatsApp</span>
+                </a>
+              </div>
+              <div class="controls controls-row">
+                <button type="button" role="button"
+                        class="btn btn-default btn-small btn-checkbox btn-geolocate"
+                        ng-model="vm.useGeolocation" btn-checkbox>
+                        <span class="visually-hidden"> Enable Geolocation?</span>
+                </button>
+                <button type="button" role="button"
+                        class="btn btn-default btn-small btn-checkbox btn-archive"
+                        ng-model="vm.sharingOptions.archive"
+                        ng-disabled="!vm.camera.access" btn-checkbox>
+                        <span class="visually-hidden"> Archive a Copy</span>
+                </button>
+                <button type="button" role="button"
+                        class="btn btn-default btn-small btn-checkbox btn-flip"
+                        ng-show="vm.camera.videoSources.length > 1"
+                        ng-model="singleModel" ng-click="vm.camera.toggleSource()"
+                        ng-disabled="!vm.camera.access" btn-checkbox>
+                        <span class="visually-hidden"> Flip Camera?</span>
+                </button>
+            </div><!-- /.controls.controls-row -->
+            <div class="controls controls-row">
+              <input ng-click="ctrl.ready()"
+                     class="btn btn-primary btn-large btn-block"
+                     ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
+                     role="submit" type="submit" value="Ready!"/>
+              <input ng-click="gotoHome()"
+                     class="btn btn-default btn-large btn-block"
+                     role="button" type="button" value="Take me to the website"/>
+            </div><!-- /.controls.controls-row -->
+          </form><!-- /goliveForm -->
+        </div><!-- /.span12 -->
+      </div><!-- /.row-fluid -->
 
 			<div class="row-fluid">
 				<div class="span12">
