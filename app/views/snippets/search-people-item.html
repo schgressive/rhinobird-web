@@ -1,16 +1,20 @@
-<ul class="profile-list unstyled span12">
+<ul class="profile-list unstyled clearfix">
   <li>
     <rb-avatar user="user" class="user-avatar pull-left"></rb-avatar>
   </li>
-  <li class="user-info pull-left">
+  <li class="user-info">
     <ul class="unstyled"><!-- need to fix it so name wraps w/o pushing the whole unit down below the profile image -->
       <li class="ellipsis">
         <span class="fa fa-user"></span>
-        <a ui-sref="user({userName: user.username})" title="{{user.username}}'s profile">{{user.username}}</h5>
+        <span class="line-text">
+          <a ui-sref="user({userName: user.username})" title="{{user.username}}'s profile">{{user.username}}</a>
+        </span>
       </li>
       <li class="ellipsis">
-        <span class="fa fa-video"></span>
-        <a ui-sref="stream({streamId: user.streamIds[0]})">Recent Video</a>
+        <span class="fa fa-video-camera"></span>
+        <span class="line-text">
+          <a ui-sref="stream({streamId: user.streamIds[0]})">Recent Video</a>
+        </span>
       </li>
     </ul>
   </li>
