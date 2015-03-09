@@ -1126,6 +1126,7 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 540px) { margin-bottom: 5px;}
     li {
       margin-right: 20px;
+      @media screen and (min-width: 980px) { font-size: 17px; margin-top: 10px;}
       @media screen and (max-width: 640px) { margin-right: 10px;}
       &:last-of-type { margin-right: 0;}
     }
