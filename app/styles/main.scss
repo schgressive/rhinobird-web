@@ -112,7 +112,7 @@ h3 span.fa + .line-text { margin-left: 6px;}
 
 h1 {
 	font-family: 'OpenSansBold', $bold-font-stack;
-	@include fontSize(52.358px);
+	@include fontSize(46px);
 }
 
 // using 1:1.618, Golden Section
@@ -621,14 +621,19 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 480px) { height: 540px;}
     h1 {
       color: $white;
-      line-height: 1;
-      margin: 30px 0 0;
+      line-height: 1.2;
+      margin: 30px 0 10px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,.5);
       @media screen and (max-width: 640px) {
-        margin-top: 10px;
+        margin-top: 5px;
         line-height: 1.2;
+        letter-spacing: -1px;
         & span { display: block;}
       }
-      @media screen and (max-width: 480px) { margin-top: 10px;}
+      @media screen and (max-width: 480px) {
+        margin-top: 10px;
+        line-height: 1.5;
+      }
     }
     h2 {
       color: $white;
@@ -637,12 +642,20 @@ i[class*="icon"] {font-style: normal;}
       font-weight: 500;
       margin: 0;
       letter-spacing: 1px;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+      @media screen and (max-width: 640px) {
+        @include fontSize(30px);
+        letter-spacing: -1px;
+      }
+      @media screen and (max-width: 480px) {
+        font-style: normal;
+        margin-top: 15%;
+      }
     }
   }
   .btn-feature {
       margin: { top:40px; bottom:10px;}
       @media screen and (max-width: 640px) { margin-top: 16px;}
-      @media screen and (max-width: 480px) { margin-top: 40%;}
     }
 	nav {
 		margin-left: 10px;
