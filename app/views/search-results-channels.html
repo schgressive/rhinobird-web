@@ -1,12 +1,12 @@
-<div class="row-fluid" ng-show="channels.length == 0">
-  <div ng-include="'/views/snippets/search-no-results.html'"></div>
-</div>
-<div class="row-fluid">
-   <div class="span12">
-		 <ol class="no-bullets">
-			 <li class="module-large span3" ng-repeat="channel in channels | limitTo:12">
-				 <div ng-include="'/views/snippets/search-channels-item.html'"></div>
-			 </li>
-		 </ol>
-   </div>
+<div class="results-channels">
+  <div class="row-fluid" ng-show="channels.length == 0">
+    <div ng-include="'/views/snippets/search-no-results.html'"></div>
+  </div>
+  <div class="row-fluid">
+    <ol class="unstyled">
+      <div class="span6" ng-repeat="channel in channels | limitTo:12">
+        <div ng-include="'/views/snippets/search-channels-item.html'"></div>
+      </div>
+    </ol>
+  </div>
 </div>

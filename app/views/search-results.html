@@ -1,48 +1,51 @@
 <section class="top-content">
   <div class="width-controller container-fluid">
     <div class="row-fluid">
-    	<div class="search-results-wrapper">
-    		<h4>Your search results for:  <strong>{{searchTerm}}</strong></h4>
-    	</div>
+      <div class="search-results-title">
+        <h4>
+          <span class="fa fa-search"></span>
+          <span class="line-text">Your search results for:  <strong>{{searchTerm}}</strong></span>
+        </h4>
+      </div>
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
 </section><!-- /.top-content -->
 
 <div class="main" role="main">
   <div class="width-controller container-fluid">
-	  <section class="mid-content">
-		  <div class="row-fluid">
-				<div class="tabs span6">
-			    <ul class="inline no-bullets">
-			      <li ui-sref-active="active">
+    <section class="mid-content">
+      <div class="row-fluid">
+        <div class="tabs span6">
+          <ul class="inline unstyled">
+            <li ui-sref-active="active">
               <a ui-sref="search.channels" data-toggle="tab">
-                <span class="fa fa-headphones"></span>
+                <strong>#</strong>
                 <span class="line-text">Channels</span>
               </a>
-			      </li>
-			      <li ui-sref-active="active">
+            </li>
+            <li ui-sref-active="active">
               <a ui-sref="search.streams" data-toggle="tab">
                 <span class="fa fa-video-camera"></span>
                 <span class="line-text">Videos</span>
               </a>
-			      </li>
-			      <li ui-sref-active="active">
+            </li>
+            <li ui-sref-active="active">
               <a ui-sref="search.people" data-toggle="tab">
                 <span class="fa fa-user"></span>
                 <span class="line-text">People</span>
               </a>
-			      </li>
-			    </ul>
-			  </div><!-- /.tabs -->
-		  </div><!-- /.row-fluid -->
-		</section><!-- /.mid-content -->
-		<section class="lower-content">
-			<div class="tab-content">
-			  <div class="tab-pane active">
+            </li>
+          </ul>
+        </div><!-- /.tabs -->
+      </div><!-- /.row-fluid -->
+    </section><!-- /.mid-content -->
+    <section class="lower-content">
+      <div class="tab-content">
+        <div class="tab-pane active">
           <div ui-view></div>
-			  </div>
-			</div>
-		</section><!-- /.lower-content -->
+        </div>
+      </div>
+    </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 

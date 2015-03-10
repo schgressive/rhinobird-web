@@ -96,8 +96,9 @@ a:focus {
 	outline-offset: 5px;
 }
 
-li span.fa + .line-text,
-h3 span.fa + .line-text { margin-left: 6px;}
+li span.fa + .line-text { margin-left: 3px;}
+h3 span.fa + .line-text,
+h4 span.fa + .line-text { margin-left: 6px;}
 
 // Margin/Padding classes
 
@@ -116,7 +117,7 @@ h1 {
 }
 
 // using 1:1.618, Golden Section
-h2 { font-family: $bold-font-stack; @include fontSize(32.360px);}
+h2 { font-family: 'OpenSansBold', $bold-font-stack; @include fontSize(32.360px);}
 h3 {@include fontSize(22.652px);}
 h4 {@include fontSize(20px);}
 h5, article h4, legend {font-size: $baseFontSize;}
@@ -125,7 +126,7 @@ h6  {font-size: $fontSizeSmall;}
 
 h1, h2, h3, h4, h5, h6 {font-weight: normal;}
 h2, h3, h4, h5, h6 {margin-bottom: 10px;}
-h3, h4 { font-family: 'Open Sans', $baseFontFamily;}
+h3, h4 { font-family: 'OpenSansRegular', $baseFontFamily;}
 
 a, i, .btn, input {
 	@include baseTransitionOut;
@@ -144,7 +145,7 @@ article {
 	blockquote { margin-top: 3px; border-left-color: $grayLight;}
 }
 
-.thin { font-family: 'Open Sans'; @include font-smoothing();}
+.thin { font-family: 'OpenSansRegular'; @include font-smoothing();}
 .caps { text-transform: uppercase;}
 
 .red { color: $red;}
@@ -722,14 +723,14 @@ i[class*="icon"] {font-style: normal;}
 	}
 }
 
-.search-results-wrapper {
-	padding-bottom: 10px;
-	border-bottom: 1px solid $grayLight;
-	strong {
-		color: $textColorAccent;
-		font-family: 'Open Sans', $bold-font-stack;
-		letter-spacing: -1px;
-	}
+.search-results-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid $grayLight;
+  strong {
+    color: $textColorAccent;
+    font-family: 'OpenSansBold', $bold-font-stack;
+    letter-spacing: -1px;
+  }
 }
 
 .mid-content {
@@ -808,48 +809,53 @@ i[class*="icon"] {font-style: normal;}
 .lower-content {
   padding-bottom: 30px;
   h4 { margin-top: 0px;}
-  &.media-area .row-fluid:first-of-type {margin-bottom: 0;}
-  .row-fluid [class*="span3"] {
-    @media screen and (max-width: 1000px) {
-      width: 31.91%;
-      *width: 31.91%;
+  .results-channels {
+    .row-fluid [class*="span6"] { margin-bottom: 40px;}
+    @media screen and (min-width: 641px) {
+      .row-fluid [class*="span6"]:nth-child(2n+1) { margin-left: 0;}
+    }
+    @media screen and (max-width: 640px) {
+      .row-fluid [class*="span6"] {
+        width: 86%;
+        *width: 86%;
+        margin: 20px auto;
+        float: none;
+      }
+    }
+  }
+  &.media-area { .row-fluid:first-of-type { margin-bottom: 0;}}
+  &.media-area, .results-media {
+    .row-fluid [class*="span3"] {
+      @media screen and (max-width: 1000px) { width: 31.91%; *width: 31.91%;}
+      @media screen and (max-width: 730px) { width: 48.7%; *width: 48.7%;}
+      @media screen and (max-width: 580px) {
+        width: 86%;
+        *width: 86%;
+        margin: 20px auto !important;
+        float: none;
+      }
+    }
+    .row-fluid [class*="span4"] {
+      @media screen and (max-width: 670px) { width: 48.7%; *width: 48.7%;}
+    }
+    .row-fluid .module-large[class*="span6"] {
+      @media screen and (min-width: 800px) and (max-width: 1000px) {
+        width: 100%;
+        *width: 100%;
+        margin-left: 0px;
+      }
+      &:nth-child(odd) { margin-left: 0px;}
+    }
+    @media screen and (min-width: 1001px) {
+      .row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
+    }
+    @media screen and (min-width: 731px) and (max-width: 1000px) {
+      .row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
     }
     @media screen and (max-width: 730px) {
-      width: 48.7%;
-      *width: 48.7%;
+      .row-fluid [class*="span3"]:nth-child(2n+1),
+      .row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
     }
-    @media screen and (max-width: 580px) {
-      width: 86%;
-      *width: 86%;
-      margin: 20px auto !important;
-      float: none;
-    }
-  }
-  .row-fluid [class*="span4"] {
-    @media screen and (max-width: 670px) {
-      width: 48.7%;
-      *width: 48.7%;
-    }
-  }
-  .row-fluid .module-large[class*="span6"] {
-    @media screen and (min-width: 800px) and (max-width: 1000px) {
-      width: 100%;
-      *width: 100%;
-      margin-left: 0px;
-    }
-    &:nth-child(odd) { margin-left: 0px;}
-  }
-  @media screen and (min-width: 1001px) {
-    .row-fluid [class*="span3"]:nth-child(4n+1) {margin-left: 0;}
-  }
-  @media screen and (min-width: 731px) and (max-width: 1000px) {
-    .row-fluid [class*="span3"]:nth-child(3n+1) {margin-left: 0;}
-  }
-  @media screen and (max-width: 730px) {
-    .row-fluid [class*="span3"]:nth-child(2n+1) {margin-left: 0;}
-  }
-  @media screen and (max-width: 730px) {
-    .row-fluid [class*="span4"]:nth-child(2n+1) {margin-left: 0;}
   }
   .timelineStatus {
     width: 32px;
@@ -1333,6 +1339,32 @@ i[class*="icon"] {font-style: normal;}
       height: 32px;
       border-top-left-radius: 10px;
       border-bottom-right-radius: 10px;
+    }
+  }
+}
+
+.channel-item {
+  h4 { font-family: $bold-font-stack;}
+  .module-large { box-shadow: none;}
+  .module-video {
+    margin-bottom: 10px;
+    + ul li + li { margin-top: 8px;}
+  }
+  .user-avatar { margin-right: 8px;}
+  .channel-details {
+    li + li { margin-top: 8px;}
+  }
+  + .channel-item {
+    border-top: 1px solid $borderLight;
+    padding-top: 30px;
+  }
+  @media screen and (max-width: 640px) {
+      width: 86%;
+      margin: 20px auto;
+    .channel-details-wrapper {
+      margin-left: 0 !important;
+      width: 100%;
+      *width: 100%;
     }
   }
 }
