@@ -1,12 +1,14 @@
-<div class="row-fluid" ng-show="people.length == 0">
-  <div ng-include="'/views/snippets/search-no-results.html'"></div>
-</div>
-<div class="row-fluid">
-   <div class="span12">
-		 <ol class="no-bullets">
-			 <li class="results-item span3" ng-repeat="user in people | limitTo:12">
-				 <div ng-include="'/views/snippets/search-people-item.html'"></div>
-			 </li>
-		 </ol>
-   </div>
+<div class="results-media">
+  <div class="row-fluid" ng-show="people.length == 0">
+    <div ng-include="'/views/snippets/search-no-results.html'"></div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <ol class="unstyled">
+        <li class="results-item span3" ng-repeat="user in people | limitTo:12">
+          <div ng-include="'/views/snippets/search-people-item.html'"></div>
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>
