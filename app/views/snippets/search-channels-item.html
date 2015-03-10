@@ -38,19 +38,19 @@
     </div><!-- /.span6 -->
     <div class="module-large span6 hidden-phone">
       <div class="module-video">
-        <a class="live-stream-link" ui-sref="stream({streamId: channel.mostLikedStream.id})">
-          <img ng-src="{{channel.mostLikedStream.thumbs.medium}}"
+        <a class="live-stream-link" ui-sref="stream({streamId: channel.mostLikedStreams[0].id})">
+          <img ng-src="{{channel.mostLikedStreams[0].thumbs.medium}}"
                src-fallback="/images/missing.png"/>
         </a>
       </div><!-- /.module-video -->
       <ul class="unstyled">
         <li>
           <span class="fa fa-user"></span>
-          <span class="line-text">Streamed by: {{channel.mostLikedStream.user.username}}</span>
+          <span class="line-text">Streamed by: {{channel.mostLikedStreams[0].username}}</span>
         </li>
         <li>
           <span class="fa fa-thumbs-o-up"></span>
-          <span class="line-text">{{channel.mostLikedStream.likes}}</span>
+          <span class="line-text">{{channel.mostLikedStreams[0].likes}}</span>
         </li>
       </ul>
     </div><!-- /.span6 -->

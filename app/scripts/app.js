@@ -322,6 +322,7 @@ angular.module('rhinobird', [
     // AllChannels
     .state('allchannels', {
       url: '/allchannels/',
+      controller: 'AllChannelsCtrl as vm',
       templateUrl: '/views/allchannels.html'
     })
 

@@ -14,20 +14,20 @@
       <div class="row-fluid">
         <div class="tabs span6">
           <ul class="inline unstyled">
-            <li ui-sref-active="active">
-              <a href="#" data-toggle="tab">
+            <li ng-class="{active: vm.by == 'latest'}">
+              <a href="#" ng-click="vm.filter('latest')">
                 <span class="fa fa-clock-o"></span>
                 <span class="line-text">Latest</span>
               </a>
             </li>
-            <li ui-sref-active="active">
-              <a href="#" data-toggle="tab">
+            <li ng-class="{active: vm.by == 'nearby'}">
+              <a href="#" ng-click="vm.filter('nearby')">
                 <span class="fa fa-map-marker"></span>
                 <span class="line-text">Nearby</span>
               </a>
             </li>
-            <li ui-sref-active="active">
-              <a href="#" data-toggle="tab">
+            <li ng-class="{active: vm.by == 'popular'}">
+              <a href="#" ng-click="vm.filter('popular')">
                 <span class="fa fa-thumbs-o-up"></span>
                 <span class="line-text">Popular</span>
               </a>
@@ -40,101 +40,14 @@
       <div class="tab-content results-channels">
         <div class="tab-pane active">
 
-<!-- CHANNEL W/O VJ -->
-          <div class="channel-item">
+          <div class="channel-item" ng-repeat="channel in vm.channels">
             <div class="row-fluid">
               <div class="span12">
-                <h4><a href="#">#ChannelNameHere</a></h4>
+                <h4><a href="#">#{{channel.name}}</a></h4>
               </div>
             </div><!-- /.row-fluid -->
             <div class="row-fluid">
-              <div class="span3 channel-details-wrapper">
-                <ul class="channel-details unstyled">
-                  <li>
-                    <span class="fa fa-clock-o"></span>
-                    <span class="line-text">channel started time</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-eye"></span>
-                    <span class="line-text">total watchers</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-video-camera"></span>
-                    <span ng-show="channel.streamsCount == 0" class="line-text">
-                      No videos available.
-                    </span>
-                    <span ng-show="channel.streamsCount == 1" class="line-text">
-                      video
-                    </span>
-                    <span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1" class="line-text">{{channel.streamsCount}} videos</span>
-                  </li>
-                </ul>
-              </div><!-- /.span3 -->
-              <div class="module-large span3 hidden-phone">
-                <div class="module-video">
-                  <a class="live-stream-link" ui-sref="">
-                    <img ng-src="{{stream.thumbs.medium}}"
-                         src-fallback="/images/missing.png"/>
-                  </a>
-                </div><!-- /.module-video -->
-                <ul class="unstyled">
-                  <li>
-                    <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: username</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">stream likes</span>
-                  </li>
-                </ul>
-              </div><!-- /.span3 -->
-              <div class="module-large span3 hidden-phone">
-                <div class="module-video">
-                  <a class="live-stream-link" ui-sref="">
-                    <img ng-src="{{stream.thumbs.medium}}"
-                         src-fallback="/images/missing.png"/>
-                  </a>
-                </div><!-- /.module-video -->
-                <ul class="unstyled">
-                  <li>
-                    <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: username</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">stream likes</span>
-                  </li>
-                </ul>
-              </div><!-- /.span3 -->
-              <div class="module-large span3 hidden-phone">
-                <div class="module-video">
-                  <a class="live-stream-link" ui-sref="">
-                    <img ng-src="{{stream.thumbs.medium}}"
-                         src-fallback="/images/missing.png"/>
-                  </a>
-                </div><!-- /.module-video -->
-                <ul class="unstyled">
-                  <li>
-                    <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: username</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">stream likes</span>
-                  </li>
-                </ul>
-              </div><!-- /.span3 -->
-            </div><!-- /.row-fluid -->
-          </div><!-- /.channel-item -->
 
-<!-- CHANNEL w/VJ -->
-          <div class="channel-item">
-            <div class="row-fluid">
-              <div class="span12">
-                <h4><a href="#">#ChannelNameHere</a></h4>
-              </div>
-            </div><!-- /.row-fluid -->
-            <div class="row-fluid">
               <div class="span3 channel-details-wrapper">
                 <ul class="channel-details unstyled">
                   <li class="clearfix">
@@ -148,11 +61,11 @@
                   </li>
                   <li>
                     <span class="fa fa-clock-o"></span>
-                    <span class="line-text">channel started time</span>
+                    <span class="line-text" am-time-ago="channel.createdAt"></span>
                   </li>
                   <li>
                     <span class="fa fa-eye"></span>
-                    <span class="line-text">total watchers</span>
+                    <span class="line-text">{{channel.totalWatches}}</span>
                   </li>
                   <li>
                     <span class="fa fa-video-camera"></span>
@@ -166,9 +79,10 @@
                   </li>
                 </ul>
               </div><!-- /.span3 -->
-              <div class="module-large span3 hidden-phone">
+
+              <div class="module-large span3 hidden-phone" ng-repeat="stream in channel.mostLikedStreams">
                 <div class="module-video">
-                  <a class="live-stream-link" ui-sref="">
+                  <a class="live-stream-link" ui-sref="stream({streamId: stream.id})">
                     <img ng-src="{{stream.thumbs.medium}}"
                          src-fallback="/images/missing.png"/>
                   </a>
@@ -176,50 +90,15 @@
                 <ul class="unstyled">
                   <li>
                     <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: username</span>
+                    <span class="line-text">Streamed by: {{stream.username}}</span>
                   </li>
                   <li>
                     <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">stream likes</span>
+                    <span class="line-text">{{stream.likes}}</span>
                   </li>
                 </ul>
-              </div><!-- /.span3 -->
-              <div class="module-large span3 hidden-phone">
-                <div class="module-video">
-                  <a class="live-stream-link" ui-sref="">
-                    <img ng-src="{{stream.thumbs.medium}}"
-                         src-fallback="/images/missing.png"/>
-                  </a>
-                </div><!-- /.module-video -->
-                <ul class="unstyled">
-                  <li>
-                    <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: username</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">stream likes</span>
-                  </li>
-                </ul>
-              </div><!-- /.span3 -->
-              <div class="module-large span3 hidden-phone">
-                <div class="module-video">
-                  <a class="live-stream-link" ui-sref="">
-                    <img ng-src="{{stream.thumbs.medium}}"
-                         src-fallback="/images/missing.png"/>
-                  </a>
-                </div><!-- /.module-video -->
-                <ul class="unstyled">
-                  <li>
-                    <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: username</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">stream likes</span>
-                  </li>
-                </ul>
-              </div><!-- /.span3 -->
+              </div><!-- stream -->
+
             </div><!-- /.row-fluid -->
           </div><!-- /.channel-item -->
 
