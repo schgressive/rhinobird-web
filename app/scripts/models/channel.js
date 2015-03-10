@@ -2,8 +2,16 @@
 
 angular.module('rhinobird.models')
   .factory('Channel', function ($restmod) {
-    return $restmod.model('channels', {
+    return $restmod.model('channels', 'PagedModel', {
       streams: { hasMany: 'Stream' },
+
+      '@getNextPage': function(){
+        var page = this.$page || 0;
+        if(!this.$pageCount || this.$page + 1 <= this.$pageCount){
+          return this.$fetch({ page: page + 1 });
+        }
+        return this;
+      },
 
       /**
        * Search channels by location

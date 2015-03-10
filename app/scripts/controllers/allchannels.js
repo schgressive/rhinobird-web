@@ -30,7 +30,8 @@ angular.module('rhinobird.controllers')
       if (_by == 'nearby') {
         angular.extend(query, vm.coords);
       }
-      vm.channels = Channel.$search(query);
+      vm.channels = Channel.$collection(query);
+      vm.channels.getNextPage();
     }
 
   });

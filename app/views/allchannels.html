@@ -37,7 +37,7 @@
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
     <section class="lower-content">
-      <div class="tab-content results-channels">
+      <div class="tab-content results-channels" infinite-scroll="vm.channels.getNextPage()" infinite-scroll-disabled="vm.channels.$pending" infinite-scroll-distance="1">
         <div class="tab-pane active">
 
           <div class="channel-item" ng-repeat="channel in vm.channels">
