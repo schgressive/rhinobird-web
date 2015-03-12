@@ -7,8 +7,8 @@
       </h4>
 <!-- ON MOBILE MAKE SHOW ONLY 1 AND SWIPE/SCROLL HORIZONTAL -->
       <div class="video-slide-wrapper">
-        <ol class="unstyled">
-          <li class="module-large span3"
+        <ol class="unstyled" simple-carousel simple-carousel-watch="vm.nearStreams">
+          <li class="module-large"
               ng-repeat="tl_item in vm.nearStreams">
               <div ng-if="tl_item.resourceType == 'Stream'" ng-include="'/views/snippets/module-large.html'" ng-init="stream = tl_item.resource"></div>
               <div ng-if="tl_item.resourceType == 'Vj'" ng-include="'/views/snippets/module-large-vj.html'" ng-init="vj = tl_item.resource"></div>
@@ -25,7 +25,7 @@
       </h4>
       <div class="video-slide-wrapper">
         <ol class="unstyled">
-          <li class="module-large span3"
+          <li class="module-large" simple-carousel simple-carousel-watch="vm.exciting"
               ng-repeat="tl_item in vm.exciting">
             <div ng-if="tl_item.resourceType == 'Stream'" ng-include="'/views/snippets/module-large.html'" ng-init="stream = tl_item.resource"></div>
             <div ng-if="tl_item.resourceType == 'Vj'" ng-include="'/views/snippets/module-large-vj.html'" ng-init="vj = tl_item.resource"></div>
