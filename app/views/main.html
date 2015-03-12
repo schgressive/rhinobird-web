@@ -20,7 +20,7 @@
                 </span>
               </a>
             </li>
-            <li ui-sref-active="active">
+            <li ng-class="{active: isActive(['main.world', 'main.exciting']) }">
               <a ui-sref="main.world">
                 <span class="fa fa-video-camera"></span>
                 <span class="line-text">World</span>

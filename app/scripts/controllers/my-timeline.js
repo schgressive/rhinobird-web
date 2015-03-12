@@ -2,16 +2,32 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('MyTimelineCtrl', function (User) {
+  .controller('MyTimelineCtrl', function(User, $state, Timeline) {
 
     // Expose the scope as self
     var vm = this;
     vm.user = User.$new("current");
 
-    // Get the timeline
-    vm.user.timeline.$collection();
-    vm.user.timeline.$refresh({page: 1});
-    vm.user.timeline.getNextPage();
+    init();
+
+
+    function setupTimeline() {
+      if ($state.includes('main.timeline')) {
+        vm.page = 'myrb';
+        vm.timeline = vm.user.timeline;
+        vm.timeline.$collection();
+        vm.timeline.$refresh({page: 1});
+        vm.timeline.getNextPage();
+      }
+
+      if ($state.includes('main.exciting')) {
+        vm.page = 'exciting';
+        vm.timeline = Timeline.$search({order: 'popular'});
+      }
+    }
+    function init() {
+      setupTimeline();
+    }
 
   });
 

@@ -9,6 +9,18 @@ angular.module('rhinobird.controllers')
     // default route
     $state.go('main.world');
 
+    $scope.isActive = function(states) {
+      var included = false;
+      angular.forEach(states, function(state) {
+        var stateIncluded = $state.includes(state);
+        if (stateIncluded) {
+          included = stateIncluded;
+          return;
+        }
+      })
+      return included;
+    }
+
     // Set the user in scope
     $scope.user = AuthService.user;
     AuthService.getSession().then(function() {},
