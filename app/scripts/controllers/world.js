@@ -2,12 +2,12 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('WorldCtrl', function (Timeline, Channel, User, GeolocationService, Stream) {
+  .controller('WorldCtrl', function (Timeline, Channel, User, GeolocationService) {
     var vm = this;
 
     vm.toggleFollow = toggleFollow;
 
-    vm.timeline = [];
+    vm.exciting = [];
     vm.nearStreams = [];
     vm.channels = [];
     vm.users = [];
@@ -29,7 +29,7 @@ angular.module('rhinobird.controllers')
 
     function init() {
       GeolocationService.getCurrent().then(filterNear);
-      vm.timeline = Timeline.$search();
+      vm.exciting = Timeline.$search({per_page: 4, order: 'popular'});
       vm.channels = Channel.$search({per_page: 12});
       vm.users = User.$search({per_page: 8, order: 'popular'});
     }
@@ -42,7 +42,7 @@ angular.module('rhinobird.controllers')
         live: true,
         archived: true
       };
-      vm.nearStreams = Stream.$search(query);
+      vm.nearStreams = Timeline.$search(query);
     }
 
   });
