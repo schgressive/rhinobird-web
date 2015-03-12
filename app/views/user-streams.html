@@ -1,5 +1,22 @@
 <div class="row-fluid">
   <div class="span12">
+    <h4 class="row-title">
+      What People Love From {{vm.user.username}}
+    </h4>
+<!-- MAKE THESE VIDEOS IN ORDER OF MOST LIKES MAX OF 4 -->
+    <ol class="unstyled">
+      <li class="module-large span3"
+          ng-repeat="stream in streams | limitTo:4">
+        <div ng-include="'/views/snippets/module-large.html'"></div>
+      </li>
+    </ol>
+  </div><!-- /.span12 -->
+</div><!-- /.row-fluid -->
+<div class="row-fluid">
+  <div class="span12">
+    <h4 class="row-title">
+      Recent Videos
+    </h4>
     <div infinite-timeline-list timeline="vm.user.timeline"></div>
   </div><!-- /.span12 -->
 </div><!-- /.row-fluid -->
