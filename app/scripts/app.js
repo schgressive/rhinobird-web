@@ -103,9 +103,14 @@ angular.module('rhinobird', [
       templateUrl: '/views/world.html',
       controller: 'WorldCtrl as vm'
     })
-    // Scrolling
     .state('main.exciting', {
       url: 'exciting/',
+      templateUrl: '/views/timeline.html',
+      controller: 'TimelineCtrl as vm',
+    })
+
+    .state('main.near', {
+      url: 'near/',
       templateUrl: '/views/timeline.html',
       controller: 'TimelineCtrl as vm',
     })

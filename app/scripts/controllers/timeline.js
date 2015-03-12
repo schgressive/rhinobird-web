@@ -2,7 +2,7 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('TimelineCtrl', function(User, $state, Timeline) {
+  .controller('TimelineCtrl', function(User, $state, Timeline, GeolocationService) {
 
     // Expose the scope as self
     var vm = this;
@@ -23,6 +23,19 @@ angular.module('rhinobird.controllers')
       if ($state.includes('main.exciting')) {
         vm.page = 'exciting';
         vm.timeline = Timeline.$search({order: 'popular'});
+      }
+
+      if ($state.includes('main.near')) {
+        vm.page = 'near';
+        GeolocationService.getCurrent().then(function(data) {
+          var query = {
+            lat: data.lat,
+            lng: data.lng,
+            live: true,
+            archived: true
+          };
+          vm.timeline = Timeline.$search(query);
+        });
       }
     }
     function init() {
