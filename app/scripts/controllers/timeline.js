@@ -2,7 +2,7 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('MyTimelineCtrl', function(User, $state, Timeline) {
+  .controller('TimelineCtrl', function(User, $state, Timeline) {
 
     // Expose the scope as self
     var vm = this;

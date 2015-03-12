@@ -106,14 +106,14 @@ angular.module('rhinobird', [
     // Scrolling
     .state('main.exciting', {
       url: 'exciting/',
-      templateUrl: '/views/mytimeline.html',
-      controller: 'MyTimelineCtrl as vm',
+      templateUrl: '/views/timeline.html',
+      controller: 'TimelineCtrl as vm',
     })
 
     .state('main.timeline', {
       url: 'myrb/',
-      templateUrl: '/views/mytimeline.html',
-      controller: 'MyTimelineCtrl as vm'
+      templateUrl: '/views/timeline.html',
+      controller: 'TimelineCtrl as vm'
     })
     //
 
