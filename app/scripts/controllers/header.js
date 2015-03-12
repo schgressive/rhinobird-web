@@ -13,6 +13,10 @@ angular.module('rhinobird.controllers')
       }
     });
 
+    $scope.goHome = function() {
+      $state.go('main.world');
+    }
+
     // RTC alert
     $scope.webRTCAlertDismissed = false;
     $scope.showWebRTCAlert = function(){
