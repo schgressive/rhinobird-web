@@ -101,7 +101,7 @@ angular.module('rhinobird', [
 
     .state('main.world', {
       templateUrl: '/views/world.html',
-      controller: 'WorldCtrl'
+      controller: 'WorldCtrl as vm'
     })
 
     .state('main.timeline', {
