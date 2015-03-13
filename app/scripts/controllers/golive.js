@@ -151,7 +151,7 @@ angular.module('rhinobird.controllers')
       var uri = "whatsapp://send?text=";
       var user = session.user.$pk;
       var currentUrl = $state.href("user",{userName: user}, {absolute: true});
-      var text = "Watch me go live! ";
+      var text = "|LIVE NOW| ";
       uri = uri + text + encodeURIComponent(currentUrl);
       window.open(uri, "_blank");
     }

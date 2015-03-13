@@ -28,7 +28,7 @@ function VideoActionsCtrl($location, $window) {
     vm.like = like;
     vm.repost = repost;
     vm.url = encodeURIComponent($location.absUrl());
-    vm.shareTextEnconded = $window.escape('Share this video!');
+    vm.shareTextEnconded = $window.escape('|WATCH THIS|');
 
     function repost() {
       vm.resource.repost();

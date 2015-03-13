@@ -29,14 +29,14 @@ angular.module('rhinobird.controllers')
 
     function init() {
       GeolocationService.getCurrent().then(filterNear);
-      vm.exciting = Timeline.$search({per_page: 4, order: 'popular'});
+      vm.exciting = Timeline.$search({per_page: 8, order: 'popular'});
       vm.channels = Channel.$search({per_page: 12, order: 'latest'});
       vm.users = User.$search({per_page: 8, order: 'popular'});
     }
 
     function filterNear(data) {
       var query = {
-        per_page: 4,
+        per_page: 8,
         lat: data.lat,
         lng: data.lng,
         live: true,
