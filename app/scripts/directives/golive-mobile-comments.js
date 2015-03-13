@@ -95,7 +95,8 @@ angular.module('rhinobird.directives')
       });
 
       submitForm.submit(function () {
-        CommentsService.API.sendMessage(scope.roomId, textInput.val());
+        if (textInput.val() != "")
+          CommentsService.API.sendMessage(scope.roomId, textInput.val());
         return false;
       });
 
