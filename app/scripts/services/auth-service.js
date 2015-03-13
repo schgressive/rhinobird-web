@@ -122,7 +122,7 @@ angular.module('rhinobird.services')
 
     // Broadcase a message that the session has changed
     var broadcastSessionChanged = function(){
-      var status = session.hasOwnProperty('authToken');
+      var status = session.$status !== "error";
       $rootScope.$broadcast('sessionChanged', session, status);
     };
   });
