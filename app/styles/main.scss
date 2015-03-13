@@ -108,6 +108,8 @@ h4 span.fa + .line-text { margin-left: 6px;}
 .m_20b { margin-bottom: 20px;}
 .m_20r { margin-right: 20px;}
 .m_30b { margin-bottom: 30px;}
+.m_40t { margin-top: 40px;}
+.m_40b { margin-top: 40px;}
 
 // Calculate all H# Tags.
 
@@ -902,14 +904,21 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .row-title {
+  color: $red;
+  font-family: $bold-font-stack;
   margin-bottom: 24px;
   span + a { margin-left: 10px;}
 }
 
 .video-slide-wrapper {
-  width: 100%;
+  padding: 16px 20px 0;
+  background-color: darken($bodyBackground, 5%);
   overflow: hidden;
-  max-height: 215px;
+  .owl-carousel .owl-wrapper {
+    .owl-item + .owl-item {
+      @media screen and (min-width: 640px) { margin-left: 16px;}
+    }
+  }
 }
 
 .channel-grid {
@@ -1396,7 +1405,10 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .channel-item {
-  h4 { font-family: $bold-font-stack;}
+  h4 {
+    font-family: $bold-font-stack;
+    a { color: $red;}
+  }
   .module-large { box-shadow: none;}
   .module-video {
     margin-bottom: 10px;
@@ -1407,7 +1419,7 @@ i[class*="icon"] {font-style: normal;}
     li + li { margin-top: 8px;}
   }
   + .channel-item {
-    border-top: 1px solid $borderLight;
+    border-top: 1px solid $warmGray4;
     padding-top: 30px;
   }
   @media screen and (max-width: 640px) {
