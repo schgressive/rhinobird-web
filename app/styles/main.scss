@@ -656,9 +656,16 @@ i[class*="icon"] {font-style: normal;}
       }
     }
   }
+  h3 {
+    color: $white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+  }
   .btn-feature {
       margin: { top:40px; bottom:10px;}
-      @media screen and (max-width: 640px) { margin-top: 16px;}
+      @media screen and (max-width: 640px) {
+        margin-top: 16px;
+        span { display: block;}
+      }
     }
 	nav {
 		margin-left: 10px;
