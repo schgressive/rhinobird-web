@@ -69,7 +69,7 @@
             <div ng-show="vm.goliveService.connectingTime >= 20">
               <h3>Something is wrong, still trying...</h3>
               <div class="alert alert-error">
-                <p>You may have a network problem. Please wait or try again later.</p>
+                <p>You may have a network problem. <span class="block">Please wait or try again later.</span></p>
               </div>
             </div>
           </div><!-- /.status-wrapper -->
@@ -98,6 +98,7 @@
       </div><!-- /.activity-flag -->
       <div ng-include="'/views/snippets/golive-btn.html'" ng-show="isFullScreenEnabled"></div>
       <div ng-if="vm.connected && vm.stream.status == 'live'" golive-mobile-comments stream="vm.stream"></div>
+      <div ng-if="vm.connected && vm.stream.status == 'live'" ng-include="'/views/layouts/golivemobile-feed.html'"></div>
       <div ng-if="vm.connected && vm.stream.status == 'live'" ng-include="'/views/layouts/golive-features.html'"></div>
     </section>
 
