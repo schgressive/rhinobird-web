@@ -5,8 +5,6 @@ angular.module('rhinobird.services')
 
     var user = AuthService.user;
 
-    console.log(user.authenticationToken)
-
     var rbComments = new $window.RbComments.API({
       socketLib:        ioSafe,
       host:             '/comments_app_host',
