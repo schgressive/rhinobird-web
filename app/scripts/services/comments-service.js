@@ -5,6 +5,8 @@ angular.module('rhinobird.services')
 
     var user = AuthService.user;
 
+    console.log(user.authenticationToken)
+
     var rbComments = new $window.RbComments.API({
       socketLib:        ioSafe,
       host:             '/comments_app_host',
@@ -13,7 +15,8 @@ angular.module('rhinobird.services')
     });
 
     $rootScope.$on('sessionChanged', function(event, session, logginStatus) {
-      rbComments.updateSession(session.authToken);
+      if (session.authToken)
+        rbComments.updateSession(session.authToken);
     });
 
     this.API = rbComments;
