@@ -14,7 +14,7 @@ angular.module('rhinobird.controllers')
     });
 
     $scope.goHome = function() {
-      $state.go('main.world');
+      $state.go('main.world', {}, {reload: true});
     }
 
     // RTC alert
