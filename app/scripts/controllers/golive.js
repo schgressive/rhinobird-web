@@ -3,7 +3,7 @@
 angular.module('rhinobird.controllers')
   .controller('GoliveCtrl', function ($scope, $modal, $state, $rootScope, $document, settings, session,
                                       Stream, GeolocationService, CameraService, GoliveService, $timeout, Channel,
-                                     OpenAndWatch, FullscreenService, isMobile) {
+                                     OpenAndWatch, FullscreenService, isMobile, DeviceDetector) {
 
 		$scope.user = session.user;
 
@@ -22,6 +22,7 @@ angular.module('rhinobird.controllers')
     $scope.ctrl = this; // Expose the controller
     $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
+    $scope.vm.chromeNeedsUpdate = DeviceDetector.chromeNeedsUpdate();
 
     // Boot controller
     init();

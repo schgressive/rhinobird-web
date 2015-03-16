@@ -10,6 +10,7 @@
           </div> -->
           <form class="goliveForm" name="goliveForm" role="form"
                 ng-show="vm.goliveService.status == 'disconnected'">
+            <div ng-include="'/views/templates/chrome-needs-update.html'"></div>
             <div class="m_20b text-center">
               <button type="button" role="button"
                 class="btn btn-default btn-small btn-checkbox btn-flip"

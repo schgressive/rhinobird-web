@@ -1,0 +1,12 @@
+<div ng-show="vm.chromeNeedsUpdate" class="alert alert-error">
+  <p class="top-warning">
+    We detected you are using a version an outdated version of Google Chrome.<br><br>
+    While RhinoBird may work ok on your device, some features might not work properly. We suggest you to update to the latest Google Chrome version to experience the complete list of features RhinoBird has to offer.
+    <br>
+    <br>
+  <p>
+  <p>
+  <a ng-if="!app.isMobile" href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank">Update Google Chrome</a>
+  <a ng-if="app.isMobile" href="https://www.google.com/chrome/browser/mobile/index.html" target="_blank">Update Google Chrome</a>
+  </p>
+</div>
