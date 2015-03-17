@@ -5,10 +5,12 @@ angular.module('rhinobird.directives')
     return {
       restrict: 'A',
       scope: {
-        simpleCarouselWatch: '='
+        simpleCarouselWatch: '=',
+        simpleCarouselMobileItems: '@'
       },
       link: function postLink(scope, element) {
         var owl = $(element);
+        var itemsMobile = scope.simpleCarouselMobileItems || 1;
         //
         // Watch if the streams collection change
         scope.$watchCollection('simpleCarouselWatch', function(s){
@@ -23,6 +25,7 @@ angular.module('rhinobird.directives')
             owl.owlCarousel({
               items: 4,
               itemsDesktop : false,
+              itemsMobile: [479, itemsMobile],
               pagination: false,
               navigation: true,
               scrollPerPage: true,
