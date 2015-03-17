@@ -26,8 +26,8 @@
             <textarea class="input-block-level" name="caption"
               rows="3" maxlength="120" ng-model="vm.caption"
               placeholder="What are you broadcasting today? example: Live from #NYC"></textarea>
-            <div class="char-count">
-              <span>-12</span>
+            <div class="char-count" ng-if="vm.charsLeft < 20">
+              <span>{{vm.charsLeft}}</span>
             </div><!-- /.char-count -->
             <div class="validate" ng-show="vm.captionWarning">
               <small class="info">Caption limited to 120 characters.</small>

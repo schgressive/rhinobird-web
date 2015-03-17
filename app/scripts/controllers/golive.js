@@ -187,6 +187,7 @@ angular.module('rhinobird.controllers')
     // Hashtags
     $scope.$watch('vm.caption', function(a){
       if(a){
+        vm.charsLeft = 120 - a.length;
         // sets warning for long caption
         if (a.length > 17) {
           vm.captionWarning = true;
