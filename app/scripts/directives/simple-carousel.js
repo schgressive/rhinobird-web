@@ -6,11 +6,16 @@ angular.module('rhinobird.directives')
       restrict: 'A',
       scope: {
         simpleCarouselWatch: '=',
-        simpleCarouselMobileItems: '@'
+        simpleCarouselOptions: '='
       },
       link: function postLink(scope, element) {
         var owl = $(element);
-        var itemsMobile = scope.simpleCarouselMobileItems || 1;
+        var opts = {
+          mobile: 1,
+          tablet: 2,
+          desktop: 4
+        };
+        angular.extend(opts, scope.simpleCarouselOptions || {});
         //
         // Watch if the streams collection change
         scope.$watchCollection('simpleCarouselWatch', function(s){
@@ -23,9 +28,10 @@ angular.module('rhinobird.directives')
 
             // Initialize the carousel
             owl.owlCarousel({
-              items: 4,
-              itemsDesktop : false,
-              itemsMobile: [479, itemsMobile],
+              items: opts.desktop,
+              itemsDesktop : [1199, opts.desktop],
+              itemsTablet: [768, opts.tablet],
+              itemsMobile: [479, opts.mobile],
               pagination: false,
               navigation: true,
               scrollPerPage: true,

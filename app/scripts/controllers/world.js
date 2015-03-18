@@ -11,6 +11,11 @@ angular.module('rhinobird.controllers')
     vm.nearStreams = [];
     vm.channels = [];
     vm.users = [];
+    vm.animalsCarousel = {
+      mobile: 3,
+      tablet: 5,
+      desktop: 8
+    };
 
     init();
 
