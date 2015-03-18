@@ -23,8 +23,8 @@
                 rows="4" maxlength="120"
                 placeholder="What are you broadcasting today? example: Live from #NYC"
                 ng-model="vm.caption"></textarea>
-      <div class="char-count">
-        <span>-12</span>
+      <div class="char-count" ng-if="vm.charsLeft < 20">
+        <span>{{vm.charsLeft}}</span>
       </div><!-- /.char-count -->
       <div class="validate" ng-show="vm.captionWarning">
         <small class="info">Video preview shows the first 17 characters.</small>
