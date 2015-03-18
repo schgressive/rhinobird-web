@@ -1,0 +1,30 @@
+<div>
+  <section class="top-content">
+    <div class="width-controller container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <h2>Popular Animals</h2>
+        </div>
+      </div><!-- /.row-fluid -->
+    </div><!-- /.container-fluid -->
+  </section><!-- /.top-content -->
+  </div>
+
+<div class="main" role="main">
+  <div class="width-controller container-fluid">
+    <section class="lower-content">
+      <div class="tab-content">
+        <div class="results-media">
+          <div class="row-fluid">
+            <div class="span12" infinite-scroll="vm.users.getNextPage()" infinite-scroll-disabled="vm.users.$pending" infinite-scroll-distance="1">
+              <ol class="unstyled">
+                <li class="results-item span3" ng-repeat="user in vm.users">
+                  <div ng-include="'/views/snippets/search-people-item.html'"></div>
+                </li>
+              </ol>
+            </div>
+          </div>
+      </div>
+    </section><!-- /.lower-content -->
+  </div><!-- /.container-fluid -->
+</div><!-- /.main -->

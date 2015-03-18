@@ -332,6 +332,13 @@ angular.module('rhinobird', [
       templateUrl: '/views/goodbye.html'
     })
 
+    // Popular Animals
+    .state('popularanimals', {
+      url: '/popularanimals/',
+      controller: 'PopularAnimalsCtrl as vm',
+      templateUrl: '/views/popular-animals.html'
+    })
+
     // AllChannels
     .state('allchannels', {
       url: '/allchannels/',
