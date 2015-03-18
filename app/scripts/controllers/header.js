@@ -54,6 +54,7 @@ angular.module('rhinobird.controllers')
     $scope.login = function(){
       AuthService.askLogin();
     };
+    $rootScope.$on('require-login', $scope.login);
 
     $scope.logout = function(){
       AuthService.logout();
