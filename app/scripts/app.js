@@ -209,8 +209,8 @@ angular.module('rhinobird', [
           var deferred = $q.defer();
 
           var stream = Stream.$find($stateParams.streamId).$then(function() {
-            if (stream.status === 'pending') {
-              deferred.reject('not yet archived');
+            if (stream.status === 'created') {
+              deferred.reject('not yet active');
             } else {
               deferred.resolve(stream);
             }
