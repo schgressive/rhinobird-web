@@ -4,6 +4,10 @@
     </span>
     <b>Live on:</b>
   </div>
+  <div class="archiving" ng-if="stream.status == 'pending'">
+    <h3>This video is no longer live, but in the process of being saved in the cloud</h3>
+    <span ng-if="!user.username">Follow more of {{stream.user.username}} by <a href="#" ng-click="login()">signing in </a>.</span>
+  </div>
   <div feature-overlay stream="stream"></div>
   <div class="spinner-overlay">
     <div class="spinner"></div>

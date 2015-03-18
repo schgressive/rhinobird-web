@@ -6,14 +6,17 @@
   <div class="width-controller mobile-full container-fluid">
     <section class="mid-content">
       <div class="row-fluid">
-        <div class="module-xlarge span8" ng-class="{span8: streamLive(), span8: !streamLive()}">
+        <div class="module-xlarge span8" ng-class="{span8: streamLive(), span12: !streamLive()}">
           <div ng-include="'/views/snippets/module-xlarge.html'"></div>
         </div><!-- /.module-xlarge -->
 
         <div class="span4 visible-desktop hidden-tablet video-chat" ng-if="streamLive()">
           <h3>
             <span class="fa fa-comment-o"></span>
-            <span class="line-text">Say something...</span>
+            <span class="line-text">Say something</span>
+            <span class="line-text">To comment, like  and see more videos from {{stream.user.username}} please
+              <a href="#" ng-click="login()">sign in</a>.
+            </span>
           </h3>
           <div standard-comments stream="stream"></div>
         </div>

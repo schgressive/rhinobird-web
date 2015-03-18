@@ -25,6 +25,10 @@ angular.module('rhinobird.controllers')
       $state.go('stream.comments');
     }
 
+    $scope.login = function() {
+      AuthService.askLogin();
+    }
+
     // PRIVATE METHODS
     //
 
