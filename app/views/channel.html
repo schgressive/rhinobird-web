@@ -1,11 +1,11 @@
-<rb-top-bar user="user" app="app">
+<rb-top-bar ng-hide="true" user="user" app="app">
   <a class="btn-vj btn pull-left vj-on" ng-click="stopVj()" ng-show="vjService.live" role="button">In Session</a>
   <a class="btn-vj btn pull-left vj-off" ng-click="startVj()" ng-show="!vjService.live" role="button">Start VJ</a>
 </rb-top-bar>
 
 <div class="main" role="main">
   <div class="width-controller container-fluid">
-  	<section class="mid-content">
+    <section class="mid-content">
       <div class="row-fluid">
         <h3 class="span12">Now Viewing: #{{channel.name}}</h3>
       </div>
