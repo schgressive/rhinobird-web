@@ -13,6 +13,9 @@ server {
 
 server {
 
+  auth_basic           "closed site";
+  auth_basic_user_file /home/deploy/applications/rhinobird-web/shared/htpasswd;
+
   <% if fetch(:nginx_use_ssl) %>
     listen 443;
     ssl on;
