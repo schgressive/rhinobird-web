@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rhinobird.services')
-  .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password, Confirmation) {
+  .service('AuthService', function AuthService($modal, $rootScope, User, Session, Password, Confirmation, $state) {
 
     // The current session
     var session = Session.$build({id: 'current'});
@@ -110,7 +110,9 @@ angular.module('rhinobird.services')
     // private method to logout an authenticated user
     this.logout = function() {
       // Destroy de session
-      session.$destroy().$finally(broadcastSessionChanged);
+      session.$destroy().$then(function() {
+        $state.go('main.world');
+      }).$finally(broadcastSessionChanged);
       return session.$promise;
     };
 
