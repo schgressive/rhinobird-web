@@ -379,11 +379,21 @@ angular.module('rhinobird', [
   csp.enableVideo(true);
   csp.enableAudio(true);
 
-  csp.setVideoConstrain('minWidth', '640');
-  csp.setVideoConstrain('minHeight', '360');
-  csp.setVideoConstrain('minAspectRatio', 1.778);
+  // These are Licode params
+  // https://github.com/ging/licode/blob/ad9d53587cf9e1d187e2bed6e066f4b89ebb62cd/erizo_controller/erizoClient/src/Stream.js#L83
+  // Ex. videoSize = [minWidth, minHeight, maxWidth, maxHeight]
+  //
+  //csp.setVideoConstrain('videoSize', [640, 360, 640, 480], 'licode');
 
-  csp.setVideoConstrain('facingMode', 'environment', true);
+  // Mandatory
+  //csp.setVideoConstrain('aspectRatio', 1.7777777778, 'mandatory');
+
+  //
+  // Optional
+  csp.setVideoConstrain('minWidth', 640, 'optional');
+  csp.setVideoConstrain('minHeight', 360, 'optional');
+  csp.setVideoConstrain('minAspectRatio', 1.7777777778, 'optional');
+  csp.setVideoConstrain('facingMode', 'environment', 'optional');
 
   // Set stream viewer size presets
   streamViewerConfigProvider.addPreset('mini', 'auto', 100);
