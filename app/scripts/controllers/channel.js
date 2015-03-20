@@ -4,7 +4,7 @@ angular.module('rhinobird.controllers')
   .controller('ChannelCtrl', function ($scope, $stateParams, $interval, $browser, AuthService, channel, $rootScope, VjService, GeolocationService) {
     var POLLING_TIME = 10000; // 10 seconds
 
-		$scope.user = AuthService.user;
+    $scope.user = AuthService.user;
 
     /**
      * SCOPE
@@ -19,6 +19,10 @@ angular.module('rhinobird.controllers')
 
     // The live streams
     $scope.liveStreams = channel.streams.live(true);
+
+    // The past streams
+    $scope.pastStreams = channel.streams;
+    $scope.pastStreams.$fetch();
 
     // The Vj ongoing status
     $scope.vjStarted = false;
@@ -146,6 +150,10 @@ angular.module('rhinobird.controllers')
 
     $scope.willPlayback = function () {
       return $scope.liveStreams && $scope.liveStreams.length > 0 && !$scope.currentStream;
+    };
+
+    $scope.showPastStreams = function () {
+      return $scope.pastStreams && $scope.pastStreams.length > 0 && !$scope.currentStream;
     };
 
     GeolocationService.getCurrent();
