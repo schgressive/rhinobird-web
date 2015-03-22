@@ -1,12 +1,18 @@
 <section class="main">
   <div class="golive-view">
-    <div ng-include="'/views/layouts/golive-actions.html'"></div>
+
+    <div ng-if="vm.connected && vm.stream.status == 'live'"
+         class="actionBar collapse in" id="actionBar"
+         ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
+      <div ng-include="'/views/layouts/golive-actions.html'"></div>
+    </div><!-- /#actionBar -->
+
     <div class="collapse-btn-wrapper">
-  		<button class="btn btn-small"
-    			data-toggle="collapse" data-target="#actionBar" role="button">
-    			<span class="fa fa-chevron-up"></span>
-    		</button>
-  	</div>
+      <button class="btn btn-small" role="button"
+              data-toggle="collapse" data-target="#actionBar">
+              <span class="fa fa-chevron-up"></span>
+      </button>
+    </div>
   </div><!-- /.golive-view -->
   <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending && vm.goliveService.stream.status == 'live'">
   	<img src="../images/loading-bubbles.svg" width="75px" height="75px" alt="loading icon"/>

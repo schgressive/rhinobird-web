@@ -86,7 +86,13 @@
 
     <section ng-show="vm.goliveService.status == 'connected'">
       <div class="golive-view">
-        <div ng-include="'/views/layouts/golive-actions.html'"></div>
+
+        <div ng-if="vm.connected && vm.stream.status == 'live'"
+             class="actionBar collapse" id="actionBar"
+             ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
+          <div ng-include="'/views/layouts/golive-actions.html'"></div>
+        </div><!-- /#actionBar -->
+
         <div class="collapse-btn-wrapper">
           <button class="btn btn-small" data-toggle="collapse"
                   data-target="#actionBar" role="button">
