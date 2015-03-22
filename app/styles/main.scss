@@ -99,6 +99,7 @@ a:focus {
 li span.fa + .line-text { margin-left: 3px;}
 h3 span.fa + .line-text,
 h4 span.fa + .line-text { margin-left: 6px;}
+h4 .btn-mini { margin-top: -3px;}
 
 // Margin/Padding classes
 
@@ -1276,11 +1277,10 @@ i[class*="icon"] {font-style: normal;}
 
 .delete-btn {
 	position: absolute;
-	top: 2px;
-	right: 2px;
-	z-index: 99999999;
-	.btn.btn-mini { border-radius: 70px; padding: 0 3px;}
-	span.fa-remove { vertical-align: middle; margin-top: -2px;}
+	top: 6px;
+	right: 6px;
+	z-index: 99999;
+	.btn.btn-mini { border-radius: 14px; padding: 4px 6px; line-height: 0;}
 }
 
 .module-inner {
@@ -1437,7 +1437,8 @@ i[class*="icon"] {font-style: normal;}
 
 .channel-item {
   h4 {
-    font-family: $bold-font-stack;
+    font-family: 'OpenSansBold', $bold-font-stack;
+    letter-spacing: -1px;
     a { color: $red;}
   }
   .module-large { box-shadow: none;}
@@ -1733,6 +1734,7 @@ i[class*="icon"] {font-style: normal;}
 .alert .message { font-size: 18px; padding-top: 6px;}
 .alert p { margin-bottom: 0;}
 
+.tab-pane .alert { margin-bottom: 0;}
 
 // OTHER PARTIALS ----------------------------------
 
