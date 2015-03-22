@@ -8,8 +8,8 @@
     </div><!-- /#actionBar -->
 
     <div class="collapse-btn-wrapper">
-      <button class="btn btn-small" role="button"
-              data-toggle="collapse" data-target="#actionBar">
+      <button class="btn btn-small" data-toggle="collapse"
+              data-target="#actionBar" role="button">
               <span class="fa fa-chevron-up"></span>
       </button>
     </div>
@@ -24,3 +24,12 @@
     <licode class="video-container" token="vm.goliveService.stream.ownerToken" flow="outbound" on="true" record="{{vm.sharingOptions.archive}}" full-bleed></licode>
   </div><!-- /.stream-wrapper -->
 </section>
+
+<script text="text/javascript">
+  $(function(){
+    $(".collapse-btn-wrapper button").click(function(){
+      console.log(this);
+      $("span.fa",this).toggleClass("fa-chevron-up fa-chevron-right");
+    });
+  });
+</script>

@@ -12,6 +12,6 @@ if (!window.matchMedia || (window.matchMedia('(min-width: 767px)').matches)){
 $(document).ready(function() {
   /* bootstrap tooltips */
   $('.base').tooltip({
-   	selector: '[rel="tooltip"]'
-	});
+    selector: '[rel="tooltip"]'
+  });
 });

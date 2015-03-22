@@ -120,3 +120,12 @@
 
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
+
+<script text="text/javascript">
+  $(function(){
+    $(".collapse-btn-wrapper button").click(function(){
+      console.log(this);
+      $("span.fa",this).toggleClass("fa-chevron-up fa-chevron-right");
+    });
+  });
+</script>
