@@ -109,7 +109,7 @@ h4 span.fa + .line-text { margin-left: 6px;}
 .m_20r { margin-right: 20px;}
 .m_30b { margin-bottom: 30px;}
 .m_40t { margin-top: 40px;}
-.m_40b { margin-top: 40px;}
+.m_40b { margin-bottom: 40px;}
 
 // Calculate all H# Tags.
 
@@ -784,7 +784,10 @@ i[class*="icon"] {font-style: normal;}
   li.active a { color: $black;}
 }
 
-.mid-content + .lower-content { margin-top: 20px;}
+.mid-content + .lower-content {
+  margin-top: 20px;
+  @media screen and (max-width: 640px) { margin-top: 0;}
+}
 
 .no-results {
 	padding-top: 20px;
@@ -806,7 +809,7 @@ i[class*="icon"] {font-style: normal;}
 .lower-content {
   padding-bottom: 30px;
   h4 { margin-top: 0px;}
-  &.media-area .row-fluid + .row-fluid { margin-top: 20px;}
+  .row-fluid:first-of-type { margin-top: 10px;}
   .row-fluid [class*="span3"] {
     @media screen and (max-width: 1000px) {
       width: 31.91%;
@@ -815,6 +818,12 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 730px) {
       width: 48.7%;
       *width: 48.7%;
+    }
+  }
+  &.media-area  {
+    .row-fluid + .row-fluid { margin-top: 20px;}
+    @media screen and (max-width: 640px) {
+      .row-fluid.m_40b { margin-bottom: 20px;}
     }
   }
   .results-channels {
@@ -831,7 +840,6 @@ i[class*="icon"] {font-style: normal;}
       }
     }
   }
-  &.media-area { .row-fluid:first-of-type { margin-bottom: 0;}}
   &.media-area, .results-media {
     .row-fluid [class*="span3"] {
       @media screen and (max-width: 1000px) { width: 31.91%; *width: 31.91%;}
@@ -921,9 +929,25 @@ i[class*="icon"] {font-style: normal;}
   padding: 16px 20px 0;
   background-color: darken($bodyBackground, 5%);
   overflow: hidden;
+  @media screen and (max-width: 640px) {
+    background-color: $bodyBackground;
+    padding: { top: 0; bottom: 0;}
+  }
   .owl-carousel .owl-wrapper {
     .owl-item + .owl-item {
-      @media screen and (min-width: 640px) { margin-left: 16px;}
+      @media screen and (min-width: 641px) { margin-left: 16px;}
+    }
+  }
+  .owl-theme {
+    @media screen and (max-width: 640px) {
+      .owl-controls {
+        margin-top: 0;
+        .owl-buttons div {
+          padding: {top: 6px; bottom: 6px;}
+          opacity: 1;
+        }
+      }
+      .module-large { margin-bottom: 10px;}
     }
   }
 }
