@@ -605,11 +605,11 @@ i[class*="icon"] {font-style: normal;}
       background-size: 142%;
     }
     @media screen and (max-width: 1280px) and (min-width: 1081px) {
-      background-position: -71px 24px;
+      background-position: -71px 80px;
       background-size: 115%;
     }
     @media screen and (max-width: 1080px) and (min-width: 981px) {
-      background-position: -180px 33px;
+      background-position: -180px 60px;
       background-size: 145%;
     }
     @media screen and (max-width: 980px) and (min-width: 641px){
@@ -885,7 +885,7 @@ i[class*="icon"] {font-style: normal;}
     background-position: top left;
     background-repeat: no-repeat;
     background-color: transparent;
-    &.vj.live { background-image: url('/images/vj-live-icon-32.svg');}
+    &.vj.live { background-image: url('/images/vj-live-flag.svg');}
     &.vj.archived { background-image: url('/images/vj-archive-icon-32.svg');}
     &.pending { background-image: url('/images/pending-icon-32.svg');}
     &.live {
