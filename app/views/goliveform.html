@@ -92,6 +92,11 @@
                   data-target="#actionBar" role="button">
                   <span class="fa fa-chevron-up"></span>
           </button>
+          <button ng-click="newComment=false; collapsedComments=!collapsedComments" ng-class="{newComment: collapsedComments && newComment}"
+            class="toggle-comments btn btn-default btn-small visible-phone"
+            data-toggle="collapse" data-target="#commentBox" role="button">
+            <span class="fa fa-comments"></span>
+          </button>
         </div>
       </div><!-- /.golive-view -->
       <div class="activity-flag" ng-show="vm.goliveService.stream && vm.goliveService.stream.$pending">

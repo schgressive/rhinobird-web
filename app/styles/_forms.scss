@@ -94,7 +94,7 @@ body.base {
 	.input-append {
     .btn {
       padding: { top: 6px; bottom: 6px;}
-      &.btn-small { padding: { top: 2px; bottom: 2px;}}
+      &.btn-small { font-size: 12px; padding: { top: 3px; bottom: 3px;}}
     }
 	}
 	.btn, btn-small, .btn-mini, .btn-large, .tooltip-inner {
