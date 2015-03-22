@@ -219,8 +219,8 @@ body.base { /*overrides are here */
 			}
 			@media (max-width: $navbarCollapseWidth) {padding: 0 70px;}
 			@media screen and (max-width: 640px) {
-				background-color: hsla(0,0%,100%,.6);
-				border-bottom-color: hsla(35,13%,82%,.4);
+				background-color: hsla(0,0%,100%,.75);
+				border-bottom-color: hsla(35,13%,82%,.6);
 			}
 			.main-nav-wrapper { padding-left: 20px;}
 			.main-nav { float: left;}
