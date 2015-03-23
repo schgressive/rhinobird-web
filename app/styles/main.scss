@@ -99,6 +99,7 @@ a:focus {
 li span.fa + .line-text { margin-left: 3px;}
 h3 span.fa + .line-text,
 h4 span.fa + .line-text { margin-left: 6px;}
+h4 .btn-mini { margin-top: -3px;}
 
 // Margin/Padding classes
 
@@ -109,7 +110,7 @@ h4 span.fa + .line-text { margin-left: 6px;}
 .m_20r { margin-right: 20px;}
 .m_30b { margin-bottom: 30px;}
 .m_40t { margin-top: 40px;}
-.m_40b { margin-top: 40px;}
+.m_40b { margin-bottom: 40px;}
 
 // Calculate all H# Tags.
 
@@ -604,11 +605,11 @@ i[class*="icon"] {font-style: normal;}
       background-size: 142%;
     }
     @media screen and (max-width: 1280px) and (min-width: 1081px) {
-      background-position: -71px 24px;
+      background-position: -71px 80px;
       background-size: 115%;
     }
     @media screen and (max-width: 1080px) and (min-width: 981px) {
-      background-position: -180px 33px;
+      background-position: -180px 60px;
       background-size: 145%;
     }
     @media screen and (max-width: 980px) and (min-width: 641px){
@@ -784,7 +785,10 @@ i[class*="icon"] {font-style: normal;}
   li.active a { color: $black;}
 }
 
-.mid-content + .lower-content { margin-top: 20px;}
+.mid-content + .lower-content {
+  margin-top: 20px;
+  @media screen and (max-width: 640px) { margin-top: 0;}
+}
 
 .no-results {
 	padding-top: 20px;
@@ -806,7 +810,7 @@ i[class*="icon"] {font-style: normal;}
 .lower-content {
   padding-bottom: 30px;
   h4 { margin-top: 0px;}
-  &.media-area .row-fluid + .row-fluid { margin-top: 20px;}
+  .row-fluid:first-of-type { margin-top: 10px;}
   .row-fluid [class*="span3"] {
     @media screen and (max-width: 1000px) {
       width: 31.91%;
@@ -815,6 +819,12 @@ i[class*="icon"] {font-style: normal;}
     @media screen and (max-width: 730px) {
       width: 48.7%;
       *width: 48.7%;
+    }
+  }
+  &.media-area  {
+    .row-fluid + .row-fluid { margin-top: 20px;}
+    @media screen and (max-width: 640px) {
+      .row-fluid.m_40b { margin-bottom: 20px;}
     }
   }
   .results-channels {
@@ -831,7 +841,6 @@ i[class*="icon"] {font-style: normal;}
       }
     }
   }
-  &.media-area { .row-fluid:first-of-type { margin-bottom: 0;}}
   &.media-area, .results-media {
     .row-fluid [class*="span3"] {
       @media screen and (max-width: 1000px) { width: 31.91%; *width: 31.91%;}
@@ -876,7 +885,7 @@ i[class*="icon"] {font-style: normal;}
     background-position: top left;
     background-repeat: no-repeat;
     background-color: transparent;
-    &.vj.live { background-image: url('/images/vj-live-icon-32.svg');}
+    &.vj.live { background-image: url('/images/vj-live-flag.svg');}
     &.vj.archived { background-image: url('/images/vj-archive-icon-32.svg');}
     &.pending { background-image: url('/images/pending-icon-32.svg');}
     &.live {
@@ -921,9 +930,25 @@ i[class*="icon"] {font-style: normal;}
   padding: 16px 20px 0;
   background-color: darken($bodyBackground, 5%);
   overflow: hidden;
+  @media screen and (max-width: 640px) {
+    background-color: $bodyBackground;
+    padding: { top: 0; bottom: 0;}
+  }
   .owl-carousel .owl-wrapper {
     .owl-item + .owl-item {
-      @media screen and (min-width: 640px) { margin-left: 16px;}
+      @media screen and (min-width: 641px) { margin-left: 16px;}
+    }
+  }
+  .owl-theme {
+    @media screen and (max-width: 640px) {
+      .owl-controls {
+        margin-top: 0;
+        .owl-buttons div {
+          padding: {top: 6px; bottom: 6px;}
+          opacity: 1;
+        }
+      }
+      .module-large { margin-bottom: 10px;}
     }
   }
 }
@@ -1252,11 +1277,10 @@ i[class*="icon"] {font-style: normal;}
 
 .delete-btn {
 	position: absolute;
-	top: 2px;
-	right: 2px;
-	z-index: 99999999;
-	.btn.btn-mini { border-radius: 70px; padding: 0 3px;}
-	span.fa-remove { vertical-align: middle; margin-top: -2px;}
+	top: 6px;
+	right: 6px;
+	z-index: 99999;
+	.btn.btn-mini { border-radius: 14px; padding: 4px 6px; line-height: 0;}
 }
 
 .module-inner {
@@ -1413,7 +1437,8 @@ i[class*="icon"] {font-style: normal;}
 
 .channel-item {
   h4 {
-    font-family: $bold-font-stack;
+    font-family: 'OpenSansBold', $bold-font-stack;
+    letter-spacing: -1px;
     a { color: $red;}
   }
   .module-large { box-shadow: none;}
@@ -1709,6 +1734,7 @@ i[class*="icon"] {font-style: normal;}
 .alert .message { font-size: 18px; padding-top: 6px;}
 .alert p { margin-bottom: 0;}
 
+.tab-pane .alert { margin-bottom: 0;}
 
 // OTHER PARTIALS ----------------------------------
 
