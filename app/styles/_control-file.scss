@@ -15,7 +15,6 @@ $grayDark												: hsla(240,1%,31%,1); /*4D4D4F*/
 $gray														: hsla(0,0%,60%,1); /*999999*/
 $grayLight											: hsla(0,0%,87%,1); /*DEDEDE*/
 $grayLighter										: hsla(0,0%,93%,1); /*eee*/
-$white													: hsla(0,0%,100%,1); /*FFF*/
 $darkTrans											: hsla(0,0%,0%,.5);
 $darkTrans2											: hsla(0,0%,0%,.75);
 
@@ -80,7 +79,7 @@ $selectedBackgroundColor				: $red;
 
 // Tables ------------------------------
 
-$tableBackground								: $white;
+$tableBackground								: #fff;
 $tableBackgroundAccent					: $grayDark;
 $tableBackgroundHover						: $grayLight;
 $tableBorder										: $grayDarker;
@@ -88,7 +87,7 @@ $tableBorder										: $grayDarker;
 // Forms ------------------------------
 
 $placeholderText								: $warmGray7;
-$inputBackground								: $white;
+$inputBackground								: #fff;
 $inputBorder										: $warmGray1;
 $inputBorderFocus								:	$warmGray7;
 $inputBackgroundFocus						: $beigeLight;
@@ -98,7 +97,7 @@ $btnDisabledBackground					:	$grayLighter;
 $btnPrimaryBackground						: $orange;
 $btnPrimaryBackgroundHighlight	: lighten($btnPrimaryBackground, 10%);
 $btnPrimaryBackgroundHover			: $red;
-$btnAccentColor									: $white;
+$btnAccentColor									: #fff;
 $btnAccentBackground						: $purple;
 
 // Forms State & Alerts ------------------------------
@@ -115,12 +114,12 @@ $infoBackground									: transparent;
 // Navbar ------------------------------
 
 $navbarHeight										: 48px;
-$navbarBackground								: $white;
+$navbarBackground								: #fff;
 $navbarBackgroundHighlight			: transparent;
 $navbarText											: $warmGray11;
 $navbarBrandColor								: $navbarText;
 $navbarLinkColor								: $grayDark;
-$navbarLinkColorHover						: $white;
+$navbarLinkColorHover						: #fff;
 $navbarLinkColorActive					: $grayDark;
 $navbarLinkBackgroundHover			: $red;
 $navbarSearchBackground					: $beigeLight;
@@ -149,7 +148,7 @@ $heroUnitLeadColor							: inherit;
 
 // Tooltips ------------------------------
 
-$tooltipColor										: $white;
+$tooltipColor										: #fff;
 $tooltipBackground							: $red;
 $tooltipArrowColor							: $tooltipBackground;
 

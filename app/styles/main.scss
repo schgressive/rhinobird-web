@@ -554,7 +554,7 @@ i[class*="icon"] {font-style: normal;}
 	.mainWrapper .main { padding-bottom: 0;}
 	.main .width-controller {
 		padding-bottom: 20px;
-		background-color: $white;
+		background-color: #fff;
 		border: {
 			top: 0;
 			left: 1px;
@@ -624,7 +624,7 @@ i[class*="icon"] {font-style: normal;}
     }
     @media screen and (max-width: 480px) { height: 540px;}
     h1 {
-      color: $white;
+      color: #fff;
       line-height: 1.2;
       margin: 30px 0 10px;
       text-shadow: 1px 1px 3px rgba(0,0,0,.5);
@@ -640,7 +640,7 @@ i[class*="icon"] {font-style: normal;}
       }
     }
     h2 {
-      color: $white;
+      color: #fff;
       @include fontSize(24px);
       font-style: italic;
       font-weight: 500;
@@ -657,7 +657,7 @@ i[class*="icon"] {font-style: normal;}
       }
     }
     h3 {
-      color: $white;
+      color: #fff;
       text-shadow: 1px 1px 1px rgba(0,0,0,.5);
     }
   }
@@ -981,7 +981,7 @@ i[class*="icon"] {font-style: normal;}
   }
   .pop-user {
     text-align: center;
-    background-color: $white;
+    background-color: #fff;
     padding: 11px 5px;
     width: 100%;
     border: 2px solid $warmGray1;
@@ -1003,7 +1003,7 @@ i[class*="icon"] {font-style: normal;}
 			color: $textOnDark;
 			background-color: $darkTrans;
 			border-radius: $baseBorderRadius;
-			h1 {color: $white;}
+			h1 {color: #fff;}
 		}
 	}
 	.mid-content {
@@ -1168,7 +1168,7 @@ i[class*="icon"] {font-style: normal;}
   z-index: 10;
   top: 38px;
   padding: 16px 8px 24px;
-  border: 8px solid $white;
+  border: 8px solid #fff;
   border-radius: 16px;
   background: rgba(255,255,255,.6) url('../images/pattern2.png') top left repeat;
   box-shadow: 0px 0px 7px 2px rgba(0,0,0,.15);
@@ -1264,7 +1264,7 @@ i[class*="icon"] {font-style: normal;}
 .map-wrapper, .carousel-wrapper, .module-large, .results-item, .back-to-top {@include box-shadow(0 1px 2px $shadowColor);}
 
 .map-wrapper {
-	background-color: $white;
+	background-color: #fff;
 	padding: 10px;
 	@media screen and (max-width: 500px) { padding: 5px;}
 }
@@ -1285,7 +1285,7 @@ i[class*="icon"] {font-style: normal;}
 
 .module-inner {
 	padding: 8px 10px;
-	background-color: $white;
+	background-color: #fff;
 	@media screen and (max-width: 500px) { padding: 0;}
 }
 
@@ -1354,7 +1354,7 @@ i[class*="icon"] {font-style: normal;}
 	min-height: 10px;
 	color: $grayDarker;
 	padding: 0px 10px 7px 10px;
-	background-color: $white;
+	background-color: #fff;
 	@media screen and (max-width: 640px) {
 		@include fontSize(12px);
 		padding: 5px 6px;
@@ -1367,7 +1367,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .watermark {
-  color: $white;
+  color: #fff;
   width: 200px;
   height: 40px;
   background: rgba(0,0,0,.25) url('../images/rb-logo-wh.svg') 92% 35% no-repeat;
@@ -1503,7 +1503,7 @@ i[class*="icon"] {font-style: normal;}
   position: absolute;
   bottom: 0;
   button {
-    color: $white;
+    color: #fff;
     width: 100%;
     background-image: none;
     background-color: transparent;
@@ -1517,14 +1517,14 @@ i[class*="icon"] {font-style: normal;}
   .item { margin-right: 16px;}
   .streamSelected {
     padding: 2px 5px;
-    background-color: $white;
+    background-color: #fff;
     position: absolute;
     top: 0;
   }
   .streamHide {
     padding: 2px 5px 0px 5px;
     margin-right: 15px;
-    background-color: $white;
+    background-color: #fff;
     position: absolute;
     top: 0;
     right: 0;
@@ -1604,7 +1604,7 @@ i[class*="icon"] {font-style: normal;}
 
 .results-item {
 	color: $grayDarker;
-	background-color: $white;
+	background-color: #fff;
 	margin-bottom: 20px;
 	&.span3 {padding: 5px 10px 7px 10px;}
 	&.span4 {padding: 5px 7px 7px;}
@@ -1701,7 +1701,7 @@ i[class*="icon"] {font-style: normal;}
     /* fix below later */
     .specs-popup {display: none;}
     .thumb-user { margin: 7px 10px 7px 7px;}
-	.specs-title {@include fontSize(13px); color: $white;}
+	.specs-title {@include fontSize(13px); color: #fff;}
 	.specs-tags {@include fontSize(11px); color: $grayLighter;}
 	.play-btn {
 		width: 31px;

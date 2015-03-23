@@ -112,7 +112,7 @@ body.base {
 	}
 	.brSmall { border-radius: $borderRadiusSmall;}
 	.modal {
-		border: 4px solid $white;
+		border: 4px solid #fff;
 		padding: 0 14px 18px;
 		&.fade.in { top: 6%;}
 		@media screen and (max-width: 598px) {
@@ -181,7 +181,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background-image: none;
 	box-shadow: none;
 	&:hover {
-		color: $white;
+		color: #fff;
 		text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
 		background-color: $purple;
 		border-color: darken($purple, 10%);
@@ -202,11 +202,11 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn-feature {
 	@include fontSize(22px);
 	line-height: 1.3;
-	color: $white;
+	color: #fff;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
 	background-color: rgba(0, 0, 0, 0.1);
 	padding: { left:26px; right:26px;}
-	border-color: $white;
+	border-color: #fff;
 	border-width: 3px;
 	@include font-smoothing;
 	&:hover {
@@ -217,7 +217,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .btn-primary, .btn-primary:focus {
-	color: $white;
+	color: #fff;
 	@include fontSize(16px);
 	padding: {left:36px;right:36px;}
 	background-color: $btnPrimaryBackground;
@@ -242,7 +242,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .btn-danger {
-  color: $white;
+  color: #fff;
   background-color: $errorText;
   border-color: darken($errorText, 5%);
   @include font-smoothing;
@@ -253,7 +253,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .btn-success {
-  color: $white;
+  color: #fff;
   background-color: $successText;
   border-color: darken($successText, 5%);
   @include font-smoothing;
@@ -284,7 +284,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .btn-vj {
-	color: $white;
+	color: #fff;
 	min-width: 56px;
 	margin: {top:6px;right:10px;}
 	&.vj-off {
@@ -308,7 +308,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-twitter, .btn.btn-twitter:focus {
 	background: $warmGray11 url('../images/twitter-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active {
 		background-color: darken($twitterBlue, 10%);
 		border-color: darken($twitterBlue, 25%);
@@ -318,7 +318,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-facebook, .btn.btn-facebook:focus {
 	background: $warmGray11 url('../images/facebook-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active {
 		background-color: darken($facebookBlue, 10%);
 		border-color: darken($facebookBlue, 25%);
@@ -328,7 +328,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-whatsapp, .btn.btn-whatsapp:focus {
 	background: $warmGray11 url('../images/whatsapp-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active {
 		background-color: darken($whatsappGreen, 10%);
 		border-color: darken($whatsappGreen, 25%);
@@ -338,7 +338,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-geolocate, .btn.btn-geolocate:focus {
 	background: $warmGray11 url('../images/geolocate-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active {
 		background-color: darken(#5634C2, 10%);
 		border-color: darken(#5634C2, 25%);
@@ -348,7 +348,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-archive, .btn.btn-archive:focus {
 	background: $warmGray11 url('../images/archive-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active {
 		background-color: darken(#F40016, 10%);
 		border-color: darken(#F40016, 25%);
@@ -358,7 +358,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-share, .btn.btn-share:focus {
 	background: $warmGray11 url('../images/screenshare-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active {
 		background-color: darken(#7F66D1, 10%);
 		border-color: darken(#7F66D1, 25%);
@@ -368,7 +368,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-flip, .btn.btn-flip:focus {
  	background: $warmGray11 url('../images/flip-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active { background-color: darken($orange, 10%);}
 	&:hover, &.active {
 		border-color: darken($orange, 25%);
@@ -378,7 +378,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .btn.btn-hd, .btn.btn-hd:focus {
 	background: $warmGray11 url('../images/hdvideo-icon-46.svg') center center no-repeat;
 	background-size: contain;
-	border-color: $white;
+	border-color: #fff;
 	&.active { background-color: darken(#395059, 10%);}
 	&:hover, &.active {
 		border-color: darken(#395059, 25%);
@@ -436,7 +436,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     h6 { background-color: rgba(0,0,0,.5); text-align: center;}
   }
   .caption-wrapper {
-    background-color: $white;
+    background-color: #fff;
     border-radius: 6px;
     padding: 8px 10px 3px;
     margin-bottom: 8px;
@@ -500,7 +500,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 		margin: 10px auto 15px;
 		border-size: 2px;
 		border-style: solid;
-		background-color: $white;
+		background-color: #fff;
 		-webkit-border-radius: $baseBorderRadius;
 		-moz-border-radius: $baseBorderRadius;
 		border-radius: $baseBorderRadius;
@@ -526,7 +526,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 	background-size: cover;
 	.input-prepend, .input-append { vertical-align: top; margin-right: 10px;}
 	a.btn-social {
-		color: $white;
+		color: #fff;
 		font-family: $bold-font-stack;
 		text-align: left;
 		text-transform: uppercase;
@@ -583,11 +583,11 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 }
 
 .validate {
-	color: $white;
+	color: #fff;
 	text-align: center;
 	margin: 0;
 	small { display: block; width: 100%; height: auto; }
-	a:link { color: $white; text-decoration: underline;}
+	a:link { color: #fff; text-decoration: underline;}
 	.info { background-color: $infoText;}
 	.warning { background-color: $warningText;}
 	.error { background-color: $errorText;}
