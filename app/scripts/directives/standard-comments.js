@@ -40,7 +40,6 @@ angular.module('rhinobird.directives')
       }, this);
 
       CommentsService.API.on('incomming-message', function (message) {
-        textInput.val('');
         scope.comments.unshift(prepareMessageForDisplay(message));
         scope.$apply();
       }, this);
@@ -52,8 +51,10 @@ angular.module('rhinobird.directives')
       });
 
       submitForm.submit(function () {
-        if (textInput.val() != "")
+        if (textInput.val() != "") {
           CommentsService.API.sendMessage(scope.roomId, textInput.val());
+          textInput.val('');
+        }
         return false;
       });
 
