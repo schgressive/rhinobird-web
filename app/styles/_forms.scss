@@ -401,8 +401,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     @media screen and (max-width: 979px) { margin-top: 10px;}
   }
   .goliveForm {
-    padding: 40px 10px 20px;
-    background-color: $darkTrans2;
+    padding: 40px 20px 20px;
     .btn:focus { outline: 0;}
     .btn-checkbox {
       width: 46px;
@@ -410,11 +409,44 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
       border-radius: 46px;
       padding: 0px;
     }
-    .btn-large { @include fontSize(18px);}
     .btn-block {
       display: block;
       & + .btn-block { margin-top: 14px;}
     }
+    .btn-primary {
+      @include fontSize(22px);
+      text-transform: uppercase;
+      padding: { top: 5px; bottom: 5px;}
+      & + .btn-default {
+        color: #fff;
+        background-color: rgba(0,0,0,.5);
+        border-color: rgba(0,0,0,.8);
+        margin: 10px 0 2px 10%;
+        text-align: center;
+      }
+    }
+    h4 {
+      color: #fff;
+      width: 64%;
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 4px 3px 6px;
+      margin: 0 auto;
+      text-shadow: 2px 0px 5px rgba(0,0,0,1);
+    }
+    h6 { background-color: rgba(0,0,0,.5); text-align: center;}
+  }
+  .caption-wrapper {
+    background-color: $white;
+    border-radius: 6px;
+    padding: 8px 10px 3px;
+    margin-bottom: 8px;
+    label {
+      @include fontSize(18px);
+      color: $warmGray11;
+      font-family: "OpenSansBold", $bold-font-stack;
+      margin-bottom: 10px;
+    }
+    & + .validate { margin-bottom: 6px;}
   }
   .controls-row {
     .btn-checkbox {
@@ -429,6 +461,14 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     text-align: center;
     padding: 10px;
     background-color: $darkTrans2;
+  }
+  .channel-suggest {
+    li .btn {
+      color: #fff;
+      background-color: rgba(0,0,0,.5);
+      border-color: rgba(0,0,0,.8);
+      padding: 3px 9px 5px;
+    }
   }
 }
 
@@ -476,7 +516,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
   .btn-large { @include fontSize(18px);}
   .channel-suggest {
     width: 100%;
-    margin: -7px auto 5px;
+    margin: 10px auto 5px;
   }
 }
 

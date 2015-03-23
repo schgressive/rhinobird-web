@@ -11,7 +11,7 @@
           <form class="goliveForm" name="goliveForm" role="form"
                 ng-show="vm.goliveService.status == 'disconnected'">
             <div ng-include="'/views/templates/chrome-needs-update.html'"></div>
-            <div class="m_20b text-center">
+            <div class="m_10b text-center">
               <button type="button" role="button"
                 class="btn btn-default btn-small btn-checkbox btn-flip"
                 ng-show="vm.camera.videoSources.length > 1"
@@ -20,27 +20,29 @@
                 <span class="visually-hidden"> Flip Camera?</span>
               </button>
             </div>
-            <label class="visually-hidden" for="caption">
-            Use hashtags in your caption to add your video to a channel:
-            </label>
-            <textarea class="input-block-level" name="caption"
-              rows="3" maxlength="120" ng-model="vm.caption"
-              placeholder="What are you broadcasting today? example: Live from #NYC"></textarea>
-            <div class="char-count" ng-if="vm.charsLeft < 20">
-              <span>{{vm.charsLeft}}</span>
-            </div><!-- /.char-count -->
+            <div class="caption-wrapper">
+              <label class="text-center" for="caption">
+              What are you broadcasting today?
+              </label>
+              <textarea class="input-block-level" id="caption"
+                rows="3" maxlength="120" ng-model="vm.caption"
+                placeholder="example: Live from #NYC"></textarea>
+              <div class="char-count" ng-if="vm.charsLeft < 20">
+                <span>{{vm.charsLeft}}</span>
+              </div><!-- /.char-count -->
+            </div><!-- /.caption-wrapper -->
             <div class="validate" ng-show="vm.captionWarning">
               <small class="info">Caption limited to 120 characters.</small>
             </div><!-- /.validate -->
-            <div class="m_20b" ng-show="vm.nearChannels.length">
-              <p class="text-center">Suggested channels:</p>
+            <div class="m_10b" ng-show="vm.nearChannels.length">
+              <h4 class="text-center">Suggested channels:</h4>
               <ol class="channel-suggest inline unstyled text-center">
                 <li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3">
                   <input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/>
                 </li>
               </ol>
             </div>
-            <div class="m_20b text-center">
+            <div class="text-center">
               <button type="button" role="button" class="btn btn-accent"
                 data-toggle="collapse" data-target="#sharingOpts">
                 <span class="fa fa-share-alt-square"></span>
@@ -50,17 +52,18 @@
             <div id="sharingOpts" class="collapse">
               <div ng-include="'/views/layouts/golivemobile-controls.html'"></div>
             </div><!-- /#sharingOpts -->
-            <div class="controls-row">
+            <div class="m_20t controls-row">
               <input ng-click="ctrl.ready()"
                 class="btn btn-primary btn-large btn-block"
                 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
                 role="submit" type="submit" value="Ready!"/>
               <input ng-click="gotoHome()"
-                class="btn btn-default btn-large btn-block"
-                role="button" type="button" value="Take me to the website"/>
+                class="btn btn-default btn-large"
+                role="button" type="button" value="I'm not broadcasting today"/>
             </div><!-- /.controls-row -->
+            <h6 class="m_20t" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
           </form><!-- /goliveForm -->
-          <div class="status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
+          <div class="m_20t status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
             <div class="loading-wrapper">
               <img src="../images/loading-bars.svg" width="64" height="64" alt="loading icon">
             </div>
@@ -74,12 +77,11 @@
               </div>
             </div>
           </div><!-- /.status-wrapper -->
-          <div class="status-wrapper">
-            <div ng-show="vm.goliveService.status == 'connected'">
+          <div ng-show="vm.goliveService.status == 'connected'">
+            <div class="m_20t status-wrapper">
               <h3>You are live now!<h3>
-            </div>
-            <h6 class="m_10t" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
-          </div><!-- /.status-wrapper -->
+            </div><!-- /.status-wrapper -->
+          </div>
         </div><!-- /.span12 -->
       </div><!-- /.row-fluid -->
     </section><!-- /.top-content -->

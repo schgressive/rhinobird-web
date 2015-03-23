@@ -16,13 +16,12 @@
 <div ng-include="'/views/templates/chrome-needs-update.html'"></div>
 <form class="goliveForm" name="goliveForm" role="form"
       ng-show="vm.goliveService.status == 'disconnected'">
-      <label class="visually-hidden" for="caption">
-      Use hashtags in your caption to add your video to a channel:
+      <label class="text-center" for="caption">
+      What are you broadcasting today?
       </label>
-      <textarea class="input-block-level" name="caption"
-                rows="4" maxlength="120"
-                placeholder="What are you broadcasting today? example: Live from #NYC"
-                ng-model="vm.caption"></textarea>
+      <textarea class="input-block-level" id="caption"
+                rows="4" maxlength="120" ng-model="vm.caption"
+                placeholder="example: Live from #NYC"></textarea>
       <div class="char-count" ng-if="vm.charsLeft < 20">
         <span>{{vm.charsLeft}}</span>
       </div><!-- /.char-count -->
@@ -30,8 +29,8 @@
         <small class="info">Video preview shows the first 17 characters.</small>
       </div><!-- /.validate -->
       <div ng-show="vm.nearChannels.length">
-        <p>Suggested channels:</p>
-        <ol class="channel-suggest inline no-bullets">
+        <h4>Suggested channels:</h4>
+        <ol class="channel-suggest inline unstyled">
           <li ng-repeat="channel in vm.nearChannels | filter:ctrl.usedHashes | limitTo: 3" class="inline">
             <input type="button" class="btn" ng-click="ctrl.addHashTag(channel.name)" value="#{{channel.name}}"/>
           </li>
