@@ -1,2 +1,10 @@
-<span class="cBox-user">{{comment.user.username}}</span> says:
-<p>{{comment.msg}}</p>
+<ul class="unstyled clearfix feed-comment">
+  <li class="user-avatar pull-left">
+    <rb-avatar user="comment.user" class="img-wrap"
+               title="{{comment.user.username}}">
+    </rb-avatar>
+  </li>
+  <li>
+    <p>{{comment.msg}}</p>
+  </li>
+</ul>

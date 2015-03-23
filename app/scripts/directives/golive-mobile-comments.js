@@ -17,10 +17,8 @@ angular.module('rhinobird.directives')
       // HTML Elements
       //
       var loadMoreLink = element.find('.rb-load-more'),
-          submitForm   = element.find('.cBox-bottom form'),
-          textInput    = element.find('.cBox-bottom textarea'),
-          moveNext     = element.find('.cBox-top .next'),
-          movePrev     = element.find('.cBox-top .prev');
+          submitForm   = element.find('.golive-feed form'),
+          textInput    = element.find('.golive-feed textarea');
 
       // Helpers
       //
@@ -29,27 +27,12 @@ angular.module('rhinobird.directives')
         return message;
       }
 
-      function disableButtons() {
-        if (scope.currentCommentIndex == 0) {
-          moveNext.attr('disabled', 'disabled');
-        } else {
-          moveNext.removeAttr('disabled');
-        }
-
-        if (scope.currentCommentIndex < scope.comments.length-1) {
-          movePrev.removeAttr('disabled');
-        } else {
-          movePrev.attr('disabled', 'disabled');
-        }
-      }
-
       // API Bindings
       //
       CommentsService.API.on('incomming-history', function (history) {
         for (var i=0; i<history.messages.length; i++) {
           scope.comments.push(prepareMessageForDisplay(history.messages[i]));
         }
-        disableButtons();
         scope.$apply();
       }, this);
 
@@ -68,7 +51,6 @@ angular.module('rhinobird.directives')
           scope.currentCommentIndex++;
         }
 
-        disableButtons();
         scope.$apply();
       }, this);
 
@@ -76,22 +58,6 @@ angular.module('rhinobird.directives')
       //
       loadMoreLink.click(function () {
         CommentsService.API.fetchHistory(scope.roomId, {sorting: 'DESC'});
-      });
-
-      movePrev.click(function () {
-        if (scope.comments.length > scope.currentCommentIndex + 1) {
-          scope.currentCommentIndex++;
-          scope.$apply();
-        }
-        disableButtons();
-      });
-
-      moveNext.click(function () {
-        if (scope.currentCommentIndex >= 1) {
-          scope.currentCommentIndex--;
-          scope.$apply();
-        }
-        disableButtons();
       });
 
       submitForm.submit(function () {

@@ -102,7 +102,7 @@
           </button>
           <button ng-click="newComment=false; collapsedComments=!collapsedComments" ng-class="{newComment: collapsedComments && newComment}"
             class="toggle-comments btn btn-default btn-small visible-phone"
-            data-toggle="collapse" data-target="#commentBox" role="button">
+            data-toggle="collapse" data-target="#golive-feed" role="button">
             <span class="fa fa-comments"></span>
           </button>
         </div>
@@ -112,7 +112,6 @@
       </div><!-- /.activity-flag -->
       <div ng-include="'/views/snippets/golive-btn.html'" ng-show="isFullScreenEnabled"></div>
       <div ng-if="vm.connected && vm.stream.status == 'live'" golive-mobile-comments stream="vm.stream"></div>
-      <div ng-if="vm.connected && vm.stream.status == 'live'" ng-include="'/views/rb-comments/golive-mobile-feed.html'"></div>
       <div ng-if="vm.connected && vm.stream.status == 'live'" ng-include="'/views/layouts/golive-features.html'"></div>
     </section>
 
@@ -126,7 +125,6 @@
 <script text="text/javascript">
   $(function(){
     $(".collapse-btn-wrapper button").click(function(){
-      console.log(this);
       $("span.fa",this).toggleClass("fa-chevron-up fa-chevron-right");
     });
   });
