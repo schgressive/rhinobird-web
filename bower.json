@@ -18,7 +18,7 @@
     "nginfinitescroll": "~1.0.0",
     "angular-leaflet": "0.7.2",
     "leaflet.markercluster": "~0.4.0",
-    "detectrtc": "https://raw.githubusercontent.com/muaz-khan/WebRTC-Experiment/1d2dd6dd87844c24438c5ca57603ef41eadd526a/DetectRTC/DetectRTC.js",
+    "detectrtc": "https://raw.githubusercontent.com/muaz-khan/DetectRTC/097cf18484c3f0d6c7c8322ba1ab4137fa333527/DetectRTC.js",
     "angular-moment": "~0.8.2",
     "ngImgCrop": "~0.3.2",
     "angularjs": "~1.3.13",
