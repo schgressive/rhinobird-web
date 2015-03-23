@@ -200,11 +200,11 @@ body.fullscreen .mainWrapper {
 }
 
 .char-count {
-  float: right;
-  margin-top: -38px;
-  margin-right: 15px;
   color: $red;
   font-weight: 700;
+  text-align: right;
+  margin: { top: -12px; right: 1px;}
+  float: right;
 }
 
 .golive-feed {
