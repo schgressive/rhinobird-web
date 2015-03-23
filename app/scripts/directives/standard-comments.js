@@ -19,6 +19,10 @@ angular.module('rhinobird.directives')
           submitForm   = element.find('.rb-comments-form'),
           textInput    = element.find('.rb-comments-input');
 
+      console.log(loadMoreLink)
+      console.log(submitForm)
+      console.log(textInput)
+
       // Helpers
       //
       function prepareMessageForDisplay(message) {
@@ -52,8 +56,11 @@ angular.module('rhinobird.directives')
       });
 
       submitForm.submit(function () {
-        if (textInput.val() != "")
+      console.log("submitting chat message")
+        if (textInput.val() != "") {
+          console.log("actually submitting chat message")
           CommentsService.API.sendMessage(scope.roomId, textInput.val());
+        }
         return false;
       });
 
