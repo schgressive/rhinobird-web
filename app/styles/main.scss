@@ -1433,6 +1433,13 @@ i[class*="icon"] {font-style: normal;}
       border-bottom-right-radius: 10px;
     }
   }
+  .li-geo { width: 60%; color: $linkColor;}
+  .li-time { width: 40%; color: darken($orange, 10%); text-align: right;}
+  .li-geo, .li-time {
+    font-size: 12px;
+    font-weight: bold;
+    @media screen and (max-width: 640px) { float: none; width: 100%;}
+  }
 }
 
 .channel-item {

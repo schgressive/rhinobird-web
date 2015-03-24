@@ -48,10 +48,21 @@
       <rb-avatar ng-if="vj.source" user="vj.source.user" class="img-wrap" title="{{vj.source.user.username}}"></rb-avatar>
       <span>#{{vj.channelName}}</span>
     </li>
-    <li class="ellipsis">
-      <a href="#" ui-sref="explore({lat: vj.geometry.coordinates[1], lng: vj.geometry.coordinates[0]})"><span class="fa fa-map-marker"></span></a>
-      <span class="line-text" ng-hide="vj.properties.city">anonymous</span>
-      <span class="line-text" ng-show="vj.properties.city">{{vj.properties.city}}, {{vj.properties.country}}</span>
+    <li class="li-geo ellipsis pull-left">
+      <span class="fa fa-map-marker"></span>
+      <span ng-hide="stream.properties.city">
+        <span class="line-text">anonymous</span>
+      </span>
+      <span ng-show="stream.properties.city">
+        <a href="#" ui-sref="explore({lat: stream.geometry.coordinates[1], lng: stream.geometry.coordinates[0]})">
+          <span class="line-text">{{stream.properties.city}}, {{stream.properties.country}}
+          </span>
+        </a>
+      </span>
+    </li>
+    <li class="li-time pull-right">
+      <span class="fa fa-clock-o"></span>
+      <span>115 days ago</span>
     </li>
   </ul>
 </div><!-- /.module-outer -->
