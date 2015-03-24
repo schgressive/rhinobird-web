@@ -209,12 +209,16 @@ body.fullscreen .mainWrapper {
 
 .golive-feed {
   width: 50%;
-  max-height: 164px;
-  overflow-y: scroll;
   position: absolute;
   bottom: 80px;
   left: 0;
-  .feed-list > li + li { margin-top: 10px;}
+  z-index: 99999;
+  outline: red solid 1px;
+  .feed-list {
+    max-height: 180px;
+    overflow-y: scroll;
+    & > li + li { margin-top: 10px;}
+  }
   .feed-comment {
     color: #fff;
     background-color: rgba(0,0,0,.5);
@@ -229,5 +233,9 @@ body.fullscreen .mainWrapper {
       }
     }
     p { margin-bottom: 0;}
+  }
+  form {
+    input { padding: 2px 3px 2px 5px !important;}
+    .btn-primary { padding: 2px 8px 4px !important;}
   }
 }
