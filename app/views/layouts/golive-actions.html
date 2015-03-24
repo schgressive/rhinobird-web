@@ -27,7 +27,7 @@
       </button>
     </li>
   </ul>
-  <form name="formAddCaption" method="post" class="pull-left">
+  <form name="formAddCaption" method="post" class="pull-left hidden-phone">
     <div class="input-append">
       <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
       <input class="btn btn-small" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Update!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
