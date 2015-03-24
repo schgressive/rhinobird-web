@@ -50,19 +50,19 @@
     </li>
     <li class="li-geo ellipsis pull-left">
       <span class="fa fa-map-marker"></span>
-      <span ng-hide="stream.properties.city">
+      <span ng-hide="vj.properties.city">
         <span class="line-text">anonymous</span>
       </span>
-      <span ng-show="stream.properties.city">
-        <a href="#" ui-sref="explore({lat: stream.geometry.coordinates[1], lng: stream.geometry.coordinates[0]})">
-          <span class="line-text">{{stream.properties.city}}, {{stream.properties.country}}
+      <span ng-show="vj.properties.city">
+        <a href="#" ui-sref="explore({lat: vj.geometry.coordinates[1], lng: vj.geometry.coordinates[0]})">
+          <span class="line-text">{{vj.properties.city}}, {{vj.properties.country}}
           </span>
         </a>
       </span>
     </li>
     <li class="li-time pull-right">
       <span class="fa fa-clock-o"></span>
-      <span am-time-ago="stream.startedOn"></span>
+      <span am-time-ago="vj.startedOn"></span>
     </li>
   </ul>
 </div><!-- /.module-outer -->
