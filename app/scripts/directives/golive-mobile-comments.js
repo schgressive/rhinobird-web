@@ -18,7 +18,7 @@ angular.module('rhinobird.directives')
       //
       var loadMoreLink = element.find('.rb-load-more'),
           submitForm   = element.find('.golive-feed form'),
-          textInput    = element.find('.golive-feed textarea');
+          textInput    = element.find('.golive-feed .comment-input');
 
       // Helpers
       //
@@ -41,8 +41,6 @@ angular.module('rhinobird.directives')
       }, this);
 
       CommentsService.API.on('incomming-message', function (message) {
-        textInput.val('');
-
         scope.comments.unshift(prepareMessageForDisplay(message));
 
         if (scope.user.username == message.user.username) {
@@ -61,8 +59,10 @@ angular.module('rhinobird.directives')
       });
 
       submitForm.submit(function () {
-        if (textInput.val() != "")
+        if (textInput.val() != "") {
           CommentsService.API.sendMessage(scope.roomId, textInput.val());
+          textInput.val('');
+        }
         return false;
       });
 
