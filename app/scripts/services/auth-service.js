@@ -111,7 +111,7 @@ angular.module('rhinobird.services')
     this.logout = function() {
       // Destroy de session
       session.$destroy().$then(function() {
-        $state.go('main.world');
+        $state.go('main.world', {}, {reload: true});
       }).$finally(broadcastSessionChanged);
       return session.$promise;
     };
