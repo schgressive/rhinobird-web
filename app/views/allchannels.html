@@ -43,7 +43,7 @@
           <div class="channel-item" ng-repeat="channel in vm.channels">
             <div class="row-fluid">
               <div class="span12">
-                <h4><a href="#">#{{channel.name}}</a></h4>
+                <h4><a ui-sref="channel({channelName: channel.name})">#{{channel.name}}</a></h4>
               </div>
             </div><!-- /.row-fluid -->
             <div class="row-fluid">
