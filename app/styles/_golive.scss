@@ -174,21 +174,20 @@ body.fullscreen .mainWrapper {
   width: 100%;
   background: transparent;
   .golive-btn {
-			margin-top: 0;
-			position: absolute;
-			top: 20px;
-			right: 2%;
-	  	@media screen and (max-width: 600px) { top: 50%; margin-top: -12px;}
-			@media screen and (max-width: 560px) {
-				top: inherit;
-				right: inherit;
-				bottom: 15%;
-				left: 50%;
-				margin-left: -12px;
-				margin-top: 0;
-			}
-
-	  }
+    margin-top: 0;
+    position: absolute;
+    top: 20px;
+    right: 2%;
+    @media screen and (max-width: 640px) {
+      top: 50%;
+      margin-top: -12px;
+    }
+    @media screen and (max-width: 560px) {
+      top: 34px;
+      right: 2%;
+      z-index: 99999;
+    }
+  }
   .golive-view { top: 0;}
   .actionBar {
 	  position: absolute; top: 0; padding-top: 10px; width: 100%;
@@ -210,10 +209,9 @@ body.fullscreen .mainWrapper {
 .golive-feed {
   width: 50%;
   position: absolute;
-  bottom: 80px;
+  bottom: 70px;
   left: 0;
   z-index: 99999;
-  outline: red solid 1px;
   .feed-list {
     max-height: 180px;
     overflow-y: scroll;
