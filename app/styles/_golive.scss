@@ -216,6 +216,9 @@ body.fullscreen .mainWrapper {
     max-height: 180px;
     overflow-y: scroll;
     & > li + li { margin-top: 10px;}
+    &.commenting {
+      max-height: 60px !important;
+    }
   }
   .feed-comment {
     color: #fff;

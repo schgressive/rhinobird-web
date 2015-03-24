@@ -71,6 +71,18 @@ angular.module('rhinobird.directives')
         return false;
       });
 
+      textInput.focusin(function () {
+        // Hacky! do with the scope!
+        $('.golive-view').hide();
+        commentsContainer.addClass('commenting');
+      });
+
+      textInput.focusout(function () {
+        // Hacky! do with the scope!
+        $('.golive-view').show();
+        commentsContainer.removeClass('commenting');
+      });
+
       // Join and Fetch history
       //
       CommentsService.API.joinRoom(scope.roomId);
