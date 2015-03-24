@@ -51,9 +51,8 @@
         <span class="line-text">anonymous</span>
       </span>
       <span ng-show="stream.properties.city">
-        <a href="#" ui-sref="explore({lat: stream.geometry.coordinates[1], lng: stream.geometry.coordinates[0]})">
-          <span class="line-text">{{stream.properties.city}}, {{stream.properties.country}}
-          </span>
+        <a href="#" ui-sref="main.explore({lat: stream.geometry.coordinates[1], lng: stream.geometry.coordinates[0]})">
+          <span class="line-text">{{stream.properties.city}}, {{stream.properties.country}}</span>
         </a>
       </span>
     </li>
