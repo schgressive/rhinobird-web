@@ -27,7 +27,7 @@
       </button>
     </li>
   </ul>
-  <form name="formAddCaption" method="post" class="pull-left">
+  <form name="formAddCaption" method="post" class="pull-left hidden-phone">
     <div class="input-append">
       <input name="caption" type="text" ng-model="vm.caption" placeholder="add #channel/caption"/>
       <input class="btn btn-small" type="button" ng-click="ctrl.updateCaption(vm.caption)" value="{{vm.goliveService.stream.caption? 'Update!' : 'Add!'}}" ng-disabled="vm.caption == vm.goliveService.stream.caption || formAddCaption.caption.$pristine "/>
@@ -50,12 +50,14 @@
   </div>
 </div><!-- /.contents -->
 
-<div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
-  <small class="success">Snapshot success!</small>
-</div><!-- /.validate -->
-<div class="validate fadeOut" ng-show="vm.captionWarning">
-  <small class="info">Only the first 17 characters will display in thumbnail view.</small>
-</div><!-- /.validate -->
-<div class="validate fadeOut" ng-show="vm.showSuccess">
-  <small class="success">Caption successfully updated.</small>
-</div><!-- /.validate -->
+<div class="hidden-phone">
+  <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
+    <small class="success">Snapshot success!</small>
+  </div><!-- /.validate -->
+  <div class="validate fadeOut" ng-show="vm.captionWarning">
+    <small class="info">Only the first 17 characters will display in thumbnail view.</small>
+  </div><!-- /.validate -->
+  <div class="validate fadeOut" ng-show="vm.showSuccess">
+    <small class="success">Caption successfully updated.</small>
+  </div><!-- /.validate -->
+</div>

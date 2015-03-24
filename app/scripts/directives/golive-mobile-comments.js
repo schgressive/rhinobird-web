@@ -16,15 +16,20 @@ angular.module('rhinobird.directives')
 
       // HTML Elements
       //
-      var loadMoreLink = element.find('.rb-load-more'),
-          submitForm   = element.find('.golive-feed form'),
-          textInput    = element.find('.golive-feed textarea');
+      var loadMoreLink      = element.find('.rb-load-more'),
+          submitForm        = element.find('.golive-feed form'),
+          textInput         = element.find('.golive-feed .comment-input'),
+          commentsContainer = element.find('.feed-list');
 
       // Helpers
       //
       function prepareMessageForDisplay(message) {
         message.user = User.$buildRaw(message.user);
         return message;
+      }
+
+      function scrollToBottom() {
+        commentsContainer.scrollTop(commentsContainer.prop("scrollHeight"));
       }
 
       // API Bindings
@@ -41,17 +46,15 @@ angular.module('rhinobird.directives')
       }, this);
 
       CommentsService.API.on('incomming-message', function (message) {
-        textInput.val('');
-
-        scope.comments.unshift(prepareMessageForDisplay(message));
+        scope.comments.push(prepareMessageForDisplay(message));
 
         if (scope.user.username == message.user.username) {
           scope.currentCommentIndex = scope.comments.indexOf(message);
         } else {
           scope.currentCommentIndex++;
         }
-
         scope.$apply();
+        scrollToBottom();
       }, this);
 
       // HTML Bindings
@@ -61,9 +64,23 @@ angular.module('rhinobird.directives')
       });
 
       submitForm.submit(function () {
-        if (textInput.val() != "")
+        if (textInput.val() != "") {
           CommentsService.API.sendMessage(scope.roomId, textInput.val());
+          textInput.val('');
+        }
         return false;
+      });
+
+      textInput.focusin(function () {
+        // Hacky! do with the scope!
+        $('.golive-view').hide();
+        commentsContainer.addClass('commenting');
+      });
+
+      textInput.focusout(function () {
+        // Hacky! do with the scope!
+        $('.golive-view').show();
+        commentsContainer.removeClass('commenting');
       });
 
       // Join and Fetch history

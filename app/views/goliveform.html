@@ -31,9 +31,6 @@
                 <span>{{vm.charsLeft}}</span>
               </div><!-- /.char-count -->
             </div><!-- /.caption-wrapper -->
-            <div class="validate" ng-show="vm.captionWarning">
-              <small class="info">Caption limited to 120 characters.</small>
-            </div><!-- /.validate -->
             <div class="m_10b" ng-show="vm.nearChannels.length">
               <h4 class="text-center">Suggested channels:</h4>
               <ol class="channel-suggest inline unstyled text-center">
@@ -52,7 +49,7 @@
             <div id="sharingOpts" class="collapse">
               <div ng-include="'/views/layouts/golivemobile-controls.html'"></div>
             </div><!-- /#sharingOpts -->
-            <div class="m_20t controls-row">
+            <div class="m_15t controls-row text-center">
               <input ng-click="ctrl.ready()"
                 class="btn btn-primary btn-large btn-block"
                 ng-disabled="!vm.camera.access || goliveForm.caption.$invalid"
@@ -61,9 +58,9 @@
                 class="btn btn-default btn-large"
                 role="button" type="button" value="I'm not broadcasting today"/>
             </div><!-- /.controls-row -->
-            <h6 class="m_20t" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
+            <h6 class="terms-text" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
           </form><!-- /goliveForm -->
-          <div class="m_20t status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
+          <div class="m_50t status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
             <div class="loading-wrapper">
               <img src="../images/loading-bars.svg" width="64" height="64" alt="loading icon">
             </div>
@@ -94,6 +91,17 @@
              ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
           <div ng-include="'/views/layouts/golive-actions.html'"></div>
         </div><!-- /#actionBar -->
+
+        <div ng-if="vm.connected && vm.stream.status == 'live'"
+             class="validation-wrapper"
+             ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
+            <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
+              <small class="success">Snapshot success!</small>
+            </div><!-- /.validate -->
+            <div class="validate fadeOut hidden-phone" ng-show="vm.showSuccess">
+              <small class="success">Caption successfully updated.</small>
+            </div><!-- /.validate -->
+        </div><!-- /.validation-wrapper -->
 
         <div class="collapse-btn-wrapper">
           <button class="btn btn-small" data-toggle="collapse"

@@ -1,22 +1,15 @@
 <div id="golive-feed" class="golive-feed in collapse">
   <ul class="unstyled feed-list">
-    <li>
-      <form class="row-fluid">
-        <div class="span8">
-          <textarea rows="1" placeholder="Something to say?"></textarea>
-        </div>
-        <div class="pull-right">
-          <button
-            type="submit"
-            class="btn btn-primary btn-small"
-            style="padding: 2px"
-            role="submit">
-            Send!
-          </button>
-        </div>
-      </form>
-    </li>
-
     <li class="" golive-mobile-comment ng-repeat="comment in comments" />
   </ul>
+  <form>
+    <div class="input-append">
+      <input class="comment-input input-medium" placeholder="Something to say?" type="text">
+      <button class="btn btn-primary btn-small"
+              type="submit" role="button">
+              <span class="fa fa-comment"></span>
+              <span class="visually-hidden">Send!</span>
+      </button>
+    </div>
+  </form>
 </div>

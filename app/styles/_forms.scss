@@ -401,7 +401,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     @media screen and (max-width: 979px) { margin-top: 10px;}
   }
   .goliveForm {
-    padding: 40px 20px 20px;
+    padding: 40px 10px 20px;
     .btn:focus { outline: 0;}
     .btn-checkbox {
       width: 46px;
@@ -413,6 +413,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
       display: block;
       & + .btn-block { margin-top: 14px;}
     }
+    .btn-accent { padding: 3px 12px;}
     .btn-primary {
       @include fontSize(22px);
       text-transform: uppercase;
@@ -421,7 +422,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
         color: #fff;
         background-color: rgba(0,0,0,.5);
         border-color: rgba(0,0,0,.8);
-        margin: 10px 0 2px 10%;
+        margin: 10px 0 2px 0;
         text-align: center;
       }
     }
@@ -433,12 +434,16 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
       margin: 0 auto;
       text-shadow: 2px 0px 5px rgba(0,0,0,1);
     }
-    h6 { background-color: rgba(0,0,0,.5); text-align: center;}
+    h6.terms-text {
+      background-color: rgba(0,0,0,.5);
+      text-align: center;
+      margin: 5px auto 0;
+    }
   }
   .caption-wrapper {
     background-color: #fff;
     border-radius: 6px;
-    padding: 8px 10px 3px;
+    padding: 8px 10px 12px;
     margin-bottom: 8px;
     label {
       @include fontSize(18px);
@@ -446,13 +451,12 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
       font-family: "OpenSansBold", $bold-font-stack;
       margin-bottom: 10px;
     }
-    & + .validate { margin-bottom: 6px;}
   }
   .controls-row {
     .btn-checkbox {
       float: left;
       @media screen and (max-width: 640px) { margin-left: 9.5%;}
-      @media screen and (max-width: 480px) { margin-left: 5.25%;}
+      @media screen and (max-width: 480px) { margin-left: 4.8%;}
     }
     & + .controls-row { margin-top: 20px;}
   }
