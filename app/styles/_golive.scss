@@ -60,12 +60,12 @@
 }
 
 .actionBar {
-	background-color: $darkTrans2;
-	.validate {
-		margin-top: 52px;
-		padding-bottom: 8px;
-		@media screen and (max-width: 640px) { margin-top: 74px;}
-	}
+  background-color: $darkTrans2;
+  .validate {
+    margin-top: 52px;
+    padding-bottom: 8px;
+    @media screen and (max-width: 640px) { margin-top: 74px;}
+  }
   .toggle-comments.newComment {
     -webkit-animation: comment-glowing ease-in-out 1500ms infinite;
     -moz-animation: comment-glowing ease-in-out 1500ms infinite;
@@ -209,7 +209,7 @@ body.fullscreen .mainWrapper {
 .golive-feed {
   width: 50%;
   position: absolute;
-  bottom: 70px;
+  bottom: 40px;
   left: 0;
   z-index: 99999;
   .feed-list {

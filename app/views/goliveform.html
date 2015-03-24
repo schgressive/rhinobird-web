@@ -92,6 +92,20 @@
           <div ng-include="'/views/layouts/golive-actions.html'"></div>
         </div><!-- /#actionBar -->
 
+        <div ng-if="vm.connected && vm.stream.status == 'live'"
+             class="validation-wrapper"
+             ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
+            <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
+              <small class="success">Snapshot success!</small>
+            </div><!-- /.validate -->
+            <div class="validate fadeOut" ng-show="vm.captionWarning">
+              <small class="info">Only the first 17 characters will display in thumbnail view.</small>
+            </div><!-- /.validate -->
+            <div class="validate fadeOut" ng-show="vm.showSuccess">
+              <small class="success">Caption successfully updated.</small>
+            </div><!-- /.validate -->
+        </div><!-- /.validation-wrapper -->
+
         <div class="collapse-btn-wrapper">
           <button class="btn btn-small" data-toggle="collapse"
                   data-target="#actionBar" role="button">
