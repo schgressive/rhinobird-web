@@ -8,12 +8,8 @@ angular.module('rhinobird.controllers')
     var vm = this;
     vm.user = User.$new("current");
 
-    if (!$scope.app.isLoggedIn) {
-      $rootScope.$on('sessionChanged', init);
-      AuthService.askLogin();
-    } else {
-      init();
-    }
+    $rootScope.$on('sessionChanged', init);
+    init();
 
     function setupTimeline() {
       if ($state.includes('main.timeline')) {
@@ -22,6 +18,10 @@ angular.module('rhinobird.controllers')
         vm.timeline.$collection();
         vm.timeline.$refresh({page: 1});
         vm.timeline.getNextPage();
+
+        if (!$scope.app.isLoggedIn) {
+          AuthService.askLogin();
+        }
       }
 
       if ($state.includes('main.exciting')) {
