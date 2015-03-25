@@ -2,14 +2,18 @@
 
 angular.module('rhinobird.controllers')
 
-  .controller('TimelineCtrl', function(User, $state, Timeline, GeolocationService) {
+  .controller('TimelineCtrl', function(User, AuthService, $state, Timeline, GeolocationService, $scope, $rootScope) {
 
     // Expose the scope as self
     var vm = this;
     vm.user = User.$new("current");
 
-    init();
-
+    if (!$scope.app.isLoggedIn) {
+      $rootScope.$on('sessionChanged', init);
+      AuthService.askLogin();
+    } else {
+      init();
+    }
 
     function setupTimeline() {
       if ($state.includes('main.timeline')) {
