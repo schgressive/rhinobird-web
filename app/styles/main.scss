@@ -71,8 +71,8 @@ table caption, .visually-hidden {display:none !important;}
 	@media screen and (max-width: 960px) { max-width: 100%;}
 }
 
-.one-liner, .block {display: block;}
-
+.one-liner, .block { display: block;}
+.mobile-block { @media screen and (max-width: 640px) { display: block;}}
 .inline {display: inline-block;}
 
 .ellipsis { @include ellipsis();}
@@ -1465,15 +1465,11 @@ i[class*="icon"] {font-style: normal;}
     li:first-of-type { padding-left: 0;}
     li + li { margin-left: 8px;}
   }
-  + .channel-item { padding-top: 20px;}
   @media screen and (max-width: 640px) {
       width: 86%;
-      margin: 20px auto;
-    .channel-details-wrapper {
-      margin-left: 0 !important;
-      width: 100%;
-      *width: 100%;
-    }
+      margin: 20px auto 0;
+      &:first-of-type { margin-top: 10px;}
+      .channel-details { margin-bottom: 0;}
   }
   .module-large {
     .module-video { height: inherit;}

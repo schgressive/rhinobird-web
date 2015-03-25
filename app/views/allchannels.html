@@ -3,7 +3,7 @@
     <div class="row-fluid">
       <div class="span12">
         <h2>Browse Channels</h2>
-        <h3>See what's popular, when, and where</h3>
+        <h3>See what's popular, when, <span class="mobile-block">and where</span></h3>
       </div>
     </div><!-- /.row-fluid -->
   </div><!-- /.container-fluid -->
@@ -74,8 +74,8 @@
               </div>
             </div><!-- /.row-fluid -->
 
-            <div class="row-fluid">
-             <div class="module-large span3 hidden-phone"
+            <div class="row-fluid hidden-phone">
+             <div class="module-large span3"
                    ng-repeat="stream in channel.mostLikedStreams">
                 <div ng-include="'/views/snippets/allchannels-module.html'"></div>
               </div><!-- stream -->
