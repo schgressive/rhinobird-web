@@ -37,28 +37,21 @@
       </div><!-- /.row-fluid -->
     </section><!-- /.mid-content -->
     <section class="lower-content">
-      <div class="tab-content results-channels" infinite-scroll="vm.channels.getNextPage()" infinite-scroll-disabled="vm.channels.$pending" infinite-scroll-distance="1">
+      <div class="tab-content results-channels"
+           infinite-scroll="vm.channels.getNextPage()"
+           infinite-scroll-disabled="vm.channels.$pending"
+           infinite-scroll-distance="1">
         <div class="tab-pane active">
-
           <div class="channel-item" ng-repeat="channel in vm.channels">
+
             <div class="row-fluid">
               <div class="span12">
-                <h4><a ui-sref="channel({channelName: channel.name})">#{{channel.name}}</a></h4>
-              </div>
-            </div><!-- /.row-fluid -->
-            <div class="row-fluid">
-
-              <div class="span3 channel-details-wrapper">
-                <ul class="channel-details unstyled">
-                  <li class="clearfix">
-                    <div class="user-avatar pull-left">
-                      <rb-avatar user="" class="img-wrap" title=""></rb-avatar>
-                    </div>
-                    <div>
-                      <strong class="block">VJ'd by:</strong>
-                      <span>username here</span>
-                    </div>
-                  </li>
+                <h3 class="channel-title">
+                  <a ui-sref="channel({channelName: channel.name})">
+                    #{{channel.name}}
+                  </a>
+                </h3>
+                <ul class="channel-details unstyled inline">
                   <li>
                     <span class="fa fa-clock-o"></span>
                     <span class="line-text" am-time-ago="channel.usedAt"></span>
@@ -78,31 +71,18 @@
                     <span ng-hide="channel.streamsCount == 0 || channel.streamsCount == 1" class="line-text">{{channel.streamsCount}} videos</span>
                   </li>
                 </ul>
-              </div><!-- /.span3 -->
-
-              <div class="module-large span3 hidden-phone" ng-repeat="stream in channel.mostLikedStreams">
-                <div class="module-video">
-                  <a class="live-stream-link" ui-sref="stream({streamId: stream.id})">
-                    <img ng-src="{{stream.thumbs.medium}}"
-                         src-fallback="/images/missing.png"/>
-                  </a>
-                </div><!-- /.module-video -->
-                <ul class="unstyled">
-                  <li>
-                    <span class="fa fa-user"></span>
-                    <span class="line-text">Streamed by: {{stream.user.username}}</span>
-                  </li>
-                  <li>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <span class="line-text">{{stream.likes}}</span>
-                  </li>
-                </ul>
-              </div><!-- stream -->
-
+              </div>
             </div><!-- /.row-fluid -->
-          </div><!-- /.channel-item -->
 
-        </div>
+            <div class="row-fluid">
+             <div class="module-large span3 hidden-phone"
+                   ng-repeat="stream in channel.mostLikedStreams">
+                <div ng-include="'/views/snippets/allchannels-module.html'"></div>
+              </div><!-- stream -->
+            </div><!-- /.row-fluid -->
+
+          </div><!-- /.channel-item -->
+        </div><!-- /.tab-pane -->
       </div><!-- /.tab-content -->
     </section><!-- /.lower-content -->
   </div><!-- /.container-fluid -->
