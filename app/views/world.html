@@ -61,7 +61,7 @@
               <rb-avatar user="user" class="img-wrap" title="{{user.username}}"></rb-avatar>
             </li>
             <li class="ellipsis">
-              <a ui-sref="user({userName: user.username})" title="{{user.username}}'s page">{{user.username}}</a>
+              <a ui-sref="user({userName: user.id})" title="{{user.username}}'s page">{{user.username}}</a>
             </li>
             <li>
               <button type="button" role="button" class="btn btn-mini" ng-click="vm.toggleFollow(user)" ng-class="{'btn-default': !user.followed, 'btn-success': user.followed}">

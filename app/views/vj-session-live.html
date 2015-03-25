@@ -9,7 +9,7 @@
 			<h3 class="span12">Now Viewing: #{{channelName}}</h3>
 		</div>
 		<div class="row-fluid">
-			<h4 class="span12">This session is VJ'd by: <a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a></h4>
+			<h4 class="span12">This session is VJ'd by: <a ui-sref="user({userName: user.id}) " title="">{{user.username}}</a></h4>
 		</div>
 	    <div class="row-fluid">
         <div class="module-xlarge span8 {{currentPick || willPlayback() ? 'online' : 'offline'}}">
@@ -31,9 +31,9 @@
             <h3>What people say on this VJ session</h3>
             <div standard-comments room="roomId"></div>
           </div>
-          <h3 ng-if="!currentPick">This channel is offline now, <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a><em>
+          <h3 ng-if="!currentPick">This channel is offline now, <em><a ui-sref="user({userName: user.id}) " title="">{{user.username}}</a><em>
             is not doing any VJ session at the moment. This channel will become online
-            as soon as <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a></em> starts a new VJ session.</h3>
+            as soon as <em><a ui-sref="user({userName: user.id}) " title="">{{user.username}}</a></em> starts a new VJ session.</h3>
         </div><!-- /.video-chat.span4 -->
 	    </div><!-- /.row-fluid -->
       <div class="hidden">
@@ -46,9 +46,9 @@
       <div class="hidden-desktop">
         <div class="row-fluid">
           <div class="span12" ng-if="!currentPick">
-          <h3 ng-if="!currentPick">This channel is offline now, <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a><em>
+          <h3 ng-if="!currentPick">This channel is offline now, <em><a ui-sref="user({userName: user.id}) " title="">{{user.username}}</a><em>
             is not doing any VJ session at the moment. This channel will become online
-            as soon as <em><a ui-sref="user({userName: user.username}) " title="">{{user.username}}</a></em> starts a new VJ session.</h3>
+            as soon as <em><a ui-sref="user({userName: user.id}) " title="">{{user.username}}</a></em> starts a new VJ session.</h3>
           </div>
           <div class="span12" ng-if="currentPick">
             <h3>What people say on this VJ session</h3>
