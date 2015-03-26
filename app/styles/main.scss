@@ -154,9 +154,11 @@ article {
 
 .thin { font-family: 'OpenSansRegular'; @include font-smoothing();}
 .caps { text-transform: uppercase;}
+.bold { font-weight: bold;}
 
 .red { color: $red;}
 .active a.red { color: $red !important;}
+.orange { color: $orange;}
 
 // Custom Styles ------------------------------
 // includes Bootstrap Overrides
@@ -1374,9 +1376,9 @@ i[class*="icon"] {font-style: normal;}
   color: #fff;
   width: 200px;
   height: 40px;
-  background: rgba(0,0,0,.25) url('../images/rb-logo-wh.svg') 92% 35% no-repeat;
+  background: transparent url('../images/rb-logo-wh.svg') 92% 24% no-repeat;
   background-size: 56%;
-  padding: 18px 0 0 20px;
+  padding: 14px 0 0 20px;
   position: absolute;
   z-index: 100;
 }
@@ -1389,10 +1391,9 @@ i[class*="icon"] {font-style: normal;}
 .module-xlarge {
   canvas, video { width: 100%; display:block;}
   .feature-overlay {
-      padding: 10px 5px 0 0;
-      background-color: transparent;
-      text-align: right;
-      ul { background-color: rgba(0,0,0,.25);}
+      padding: 10px 10px 0 10px;
+      background-color: $darkTrans;
+      ul { text-align: right;}
     }
   .module-outer {
     padding: 10px 10px 12px 10px;

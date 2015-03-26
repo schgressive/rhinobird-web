@@ -1,21 +1,28 @@
-<div class="feature-overlay">
-  <span am-time-ago="stream.startedOn"></span>
-  <ul class="unstyled inline">
-    <li>
-      <span class="fa fa-eye"></span>
-      <span class="line-text">{{watchersCount[roomId]}}</span>
-    </li>
-    <li>
-      <span class="fa fa-thumbs-up"></span>
-      <span class="line-text">{{stream.likes}}</span>
-    </li>
-    <li>
-      <span class="fa fa-comment"></span>
-      <span class="line-text">{{commentsCount[roomId]}}</span>
-    </li>
-    <li>
-      <span class="fa fa-retweet"></span>
-      <span class="line-text">{{stream.reposts}}</span>
-    </li>
-  </ul>
+<div class="feature-overlay clearfix">
+  <div ng-if="stream.status != 'live'" class="inline bold">
+    <span class="fa fa-clock-o"></span>
+    <span class="line-text">Happened:
+      <span am-time-ago="stream.startedOn"></span>
+    </span>
+  </div>
+  <div class="pull-right inline">
+    <ul class="unstyled inline">
+      <li>
+        <span class="fa fa-eye"></span>
+        <span class="line-text">{{watchersCount[roomId]}}</span>
+      </li>
+      <li>
+        <span class="fa fa-thumbs-up"></span>
+        <span class="line-text">{{stream.likes}}</span>
+      </li>
+      <li>
+        <span class="fa fa-comment"></span>
+        <span class="line-text">{{commentsCount[roomId]}}</span>
+      </li>
+      <li>
+        <span class="fa fa-retweet"></span>
+        <span class="line-text">{{stream.reposts}}</span>
+      </li>
+    </ul>
+  </div>
 </div><!-- /.feature-overlay-->
