@@ -5,6 +5,12 @@
          class="actionBar collapse in" id="actionBar"
          ng-controller="CommentsCtrl" ng-init="init(vm.stream.id)">
       <div ng-include="'/views/layouts/golive-actions.html'"></div>
+      <div class="validate fadeOut" ng-show="vm.showSuccessSnapshot">
+        <small class="success">Snapshot success!</small>
+      </div><!-- /.validate -->
+      <div class="validate fadeOut" ng-show="vm.showSuccess">
+        <small class="success">Caption successfully updated.</small>
+      </div><!-- /.validate -->
     </div><!-- /#actionBar -->
 
     <div class="collapse-btn-wrapper">
