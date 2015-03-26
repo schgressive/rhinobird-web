@@ -1573,7 +1573,9 @@ i[class*="icon"] {font-style: normal;}
     background-color: $red;
     &:hover { background-color: darken($red, 20%);}
   }
-  .owl-wrapper .owl-item + .owl-item { margin-left: 16px;}
+  .owl-wrapper .owl-item + .owl-item {
+    @media screen and (min-width: 641px) { margin-left: 16px;}
+  }
 }
 
 .spinner-overlay {
