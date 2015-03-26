@@ -264,9 +264,20 @@ body.base { /*overrides are here */
 				border-top-right-radius: 0;
 				top: 44px;
 				left: inherit;
-				z-index: 2000;
+				z-index: 3000;
 				@include font-smoothing;
 				@include box-shadow(0 5px 4px $deepShadow);
+				@media screen and (max-width: 640px) {
+  				padding-top: 6px;
+  				top: 45px;
+          max-height: 200px;
+          width: 90%;
+          overflow-y: scroll;
+  		  }
+  		  @media screen and (max-width: 480px) {
+    		  max-height: 350px;
+          width: 60%;
+    		}
 				li {
 					display: inline-block;
 					@media screen and (max-width: 580px) { display: block;}

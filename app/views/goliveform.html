@@ -60,20 +60,23 @@
             </div><!-- /.controls-row -->
             <h6 class="terms-text" ng-show="vm.goliveService.status == 'disconnected'">By using Rhinobird.tv you consent to our <a href="#" ng-click="gotoTerms()">Terms of Service</a></h6>
           </form><!-- /goliveForm -->
-          <div class="m_50t status-wrapper" ng-show="vm.goliveService.status == 'connecting'">
-            <div class="loading-wrapper">
-              <img src="../images/loading-bars.svg" width="64" height="64" alt="loading icon">
-            </div>
-            <div ng-show="vm.goliveService.connectingTime < 20">
-              <h3>Connecting to service...</h3>
-            </div>
-            <div ng-show="vm.goliveService.connectingTime >= 20">
-              <h3>Something is wrong, still trying...</h3>
-              <div class="alert alert-error">
-                <p>You may have a network problem. Please wait or try again later.</p>
+          <div ng-show="vm.goliveService.status == 'connecting'">
+            <div class="m_50t status-wrapper">
+              <div class="loading-wrapper">
+                <img src="../images/loading-bars.svg" width="64" height="64" alt="loading icon">
               </div>
-            </div>
-          </div><!-- /.status-wrapper -->
+              <div ng-show="vm.goliveService.connectingTime < 20">
+                <h3>Connecting to service...</h3>
+              </div>
+              <div ng-show="vm.goliveService.connectingTime >= 20">
+                <h3>Something is wrong, still trying...</h3>
+                <div class="alert alert-error">
+                  <p>You may have a network problem. Please wait or try again later.</p>
+                </div>
+              </div>
+            </div><!-- /.status-wrapper -->
+          </div>
+
           <div ng-show="vm.goliveService.status == 'connected'">
             <div class="m_20t status-wrapper">
               <h3>You are live now!<h3>
