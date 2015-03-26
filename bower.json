@@ -11,7 +11,7 @@
     "jquery": "~2.0.0",
     "angular-restmod": "0.13",
     "angular-inflector": "0.0.2",
-    "angular-licode": "0.0.25",
+    "angular-licode": "0.0.26",
     "bootstrap-sass": "git@github.com:jlong/sass-bootstrap-defunct.git#v2.3.2",
     "owlcarousel": "*",
     "angular-ui-router": "0.2.11",
