@@ -1564,6 +1564,18 @@ i[class*="icon"] {font-style: normal;}
   .feature-overlay { @media screen and (max-width: 600px) {font-size: 12px;}}
 }
 
+.section-carousel {
+  .owl-theme .owl-controls .owl-buttons div {
+    padding: 8px 16px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: $red;
+    &:hover { background-color: darken($red, 20%);}
+  }
+  .owl-wrapper .owl-item + .owl-item { margin-left: 16px;}
+}
+
 .spinner-overlay {
 	width: 100%;
 	height: 100%;
