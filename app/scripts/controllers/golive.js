@@ -20,7 +20,6 @@ angular.module('rhinobird.controllers')
      */
     $scope.vm = vm; // Expose the viewmodel in the scope
     $scope.ctrl = this; // Expose the controller
-    $scope.vm.captionWarning = false;
     $scope.vm.showSuccess = false;
     $scope.vm.chromeNeedsUpdate = DeviceDetector.chromeNeedsUpdate();
 
@@ -188,12 +187,6 @@ angular.module('rhinobird.controllers')
     $scope.$watch('vm.caption', function(a){
       if(a){
         vm.charsLeft = 120 - a.length;
-        // sets warning for long caption
-        if (a.length > 17) {
-          vm.captionWarning = true;
-        } else {
-          vm.captionWarning = false;
-        }
 
         var hashes = a.match(regexp);
         vm.channels = _.map(hashes, function(c){
