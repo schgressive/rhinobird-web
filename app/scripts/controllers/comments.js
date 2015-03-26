@@ -13,13 +13,13 @@ angular.module('rhinobird.controllers')
 
     $scope.watchersCount = {};
     $scope.commentsCount = {};
-    $scope.likesCount = null;
+    $scope.likesCount = {};
     $scope.collapsedComments = true;
 
     var onStats = function (stats) {
       $scope.watchersCount[stats.roomId] = stats.watchersCount;
       $scope.commentsCount[stats.roomId] = stats.commentsCount;
-      $scope.likesCount = stats.likesCount || 0;
+      $scope.likesCount[stats.roomId] = stats.likesCount || 0;
       $scope.$apply();
     };
 
