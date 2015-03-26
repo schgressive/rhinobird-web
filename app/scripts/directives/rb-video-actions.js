@@ -19,9 +19,9 @@ angular
     return directive;
   }
 
-VideoActionsCtrl.$inject = ['$location', '$window'];
+VideoActionsCtrl.$inject = ['$location', '$window', 'CommentsService'];
 
-function VideoActionsCtrl($location, $window) {
+function VideoActionsCtrl($location, $window, CommentsService) {
     var vm = this;
 
     // Expose methods
@@ -35,6 +35,7 @@ function VideoActionsCtrl($location, $window) {
     }
 
     function like() {
+      CommentsService.API.addLike(vm.resource.id);
       vm.resource.toggleLike();
     }
 
