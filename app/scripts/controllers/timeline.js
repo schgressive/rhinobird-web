@@ -16,7 +16,6 @@ angular.module('rhinobird.controllers')
         vm.page = 'myrb';
         vm.timeline = vm.user.timeline;
         vm.timeline.$collection();
-        vm.timeline.$refresh({page: 1});
         vm.timeline.getNextPage();
 
         if (!$scope.app.isLoggedIn) {
