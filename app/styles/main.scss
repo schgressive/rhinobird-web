@@ -1440,11 +1440,13 @@ i[class*="icon"] {font-style: normal;}
   li[class*="li-"] { font-size: 12px;}
   .li-stats { color: $warmGray11; width: 20%;}
   .li-geo { width: 100%; font-weight: bold; color: $linkColor;}
-  .li-time { color: darken($orange, 10%); font-weight: bold; width: 40%;}
-  .li-geo.pull-left {
-    width: 60%;
-    & + .li-time.pull-right { text-align: right;}
+  .li-time {
+    text-align: right;
+    color: darken($orange, 10%);
+    font-weight: bold;
+    width: 40%;
   }
+  .li-geo.pull-left { width: 60%;}
   @media screen and (max-width: 1300px) {
     .li-geo.pull-left,
     .li-geo.pull-left + .li-time.pull-right { float: none; width: 100%;}
@@ -1472,7 +1474,7 @@ i[class*="icon"] {font-style: normal;}
       .channel-details { margin-bottom: 0;}
   }
   .module-large {
-    .module-video { height: inherit;}
+    .module-video { height: inherit; min-height: 133px;}
     .user-avatar { margin-bottom: 2px;}
   }
   .module-inner { padding: 0 0 8px 0;}
