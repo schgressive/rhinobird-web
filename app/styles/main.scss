@@ -827,7 +827,7 @@ i[class*="icon"] {font-style: normal;}
 .lower-content {
   padding-bottom: 30px;
   h4 { margin-top: 0px;}
-  .row-fluid:first-of-type { margin-top: 10px;}
+  .row-fluid:first-of-type { margin-top: 0px;}
   .row-fluid [class*="span3"] {
     @media screen and (max-width: 1000px) {
       width: 31.91%;
@@ -1565,6 +1565,7 @@ i[class*="icon"] {font-style: normal;}
 }
 
 .section-carousel {
+  .row-fluid, h3 { margin-top: 0;}
   .owl-theme .owl-controls .owl-buttons div {
     padding: 8px 16px;
     -webkit-border-radius: 0;

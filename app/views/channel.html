@@ -75,19 +75,20 @@
           </div>
         </div><!-- /.row-fluid -->
       </div>
+      <div id="channel-past-streams" class="section-carousel"
+           ng-if="self.showPastStreams()">
+        <div class="row-fluid">
+          <div class="span12">
+            <h3>Past videos on #{{channel.name}}</h3>
+            <ol class="unstyled" simple-carousel simple-carousel-watch="self.pastStreams">
+              <li class="module-large" ng-repeat="streamItem in self.pastStreams">
+                <div ng-include="'/views/snippets/module-large.html'" ng-init="stream=streamItem"></div>
+              </li>
+            </ol>
+          </div>
+        </div><!-- /.row-fluid -->
+      </div><!-- ..section-carousel -->
     </section><!-- /.lower-content -->
-    <section id="channel-past-streams" class="section-carousel" ng-if="self.showPastStreams()">
-      <div class="row-fluid">
-        <div class="span12">
-          <h3>Past videos on #{{channel.name}}</h3>
-          <ol class="unstyled" simple-carousel simple-carousel-watch="self.pastStreams">
-            <li class="module-large" ng-repeat="streamItem in self.pastStreams">
-              <div ng-include="'/views/snippets/module-large.html'" ng-init="stream=streamItem"></div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
   </div><!-- /.container-fluid -->
 </div><!-- /.main -->
 
