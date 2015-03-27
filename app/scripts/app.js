@@ -61,6 +61,7 @@ angular.module('rhinobird', [
     /* Routes user ui-sref="" instead of href
     ROUTE                                     URL
     - main                                    /
+    - safari                                  /safari
     - explore                                 /explore
     - search.streams                          /search/streams
     - search.channels                         /search/channels
@@ -122,6 +123,11 @@ angular.module('rhinobird', [
     })
     //
 
+    // Safari
+    .state('safari', {
+      url: '/safari/',
+      templateUrl: '/views/safari.html'
+    })
 
     // Explore
     .state('main.explore', {
