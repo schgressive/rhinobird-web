@@ -16,11 +16,16 @@
 </div>
 <div class="row-fluid">
   <div class="span12">
-    <p ng-hide='app.isLoggedIn'>
-      <span class="line-text">To comment, like and see more videos from {{stream.user.username}} please
-        <a href="#" ng-click="$emit('require-login')">sign in</a>.
-      </span>
-    </p>
+    <div class="character-message clearfix" ng-hide='app.isLoggedIn'>
+      <div class="character-left">
+        <img src="images/rb-rhino.svg" class="rb-character" alt="icon of Rhino"/>
+      </div>
+      <div class="character-right">
+      <h3>Hi!</h3>
+      <h4>Please <a href="#" ng-click="$emit('require-login')">SIGN IN</a> to comment and see more from <strong>{{stream.user.username}}</strong>.
+      </h4>
+      </div>
+    </div>
 
 
     <ol class="rb-comments-list comments-block unstyled">

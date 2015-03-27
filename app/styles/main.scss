@@ -1495,6 +1495,38 @@ i[class*="icon"] {font-style: normal;}
   }
 }
 
+.character-message {
+  .character-left {
+    width: 20%;
+    float: left;
+    @media screen and (max-width: 640px) { width:40%;}
+  }
+  .character-right {
+    width: 75%;
+    float: left;
+    margin-left: 2%;
+    @media screen and (max-width: 640px) {
+      width:55%;
+      font-size: 90%;
+      margin-left: 5%
+    }
+  }
+  h3 {
+    color: $red;
+    @include fontSize(24px);
+    font-family: "OpenSansBold", $bold-font-stack;
+    margin-bottom: 5px;
+  }
+  h4 {
+    line-height: 1.5;
+    strong { font-family: "OpenSansBold", $bold-font-stack;}
+  }
+}
+.rb-character {
+  width: 100%;
+  height: auto;
+}
+
 .comments-block { padding-top: 20px;}
 .video-chat .comments-block {
   overflow-y: scroll;
