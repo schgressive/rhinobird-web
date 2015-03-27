@@ -29,7 +29,14 @@ angular.module('rhinobird.services').
       }
     }
 
-    $document.on(screenfull.raw.fullscreenchange, function () {
+    var eventName = "";
+    if (screenfull && screenfull.raw && screenfull.raw.fullscreenchange) {
+      eventName = screenfull.raw.fullscreenchange
+    } else {
+      eventName = "webkitfullscreenchange";
+    }
+
+    $document.on(eventName, function () {
       var enabled = API.isEnabled();
       $rootScope.isFullScreenEnabled = enabled;
       $rootScope.$emit('fullscreen-change', enabled);

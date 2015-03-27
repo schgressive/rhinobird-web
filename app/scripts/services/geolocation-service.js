@@ -3,7 +3,7 @@
 /* global google: false */
 
 angular.module('rhinobird.services')
-.service('GeolocationService', function($q, $rootScope) {
+.service('GeolocationService', function($q, $rootScope, DeviceDetector) {
 
   var self = this;
   var current = {};
@@ -87,6 +87,11 @@ angular.module('rhinobird.services')
         });
       }
     });
+
+    // Disable geolocation for bowser
+    if (DeviceDetector.isBowser) {
+      this.getCurrent = function (){};
+    }
 
     return deferred.promise;
 
