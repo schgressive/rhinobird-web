@@ -1526,6 +1526,15 @@ i[class*="icon"] {font-style: normal;}
   width: 100%;
   height: auto;
 }
+.archiving-wrapper {
+  height: 480px;
+  background-color: $orange;
+  color: #fff;
+  .character-message {
+    padding: 5% 30px 30px;
+    a { display: inline;}
+  }
+}
 
 .comments-block { padding-top: 20px;}
 .video-chat .comments-block {
