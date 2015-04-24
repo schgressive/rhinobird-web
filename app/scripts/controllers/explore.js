@@ -6,7 +6,7 @@ angular.module('rhinobird.controllers')
     // Set the default marker location
     // FIXME: The markers images should be compiled and served with relative path
     // Maybe we can use awesome markers plugin also
-    L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.6.0/images';
+    L.Icon.Default.imagePath = 'https://api.tiles.mapbox.com/mapbox.js/v1.6.0/images';
 
     // reference to current cluster layer
     var clusterLayer = null;
@@ -52,7 +52,7 @@ angular.module('rhinobird.controllers')
     $scope.map = {
       defaults:{
         scrollWheelZoom: false,
-        tileLayer: 'http://a.tiles.mapbox.com/v3/peepoltv.map-ujvx87td/{z}/{x}/{y}.png',
+        tileLayer: 'https://a.tiles.mapbox.com/v3/peepoltv.map-ujvx87td/{z}/{x}/{y}.png',
         tileLayerOptions: {
           attribution: '&copy; <a href="http://www.mapbox.com">Mapbox</a>'
         }
